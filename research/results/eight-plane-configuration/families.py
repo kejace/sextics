@@ -68,6 +68,23 @@ def families(d, par, p):
                 for m in monomials(d - 2*k, 0):
                     lst.append(mul(qm, {m: 1}, p))
             fams[f'(Q)^{k}*S_{d-2*k}'] = lst
+
+    if par == 1 and d % 2 == 0 and d >= 8:
+        oddq = [{m: 1} for m in monomials(2, 1)]  # X_i Y_j
+        Qm = poly_pow_monos(Qp, (d-2)//2, p)
+        fams['oddquad*G_k(Q)'] = [mul(o, qm, p) for o in oddq for qm in Qm.values()]
+        quartics = Kp + Hp + diag
+        A0 = reduce_mod(P('X0*Y0'), p)
+        lst = []
+        for nq in range(0, (d-2)//4 + 1):
+            dq = d - 2 - 4*nq
+            if dq < 0 or dq % 2: continue
+            Qm2 = poly_pow_monos(Qp, dq//2, p)
+            for combo in itertools.combinations_with_replacement(range(9), nq):
+                Pq = A0
+                for c in combo: Pq = mul(Pq, quartics[c], p)
+                for qm in Qm2.values(): lst.append(mul(qm, Pq, p))
+        fams['X0Y0*C[Q,K,H,diag]'] = lst
     # plane pair vanishing order k = d//2 (products of cones over Pi and Pi-bar): symmetric (even) / antisym (odd)
     if d % 2 == 0:
         k = d // 2

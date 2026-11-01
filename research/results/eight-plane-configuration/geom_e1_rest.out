@@ -6,3 +6,7 @@ X0**4+Y0**4+X1**2*Y1**2      d=4 e1=False {'rank': 747, 'rank_aug': 748, 'rows':
 K0+K1+K2                     d=4 e1=False {'rank': 747, 'rank_aug': 748, 'rows': 1491, 'cols': 756} 13.95s
 H0+H1+H2                     d=4 e1=False {'rank': 747, 'rank_aug': 748, 'rows': 1491, 'cols': 756} 11.51s
 sum Q_i*diag_i               d=6 e1=False {'rank': 2214, 'rank_aug': 2215, 'rows': 3080, 'cols': 2376} 107.13s
+sum Q_i*H_i                  d=6 e1=False {'rank': 2214, 'rank_aug': 2215, 'rows': 3080, 'cols': 2376} 103.89s
+X0*Y0                        d=2 e1=False {'rank': 168, 'rank_aug': 169, 'rows': 651, 'cols': 168} 0.44s
+X0*Y0*Q0                     d=4 e1=False {'rank': 750, 'rank_aug': 751, 'rows': 1512, 'cols': 756} 3.59s
+X0**3*Y0**3                  d=6 e1=False {'rank': 2223, 'rank_aug': 2224, 'rows': 3108, 'cols': 2376} 125.31s

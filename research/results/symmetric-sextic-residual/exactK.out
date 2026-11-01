@@ -1,2 +1,48 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 === d=8 pD=0: ok (5.1s)
+--- rep 0: 216 monomials, E1 exact(mod p) = True; max |num| = 30677, lcm den = 66150
+     28/9  * e1X^0 e2X^0 e3X^0 e1Y^0 e2Y^1 e3Y^2
+     1  * e1X^0 e2X^0 e3X^0 e1Y^0 e2Y^4 e3Y^0
+     -4  * e1X^0 e2X^0 e3X^0 e1Y^1 e2Y^2 e3Y^1
+     28/9  * e1X^0 e2X^0 e3X^0 e1Y^2 e2Y^0 e3Y^2
+     40/63  * e1X^0 e2X^1 e3X^0 e1Y^0 e2Y^0 e3Y^2
+     2/9  * e1X^0 e2X^1 e3X^0 e1Y^0 e2Y^3 e3Y^0
+     -40/63  * e1X^0 e2X^1 e3X^0 e1Y^1 e2Y^1 e3Y^1
+     40/189  * e1X^0 e2X^1 e3X^0 e1Y^3 e2Y^0 e3Y^1
+     -34793/1575  * e1X^0 e2X^1 e3X^2 e1Y^0 e2Y^0 e3Y^0
+     2020/3969  * e1X^0 e2X^2 e3X^0 e1Y^0 e2Y^2 e3Y^0
+     40/189  * e1X^0 e2X^2 e3X^0 e1Y^1 e2Y^0 e3Y^1
+     -1640/3969  * e1X^0 e2X^2 e3X^0 e1Y^2 e2Y^1 e3Y^0
+     10/189  * e1X^0 e2X^2 e3X^0 e1Y^4 e2Y^0 e3Y^0
+     1759/3969  * e1X^0 e2X^3 e3X^0 e1Y^0 e2Y^1 e3Y^0
+     -200/3969  * e1X^0 e2X^3 e3X^0 e1Y^2 e2Y^0 e3Y^0
+     -47011/11025  * e1X^0 e2X^4 e3X^0 e1Y^0 e2Y^0 e3Y^0
+     140201/6300  * e1X^1 e2X^2 e3X^1 e1Y^0 e2Y^0 e3Y^0
+     643831/18900  * e1X^2 e2X^0 e3X^2 e1Y^0 e2Y^0 e3Y^0
+     25159/3780  * e1X^2 e2X^3 e3X^0 e1Y^0 e2Y^0 e3Y^0
+     -164093/4725  * e1X^3 e2X^1 e3X^1 e1Y^0 e2Y^0 e3Y^0
+     -30677/18900  * e1X^4 e2X^2 e3X^0 e1Y^0 e2Y^0 e3Y^0
+     147211/18900  * e1X^5 e2X^0 e3X^1 e1Y^0 e2Y^0 e3Y^0
+--- rep 1: 219 monomials, E1 exact(mod p) = True; max |num| = 85811, lcm den = 66150
+     -7/9  * e1X^0 e2X^0 e3X^0 e1Y^0 e2Y^1 e3Y^2
+     1  * e1X^0 e2X^0 e3X^0 e1Y^1 e2Y^2 e3Y^1
+     -7/9  * e1X^0 e2X^0 e3X^0 e1Y^2 e2Y^0 e3Y^2
+     -10/63  * e1X^0 e2X^1 e3X^0 e1Y^0 e2Y^0 e3Y^2
+     4/9  * e1X^0 e2X^1 e3X^0 e1Y^0 e2Y^3 e3Y^0
+     10/63  * e1X^0 e2X^1 e3X^0 e1Y^1 e2Y^1 e3Y^1
+     -10/189  * e1X^0 e2X^1 e3X^0 e1Y^3 e2Y^0 e3Y^1
+     2414/1575  * e1X^0 e2X^1 e3X^2 e1Y^0 e2Y^0 e3Y^0
+     -505/3969  * e1X^0 e2X^2 e3X^0 e1Y^0 e2Y^2 e3Y^0
+     -10/189  * e1X^0 e2X^2 e3X^0 e1Y^1 e2Y^0 e3Y^1
+     410/3969  * e1X^0 e2X^2 e3X^0 e1Y^2 e2Y^1 e3Y^0
+     -5/378  * e1X^0 e2X^2 e3X^0 e1Y^4 e2Y^0 e3Y^0
+     -1432/3969  * e1X^0 e2X^3 e3X^0 e1Y^0 e2Y^1 e3Y^0
+     50/3969  * e1X^0 e2X^3 e3X^0 e1Y^2 e2Y^0 e3Y^0
+     -18169/22050  * e1X^0 e2X^4 e3X^0 e1Y^0 e2Y^0 e3Y^0
+     -3799/3150  * e1X^1 e2X^2 e3X^1 e1Y^0 e2Y^0 e3Y^0
+     -184169/9450  * e1X^2 e2X^0 e3X^2 e1Y^0 e2Y^0 e3Y^0
+     -3641/1890  * e1X^2 e2X^3 e3X^0 e1Y^0 e2Y^0 e3Y^0
+     67814/4725  * e1X^3 e2X^1 e3X^1 e1Y^0 e2Y^0 e3Y^0
+     5323/9450  * e1X^4 e2X^2 e3X^0 e1Y^0 e2Y^0 e3Y^0
+     -32789/9450  * e1X^5 e2X^0 e3X^1 e1Y^0 e2Y^0 e3Y^0
+=== d=9 pD=0: ok (4.3s)

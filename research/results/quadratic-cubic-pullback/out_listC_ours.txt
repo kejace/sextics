@@ -9,3 +9,5 @@ ours   join3          d=6 core.add(core.add(core.power(Q[0],3),core.power(Q[3],3
 ours   join3          d=6 core.add(core.add(core.power(Q[0],3),core.power(Q[3],3)),core.power(Q[ E1=False cons=False rank=2214 null=162 imgdim=None 128.0s
 ours   join3          d=6 core.add(core.add(core.power(Q[0],3),core.power(Q[4],3)),core.power(Q[ E1=False cons=False rank=2214 null=162 imgdim=None 152.4s
 ours   join3          d=6 core.add(core.add(core.power(Q[3],3),core.power(Q[4],3)),core.power(Q[ E1=False cons=False rank=2214 null=162 imgdim=None 89.9s
+ours   Fpart          d=6 Fpart(6)                                                               E1=False cons=False rank=2214 null=162 imgdim=None 93.7s
+ours   Fpart          d=6 Fpart(0)                                                               E1=False cons=False rank=2214 null=162 imgdim=None 99.5s

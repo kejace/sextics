@@ -76,3 +76,4 @@
 {"D": "g_A(F) = (X0d0+Y0d3-X1d1-Y1d4)F", "d": 6, "family": "J6-std", "e1": true, "consistent": false, "rank": -1, "nullity": -1, "seconds": 425.03, "note": " served_dim=18", "served_dim": 18, "rows": 16796, "cols": 2828, "engine": 2}
 {"D": "(X0d1+X1d0+Y0d4+Y1d3)F", "d": 6, "family": "J6-swap", "e1": true, "consistent": false, "rank": -1, "nullity": -1, "seconds": 476.07, "note": " served_dim=18", "served_dim": 18, "rows": 16797, "cols": 2828, "engine": 2}
 {"D": "(X0d1-X1d0+Y0d4-Y1d3)F", "d": 6, "family": "J6-rot", "e1": true, "consistent": false, "rank": -1, "nullity": -1, "seconds": 362.19, "note": " served_dim=18", "served_dim": 18, "rows": 16796, "cols": 2828, "engine": 2}
+{"D": "cyclic shift field (X_{i+1}d_i + Y_{i+1}d_{i+3})F", "d": 6, "family": "J6-cyc", "e1": true, "consistent": false, "rank": -1, "nullity": -1, "seconds": 370.4, "note": " served_dim=18", "served_dim": 18, "rows": 16797, "cols": 2828, "engine": 2}

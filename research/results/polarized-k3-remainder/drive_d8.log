@@ -2,3 +2,9 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 [fU-U0sq-sym] d=8 terms=85 parity=0
 [system] d=8 q=1 rows=40326 cols=7497 (N 6006, Q 1491) nnz=7105330 built in 82.5s
+[lean p=2147483647] k=7538 consistent=False rank=6632 nullity=865 build 125.4s compress 1274.4s rref 930.5s
+[fU-U0sq-sym] consistent=False rank=6632 nullity=865 (2494.6s) maxrss=3462 MB
+EXIT=0
+### 18:46:07 timeout 3000 /usr/bin/python3 runD2.py fermat-octic sumU8+sumV8 'X0**8 + X1**8 + X2**8 + Y0**8 + Y1**8 + Y2**8' uv
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[sumU8+sumV8] d=8 terms=15 parity=0

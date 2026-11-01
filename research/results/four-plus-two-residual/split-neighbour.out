@@ -24,3 +24,14 @@
 {'D': '[split neighbour H0=f+g] random combo #2 of 31 core E1-kernel elements, d=7 par=0', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 36.08}
 {'D': '[split neighbour H0=f+g] core E1-kernel rref basis #0, d=7 par=0, 1 terms', 'consistent': False, 'rank': 795, 'nullity': 204, 'rows': 2604, 'cols': 999, 'seconds': 23.49}
 {'D': '[split neighbour H0=f+g] core E1-kernel rref basis #1, d=7 par=0, 1 terms', 'consistent': False, 'rank': 811, 'nullity': 188, 'rows': 2619, 'cols': 999, 'seconds': 24.42}
+{'D': '[split neighbour H0=f+g] core E1-kernel rref basis #2, d=7 par=0, 1 terms', 'consistent': False, 'rank': 811, 'nullity': 188, 'rows': 2626, 'cols': 999, 'seconds': 19.58}
+{'D': '[split neighbour H0=f+g] core E1-kernel rref basis #3, d=7 par=0, 3 terms', 'consistent': False, 'rank': 824, 'nullity': 175, 'rows': 2626, 'cols': 999, 'seconds': 25.97}
+{'D': '[split neighbour H0=f+g] core E1-kernel rref basis #4, d=7 par=0, 3 terms', 'consistent': False, 'rank': 824, 'nullity': 175, 'rows': 2626, 'cols': 999, 'seconds': 31.6}
+{'D': '[split neighbour H0=f+g] core E1-kernel rref basis #5, d=7 par=0, 3 terms', 'consistent': False, 'rank': 820, 'nullity': 179, 'rows': 2626, 'cols': 999, 'seconds': 26.42}
+[split neighbour H0] d=7 par=1: core E1-kernel mod J(H0) dim 31
+{'D': '[split neighbour H0=f+g] random combo #0 of 31 core E1-kernel elements, d=7 par=1', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 21.2}
+{'D': '[split neighbour H0=f+g] random combo #1 of 31 core E1-kernel elements, d=7 par=1', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 36.54}
+{'D': '[split neighbour H0=f+g] random combo #2 of 31 core E1-kernel elements, d=7 par=1', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 37.03}
+{'D': '[split neighbour H0=f+g] core E1-kernel rref basis #0, d=7 par=1, 1 terms', 'consistent': False, 'rank': 775, 'nullity': 224, 'rows': 2604, 'cols': 999, 'seconds': 21.91}
+{'D': '[split neighbour H0=f+g] core E1-kernel rref basis #1, d=7 par=1, 1 terms', 'consistent': False, 'rank': 795, 'nullity': 204, 'rows': 2604, 'cols': 999, 'seconds': 25.36}
+{'D': '[split neighbour H0=f+g] core E1-kernel rref basis #2, d=7 par=1, 2 terms', 'consistent': False, 'rank': 825, 'nullity': 174, 'rows': 2625, 'cols': 999, 'seconds': 23.65}

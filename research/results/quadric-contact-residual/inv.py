@@ -333,6 +333,8 @@ def quadratic_closure(d, verbose=True, out_prefix=None, c=CHI0, sym=True):
                 terms = '+'.join(f'{v}*c({k+1})*c({l+1})' for (k, l), v in cf.items() if k >= ng and l >= ng)
                 if terms:
                     f.write(f'I = I, {terms};\n')
+            f.write('I = simplify(I,2);\nideal G = std(I);\nprint("dim = " + string(dim(G)) + "  (0 means only c=0 over the algebraic closure, projectively empty)");\n')
+            f.write('print("vdim = " + string(vdim(G)));\nif (dim(G) > 0) { print("--- components (minAssGTZ) ---"); LIB "primdec.lib"; list L = minAssGTZ(G); int i; for (i=1;i<=size(L);i++){ print(L[i]); print("----"); } }\nquit;\n')
         with open(out_prefix + f'_quads{tag}.ms', 'w') as f:
             f.write(','.join(f'c{k+1}' for k in range(ng, n)) + '\n' + str(p) + '\n')
             lines = []
@@ -341,8 +343,6 @@ def quadratic_closure(d, verbose=True, out_prefix=None, c=CHI0, sym=True):
                 if terms:
                     lines.append(terms)
             f.write(',\n'.join(lines) + '\n')
-            f.write('I = simplify(I,2);\nideal G = std(I);\nprint("dim = " + string(dim(G)) + "  (0 means only c=0 over the algebraic closure, projectively empty)");\n')
-            f.write('print("vdim = " + string(vdim(G)));\nif (dim(G) > 0) { print("--- components (minAssGTZ) ---"); LIB "primdec.lib"; list L = minAssGTZ(G); int i; for (i=1;i<=size(L);i++){ print(L[i]); print("----"); } }\nquit;\n')
         with open(out_prefix + f'_family{tag}.json', 'w') as f:
             json.dump({'res': res, 'D': [core.to_str({e: c for e, c in Dp.items()}) for Dp in Ds]}, f)
     return res, Ds, Ns, quads

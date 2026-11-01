@@ -18,34 +18,34 @@ namespace Cap.HesseTriangle
 
 open MvPolynomial HodgeTestbed
 
-def F : Poly := (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 0)^6 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 1)^6 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 2)^6 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 3)^6 +
-    (MvPolynomial.C (-3 : ℂ)) * (MvPolynomial.X 3)^2 * (MvPolynomial.X 4)^2 * (MvPolynomial.X 5)^2 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 4)^6 +
-    (MvPolynomial.C (3 : ℂ)) * (MvPolynomial.X 5)^6
+def F : Poly := (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (1 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (2 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (-3 : ℂ)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6))^2 * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^2 * (MvPolynomial.X (R := ℂ) (5 : Fin 6))^2 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (3 : ℂ)) * (MvPolynomial.X (R := ℂ) (5 : Fin 6))^6
 
-def A : Poly := (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 0) * (MvPolynomial.X 3) * (MvPolynomial.X 4)^3 * (MvPolynomial.X 5)
+def A : Poly := (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6)) * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^3 * (MvPolynomial.X (R := ℂ) (5 : Fin 6))
 
-def D : Poly := (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 0)^6 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 1)^6 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 2)^6 +
-    (MvPolynomial.C (2 : ℂ)) * (MvPolynomial.X 5)^6
+def D : Poly := (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (1 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (2 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (2 : ℂ)) * (MvPolynomial.X (R := ℂ) (5 : Fin 6))^6
 
 def Q : Poly := 0
 
-def N0 : Poly := (MvPolynomial.C (1 / 6 : ℂ)) * (MvPolynomial.X 0)^2 * (MvPolynomial.X 3) * (MvPolynomial.X 4)^3 * (MvPolynomial.X 5)
+def N0 : Poly := (MvPolynomial.C (σ := Fin 6) (1 / 6 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6))^2 * (MvPolynomial.X (R := ℂ) (3 : Fin 6)) * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^3 * (MvPolynomial.X (R := ℂ) (5 : Fin 6))
 
-def N1 : Poly := (MvPolynomial.C (1 / 6 : ℂ)) * (MvPolynomial.X 0) * (MvPolynomial.X 1) * (MvPolynomial.X 3) * (MvPolynomial.X 4)^3 * (MvPolynomial.X 5)
+def N1 : Poly := (MvPolynomial.C (σ := Fin 6) (1 / 6 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6)) * (MvPolynomial.X (R := ℂ) (1 : Fin 6)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6)) * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^3 * (MvPolynomial.X (R := ℂ) (5 : Fin 6))
 
-def N2 : Poly := (MvPolynomial.C (1 / 6 : ℂ)) * (MvPolynomial.X 0) * (MvPolynomial.X 2) * (MvPolynomial.X 3) * (MvPolynomial.X 4)^3 * (MvPolynomial.X 5)
+def N2 : Poly := (MvPolynomial.C (σ := Fin 6) (1 / 6 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6)) * (MvPolynomial.X (R := ℂ) (2 : Fin 6)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6)) * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^3 * (MvPolynomial.X (R := ℂ) (5 : Fin 6))
 
-def N3 : Poly := (MvPolynomial.C (1 / 6 : ℂ)) * (MvPolynomial.X 0) * (MvPolynomial.X 4) * (MvPolynomial.X 5)^5
+def N3 : Poly := (MvPolynomial.C (σ := Fin 6) (1 / 6 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6)) * (MvPolynomial.X (R := ℂ) (4 : Fin 6)) * (MvPolynomial.X (R := ℂ) (5 : Fin 6))^5
 
-def N4 : Poly := (MvPolynomial.C (1 / 6 : ℂ)) * (MvPolynomial.X 0) * (MvPolynomial.X 3)^3 * (MvPolynomial.X 5)^3
+def N4 : Poly := (MvPolynomial.C (σ := Fin 6) (1 / 6 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6))^3 * (MvPolynomial.X (R := ℂ) (5 : Fin 6))^3
 
-def N5 : Poly := (MvPolynomial.C (1 / 6 : ℂ)) * (MvPolynomial.X 0) * (MvPolynomial.X 3) * (MvPolynomial.X 4)^3 * (MvPolynomial.X 5)^2
+def N5 : Poly := (MvPolynomial.C (σ := Fin 6) (1 / 6 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6)) * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^3 * (MvPolynomial.X (R := ℂ) (5 : Fin 6))^2
 
 def N : Fin 6 → Poly := fun i => if i.val = 0 then N0 else if i.val = 1 then N1 else if i.val = 2 then N2 else if i.val = 3 then N3 else if i.val = 4 then N4 else N5
 
@@ -189,33 +189,33 @@ theorem numerator_homogeneous : ∀ i, (N i).IsHomogeneous 7 := by
 
   · exact N5_homogeneous
 
-def toUni : Poly →+* Polynomial Coeff := MvPolynomial.eval₂Hom (Polynomial.C.comp MvPolynomial.C) (fun i => if i.val = 0 then (Polynomial.C (MvPolynomial.X 0)) else if i.val = 1 then (Polynomial.C (MvPolynomial.X 1)) else if i.val = 2 then (Polynomial.C (MvPolynomial.X 2)) else if i.val = 3 then (Polynomial.X) else if i.val = 4 then (Polynomial.C (MvPolynomial.X 3)) else (Polynomial.C (MvPolynomial.X 4)))
+def toUni : Poly →+* Polynomial Coeff := MvPolynomial.eval₂Hom (Polynomial.C.comp MvPolynomial.C) (fun i => if i.val = 0 then (Polynomial.C (MvPolynomial.X (R := ℂ) (0 : Fin 6))) else if i.val = 1 then (Polynomial.C (MvPolynomial.X (R := ℂ) (1 : Fin 6))) else if i.val = 2 then (Polynomial.C (MvPolynomial.X (R := ℂ) (2 : Fin 6))) else if i.val = 3 then (Polynomial.X) else if i.val = 4 then (Polynomial.C (MvPolynomial.X (R := ℂ) (3 : Fin 6))) else (Polynomial.C (MvPolynomial.X (R := ℂ) (4 : Fin 6))))
 
-def fromUni : Polynomial Coeff →+* Poly := Polynomial.eval₂RingHom (MvPolynomial.eval₂Hom MvPolynomial.C (fun i => if i.val = 0 then (MvPolynomial.X 0) else if i.val = 1 then (MvPolynomial.X 1) else if i.val = 2 then (MvPolynomial.X 2) else if i.val = 3 then (MvPolynomial.X 4) else (MvPolynomial.X 5))) (MvPolynomial.X 3)
+def fromUni : Polynomial Coeff →+* Poly := Polynomial.eval₂RingHom (MvPolynomial.eval₂Hom MvPolynomial.C (fun i => if i.val = 0 then (MvPolynomial.X (R := ℂ) (0 : Fin 6)) else if i.val = 1 then (MvPolynomial.X (R := ℂ) (1 : Fin 6)) else if i.val = 2 then (MvPolynomial.X (R := ℂ) (2 : Fin 6)) else if i.val = 3 then (MvPolynomial.X (R := ℂ) (4 : Fin 6)) else (MvPolynomial.X (R := ℂ) (5 : Fin 6)))) (MvPolynomial.X (R := ℂ) (3 : Fin 6))
 
-@[simp] theorem toUni_X0 : toUni (MvPolynomial.X 0) = (Polynomial.C (MvPolynomial.X 0)) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem toUni_X0 : toUni (MvPolynomial.X (R := ℂ) (0 : Fin 6)) = (Polynomial.C (MvPolynomial.X (R := ℂ) (0 : Fin 6))) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem toUni_X1 : toUni (MvPolynomial.X 1) = (Polynomial.C (MvPolynomial.X 1)) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem toUni_X1 : toUni (MvPolynomial.X (R := ℂ) (1 : Fin 6)) = (Polynomial.C (MvPolynomial.X (R := ℂ) (1 : Fin 6))) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem toUni_X2 : toUni (MvPolynomial.X 2) = (Polynomial.C (MvPolynomial.X 2)) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem toUni_X2 : toUni (MvPolynomial.X (R := ℂ) (2 : Fin 6)) = (Polynomial.C (MvPolynomial.X (R := ℂ) (2 : Fin 6))) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem toUni_X3 : toUni (MvPolynomial.X 3) = (Polynomial.X) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem toUni_X3 : toUni (MvPolynomial.X (R := ℂ) (3 : Fin 6)) = (Polynomial.X) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem toUni_X4 : toUni (MvPolynomial.X 4) = (Polynomial.C (MvPolynomial.X 3)) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem toUni_X4 : toUni (MvPolynomial.X (R := ℂ) (4 : Fin 6)) = (Polynomial.C (MvPolynomial.X (R := ℂ) (3 : Fin 6))) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem toUni_X5 : toUni (MvPolynomial.X 5) = (Polynomial.C (MvPolynomial.X 4)) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem toUni_X5 : toUni (MvPolynomial.X (R := ℂ) (5 : Fin 6)) = (Polynomial.C (MvPolynomial.X (R := ℂ) (4 : Fin 6))) := by simp only [toUni,MvPolynomial.eval₂Hom_X']; rfl
 
 @[simp] theorem toUni_C (c : ℂ) : toUni (MvPolynomial.C c) = Polynomial.C (MvPolynomial.C c) := by simp [toUni]
 
-@[simp] theorem fromUni_w0 : fromUni (Polynomial.C (MvPolynomial.X 0)) = (MvPolynomial.X 0) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem fromUni_w0 : fromUni (Polynomial.C (MvPolynomial.X (R := ℂ) (0 : Fin 6))) = (MvPolynomial.X (R := ℂ) (0 : Fin 6)) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem fromUni_w1 : fromUni (Polynomial.C (MvPolynomial.X 1)) = (MvPolynomial.X 1) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem fromUni_w1 : fromUni (Polynomial.C (MvPolynomial.X (R := ℂ) (1 : Fin 6))) = (MvPolynomial.X (R := ℂ) (1 : Fin 6)) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem fromUni_w2 : fromUni (Polynomial.C (MvPolynomial.X 2)) = (MvPolynomial.X 2) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem fromUni_w2 : fromUni (Polynomial.C (MvPolynomial.X (R := ℂ) (2 : Fin 6))) = (MvPolynomial.X (R := ℂ) (2 : Fin 6)) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem fromUni_w3 : fromUni (Polynomial.C (MvPolynomial.X 3)) = (MvPolynomial.X 4) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem fromUni_w3 : fromUni (Polynomial.C (MvPolynomial.X (R := ℂ) (3 : Fin 6))) = (MvPolynomial.X (R := ℂ) (4 : Fin 6)) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
 
-@[simp] theorem fromUni_w4 : fromUni (Polynomial.C (MvPolynomial.X 4)) = (MvPolynomial.X 5) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
+@[simp] theorem fromUni_w4 : fromUni (Polynomial.C (MvPolynomial.X (R := ℂ) (4 : Fin 6))) = (MvPolynomial.X (R := ℂ) (5 : Fin 6)) := by simp only [fromUni,Polynomial.coe_eval₂RingHom,Polynomial.eval₂_C,MvPolynomial.eval₂Hom_X']; rfl
 
 @[simp] theorem fromUni_t : fromUni Polynomial.X = MvPolynomial.X 3 := by simp [fromUni]
 
@@ -239,13 +239,13 @@ theorem retract : fromUni.comp toUni = RingHom.id Poly := by
 
     · change fromUni (toUni (X 5)) = X 5; simp only [toUni_X5,map_add,fromUni_t,fromUni_w0,fromUni_w1,fromUni_w2,fromUni_w3,fromUni_w4] <;> ring
 
-def fUni : Polynomial Coeff := Polynomial.C ((MvPolynomial.C (1 : ℂ))) * Polynomial.X^6 +
-    Polynomial.C ((MvPolynomial.C (-3 : ℂ)) * (MvPolynomial.X 3)^2 * (MvPolynomial.X 4)^2) * Polynomial.X^2 +
-    Polynomial.C ((MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 0)^6 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 1)^6 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 2)^6 +
-    (MvPolynomial.C (1 : ℂ)) * (MvPolynomial.X 3)^6 +
-    (MvPolynomial.C (3 : ℂ)) * (MvPolynomial.X 4)^6) * Polynomial.X^0
+def fUni : Polynomial Coeff := Polynomial.C ((MvPolynomial.C (σ := Fin 6) (1 : ℂ))) * Polynomial.X^6 +
+    Polynomial.C ((MvPolynomial.C (σ := Fin 6) (-3 : ℂ)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6))^2 * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^2) * Polynomial.X^2 +
+    Polynomial.C ((MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (0 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (1 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (2 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (1 : ℂ)) * (MvPolynomial.X (R := ℂ) (3 : Fin 6))^6 +
+    (MvPolynomial.C (σ := Fin 6) (3 : ℂ)) * (MvPolynomial.X (R := ℂ) (4 : Fin 6))^6) * Polynomial.X^0
 
 theorem toUni_F : toUni F = fUni := by
 

@@ -8,3 +8,10 @@ d=7: kernel 47, J 39, extra directions 8
 <E1ker5 d7 extra #6 (31 terms)>                                        d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 8.8s
 <E1ker5 d7 extra #7 (49 terms)>                                        d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 6.0s
 <E1ker5 d7 random combo #0>                                            d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 59.7s
+<E1ker5 d7 random combo #1>                                            d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 72.4s
+<E1ker5 d7 random combo #2>                                            d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 56.8s
+<E1ker5 d7 random combo #3>                                            d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 42.4s
+<E1ker5 d7 random combo #4>                                            d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 54.8s
+<E1ker5 d7 random combo #5>                                            d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 57.5s
+DONE
+d=8: kernel 167, J 89, extra directions 78

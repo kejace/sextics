@@ -1,0 +1,2 @@
+SUB=S7+MS5: dim 57, blocks [('S7', 36), ('M.S5', 21)]
+  p=2147483647: dim(E1 cap B)=21, dim(J cap B)=18, kernel mod J = 3 (144s)

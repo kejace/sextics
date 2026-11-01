@@ -64,3 +64,6 @@ if __name__ == '__main__':
     an['info'] = info; an['maxrss_MB'] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024
     print(json.dumps(an), flush=True)
     with open('images.jsonl', 'a') as fh: fh.write(json.dumps(an) + '\n')
+    from logutil import log
+    log(label, core.degree(D), 'served-space', None, bool(an['target_in_span_mod_J']), -1, info.get('nullity', -1), info.get('seconds', 0),
+        f"leanimage (consistency = target class in served span mod J); rows={info['rows']} cols={info['cols']} k={info['k']}; served_dim={dim}; class_dim={an.get('class_dim_in_R6', an.get('class_dim'))}; K3_proj={an.get('K3_projection_dim')}; blocks={an.get('block_projection_dims')}; frame={frame}; expr={expr}")

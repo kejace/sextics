@@ -26,3 +26,16 @@
 {"d": 9, "pD": 0, "rows": 2508, "nN": 2856, "nD": 364, "dimK": 155, "dimJ": 144, "ker": 11, "seconds": 100.4, "type": "S22_++"}
 {"d": 9, "pD": 1, "rows": 2508, "nN": 2856, "nD": 364, "dimK": 155, "dimJ": 144, "ker": 11, "seconds": 73.4, "type": "S22_++"}
 {"d": 9, "pD": 0, "rows": 1848, "nN": 2856, "nD": 259, "dimK": 121, "dimJ": 98, "ker": 23, "seconds": 67.5, "type": "S22_-+"}
+{"d": 9, "pD": 1, "rows": 1968, "nN": 2856, "nD": 224, "dimK": 86, "dimJ": 84, "ker": 2, "seconds": 38.7, "type": "S22_-+"}
+{"d": 9, "pD": 0, "rows": 1968, "nN": 2856, "nD": 224, "dimK": 86, "dimJ": 84, "ker": 2, "seconds": 41.5, "type": "S22_+-"}
+{"d": 9, "pD": 1, "rows": 1848, "nN": 2856, "nD": 259, "dimK": 121, "dimJ": 98, "ker": 23, "seconds": 48.2, "type": "S22_+-"}
+{"d": 9, "pD": 0, "rows": 1428, "nN": 2856, "nD": 154, "dimK": 60, "dimJ": 52, "ker": 8, "seconds": 31.8, "type": "S22_--"}
+{"d": 9, "pD": 1, "rows": 1428, "nN": 2856, "nD": 154, "dimK": 60, "dimJ": 52, "ker": 8, "seconds": 44.7, "type": "S22_--"}
+{"d": 10, "pD": 0, "rows": 532, "nN": 654, "nD": 124, "dimK": 92, "dimJ": 64, "ker": 28, "seconds": 5.8, "type": "triv"}
+{"d": 10, "pD": 1, "rows": 604, "nN": 708, "nD": 97, "dimK": 55, "dimJ": 51, "ker": 4, "seconds": 4.2, "type": "triv"}
+{"d": 10, "pD": 0, "rows": 268, "nN": 654, "nD": 37, "dimK": 26, "dimJ": 22, "ker": 4, "seconds": 2.8, "type": "sgnX"}
+{"d": 10, "pD": 1, "rows": 268, "nN": 708, "nD": 37, "dimK": 28, "dimJ": 18, "ker": 10, "seconds": 2.5, "type": "sgnX"}
+{"d": 10, "pD": 0, "rows": 268, "nN": 654, "nD": 37, "dimK": 26, "dimJ": 22, "ker": 4, "seconds": 1.7, "type": "sgnY"}
+{"d": 10, "pD": 1, "rows": 268, "nN": 708, "nD": 37, "dimK": 28, "dimJ": 18, "ker": 10, "seconds": 1.6, "type": "sgnY"}
+{"d": 10, "pD": 0, "rows": 124, "nN": 654, "nD": 6, "dimK": 2, "dimJ": 2, "ker": 0, "seconds": 2.1, "type": "sgnsgn"}
+{"d": 10, "pD": 1, "rows": 97, "nN": 708, "nD": 12, "dimK": 11, "dimJ": 4, "ker": 7, "seconds": 1.4, "type": "sgnsgn"}
