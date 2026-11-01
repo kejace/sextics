@@ -2,3 +2,4 @@
 compressed shape (4101, 4061)
 modlu: consistent False rank 2846 rank_aug 2847 57.5s
 flint same matrix: rank 2846 rank_aug 2847 57.6s
+flint big prime: {'consistent': False, 'rank': 2847, 'nullity': 1213, 'rows': 10500, 'cols': 4060, 'k': 4101, 't_compress': 22.41, 't_rref': 166.99}

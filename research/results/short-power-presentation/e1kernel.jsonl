@@ -4,3 +4,9 @@
 {"d": 3, "dim S_d^+": 28, "dim J_d^+": 0, "dim R_d^+": 28, "rank J_{d+6}^-": 378, "kernel dim (incl J_d^+)": 0, "kernel mod J": 0, "rows": 1001, "cols": 406, "seconds": 2.4}
 {"d": 5, "dim S_d^+": 126, "dim J_d^+": 3, "dim R_d^+": 123, "rank J_{d+6}^-": 1341, "kernel dim (incl J_d^+)": 3, "kernel mod J": 0, "rows": 2184, "cols": 1512, "seconds": 44.1}
 {"d": 6, "dim S_d^+": 236, "dim J_d^+": 18, "dim R_d^+": 218, "rank J_{d+6}^-": 2214, "kernel dim (incl J_d^+)": 18, "kernel mod J": 0, "rows": 3080, "cols": 2612, "seconds": 92.1}
+{"d": 1, "parD": 1, "dim S_d": 3, "dim J_d": 0, "dim R_d": 3, "rank J_{d+6}": 63, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 396, "cols": 66, "p": 2147483647, "engine": 2, "seconds": 0.1}
+{"d": 2, "parD": 1, "dim S_d": 9, "dim J_d": 0, "dim R_d": 9, "rank J_{d+6}": 168, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 651, "cols": 177, "p": 2147483647, "engine": 2, "seconds": 1.0}
+{"d": 3, "parD": 1, "dim S_d": 28, "dim J_d": 0, "dim R_d": 28, "rank J_{d+6}": 378, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 1001, "cols": 406, "p": 2147483647, "engine": 2, "seconds": 2.8}
+{"d": 4, "parD": 1, "dim S_d": 60, "dim J_d": 0, "dim R_d": 60, "rank J_{d+6}": 750, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 1512, "cols": 816, "p": 2147483647, "engine": 2, "seconds": 17.4}
+{"d": 5, "parD": 1, "dim S_d": 126, "dim J_d": 3, "dim R_d": 123, "rank J_{d+6}": 1341, "kernel dim (incl J_d)": 3, "kernel mod J": 0, "rows": 2184, "cols": 1512, "p": 2147483647, "engine": 2, "seconds": 48.6}
+{"d": 6, "parD": 1, "dim S_d": 226, "dim J_d": 18, "dim R_d": 208, "rank J_{d+6}": 2223, "kernel dim (incl J_d)": 18, "kernel mod J": 0, "rows": 3108, "cols": 2602, "p": 2147483647, "engine": 2, "seconds": 135.7}

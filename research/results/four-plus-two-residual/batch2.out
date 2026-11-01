@@ -1,0 +1,134 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+150 tests
+{'D': 'X2**3+X1**3+X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.53, 'note': "Fermat cubic in ['X0', 'X1', 'X2'] par0 | E1 fails"}
+{'D': '-2*X2**3 + -2*X1*X2**2 + -2*X1**2*X2 + 1*X1**3 + -1*X0*X2**2 + 1*X0*X1*X2 + 1*X0*X1**2 + 3*X0**2*X2 + -1*X0**2*X1 + 3*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.01, 'note': "random cubic in ['X0', 'X1', 'X2'] par0 | E1 fails"}
+{'D': '-2*X2**3 + 3*X1*X2**2 + -1*X1**2*X2 + 2*X1**3 + 2*X0*X2**2 + 3*X0*X1*X2 + 1*X0*X1**2 + 3*X0**2*X2 + 2*X0**2*X1 + 3*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.73, 'note': "random cubic in ['X0', 'X1', 'X2'] par0 | E1 fails"}
+{'D': 'X1**3+X0**3+X1*Y0**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.02, 'note': "cubic cone in ['X0', 'X1', 'Y0'] par0 | E1 fails"}
+{'D': 'X1**3+X0**3+X0*Y0**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.48, 'note': "cubic cone in ['X0', 'X1', 'Y0'] par0 | E1 fails"}
+{'D': '1*X1*Y0**2 + -2*X1**3 + -2*X0*Y0**2 + 1*X0*X1**2 + 2*X0**2*X1 + 1*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.82, 'note': "random cubic in ['X0', 'X1', 'Y0'] par0 | E1 fails"}
+{'D': '2*X1*Y0**2 + 2*X1**3 + 3*X0*Y0**2 + -1*X0*X1**2 + 3*X0**2*X1 + -1*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.8, 'note': "random cubic in ['X0', 'X1', 'Y0'] par0 | E1 fails"}
+{'D': 'Y0**3+X1**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.74, 'note': "cubic cone in ['X0', 'X1', 'Y0'] par1 | E1 fails"}
+{'D': 'Y0**3+X0*X1*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.43, 'note': "cubic cone in ['X0', 'X1', 'Y0'] par1 | E1 fails"}
+{'D': '-1*Y0**3 + -1*X1**2*Y0 + -2*X0*X1*Y0 + -1*X0**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.59, 'note': "random cubic in ['X0', 'X1', 'Y0'] par1 | E1 fails"}
+{'D': '1*Y0**3 + -1*X1**2*Y0 + -1*X0*X1*Y0 + 3*X0**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.48, 'note': "random cubic in ['X0', 'X1', 'Y0'] par1 | E1 fails"}
+{'D': 'X1**3+X0**3+X1*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.99, 'note': "cubic cone in ['X0', 'X1', 'Y1'] par0 | E1 fails"}
+{'D': 'X1**3+X0**3+X0*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.79, 'note': "cubic cone in ['X0', 'X1', 'Y1'] par0 | E1 fails"}
+{'D': '3*X1*Y1**2 + 1*X1**3 + 3*X0*Y1**2 + 3*X0*X1**2 + -1*X0**2*X1 + 2*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.63, 'note': "random cubic in ['X0', 'X1', 'Y1'] par0 | E1 fails"}
+{'D': '2*X1*Y1**2 + 3*X1**3 + 1*X0*Y1**2 + 3*X0*X1**2 + 1*X0**2*X1 + 1*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.73, 'note': "random cubic in ['X0', 'X1', 'Y1'] par0 | E1 fails"}
+{'D': 'Y1**3+X1**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.9, 'note': "cubic cone in ['X0', 'X1', 'Y1'] par1 | E1 fails"}
+{'D': 'Y1**3+X0*X1*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.95, 'note': "cubic cone in ['X0', 'X1', 'Y1'] par1 | E1 fails"}
+{'D': '2*Y1**3 + -1*X1**2*Y1 + 2*X0*X1*Y1 + 2*X0**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.81, 'note': "random cubic in ['X0', 'X1', 'Y1'] par1 | E1 fails"}
+{'D': '3*Y1**3 + -1*X1**2*Y1 + 2*X0*X1*Y1 + 1*X0**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.83, 'note': "random cubic in ['X0', 'X1', 'Y1'] par1 | E1 fails"}
+{'D': 'X1**3+X0**3+X1*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.76, 'note': "cubic cone in ['X0', 'X1', 'Y2'] par0 | E1 fails"}
+{'D': 'X1**3+X0**3+X0*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.7, 'note': "cubic cone in ['X0', 'X1', 'Y2'] par0 | E1 fails"}
+{'D': '2*X1*Y2**2 + 3*X1**3 + 3*X0*Y2**2 + 1*X0*X1**2 + 2*X0**2*X1 + 2*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.67, 'note': "random cubic in ['X0', 'X1', 'Y2'] par0 | E1 fails"}
+{'D': '1*X1*Y2**2 + 3*X1**3 + 3*X0*Y2**2 + 2*X0*X1**2 + 2*X0**2*X1 + -1*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.21, 'note': "random cubic in ['X0', 'X1', 'Y2'] par0 | E1 fails"}
+{'D': 'Y2**3+X1**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.39, 'note': "cubic cone in ['X0', 'X1', 'Y2'] par1 | E1 fails"}
+{'D': 'Y2**3+X0*X1*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.81, 'note': "cubic cone in ['X0', 'X1', 'Y2'] par1 | E1 fails"}
+{'D': '1*Y2**3 + -1*X1**2*Y2 + 3*X0*X1*Y2 + 1*X0**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.25, 'note': "random cubic in ['X0', 'X1', 'Y2'] par1 | E1 fails"}
+{'D': '2*Y2**3 + 1*X1**2*Y2 + 1*X0*X1*Y2 + 3*X0**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.06, 'note': "random cubic in ['X0', 'X1', 'Y2'] par1 | E1 fails"}
+{'D': 'X2**3+X0**3+X2*Y0**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.07, 'note': "cubic cone in ['X0', 'X2', 'Y0'] par0 | E1 fails"}
+{'D': 'X2**3+X0**3+X0*Y0**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.22, 'note': "cubic cone in ['X0', 'X2', 'Y0'] par0 | E1 fails"}
+{'D': '3*X2*Y0**2 + 3*X2**3 + 3*X0*Y0**2 + 3*X0*X2**2 + 3*X0**2*X2 + 2*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.03, 'note': "random cubic in ['X0', 'X2', 'Y0'] par0 | E1 fails"}
+{'D': '1*X2*Y0**2 + -1*X2**3 + 2*X0*Y0**2 + 3*X0*X2**2 + 1*X0**2*X2 + 3*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.8, 'note': "random cubic in ['X0', 'X2', 'Y0'] par0 | E1 fails"}
+{'D': 'Y0**3+X2**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.13, 'note': "cubic cone in ['X0', 'X2', 'Y0'] par1 | E1 fails"}
+{'D': 'Y0**3+X0*X2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.76, 'note': "cubic cone in ['X0', 'X2', 'Y0'] par1 | E1 fails"}
+{'D': '-2*Y0**3 + 1*X2**2*Y0 + -2*X0*X2*Y0 + -1*X0**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.66, 'note': "random cubic in ['X0', 'X2', 'Y0'] par1 | E1 fails"}
+{'D': '-2*Y0**3 + -2*X2**2*Y0 + 3*X0*X2*Y0 + -2*X0**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.96, 'note': "random cubic in ['X0', 'X2', 'Y0'] par1 | E1 fails"}
+{'D': 'X2**3+X0**3+X2*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.15, 'note': "cubic cone in ['X0', 'X2', 'Y1'] par0 | E1 fails"}
+{'D': 'X2**3+X0**3+X0*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.52, 'note': "cubic cone in ['X0', 'X2', 'Y1'] par0 | E1 fails"}
+{'D': '1*X2*Y1**2 + 3*X2**3 + -1*X0*Y1**2 + -2*X0*X2**2 + 3*X0**2*X2 + -1*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.74, 'note': "random cubic in ['X0', 'X2', 'Y1'] par0 | E1 fails"}
+{'D': '1*X2*Y1**2 + -1*X2**3 + -1*X0*Y1**2 + -2*X0*X2**2 + 2*X0**2*X2 + -2*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.29, 'note': "random cubic in ['X0', 'X2', 'Y1'] par0 | E1 fails"}
+{'D': 'Y1**3+X2**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.61, 'note': "cubic cone in ['X0', 'X2', 'Y1'] par1 | E1 fails"}
+{'D': 'Y1**3+X0*X2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.46, 'note': "cubic cone in ['X0', 'X2', 'Y1'] par1 | E1 fails"}
+{'D': '-2*Y1**3 + 1*X2**2*Y1 + 1*X0*X2*Y1 + -1*X0**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.03, 'note': "random cubic in ['X0', 'X2', 'Y1'] par1 | E1 fails"}
+{'D': '-1*Y1**3 + -2*X2**2*Y1 + -2*X0*X2*Y1 + -2*X0**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.19, 'note': "random cubic in ['X0', 'X2', 'Y1'] par1 | E1 fails"}
+{'D': 'X2**3+X0**3+X2*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.35, 'note': "cubic cone in ['X0', 'X2', 'Y2'] par0 | E1 fails"}
+{'D': 'X2**3+X0**3+X0*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.18, 'note': "cubic cone in ['X0', 'X2', 'Y2'] par0 | E1 fails"}
+{'D': '-2*X2*Y2**2 + -2*X2**3 + -2*X0*Y2**2 + -2*X0*X2**2 + 1*X0**2*X2 + 1*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.76, 'note': "random cubic in ['X0', 'X2', 'Y2'] par0 | E1 fails"}
+{'D': '-1*X2*Y2**2 + -1*X2**3 + -1*X0*Y2**2 + 3*X0*X2**2 + -2*X0**2*X2 + 2*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.01, 'note': "random cubic in ['X0', 'X2', 'Y2'] par0 | E1 fails"}
+{'D': 'Y2**3+X2**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 13.58, 'note': "cubic cone in ['X0', 'X2', 'Y2'] par1 | E1 fails"}
+{'D': 'Y2**3+X0*X2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 68.05, 'note': "cubic cone in ['X0', 'X2', 'Y2'] par1 | E1 fails"}
+{'D': '3*Y2**3 + -2*X2**2*Y2 + -1*X0*X2*Y2 + -1*X0**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 76.39, 'note': "random cubic in ['X0', 'X2', 'Y2'] par1 | E1 fails"}
+{'D': '-2*Y2**3 + -2*X2**2*Y2 + 1*X0*X2*Y2 + 3*X0**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.59, 'note': "random cubic in ['X0', 'X2', 'Y2'] par1 | E1 fails"}
+{'D': 'X0**3+X0*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.45, 'note': "cubic cone in ['X0', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': 'X0**3+X0*Y0*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.12, 'note': "cubic cone in ['X0', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': '-2*X0*Y1**2 + 1*X0*Y0*Y1 + 1*X0*Y0**2 + 2*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.51, 'note': "random cubic in ['X0', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': '-2*X0*Y1**2 + 1*X0*Y0*Y1 + 2*X0*Y0**2 + 3*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.63, 'note': "random cubic in ['X0', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': 'Y1**3+Y0**3+Y0*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.64, 'note': "cubic cone in ['X0', 'Y0', 'Y1'] par1 | E1 fails"}
+{'D': 'Y1**3+Y0**3+Y0**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.81, 'note': "cubic cone in ['X0', 'Y0', 'Y1'] par1 | E1 fails"}
+{'D': '3*Y1**3 + -2*Y0*Y1**2 + 1*Y0**2*Y1 + 2*Y0**3 + 3*X0**2*Y1 + -1*X0**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.58, 'note': "random cubic in ['X0', 'Y0', 'Y1'] par1 | E1 fails"}
+{'D': '2*Y1**3 + -1*Y0*Y1**2 + -2*Y0**2*Y1 + 1*Y0**3 + -2*X0**2*Y1 + -2*X0**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.5, 'note': "random cubic in ['X0', 'Y0', 'Y1'] par1 | E1 fails"}
+{'D': 'X0**3+X0*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.85, 'note': "cubic cone in ['X0', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': 'X0**3+X0*Y0*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.47, 'note': "cubic cone in ['X0', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': '2*X0*Y2**2 + -1*X0*Y0*Y2 + 3*X0*Y0**2 + 3*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.3, 'note': "random cubic in ['X0', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': '2*X0*Y2**2 + 2*X0*Y0*Y2 + 3*X0*Y0**2 + 1*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.43, 'note': "random cubic in ['X0', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': 'Y2**3+Y0**3+Y0*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.74, 'note': "cubic cone in ['X0', 'Y0', 'Y2'] par1 | E1 fails"}
+{'D': 'Y2**3+Y0**3+Y0**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.38, 'note': "cubic cone in ['X0', 'Y0', 'Y2'] par1 | E1 fails"}
+{'D': '-1*Y2**3 + 1*Y0*Y2**2 + 1*Y0**2*Y2 + 1*Y0**3 + 3*X0**2*Y2 + 2*X0**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.07, 'note': "random cubic in ['X0', 'Y0', 'Y2'] par1 | E1 fails"}
+{'D': '-2*Y2**3 + 3*Y0*Y2**2 + -1*Y0**2*Y2 + -2*Y0**3 + 1*X0**2*Y2 + -2*X0**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.01, 'note': "random cubic in ['X0', 'Y0', 'Y2'] par1 | E1 fails"}
+{'D': 'X0**3+X0*Y1*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.82, 'note': "cubic cone in ['X0', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': '-1*X0*Y2**2 + -1*X0*Y1*Y2 + -1*X0*Y1**2 + -2*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.66, 'note': "random cubic in ['X0', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': '2*X0*Y2**2 + -1*X0*Y1*Y2 + 3*X0*Y1**2 + -2*X0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.21, 'note': "random cubic in ['X0', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': 'Y2**3+Y1**3+Y1*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.06, 'note': "cubic cone in ['X0', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': 'Y2**3+Y1**3+Y1**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.33, 'note': "cubic cone in ['X0', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': '-1*Y2**3 + -1*Y1*Y2**2 + 2*Y1**2*Y2 + -2*Y1**3 + 1*X0**2*Y2 + -2*X0**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.08, 'note': "random cubic in ['X0', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': '3*Y2**3 + -1*Y1*Y2**2 + 3*Y1**2*Y2 + 3*Y1**3 + 1*X0**2*Y2 + 1*X0**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.03, 'note': "random cubic in ['X0', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': 'X2**3+X1**3+X2*Y0**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.68, 'note': "cubic cone in ['X1', 'X2', 'Y0'] par0 | E1 fails"}
+{'D': 'X2**3+X1**3+X1*Y0**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.64, 'note': "cubic cone in ['X1', 'X2', 'Y0'] par0 | E1 fails"}
+{'D': '2*X2*Y0**2 + 1*X2**3 + 3*X1*Y0**2 + -2*X1*X2**2 + -1*X1**2*X2 + -2*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.73, 'note': "random cubic in ['X1', 'X2', 'Y0'] par0 | E1 fails"}
+{'D': '2*X2*Y0**2 + 2*X2**3 + -1*X1*Y0**2 + -2*X1*X2**2 + 3*X1**2*X2 + -2*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.14, 'note': "random cubic in ['X1', 'X2', 'Y0'] par0 | E1 fails"}
+{'D': 'Y0**3+X1*X2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.06, 'note': "cubic cone in ['X1', 'X2', 'Y0'] par1 | E1 fails"}
+{'D': '-1*Y0**3 + -2*X2**2*Y0 + -2*X1*X2*Y0 + -2*X1**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.3, 'note': "random cubic in ['X1', 'X2', 'Y0'] par1 | E1 fails"}
+{'D': '-1*Y0**3 + -1*X2**2*Y0 + -2*X1*X2*Y0 + -1*X1**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.31, 'note': "random cubic in ['X1', 'X2', 'Y0'] par1 | E1 fails"}
+{'D': 'X2**3+X1**3+X2*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.04, 'note': "cubic cone in ['X1', 'X2', 'Y1'] par0 | E1 fails"}
+{'D': 'X2**3+X1**3+X1*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.17, 'note': "cubic cone in ['X1', 'X2', 'Y1'] par0 | E1 fails"}
+{'D': '-2*X2*Y1**2 + 3*X2**3 + 2*X1*Y1**2 + 2*X1*X2**2 + 1*X1**2*X2 + 3*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.13, 'note': "random cubic in ['X1', 'X2', 'Y1'] par0 | E1 fails"}
+{'D': '2*X2*Y1**2 + -1*X2**3 + -1*X1*Y1**2 + 2*X1*X2**2 + 2*X1**2*X2 + 3*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.02, 'note': "random cubic in ['X1', 'X2', 'Y1'] par0 | E1 fails"}
+{'D': 'Y1**3+X1*X2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.84, 'note': "cubic cone in ['X1', 'X2', 'Y1'] par1 | E1 fails"}
+{'D': '-2*Y1**3 + 3*X2**2*Y1 + 3*X1*X2*Y1 + -2*X1**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.57, 'note': "random cubic in ['X1', 'X2', 'Y1'] par1 | E1 fails"}
+{'D': '2*Y1**3 + 3*X2**2*Y1 + 3*X1*X2*Y1 + -1*X1**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.01, 'note': "random cubic in ['X1', 'X2', 'Y1'] par1 | E1 fails"}
+{'D': 'X2**3+X1**3+X2*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.13, 'note': "cubic cone in ['X1', 'X2', 'Y2'] par0 | E1 fails"}
+{'D': 'X2**3+X1**3+X1*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.87, 'note': "cubic cone in ['X1', 'X2', 'Y2'] par0 | E1 fails"}
+{'D': '-2*X2*Y2**2 + 2*X2**3 + 1*X1*Y2**2 + -2*X1*X2**2 + 3*X1**2*X2 + -2*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.82, 'note': "random cubic in ['X1', 'X2', 'Y2'] par0 | E1 fails"}
+{'D': '3*X2*Y2**2 + 1*X2**3 + 1*X1*Y2**2 + 1*X1*X2**2 + 1*X1**2*X2 + -2*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.87, 'note': "random cubic in ['X1', 'X2', 'Y2'] par0 | E1 fails"}
+{'D': 'Y2**3+X1*X2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.46, 'note': "cubic cone in ['X1', 'X2', 'Y2'] par1 | E1 fails"}
+{'D': '2*Y2**3 + -2*X2**2*Y2 + -2*X1*X2*Y2 + 1*X1**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.32, 'note': "random cubic in ['X1', 'X2', 'Y2'] par1 | E1 fails"}
+{'D': '-1*Y2**3 + -2*X2**2*Y2 + 2*X1*X2*Y2 + -2*X1**2*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.07, 'note': "random cubic in ['X1', 'X2', 'Y2'] par1 | E1 fails"}
+{'D': 'X1**3+X1*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.7, 'note': "cubic cone in ['X1', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': 'X1**3+X1*Y0*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.48, 'note': "cubic cone in ['X1', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': '2*X1*Y1**2 + 2*X1*Y0*Y1 + 2*X1*Y0**2 + -1*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.65, 'note': "random cubic in ['X1', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': '3*X1*Y1**2 + 3*X1*Y0*Y1 + -2*X1*Y0**2 + -2*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.89, 'note': "random cubic in ['X1', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': '1*Y1**3 + -2*Y0*Y1**2 + 1*Y0**2*Y1 + 1*Y0**3 + -2*X1**2*Y1 + -1*X1**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.36, 'note': "random cubic in ['X1', 'Y0', 'Y1'] par1 | E1 fails"}
+{'D': '2*Y1**3 + -1*Y0*Y1**2 + -2*Y0**2*Y1 + 3*Y0**3 + 1*X1**2*Y1 + 2*X1**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.39, 'note': "random cubic in ['X1', 'Y0', 'Y1'] par1 | E1 fails"}
+{'D': 'X1**3+X1*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.41, 'note': "cubic cone in ['X1', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': 'X1**3+X1*Y0*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.33, 'note': "cubic cone in ['X1', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': '2*X1*Y2**2 + -1*X1*Y0*Y2 + 1*X1*Y0**2 + 2*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.57, 'note': "random cubic in ['X1', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': '-2*X1*Y2**2 + 1*X1*Y0*Y2 + -2*X1*Y0**2 + -2*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.14, 'note': "random cubic in ['X1', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': '-2*Y2**3 + 3*Y0*Y2**2 + 1*Y0**2*Y2 + 2*Y0**3 + -1*X1**2*Y2 + -2*X1**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 0.65, 'note': "random cubic in ['X1', 'Y0', 'Y2'] par1 | E1 fails"}
+{'D': '-2*Y2**3 + 3*Y0*Y2**2 + 2*Y0**2*Y2 + -2*Y0**3 + 2*X1**2*Y2 + 1*X1**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.17, 'note': "random cubic in ['X1', 'Y0', 'Y2'] par1 | E1 fails"}
+{'D': 'X1**3+X1*Y1*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.5, 'note': "cubic cone in ['X1', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': '1*X1*Y2**2 + 2*X1*Y1*Y2 + -1*X1*Y1**2 + 1*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.25, 'note': "random cubic in ['X1', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': '1*X1*Y2**2 + 2*X1*Y1*Y2 + 3*X1*Y1**2 + 2*X1**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.68, 'note': "random cubic in ['X1', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': '2*Y2**3 + 2*Y1*Y2**2 + 1*Y1**2*Y2 + 2*Y1**3 + -1*X1**2*Y2 + -1*X1**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.57, 'note': "random cubic in ['X1', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': '2*Y2**3 + 3*Y1*Y2**2 + 1*Y1**2*Y2 + 3*Y1**3 + 2*X1**2*Y2 + -2*X1**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.71, 'note': "random cubic in ['X1', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': 'X2**3+X2*Y1**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.91, 'note': "cubic cone in ['X2', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': 'X2**3+X2*Y0*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.06, 'note': "cubic cone in ['X2', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': '3*X2*Y1**2 + 3*X2*Y0*Y1 + -2*X2*Y0**2 + -2*X2**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.7, 'note': "random cubic in ['X2', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': '1*X2*Y1**2 + -1*X2*Y0*Y1 + 3*X2*Y0**2 + -1*X2**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.34, 'note': "random cubic in ['X2', 'Y0', 'Y1'] par0 | E1 fails"}
+{'D': '2*Y1**3 + -2*Y0*Y1**2 + -2*Y0**2*Y1 + -2*Y0**3 + -1*X2**2*Y1 + 1*X2**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.9, 'note': "random cubic in ['X2', 'Y0', 'Y1'] par1 | E1 fails"}
+{'D': '2*Y1**3 + -1*Y0*Y1**2 + 1*Y0**2*Y1 + 2*Y0**3 + -1*X2**2*Y1 + 3*X2**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.96, 'note': "random cubic in ['X2', 'Y0', 'Y1'] par1 | E1 fails"}
+{'D': 'X2**3+X2*Y2**2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.12, 'note': "cubic cone in ['X2', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': 'X2**3+X2*Y0*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.41, 'note': "cubic cone in ['X2', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': '1*X2*Y2**2 + -2*X2*Y0*Y2 + -1*X2*Y0**2 + 3*X2**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 1.87, 'note': "random cubic in ['X2', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': '2*X2*Y2**2 + -2*X2*Y0*Y2 + 1*X2*Y0**2 + 3*X2**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 2.98, 'note': "random cubic in ['X2', 'Y0', 'Y2'] par0 | E1 fails"}
+{'D': '-1*Y2**3 + 3*Y0*Y2**2 + 1*Y0**2*Y2 + -1*Y0**3 + -1*X2**2*Y2 + 2*X2**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.03, 'note': "random cubic in ['X2', 'Y0', 'Y2'] par1 | E1 fails"}
+{'D': '-1*Y2**3 + 2*Y0*Y2**2 + 1*Y0**2*Y2 + 3*Y0**3 + -1*X2**2*Y2 + 2*X2**2*Y0', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.16, 'note': "random cubic in ['X2', 'Y0', 'Y2'] par1 | E1 fails"}
+{'D': 'X2**3+X2*Y1*Y2', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.47, 'note': "cubic cone in ['X2', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': '2*X2*Y2**2 + -2*X2*Y1*Y2 + 3*X2*Y1**2 + 2*X2**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.57, 'note': "random cubic in ['X2', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': '-1*X2*Y2**2 + 2*X2*Y1*Y2 + 3*X2*Y1**2 + -2*X2**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 6.2, 'note': "random cubic in ['X2', 'Y1', 'Y2'] par0 | E1 fails"}
+{'D': '2*Y2**3 + 1*Y1*Y2**2 + 2*Y1**2*Y2 + 1*Y1**3 + 2*X2**2*Y2 + 2*X2**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.74, 'note': "random cubic in ['X2', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': '1*Y2**3 + 3*Y1*Y2**2 + 1*Y1**2*Y2 + -2*Y1**3 + -1*X2**2*Y2 + 3*X2**2*Y1', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.51, 'note': "random cubic in ['X2', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': 'Y2**3+Y1**3+Y0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 4.99, 'note': "Fermat cubic in ['Y0', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': '3*Y2**3 + -1*Y1*Y2**2 + 2*Y1**2*Y2 + 2*Y1**3 + -2*Y0*Y2**2 + 1*Y0*Y1*Y2 + 2*Y0*Y1**2 + 3*Y0**2*Y2 + 2*Y0**2*Y1 + -1*Y0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 5.14, 'note': "random cubic in ['Y0', 'Y1', 'Y2'] par1 | E1 fails"}
+{'D': '-2*Y2**3 + -2*Y1*Y2**2 + 2*Y1**2*Y2 + -1*Y1**3 + 3*Y0*Y2**2 + 3*Y0*Y1*Y2 + 2*Y0*Y1**2 + -1*Y0**2*Y2 + -2*Y0**2*Y1 + 2*Y0**3', 'd': 3, 'e1': False, 'consistent': None, 'rank': 378, 'nullity': 0, 'seconds': 3.41, 'note': "random cubic in ['Y0', 'Y1', 'Y2'] par1 | E1 fails"}

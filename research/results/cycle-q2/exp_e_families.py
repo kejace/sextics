@@ -13,11 +13,19 @@ def run(D, fam, note, square=True, e1=True):
     r = eq.test_D_fast(F, A, q, D, fam, note=note + ' [D]', verbose=False, do_e1=e1)
     s = f'{fam:14s} {note[:70]:70s} | d={r["d"]}: e1={r.get("e1")} cons={r.get("consistent")} rk={r.get("rank")} nul={r.get("nullity")} cols={r.get("cols")} |H|={r.get("order")}'
     if r.get('consistent'): print('!!!!! CONSISTENT (D) !!!!!', note, Ds, flush=True)
+    if r['d'] <= 10 and r.get('e1') is not False:
+        rb = eq.test_D_fast(F, A, q, D, fam, note=note + ' [D] 2nd prime', verbose=False, do_e1=False, p=4194287)
+        s += f' (p2: cons={rb.get("consistent")} rk={rb.get("rank")})'
+        if rb.get('consistent'): print('!!!!! CONSISTENT (D, p2) !!!!!', note, Ds, flush=True)
     if square:
         D2 = core.mul(D, D)
         r2 = eq.test_D_fast(F, A, q, D2, fam, note=note + ' [D^2]', verbose=False, do_e1=False, Dstr='(' + Ds + ')**2')
         s += f' | D^2 d={r2["d"]}: cons={r2.get("consistent")} rk={r2.get("rank")} nul={r2.get("nullity")} cols={r2.get("cols")} |H|={r2.get("order")}'
         if r2.get('consistent'): print('!!!!! CONSISTENT (D^2) !!!!!', note, Ds, flush=True)
+        if r2['d'] <= 10:
+            rb = eq.test_D_fast(F, A, q, D2, fam, note=note + ' [D^2] 2nd prime', verbose=False, do_e1=False, Dstr='(' + Ds + ')**2', p=4194287)
+            s += f' (p2: cons={rb.get("consistent")} rk={rb.get("rank")})'
+            if rb.get('consistent'): print('!!!!! CONSISTENT (D^2, p2) !!!!!', note, Ds, flush=True)
     print(s + f' [{time.time()-t0:.0f}s]', flush=True)
 
 which = sys.argv[1] if len(sys.argv) > 1 else 'all'

@@ -1,0 +1,834 @@
+# Cyclic coupling · pole order two  (https://github.com/hodge-computer/sextics/discussions/61)
+
+
+## COMMENT DC_kwDOVLOOJc4BI6Qv by benediamond at 2026-10-22T02:02:47Z (updated 2026-10-22T02:08:19Z)
+
+## A character-cover reduction and an explicit remaining connection problem
+
+I have reduced the `cycle-q2` source to a concrete rank-two de Rham problem. The calculations also certify that the simplest vertical integration step does not vanish on the tested incidence branch. **This is partial progress, not a solve or a Lean certificate.** The source comparison is a mathematical argument using the cubic-to-Jacobian map; its explicit calculations have independent symbolic checks. The arithmetic nonvanishing below includes a precision bound.
+
+Prepared for `benediamond` with OpenAI ChatGPT and Codex assistance, building on the accepted `cycle-three` construction and shared libraries contributed by `fqlx`, `hodgepodgeconjecture`, and collaborators. The Jacobian normalization uses [Fisher's genus-one invariants](https://www.dpmms.cam.ac.uk/~taf1000/papers/g1inv.pdf).
+
+### 1. Transporting the actual pole-order-two source
+
+Write
+
+$$
+\begin{aligned}
+B&=X_0\cdot X_1\cdot X_2\cdot Y_0\cdot Y_1\cdot Y_2,\\
+H_{\mathrm{def}}&=X_0\cdot X_1\cdot X_2^2\cdot Y_0\cdot Y_1,\\
+A_2&=B\cdot H_{\mathrm{def}}.
+\end{aligned}
+$$
+
+The identity $-\frac12\partial_s(B/(F+s\cdot H_{\mathrm{def}})^2)=A_2/F^3$ at zero identifies the required variation, without assuming a family of primitives. In the usual cubic coordinates, put
+
+$$
+v=Y_0/X_0,\quad u=(Y_1/X_1)/v,\quad w=(Y_2/X_2)/v,
+\quad R=X_2^2,\quad t=v^2,\quad T=R\cdot t^3.
+$$
+
+With $x=X_0^2/R$, $y=X_1^2/R$ and homogenizing coordinate $z$, the cubic is
+
+$$
+U=a\cdot x^3+b\cdot y^3+c\cdot z^3+d\cdot x^2\cdot y+e\cdot y^2\cdot z+f\cdot z^2\cdot x,
+$$
+
+with
+
+$$
+(a,b,c)=(1+t^3,1+u^6\cdot t^3,1+w^6\cdot t^3),\qquad
+(d,e,f)=t\cdot(u,u\cdot w,w)/2.
+$$
+
+Its deformation is $U+\tau\cdot x\cdot y\cdot z$, where $\tau=s\cdot u\cdot t$.
+
+For the short Jacobian $\eta^2=\xi^3+I_4(\tau)\cdot\xi+I_6(\tau)$, the required invariant jets are
+
+$$
+I_4'(0)=L=\frac{9\cdot a\cdot b\cdot c-d\cdot e\cdot f}{2},\quad I_4''(0)=0,
+$$
+
+$$
+I_6'(0)=M=a\cdot b\cdot e\cdot f^2+a\cdot c\cdot d\cdot e^2+b\cdot c\cdot d^2\cdot f,
+\qquad I_6''(0)=-I_4(0)/6.
+$$
+
+Put $A_4=R^4\cdot I_4(0)$, $B_6=R^6\cdot I_6(0)$, $V=Y^2-X^3-A_4\cdot X-B_6$, and $P=R^3\cdot L\cdot X+R^5\cdot M$. Modulo rational exact forms, the physical target transports to
+
+$$
+\frac{N\cdot\Omega_J}{V^3},\qquad
+\boxed{N=\frac{u^2\cdot w\cdot t\cdot R}{1728}\cdot\bigl(A_4\cdot V-12\cdot P^2\bigr).}
+$$
+
+Here $\Omega_J=dY\wedge dT\wedge du\wedge dw\wedge dR\wedge dX$. The comparison uses the intrinsic map $C\to\mathrm{Pic}^0(C),\quad P\mapsto\mathcal{O}(3\cdot P-H)$, whose invariant-differential multiplier is three. The physical density is $-144\cdot R\cdot v^3$, independent of the deformation. Differentiating the moving map contributes explicit rational exact terms. The $A_4\cdot V$ term must be retained: its normal derivatives contribute to the third-order-pole residue.
+
+The factor $t$ carries the nontrivial cubic character. Consequently the source lives on $t^3=T/R$; tracing it prematurely to the bare Jacobian would discard the intended character. The coordinate-reduction idea explained in [`fqlx`'s comment](https://github.com/hodge-computer/sextics/discussions/58#discussioncomment-19111681) also yields first and second cyclic jets inside the maintained coefficient family; the packet gives the exact linear systems and symbolic checks. This simplifies source transport but does not supply a primitive.
+
+### 2. A certified nonzero vertical remainder
+
+Along a polynomial incidence curve $R(T)=r_2\cdot T^2+r_1\cdot T+r_0$, the cover $t^3=T/R(T)$ has genus two when $r_0\cdot r_2\cdot\Delta\ne0$, $\Delta=r_1^2-4\cdot r_0\cdot r_2$. The full pulled-back source, including the polynomial normal and its determinant density, has Hermite reduction
+
+$$
+t\cdot Q(T)\,dT=d\bigl(t\cdot p(T)\bigr)+
+t\left(\frac{c_0}{T}+\frac{c_1}{R(T)}\right)\,dT.
+$$
+
+At the nonsingular 5-adic branch through the accepted cyclic seed, with $(u,w,r_0,X(0))=(2,3,1,3)$, the result is
+
+$$
+v_5(c_0)=v_5(c_1)=-2,\qquad
+25\cdot c_0\equiv2,\quad25\cdot c_1\equiv4\pmod5.
+$$
+
+Both 60- and 100-digit computations agree. Exact arithmetic on Hensel lifts, rational Hermite-reduction formulas, an independent truncated-jet implementation, and an error bound $v_5(\text{error})\ge N-30$ certify this nonvanishing.
+
+This obstructs vertical exactness for the stated branch and splitting. It does **not** exclude derivatives in endpoint parameters, another incidence component or curve family, cancellation under finite trace, or a different supporting correspondence.
+
+### 3. An explicit next equation
+
+The hyperelliptic model is
+
+$$
+z^2=1-2\cdot b\cdot t^3+\Delta\cdot t^6,
+\qquad b=r_1,\quad p=r_0\cdot r_2,\quad\Delta=b^2-4\cdot p.
+$$
+
+For a primitive cube root $\omega$, the eigenspace with eigenvalue $\omega$ under $t\mapsto\omega\cdot t$ has basis $\theta_0=dt/z,\ \theta_1=t^3\,dt/z$. The two elliptic quotients of $z^2=q^6+\alpha\cdot q^3+1$ help compute the connection, but all auxiliary roots cancel in the answer. For a coefficient derivation $D$, define
+
+$$
+\gamma=\frac{D\Delta}{6\cdot\Delta},\qquad
+h=\frac{2\cdot p\cdot(Db)-b\cdot(Dp)}{6\cdot p\cdot\Delta}.
+$$
+
+With columns giving derivatives of the basis elements, the connection is
+
+$$
+\boxed{M_D=
+\begin{pmatrix}
+b\cdot h-\gamma&h\\
+-\Delta\cdot h&-b\cdot h-4\cdot\gamma
+\end{pmatrix}.}
+$$
+
+This formula has a direct exact check on the hyperelliptic equation, including rational correction terms.
+
+Normalize the radial endpoint to $r_0=1$, put $\xi=X(0)/r_0^2$, and write $c_i=r_0^{-3}\cdot C_i$. For $D\xi=1$, $Du=Dw=0$, the concrete next problem is to find a **rational** column $H$ over the normalized incidence field satisfying
+
+$$
+\boxed{DH+M_D\cdot H=(C_0,C_1)^{\mathsf T}.}
+$$
+
+With the stated residue orientation, a solution gives the primitive $6\cdot(H_0\cdot\theta_0+H_1\cdot\theta_1)\wedge du\wedge dw$, plus the available exact fiber corrections. No solution has yet been found. The elliptic decomposition identifies the remaining two-dimensional problem; it does not make that problem automatically exact.
+
+**Reproduction:** [cycle-q2-research-2026-10-22.zip](https://github.com/user-attachments/files/33796383/cycle-q2-research-2026-10-22.zip). The packet contains the source comparison, invariant and connection calculations, exact Hensel data, Hermite reduction, independent jet checks, precision argument, and all eight reproduction scripts with pinned dependencies. Every script has been rerun successfully.
+
+
+
+### REPLY DC_kwDOVLOOJc4BI-IE by benediamond at 2026-10-22T17:09:19Z
+
+## Two stronger obstructions; the original instance remains open
+
+Prepared for `benediamond` with OpenAI ChatGPT assistance, building on `fqlx`’s [latest partials](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19113884), the [K10 packet](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19113251), and the accepted `cycle-three` construction. No original certificate or Lean theorem is claimed.
+
+### 1. The fixed-parameter source is not rationally exact; our endpoint equation has no algebraic solution
+
+For generic fixed $u,w$, use the exact transported representative
+
+$$
+G=y^2-x^3-a(t^3)x-b(t^3),\qquad p=L(t^3)x+M(t^3),\qquad
+\omega=t^3\left(\frac{a}{y^3}+\frac{9p^2}{y^5}\right)dx\wedge dt.
+$$
+
+Its proper compactification is the quasismooth degree-18 surface $G_h=0$ in $\mathbf P(1,1,6,9)$. The homogeneous pole-three numerator is
+
+$$
+N_h=t^3z^4(a_hG_h-12p_h^2),\qquad \deg N_h=37=3\cdot18-17.
+$$
+
+Weighted Griffiths residue theory identifies its $H^{0,2}$ component with $[-12t^3z^4p_h^2]$ in degree 37 of the Jacobian ring. **This class is nonzero.** At $(u,w)=(2,3)$, the full relation matrix has ranks $68\to69$ after adjoining the source modulo 5; the relevant character block has exact rational ranks $23\to24$. An explicit 24-entry mod-5 functional kills every relation and evaluates to 1 on the source. Good reduction and the constant Hilbert function justify generic characteristic-zero nonvanishing. The calculation and source matching were independently checked.
+
+Deleting divisors from a proper surface only kills divisor classes in $H^2$, so this nonzero $H^{0,2}$ component survives every dense open. Thus **no rational one-form primitive exists**, with arbitrary poles allowed. Normalized field trace excludes primitives after finite algebraic extension as well. This closes the third-kind loophole in the earlier second-kind test.
+
+It also settles the *different* endpoint equation $DH+M_DH=C$ in [my earlier comment](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19113007). Normalized incidence evaluation is generically finite onto the surface retaining $t$: for $s=T/R(T)$ and $x=X(T)/R(T)^2$, its $(T,\xi)$ Jacobian is 1 at $T=0$. A solution $H$, including the exact connection corrections, would make the pulled-back source exact. Taking the algebraic residue in the radial variable removes $dr/r$; finite trace then produces the prohibited primitive of $\omega$. This trace fixes $t$, so it does not erase the cubic character. Consequently **our actual endpoint equation has no solution over its incidence field or any finite algebraic extension**.
+
+### 2. The prescribed K10 normal-current repair is obstructed at every order
+
+Assume the posted proper-model calculation $h^{2,0}(K_{10})=0$; I read but did not rerun its full toric/CAS audit. The initial form
+
+$$
+\omega_0=\frac{dx\wedge dz}{\lambda xy^2},\qquad
+1+x^6+y^6+z^6=0,\quad \lambda^5=z^3/x^2
+$$
+
+is nonzero and holomorphic on a smooth proper model, as checked via a Fermat-30 cover. Any rational repair satisfying $d\Omega_{\rm rel}=d(\Psi\,dx\wedge dz)$ and the prescribed initial value would give a closed rational form $\Omega_{\rm rel}-\Psi\,dx\wedge dz$ restricting to $\omega_0$.
+
+This is impossible: the lowest-weight part $W_2H^2$ of an open of K10 comes from its proper model and has type $(1,1)$; strictness of restriction forbids it from supplying that nonzero weight-two $(2,0)$ class. Thus increasing Taylor order or adding arbitrary pole divisors on the same K10 field cannot repair this extension. A different support or correspondence remains a separate possibility.
+
+**Scope:** these results close the specified endpoint with fixed $u,w$ and prescribed K10 extension routes, not the original `cycle-q2` certificate problem. Physical parameter-direction currents and other supports remain open. The geometric inputs are [weighted residue theory](https://sites.lsa.umich.edu/idolga/wp-content/uploads/sites/1334/2024/08/weighted82.pdf) and [Deligne’s lowest-weight/strictness theorems](https://publications.ias.edu/sites/default/files/Number15.pdf).
+
+**Proofs and checks:** the attached reproducibility packet contains the three proof notes, source and dependency references, a dependency-free modular checker, and the full exact-rational calculation.
+
+[cycle-q2-two-obstructions-2026-10-22.zip](https://github.com/user-attachments/files/33834787/cycle-q2-two-obstructions-2026-10-22.zip)
+
+
+
+### REPLY DC_kwDOVLOOJc4BJFBR by benediamond at 2026-10-24T01:00:02Z
+
+### Constructive reductions for `cycle-q2`
+
+A follow-up to the source transport above, building on the accepted `cycle-three` construction and the discussion by `fqlx`, `hodgepodgeconjecture`, and `DiamondJM`. Prepared for `benediamond` with OpenAI ChatGPT assistance. **Partial progress; no certificate, Lean proof, or solve is claimed.**
+
+**1. A sufficient equation in three base variables.** On $X_2=1$, put $p=Y_0/X_0$, $q=Y_1/X_1$, $r=Y_2$, $u=X_0^2$, $v=X_1^2$. The paired-sign cubic, with an auxiliary deformation, is
+
+$$
+U_m=(1+p^6)u^3+(1+q^6)v^3+(1+r^6)+\frac{pq}{2}u^2v+\frac{qr}{2}v^2+\frac{pr}{2}u+muv.
+$$
+
+Let $E_m:\eta^2=\xi^3+a(m)\xi+b(m)$ be its normalized Jacobian, using the invariant normalization and deformation jets in the parent comment, and put $\omega_0=d\xi/(2\eta)$, $\omega_1=\xi\omega_0$. The target transports, modulo rational exact corrections, to
+
+$$
+\Sigma=\frac{p^2q^2r}{24}\left.\nabla_m^2\omega_0\right|_{m=0}\wedge dp\wedge dq\wedge dr.
+$$
+
+The factor $1/24$ includes the cubic-to-Jacobian differential multiplier $3$; differentiation of the moving map contributes rational exact terms. Let $s\in K^2$ be the coefficient vector of $(p^2q^2r/24)\nabla_m^2\omega_0|_{m=0}$ in this basis, where $K=\mathbf C(p,q,r)$. Then
+
+$$
+\boxed{s=\nabla_pR_p+\nabla_qR_q+\nabla_rR_r,\qquad R_p,R_q,R_r\in K^2}
+$$
+
+is a concrete sufficient route to a rational primitive, after restoring the relative exact and moving-map terms. All three physical base derivatives are available here. This proper rank-two connection need not capture every possible primitive: relative differentials with additional residues provide another geometric channel.
+
+**2. Support can be differentiated if it exists in a family.** Set $M_1=X_0X_2^3Y_0Y_2$, $B=X_0X_1^2Y_0Y_1^2$, $F_\lambda=F+(\lambda-\tfrac12)M_1$, and $\beta_\lambda=\mathrm{Res}(B\Omega/F_\lambda^2)$. Since $A=M_1B$, the specified class satisfies the exact identity
+
+$$
+\alpha=-\frac12\left.\nabla_{\partial_\lambda}\beta_\lambda\right|_{\lambda=1/2}.
+$$
+
+Thus a smooth proper algebraic family of Gysin maps whose image contains $\beta_\lambda$ near the actual parameter would also support $\alpha$: relative Gysin maps commute with the Gauss–Manin connection. Support at a single fiber is insufficient. The accepted `cycle-three` class has a different character under a diagonal symmetry preserving all three coupling parameters, so its Gauss–Manin derivatives in those coupling directions cannot produce $\alpha$ or $\beta_\lambda$.
+
+**3. A geometric construction to seek.** Varying horizontal curve families can contribute through higher Gysin maps even when the selected fiberwise Gysin maps vanish. This suggests seeking an explicit family or correspondence whose variation matches the transported source in the required character. Neither such a family for `cycle-q2` nor rational vectors $R_p,R_q,R_r$ have yet been constructed; either would supply a substantive next proof component.
+
+
+
+## COMMENT DC_kwDOVLOOJc4BI6Uj by fqlx at 2026-10-22T02:21:21Z (updated 2026-10-22T02:22:12Z)
+
+## Paused research checkpoint: checked exclusions and remaining constructions
+
+**The original `cycle-q2` certificate remains unproved.** This update records the cumulative paused research goal. The fixed $(F,q=2,A)$ is unchanged; there is no legal original $(D,N,Q)$ witness or protected Lean theorem. Prepared for `fqlx` with OpenAI ChatGPT Pro and Codex assistance, building on the accepted cyclic construction and the contributors credited in the linked proof packets.
+
+**Checked results.** These are mathematical research arguments with reproducible exact/rigorous computations, not Lean formalizations of the original target.
+
+1. **The actual target has a nonzero $H^{3,1}$ component.** Write $\alpha=\mathrm{Res}(A\Omega/F^3)$ and $\beta=\mathrm{Res}(X_0X_1^2Y_0Y_1^2\Omega/F^2)$, with the $1/(2\pi i)$ residue convention, and let $h(v,w)=Q(v,\overline w)$ for the real flat cup pairing $Q$. Exact Fermat transport coefficients, the calibrated pairing and an all-order analytic tail give
+
+   $-\frac{51}{200}<\frac{h(\alpha,\beta)}{(2\pi)^4/6^5}<-\frac{49}{200}$.
+
+   Thus an $H^{2,2}$-only construction cannot account for this source. This is not unrestricted nonexistence of a certificate.
+
+2. **Two particular denominator supports are excluded, including arbitrary powers on each support separately.** The proper-model arguments give $H^{2,0}=0$ for the proposed $B_6$ and $K_{10}$ supports, so neither support alone can serve the target. Here indices are cyclic,
+
+   $B_6=3\sum_i X_i^6+\sum_i X_i^3X_{i+1}Y_iY_{i+1}$ and $K_{10}=2(Y_2^5\partial_{Y_1}-Y_1^5\partial_{Y_2})F$.
+
+   This does not exclude mixed or additional supports.
+
+3. **Several proposed complete Hecke traces vanish.** The fixed-K3-base channel, the complete scaling-even channel, and the full differential-normalized target inverse have zero original invariant $H^{3,1}$ image for the specified pulled source form. The complete-target proof treats proper boundary and excess terms. A nonzero mixed coefficient on one local branch therefore does not establish a nonzero full trace. Other correspondences or new source forms require their own analysis.
+
+4. **The normalized coefficient inverse has no smaller component over the minimal actual source field.** Its degree is $168$, its geometric monodromy is $S_{168}$, and it stays irreducible of degree $168$ over the actual degree-2016 source field. The $S_{168}$ assertion concerns the Galois closure; the degree-168 field itself is not asserted to be Galois. This settles the smaller-*coefficient*-component option for that construction. The separate degree-nine target torsor remains unresolved.
+
+5. **An explicit full-normal current still has a measured defect.** The construction retains the whole $\epsilon$ family, parameter motion, physical density and character. With the actual normal derivation $\mathcal T$ and $f_0=1/(\lambda xy^2)$, the correction preserving the required initial form leaves the explicitly nonzero defect $\epsilon^3\mathcal T^4(f_0)/6$. Dropping that correction loses the initial form. The new degree-fourteen pole support has exactly $3312$ rank-zero torus ordinary double points outside $K_{10}=0$ and a completed proper-boundary audit, but additional rank-one tangencies and the required proper $H^{2,0}$ conclusion remain open. This is a relative extension diagnostic, not the original five-form primitive.
+
+**Concrete remaining routes:** descend a degree-three coset of the target degree-nine torsor using the explicit Hessian-triangle adapter; construct a new globally regular eigenform on the adapter cover with a nonzero source-bound pairing; or close the full-normal current defect and its global pole/reassembly obligations. The character-retaining endpoint/coupled-current approach in [`benediamond`'s comment](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19113007) is also still open; the scoped Hecke exclusions do not rule it out.
+
+**Reproduction:** [Frozen paused-goal research packet and decoder](https://gist.github.com/fqlx/74567249a07cb927125e1f785782c22d). This preserves the paused goal's frozen mathematical proofs, scripts, exact data and independent-review receipts. The README maps each claim to its packet and distinguishes original manifests from the public packaging hashes. Copies of external papers/screenshots are omitted; primary-source links remain. The original rational primitive, legal homogeneous certificate, and Lean verification are still missing.
+
+
+
+### REPLY DC_kwDOVLOOJc4BI6ec by fqlx at 2026-10-22T03:14:19Z
+
+### New exact partials; original certificate still missing
+
+Prepared for `fqlx` with OpenAI Codex assistance, building on the accepted `cycle-three` construction, `benediamond`'s source-transport reduction, and the prior coefficient-map packet. The fixed `cycle-q2` target is unchanged. We found no original $(D,N,Q)$ witness, protected Lean theorem, PR, or acceptance.
+
+- **Endpoint connection.** The homogeneous part of the posted normalized-incidence rank-two equation has no nonzero algebraic horizontal section, even on a finite cover: its finite residues are nilpotent and its infinity exponents are $\pm1/3$. Thus a rational solution of $DH+M_DH=C$, if one exists, is unique. We give an exact arithmetic circuit for $C$ and recheck the archived nonzero Hermite pair. The inhomogeneous equation remains unsolved.
+- **Character-cover geometry.** For generic fixed $(u,w)$, the retained cover $s=t^3$ of the Jacobian elliptic surface has 36 nodal fibers and $p_g=2$. This excludes a direct dominating-rational-curve transplant of the accepted all-source `cycle-three` method on that fixed-parameter surface. We also check the dehomogenized transported source and its normal residue.
+- **Scoped Gauss–Manin test.** For that displayed fixed-parameter source, a *second-kind relative* primitive would solve a rank-two equation whose complete rational ansatz has 14 coefficients. At $(u,w)=(2,3)$, exact mod-5 linear algebra gives coefficient rank 14 and augmented rank 15, proving generic inconsistency in that rank-two system. An arbitrary rational current may carry third-kind residues on moving divisors; this test does not exclude those currents, parameter-direction terms, or a sextic certificate.
+- **One target-torsor coset.** Conditional on the prior finite-flat and $S_{168}$ monodromy results, an independently audited field argument keeps the selected degree-three Hessian-triangle line cubic irreducible over the specified minimal source/kernel/coefficient/source-point field. This excludes that proposed selected-coset route. Other degree-nine components, source forms, and correspondences remain open.
+
+[Reproducible notes, scripts, raw arithmetic data, and independent audits](https://gist.github.com/fqlx/6c64c2750df88fbe9f4572aa8b734347). The remaining constructive task is still to solve the actual endpoint equation or build a different character-retaining current and reassemble a legal homogeneous certificate; none is supplied here.
+
+
+
+### REPLY DC_kwDOVLOOJc4BJAEn by fqlx at 2026-10-23T03:03:00Z
+
+### Follow-up partials: 5-variable $\{U=0\}$ unimodular reduction & closed-form subsystem solutions, coupled $u=2 \pmod{1009}$ consistency, conic-pencil $g_2=0, g_0=0$ divisors, origin-free torsor cubic $\Psi_W$, and Higgs/discriminant exclusions
+
+Prepared for `fqlx` with OpenAI Codex and Google Gemini assistance, continuing from the previous `cycle-q2` checkpoints (`DC_kwDOVLOOJc4BI6Uj`, `DC_kwDOVLOOJc4BI6ec`) and building on the new notes by `benediamond` (`DC_kwDOVLOOJc4BI-IE`) and `DiamondJM` (`DC_kwDOVLOOJc4BI_1U`). The fixed $(F, q=2, A)$ target is unchanged; **no legal homogeneous $(D, N, Q)$ certificate or Lean proof is claimed.**
+
+- **Direct divergence-free lift from $\mathbf C(u,z,w,c_1,c_2)$ to $\mathbf P^5$ and $(\mathbf Z/3\mathbf Z)^2$ unimodular toric reduction (`cycle_q2_tangent_and_deformation_check.py`, `verify_track_c_and_u2_coupled.py`).**
+  - In the normalized chart $R = X_2^2, u = X_0^2/R, z = X_1^2/R, v = Y_0/X_0, w = v^2, c_1 = X_0 Y_1/(X_1 Y_0), c_2 = X_0 Y_2/(X_2 Y_0)$, scaling $(\partial_u, \partial_z, \partial_w, \partial_{c_1}, \partial_{c_2})$ at fixed $R = X_2^2$ by $8X_2^6/v$ produces five homogeneous degree-$7$ rational vector fields $\tilde D_c$ on $\mathbf P^5$, each satisfying $\mathrm{div}_{(X,Y)}(\tilde D_c) = 0$ identically on $\mathbf C^6$ and $\tilde D_c(X_2^2) = 0$. Consequently, any rational solution $V$ to the $q=2$ chart equation $B - 2V(U) + U\,\mathrm{div}_{(u,z,w,c_1,c_2)}(V) = U^3 Q$ (which after the two normal reductions $V_u^{(0)} = B/(2g)$ and $V_u^{(1)} = R_1/(2g)$ reduces modulo $U^3$ to the tangent divergence equation $\sum_{j \ne u} D_j(W_j/g) \equiv -R_2/g \pmod{U_2}$ on $\{U_2=0\}$) lifts directly via $v_{\mathrm{lift}} = \sum_c V_c \tilde D_c$ to $D^2 A - 2D\sum_i N_i \partial_i F + F(D\sum_i \partial_i N_i - \sum_i N_i \partial_i D) = F^3 Q$ on $\mathbf P^5$ with zero normal/Euler correction.
+  - Consistent with `DiamondJM`'s order-$72$ enumeration, $\mathrm{SNF}(F/X_2^6) = \mathrm{diag}(1,1,2,6,6)$ gives $G_F \cong \mathbf Z/2\mathbf Z \times \mathbf Z/6\mathbf Z \times \mathbf Z/6\mathbf Z$ (order $72$), and $\mathrm{SNF}(U) = \mathrm{diag}(1,1,1,3,3)$ gives $G_{3,3} \cong (\mathbf Z/3\mathbf Z)^2$. Replacing $(w,c_1,c_2)$ by the three cubic-mixed monomials $(m_0, m_1, m_2) = (c_1 w u^2 z,\, c_1 c_2 w z^2,\, c_2 w u)$ is a unimodular toric coordinate change ($\det = +1$ over $\mathbf Z$) in which $U = U(u^3, z^3, m_0, m_1, m_2)$ depends on $(u,z)$ only through $(x_0, x_1) = (u^3, z^3)$, and $(x_0, y_0, m_0, m_1, m_2) = (u^3, w^3 u^3, m_0, m_1, m_2)$ is a $\mathbf Z$-basis of the index-$9$ invariant lattice $\Lambda$ with $y_2 = \frac{m_2^6}{x_0 y_0}$, $x_1 = \frac{x_0^2 y_0 m_1^3}{m_0^3 m_2^3}$, $y_1 = \frac{m_0^9 m_2^3}{x_0^5 y_0^2 m_1^3}$.
+  - With $\tilde g = u U_u = 3(x_0+y_0) + m_0 + \frac{1}{2}m_2$ and $B = \frac{m_0^2 m_2}{8x_0}$, the normal-reduction remainders collapse to $R_1 = \frac{B(m_0+m_2)}{\tilde g^2}$ and $R_2 = \frac{B}{2}\bigl(\frac{3(m_0+m_2)^2}{\tilde g^4} - \frac{4m_0+5m_2}{\tilde g^3}\bigr)$ (with physical source $-R_2/\tilde g = 8\,\mathrm{RHS}_{\mathrm{rat}}$), and $R_2/g = \partial_{c_2}(\Phi_0/g^4)$ has an elementary closed-form $\partial_{c_2}$-antiderivative at fixed $(u,z,w,c_1)$.
+  - Writing $g_2 = 2\tilde g$ and $U_2 = 2 + U_{2,\mathrm{hom}}$, the cleared tangent operator $T_k(N_j, j)$ on $\{U_2=0\}$ satisfies $T_k(U_{2,\mathrm{hom}}M, j) = U_{2,\mathrm{hom}}T_k(M, j)$ because $\tilde D_j(U_{2,\mathrm{hom}}) = 0$. On the $6$-variable subsystem $\{y_1 = m_1 = 0\}$, $N_{c_1,\mathrm{pole}} = \frac{1}{8}m_2\bigl(m_0(m_0+m_2) - m_0 g_2 + g_2^2\bigr)$ collapses the $g_2^{-5}$ pole of $\mathrm{RHS}_{\mathrm{rat}} = \frac{\mathrm{RHS}_{\mathrm{base}}}{8x_0 g_2^5}$ to $-\frac{m_2}{8x_0 g_2}$, and adjoining $H = m_0$ (or $H = m_2$) supplies the $\ker(\vartheta_{c_1}+1)$ eigenfunction $\frac{m_2}{x_0 m_0}$ with zero $g_2^0$ output, giving an **exact 1-operator closed-form solution on the 6-variable subsystem $\{y_1 = m_1 = 0\}$**:
+
+$$
+F_{c_1} = \frac{m_2\bigl(3m_0^2(m_0+m_2) - 3m_0^2 g_2 + 3m_0 g_2^2 - g_2^3\bigr)}{24 x_0 m_0 g_2^3}, \qquad F_z = F_w = F_{c_2} = 0, \qquad \mathcal L_{c_1}(F_{c_1}) = \mathrm{RHS}_{\mathrm{rat}}\;\text{on}\;\{y_1=m_1=0\}.
+$$
+
+  - On all $8$ block variables, $\mathrm{RHS}_{\mathrm{rat}} - \mathcal L_{c_1}^{(8)}(F_{c_1}) = \frac{m_1 + 12y_1}{g_2}(\vartheta_u(F_{c_1}) + F_{c_1})$ retains higher $g_2$-poles involving $m_1, y_1$. However, replacing $m_0$ by $u_{c_1} = m_0 + m_1 + 12y_1$ in the pole-reduction primitive collapses the $g_2^{-5}, g_2^{-4}, g_2^{-3}, g_2^{-2}$ poles to zero **identically on all 8 variables**, leaving only a pure simple $g_2^{-1}$ pole:
+    $$F_{c_1}^{(\mathrm{pole})} = \frac{m_0^2 m_2}{8x_0}\left(\frac{m_0+m_2}{u_{c_1}g_2^3} - \frac{m_0}{u_{c_1}^2 g_2^2} + \frac{u_{c_1}-30y_1}{u_{c_1}^3 g_2}\right) \implies \mathrm{RHS}_{\mathrm{rat}} - \mathcal L_{c_1}\!\bigl(F_{c_1}^{(\mathrm{pole})}\bigr) = -\frac{m_0^2 m_2(u_{c_1}^2 - 300 u_{c_1} y_1 + 5400 y_1^2)}{8 x_0 u_{c_1}^4 g_2}.$$
+    (An alternative collapse using $\mathcal L_A = \mathcal L_z - \mathcal L_w - \mathcal L_{c_2}$ with the $\vartheta_{c_1}$-invariant critical form $h_A = u_z - u_w - u_{c_2} = 6x_1 - 6y_0 - 18y_2 - 2m_2$ similarly reduces $g_2^{-5} \to g_2^{-1}$ on all $8$ variables while avoiding $m_1, y_1$.) In the free $8$-variable polynomial ring without the $3$ toric binomial relations, all generators of $\mathrm{im}(T_k) + U_2 R$ vanish on the 2D critical plane $\mathcal Z_{\mathrm{crit}} = V(g_2, U_{2,\mathrm{hom}}, u_z, u_w, u_{c_1}, u_{c_2})$ where $\mathrm{RHS}_{\mathrm{base}}|_{\mathcal Z_{\mathrm{crit}}} = -186624\,y_2(3y_2-2y_1)^2(2y_2-y_1)^2 \not\equiv 0$ (whereas the 7-variable slice $\{y_2=0\} \pmod{U_{2,\mathrm{hom}}}$ is $100\%$ solvable).
+  - Out of all $122$ degree-$6$ monomial factorizations $A = B\cdot C$, the only two with $B$ invariant under the full order-$72$ group $G_F$ are $B_1 = X_1^2 Y_0^2 Y_1^2$ ($B_1/X_2^6 = m_0^2/x_0$) and $B_2 = X_0 X_2^3 Y_0 Y_2$ ($B_2/X_2^6 = m_2$), both of which preserve the nontrivial $\mu_3$ character of $C_i\Omega/F_s^2$ at pole order $1$ (whereas $C_{\mathrm{bal}} = X_0 X_1 X_2 Y_0 Y_1 Y_2$ has trivial character under $G_F$).
+
+- **Bivariate residue compatibility, coupled consistency at $u_0 \in \{2,3,5\} \pmod{1009}$, and $(u-2)$-jet lift with $\partial_u H_u$ included (`verify_track_c_and_u2_coupled.py`, `step_b5_multislice_u2_jets_solve.py`, `step_b5_multislice_q1_12_117_5_proof.py`, `step_b5_multislice_q2_gauge_and_jets.py`).**
+  - Following up on `benediamond`'s fixed-$(u,w)$ $H^{0,2}(\overline Y_{u,w}) \ne 0$ obstruction (`DC_kwDOVLOOJc4BI-IE`), we checked the global $12$-dimensional coupled surface connection $\nabla_u H_u + \nabla_w H_w = C$ in the Hessian frame across all $12$ irreducible factors of the discriminant $D_{126}(2,w) \pmod{1009}$. At every factor, the residue matrices $R_u, R_w$ have rank $1$ and satisfy $\mathrm{rk}(R_u) = \mathrm{rk}(R_w) = \mathrm{rk}([R_u \mid R_w \mid C_{-1}]) = 1$, so higher-order discriminant poles gauge away by flat curls and there is no local bivariate residue obstruction.
+  - Specializing to univariate slices $u_0 \in \{2,3,5\} \pmod{1009}$ in the sheared Laurent window $\mathrm{lo}_j = e_{0,j}, \mathrm{hi}_j = e_{\infty,j} + 14$, both uncoupled specializations ($H_u = 0$ and $H_w = 0$) are inconsistent across $D(w) \in \{D_1 = 1, D_{72}(2,w), D_{126}(2,w)\}$ (`189 < 190`, `1053 < 1054`, `1701 < 1702`), whereas the **coupled slice equation $M_u(u_0,w)H_u(w) + (\partial_w + M_w(u_0,w))H_w(w) = C(u_0,w)$ is consistent and verified in $\mathbf F_{1009}(w)$ (`defects = 0`) on all three divisors**, obeying $\mathrm{rk}(A) = 323 + 23\deg D$ and $\dim\ker(A) = 55 + \deg D$ (`rk = 323, nullity = 55` at $D_1 = 1$, where $\det(D_{126} P_0^{-1} M_u P_0) = 288 D_{126}^{11} Q_{117}(w)$ imposes $12 + 117 + 5 = 134$ constraints on the $189$ $\tilde H_w$ modes).
+  - **Restoring $\partial_u H_u = \sum_{m \ge 0} (m+1) H_u^{(m+1)}(w)(u-2)^m$ in the coupled $(u-2)$-jet expansion on $D_1 = 1$:** As a formal $(u-2)$-jet series up to order $M_{\mathrm{eq}} = 0, 1, 2, 3$, the coupled system $(\partial_u + M_u)H_u + (\partial_w + M_w)H_w = C$ remains **$100\%$ consistent at every tested jet order** both with $H_u^{(M_{\mathrm{eq}}+1)}$ free (`rk_A = rk_aug = 328, 656, 984, 1311`; `nullity = 239, 289, 339, 390`) and with $H_u^{(M_{\mathrm{eq}}+1)} = 0$ (`rk_A = rk_aug = 323, 650, 977, 1304`; `nullity = 55, 106, 157, 208`), with the $+50$/$+51$ nullity growth per jet order matching the $50$-dimensional admissible gauge subspace $\mathcal G_{\mathrm{adm}} \subset L$ (`189 - 139 = 50`). Truncating $(H_u, H_w)$ to a finite polynomial in $(u-2)$ of degree $d_u < M_{\mathrm{eq}}$ with denominator $D_1 = 1$ (no $u$-poles) is inconsistent at order $M_{\mathrm{eq}} > d_u$ (`rk_A = 378(d_u+1) < rk_aug = 378(d_u+1)+1`), confirming that a global rational solution in $(u,w)$ must incorporate the $u$-denominator / $u$-Laurent window.
+
+- **Horizontal $j=0$ divisors $g_2(\lambda)=0, g_0(\lambda)=0$, universal conic primitives $(B_a, B_b, B_c)$, origin-free internal cubic $\Psi_W$, block-radial normals, and Higgs/discriminant modules.**
+  - *Conic-pencil horizontal divisors (`check_g2_g0_horizontal_mod25.py`):* On $z^2 = g_0(\lambda) + g_1(\lambda)s + g_2(\lambda)s^2$ ($s=t^3$), $g_0(\lambda)=0$ carries physical character $\chi_2 = \zeta_3^2$ (wrong sector), while $g_2(\lambda)=0$ carries $\chi_1 = \zeta_3$ with exact vertical Hermite collapse, two independent $E_0$-endpoint maps ($q \ge 2$), trivial cubic Kummer character, and non-square $1-1/(2b) = G(1,\lambda)/g_1(\lambda)$ vanishing to order $1$ along a smooth curve through $(u,w) \equiv (22,3) \pmod{25}$ on `root_1`.
+  - *Origin-free internal cubic $\Psi_W$ (`check_internal_cubic.py`):* Over $L = K[W]/(H_{\mathrm{tri}}(W))$, $x_t, y_t$ lie in the 3D $\hat K$-invariant subalgebra $M_W = (F_{t,W} \times \hat\phi^{-1}(U))/\hat K$ with shared quadratic discriminant squareclass $-q \in L^\times/(L^\times)^2$. At unramified mod-$103$ fibers with $\bigl(\frac{-q}{103}\bigr) = +1$ where $H_{\mathrm{tri}}(W)$ splits completely, $\Psi_{W,x}$ is irreducible of degree $3$ at all three lines (`[3, 3, 3]`), excluding descending any non-coset degree-$3$ component of $M$ to $K$.
+  - *Universal conic primitives & 5-adic defects (`verify_universal_primitives_and_conic_defects.py`):* Over $\mathbf Q[a,b,c]$, the genus-$2$ connection admits explicit polynomial primitive matrices $B_a, B_b, B_c$ in the $(e_0, e_1)$ basis with $\nabla_p^{(e)} B_p = I_2$ and $2c B_a - 8b B_b - 88a B_c + 15(4ac-b^2)I_2 = 0$, as well as polynomial primitives $B_a^{(h)}, B_c^{(h)} = \frac{c}{a}B_a^{(h)}, B_b^{(h)} = \begin{pmatrix} 3b/4 & -3 \\ -3\Delta/4 & 0 \end{pmatrix}$ in the $(h_0, h_3)$ basis (where the second column of $B_b^{(h)}$ solves $(9\Delta\partial_b^2 - 3b\partial_b - 1)X_0 = 3$ via the constant $X_0 = -3, X_1 = 0$); at certified precision $5^{60}$, the coupled $(u,w)$ and $(u,w,\xi)$ moving-amplitude defects satisfy $\det[\mathcal R_a^{(u,w)}(5p), \mathcal R_b^{(u,w)}(5p)] \equiv 2 \not\equiv 0 \pmod 5$ and $v_5(h_a) = v_5(h_b) = 0$.
+  - *Block-radial normals & Higgs/discriminant modules (`check_block_radial_normals.py`, `check_operator_and_d2_modules.py`, `test_scalar_adjoint_higgs_disc.py`, `test_12d_coupled_surface_connection.py`):* Fixed block-radial denominators $D = G_{\mathrm{rad},i}^k$ ($G_{\mathrm{rad},i} = (X_i\partial_{X_i}+Y_i\partial_{Y_i})(2F)$) are excluded over $\mathbf Q$ for $k=1$ ($\deg D = 6$, certified integer duals) and mod $1009$ for $k=2$ ($\deg D = 12$). All $21$ nonzero $2\times 2$ minors of $[A_u \mid A_w]$ yield distinct stripped primitives $\mathrm{Prim}_{0..20} \in \mathbf Z[u,w]$ ($20$ irreducible), and adjoining $\mathrm{Prim}_{0..20}^{-1}$, $D_3^{-1}, D_4^{-1}, h_{\mathrm{last}}^{\pm 1}$, $\partial^2 c_\alpha$, and Picard–Fuchs coefficients across $15$ five-border scalar-adjoint modules (up to $315$ unknowns across $326$ points) and $5$ direct 12D surface-connection trials (up to $1,152$ unknowns across $1,260$ equations) yields full column rank and augmented rank $+1$ in every case.
+
+**Reproduction:** [Follow-up notes, standalone verification scripts, and JSON receipts](https://gist.github.com/fqlx/d0cdc991a111dcd9b19ea37764f533b2).
+
+
+## COMMENT DC_kwDOVLOOJc4BI_1U by DiamondJM at 2026-10-23T01:26:51Z (updated 2026-10-23T01:26:51Z)
+
+Notes for **cycle-q2**: the holdout-q2 line construction does not transfer. Prepared with Claude Code assistance on behalf of `DiamondJM`. The protected $(F,q=2,A=X_0^2X_1^2X_2^3Y_0^2Y_1^2Y_2)$ is unchanged. **No certificate, Lean proof, or solve PR is claimed.** This is a structural comparison with one exact symmetry computation, recorded so the obvious port need not be retried.
+
+**1. The paired-ratio cubic.** With passive $\alpha=Y_0/X_0$, $\beta=Y_1/X_1$, $\gamma=Y_2/X_2$ and active $U,V,W=X_0^2,X_1^2,X_2^2$,
+$$F=(1+\alpha^6)U^3+(1+\beta^6)V^3+(1+\gamma^6)W^3+\tfrac12\bigl(\alpha\beta\,U^2V+\beta\gamma\,V^2W+\alpha\gamma\,UW^2\bigr),\qquad A=\alpha^2\beta^2\gamma\,U^2V^2W^2,$$
+and each pair map $(X_i,Y_i)\mapsto(X_i^2,Y_i/X_i)$ has Jacobian $2$. So the sextic is a family of plane cubics over a three-dimensional base, as in the [cycle-three construction](https://github.com/hodge-computer/sextics/blob/main/data/cycle-three/solution.md) of `hodgepodgeconjecture`. Downstairs the source $U^2V^2W^2$ has degree six on a plane cubic, whose Jacobian ring vanishes in degree six. At pole order two the class is therefore carried by base derivatives (a second variation), not by a fibrewise source.
+
+**2. Why the holdout-q2 reduction has no analogue.** In `HeadOfNaps`'s [holdout-q2 proof](https://github.com/hodge-computer/sextics/blob/main/data/holdout-q2/solution.md) the endpoint pair stays active through $S=c^2+k^2d^2$, $T=kcd$. This is possible because $c,d$ enter $F$ only through $cd$ and $c^6+d^6$; it yields a cubic surface and its finite line algebra. In the cycle, every pair enters through both $ZW$ and $Z^3W$ (pair 2 through $X_1^3X_2Y_1Y_2$ and $X_0X_2^3Y_0Y_2$). Weight-two coordinates for an active pair would then need $X_2^2$ as well as $X_2Y_2$, and $X_2^6+Y_2^6$ is not cubic in them. Keeping all of $(X_2^2,X_2Y_2,Y_2^2)$ gives $(2,3)$ complete-intersection fibres in $\mathbb P^4$, which are K3 surfaces when smooth. Either way there is no cubic surface and no 27-line algebra to transfer.
+
+**3. Character of the target (exact, by enumeration).** The diagonal group fixing $F$ has order 72 modulo scalars. Over every element, the residue character of $A$ (numerator times volume) takes the values $1,\zeta_6^2,\zeta_6^4$. It is trivial on an index-3 subgroup of order 24, which contains $\tau$ and all three paired sign changes, and is a primitive cube root of unity on the quotient $\mu_3$. This refines the $\zeta_6^2$ character recorded in `why.md`. Any construction must reach this $\omega$-isotypic sector, so averaging over the full group kills it. Whether the cycle-three Jacobian route can reach it is not settled by this note. Its passive coordinates are not invariant under the $\mu_3$, so it is not simply the invariant quotient. But its transport is a first-variation identity built for $q=1$.
+
+**4. Supports.** For `cycle-q2` the dense fixed-denominator test at degree 6 exceeded 15 GB and was not run. The analogous sweep for every $q=1$ open instance (about 1,300 natural degree-6 supports) found no supported target.
+
+**Reproduction.** https://github.com/DiamondJM/hodgeHoldout, branch `claude/inspiring-turing-tx2pbu`: `cycleq2/structure.py` (the cubic form, Jacobian and the full character table) and `cycleq2/NOTES.md`; `sweep/RESULTS.md` for the $q=1$ sweep.
+
+Credit: `HeadOfNaps`'s holdout-q2 construction and `hodgepodgeconjecture`'s cycle-three construction, which this note compares against; the repository authors' certificate formalism and character framework, with the certificate bridge attributed there to Benjamin E. Diamond; Griffiths's residue theory. Prepared with Claude Code assistance; no independent human review or Lean verification is claimed.
+
+---
+_Generated by [Claude Code](https://claude.ai/code)_
+
+
+
+### REPLY DC_kwDOVLOOJc4BJC7I by DiamondJM at 2026-10-23T15:15:41Z
+
+Progress on **cycle-q2** along the cycle-three Jacobian route, prepared with Claude Code assistance on behalf of `DiamondJM`. This follows the note above. **No certificate, Lean proof, or solve PR is claimed.** Items marked *exact* are polynomial identities or exact rational linear algebra; *modular* means point counts mod small primes. The two caveats at the end are not yet closed.
+
+**1. The q=2 target is a mixed second variation (exact).** $A=m_1m_2$ with $m_1=X_0X_1X_2Y_0Y_1Y_2$ and $m_2=X_0X_1X_2^2Y_0Y_1$, so
+$$2A\,\Omega/F^3=\partial_{s_1}\partial_{s_2}\bigl(\Omega/F_s\bigr)\big|_{s=0},\qquad F_s=F+s_1m_1+s_2m_2 .$$
+In the chart of `hodgepodgeconjecture`'s [cycle-three proof](https://github.com/hodge-computer/sextics/blob/main/data/cycle-three/solution.md) ($v=Y_0/X_0$, $c_1=(Y_1/X_1)/v$, $c_2=(Y_2/X_2)/v$), both directions add an $xyz$ term to the ternary cubic, with coefficients $g_1=v^3c_1c_2$ and $g_2=v^2c_1$.
+
+**2. Jacobian invariants with an $xyz$ term.** For $U=ax^3+by^3+cz^3+dx^2y+ey^2z+fz^2x+m\,xyz$, the Hessian syzygy $H(H(U))=\lambda U+\mu H(U)$ gives, in cycle-three's normalization ($\eta^2=\xi^3+s_4\xi-s_6/4$):
+$$48s_4=48(ae^2f+bdf^2+cd^2e)+216abc\,m-24def\,m-m^4,$$
+$$216s_6=5832a^2b^2c^2+864a^2ce^3+864ab^2f^3+1296abcdef-540abc\,m^3-864abef^2m-864acde^2m+72ae^2fm^2$$
+$$\qquad+864bc^2d^3-864bcd^2fm+72bdf^2m^2+72cd^2em^2-216d^2e^2f^2-36def\,m^3-m^6 .$$
+These reduce to cycle-three's $s_4,s_6$ at $m=0$. *Modular check:* the cubic and the Weierstrass curve have equal point counts for 20 random cubics with $m\neq0$, mod 101, 103, 107 and 109. Cycle-three's model `a8`, `b256` also matches the physical cubics in 12 random fibres.
+
+**3. Why cycle-three's model cannot carry the target (exact bookkeeping).** Write $A=s_4$, $B=-s_6/4$ for the Weierstrass coefficients. Their $s_1$-variations carry $v^3$, their $s_2$-variations carry $v^2$, $\partial_{s_1}\partial_{s_2}A=0$, and $\partial_{s_1}\partial_{s_2}B$ carries $v^5$ (all mod $v^6$). Gauss–Manin on the model,
+$$\partial_{s_1}\partial_{s_2}\Bigl[\frac{d\xi}{\eta}\Bigr]=\Bigl[\frac{3(A_1\xi+B_1)(A_2\xi+B_2)}{4\eta^5}-\frac{A_{12}\xi+B_{12}}{2\eta^3}\Bigr]d\xi,$$
+together with cycle-three's multiplier $-144Rv^3$, leaves a source carrying $v^2=T_3/R$. That is a function on the triple cover $T_3=Rv^2$ ($t=v^6=\tau^3$) but not on cycle-three's model. The $\zeta_6^2$ character in `why.md` is exactly this extra $v^2$.
+
+**4. The triple-cover model.** Pulling cycle-three's Weierstrass family back along $(r:t)=(\rho^3:\tau^3)$ gives coefficients of degrees $(12,18)$ in $(\rho,\tau)$. They are minimal (orders $(6,0)$ at $\rho=0$ and $(3,0)$ at $\tau=0$), with nonconstant $j$. Over fixed $(c_1,c_2)$ the fibre is therefore an elliptic surface $S_3$ with $\chi=3$ and $p_g=2$. Cycle-three's fibres are rational elliptic surfaces ($p_g=0$), which is why every polynomial source has a primitive there. That theorem cannot hold on $S_3$.
+
+**5. Hodge-level test (exact over $\mathbb Q$, at $(c_1,c_2)=(2,3),(3,5),(1,4)$).** View $S_3$ as $y^2=x^3+a(\rho,\tau)x+b(\rho,\tau)$ in $\mathbb P(1,1,6,9)$. The weighted Jacobian ring has $\dim R_1=2=p_g$, $\dim R_{37}=2=h^{0,2}$, socle $R_{38}$ of dimension 1, and $R_{39}=0$. In the target sector the Hodge numbers are $(1,10,1)$ (the invariant sector is $(0,8,0)$). The transported source is $\mathrm{Res}(P\Omega/G^3)+\mathrm{Res}(P'\Omega/G^2)$, where $P$ has weighted degree $33\le 37$, so it defines a class on the compact surface.
+- $P\notin J_{37}$: fibrewise, the class has a nonzero transcendental $(0,2)$ part. No construction that only removes curves fibre by fibre can work. Consistently, the fibrewise Gauss–Manin equation has no rational solution with denominators $t^j\Delta^k$, $j\le4$, $k\le2$, numerator degree $\le40$.
+- But $P\in J_{37}+\partial_{c_1}G\cdot S_{19}+\partial_{c_2}G\cdot S_{19}$: the Kodaira–Spencer images of the base directions span $R_{37}$. On the fourfold, the $(0,2)$ part can be absorbed by Gauss–Manin derivatives in $c_1,c_2$. There is no obstruction at this level.
+
+In the target sector, Kodaira–Spencer maps $R_1\to R_{19}$ injectively (image of dimension 2) and $R_{19}$ onto $R_{37}$. So the transcendental sub-variation has Hodge numbers at least $(1,2,1)$.
+
+**What is open.** Below the $(0,2)$ layer there is no pointwise test: on a two-dimensional base the derivatives of a correction can be prescribed freely at a point. The remaining question is global. Does $\Sigma$ vanish in the de Rham cohomology of the target-sector Gauss–Manin system (rank 12, transcendental part of rank $\ge4$) over $\mathbb C(c_1,c_2)$, modulo algebraic classes? That is a two-variable rational-integrability problem. If it has a solution, the primitive must vary with $(c_1,c_2)$: a $c$-direction analogue of cycle-three's first-variation identity, which cycle-three never needed. Caveats for an actual certificate: the multiplier $-144Rv^3$ should be re-derived with the $xyz$ term (it comes from a covariant identity valid for all ternary cubics), and the second-order moving-map correction must be written out.
+
+**Reproduction.** https://github.com/DiamondJM/hodgeHoldout, branch `claude/inspiring-turing-tx2pbu`, directory `cycleq2/`: `model_check.py`, `triple_cover.py`, `invariants.py`, `inv_check.py`, `second_variation.py`, `gm.py`, `step2.py`, `solve_rational.py`, `jacobian_ring.py`, `ks_test.py`, `sectors.py`, with the derivation in `NOTES.md`.
+
+Credit: `hodgepodgeconjecture`'s cycle-three construction, Jacobian model and chart, on which all of this builds; the classical invariant theory of ternary cubics, with the normalization following Tom Fisher as in that proof; Griffiths's residue theory and the Jacobian-ring description of weighted hypersurfaces; the repository authors' certificate formalism, with the certificate bridge attributed there to Benjamin E. Diamond. Prepared with Claude Code assistance; no independent human review or Lean verification is claimed.
+
+---
+_Generated by [Claude Code](https://claude.ai/code)_
+
+
+
+### REPLY DC_kwDOVLOOJc4BJD3V by DiamondJM at 2026-10-23T18:28:18Z
+
+Update to the progress note above (**cycle-q2**, cycle-three Jacobian route), prepared with Claude Code assistance on behalf of `DiamondJM`. **No certificate, Lean proof, or solve PR is claimed.**
+
+**1. The transcendental part is the whole target sector.** The note above gave only a lower bound: Hodge numbers at least $(1,2,1)$ for the transcendental sub-variation of the target sector $V_\omega$ (Hodge numbers $(1,10,1)$) on the triple-cover surfaces $S_3$. I have now computed the span of the $c_1,c_2$-derivatives of the holomorphic form $s=\mathrm{Res}(\rho\,\Omega/G)$. The derivatives are Griffiths-reduced to normal form in the target sector, using Taylor jets of the Gauss–Manin connection, mod $P=1000003$. The spans for derivatives of orders $\le 0,1,\dots,6$ have dimensions
+$$1,\;3,\;6,\;10,\;12,\;12$$
+at $(c_1,c_2)=(2,3)$, $(3,5)$ and $(7,11)$. So $s$ generates all of $V_\omega$: the target sector contains no algebraic classes, and its transcendental part has rank 12.
+
+The engine passes three checks: the ring dimensions (sector $(1,10,1)$, socle in degree 38), exact flatness $\partial_1\Gamma_2-\partial_2\Gamma_1+[\Gamma_1,\Gamma_2]=0$, and the earlier exact-over-$\mathbb Q$ results of item 5. Those results (the nonzero fibrewise $(0,2)$ part and its absorption by base Kodaira–Spencer terms) are unaffected.
+
+(An intermediate computation of mine, never posted, gave rank 4. It used a Jacobian ring missing the $-x^3$ term of $G$ and is withdrawn.)
+
+**2. What this means for the open question.** No algebraic quotient can be discarded. The class must vanish in the de Rham cohomology of the full rank-12 Gauss–Manin system over $\mathbb C(c_1,c_2)$. By the Gysin sequence, removing a curve $C$ from the base kills a class only through $H^0(C,V_\omega|_C)$. So the class must either already vanish over the good locus of the $(c_1,c_2)$-plane, or be supported over a Noether–Lefschetz curve where the fibres acquire extra algebraic classes in this sector. I have not decided either.
+
+In the fixed normal-form monomial frame, the connection entries along $c_2=3$ have $c_1$-degree above about 130, much of it from spurious poles of the frame. Direct rational reconstruction is therefore not a practical route; a good global frame or a Noether–Lefschetz search would be needed. If this instance's class lies in the coniveau-one part predicted by the generalized Hodge conjecture, the answer is positive, and such a computation would construct the primitive rather than test anything.
+
+**Reproduction.** https://github.com/DiamondJM/hodgeHoldout, branch `claude/inspiring-turing-tx2pbu`, `cycleq2/`: `gm_engine.py`, `gm_jets.py` (connection, jets, derivative spans: `python3 gm_jets.py 2 3 6`), `sigma_engine.py`, `degree_probe.py`, and `NOTES.md`.
+
+Credit as in the note above: `hodgepodgeconjecture`'s cycle-three construction and Jacobian model, Griffiths's residue theory, and the repository authors' certificate formalism. Prepared with Claude Code assistance; no independent human review or Lean verification is claimed.
+
+---
+_Generated by [Claude Code](https://claude.ai/code)_
+
+
+
+## COMMENT DC_kwDOVLOOJc4BJDdB by benediamond at 2026-10-23T17:15:02Z (updated 2026-10-23T17:15:02Z)
+
+## A five-point obstruction to the characterwise monomial surface strategy
+
+Prepared for `benediamond` with OpenAI ChatGPT assistance. This builds on [`DiamondJM`'s computation of the diagonal group and the target character](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19135828). The result below concerns a proposed *whole-character surface-fibration argument*. It is not an obstruction to the instance itself, and no certificate or Lean theorem is claimed.
+
+The useful distinction is that positive geometric genus by itself does not rule out a characterwise argument: one might hope that all holomorphic forms lie in the wrong character. For `cycle-q2`, a short convex-geometric argument rules out that escape whenever the remaining cubic group acts fiberwise on a monomial surface fibration.
+
+### 1. The precise statement
+
+Write the sextic and target as
+
+$$
+F=\sum_{i=0}^2(X_i^6+Y_i^6)+\frac12(X_0^3X_1Y_0Y_1+X_1^3X_2Y_1Y_2+X_0X_2^3Y_0Y_2),\qquad A=X_0^2X_1^2X_2^3Y_0^2Y_1^2Y_2.
+$$
+
+The diagonal symmetry group $G$ has order $72$ modulo projective scalars. The residue character is the character of $A\Omega$, with weight vector $\beta=(3,3,4,3,3,2)$; its kernel $K$ has order $24$. Let $M_K$ and $M_G$ be the character lattices of the corresponding quotient tori. Then $M_G\subset M_K$ has index three. With $\zeta=\zeta_6$ and $\omega=\zeta^2$, the element
+
+$$
+g=\operatorname{diag}(\zeta^2,1,1,\zeta^2,\zeta^4,\zeta^2)
+$$
+
+generates $G/K$, and the target has character $\omega^2$.
+
+Dehomogenize at $X_2=1$. The Newton polytope is $P=6\Delta_5$, regarded in $M_K$. A monomial map to a two-dimensional torus is specified by a saturated rank-two passive lattice $N\subset M_K$; the generic ambient torus fiber has character lattice $L=M_K/N$. Put $\pi:M_K\to L$ and $Q=\pi(P)$. The residual cubic group acts trivially on the base, hence fiberwise, precisely when $N\subset M_G$.
+
+**Claim.** If $N\subset M_G$, then $\operatorname{int}(Q)\cap L$ contains a point of nontrivial $G/K$ character. Consequently the sum of the two nontrivial character sectors in the generic proper surface fiber is not entirely of Hodge type $(1,1)$. This prevents using algebraicity of that *whole sector* to serve the source. It does not show that the particular absolute source class has a nonzero component in every remaining transcendental subsystem.
+
+### 2. Five points force a tetrahedron
+
+Use homogeneous degree-six exponent vectors; subtracting $6e_{X_2}$ identifies them with points of $M_K$. Color $c$ means that $g$ acts by $\omega^c$. The following are $K$-invariant lattice points:
+
+| Point | Exponents in $(X_0,X_1,X_2,Y_0,Y_1,Y_2)$ | Color |
+|---|---|---:|
+| $p$ | $(1,0,1,1,2,1)$ | $1$ |
+| $q$ | $(2,1,1,0,1,1)$ | $2$ |
+| $r$ | $(0,2,2,2,0,0)$ | $2$ |
+| $s$ | $(0,2,0,2,0,2)$ | $1$ |
+| $t$ | $(1,3,0,1,1,0)$ | $1$ |
+
+Label the six pure-power vertex images $a_0,a_1,a_2,b_0,b_1,b_2$. They need not be distinct or extremal. Suppose all five displayed point images lie on the boundary of $Q$.
+
+A supporting plane through $\pi(p)$ contains every vertex image appearing with positive barycentric coefficient: all except $a_1$. A supporting plane through $\pi(q)$ similarly contains all except $b_0$. The planes are distinct, since otherwise $Q$ would be at most two-dimensional. Their intersection is a line containing $a_0,a_2,b_1,b_2$. These four points span a nontrivial segment $[u,v]$; otherwise the six images would again span at most a plane. Thus $Q$ is the tetrahedron with vertices $a_1,b_0,u,v$.
+
+The boundary condition on $r$, whose positive support is $a_1,a_2,b_0$, forces $a_2$ to be an endpoint of $[u,v]$. Likewise $s$ forces $b_2$ to be an endpoint. The positive support of $t$ is $a_0,a_1,b_0,b_1$, so its boundary condition forces $a_0$ and $b_1$ to equal the same endpoint. Therefore at least two of $a_2,b_1,b_2$ coincide.
+
+But the three characters
+
+$$
+X_2^2/Y_1^2,\qquad X_2^2/Y_2^2,\qquad Y_1^2/Y_2^2
+$$
+
+belong to $M_K\setminus M_G$. Each is one third of the appropriate pure-sixth-power vertex difference. A coincidence among $a_2,b_1,b_2$ therefore kills three times a nontrivially colored lattice vector. Since $L$ is torsion-free, it kills the vector itself, contradicting $\ker\pi=N\subset M_G$. This proves the claim.
+
+### 3. Why this gives actual holomorphic forms
+
+The exact sextic is Newton nondegenerate, including every face. Indeed, at a hypothetical critical point of a face polynomial, let $S=\sum |Z_i|^6>0$ over the active variables. Multiplying its partial derivatives by the corresponding variables and summing absolute values gives $6S\le 3\sum_m|m|$, where $m$ runs over retained coupling monomials. Weighted AM–GM gives $6|m|\le\sum_i e_i(m)|Z_i|^6$, and the coupling exponent column sums are $(4,4,4,2,2,2)$. Hence $6S\le2S$, a contradiction. Euler's identity handles the dehomogenized face equations. Finite torus quotients are étale, and characteristic-zero generic smoothness applied to every face passes nondegeneracy to each fixed monomial projection's generic fiber.
+
+By [Khovanskii's holomorphic-form theorem](https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1233-1.pdf), Lecture 1, §5, printed p. 6, holomorphic two-forms on a smooth proper model are indexed by interior lattice points of $Q$. Toric logarithmic volume and $F$ are invariant, so the residue form indexed by a lattice point has precisely its color. Since $N\subset M_G$, colors descend to $L$. The five-point argument therefore supplies a nonzero $(2,0)$ form in a nontrivial character; its conjugate supplies the corresponding $(0,2)$ part. A finite base change cannot remove this geometric obstruction.
+
+### 4. A broader exclusion of whole-fiber $p_g=0$
+
+There is also a finite, classification-based strengthening in a different direction: **every** rank-three lattice image of $P$ is nonhollow, even without $N\subset M_G$. Thus no monomial surface fibration of $X/K$, or of $X/H$ for $H\subset K$, has geometric genus zero.
+
+The lattice width of $P$ in $M_K$ is three. Of the $24$ residue classes in the dual lattice modulo the ordinary integer dual, thirteen nonzero classes have minimum width three and ten have minimum width four; a nonzero lift of the trivial class has width at least six. Every rank-three lattice image consequently has width at least three. [Blanco–Haase–Hofmann–Santos, Theorem 5.2 and Lemma 5.3](https://arxiv.org/html/1607.00798v3#S5) reduce a hypothetical hollow image to the five listed polytopes $M_3,M_5,M_6,M_9,M_{10}$; their proper lattice subpolytopes have width at most two.
+
+For each candidate, choose the image of the $X_2^6$ vertex among its lattice points. The three coordinate rows of the other vertex differences, modulo six, must lie in $K$. Each candidate has coordinate ranges shorter than six, so residues determine the other images uniquely. Enumerating these $24^3$ row triples for each possible origin gives:
+
+| Candidate | Compatible six-point assignments contained in it | Assignments with its full convex hull |
+|---|---:|---:|
+| $M_3$ | $164$ | $0$ |
+| $M_5$ | $12$ | $0$ |
+| $M_6$ | $76$ | $0$ |
+| $M_9$ | $78$ | $0$ |
+| $M_{10}$ | $74$ | $0$ |
+
+This is an exhaustive finite test, with no bound on possible projection-matrix entries. For $H\subset K$, restriction from $M_H$ to $M_K$ would give the same impossible hollow image. The attached reproduction packet gives the exact candidate coordinates, facet inequalities, lattice-point enumeration, and complete standard-library Python checker (`cycle_kernel_hollow.py`); `cycle_character_projection_check.py` separately verifies the five-point argument's finite character data. The mathematical proof above does not depend on the classification enumeration.
+
+The two exclusions have deliberately different scopes. The width argument excludes a whole-fiber $p_g=0$ reduction for any monomial projection of these diagonal quotients. The five-point argument also excludes the obvious whole-nontrivial-character refinement when the cubic action is fiberwise. Neither excludes a nonmonomial fibration, a new correspondence with verified source action, an absolute coupled-current argument, or a proof that this particular source avoids or cancels the remaining relative transcendental part.
+
+Reproduction packet:
+
+[cycle-q2-toric-2026-10-23.zip](https://github.com/user-attachments/files/33883422/cycle-q2-toric-2026-10-23.zip)
+
+
+
+### REPLY DC_kwDOVLOOJc4BJDdU by benediamond at 2026-10-23T17:16:38Z
+
+## The visible 216-element symmetry group has no uniruled quotient
+
+Prepared for `benediamond` with OpenAI ChatGPT assistance, building on [`DiamondJM`'s diagonal-group calculation](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19135828). This is a scoped limitation on a quotient strategy, not an obstruction to `cycle-q2` itself. No certificate or Lean verification is claimed.
+
+Let $G$ be the order-$72$ diagonal group of the cyclic sextic, modulo scalars, and let $R$ cyclically permute the three pairs $(X_i,Y_i)$. The three oriented coupling terms are preserved and $R$ normalizes $G$, giving an explicitly verified subgroup $\Gamma=G\rtimes\langle R\rangle$ of order $216$. I am not asserting that $\Gamma$ is the full automorphism group.
+
+**Claim.** For every subgroup $H\subset\Gamma$, the quotient $X/H$ has canonical singularities and torsion rational canonical class. A smooth projective resolution has Kodaira dimension zero and is not uniruled. Thus adding the visible cyclic permutation to a diagonal quotient does not produce a Fano or uniruled model.
+
+Here is the full tangent-character calculation. Represent a diagonal element by sixth-root weights $w=(a,b,0,c,d,e)$; the three coupling equations are
+
+$$
+3a+b+c+d=3b+d+e=a+c+e=0\pmod6.
+$$
+
+At a fixed eigenspace with eigenvalue $\lambda$, take the six ambient eigenvalues divided by $\lambda$, remove one trivial character for projectivization, and remove the normal character $\lambda^{-6}$, since $F$ is invariant. The remaining four fractional weights give the Reid–Tai age on $X$.
+
+For a diagonal element, the normal character is trivial. Only eigenspaces of multiplicity at least two meet the smooth sextic: a multiplicity-one fixed point with trivial normal would require an equivariant surjection from a tangent representation without invariants to a trivial normal line. The $71$ nonidentity diagonal elements give $110$ fixed-eigenspace cases, all of age at least one; exactly three have age one.
+
+For either $gR$ or $gR^2$, put $s_X=\sum_{i=0}^2w_i\pmod6$ and $s_Y=\sum_{i=3}^5w_i\pmod6$. In eighteenth-root notation the eigenweights are
+
+$$
+s_X,\space s_X+6,\space s_X+12,\space s_Y,\space s_Y+6,\space s_Y+12.
+$$
+
+At eigenweight $b$, the normal weight is $-6b\pmod{18}$. A multiplicity-one eigenline with nontrivial normal lies on $X$ by invariance of $F$; a multiplicity-one eigenline with trivial normal is excluded as above. Removing the scalar and normal weights gives the following distribution, identical in the two cyclic cosets:
+
+| Age | Fixed-eigenspace cases per coset |
+|---|---:|
+| $4/3$ | $36$ |
+| $5/3$ | $36$ |
+| $11/6$ | $72$ |
+| $2$ | $36$ |
+| $13/6$ | $72$ |
+
+There are no ages below one, hence no quasireflections on $X$. The Reid–Tai criterion gives canonical quotient singularities. Since the quotient is étale in codimension one and $K_X$ is trivial, its rational canonical class is torsion. The Kodaira-dimension and nonuniruledness conclusions follow; see [Kollár–Larsen, *Quotients of Calabi–Yau varieties*](https://arxiv.org/abs/math/0701466), also used in the project's [geometric-support chapter](https://github.com/hodge-computer/sextics/blob/main/docs/03-geometric-support.md).
+
+For reproducibility, the entire finite age check uses only standard-library Python:
+
+```python
+from itertools import product
+from fractions import Fraction
+from collections import Counter
+
+G = [(a,b,0,c,d,e) for a,b,c,d,e in product(range(6),repeat=5)
+     if (3*a+b+c+d)%6 == (3*b+d+e)%6 == (a+c+e)%6 == 0]
+assert len(G) == 72
+D, C = Counter(), Counter()
+for w in G:
+    if w != (0,)*6:
+        for b in set(w):
+            if w.count(b)<2: continue
+            tangent = [(u-b)%6 for u in w]
+            tangent.remove(0); tangent.remove(0)
+            D[Fraction(sum(tangent),6)] += 1
+    sx, sy = sum(w[:3])%6, sum(w[3:])%6
+    weights = [(s+6*k)%18 for s in (sx,sy) for k in range(3)]
+    for b in set(weights):
+        normal = (-6*b)%18
+        if weights.count(b)==1 and normal==0: continue
+        tangent = [(u-b)%18 for u in weights]
+        tangent.remove(0); tangent.remove(normal)
+        assert len(tangent)==4
+        C[Fraction(sum(tangent),18)] += 1
+assert sum(D.values()) == 110 and min(D) == 1 and D[1] == 3
+assert C == {Fraction(4,3):36,Fraction(5,3):36,Fraction(11,6):72,
+             Fraction(2):36,Fraction(13,6):72}
+assert min(C) >= 1
+print('diagonal:',dict(sorted(D.items())))
+print('each cyclic coset:',dict(sorted(C.items())))
+```
+
+The limitation is specific: it closes the direct uniruled-quotient route using this verified symmetry group. It says nothing against divisor-supported $H^4$ on a nonuniruled quotient. Nonmonomial fibrations, auxiliary covers with new symmetries, other automorphisms, and correspondences not arising from these quotients remain outside the claim.
+
+
+
+## COMMENT DC_kwDOVLOOJc4BJHNH by fqlx at 2026-10-24T15:25:09Z (updated 2026-10-24T15:25:09Z)
+
+
+## Cycle-q2 checkpoint: a fixed-current obstruction and an unfinished scalar-curl repair
+
+**The original cycle-q2 certificate remains open.** No legal physical `(D,N,Q)`, protected Lean theorem, or solution PR is claimed.
+
+Prepared for `fqlx` with OpenAI ChatGPT and Codex assistance. This builds on `hodgepodgeconjecture`’s accepted cycle-three construction, `benediamond`’s source reduction and endpoint obstruction, the earlier `fqlx` calculations, and `DiamondJM`’s character analysis.
+
+The identical hypersurface allows reuse of geometric and Jacobian machinery, but the q2 numerator selects a different symmetry component. Higher-pole machinery alone does not supply the required source primitive.
+
+**1. The generic pole-three clearing step is available.**
+
+A conditional Lean adapter now converts an appropriate homogeneous tangent primitive of the actual second normal residue into the required identity
+
+$$
+AD^2-2D\sum_iN_iF_i+
+F\left(D\sum_i\partial_iN_i-\sum_iN_i\partial_iD\right)=F^3Q.
+$$
+
+Its wrappers establish the required numerator degrees and denominator legality under their stated hypotheses; `Q` may be nonzero. The module compiled and passed kernel replay under Lean 4.33, using only the three allowed axioms.
+
+This resolves a generic clearing obligation. Constructing the source-closing tangent primitive remains necessary.
+
+**2. One fixed horizontal-lift/old-current system is excluded.**
+
+On the proper K3-fibration route, after cancelling the scalar Hodge-quotient component, the selected equations are
+
+$$
+Ba=r,\qquad a_\mu-La_\lambda+Za=0,
+$$
+
+where `B` is the actual proper `17 × 34` source map. The preferred horizontal lifts and old partial current are held fixed; arbitrary rational base poles are allowed.
+
+Writing `a=a_*+Kz` turns transport into
+
+$$
+z_\nu=P_\nu z+h_\nu,\qquad \nu=\lambda,\mu.
+$$
+
+Commuting derivatives gives a separate algebraic curvature constraint
+
+$$
+\mathcal Kz=g,\qquad
+\mathcal K=(P_\lambda)_\mu-(P_\mu)_\lambda+[P_\lambda,P_\mu].
+$$
+
+At the audited arithmetic point `(lambda,mu)=(2,3)` over `F_101`, the source minor, derivative block, and curvature have determinants `79`, `49`, and `94`, respectively. Thus invertible curvature forces a unique rational candidate.
+
+The three third-derivative contractions needed for its lambda test—indices `30/21/12`—have independent source and retained-current checks. Two independent arithmetic routes agree in all 17 coordinates. The actual candidate’s lambda PDE residual starts with `97 ≠ 0` modulo 101; the intermediate reduced bracket starts with `92`.
+
+Together with the arithmetic source/class comparison, this excludes **that fixed-current system** in characteristic zero. Algebraic extensions cannot change the candidate forced by invertible curvature. It does not exclude additional old-sector curls, other supports, or the original certificate. The source-specific obstruction is an exact research computation, not a Lean formalization.
+
+**3. A specified scalar-curl repair remains unfinished.**
+
+Let `omega` be the normalized old holomorphic two-form, let
+`theta_lambda = nabla_lambda omega`, and put
+
+$$
+c=\frac{\kappa(C_{\rm src})}{Y_{\mu\lambda}}.
+$$
+
+The old partial current is `c theta_lambda`. Choosing the known scalar `f_0=c_lambda` gives the exact identity
+
+$$
+c\theta_\lambda+f_0\omega=\nabla_\lambda(c\omega).
+$$
+
+The resulting forcing is therefore
+
+$$
+C_{\rm src}-\nabla_\mu\nabla_\lambda(c\omega).
+$$
+
+This preserves the required character and cancels the same scalar Hodge-quotient component. The new forced branch candidate and its six required second-derivative velocity contractions have independent checks. **The three new third-derivative/current certificates and the lambda compatibility test remain pending.** No global primitive follows from the completed branch calculations.
+
+For a general scalar curl, the next obstruction has also been decomposed: with all scalar derivatives through order three fixed, the three relevant fourth derivatives act through a rank-three symbol, leaving fourteen complementary scalar compatibility identities. Those identities provide the next individual tests if the known-scalar candidate fails.
+
+Work is paused at this checkpoint. The global rational coupled current, physical reassembly, and original certificate remain missing.
+
+
+
+### REPLY DC_kwDOVLOOJc4BJU92 by fqlx at 2026-10-27T16:41:51Z
+
+Recovered the missing packet for this checkpoint from the saved Codex Cloud research. Prepared for `fqlx` with OpenAI Codex assistance; attribution and the original scope notes are preserved in the archive.
+
+[Download the recovered packet](https://github.com/user-attachments/files/34031189/cycle-q2-recovered-2026-10-27.zip)
+
+- **17 × 34 matrix:** `packet/finite-replay-inputs.json`, key `B`, contains the specialization at `(lambda,mu)=(2,3)` over `F_101`, plus the exported derivative/contraction inputs. Running `python3 packet/run_finite_replay.py` from the extracted folder passes all **13 arithmetic identity checks**, with curvature determinant **94** and the old-current candidate's nonzero lambda PDE residual beginning **97**.
+- **Scalar-curl repair:** `scalar-curl/` preserves four script creation snapshots, subsequent transcript patches, and status entries 93–94 for `f0=c_lambda`. The three new third-derivative/current certificates at indices `30/21/12` and the repaired lambda compatibility test were still pending. These scripts depend on additional Cloud modules/data and are **not a standalone repair computation**.
+- **Provenance:** the original embedded tar.gz is included unchanged; its recorded SHA-256 and all original content hashes match. The ZIP also includes a fresh replay receipt, checksum manifest, and the generic pole-three Lean adapter with its historical receipts. Lean was not rerun during recovery.
+
+**Scope:** this publishes the recovered finite arithmetic and archival repair code, not the full generic source matrix or sextic-to-source/class derivation. The replay remains conditional on those geometric inputs. No new primitive, scalar-curl compatibility result, or original cycle-q2 certificate is claimed.
+
+ZIP SHA-256: `5a08eb15b134e73ab467cf7116631050b6a43f05b91cc98628d04394163da267`.
+
+
+
+### REPLY DC_kwDOVLOOJc4BJVKO by benediamond at 2026-10-27T17:21:27Z
+
+`fqlx`, your [full cubic source and reconstruction](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19223852) admit an explicit ten-class connection that retains homogeneous residue freedom at the finite branch divisor. The formulas below give a concrete rational-current problem for the original source, with the exact fiber corrections retained. **A closing current remains missing; no physical certificate or Lean proof is claimed.**
+
+Use your depressed cubic $\theta^3+p\theta+q=0$, trace-zero basis $e_1=\theta$, $e_2=\theta^2+2p/3$, and let $d$ be the monic normalization in $b$ of $\Delta=4p^3+27q^2$, over $K=\mathbf Q(P,U,Z)$. The representatives are
+
+$$
+e_1,\quad be_1,\quad b^2e_1,\quad b^3e_1,\quad 
+\frac{e_2}{d},\quad \frac{be_2}{d},\ldots,\frac{b^5e_2}{d}.
+$$
+
+The first four retain the affine elliptic classes, including infinity; the last six retain logarithmic classes above the finite branch divisor. The source has zero in those six coordinates, but individual horizontal currents may have nonzero residues whose total divergence vanishes. This implements your connecting-map principle for this particular boundary. It does not encompass arbitrary additional fiber-pole divisors.
+
+Two useful polynomial currents, written as coefficient vectors, are
+
+$$
+J_1=(-3q/4,-p/4)^{\mathsf T},\qquad
+J_2=(4p^2/15,-3q/5)^{\mathsf T},
+$$
+
+with $\nabla_jJ_1=(-q_j,-p_j/2)^{\mathsf T}$, $\nabla_jJ_2=(2pp_j/3,-q_j)^{\mathsf T}$ and $\det[J_1\ J_2]=\Delta/60$. Together with an explicit higher-pole reduction and two six-by-six inversions, these produce the three moving ten-by-ten matrices $\Gamma_j$, the actual source $C$, and every discarded $b$-exact term as rational formulas over $K$.
+
+The equation to solve is
+
+$$
+\sum_{j=P,U,Z}(\partial_j+\Gamma_j)u_j=C,
+\qquad u_j\in K^{10}.
+$$
+
+If $R$ denotes the matrix of representatives, the packet records $v_0,E_j$ satisfying $-r=\nabla_bv_0+RC$ and $\nabla_jR=R\Gamma_j+\nabla_bE_j$. A solution therefore gives the four original two-component currents directly:
+
+$$
+v_j=Ru_j\quad(j=P,U,Z),\qquad
+v_b=v_0-\sum_{j=P,U,Z}E_ju_j.
+$$
+
+The discovery calculations use all three base derivatives, the six residue directions, and generators adapted to the original numerator through the holomorphic differential and its cubic-coefficient variations. The supplied $\mathbf F_{1009}$ searches allow degree-three polynomial factors and simple poles on four moving base planes, together with the recorded coordinate and $L$ factors. They yielded no closing current. Their bounds and outcomes are recorded solely to make those attempts reproducible; they establish no unrestricted nonexistence result.
+
+The complementary [proper K3 construction](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19223174) retains both base directions and all 18 proper residue classes. It gives $\mathcal C=\nabla_\lambda J_\lambda+\nabla_\mu J_\mu+H\omega$, including the derivatives of the scalar-curl coefficient $c$, and leaves $H+\sum_\beta P_\beta^*(z_\beta)=0$. Your six-relation presentation removes the redundant adjoint input. The rational pair at $\lambda=2$ is a seed for the moving equation; it omits $\partial_\lambda h_\lambda$ and is not a family primitive. Neither construction settles the fixed-lift compatibility calculation or closes the physical source.
+
+[Ten-class cubic formulas, reconstruction, scripts, and search receipts (ZIP)](https://github.com/user-attachments/files/34100104/cycle-q2-finite-branch-currents.zip). [Proper K3 derivation and supporting calculations (ZIP)](https://github.com/user-attachments/files/34087110/cycle-q2-rational-current.zip).
+
+Prepared for `benediamond` with OpenAI Codex assistance, building on `fqlx`'s cubic, source adapter, K3 and residue-freedom constructions, `hodgepodgeconjecture`'s accepted cyclic construction, `DiamondJM`'s character analysis, and the source transport credited in the linked accounts.
+
+
+
+### REPLY DC_kwDOVLOOJc4BJVUs by fqlx at 2026-10-27T17:53:20Z
+
+### Handoff: strategy atlas, exact source bridge, and two rational closure routes
+
+**The original cycle-q2 certificate remains open.** This update publishes the files from [General Rational Integration Construction](https://chatgpt.com/g/g-p-6a6d301e456881918ba2a163ea5e7e4e-math/c/6ae0c7b5-9abc-83e9-abd5-030e7e452317), incorporates `benediamond`'s [full proper-K3 construction](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19223174) and [clarification](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19223182), and records a concrete continuation point. Prepared for `fqlx` with OpenAI ChatGPT and Codex assistance; credit to `benediamond`, `DiamondJM`, `hodgepodgeconjecture`, and the contributors and mathematical sources identified in the packets.
+
+**Public files and reading order**
+
+- [Strategy atlas/research bundle — 40 files](https://github.com/user-attachments/files/34034680/q2-strategy-research-bundle.zip). Open `q2-strategy-atlas/q2-strategy-atlas.html` locally for the interactive graph and five strategy routes. The SVG, graph JSON, audits, selected source accounts, and checksum manifest are included.
+- [Actual current and remainder packet](https://github.com/user-attachments/files/34034681/cycle-q2-current-and-remainder.zip). Start with `README.md`, `kummer/MIXED_ONE_CHANNEL_CURRENT.md`, `PARTIAL_PHYSICAL_IDENTITY.md`, and `backend/BACKEND_STATUS.md`; source adapters and verification code are included.
+- [General rational-integration packet](https://github.com/user-attachments/files/34034682/cycle-q2-general-rational-integration.zip). Contains the full rank-two source, Kummer adapter, `CHAIN_CONSTRUCTION.md`, and `GYSIN_EXTENSION.md`.
+- [Browsable notes, graph files, two checker scripts, and fresh replay receipt](https://gist.github.com/fqlx/6e65179d28dfbd05fd0e94e831a52323/5643a96366bee5f659c4f99dd1eca4605c941e21). `PUBLIC_README.md` indexes the files; `PUBLICATION_REPLAY.json` records all three ZIP hashes and the verification scope.
+
+The original chat and embedded ChatGPT library links may require account access. The public packets above contain the selected accounts and code, so those private links are not the only handoff. The atlas's reported coverage is **955 saved Math files inventoried / 676 selected assets recovered**, not an enumeration of every conversation.
+
+**What changed**
+
+1. **The cubic and K3 routes have an exact common source before residue reduction.** With the old toric parameter renamed $u$, the change on $X_1=C=1$ is
+
+   $$
+   P=\lambda d,\quad u=d^3,\quad Z=\mu,\quad
+   a=\frac{U_K}{V_Kd},\quad b=\frac1{V_Kd}.
+   $$
+
+   It gives $G=(d^3/V_K^3)W_1$ and Jacobian $3d/V_K^3$. Including the Euler-contraction factor two reproduces the K3 source numerator $\lambda^2\mu U_K^2V_K^2d^2/4$, with the sign checked. See `proofs/TORIC_K3_SOURCE_BRIDGE.md`. Transporting particular currents still requires retaining their extra fiber-pole terms and the cubic extension $d^3=u$.
+
+2. **The mixed current leaves one explicit, nonzero scalar channel.** The remaining full four-direction equation is
+
+   $$
+   \sum_{j=P,U,Z,b}(\partial_j+B_j)u_j
+   =-\begin{pmatrix}\mathcal R\\0\end{pmatrix},
+   \qquad \mathcal R=-\frac{PZbA_2}{81T^6}.
+   $$
+
+   The current packet specifies $T,A_2$ and the physical reconstruction. Its identity still contains a nonzero $F^2\mathcal R_{\mathrm{phys}}$ term; denominator clearing and an unrestricted $Q$ cannot absorb it. The new `proofs/SIX_SHEET_SCALAR_SYNTHESIS.md` normalizes $\xi=(p/q_c)\theta$, $\zeta=q_c^2/p^3$, obtaining $\zeta\xi^3+\xi+1=0$ and a scalar adjoint equation over the actual degree-six field extension. All four directions and arbitrary rational coefficients are retained. That scalar equation remains unsolved.
+
+3. **The proper-K3 presentation reduces from seven adjoint inputs to six, conditional on the posted cyclic basis.** Differentiating the $(3,2)$ relation and reducing its border terms gives
+
+   $$
+   P_{33}=\partial_\mu P_{32}+b_{32,31}P_{32}+b_{32,40}P_{41}
+   +b_{32,05}P_{06}+b_{32,14}P_{15}+b_{32,23}P_{24}.
+   $$
+
+   Here the first term is left operator composition. Thus $P_{33}^*$ adds no new adjoint image: the remaining equation is $H+\sum_{\beta\in\mathcal B_6}P_\beta^*(z_\beta)=0$ with $\mathcal B_6=\{(3,2),(4,1),(5,0),(0,6),(1,5),(2,4)\}$. See `audits/github_k3_update.txt`. This is a solver-input simplification, not a rational solution. Proper-module failure would still leave possible boundary/third-kind currents outside that module.
+
+4. **Carry forward the corrections.** The included `elliptic-boundary-repair.md` withdraws an earlier obstruction caused by a multiplication-column indexing error and supplies the unchanged boundary equation's primitive; a nonzero regular compact source remains. `blowup-both-charts.md` supplies both charts and their overlap. In `rank13-connecting-map.md`, retain homogeneous residue freedom: after solving the five-residue equations, the compact class must lie in the connecting-map image $H^1(M_5)\to H^2(M_8)$; requiring it to vanish for one frozen particular residue solution can be too restrictive. Formal jets remain local evidence, and Klein/reflection source-specific conclusions do not transfer automatically to Q2.
+
+**Verification and continuation**
+
+For this publication, all three downloaded ZIPs passed integrity checks, the atlas's 39 manifest entries matched, and these two scripts passed locally with **SymPy 1.14.0**:
+
+```sh
+cd q2-strategy-atlas
+python proofs/verify_toric_k3_bridge.py
+python proofs/verify_six_sheet_synthesis.py
+```
+
+These check the stated transformations. **Lean, the posted 18-class determinant, and all older packet calculations were not rerun in this handoff.** The [recovered checkpoint](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19222390) retains its separate finite-arithmetic and incomplete source-binding scope. The generic [conditional Lean clearing theorem](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19166023) already has historical receipts; its actual source-closing input is still missing. The recorded Macaulay2 attempts stopped during source-map normalization, before an exactness decision.
+
+The next deliverable is a literal rational solution of either the full cubic remainder equation or the six-adjoint proper-K3 equation, with reconstruction witnesses; an enlarged boundary construction must serve that same source. Preserve moving coefficients, normal derivatives, densities, and descent, then reconstruct legal homogeneous $(D,N_i,Q)$ for the [immutable target](https://github.com/hodge-computer/sextics/blob/1c59174c1e49b87c70358512201992293b5a5080/data/cycle-q2/instance.rec) and replay the protected Lean theorem. No new primitive, completed certificate, or unrestricted nonexistence result is claimed here.
+
+
+
+## COMMENT DC_kwDOVLOOJc4BJVKG by benediamond at 2026-10-27T17:21:11Z (updated 2026-10-28T15:36:16Z)
+
+**Rational currents and a scalar closure equation for the proper K3 connection**
+
+The fixed `cycle-q2` source admits an explicit rational partial current leaving one holomorphic amplitude. Completing that amplitude is equivalent to solving a scalar differential equation with seven rational unknowns in the proper K3 module. **The equation remains unsolved; no physical certificate or Lean proof is claimed.**
+
+Prepared for `benediamond` with OpenAI Codex assistance, building on `fqlx`'s [K3 geometry](https://gist.github.com/fqlx/74567249a07cb927125e1f785782c22d) and [scalar-curl proposal](https://github.com/hodge-computer/sextics/discussions/61#discussioncomment-19166023), `hodgepodgeconjecture`'s accepted cyclic construction, the source transport in this discussion, and `DiamondJM`'s character analysis.
+
+On $X_1=1$, set $\lambda=Y_0/X_0$, $\mu=Y_2/X_2$, $U=X_0^2$, $V=X_2^2$, and $D=Y_1$. Homogenizing with $C$ gives the weighted K3 equation, with weights $(2,2,1,1)$,
+
+$$
+W=(1+\lambda^6)U^3+(1+\mu^6)V^3+C^6+D^6+
+\frac{\lambda U^2CD+\mu VC^3D+\lambda\mu UV^2}{2}.
+$$
+
+The physical source becomes $\mathcal C\wedge d\lambda\wedge d\mu$, where
+
+$$
+\omega=\operatorname{Res}\frac{\Omega_W}{W},\qquad
+\mathcal C=\operatorname{Res}\frac{\lambda^2\mu U^2V^2C^2D^2\Omega_W}{4W^3}.
+$$
+
+The factor $1/4$ is the square-quotient density; the required character is retained.
+
+Over $K=\mathbf Q(\lambda,\mu)$, write $v_{ij}=\nabla_\lambda^i\nabla_\mu^j\omega$. The 18 vectors indexed by
+
+$$
+S=\{(i,j):i+j\le4\}\cup\{(0,5),(1,4),(2,3)\}
+$$
+
+form a basis of the proper residue module. In the supplied monomial frame, their determinant is $16$ at $(2,3)$ modulo $101$, with all reduction denominators invertible there. This proves generic invertibility in characteristic zero. Define $G=(v_\alpha)_{\alpha\in S}$ and $a=G^{-1}\mathcal C$. Explicit integration by parts constructs rational currents satisfying
+
+$$
+\mathcal C=\nabla_\lambda J_\lambda+\nabla_\mu J_\mu+H\omega,
+\qquad H=\sum_{\alpha\in S}(-\partial)^\alpha a_\alpha.
+$$
+
+For each coefficient $a_{ij}$, the two contributions are
+
+$$
+I_\lambda(a;i,j)=\sum_{k=0}^{i-1}(-1)^k(\partial_\lambda^k a)v_{i-1-k,j},
+\qquad
+I_\mu(a;i,j)=\sum_{l=0}^{j-1}(-1)^{i+l}(\partial_\mu^l\partial_\lambda^i a)v_{0,j-1-l}.
+$$
+
+Sum these over $S$ to obtain $J$. This identity is over $K$; finite Taylor calculations evaluate it rather than replace its product-rule proof. The resulting $H$ is nonzero, so these currents alone do not close the source.
+
+For each border index
+
+$$
+\mathcal B=\{(3,2),(4,1),(5,0),(0,6),(1,5),(2,4),(3,3)\},
+$$
+
+define $b_\beta=G^{-1}v_\beta$ and $P_\beta=\partial^\beta-\sum_{\alpha\in S}b_{\beta,\alpha}\partial^\alpha$. Then $P_\beta\omega=0$. The remaining constructive equation is
+
+$$
+\boxed{H+\sum_{\beta\in\mathcal B}P_\beta^*(z_\beta)=0,
+\qquad z_\beta\in K,}
+$$
+
+where $P^*$ is the formal adjoint. A solution supplies the missing current by explicit integration-by-parts formulas. The border relations present the cyclic differential module, so this equation captures **all rational currents in that proper module**, without fixing horizontal lifts or a numerator bound. It does not encompass every possible open-boundary or third-kind construction for the original sextic.
+
+Construction attempts include direct currents in all 18 classes, derivatives of the source itself, and scalar-adjoint corrections with natural source poles. The packet records their precise bounds. No full closing current has been found; finite-field failures are not promoted to unrestricted or characteristic-zero nonexistence claims.
+
+The proper connection is constructed by weighted Griffiths reduction: express a numerator as $\sum_i a_iW_i+R$ and lower the Jacobian part by $(\sum_i\partial_i a_i)/(q-1)$ at pole $q$. Use lexicographically ordered weighted monomials and independent Jacobian columns selected at the stated arithmetic point, retaining all lower-pole terms. A solution $z$ supplies the additional current $\sum_\beta\{I(z_\beta;\beta)-\sum_\alpha I(b_{\beta,\alpha}z_\beta;\alpha)\}$.
+
+A complementary constructive route allows the two current coefficient vectors in the residue frame to have the form
+
+$$
+h_\nu=\mu^{-2}\sum_{j=0}^{12}(\mu-3)^j h_{\nu,j}(\lambda),
+\qquad h_{\nu,j}\in\mathbf Q(\lambda)^{18}.
+$$
+
+Clearing the $\mu$-denominators turns the full equation
+
+$$
+\partial_\lambda h_\lambda+\Gamma_\lambda h_\lambda+
+\partial_\mu h_\mu+\Gamma_\mu h_\mu=\mathcal C
+$$
+
+into a finite linear differential-algebraic system in $\lambda$. At $\lambda=2$ over $\mathbf F_{1009}$, the frozen equation $\Gamma_\lambda h_\lambda+(\partial_\mu+\Gamma_\mu)h_\mu=\mathcal C$ has an explicit rational pair in this window and a 26-dimensional space of solutions. The rational one-coordinate connection is certified by Cramer degree bounds, and the pair satisfies a cleared polynomial identity. This supplies a concrete seed for rational family integration. **It does not include $\partial_\lambda h_\lambda$ and is not a family primitive.** The packet specifies the moving-base equation and its finite coefficient construction; rational integration remains unresolved.
+
+[Supporting mathematical derivation, standalone scripts, and arithmetic receipts (ZIP)](https://github.com/user-attachments/files/34087110/cycle-q2-rational-current.zip). The packet includes the exact rational construction and the bounds of the finite discovery attempts.
+

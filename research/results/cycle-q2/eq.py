@@ -454,8 +454,11 @@ def _compressed_int(S, k_extra=40, seed=1, with_rhs=True):
     if k == S.nrows:
         return np.asarray(M.todense(), dtype=np.int64) % p
     rng = np.random.default_rng(seed)
-    R = rng.integers(0, 1 << 16, size=(k, S.nrows), dtype=np.int64)
+    # full-range multipliers mod p (p < 2^22): products < 2^44, column nnz < 2^18 => no int64 overflow
+    R = rng.integers(0, p, size=(k, S.nrows), dtype=np.int64)
     MT = M.T.tocsr()
+    nnz_max = int(np.diff(MT.indptr).max()) if MT.nnz else 0
+    assert nnz_max < (1 << 18), nnz_max
     out = (MT @ R.T) % p          # (C x k)
     return np.ascontiguousarray(out.T)
 
@@ -474,7 +477,7 @@ def solve_fast(S, verbose=False, k_extra=40, seed=1):
         print(f'[fast p={S.p}] consistent={consistent} rank={rank} nullity={C-rank} (compress {t1-t0:.1f}s LU {t2-t1:.1f}s)', file=sys.stderr)
     return res
 
-def test_D_fast(F, A, q, D, family, note='', verbose=True, Dstr=None, do_e1=False, Hw=None):
+def test_D_fast(F, A, q, D, family, note='', verbose=True, Dstr=None, do_e1=False, Hw=None, p=None):
     Dstr = Dstr or core.to_str(D)
     d = core.degree(D)
     out = {'D': Dstr, 'd': d, 'family': family}
@@ -486,8 +489,10 @@ def test_D_fast(F, A, q, D, family, note='', verbose=True, Dstr=None, do_e1=Fals
             out.update({'consistent': False, 'rank': -1, 'nullity': -1, 'order': r1['order'], 'seconds': round(time.time() - t0, 2), 'note': note + ' (E1 fails)'})
             log_entry(**out)
             return out
-    S = EqSystem(F, A, q, D, p=modlu.P22, verbose=verbose, Hw=Hw)
+    p = p or modlu.P22
+    S = EqSystem(F, A, q, D, p=p, verbose=verbose, Hw=Hw)
     res = solve_fast(S, verbose=verbose)
+    out['p'] = p
     out.update({'consistent': res['consistent'], 'rank': res['rank'], 'nullity': res['nullity'],
                 'rows': res['rows'], 'cols': res['cols'], 'order': S.order, 'e1': out.get('e1', None)})
     out['seconds'] = round(time.time() - t0, 2)

@@ -8,3 +8,5 @@ timeout 5400 msolve -v 2 -t 8 -f polar_d7_pd1_homog_p$P.ms -o polar_d7_pd1_homog
 echo done > chain_g.done
 bash /tmp/hodge/results/dense-rational/chain_g2_tail.sh
 bash /tmp/hodge/results/dense-rational/chain_g3_tail.sh
+bash /tmp/hodge/results/dense-rational/chain_g4_tail.sh
+bash /tmp/hodge/results/dense-rational/chain_g5_tail.sh

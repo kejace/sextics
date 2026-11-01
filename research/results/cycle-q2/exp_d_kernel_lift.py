@@ -143,6 +143,10 @@ for kappa, P, how in cands:
     s = f'  D: cons={r.get("consistent")} rk={r.get("rank")} nul={r.get("nullity")} cols={r.get("cols")} |H|={r.get("order")} ({r["seconds"]}s)'
     if r.get('consistent'):
         print('!!!!! CONSISTENT (D) !!!!!', Ds, flush=True)
+    if r.get('e1') is not False:
+        rb = eq.test_D_fast(F, A, q, P, f'E1-kernel-d{d}', note=f'key {kappa} {how} [D] 2nd prime', verbose=False, do_e1=False, p=4194287)
+        s += f' (p2: cons={rb.get("consistent")} rk={rb.get("rank")})'
+        if rb.get('consistent'): print('!!!!! CONSISTENT (D, p2) !!!!!', Ds, flush=True)
     if d <= 6:
         P2 = core.mul(P, P)
         r2 = eq.test_D_fast(F, A, q, P2, f'E1-kernel-d{d}', note=f'key {kappa} {how} [D^2]', verbose=False, Dstr='(' + Ds + ')**2')

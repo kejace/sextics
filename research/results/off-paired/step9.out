@@ -130,3 +130,26 @@ Qx*C                                          d=10 char=(3, 0) E1=False rank 646
 [reduced] d=10 char=(0, 0) rows=5098 cols=1308 (N 904, Q 404) built 0.7s
 Qx*D0                                         d=10 char=(0, 0) E1=True consistent=False rank=1123 nullity=185 26.2s
 Delta_t factors: [(18, 1, 28)]
+[reduced] d=18 char=(0, 0) rows=44107 cols=17390 (N 7784, Q 9606) built 18.8s
+Traceback (most recent call last):
+  File "/tmp/hodge/results/off-paired/step9_fermat_disc.py", line 114, in <module>
+    test('Delta_t = 4Qx^3+27f6^2g6', 'cubic-cover-discriminant', Dt)
+  File "/tmp/hodge/results/off-paired/step9_fermat_disc.py", line 74, in test
+    r = compressed_light(S)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/off-paired/step9_fermat_disc.py", line 35, in compressed_light
+    Cm = fixed_d._compress(M, S.p, k, seed)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/devel/sextics-work/hodge/fixed_d.py", line 311, in _compress
+    lo = (MT @ R_lo.T) % p
+          ~~~^~~~~~~~
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/sparse/_base.py", line 1010, in __matmul__
+    return self._matmul_dispatch(other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/sparse/_base.py", line 902, in _matmul_dispatch
+    return self._matmul_multivector(other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/sparse/_compressed.py", line 409, in _matmul_multivector
+    other.ravel(), result.ravel())
+    ^^^^^^^^^^^^^
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 5.73 GiB for an array with shape (768829117,) and data type int64

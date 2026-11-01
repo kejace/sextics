@@ -1,0 +1,67 @@
+=== sector 00 (D = a^0 b^0 D') ===
+degD : dim S_d'/J , dim S_d'/(J:A) , kernel dim
+0 : 1 , 1 , 0
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+1 : 4 , 4 , 0
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+2 : 12 , 12 , 0
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+3 : 28 , 28 , 0
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+4 : 58 , 58 , 0
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+5 : 104 , 104 , 0
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+6 : 170 , 170 , 0
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+7 : 252 , 252 , 0
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+8 : 347 , 346 , 1
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+9 : 440 , 436 , 4
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+10 : 522 , 346 , 176
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+11 : 576 , 252 , 324
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+12 : 597 , 170 , 427
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+13 : 576 , 104 , 472
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+14 : 522 , 58 , 464
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+15 : 440 , 28 , 412
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+16 : 347 , 12 , 335
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+17 : 252 , 4 , 248
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+18 : 170 , 1 , 169
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+19 : 104 , 0 , 104
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+20 : 58 , 0 , 58
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9
+// ** redefining nC (    return(out);) ::sector:9
+21 : 28 , 0 , 28
+// ** redefining nJ (    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));) ::sector:9

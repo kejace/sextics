@@ -1,0 +1,3 @@
+- [Hodge sextics project setup](hodge-sextics-project-setup.md) — workspace/engine/notes layout, compute options, shell pitfalls for the hodge.computer open-lane attack
+- [Hodge sextics math insights](hodge-sextics-math-insights.md) — what is excluded / which mechanisms could serve the 16 open lanes (2026-11-01)
+- [Subagents must log incrementally](feedback-subagent-incremental-logging.md) — append-as-you-go logs and running reports; a crash lost unsaved agent work

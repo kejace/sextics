@@ -1,0 +1,6 @@
+{"d": 1, "parity_D": 1, "dim S_d": 3, "dim J_d": 0, "rank J_{d+6}": 63, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 396, "cols": 66, "prime": 2147483647, "seconds": 0.1}
+{"d": 2, "parity_D": 1, "dim S_d": 9, "dim J_d": 0, "rank J_{d+6}": 168, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 651, "cols": 177, "prime": 2147483647, "seconds": 0.4}
+{"d": 3, "parity_D": 1, "dim S_d": 28, "dim J_d": 0, "rank J_{d+6}": 378, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 1001, "cols": 406, "prime": 2147483647, "seconds": 1.5}
+{"d": 4, "parity_D": 1, "dim S_d": 60, "dim J_d": 0, "rank J_{d+6}": 750, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 1512, "cols": 816, "prime": 2147483647, "seconds": 15.9}
+{"d": 5, "parity_D": 1, "dim S_d": 126, "dim J_d": 3, "rank J_{d+6}": 1341, "kernel dim (incl J_d)": 3, "kernel mod J": 0, "rows": 2184, "cols": 1512, "prime": 2147483647, "seconds": 39.4}
+{"d": 6, "parity_D": 1, "dim S_d": 226, "dim J_d": 18, "rank J_{d+6}": 2223, "kernel dim (incl J_d)": 18, "kernel mod J": 0, "rows": 3108, "cols": 2602, "prime": 2147483647, "seconds": 265.7}

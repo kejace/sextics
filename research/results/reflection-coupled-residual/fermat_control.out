@@ -1,0 +1,11 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+X0**4 - X0**2*Y0**2 + Y0**4                                  d=4 e1=True status=inconsistent rank=702 nullity=63 (20.5s)
+X0**4 + Y0**4                                                d=4 e1=True status=inconsistent rank=702 nullity=63 (28.4s)
+X0**2*Y0**2                                                  d=4 e1=True status=inconsistent rank=702 nullity=63 (26.8s)
+X0**2 + Y0**2                                                d=2 e1=True status=inconsistent rank=160 nullity=8 (1.0s)
+X0**2 - Y0**2                                                d=2 e1=True status=inconsistent rank=160 nullity=8 (0.7s)
+X0*Y0                                                        d=2 e1=False status=inconsistent rank=157 nullity=11 (0.7s)
+X0**4 + X1**4 + X2**4 + Y2**4                                d=4 e1=False status=inconsistent rank=706 nullity=59 (177.8s)
+X0**4 + Y0**4 + Y2**4                                        d=4 e1=False status=inconsistent rank=704 nullity=61 (19.8s)
+X1**4 + X2**4 + Y1**4 + Y2**4                                d=4 e1=False status=inconsistent rank=705 nullity=60 (25.2s)
+X0**6 + Y0**6                                                d=6 e1=True status=inconsistent rank=2299 nullity=303 (419.7s)

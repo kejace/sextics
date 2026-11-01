@@ -1,0 +1,33 @@
+rkJ 168 D8 not in J: ok
+(01)D8 in span(J, D8)? True
+    (01)D8 = 1 * D8 mod J ? True
+    (01)D8 = -1 * D8 mod J ? False
+cycD8 in span(J, D8)? False
+X0^2X1^2Y0^2Y1^2                                                       inJ=False in span(J,D8)=False
+X0^2Y0^2 X1^2Y1^2 + X0^2Y0^2 X2^2Y2^2 + X1^2Y1^2 X2^2Y2^2              inJ=False in span(J,D8)=False
+(X0Y0)^2 (X1Y1)^2 - ... anti                                           inJ=False in span(J,D8)=False
+X0^4Y0^4 + X1^4Y1^4                                                    inJ=False in span(J,D8)=False
+X0^4Y0^4 - X1^4Y1^4                                                    inJ=False in span(J,D8)=False
+X2^4 Y2^4                                                              inJ=False in span(J,D8)=False
+X2^8                                                                   inJ=False in span(J,D8)=False
+Y2^8                                                                   inJ=False in span(J,D8)=False
+I=(X0,X1,X2)^3: dim(I^k+J)_8=567 (J=168, I^k rows=1260), D8 in I^k+J: False  [17.3s]
+I=(X0,X1,X2)^4: dim(I^k+J)_8=567 (J=168, I^k rows=990), D8 in I^k+J: False  [7.2s]
+I=(Y0,Y1,Y2)^3: dim(I^k+J)_8=575 (J=168, I^k rows=1260), D8 in I^k+J: False  [14.5s]
+I=(Y0,Y1,Y2)^4: dim(I^k+J)_8=575 (J=168, I^k rows=990), D8 in I^k+J: False  [12.2s]
+I=(X0,Y0)^2: dim(I^k+J)_8=566 (J=168, I^k rows=698), D8 in I^k+J: False  [5.0s]
+I=(X0,Y0)^3: dim(I^k+J)_8=474 (J=168, I^k rows=504), D8 in I^k+J: False  [5.0s]
+I=(X2,Y2)^2: dim(I^k+J)_8=566 (J=168, I^k rows=698), D8 in I^k+J: False  [7.9s]
+I=(X2,Y2)^3: dim(I^k+J)_8=474 (J=168, I^k rows=504), D8 in I^k+J: False  [3.9s]
+I=(X0,X1)^2: dim(I^k+J)_8=574 (J=168, I^k rows=708), D8 in I^k+J: False  [5.5s]
+I=(Y0,Y1)^2: dim(I^k+J)_8=576 (J=168, I^k rows=708), D8 in I^k+J: False  [4.0s]
+I=(r,s)^2: dim(I^k+J)_8=546 (J=168, I^k rows=698), D8 in I^k+J: False  [9.9s]
+I=(r,s)^3: dim(I^k+J)_8=462 (J=168, I^k rows=504), D8 in I^k+J: False  [7.0s]
+I=(p,q)^2: dim(I^k+J)_8=566 (J=168, I^k rows=698), D8 in I^k+J: False  [7.5s]
+I=(p,q)^3: dim(I^k+J)_8=474 (J=168, I^k rows=504), D8 in I^k+J: False  [4.0s]
+I=(X0,X1,X2,Y0)^4: dim(I^k+J)_8=627 (J=168, I^k rows=2232), D8 in I^k+J: False  [71.9s]
+I=(X0,X1,Y0,Y1)^4: dim(I^k+J)_8=634 (J=168, I^k rows=2214), D8 in I^k+J: False  [45.8s]
+I=(X0,Y0,X1)^3: dim(I^k+J)_8=617 (J=168, I^k rows=1260), D8 in I^k+J: False  [11.4s]
+I=(X0,Y0,Y1)^3: dim(I^k+J)_8=622 (J=168, I^k rows=1260), D8 in I^k+J: False  [10.1s]
+I=(r,s,X2)^3: dim(I^k+J)_8=606 (J=168, I^k rows=1260), D8 in I^k+J: False  [11.4s]
+I=(r,s,Y2)^3: dim(I^k+J)_8=606 (J=168, I^k rows=1260), D8 in I^k+J: False  [14.1s]

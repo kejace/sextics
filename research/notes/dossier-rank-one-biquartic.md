@@ -34,7 +34,11 @@ Headline (for readers in a hurry).
 * New here: the exact Jacobian-ring annihilator profile of `[A]`. For Y-even denominators of degree `d <= 6`
   the necessary condition `A D in J` forces `D in J` (proved); the first non-Jacobian admissible denominators
   appear in degree 7 (a 3-dimensional space modulo `J`), then 9 in degree 8, 27 in degree 9 (modular upper bounds,
-  stable under two primes at degree 7). All natural low-degree denominators (`L, M, L^2, LM, M^2, F_Xi, f, g, f+g,
+  stable under two primes at degree 7). The full annihilator ideal computed by Singular modulo 10007 is
+  `(J : A) = J + (3 generators of degree 7, 3 of degree 8, 456 of degree 10)`, with `(J:A)/J` of dimension
+  `3, 18, 54, 573, 1023, 1325` in degrees `7..12` (both parities) and multiplication by `A` surjective onto
+  `(S/J)_{d+6}` for `d >= 12` (the latter is a proved statement over `Q`). Every member of the degree-7 family and
+  every tested member of the degree-8 family fails the complete `E_2` system modulo 10007. All natural low-degree denominators (`L, M, L^2, LM, M^2, F_Xi, f, g, f+g,
   E_X(F), ...`) fail the complete fixed-denominator system modulo 10007. The exact deformation residual of the
   Euler field is `8 t A L^2 M / E_X(F)^2`, which is precisely the source fqlx's "elliptic19 passive current"
   fails to integrate.
@@ -413,6 +417,12 @@ trivial part `J_d^+`, and the difference `dim Ann_{S/J}([A])_d^+`.
 | 9 | 7752 | 9009 | 7129 | 1001 | 405 | 378 | **27** |
 | 10 | not computed (the `d = 10` run, `e1_profile_d10.log`, was killed at start). Dimension bound, exact over any field: kernel `>= dim S_10^+ - dim (S/J)_16^- = 1512 - 468 = 1044` (`(S/J)_16^- ~ (S/J)_8^-` by Gorenstein duality, socle Y-even), `dim J_10^+ = 1512 - 762 = 750` | | | 1512 | >= 1044 | 750 | **>= 294** (bound) |
 
+Both parities together (Singular, `(J:A)` mod 10007, 4.6): `dim ((J:A)/J)_d = HF(S/J)_d - HF(S/(J:A))_d` is
+`0, 0, 0, 0, 0, 0, 0, 3, 18, 54, 573, 1023, 1325, 1260, 1260, 1120, 895, 645, 420, 245, 126, 56, 21, 6, 1` for
+`d = 0..24`. Comparison with the Y-even column: degree 7 is entirely Y-even (3 = 3); degree 8 splits `9 + 9`; degree 9
+splits `27 + 27`. From degree 12 on the annihilator has exactly the dimension forced by `dim (S/J)_d - dim (S/J)_{d+6}`
+(multiplication by `A` is surjective in those degrees); in degrees 10 and 11 it exceeds the forced value by 18 and 3.
+
 Rigor. In every row `rank_p(J block) = dim_Q J_{d+6}^-` (the regular-sequence value, which is the same over `Q` by
 the connectedness/semicontinuity argument), so `dim_Q ker <= dim_p ker`; since `J_d^+ subset ker` over any field,
 rows with `kernel = dim J_d^+` are **proved over C**: for `d <= 6`, every Y-even `D` with `A D in J` lies in `J`.
@@ -420,9 +430,8 @@ Consequences (proved): no certificate whose Y-even denominator has degree `<= 4`
 denominator of degree `<= 2`; a certificate with Y-even `D` of degree 5 or 6 must have `D = dF(G)` for a block-linear
 polynomial field `G` (`G_i in <X0,X1,X2>` for `i < 3`, `G_j in <Y0,Y1,Y2>` for `j >= 3`), 3 resp. 18 parameters.
 For `d = 7, 8, 9` the nonzero values are modular *upper* bounds; the degree-7 value 3 was recomputed at `p = 65521`
-with identical dimension (`ann7_p65521.log`). The sequence 3, 9, 27 is consistent with an ideal generated in degree 7
-(`Ann` is an ideal of `S/J`), and the minimal generators are being computed exactly by Singular (`quotient(J, A)`,
-see 4.6).
+with identical dimension (`ann7_p65521.log`). The sequence 3, 9, 27 is *not* generated in degree 7 alone: Singular (4.6) finds minimal generators of `(J:A)`
+beyond `J` in degrees 7 (three), 8 (three) and 10 (456), none in degree 9, 11 or higher.
 
 Structure of the degree-7 family (`ann7.py`, `ann7_e2.py`): the three representatives modulo `J_7^+` are
 irreducible (flint factorization mod p), have 106-109 terms, leading monomial `X0^7`, and are **not** of the form
@@ -497,14 +506,60 @@ denominators of degree 5 (the kernel is exactly `J_5^+`, dimension 3).
 
 `B_{E_X(F)}(A X) = 8 t A L^2 M`, `div(A E_X/E_X(F)) = 8 t A L^2 M / E_X(F)^2`; identical form for `E_Y`.
 
-### 4.6 Singular ideal quotient `(J : A)` (`sing_r1/quot_p10007.sing`, `quot_p0.sing`)
+### 4.6 Singular ideal quotient `(J : A)` (`sing_r1/quot_p10007.sing`, log `quot_p10007_resume.log`)
 
-`std(J)` modulo 10007 has 1912 elements (43 s). The script then computes `quotient(J, A)`, its minimal generators
-with degrees and factorizations, the Hilbert function of `S/(J:A)`, and membership tests
-`A * D in J` for `D in {L, M, f, g, L^2M, D_X, D_Y, f g, f L^2M, g L^2M, (L^2M)^2, f^2, g^2, Delta' (deg 18),
-g Delta' (deg 24), L^3, M^3, LM, L^2, M^2, det Hess(F) (deg 24)}`. Expected: `det Hess(F)` passes (book 5.2
-formula `D_0 = det H`, `N_0 = (5/6) adj(H) grad A`); `Delta'` is the interesting one. **Pending** (both the mod-p and
-the characteristic-zero run were still in `std`/`quotient` when this dossier was written; see the logs).
+Re-run in the second session (Singular 4.4.1, `Z/10007[X0..Y2]`, degrevlex). `std(J)`: 1912 elements, 34 s;
+`quotient(J, A)`: 604 s. Results, all modulo 10007:
+
+* **Minimal generators of `(J:A)`: 468.** Six of degree 5 (the partials `F_i`, i.e. `J` itself), **3 of degree 7**
+  (208 terms each, leading monomials `X1^5 X2^2`, `X0 X1^4 X2^2`, `X0^3 X1^2 X2^2`, all Y-even, each irreducible
+  over `F_10007` and not in `J`), **3 of degree 8** (351 terms each, leading monomials `X1^3 X2^5`, `X0 X1^2 X2^5`,
+  `X0^2 X1 X2^5`, Y-even, irreducible, not in `J`), none of degree 9, and **456 of degree 10** (459-475 terms each,
+  not in `J`); none of degree `>= 11`. Hence `Ann_{S/J}([A])` is generated by 3 + 3 + 456 classes in degrees 7, 8, 10.
+* **Hilbert function of `S/(J:A)`**, degrees 0..18:
+  `1, 6, 21, 56, 126, 246, 426, 663, 933, 1192, 933, 663, 426, 246, 126, 56, 21, 6, 1`, zero from degree 19 on.
+  It is symmetric about 9 with socle degree 18, as it must be: `S/(J:A) ~ A (S/J)`, a principal ideal in the
+  Gorenstein ring `S/J` (socle degree 24), which is Gorenstein with socle degree `24 - 6 = 18`. The value
+  `HF(S/(J:A))_k` is the rank of multiplication by `A` from `(S/J)_k` to `(S/J)_{k+6}`; the modular rank is a lower
+  bound for the rank over `Q`, so the modular annihilator dimensions `dim (S/J)_k - HF_k` are upper bounds over `Q`,
+  and where they equal the trivial lower bound `dim (S/J)_k - dim (S/J)_{k+6}` (degrees `>= 12`) they are exact.
+  Hilbert function of `S/J` (degrees 0..24): `1, 6, 21, 56, 126, 246, 426, 666, 951, 1246, 1506, 1686, 1751, 1686,
+  ..., 1`, the Fermat value, as expected.
+* **Membership tests `A D in J`** (1 = yes): `L, M, f, g, L^2M`: 0 (confirms 4.2); `D_X, D_Y`: 1; `D_X in J`: 1;
+  `f - 2g in J`: 1; the degree-12 base-type products `f g, f L^2M, g L^2M, (L^2M)^2, f^2, g^2`: all 0, so none of the
+  natural degree-12 polynomials in `(f, g, L^2 M)` is `E_1`-admissible (the admissible degree-12 space is the
+  1325-dimensional one above, but it is not generated by these products). Further: `A L^3, A M^3, A LM, A L^2, A M^2`: 0. **`Delta' = 4t^3 L^6 M^3 + 27 f^2 g` (degree 18) lies in `J`
+  modulo 10007** (`Disc in J: 1`; hence trivially `A Delta'`, `A g Delta' in J`). This is modular evidence that the
+  genuine branch divisor of the cubic cover is a polar `dF(G)` with `G` of degree 13, i.e. an `E_1`-admissible
+  denominator *for the trivial reason*; its `E_2` test (degree 36, ~`1.1e5` rows) was not run. A characteristic-zero
+  proof of `Delta' in J` would be a 33649 x 33649-ish linear solve or a Groebner reduction over `Q` (not done).
+  The `det Hess(F)` test (degree 24) had not printed when this revision was written (see the end of the log; `A det Hess`
+  is trivially in `J` by degree).
+* The characteristic-zero run (`quot_p0.sing`) was killed in `std` by the session crash and was **not** re-run.
+
+Interpretation. The annihilator is tiny through degree 9 (3, 18, 54 total, half of each Y-even for `d = 8, 9`) and
+becomes large exactly at degree 10 (573, with 456 fresh generators). Every `E_1`-admissible denominator of degree
+`<= 9` is therefore a combination `sum_i l_i G_i^{(7)} + sum_j m_j G_j^{(8)} + (element of J)` with the six low
+generators, and the first place where "new" denominators not built from these six appear is degree 10, matching
+the search-space statement in sections 5-6 (the degree-10 Y-even family is at least 294-dimensional modulo `J`).
+
+### 4.7 Degree-8 annihilator family, complete `E_2` test (`annE2.py 10007 8`, log `annE2_d8.log`)
+
+Re-run in the second session with a 1700 s limit. `E_1` nullspace at `d = 8`: nullity 1131 (108 s), kernel of
+`D -> [AD]` of dimension 177 with `dim J_8^+ = 168`, so `dim Ann mod J = 9` as in 4.2. Normalized `E_2` in degree
+16: 10152 rows, 954 Koszul unknowns, 1491 unknowns `C in S_10^-`. Results (each ~200-280 s):
+
+| member of the degree-8 family (mod `J_8^+`) | D in J | rank M | rank [M b] | result |
+|---|---|---|---|---|
+| rep0 | no | 2286 | 2287 | inconsistent |
+| rep1 | no | 2286 | 2287 | inconsistent |
+| rep2 | no | 2286 | 2287 | inconsistent |
+| rep3 | no | 2286 | 2287 | inconsistent |
+| rep4 .. rep8, two random members of the 177-dim affine family | | | | **not reached** before the 1700 s limit |
+
+Members not reached before the time limit were **not tested**. The pattern (`rank [M|b] = rank M + 1` for every
+tested member, in degrees 7 and 8 alike) is the signature expected if the obstruction is a single linear functional
+(the Gysin/residue functional of the packet's written argument) that does not vanish on the whole family.
 
 ---
 
@@ -679,9 +734,10 @@ python3 /tmp/hodge/scratch/rank_one_compute.py e1 9              # ~12 min; e1 1
 python3 /tmp/hodge/scratch/rank_one_compute.py fixed [names...]  # minutes per degree-6 denominator
 python3 /tmp/hodge/scratch/ann7.py 10007 7 ; python3 ann7.py 65521 7
 python3 /tmp/hodge/scratch/ann7_e2.py 10007
+python3 /tmp/hodge/scratch/annE2.py 10007 8 2   # ~30 min; degree-9: annE2.py 10007 9 (not run)
 python3 /tmp/hodge/scratch/tstruct.py 10007 7
 python3 /tmp/hodge/scratch/polar_sweep2.py 101
-Singular -q /tmp/hodge/scratch/sing_r1/quot_p10007.sing
+Singular -q /tmp/hodge/scratch/sing_r1/quot_p10007.sing   # ~11 min to (J:A) and generators; output quot_p10007_resume.log
 ```
 
 All linear algebra is exact modulo the stated prime (python-flint `nmod_mat.rank/nullspace`), polynomial arithmetic

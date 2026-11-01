@@ -1,0 +1,41 @@
+// E1 kernel of quadric-contact-residual by V-sector, WEIGHTED degrees.
+// Ring k[u,v,x1,x2,y1,y2], weights (2,2,1,1,1,1); u=(X0-Y0)^2, v=(X0+Y0)^2; F=G(u,v,..), A = ((v-u)/4)^3.
+// Sector (i,j): D = a^i b^j D', D' in (J_ij : (v-u)^3).  deg D = i+j+wdeg(D').
+option(redSB);
+ring r = 32003, (u,v,x1,x2,y1,y2), wp(2,2,1,1,1,1);
+intvec w = 2,2,1,1,1,1;
+poly S = (u+v)/2;  poly P = (v-u)/4;
+poly Q1 = x1^2*y1^2 + x1*x2*y1*y2 + x2^2*y2^2;
+poly Q2 = x1*y1*(x2^2 + 2*y2^2);
+poly R = x1^6 + x2^6 + y1^6 + y2^6;
+poly G = S^3 + 2*P^2*S + 5*S*Q1 + (5/7)*P*Q2 + R;
+poly Gu = diff(G,u); poly Gv = diff(G,v);
+poly A3 = (v-u)^3;
+ideal Jx = diff(G,x1), diff(G,x2), diff(G,y1), diff(G,y2);
+proc sector(ideal Jij, int i, int j, string name)
+{
+  ideal Js = std(Jij);
+  ideal C = quotient(Js, A3);
+  ideal Cs = std(C);
+  print("=== sector " + name + " (D = a^" + string(i) + " b^" + string(j) + " D') ===");
+  print("degD : dim S_d'/J , dim S_d'/(J:A) , kernel dim");
+  int d;
+  for (d = 0; d <= 24 - i - j; d++) {
+    int nJ = size(weightKB(Js, d, w)); int nC = size(weightKB(Cs, d, w));
+    print(string(d+i+j) + " : " + string(nJ) + " , " + string(nC) + " , " + string(nJ - nC));
+  }
+  // new generators of the colon modulo J, low degree
+  ideal Cmin = minbase(C);
+  int k;
+  for (k = 1; k <= size(Cmin); k++) {
+    poly g = reduce(Cmin[k], Js);
+    if (g != 0 and deg(Cmin[k]) + i + j <= 12) {
+      print("GEN " + name + " degD=" + string(deg(Cmin[k]) + i + j) + " : " + string(Cmin[k]));
+    }
+  }
+}
+ideal J00 = ideal(u*Gu, v*Gv) + Jx; sector(J00, 0, 0, "00");
+ideal J10 = ideal(Gu, v*Gv) + Jx; sector(J10, 1, 0, "10");
+ideal J01 = ideal(u*Gu, Gv) + Jx; sector(J01, 0, 1, "01");
+ideal J11 = ideal(Gu, Gv) + Jx; sector(J11, 1, 1, "11");
+quit;

@@ -1,0 +1,4 @@
+fermat-cone4   cone X0,X1,X2,Y0                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2980 nul=1080 cols=4060 |H|=432 [103s]
+fermat-cone4   cone X0,X1,X2,Y1                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2976 nul=1084 cols=4060 |H|=432 [197s]
+fermat-cone4   cone X0,X1,X2,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2977 nul=1083 cols=4060 |H|=432 [293s]
+fermat-cone4   cone X0,X1,Y0,Y1                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2973 nul=1087 cols=4060 |H|=432 [429s]
