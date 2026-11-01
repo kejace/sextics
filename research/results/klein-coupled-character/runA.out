@@ -1,0 +1,21 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[e1-kernel] d=9 k=0 parD=0: #Dmon=116 dimR_(d+6)=90 kernel(total)=35 J_d=33 nontrivial=2
+d=9 parD=0 k=0: nontrivial kernel 2, J_d block 33 gens  [2.9s]
+   rep #0: e1=True consistent=False rank=633 nullity=43 rows=2353 cols=676 8.4s
+   rep #1: e1=True consistent=False rank=633 nullity=43 rows=2350 cols=676 12.71s
+   random kernel combo 0: consistent=False rank=633 nullity=43 17.91s
+   random kernel combo 1: consistent=False rank=633 nullity=43 9.35s
+   random kernel combo 2: consistent=False rank=633 nullity=43 14.36s
+   random kernel+J 0: consistent=False rank=633 nullity=43 22.86s
+   random kernel+J 1: consistent=False rank=633 nullity=43 27.17s
+   random kernel+J 2: consistent=False rank=633 nullity=43 25.23s
+[e1-kernel] d=9 k=1 parD=0: #Dmon=156 dimR_(d+6)=90 kernel(total)=66 J_d=63 nontrivial=3
+d=9 parD=0 k=1: nontrivial kernel 3, J_d block 63 gens  [2.7s]
+   rep #0: e1=True consistent=False rank=659 nullity=49 rows=2352 cols=708 9.56s
+   rep #1: e1=True consistent=False rank=659 nullity=49 rows=2352 cols=708 21.76s
+   rep #2: e1=True consistent=False rank=659 nullity=49 rows=2357 cols=708 16.68s
+   random kernel combo 0: consistent=False rank=659 nullity=49 31.44s
+   random kernel combo 1: consistent=False rank=659 nullity=49 42.6s
+   random kernel combo 2: consistent=False rank=659 nullity=49 26.89s
+   random kernel+J 0: consistent=False rank=659 nullity=49 11.8s
+   random kernel+J 1: consistent=False rank=659 nullity=49 19.58s

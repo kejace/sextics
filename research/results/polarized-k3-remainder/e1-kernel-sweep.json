@@ -1,0 +1,32 @@
+{
+ "10": {
+  "d": 10,
+  "dimRd": 1506,
+  "dimRd6": 951,
+  "rank": 951,
+  "kernel": 555,
+  "seconds": 15.7,
+  "kernel_sym": 294,
+  "kernel_anti": 261
+ },
+ "11": {
+  "d": 11,
+  "dimRd": 1686,
+  "dimRd6": 666,
+  "rank": 666,
+  "kernel": 1020,
+  "seconds": 29.6,
+  "kernel_sym": 510,
+  "kernel_anti": 510
+ },
+ "12": {
+  "d": 12,
+  "dimRd": 1751,
+  "dimRd6": 426,
+  "rank": 426,
+  "kernel": 1325,
+  "seconds": 36.7,
+  "kernel_sym": 677,
+  "kernel_anti": 648
+ }
+}

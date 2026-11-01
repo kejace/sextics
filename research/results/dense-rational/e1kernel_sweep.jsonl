@@ -1,0 +1,18 @@
+{"mode": "dual", "d": 18, "e": 0, "rankA": 0, "dimR": 218, "kernel_mod_J": 218, "rows": 236, "cols": 18, "seconds": 0.0}
+{"mode": "dual", "d": 17, "e": 1, "rankA": 3, "dimR": 333, "kernel_mod_J": 330, "rows": 396, "cols": 66, "seconds": 0.0}
+{"mode": "dual", "d": 16, "e": 2, "rankA": 9, "dimR": 483, "kernel_mod_J": 474, "rows": 651, "cols": 177, "seconds": 0.2}
+{"mode": "dual", "d": 15, "e": 3, "rankA": 28, "dimR": 623, "kernel_mod_J": 595, "rows": 1001, "cols": 406, "seconds": 0.9}
+{"mode": "dual", "d": 14, "e": 4, "rankA": 60, "dimR": 762, "kernel_mod_J": 702, "rows": 1512, "cols": 816, "seconds": 2.9}
+{"mode": "direct", "d": 1, "Kfull": 0, "dimJ": 0, "kernel_mod_J": 0, "rows": 396, "cols": 66, "seconds": 0.1}
+{"mode": "direct", "d": 2, "Kfull": 0, "dimJ": 0, "kernel_mod_J": 0, "rows": 636, "cols": 180, "seconds": 0.1}
+{"mode": "direct", "d": 3, "Kfull": 0, "dimJ": 0, "kernel_mod_J": 0, "rows": 1001, "cols": 406, "seconds": 2.1}
+{"mode": "dual", "d": 13, "e": 5, "rankA": 123, "dimR": 843, "kernel_mod_J": 720, "rows": 2184, "cols": 1512, "seconds": 10.2}
+{"mode": "direct", "d": 4, "Kfull": 0, "dimJ": 0, "kernel_mod_J": 0, "rows": 1491, "cols": 822, "seconds": 5.3}
+{"mode": "direct", "d": 5, "Kfull": 3, "dimJ": 3, "kernel_mod_J": 0, "rows": 2184, "cols": 1512, "seconds": 10.5}
+{"mode": "dual", "d": 12, "e": 6, "rankA": 208, "dimR": 885, "kernel_mod_J": 677, "rows": 3108, "cols": 2602, "seconds": 25.8}
+{"mode": "direct", "d": 6, "Kfull": 18, "dimJ": 18, "kernel_mod_J": 0, "rows": 3080, "cols": 2612, "seconds": 32.1}
+{"mode": "dual", "d": 11, "e": 7, "rankA": 333, "dimR": 843, "kernel_mod_J": 510, "rows": 4284, "cols": 4257, "seconds": 104.8}
+{"mode": "direct", "d": 7, "Kfull": 63, "dimJ": 63, "kernel_mod_J": 0, "rows": 4284, "cols": 4257, "seconds": 89.3}
+{"mode": "dual", "d": 10, "e": 8, "rankA": 468, "dimR": 762, "kernel_mod_J": 294, "rows": 5832, "cols": 6642, "seconds": 197.8}
+{"mode": "direct", "d": 8, "Kfull": 168, "dimJ": 168, "kernel_mod_J": 0, "rows": 5796, "cols": 6657, "seconds": 437.3}
+{"mode": "direct", "d": 9, "Kfull": 378, "dimJ": 378, "kernel_mod_J": 0, "rows": 7752, "cols": 10010, "seconds": 605.1}

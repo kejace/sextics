@@ -1,0 +1,9 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[system] d=2 q=1 rows=711 cols=168 (N 168, Q 0) nnz=2145 built in 0.0s
+[compressed p=2147483647] k=209 consistent=True rank=159 nullity=9 (compress 0.1s, rref 0.2s)
+[exact] fmpq solve 159x159 in 0.1s
+[system] d=6 q=1 rows=11638 cols=2602 (N 2376, Q 226) nnz=43331 built in 0.7s
+[compressed p=2147483647] k=2643 consistent=True rank=2337 nullity=265 (compress 12.0s, rref 47.8s)
+[exact] fmpq solve 2337x2337 in 168.3s
+[system] d=6 q=1 rows=11260 cols=2602 (N 2376, Q 226) nnz=53154 built in 0.8s
+[compressed p=2147483647] k=2643 consistent=True rank=2325 nullity=277 (compress 30.9s, rref 95.7s)

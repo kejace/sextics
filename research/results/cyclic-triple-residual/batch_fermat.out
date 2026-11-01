@@ -1,0 +1,10 @@
+d= 6 e1=True  cons=False rank= 2299 null= 303   312.7s  fermat:cone-hyperplanes X0**6 + Y0**6
+d= 3 e1=None  cons=None  rank=   -1 null=  -1     0.0s  fermat:half            X0**3 + Y0**3
+d= 2 e1=True  cons=False rank=  160 null=   8     1.2s  fermat:quadric         X0**2 + Y0**2
+d= 6 e1=True  cons=False rank= 2305 null= 297   345.7s  fermat:cone-hyperplanes-wrong-sign X0**6 - Y0**6
+d= 3 e1=False cons=None  rank=  378 null=   0     0.6s  fermat:cone3-X         X0**3 + X1**3 + X2**3
+d= 3 e1=False cons=None  rank=  378 null=   0     0.3s  fermat:cone3-Y         Y0**3 + Y1**3 + Y2**3
+d= 3 e1=False cons=None  rank=  378 null=   0     0.6s  fermat:cone3-mixed     X0**3 + X1**3 + X0*Y0**2
+d= 3 e1=False cons=None  rank=  378 null=   0     0.5s  fermat:cone3-mixed-odd Y0**3 + Y1**3 + X0**2*Y0
+d= 4 e1=False cons=None  rank=  747 null=   9     4.3s  fermat:cone4-quartic   X0**4 + X1**4 + X2**4 + Y0**4
+d= 6 e1=True  cons=False rank= 2305 null= 297   353.9s  fermat:cone4-sextic    X0**6 + X1**6 + X2**6 + Y0**6

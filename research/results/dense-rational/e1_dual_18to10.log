@@ -1,0 +1,10 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[dual d=18 via e=0] rows=236 cols=18 rank=18 dimJ_6^+=18 rank[A]=0 dimR_d^+=218 kernel_mod_J=218 (0.0s)
+[dual d=17 via e=1] rows=396 cols=66 rank=66 dimJ_7^+=63 rank[A]=3 dimR_d^+=333 kernel_mod_J=330 (0.0s)
+[dual d=16 via e=2] rows=651 cols=177 rank=177 dimJ_8^+=168 rank[A]=9 dimR_d^+=483 kernel_mod_J=474 (0.2s)
+[dual d=15 via e=3] rows=1001 cols=406 rank=406 dimJ_9^+=378 rank[A]=28 dimR_d^+=623 kernel_mod_J=595 (0.9s)
+[dual d=14 via e=4] rows=1512 cols=816 rank=810 dimJ_10^+=750 rank[A]=60 dimR_d^+=762 kernel_mod_J=702 (2.9s)
+[dual d=13 via e=5] rows=2184 cols=1512 rank=1464 dimJ_11^+=1341 rank[A]=123 dimR_d^+=843 kernel_mod_J=720 (10.2s)
+[dual d=12 via e=6] rows=3108 cols=2602 rank=2431 dimJ_12^+=2223 rank[A]=208 dimR_d^+=885 kernel_mod_J=677 (25.8s)
+[dual d=11 via e=7] rows=4284 cols=4257 rank=3774 dimJ_13^+=3441 rank[A]=333 dimR_d^+=843 kernel_mod_J=510 (104.8s)
+[dual d=10 via e=8] rows=5832 cols=6642 rank=5538 dimJ_14^+=5070 rank[A]=468 dimR_d^+=762 kernel_mod_J=294 (197.8s)

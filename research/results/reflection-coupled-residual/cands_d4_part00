@@ -1,0 +1,24 @@
+cone4-Y2-fermat	X0**4 + X1**4 + X2**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X1**4 + X2**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X1**4 + X2**4 + Y2**4 + X0**2*Y2**2 - 2*X1**2*X2**2
+cone4-Y2-fermat	X0**4 + X1**4 + Y0**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X1**4 + Y0**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X1**4 + Y0**4 + Y2**4 + X0**2*Y2**2 - 2*X1**2*Y0**2
+cone4-Y2-fermat	X0**4 + X1**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X1**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X1**4 + Y1**4 + Y2**4 + X0**2*Y2**2 - 2*X1**2*Y1**2
+cone4-Y2-fermat	X0**4 + X2**4 + Y0**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X2**4 + Y0**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X2**4 + Y0**4 + Y2**4 + X0**2*Y2**2 - 2*X2**2*Y0**2
+cone4-Y2-fermat	X0**4 + X2**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X2**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X2**4 + Y1**4 + Y2**4 + X0**2*Y2**2 - 2*X2**2*Y1**2
+cone4-Y2-fermat	X0**4 + Y0**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + Y0**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + Y0**4 + Y1**4 + Y2**4 + X0**2*Y2**2 - 2*Y0**2*Y1**2
+cone4-Y2-fermat	X1**4 + X2**4 + Y0**4 + Y2**4
+cone4-Y2-fermat-c	X1**4 + X2**4 + Y0**4 - 3*Y2**4
+cone4-Y2-mixed	X1**4 + X2**4 + Y0**4 + Y2**4 + X1**2*Y2**2 - 2*X2**2*Y0**2
+cone4-Y2-fermat	X1**4 + X2**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X1**4 + X2**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X1**4 + X2**4 + Y1**4 + Y2**4 + X1**2*Y2**2 - 2*X2**2*Y1**2

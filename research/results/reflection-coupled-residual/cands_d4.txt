@@ -1,0 +1,50 @@
+cone4-Y2-fermat	X0**4 + X1**4 + X2**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X1**4 + X2**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X1**4 + X2**4 + Y2**4 + X0**2*Y2**2 - 2*X1**2*X2**2
+cone4-Y2-fermat	X0**4 + X1**4 + Y0**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X1**4 + Y0**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X1**4 + Y0**4 + Y2**4 + X0**2*Y2**2 - 2*X1**2*Y0**2
+cone4-Y2-fermat	X0**4 + X1**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X1**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X1**4 + Y1**4 + Y2**4 + X0**2*Y2**2 - 2*X1**2*Y1**2
+cone4-Y2-fermat	X0**4 + X2**4 + Y0**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X2**4 + Y0**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X2**4 + Y0**4 + Y2**4 + X0**2*Y2**2 - 2*X2**2*Y0**2
+cone4-Y2-fermat	X0**4 + X2**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + X2**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + X2**4 + Y1**4 + Y2**4 + X0**2*Y2**2 - 2*X2**2*Y1**2
+cone4-Y2-fermat	X0**4 + Y0**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X0**4 + Y0**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X0**4 + Y0**4 + Y1**4 + Y2**4 + X0**2*Y2**2 - 2*Y0**2*Y1**2
+cone4-Y2-fermat	X1**4 + X2**4 + Y0**4 + Y2**4
+cone4-Y2-fermat-c	X1**4 + X2**4 + Y0**4 - 3*Y2**4
+cone4-Y2-mixed	X1**4 + X2**4 + Y0**4 + Y2**4 + X1**2*Y2**2 - 2*X2**2*Y0**2
+cone4-Y2-fermat	X1**4 + X2**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X1**4 + X2**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X1**4 + X2**4 + Y1**4 + Y2**4 + X1**2*Y2**2 - 2*X2**2*Y1**2
+cone4-Y2-fermat	X1**4 + Y0**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X1**4 + Y0**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X1**4 + Y0**4 + Y1**4 + Y2**4 + X1**2*Y2**2 - 2*Y0**2*Y1**2
+cone4-Y2-fermat	X2**4 + Y0**4 + Y1**4 + Y2**4
+cone4-Y2-fermat-c	X2**4 + Y0**4 + Y1**4 - 3*Y2**4
+cone4-Y2-mixed	X2**4 + Y0**4 + Y1**4 + Y2**4 + X2**2*Y2**2 - 2*Y0**2*Y1**2
+cone4-noY2-fermat	X0**4 + X1**4 + X2**4 + Y0**4
+cone4-noY2-fermat	X0**4 + X1**4 + X2**4 + Y1**4
+cone4-noY2-fermat	X0**4 + X1**4 + Y0**4 + Y1**4
+cone4-noY2-fermat	X0**4 + X2**4 + Y0**4 + Y1**4
+cone4-noY2-fermat	X1**4 + X2**4 + Y0**4 + Y1**4
+cofactor-Y0Y1	X0**3*X1 + X0*X1*Y0**2 + 3*X0*X2**3 + 2*X1**3*X2 + X1*X2*Y1**2
+G2-u-coefficient	X0*X1*Y0**2 + 2*X0*X1*Y1**2
+binary-X0Y0-phi12	X0**4 - X0**2*Y0**2 + Y0**4
+binary-X0Y0-sum4	X0**4 + Y0**4
+binary-X0Y0-diff4	X0**4 - Y0**4
+binary-X0Y0-sq	X0**2*Y0**2
+binary-X0Y2-phi12	X0**4 - X0**2*Y2**2 + Y2**4
+binary-Y0Y2-phi12	Y0**4 - Y0**2*Y2**2 + Y2**4
+binary-X0Y0-plus-Y2	X0**4 - X0**2*Y0**2 + Y0**4 + Y2**4
+ternary-X0Y0Y2	X0**4 + Y0**4 + Y2**4
+ternary-X0Y0Y1	X0**4 + Y0**4 + Y1**4
+ternary-X0X1Y2	X0**4 + X1**4 + Y2**4
+all6-quartic	X0**4 + X1**4 + X2**4 + Y0**4 + Y1**4 + Y2**4
+five-quartic-noY2	X0**4 + X1**4 + X2**4 + Y0**4 + Y1**4
+five-quartic-noX0	X1**4 + X2**4 + Y0**4 + Y1**4 + Y2**4

@@ -1,0 +1,7 @@
+{"d": 1, "which": "ours", "cols": 396, "rowsJ": 63, "rowsA": 3, "rankJ": 63, "rank_stack": 66, "dimK": 0, "dimJd_even": 0, "dimK_mod_J": 0, "dimR_odd": 333, "seconds": 0.0}
+{"d": 2, "which": "ours", "cols": 636, "rowsJ": 168, "rowsA": 12, "rankJ": 168, "rank_stack": 180, "dimK": 0, "dimJd_even": 0, "dimK_mod_J": 0, "dimR_odd": 468, "seconds": 0.2}
+{"d": 3, "which": "ours", "cols": 1001, "rowsJ": 378, "rowsA": 28, "rankJ": 378, "rank_stack": 406, "dimK": 0, "dimJd_even": 0, "dimK_mod_J": 0, "dimR_odd": 623, "seconds": 1.0}
+{"d": 4, "which": "ours", "cols": 1491, "rowsJ": 756, "rowsA": 66, "rankJ": 747, "rank_stack": 813, "dimK": 0, "dimJd_even": 0, "dimK_mod_J": 0, "dimR_odd": 744, "seconds": 3.4}
+{"d": 5, "which": "ours", "cols": 2184, "rowsJ": 1386, "rowsA": 126, "rankJ": 1341, "rank_stack": 1464, "dimK": 3, "dimJd_even": 3, "dimK_mod_J": 0, "dimR_odd": 843, "seconds": 9.6}
+{"d": 6, "which": "ours", "cols": 3080, "rowsJ": 2376, "rowsA": 236, "rankJ": 2214, "rank_stack": 2432, "dimK": 18, "dimJd_even": 18, "dimK_mod_J": 0, "dimR_odd": 866, "seconds": 30.4}
+{"d": 7, "which": "ours", "cols": 4284, "rowsJ": 3861, "rowsA": 396, "rankJ": 3441, "rank_stack": 3774, "dimK": 63, "dimJd_even": 63, "dimK_mod_J": 0, "dimR_odd": 843, "seconds": 399.3}

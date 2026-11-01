@@ -1,0 +1,13 @@
+{"D": "1", "d": 0, "family": "sanity", "e1": false, "consistent": false, "rank": -1, "nullity": -1, "seconds": 0.32, "note": "D=1: A in J(F)? full system"}
+{"D": "X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6", "d": 6, "family": "pure-power", "e1": false, "consistent": false, "rank": -1, "nullity": -1, "seconds": 2.86, "note": "P = sum of sixth powers (same support as M) [D]"}
+{"D": "(X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6)**2", "d": 12, "family": "pure-power", "e1": true, "consistent": false, "rank": 2993, "nullity": 1067, "rows": 10500, "cols": 4060, "order": 432, "seconds": 137.76, "note": "P = sum of sixth powers (same support as M) [D^2]"}
+{"D": "X0**3*X1*Y0*Y1 + X0*X2**3*Y0*Y2 + X1**3*X2*Y1*Y2", "d": 6, "family": "coupling-sum", "e1": false, "consistent": false, "rank": -1, "nullity": -1, "seconds": 1.85, "note": "M = sum of the three couplings [D]"}
+{"D": "(X0**3*X1*Y0*Y1 + X0*X2**3*Y0*Y2 + X1**3*X2*Y1*Y2)**2", "d": 12, "family": "coupling-sum", "e1": true, "consistent": false, "rank": 2927, "nullity": 1133, "rows": 10500, "cols": 4060, "order": 432, "seconds": 155.74, "note": "M = sum of the three couplings [D^2]"}
+{"D": "X0**6 + X1**6 + X2**6", "d": 6, "family": "X-block", "e1": false, "consistent": false, "rank": -1, "nullity": -1, "seconds": 1.94, "note": "sum X_i^6 [D]"}
+{"D": "(X0**6 + X1**6 + X2**6)**2", "d": 12, "family": "X-block", "e1": true, "consistent": false, "rank": 2847, "nullity": 1213, "rows": 10500, "cols": 4060, "order": 432, "seconds": 150.67, "note": "sum X_i^6 [D^2]"}
+{"D": "Y0**6 + Y1**6 + Y2**6", "d": 6, "family": "Y-block", "e1": false, "consistent": false, "rank": -1, "nullity": -1, "seconds": 2.81, "note": "sum Y_i^6 [D]"}
+{"D": "(Y0**6 + Y1**6 + Y2**6)**2", "d": 12, "family": "Y-block", "e1": true, "consistent": false, "rank": 2840, "nullity": 1220, "rows": 10500, "cols": 4060, "order": 432, "seconds": 207.81, "note": "sum Y_i^6 [D^2]"}
+{"D": "X0**6 + Y0**6", "d": 6, "family": "pair-fermat", "e1": false, "consistent": false, "rank": -1, "nullity": -1, "seconds": 3.03, "note": "X0^6 + Y0^6 [D]"}
+{"D": "(X0**6 + Y0**6)**2", "d": 12, "family": "pair-fermat", "e1": true, "consistent": false, "rank": 2590, "nullity": 1470, "rows": 10500, "cols": 4060, "order": 432, "seconds": 382.0, "note": "X0^6 + Y0^6 [D^2]"}
+{"D": "X1**6 + Y1**6", "d": 6, "family": "pair-fermat", "e1": false, "consistent": false, "rank": -1, "nullity": -1, "seconds": 4.03, "note": "X1^6 + Y1^6 [D]"}
+{"D": "(X0**6 + X1**6 + X2**6)**2 [fastval]", "d": 12, "family": "X-block", "consistent": false, "rank": 2846, "nullity": 1214, "rows": 10500, "cols": 4060, "order": 432, "e1": null, "seconds": 75.19, "note": "validation of fast path vs flint rank 2847"}

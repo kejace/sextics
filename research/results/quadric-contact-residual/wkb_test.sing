@@ -1,0 +1,1 @@
+ring r=32003,(u,v,x),wp(2,2,1); ideal I = u*x; I=std(I); print(weightKB(I,4,intvec(2,2,1))); quit;

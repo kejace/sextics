@@ -1,0 +1,29 @@
+### 18:04:25 timeout 3000 /usr/bin/python3 runD2.py partial dF/dX0 '6*X0**5 + 25*X0**4*X1/7 + 60*X0**3*Y0**2 + 100*X0**3*Y0*Y1/7 + 150*X0**2*X1*Y0**2/7 + 10*X0*X1**3*X2/7 + 30*X0*X1**2*Y1*Y2/7 + 30*X0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[dF/dX0] d=5 terms=19 parity=0
+[dF/dX0] E1 solvable=True {'rank': 1341, 'rank_aug': 1341, 'rows': 2184, 'cols': 1386} (47.0s)
+[system] d=5 q=1 rows=10152 cols=1446 (N 1386, Q 60) nnz=527340 built in 9.8s
+[lean p=2147483647] k=1487 consistent=False rank=1318 nullity=128 build 11.2s compress 11.9s rref 5.7s
+[dF/dX0] consistent=False rank=1318 nullity=128 (77.4s) maxrss=316 MB
+EXIT=0
+### 18:05:48 timeout 3000 /usr/bin/python3 runD2.py partial dF/dY0 '30*X0**4*Y0 + 25*X0**4*Y1/7 + 100*X0**3*X1*Y0/7 + 60*X0**2*Y0**3 + 150*X0**2*Y0**2*Y1/7 + 10*X0*X1**3*Y2/7 + 30*X0*X1**2*X2*Y1/7 + 1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[dF/dY0] d=5 terms=19 parity=1
+[dF/dY0] E1 solvable=True {'rank': 1341, 'rank_aug': 1341, 'rows': 2184, 'cols': 1386} (45.6s)
+[system] d=5 q=1 rows=10152 cols=1446 (N 1386, Q 60) nnz=527340 built in 2.2s
+[lean p=2147483647] k=1487 consistent=False rank=1318 nullity=128 build 3.4s compress 18.3s rref 5.1s
+[dF/dY0] consistent=False rank=1318 nullity=128 (74.0s) maxrss=318 MB
+EXIT=0
+### 18:07:07 timeout 3000 /usr/bin/python3 runD2.py partial dF/dX2 '5*X0**2*X1**3/7 + 15*X0**2*X1*Y1**2/7 + 30*X0*X1**2*Y0*Y1/7 + 75*X0*X2**4/7 + 450*X0*X2**2*Y2**2/7 + 10*X0*Y0*Y1**3/7 + 75*X0*Y2**4/
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[dF/dX2] d=5 terms=17 parity=0
+[dF/dX2] E1 solvable=True {'rank': 1341, 'rank_aug': 1341, 'rows': 2184, 'cols': 1386} (28.5s)
+[system] d=5 q=1 rows=10152 cols=1446 (N 1386, Q 60) nnz=500883 built in 1.9s
+[lean p=2147483647] k=1487 consistent=False rank=1318 nullity=128 build 2.4s compress 16.3s rref 15.2s
+[dF/dX2] consistent=False rank=1318 nullity=128 (64.1s) maxrss=311 MB
+EXIT=0
+### 18:08:14 timeout 3000 /usr/bin/python3 runD2.py block-radial '(X0dX0+Y0dY0)F' '6*X0**6 + 25*X0**5*X1/7 + 90*X0**4*Y0**2 + 125*X0**4*Y0*Y1/7 + 250*X0**3*X1*Y0**2/7 + 10*X0**2*X1**3*X2/7 + 30*X0**2*
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[(X0dX0+Y0dY0)F] d=6 terms=28 parity=0
+[(X0dX0+Y0dY0)F] E1 solvable=True {'rank': 2214, 'rank_aug': 2214, 'rows': 3080, 'cols': 2376} (122.7s)
+[system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=1279874 built in 9.9s

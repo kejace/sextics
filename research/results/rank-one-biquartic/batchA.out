@@ -1,0 +1,11 @@
+D=f(X) | d=6 | family=structural | e1=False | consistent=False | rank=2214 | nullity=162 | seconds=15.72 | note=X-block; strict split denominator at t=0 [E1 fails]
+D=g(Y) | d=6 | family=structural | e1=False | consistent=False | rank=2214 | nullity=162 | seconds=15.94 | note=Y-block [E1 fails]
+D=6f+4tP (eps_X F) | d=6 | family=structural | e1=True | consistent=False | rank=2353 | nullity=249 | rows=16789 | cols=2602 | seconds=44.24 | note=X-radial derivative of F
+D=6g+2tP (eps_Y F) | d=6 | family=structural | e1=True | consistent=False | rank=2353 | nullity=249 | rows=16794 | cols=2602 | seconds=43.5 | note=Y-radial derivative of F
+D=F-f = g+tP | d=6 | family=structural | e1=False | consistent=False | rank=2214 | nullity=162 | seconds=15.51 | note=F minus X block [E1 fails]
+D=F-g = f+tP | d=6 | family=structural | e1=False | consistent=False | rank=2214 | nullity=162 | seconds=15.57 | note=F minus Y block [E1 fails]
+D=f+g | d=6 | family=structural | e1=False | consistent=False | rank=2214 | nullity=162 | seconds=16.03 | note=split part of F [E1 fails]
+D=P = L^2 M | d=6 | family=structural | e1=False | consistent=False | rank=2214 | nullity=162 | seconds=15.9 | note=coupling block [E1 fails]
+D=L M^2 | d=6 | family=structural | e1=False | consistent=False | rank=2214 | nullity=162 | seconds=15.27 | note=mirror coupling (2,4) [E1 fails]
+D=f-g | d=6 | family=structural | e1=False | consistent=False | rank=2214 | nullity=162 | seconds=15.56 | note= [E1 fails]
+D=eps_X F - eps_Y F = 6f-6g+2tP | d=6 | family=structural | e1=True | consistent=False | rank=2353 | nullity=249 | rows=16786 | cols=2602 | seconds=44.44 | note=

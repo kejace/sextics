@@ -1,0 +1,7 @@
+D=Y0 | d=1 | family=timage | e1=None | consistent=False | rank=18 | nullity=0 | seconds=0.2 | note=target_image: served dim=18 (geometric 0); A in span=False. calibration: hyperplane should serve only J_6
+D=X0 | d=1 | family=timage | e1=None | consistent=False | rank=18 | nullity=0 | seconds=0.1 | note=target_image: served dim=18 (geometric 0); A in span=False. 
+D=L | d=2 | family=timage | e1=None | consistent=False | rank=18 | nullity=0 | seconds=0.6 | note=target_image: served dim=18 (geometric 0); A in span=False. 
+D=M | d=2 | family=timage | e1=None | consistent=False | rank=18 | nullity=0 | seconds=0.6 | note=target_image: served dim=18 (geometric 0); A in span=False. 
+D=f(X) | d=6 | family=timage | e1=None | consistent=False | rank=18 | nullity=0 | seconds=232.8 | note=target_image: served dim=18 (geometric 0); A in span=False. geometric prediction: 3 (p_g of double octic plane)
+D=g(Y) | d=6 | family=timage | e1=None | consistent=False | rank=18 | nullity=0 | seconds=226.7 | note=target_image: served dim=18 (geometric 0); A in span=False. geometric prediction: 0
+D=eps_X F | d=6 | family=timage | e1=None | consistent=False | rank=18 | nullity=0 | seconds=636.0 | note=target_image: served dim=18 (geometric 0); A in span=False. ramification divisor R

@@ -1,0 +1,2 @@
+c012-hesse1 | core.add(core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[2],3)), core.mul(core.mul(Q[0],Q[1]),Q[2]))
+c012-rand1 | core.add(core.add(core.add(core.power(Q[0],3),core.scale(core.power(Q[1],3),2)),core.scale(core.power(Q[2],3),3)), core.add(core.mul(core.power(Q[0],2),Q[1]), core.scale(core.mul(Q[1],core.power(Q[2],2)),5)))

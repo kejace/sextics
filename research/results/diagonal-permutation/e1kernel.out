@@ -1,0 +1,8 @@
+d=1: dim S_d^+=3, J_7^- cols=63, rows=335, nullity=0, dim K_d=0, dim J_d^+=0, primitive E1 kernel=0  (build 0.0s, null 0.0s)
+d=2: dim S_d^+=12, J_8^- cols=168, rows=612, nullity=0, dim K_d=0, dim J_d^+=0, primitive E1 kernel=0  (build 0.0s, null 0.0s)
+d=3: dim S_d^+=28, J_9^- cols=378, rows=985, nullity=0, dim K_d=0, dim J_d^+=0, primitive E1 kernel=0  (build 0.1s, null 0.1s)
+d=4: dim S_d^+=66, J_10^- cols=756, rows=1491, nullity=9, dim K_d=0, dim J_d^+=0, primitive E1 kernel=0  (build 0.4s, null 0.4s)
+d=5: dim S_d^+=126, J_11^- cols=1386, rows=2181, nullity=48, dim K_d=3, dim J_d^+=3, primitive E1 kernel=0  (build 1.2s, null 1.7s)
+d=6: dim S_d^+=236, J_12^- cols=2376, rows=3080, nullity=180, dim K_d=18, dim J_d^+=18, primitive E1 kernel=0  (build 3.0s, null 6.1s)
+d=7: dim S_d^+=396, J_13^- cols=3861, rows=4284, nullity=483, dim K_d=63, dim J_d^+=63, primitive E1 kernel=0  (build 6.6s, null 20.7s)
+d=8: dim S_d^+=651, J_14^- cols=6006, rows=5796, nullity=1123, dim K_d=169, dim J_d^+=168, primitive E1 kernel=1  (build 13.3s, null 63.3s)

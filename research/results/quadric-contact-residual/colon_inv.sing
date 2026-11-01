@@ -1,0 +1,37 @@
+// E1 kernel of quadric-contact-residual in the K0-invariant sector, all degrees at once.
+// Ring k[u,v,X1,X2,Y1,Y2] with weights (2,2,1,1,1,1); u = (X0-Y0)^2, v = (X0+Y0)^2.
+// F = G(u,v,...),  S = (u+v)/2, P = (v-u)/4.
+// Jacobian ideal of F restricted to the invariant sector: J' = (u G_u, v G_v, G_X1, G_X2, G_Y1, G_Y2).
+// E1 for invariant D:  (v-u)^3 * D in J'.   So (J':A) = quotient(J', (v-u)^3).
+option(redSB);
+ring r = 32003, (u,v,x1,x2,y1,y2), wp(2,2,1,1,1,1);
+poly S = (u+v)/2;
+poly P = (v-u)/4;
+poly Q1 = x1^2*y1^2 + x1*x2*y1*y2 + x2^2*y2^2;
+poly Q2 = x1*y1*(x2^2 + 2*y2^2);
+poly R = x1^6 + x2^6 + y1^6 + y2^6;
+poly G = S^3 + 2*P^2*S + 5*S*Q1 + (5/7)*P*Q2 + R;
+poly Gu = diff(G,u); poly Gv = diff(G,v);
+ideal Jp = u*Gu, v*Gv, diff(G,x1), diff(G,x2), diff(G,y1), diff(G,y2);
+ideal Jps = std(Jp);
+poly Ainv = (v-u)^3;   // A = (v-u)^3/64
+ideal C = quotient(Jps, Ainv);
+ideal Cs = std(C);
+// generators of the colon modulo J'
+ideal Cmin = minbase(C);
+print("number of minimal generators of (J':A):"); print(size(Cmin));
+int i;
+for (i = 1; i <= size(Cmin); i++) {
+  poly g = reduce(Cmin[i], Jps);
+  if (g != 0) { print("---- new generator, weighted degree " + string(deg(Cmin[i]))); print(Cmin[i]); }
+}
+// Hilbert function comparison: dim (J':A)_d - dim J'_d for d = 0..20
+intvec hC = hilb(Cs, 1); intvec hJ = hilb(Jps, 1);
+print("Hilbert series numerators (colon, J'):"); print(hC); print(hJ);
+// direct count via kbase of the quotient rings
+int d;
+print("d : dim (S/J')_d , dim (S/(J':A))_d , kernel dim = difference");
+for (d = 0; d <= 24; d++) {
+  print(string(d) + " : " + string(size(kbase(Jps, d))) + " , " + string(size(kbase(Cs, d))) + " , " + string(size(kbase(Jps, d)) - size(kbase(Cs, d))));
+}
+quit;

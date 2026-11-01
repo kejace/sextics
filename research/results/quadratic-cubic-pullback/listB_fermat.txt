@@ -1,0 +1,2 @@
+fermatX | 'X0**6 + X1**6 + X2**6' | img
+fermatsum | 'X0**6 + Y0**6 + X1**6' | img

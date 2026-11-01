@@ -1,0 +1,4 @@
+python3 sweep_fast.py X0**3*Y0**3 8 12 A > sweep_fast_A.out 2>&1
+python3 batch.py cands_J.txt J > batch_J.out 2>&1
+python3 calib.py > calib.out 2>&1
+python3 sweep_fast.py X0**3*Y2**3 6 12 Ac > sweep_fast_Ac.out 2>&1

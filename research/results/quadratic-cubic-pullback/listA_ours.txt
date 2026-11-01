@@ -1,0 +1,38 @@
+sanity | 'X0**2 + Y0**2'
+sanity | 'X0**2 - Y0**2'
+cone3 | 'X0**3 + X1**3 + X0*Y0**2'
+cone3 | 'X0**3 + X1**3 + X2**3'
+cone3 | 'X0**3 + X0*Y0**2 + X2**3'
+cone3 | 'X0*Y0**2 + X1**3 + X2**3'
+cone3 | 'X0**3 + X1*Y0**2 + X1**3'
+cone3 | 'X0**3 + 2*X1**3 - X0*Y0**2 + 3*X1*Y0**2 + X0**2*X1'
+cone4 | 'X0**4 + X1**4 + Y0**4 + X2**4'
+cone4 | 'X0**4 + X1**4 + Y0**4'
+delta | delta
+quadric | Q[0]
+quadric | Q[3]
+quadric | core.add(Q[0],Q[3])
+quadric | core.sub(Q[0],Q[3])
+quadric | core.add(Q[0],Q[1])
+quadric | core.add(Q[1],Q[2])
+quadric | core.add(core.add(Q[0],Q[3]),Q[1])
+quadric | core.add(core.add(core.add(Q[0],Q[3]),Q[1]),Q[4])
+qprod | core.mul(Q[0],Q[3])
+qprod | core.mul(Q[0],Q[1])
+qprod | core.mul(Q[0],core.add(Q[0],Q[3]))
+qcube | core.add(core.power(Q[0],3),core.power(Q[3],3))
+qcube | core.add(core.power(Q[0],3),core.power(Q[1],3))
+qcube | core.add(core.add(core.power(Q[0],3),core.power(Q[3],3)),core.power(Q[1],3))
+qcube | core.sub(F, core.add(core.power(Q[0],3),core.power(Q[3],3)))
+qcube | core.sub(F, core.power(Q[0],3))
+qcube | core.sub(F, core.power(Q[3],3))
+qcube | core.sub(F, core.power(Q[1],3))
+qsq | core.power(Q[0],2)
+qsq | core.power(core.add(Q[0],Q[3]),2)
+qsq | core.add(core.power(Q[0],2),core.power(Q[3],2))
+qsq | core.sub(core.power(Q[0],2),core.power(Q[3],2))
+qsq | core.add(core.power(Q[0],2),core.mul(Q[0],Q[3]))
+binary | 'X0**6 + Y0**6'
+binary | 'X0**4 + Y0**4'
+binary | 'X0**4 + X0**2*Y0**2 + Y0**4'
+blockcube | '8*X0**6/243 + 4*X0**4*Y0**2/9 + 2*X0**2*Y0**4 + 3*Y0**6 + Y1**6 + 1681*Y2**6/1701'

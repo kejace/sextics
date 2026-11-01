@@ -1,0 +1,82 @@
+{
+ "0": {
+  "d": 0,
+  "dimRd": 1,
+  "dimRd6": 426,
+  "rank": 1,
+  "kernel": 0,
+  "seconds": 0.0
+ },
+ "1": {
+  "d": 1,
+  "dimRd": 6,
+  "dimRd6": 666,
+  "rank": 6,
+  "kernel": 0,
+  "seconds": 0.0
+ },
+ "2": {
+  "d": 2,
+  "dimRd": 21,
+  "dimRd6": 951,
+  "rank": 21,
+  "kernel": 0,
+  "seconds": 0.1
+ },
+ "3": {
+  "d": 3,
+  "dimRd": 56,
+  "dimRd6": 1246,
+  "rank": 56,
+  "kernel": 0,
+  "seconds": 0.2
+ },
+ "4": {
+  "d": 4,
+  "dimRd": 126,
+  "dimRd6": 1506,
+  "rank": 126,
+  "kernel": 0,
+  "seconds": 0.4
+ },
+ "5": {
+  "d": 5,
+  "dimRd": 246,
+  "dimRd6": 1686,
+  "rank": 246,
+  "kernel": 0,
+  "seconds": 1.2
+ },
+ "6": {
+  "d": 6,
+  "dimRd": 426,
+  "dimRd6": 1751,
+  "rank": 426,
+  "kernel": 0,
+  "seconds": 1.4
+ },
+ "7": {
+  "d": 7,
+  "dimRd": 666,
+  "dimRd6": 1686,
+  "rank": 666,
+  "kernel": 0,
+  "seconds": 5.3
+ },
+ "8": {
+  "d": 8,
+  "dimRd": 951,
+  "dimRd6": 1506,
+  "rank": 951,
+  "kernel": 0,
+  "seconds": 10.5
+ },
+ "9": {
+  "d": 9,
+  "dimRd": 1246,
+  "dimRd6": 1246,
+  "rank": 1246,
+  "kernel": 0,
+  "seconds": 3.9
+ }
+}

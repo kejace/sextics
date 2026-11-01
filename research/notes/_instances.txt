@@ -1,0 +1,792 @@
+== block-q2 [SOLVED(benediamond PR#38)]
+title: One block · pole-order-two bundle
+q: 2
+F: X0**6 + 2*X0**4*Y0**2 - X0**2*Y0**4 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0*Y0**11 - 610*X0*Y0**5*Y2**6/87
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/101
+== cofactor-eight [SOLVED(benediamond PR#26)]
+title: Cofactor · coupled X block
+q: 1
+F: X0**6 + 3*X0**5*X1 + 9*X0**4*X1**2 + 3*X0**4*X2**2 - 2*X0**4*Y0**2 + 13*X0**3*X1**3 + 6*X0**3*X1*X2**2 - 4*X0**3*X1*Y0**2
+  + 18*X0**2*X1**4 + 16*X0**2*X1**2*X2**2 - 18*X0**2*X1**2*Y0**2 + 3*X0**2*X2**4 - 4*X0**2*X2**2*Y0**2 + 12*X0*X1**5
+  + 13*X0*X1**3*X2**2 - 16*X0*X1**3*Y0**2 + 3*X0*X1*X2**4 - 4*X0*X1*X2**2*Y0**2 + 9*X1**6 + 14*X1**4*X2**2 - 20*X1**4*Y0**2
+  + 7*X1**2*X2**4 - 18*X1**2*X2**2*Y0**2 + 12*X1**2*Y0**4 + 2*X2**6 - 2*X2**4*Y0**2 + Y0**6 + Y1**6 + Y1**4*Y2**2
+  + Y2**6
+A: 2*X0**5*Y1 + 5*X0**4*X1*Y1 + 10*X0**3*X1**2*Y1 + 4*X0**3*X2**2*Y1 - 5*X0**3*Y0**2*Y1 + 10*X0**2*X1**3*Y1 + 6*X0**2*X1*X2**2*Y1
+  - 15*X0**2*X1*Y0**2*Y1/2 + 7*X0*X1**4*Y1 + 8*X0*X1**2*X2**2*Y1 - 17*X0*X1**2*Y0**2*Y1/2 + 2*X0*X2**4*Y1 - 5*X0*X2**2*Y0**2*Y1
+  + 2*X0*Y0**4*Y1 + 2*X1**5*Y1 + 3*X1**3*X2**2*Y1 - 3*X1**3*Y0**2*Y1 + X1*X2**4*Y1 - 5*X1*X2**2*Y0**2*Y1/2 + X1*Y0**4*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/89
+== cofactor-mixed [SOLVED(benediamond PR#27)]
+title: Cofactor · mixed blocks
+q: 1
+F: X0**6 + 3*X0**5*X1 + 9*X0**4*X1**2 - 2*X0**4*Y0**2 + 3*X0**4*Y1**2 + 3*X0**4*Y2**2 + 13*X0**3*X1**3 - 4*X0**3*X1*Y0**2
+  + 6*X0**3*X1*Y1**2 + 6*X0**3*X1*Y2**2 + 18*X0**2*X1**4 - 18*X0**2*X1**2*Y0**2 + 16*X0**2*X1**2*Y1**2 + 15*X0**2*X1**2*Y2**2
+  - 4*X0**2*Y0**2*Y1**2 - 4*X0**2*Y0**2*Y2**2 + 3*X0**2*Y1**4 + 6*X0**2*Y1**2*Y2**2 + 3*X0**2*Y2**4 + 12*X0*X1**5
+  - 16*X0*X1**3*Y0**2 + 13*X0*X1**3*Y1**2 + 12*X0*X1**3*Y2**2 - 4*X0*X1*Y0**2*Y1**2 - 4*X0*X1*Y0**2*Y2**2 + 3*X0*X1*Y1**4
+  + 6*X0*X1*Y1**2*Y2**2 + 3*X0*X1*Y2**4 + 9*X1**6 - 20*X1**4*Y0**2 + 14*X1**4*Y1**2 + 12*X1**4*Y2**2 + 12*X1**2*Y0**4
+  - 18*X1**2*Y0**2*Y1**2 - 16*X1**2*Y0**2*Y2**2 + 7*X1**2*Y1**4 + 13*X1**2*Y1**2*Y2**2 + 6*X1**2*Y2**4 + X2**6 +
+  Y0**6 - 2*Y0**2*Y1**4 - 4*Y0**2*Y1**2*Y2**2 - 2*Y0**2*Y2**4 + 2*Y1**6 + 3*Y1**4*Y2**2 + 3*Y1**2*Y2**4 + 2*Y2**6
+A: 2*X0**3*X2**2*Y1 + 3*X0**2*X1*X2**2*Y1 + 3*X0*X1**2*X2**2*Y1 - X0*X2**2*Y0**2*Y1 + 2*X0*X2**2*Y1**3 + 2*X0*X2**2*Y1*Y2**2
+  + X1**3*X2**2*Y1 - X1*X2**2*Y0**2*Y1/2 + X1*X2**2*Y1**3 + X1*X2**2*Y1*Y2**2
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/90
+== collision-h3 [SOLVED(benediamond PR#24)]
+title: H₃ · inflection collision
+q: 1
+F: 3*X0**6 + 9*X0**4*X1**2 - 7*X0**4*Y0**2 + 20*X0**2*X1**4 + X0**2*X1**2*Y0**2 + 11*X0**2*Y0**4 + 13*X1**6 - 14*X1**4*Y0**2
+  - 19*X1**2*Y0**4 + X2**6 - 18*Y0**6 + Y1**6 + Y2**6
+A: -36*X0**5*Y0 - 50*X0**3*X1**2*Y0 + 56*X0**3*Y0**3 - 28*X0*X1**4*Y0 + 28*X0*X1**2*Y0**3 - 44*X0*Y0**5
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/87
+== completed-square-nambu-holdout [SOLVED(benediamond PR#11)]
+title: Completed square · Nambu trace
+q: 1
+F: X0**6 + X1**6 + 5*X2**6 + 49*X2**4*Y2**2/4 + X2**2*Y1**3*Y2 + 43*X2**2*Y2**4 + Y0**6 + Y1**6 + 2*Y1**3*Y2**3
+  + 23*Y2**6
+A: X1**2*X2*Y1**2*Y2
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/73
+== cone-ladder-linear [SOLVED(benediamond PR#36)]
+title: Split sextic · factored binary form
+q: 1
+F: X0**6 + X1**6 - X1**5*X2 + X1*X2**5 - X2**6 + Y0**6 + Y1**6 - Y1**5*Y2 + Y1*Y2**5 - Y2**6
+A: -10*X0*X1**4*Y0 - 10*X0*X2**4*Y0
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/99
+== contact46006 [SOLVED(benediamond PR#28)]
+title: Contact cone 46006
+q: 1
+F: 2*X0**6 + 30*X0**4*Y0**2 + 8*X0**3*X2**3 + 24*X0**3*X2*Y2**2 + 72*X0**2*X2**2*Y0*Y2 + 30*X0**2*Y0**4 + 24*X0**2*Y0*Y2**3
+  + 24*X0*X2**3*Y0**2 + 72*X0*X2*Y0**2*Y2**2 + 2*X1**6 - 10*X1**5*X2 - 142*X1**4*X2**2 + 30*X1**4*Y1**2 - 50*X1**4*Y1*Y2
+  - 142*X1**4*Y2**2 + 578*X1**3*X2**3 - 100*X1**3*X2*Y1**2 - 1136*X1**3*X2*Y1*Y2 + 1734*X1**3*X2*Y2**2 + 2276*X1**2*X2**4
+  - 852*X1**2*X2**2*Y1**2 + 5202*X1**2*X2**2*Y1*Y2 + 13656*X1**2*X2**2*Y2**2 + 30*X1**2*Y1**4 - 100*X1**2*Y1**3*Y2
+  - 852*X1**2*Y1**2*Y2**2 + 1734*X1**2*Y1*Y2**3 + 2276*X1**2*Y2**4 - 5392*X1*X2**5 + 1734*X1*X2**3*Y1**2 + 18208*X1*X2**3*Y1*Y2
+  - 53920*X1*X2**3*Y2**2 - 50*X1*X2*Y1**4 - 1136*X1*X2*Y1**3*Y2 + 5202*X1*X2*Y1**2*Y2**2 + 18208*X1*X2*Y1*Y2**3
+  - 26960*X1*X2*Y2**4 - 13432*X2**6 + 2276*X2**4*Y1**2 - 26960*X2**4*Y1*Y2 - 201480*X2**4*Y2**2 + 24*X2**2*Y0**3*Y2
+  - 142*X2**2*Y1**4 + 1734*X2**2*Y1**3*Y2 + 13656*X2**2*Y1**2*Y2**2 - 53920*X2**2*Y1*Y2**3 - 201480*X2**2*Y2**4
+  + 2*Y0**6 + 8*Y0**3*Y2**3 + 2*Y1**6 - 10*Y1**5*Y2 - 142*Y1**4*Y2**2 + 578*Y1**3*Y2**3 + 2276*Y1**2*Y2**4 - 5392*Y1*Y2**5
+  - 13432*Y2**6
+A: 1080*X0**2*X1**3*Y1 - 828*X0**2*X1**3*Y2 - 2484*X0**2*X1**2*X2*Y1 - 11268*X0**2*X1**2*X2*Y2 - 11268*X0**2*X1*X2**2*Y1
+  - 4320*X0**2*X1*X2**2*Y2 + 1080*X0**2*X1*Y1**3 - 2484*X0**2*X1*Y1**2*Y2 - 11268*X0**2*X1*Y1*Y2**2 - 1440*X0**2*X1*Y2**3
+  - 1440*X0**2*X2**3*Y1 + 186048*X0**2*X2**3*Y2 - 828*X0**2*X2*Y1**3 - 11268*X0**2*X2*Y1**2*Y2 - 4320*X0**2*X2*Y1*Y2**2
+  + 186048*X0**2*X2*Y2**3 + 540*X0*X1**4*Y0 - 1656*X0*X1**3*X2*Y0 - 11268*X0*X1**2*X2**2*Y0 + 3240*X0*X1**2*Y0*Y1**2
+  - 4968*X0*X1**2*Y0*Y1*Y2 - 11268*X0*X1**2*Y0*Y2**2 - 2880*X0*X1*X2**3*Y0 - 4968*X0*X1*X2*Y0*Y1**2 - 45072*X0*X1*X2*Y0*Y1*Y2
+  - 8640*X0*X1*X2*Y0*Y2**2 + 93024*X0*X2**4*Y0 - 11268*X0*X2**2*Y0*Y1**2 - 8640*X0*X2**2*Y0*Y1*Y2 + 558144*X0*X2**2*Y0*Y2**2
+  + 540*X0*Y0*Y1**4 - 1656*X0*Y0*Y1**3*Y2 - 11268*X0*Y0*Y1**2*Y2**2 - 2880*X0*Y0*Y1*Y2**3 + 93024*X0*Y0*Y2**4 +
+  1080*X1**3*Y0**2*Y1 - 828*X1**3*Y0**2*Y2 - 2484*X1**2*X2*Y0**2*Y1 - 11268*X1**2*X2*Y0**2*Y2 - 11268*X1*X2**2*Y0**2*Y1
+  - 4320*X1*X2**2*Y0**2*Y2 + 1080*X1*Y0**2*Y1**3 - 2484*X1*Y0**2*Y1**2*Y2 - 11268*X1*Y0**2*Y1*Y2**2 - 1440*X1*Y0**2*Y2**3
+  - 1440*X2**3*Y0**2*Y1 + 186048*X2**3*Y0**2*Y2 - 828*X2*Y0**2*Y1**3 - 11268*X2*Y0**2*Y1**2*Y2 - 4320*X2*Y0**2*Y1*Y2**2
+  + 186048*X2*Y0**2*Y2**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/91
+== coupled-pair-rational-d4-strict [SOLVED(benediamond PR#15)]
+title: Quartic cofactor · coupled deformation
+q: 1
+F: X0**6 + X0**4*Y1**2 - X0**2*Y0**2*Y1**2 + X1**6 + X2**6 + Y0**6 + Y0**4*Y1**2 + Y1**6 + Y2**6
+A: X0**3*X1*X2*Y0 + X0*X1*X2*Y0*Y1**2/3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/77
+== crossed-ternary-asymmetric [SOLVED(1337isnot1337 PR#149)]
+title: Crossed ternaries · elliptic transfer
+q: 1
+F: X0**6 + 5*X0**5*X1/7 + 5*X0**3*X1*Y0**2/7 + 10*X0*X1**5/7 + 5*X0*X1*Y0**4/7 + X1**6 + X2**6 + 5*X2**4*Y1*Y2/7 + 5*X2**2*Y1**3*Y2/7
+  + Y0**6 + Y1**6 + 5*Y1**5*Y2/7 + 10*Y1*Y2**5/7 + Y2**6
+A: X0**4*X1*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/114
+== cycle-q2 [open]
+title: Cyclic coupling · pole order two
+q: 2
+F: X0**6 + X0**3*X1*Y0*Y1/2 + X0*X2**3*Y0*Y2/2 + X1**6 + X1**3*X2*Y1*Y2/2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**2*X1**2*X2**3*Y0**2*Y1**2*Y2
+sameVariety: ['cycle-three'] disc: https://github.com/hodge-computer/sextics/discussions/61
+== cycle-three [SOLVED(hodgepodgeconjecture PR#165)]
+title: Three couplings · cyclic
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1/2 + X0*X2**3*Y0*Y2/2 + X1**6 + X1**3*X2*Y1*Y2/2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: ['cycle-q2'] disc: https://github.com/hodge-computer/sextics/discussions/55
+== cyclic-triple-fano [SOLVED(benediamond PR#153)]
+title: Cyclic triple cover · Fano density
+q: 1
+F: X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0**3*X2**3/7 + 5*X0**2*Y0*Y1*Y2**2/7 + 5*X0*X1*Y1**3*Y2/7 + 5*X0*X2**3*Y1*Y2/7 + X1**6
+  + 5*X1*X2**3*Y0*Y1/7 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0*X2**2*Y0**3
+sameVariety: ['cyclic-triple-residual'] disc: https://github.com/hodge-computer/sextics/discussions/112
+== cyclic-triple-residual [open]
+title: Cyclic triple cover · complementary character
+q: 1
+F: X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0**3*X2**3/7 + 5*X0**2*Y0*Y1*Y2**2/7 + 5*X0*X1*Y1**3*Y2/7 + 5*X0*X2**3*Y1*Y2/7
+  + X1**6 + 5*X1*X2**3*Y0*Y1/7 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: ['cyclic-triple-fano'] disc: None
+== dense-rational [open]
+title: Dense rational · full coefficient support
+q: 1
+F: X0**6 + 15*X0**5*X1/9973 + X0**5*X2/9973 + 2*X0**4*X1**2/9973 + 14*X0**4*X1*X2/9973 + 10*X0**4*X2**2/9973 + X0**4*Y0**2/9973
+  + 9*X0**4*Y0*Y1/9973 + 12*X0**4*Y0*Y2/9973 + 9*X0**4*Y1**2/9973 + 15*X0**4*Y1*Y2/9973 + 17*X0**4*Y2**2/9973 +
+  3*X0**3*X1**3/9973 + 7*X0**3*X1**2*X2/9973 + 12*X0**3*X1*X2**2/9973 + 3*X0**3*X1*Y0**2/9973 + 11*X0**3*X1*Y0*Y1/9973
+  + 14*X0**3*X1*Y0*Y2/9973 + 11*X0**3*X1*Y1**2/9973 + 17*X0**3*X1*Y1*Y2/9973 + 2*X0**3*X1*Y2**2/9973 + X0**3*X2**3/9973
+  + 6*X0**3*X2*Y0**2/9973 + 14*X0**3*X2*Y0*Y1/9973 + 17*X0**3*X2*Y0*Y2/9973 + 14*X0**3*X2*Y1**2/9973 + 3*X0**3*X2*Y1*Y2/9973
+  + 5*X0**3*X2*Y2**2/9973 + X0**2*X1**4/9973 + 14*X0**2*X1**3*X2/9973 + 11*X0**2*X1**2*X2**2/9973 + 2*X0**2*X1**2*Y0**2/9973
+  + 10*X0**2*X1**2*Y0*Y1/9973 + 13*X0**2*X1**2*Y0*Y2/9973 + 10*X0**2*X1**2*Y1**2/9973 + 16*X0**2*X1**2*Y1*Y2/9973
+  + X0**2*X1**2*Y2**2/9973 + 9*X0**2*X1*X2**3/9973 + 14*X0**2*X1*X2*Y0**2/9973 + 5*X0**2*X1*X2*Y0*Y1/9973 + 8*X0**2*X1*X2*Y0*Y2/9973
+  + 5*X0**2*X1*X2*Y1**2/9973 + 11*X0**2*X1*X2*Y1*Y2/9973 + 13*X0**2*X1*X2*Y2**2/9973 + 8*X0**2*X2**4/9973 + 10*X0**2*X2**2*Y0**2/9973
+  + X0**2*X2**2*Y0*Y1/9973 + 4*X0**2*X2**2*Y0*Y2/9973 + X0**2*X2**2*Y1**2/9973 + 7*X0**2*X2**2*Y1*Y2/9973 + 9*X0**2*X2**2*Y2**2/9973
+  + 15*X0**2*Y0**4/9973 + 16*X0**2*Y0**3*Y1/9973 + 2*X0**2*Y0**3*Y2/9973 + 9*X0**2*Y0**2*Y1**2/9973 + 15*X0**2*Y0**2*Y1*Y2/9973
+  + 17*X0**2*Y0**2*Y2**2/9973 + 11*X0**2*Y0*Y1**3/9973 + 3*X0**2*Y0*Y1**2*Y2/9973 + 8*X0**2*Y0*Y1*Y2**2/9973 + 9*X0**2*Y0*Y2**3/9973
+  + 5*X0**2*Y1**4/9973 + 17*X0**2*Y1**3*Y2/9973 + 8*X0**2*Y1**2*Y2**2/9973 + 12*X0**2*Y1*Y2**3/9973 + 12*X0**2*Y2**4/9973
+  + 13*X0*X1**5/9973 + X0*X1**4*X2/9973 + 7*X0*X1**3*X2**2/9973 + 15*X0*X1**3*Y0**2/9973 + 6*X0*X1**3*Y0*Y1/9973
+  + 9*X0*X1**3*Y0*Y2/9973 + 6*X0*X1**3*Y1**2/9973 + 12*X0*X1**3*Y1*Y2/9973 + 14*X0*X1**3*Y2**2/9973 + 14*X0*X1**2*X2**3/9973
+  + 2*X0*X1**2*X2*Y0**2/9973 + 10*X0*X1**2*X2*Y0*Y1/9973 + 13*X0*X1**2*X2*Y0*Y2/9973 + 10*X0*X1**2*X2*Y1**2/9973
+  + 16*X0*X1**2*X2*Y1*Y2/9973 + X0*X1**2*X2*Y2**2/9973 + 5*X0*X1*X2**4/9973 + 7*X0*X1*X2**2*Y0**2/9973 + 15*X0*X1*X2**2*Y0*Y1/9973
+  + X0*X1*X2**2*Y0*Y2/9973 + 15*X0*X1*X2**2*Y1**2/9973 + 4*X0*X1*X2**2*Y1*Y2/9973 + 6*X0*X1*X2**2*Y2**2/9973 + 12*X0*X1*Y0**4/9973
+  + 13*X0*X1*Y0**3*Y1/9973 + 16*X0*X1*Y0**3*Y2/9973 + 6*X0*X1*Y0**2*Y1**2/9973 + 12*X0*X1*Y0**2*Y1*Y2/9973 + 14*X0*X1*Y0**2*Y2**2/9973
+  + 8*X0*X1*Y0*Y1**3/9973 + 17*X0*X1*Y0*Y1**2*Y2/9973 + 5*X0*X1*Y0*Y1*Y2**2/9973 + 6*X0*X1*Y0*Y2**3/9973 + 2*X0*X1*Y1**4/9973
+  + 14*X0*X1*Y1**3*Y2/9973 + 5*X0*X1*Y1**2*Y2**2/9973 + 9*X0*X1*Y1*Y2**3/9973 + 9*X0*X1*Y2**4/9973 + 14*X0*X2**5/9973
+  + 13*X0*X2**3*Y0**2/9973 + 4*X0*X2**3*Y0*Y1/9973 + 7*X0*X2**3*Y0*Y2/9973 + 4*X0*X2**3*Y1**2/9973 + 10*X0*X2**3*Y1*Y2/9973
+  + 12*X0*X2**3*Y2**2/9973 + 15*X0*X2*Y0**4/9973 + 16*X0*X2*Y0**3*Y1/9973 + 2*X0*X2*Y0**3*Y2/9973 + 9*X0*X2*Y0**2*Y1**2/9973
+  + 15*X0*X2*Y0**2*Y1*Y2/9973 + 17*X0*X2*Y0**2*Y2**2/9973 + 11*X0*X2*Y0*Y1**3/9973 + 3*X0*X2*Y0*Y1**2*Y2/9973 +
+  8*X0*X2*Y0*Y1*Y2**2/9973 + 9*X0*X2*Y0*Y2**3/9973 + 5*X0*X2*Y1**4/9973 + 17*X0*X2*Y1**3*Y2/9973 + 8*X0*X2*Y1**2*Y2**2/9973
+  + 12*X0*X2*Y1*Y2**3/9973 + 12*X0*X2*Y2**4/9973 + X1**6 + 2*X1**5*X2/9973 + 17*X1**4*X2**2/9973 + 8*X1**4*Y0**2/9973
+  + 16*X1**4*Y0*Y1/9973 + 2*X1**4*Y0*Y2/9973 + 16*X1**4*Y1**2/9973 + 5*X1**4*Y1*Y2/9973 + 7*X1**4*Y2**2/9973 + 16*X1**3*X2**3/9973
+  + 4*X1**3*X2*Y0**2/9973 + 12*X1**3*X2*Y0*Y1/9973 + 15*X1**3*X2*Y0*Y2/9973 + 12*X1**3*X2*Y1**2/9973 + X1**3*X2*Y1*Y2/9973
+  + 3*X1**3*X2*Y2**2/9973 + 16*X1**2*X2**4/9973 + X1**2*X2**2*Y0**2/9973 + 9*X1**2*X2**2*Y0*Y1/9973 + 12*X1**2*X2**2*Y0*Y2/9973
+  + 9*X1**2*X2**2*Y1**2/9973 + 15*X1**2*X2**2*Y1*Y2/9973 + 17*X1**2*X2**2*Y2**2/9973 + 6*X1**2*Y0**4/9973 + 7*X1**2*Y0**3*Y1/9973
+  + 10*X1**2*Y0**3*Y2/9973 + 17*X1**2*Y0**2*Y1**2/9973 + 6*X1**2*Y0**2*Y1*Y2/9973 + 8*X1**2*Y0**2*Y2**2/9973 + 2*X1**2*Y0*Y1**3/9973
+  + 11*X1**2*Y0*Y1**2*Y2/9973 + 16*X1**2*Y0*Y1*Y2**2/9973 + 17*X1**2*Y0*Y2**3/9973 + 13*X1**2*Y1**4/9973 + 8*X1**2*Y1**3*Y2/9973
+  + 16*X1**2*Y1**2*Y2**2/9973 + 3*X1**2*Y1*Y2**3/9973 + 3*X1**2*Y2**4/9973 + 17*X1*X2**5/9973 + 16*X1*X2**3*Y0**2/9973
+  + 7*X1*X2**3*Y0*Y1/9973 + 10*X1*X2**3*Y0*Y2/9973 + 7*X1*X2**3*Y1**2/9973 + 13*X1*X2**3*Y1*Y2/9973 + 15*X1*X2**3*Y2**2/9973
+  + X1*X2*Y0**4/9973 + 2*X1*X2*Y0**3*Y1/9973 + 5*X1*X2*Y0**3*Y2/9973 + 12*X1*X2*Y0**2*Y1**2/9973 + X1*X2*Y0**2*Y1*Y2/9973
+  + 3*X1*X2*Y0**2*Y2**2/9973 + 14*X1*X2*Y0*Y1**3/9973 + 6*X1*X2*Y0*Y1**2*Y2/9973 + 11*X1*X2*Y0*Y1*Y2**2/9973 + 12*X1*X2*Y0*Y2**3/9973
+  + 8*X1*X2*Y1**4/9973 + 3*X1*X2*Y1**3*Y2/9973 + 11*X1*X2*Y1**2*Y2**2/9973 + 15*X1*X2*Y1*Y2**3/9973 + 15*X1*X2*Y2**4/9973
+  + X2**6 + 15*X2**4*Y0**2/9973 + 6*X2**4*Y0*Y1/9973 + 9*X2**4*Y0*Y2/9973 + 6*X2**4*Y1**2/9973 + 12*X2**4*Y1*Y2/9973
+  + 14*X2**4*Y2**2/9973 + 14*X2**2*Y0**4/9973 + 15*X2**2*Y0**3*Y1/9973 + X2**2*Y0**3*Y2/9973 + 8*X2**2*Y0**2*Y1**2/9973
+  + 14*X2**2*Y0**2*Y1*Y2/9973 + 16*X2**2*Y0**2*Y2**2/9973 + 10*X2**2*Y0*Y1**3/9973 + 2*X2**2*Y0*Y1**2*Y2/9973 +
+  7*X2**2*Y0*Y1*Y2**2/9973 + 8*X2**2*Y0*Y2**3/9973 + 4*X2**2*Y1**4/9973 + 16*X2**2*Y1**3*Y2/9973 + 7*X2**2*Y1**2*Y2**2/9973
+  + 11*X2**2*Y1*Y2**3/9973 + 11*X2**2*Y2**4/9973 + Y0**6 + 10*Y0**5*Y1/9973 + 13*Y0**5*Y2/9973 + 13*Y0**4*Y1**2/9973
+  + 2*Y0**4*Y1*Y2/9973 + 4*Y0**4*Y2**2/9973 + 8*Y0**3*Y1**3/9973 + 17*Y0**3*Y1**2*Y2/9973 + 5*Y0**3*Y1*Y2**2/9973
+  + 6*Y0**3*Y2**3/9973 + 12*Y0**2*Y1**4/9973 + 7*Y0**2*Y1**3*Y2/9973 + 15*Y0**2*Y1**2*Y2**2/9973 + 2*Y0**2*Y1*Y2**3/9973
+  + 2*Y0**2*Y2**4/9973 + 8*Y0*Y1**5/9973 + 6*Y0*Y1**4*Y2/9973 + 17*Y0*Y1**3*Y2**2/9973 + 7*Y0*Y1**2*Y2**3/9973 +
+  10*Y0*Y1*Y2**4/9973 + 9*Y0*Y2**5/9973 + Y1**6 + 14*Y1**5*Y2/9973 + 11*Y1**4*Y2**2/9973 + 4*Y1**3*Y2**3/9973 +
+  10*Y1**2*Y2**4/9973 + 12*Y1*Y2**5/9973 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/59
+== diagonal-permutation [open]
+title: Simultaneous permutations · standard sector
+q: 1
+F: X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0**3*X1*Y2**2/11 + 5*X0**3*X2*Y0*Y2/7 + 5*X0**3*X2*Y1**2/11 + 5*X0**2*Y1**3*Y2/13 + 5*X0**2*Y1*Y2**3/13
+  + 5*X0*X1**3*Y0*Y1/7 + 5*X0*X1**3*Y2**2/11 + 5*X0*X2**3*Y0*Y2/7 + 5*X0*X2**3*Y1**2/11 + X1**6 + 5*X1**3*X2*Y0**2/11 + 5*X1**3*X2*Y1*Y2/7
+  + 5*X1**2*Y0**3*Y2/13 + 5*X1**2*Y0*Y2**3/13 + 5*X1*X2**3*Y0**2/11 + 5*X1*X2**3*Y1*Y2/7 + X2**6 + 5*X2**2*Y0**3*Y1/13 + 5*X2**2*Y0*Y1**3/13
+  + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3 - X1**3*Y1**3
+sameVariety: None disc: None
+== eight-plane-configuration [open]
+title: Eight planes · contact arrangement
+q: 1
+F: 31218*X0**6/31213 + 40*X0**5*X1/31213 + 60*X0**5*X2/31213 + 1600*X0**4*X1**2/343343 + 360*X0**4*X1*X2/31213 + 4455*X0**4*X2**2/405769
+  + 3265*X0**4*Y0**2/9020557 + 60*X0**4*Y0*Y1/99127 + 80*X0**4*Y0*Y2/99127 + 17995*X0**4*Y1**2/14175161 + 120*X0**4*Y1*Y2/99127
+  + 7505*X0**4*Y2**2/2393209 + 4140*X0**3*X1**3/343343 + 12120*X0**3*X1**2*X2/343343 + 25380*X0**3*X1*X2**2/405769 + 18840*X0**3*X1*Y0**2/9020557
+  + 240*X0**3*X1*Y0*Y1/99127 + 320*X0**3*X1*Y0*Y2/99127 + 124000*X0**3*X1*Y1**2/14175161 + 480*X0**3*X1*Y1*Y2/99127 + 522260*X0**3*X1*Y2**2/16752463
+  + 37260*X0**3*X2**3/405769 + 28260*X0**3*X2*Y0**2/9020557 + 360*X0**3*X2*Y0*Y1/99127 + 480*X0**3*X2*Y0*Y2/99127 + 212010*X0**3*X2*Y1**2/14175161
+  + 720*X0**3*X2*Y1*Y2/99127 + 1329600*X0**3*X2*Y2**2/16752463 + 710*X0**2*X1**4/31213 + 2580*X0**2*X1**3*X2/31213 + 71160*X0**2*X1**2*X2**2/405769
+  + 665400*X0**2*X1**2*Y0**2/99226127 + 12720*X0**2*X1**2*Y0*Y1/1090397 + 21440*X0**2*X1**2*Y0*Y2/1090397 + 65610*X0**2*X1**2*Y1**2/2025023
+  + 45600*X0**2*X1**2*Y1*Y2/1090397 + 22674000*X0**2*X1**2*Y2**2/184277093 + 166500*X0**2*X1*X2**3/405769 + 125880*X0**2*X1*X2*Y0**2/9020557
+  + 720*X0**2*X1*X2*Y0*Y1/99127 + 960*X0**2*X1*X2*Y0*Y2/99127 + 93720*X0**2*X1*X2*Y1**2/1288651 + 1440*X0**2*X1*X2*Y1*Y2/99127
+  + 922380*X0**2*X1*X2*Y2**2/2393209 + 140715*X0**2*X2**4/405769 + 235530*X0**2*X2**2*Y0**2/9020557 + 143100*X0**2*X2**2*Y0*Y1/1288651
+  + 331920*X0**2*X2**2*Y0*Y2/1288651 + 304260*X0**2*X2**2*Y1**2/1288651 + 1102680*X0**2*X2**2*Y1*Y2/1288651 + 22486950*X0**2*X2**2*Y2**2/16752463
+  + 34950*X0**2*Y0**4/131938037 + 167325*X0**2*Y0**3*Y1/131938037 + 248090*X0**2*Y0**3*Y2/131938037 + 668300*X0**2*Y0**2*Y1**2/131938037
+  + 1246785*X0**2*Y0**2*Y1*Y2/131938037 + 39587650*X0**2*Y0**2*Y2**2/1715194481 + 254565*X0**2*Y0*Y1**3/18848291 + 695320*X0**2*Y0*Y1**2*Y2/18848291
+  + 33880365*X0**2*Y0*Y1*Y2**2/245027783 + 5962430*X0**2*Y0*Y2**3/22275253 + 244215*X0**2*Y1**4/18848291 + 1002195*X0**2*Y1**3*Y2/18848291
+  + 61115240*X0**2*Y1**2*Y2**2/245027783 + 216859245*X0**2*Y1*Y2**3/245027783 + 249197420*X0**2*Y2**4/245027783 + 1215*X0*X1**5/49049
+  + 450*X0*X1**4*X2/3773 + 185440*X0*X1**3*X2**2/637637 + 1120160*X0*X1**3*Y0**2/99226127 + 4320*X0*X1**3*Y0*Y1/155771 + 7680*X0*X1**3*Y0*Y2/155771
+  + 793395*X0*X1**3*Y1**2/14175161 + 17280*X0*X1**3*Y1*Y2/155771 + 37499200*X0*X1**3*Y2**2/184277093 + 63680*X0*X1**2*X2**3/91091
+  + 3104240*X0*X1**2*X2*Y0**2/99226127 + 5760*X0*X1**2*X2*Y0*Y1/155771 + 10240*X0*X1**2*X2*Y0*Y2/155771 + 175410*X0*X1**2*X2*Y1**2/1090397
+  + 23040*X0*X1**2*X2*Y1*Y2/155771 + 135620000*X0*X1**2*X2*Y2**2/184277093 + 59100*X0*X1*X2**4/57967 + 688440*X0*X1*X2**2*Y0**2/9020557
+  + 51840*X0*X1*X2**2*Y0*Y1/184093 + 122880*X0*X1*X2**2*Y0*Y2/184093 + 9371640*X0*X1*X2**2*Y1**2/14175161 + 414720*X0*X1*X2**2*Y1*Y2/184093
+  + 61808220*X0*X1*X2**2*Y2**2/16752463 + 80*X0*X1*Y0**4/99127 + 240*X0*X1*Y0**3*Y1/99127 + 320*X0*X1*Y0**3*Y2/99127 + 8700*X0*X1*Y0**2*Y1**2/1090397
+  + 480*X0*X1*Y0**2*Y1*Y2/99127 + 57920*X0*X1*Y0**2*Y2**2/1288651 + 4320*X0*X1*Y0*Y1**3/155771 + 7680*X0*X1*Y0*Y1**2*Y2/155771
+  + 51840*X0*X1*Y0*Y1*Y2**2/184093 + 122880*X0*X1*Y0*Y2**3/184093 + 4860*X0*X1*Y1**4/155771 + 17280*X0*X1*Y1**3*Y2/155771
+  + 1161960*X0*X1*Y1**2*Y2**2/2025023 + 414720*X0*X1*Y1*Y2**3/184093 + 491520*X0*X1*Y2**4/184093 + 31000*X0*X2**5/57967 +
+  626460*X0*X2**3*Y0**2/9020557 + 64800*X0*X2**3*Y0*Y1/184093 + 153600*X0*X2**3*Y0*Y2/184093 + 9760910*X0*X2**3*Y1**2/14175161
+  + 518400*X0*X2**3*Y1*Y2/184093 + 64869400*X0*X2**3*Y2**2/16752463 + 120*X0*X2*Y0**4/99127 + 360*X0*X2*Y0**3*Y1/99127 + 480*X0*X2*Y0**3*Y2/99127
+  + 11930*X0*X2*Y0**2*Y1**2/1090397 + 720*X0*X2*Y0**2*Y1*Y2/99127 + 4320*X0*X2*Y0**2*Y2**2/75803 + 5760*X0*X2*Y0*Y1**3/155771
+  + 10240*X0*X2*Y0*Y1**2*Y2/155771 + 64800*X0*X2*Y0*Y1*Y2**2/184093 + 153600*X0*X2*Y0*Y2**3/184093 + 6480*X0*X2*Y1**4/155771
+  + 23040*X0*X2*Y1**3*Y2/155771 + 209870*X0*X2*Y1**2*Y2**2/289289 + 518400*X0*X2*Y1*Y2**3/184093 + 614400*X0*X2*Y2**4/184093
+  + 49589*X1**6/49049 + 3375*X1**5*X2/49049 + 128780*X1**4*X2**2/637637 + 712960*X1**4*Y0**2/99226127 + 3240*X1**4*Y0*Y1/155771
+  + 5760*X1**4*Y0*Y2/155771 + 487755*X1**4*Y1**2/14175161 + 12960*X1**4*Y1*Y2/155771 + 21766400*X1**4*Y2**2/184277093 + 301520*X1**3*X2**3/637637
+  + 2748960*X1**3*X2*Y0**2/99226127 + 8640*X1**3*X2*Y0*Y1/155771 + 15360*X1**3*X2*Y0*Y2/155771 + 1859895*X1**3*X2*Y1**2/14175161
+  + 34560*X1**3*X2*Y1*Y2/155771 + 94326720*X1**3*X2*Y2**2/184277093 + 75120*X1**2*X2**4/91091 + 7008360*X1**2*X2**2*Y0**2/99226127
+  + 455040*X1**2*X2**2*Y0*Y1/2025023 + 1034240*X1**2*X2**2*Y0*Y2/2025023 + 562860*X1**2*X2**2*Y1**2/1090397 + 3340800*X1**2*X2**2*Y1*Y2/2025023
+  + 493383120*X1**2*X2**2*Y2**2/184277093 + 2104240*X1**2*Y0**4/1451318407 + 1019160*X1**2*Y0**3*Y1/131938037 + 16813600*X1**2*Y0**3*Y2/1451318407
+  + 33134100*X1**2*Y0**2*Y1**2/1451318407 + 81897720*X1**2*Y0**2*Y1*Y2/1451318407 + 1349734240*X1**2*Y0**2*Y2**2/18867139291
+  + 8977240*X1**2*Y0*Y1**3/207331201 + 2696160*X1**2*Y0*Y1**2*Y2/18848291 + 954313560*X1**2*Y0*Y1*Y2**2/2695305613 + 1433297120*X1**2*Y0*Y2**3/2695305613
+  + 7250535*X1**2*Y1**4/207331201 + 32310400*X1**2*Y1**3*Y2/207331201 + 216172800*X1**2*Y1**2*Y2**2/385043659 + 4527451800*X1**2*Y1*Y2**3/2695305613
+  + 4984688000*X1**2*Y2**4/2695305613 + 500*X1*X2**5/637 + 939320*X1*X2**3*Y0**2/9020557 + 86400*X1*X2**3*Y0*Y1/184093 + 204800*X1*X2**3*Y0*Y2/184093
+  + 13469240*X1*X2**3*Y1**2/14175161 + 691200*X1*X2**3*Y1*Y2/184093 + 963700*X1*X2**3*Y2**2/184093 + 240*X1*X2*Y0**4/99127
+  + 720*X1*X2*Y0**3*Y1/99127 + 960*X1*X2*Y0**3*Y2/99127 + 1140*X1*X2*Y0**2*Y1**2/64141 + 1440*X1*X2*Y0**2*Y1*Y2/99127 + 102080*X1*X2*Y0**2*Y2**2/1288651
+  + 8640*X1*X2*Y0*Y1**3/155771 + 15360*X1*X2*Y0*Y1**2*Y2/155771 + 86400*X1*X2*Y0*Y1*Y2**2/184093 + 204800*X1*X2*Y0*Y2**3/184093
+  + 9720*X1*X2*Y1**4/155771 + 34560*X1*X2*Y1**3*Y2/155771 + 2003160*X1*X2*Y1**2*Y2**2/2025023 + 691200*X1*X2*Y1*Y2**3/184093
+  + 819200*X1*X2*Y2**4/184093 + 74842*X2**6/57967 + 509045*X2**4*Y0**2/9020557 + 54000*X2**4*Y0*Y1/184093 + 128000*X2**4*Y0*Y2/184093
+  + 603765*X2**4*Y1**2/1090397 + 432000*X2**4*Y1*Y2/184093 + 51468875*X2**4*Y2**2/16752463 + 9412020*X2**2*Y0**4/1715194481
+  + 62085015*X2**2*Y0**3*Y1/1715194481 + 106920360*X2**2*Y0**3*Y2/1715194481 + 1486370*X2**2*Y0**2*Y1**2/14175161 + 566305605*X2**2*Y0**2*Y1*Y2/1715194481
+  + 542511880*X2**2*Y0**2*Y2**2/1715194481 + 38527855*X2**2*Y0*Y1**3/245027783 + 164423170*X2**2*Y0*Y1**2*Y2/245027783 + 313889655*X2**2*Y0*Y1*Y2**2/245027783
+  + 299349720*X2**2*Y0*Y2**3/245027783 + 24249915*X2**2*Y1**4/245027783 + 128600795*X2**2*Y1**3*Y2/245027783 + 376100840*X2**2*Y1**2*Y2**2/245027783
+  + 809485665*X2**2*Y1*Y2**3/245027783 + 772902080*X2**2*Y2**4/245027783 + 158399*Y0**6/158389 + 15*Y0**5*Y1/22627 + 10*Y0**5*Y2/9317
+  + 5575*Y0**4*Y1**2/1742279 + 1305*Y0**4*Y1*Y2/158389 + 3030*Y0**4*Y2**2/294151 + 1515*Y0**3*Y1**3/158389 + 50200*Y0**3*Y1**2*Y2/1742279
+  + 130590*Y0**3*Y1*Y2**2/2059057 + 149150*Y0**3*Y2**3/2059057 + 33015*Y0**2*Y1**4/1742279 + 118095*Y0**2*Y1**3*Y2/1742279
+  + 3882330*Y0**2*Y1**2*Y2**2/22649627 + 740280*Y0**2*Y1*Y2**3/2059057 + 579340*Y0**2*Y2**4/2059057 + 5600*Y0*Y1**5/248897
+  + 2400*Y0*Y1**4*Y2/22627 + 927325*Y0*Y1**3*Y2**2/3235661 + 2239350*Y0*Y1**2*Y2**3/3235661 + 290535*Y0*Y1*Y2**4/294151 +
+  154840*Y0*Y2**5/294151 + 251777*Y1**6/248897 + 18080*Y1**5*Y2/248897 + 737865*Y1**4*Y2**2/3235661 + 1795265*Y1**3*Y2**3/3235661
+  + 3164115*Y1**2*Y2**4/3235661 + 281505*Y1*Y2**5/294151 + 403911*Y2**6/294151
+A: X0**3*Y0**3
+sameVariety: None disc: None
+== f3-block-x0-quartic-strict [SOLVED(benediamond PR#10)]
+title: F₃ · quartic contact
+q: 1
+F: X0**6 + X0**2*X1**2*Y0**2 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3 - 5*X0*X1**4*Y0/3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/72
+== family-block-cube [SOLVED(benediamond PR#29)]
+title: Block cube · θ = 0
+q: 1
+F: X0**6 + X0**4*Y0**2 + 2*X0**2*Y0**4 + X1**6 + X1**3*X2**3 + 2*X2**6 + 3*Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/92
+== family-hesse-web [SOLVED(benediamond PR#34)]
+title: Hesse web · t = −2
+q: 1
+F: X0**6 - 2*X0**2*X1**2*Y0**2 + X1**6 + 2*X2**6 + Y0**6 + 3*Y1**6 + 5*Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/97
+== family-passive-contact [SOLVED(benediamond PR#35)]
+title: Passive quadric · linear contact
+q: 1
+F: X0**6 + 13*X0**2*X1**2*Y0**2/17 + 5*X0**2*X1**2*Y0*Y2/9 + 7*X0**2*X1**2*Y2**2/11 + X1**6 + X2**6 + X2**2*Y1**2*Y2**2
+  + Y0**6 + Y1**6 + Y2**6
+A: X0**3*X1*X2*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/98
+== family-root-cube [SOLVED(benediamond PR#31)]
+title: Root cube · crossed blocks
+q: 1
+F: 5*X0**6 + 303*X0**4*X2**2/103 - 7*X0**4*Y0**2 + 303*X0**4*Y2**2/103 + 101*X0**2*X1**3*X2/103 + 101*X0**2*X1**2*Y1*Y2/103
+  + 101*X0**2*X2**4/103 - 202*X0**2*X2**2*Y0**2/103 + 7*X0**2*Y0**4 + 202*X0**2*Y0**2*Y2**2/103 + 101*X0**2*Y2**4/103
+  + X1**6 + 2*X1**4*Y1**2 + 101*X1**3*X2*Y0**2/103 + 101*X1**2*Y0**2*Y1*Y2/103 + 3*X1**2*Y1**4 + X2**6 - 101*X2**4*Y0**2/103
+  + 2*X2**4*Y2**2 + 303*X2**2*Y0**4/103 + 3*X2**2*Y2**4 - 5*Y0**6 + 303*Y0**4*Y2**2/103 - 101*Y0**2*Y2**4/103 +
+  5*Y1**6 + 7*Y2**6
+A: X0*X1*X2**3*Y0
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/94
+== family-shear [SOLVED(benediamond PR#33)]
+title: Logarithmic shear · chain
+q: 1
+F: X0**6 + 2*X0**4*Y0**2 + 3*X0**2*Y0**4 + X0*X2**5 + X1**6 + Y0**6 + Y1**6 + Y2**6
+A: -10*X1*X2**4*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/96
+== family-sylvester-norm [SOLVED(benediamond PR#30)]
+title: Sylvester · rational norm
+q: 1
+F: X0**6 + 2*X0**4*Y0**2 + 3*X0**2*Y0**4 + 2*X1**6 + 3*X1**4*Y1**2 + 5*X1**2*Y1**4 + 11*X2**6 + 13*X2**4*Y2**2 +
+  17*X2**2*Y2**4 + 5*Y0**6 + 7*Y1**6 + 19*Y2**6
+A: X0*X1**2*X2**2*Y0
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/93
+== family-trace-zero [SOLVED(benediamond PR#32)]
+title: Trace zero · line × conic
+q: 1
+F: 2*X0**6 + 2*X0**4*Y0**2 + 10201*X0**2*X1**4/10609 + 20402*X0**2*X1**2*Y1**2/10609 + 2*X0**2*Y0**4 + 10201*X0**2*Y1**4/10609
+  + 2*X1**6 + 10201*X1**4*Y0**2/10609 + 20402*X1**2*Y0**2*Y1**2/10609 + 3*X2**6 + 2*Y0**6 + 10201*Y0**2*Y1**4/10609
+  + 5*Y1**6 + 7*Y2**6
+A: 8*X0**3*X1**2*Y0 - 8*X0*X1**2*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/95
+== fermat-pair-rational-d4-strict [SOLVED(benediamond PR#1)]
+title: Fermat · quartic cofactor
+q: 1
+F: X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*X1*X2*Y0
+sameVariety: ['fermat-q2'] disc: https://github.com/hodge-computer/sextics/discussions/63
+== fermat-q2 [SOLVED(benediamond PR#37)]
+title: Fermat · pole order two
+q: 2
+F: X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*X1**2*X2**2*Y0**3*Y1**2
+sameVariety: ['fermat-pair-rational-d4-strict'] disc: https://github.com/hodge-computer/sextics/discussions/100
+== fixed-witness-hesse-cofactor-d4-rational [SOLVED(benediamond PR#17)]
+title: Hesse · fixed-target quartic
+q: 1
+F: X0**6 + 12*X0**4*X1**2 + 9*X0**4*X2**2 + 6*X0**2*X1**4 - 3*X0**2*X1**2*X2**2 - 6*X0**2*X2**4 + 2*X1**6 + X2**6
+  + Y0**6 + 2*Y1**6 + 3*Y2**6
+A: X0*X1*X2**3*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/79
+== four-plus-two-residual [open]
+title: Four plus two · suspension remainder
+q: 1
+F: X0**6 + 5*X0**5*X1/7 + 5*X0**3*X1*Y0*Y1/7 + 10*X0*X1**5/7 + 10*X0*X1*Y0**3*Y1/7 + X1**6 + X2**6 + 15*X2**4*Y2**2/7 + 10*X2**2*Y2**4/7
+  + Y0**6 + 5*Y0**5*Y1/7 + 15*Y0*Y1**5/7 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/120
+== hesse-radial-hesse-cofactor-d4-rational [SOLVED(benediamond PR#16)]
+title: Hesse · radial quartic
+q: 1
+F: X0**6 + X0**2*X2**2*Y2**2 + 5*X1**6 + 21*X1**4*Y1**2 + 30*X1**2*Y1**4 + X2**6 + Y0**6 + 14*Y1**6 + Y2**6
+A: X0*X1*X2**3*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/78
+== hesse-triangle [SOLVED(benediamond PR#23)]
+title: Hesse · three quadrics
+q: 1
+F: X0**6 + X1**6 + X2**6 + Y0**6 - 3*Y0**2*Y1**2*Y2**2 + Y1**6 + 3*Y2**6
+A: X0*Y0*Y1**3*Y2
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/86
+== holdout [SOLVED(fqlx PR#128)]
+title: The holdout
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: ['holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/44
+== holdout-all-six [SOLVED(fqlx PR#135)]
+title: Holdout · all six coordinates
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0*X1*X2*Y0*Y1*Y2
+sameVariety: ['holdout', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/51
+== holdout-bundle [SOLVED(fqlx PR#161)]
+title: Holdout · character-separating bundle
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3 + X0**3*Y0*Y1**2
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/62
+== holdout-moving-branch [SOLVED(benediamond PR#172)]
+title: Moving branch · coupled cover
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X0**2*Y0**2*Y2**2/7 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: None
+== holdout-p3 [SOLVED(fqlx PR#137)]
+title: Holdout · central cubic
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X2**3*Y2**3
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/46
+== holdout-p-y14 [SOLVED(fqlx PR#136)]
+title: Holdout · quartic spectator
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X2*Y1**4*Y2
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/45
+== holdout-q2 [SOLVED(HeadOfNaps PR#124)]
+title: Holdout · pole order two
+q: 2
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*X1**2*X2**2*Y0**3*Y1**2
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/60
+== holdout-ternary-deformation [SOLVED(hodgepodgeconjecture PR#151)]
+title: Deformed ternary · conic quotient
+q: 1
+F: X0**6 + X0**5*X1/14 + X0**3*X1*Y0*Y1 + X0*X2**5/14 + X1**6 + X1**5*X2/7 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: None
+== holdout-x04-p [SOLVED(fqlx PR#140)]
+title: Holdout · transverse quartic
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**4*X2*Y2
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/53
+== holdout-x0-x14-y0 [SOLVED(fqlx PR#138)]
+title: Holdout · fourth-power X
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0*X1**4*Y0
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/52
+== holdout-x0-y03-y12 [SOLVED(fqlx PR#139)]
+title: Holdout · inverse character
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0*Y0**3*Y1**2
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/50
+== holdout-x12-p-y02 [SOLVED(fqlx PR#142)]
+title: Holdout · mixed quadratic
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X1**2*X2*Y0**2*Y2
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/48
+== holdout-x13-y13 [SOLVED(fqlx PR#143)]
+title: Holdout · second cubic
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X1**3*Y1**3
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x1-y04-y1', 'holdout-x12-p-y02'] disc: https://github.com/hodge-computer/sextics/discussions/49
+== holdout-x1-y04-y1 [SOLVED(fqlx PR#141)]
+title: Holdout · fourth-power companion
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y1*Y2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X1*Y0**4*Y1
+sameVariety: ['holdout', 'holdout-all-six', 'holdout-bundle', 'holdout-p-y14', 'holdout-p3', 'holdout-q2', 'holdout-x0-x14-y0', 'holdout-x0-y03-y12', 'holdout-x04-p', 'holdout-x12-p-y02', 'holdout-x13-y13'] disc: https://github.com/hodge-computer/sextics/discussions/47
+== klein-coupled-character [open]
+title: Coupled Klein · nontrivial character
+q: 1
+F: X0**5*X1 + 10*X0**3*X2*Y1*Y2/7 + 5*X0*X1**3*Y0*Y1/7 + X0*X2**5 + X1**5*X2 + 15*X1*X2**3*Y0*Y2/7 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/116
+== klein-hesse [SOLVED(benediamond PR#22)]
+title: Klein–Hesse · κ = 2
+q: 1
+F: X0**5*X1 + 2*X0**2*X1**2*X2**2 + X0*X2**5 + X1**5*X2 + Y0**5*Y1 + Y0*Y2**5 + Y1**5*Y2
+A: X0**3*X1**2*Y0 - X1**3*X2**2*Y0
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/85
+== klein-rational [SOLVED(benediamond PR#42)]
+title: Klein · rational Piola trace
+q: 1
+F: X0**5*X1 + X0*X2**5 + X1**5*X2 + Y0**5*Y1 + Y0*Y2**5 + Y1**5*Y2
+A: X0**3*X1**2*Y0
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/105
+== m3-coupled [SOLVED(benediamond PR#21)]
+title: M₃ · coupled conic
+q: 1
+F: -116*X0**6 + 132*X0**4*X1**2 - 171*X0**4*Y0**2 + 14*X0**2*X1**4 - 52*X0**2*X1**2*Y0**2 + X0**2*X2**2*Y2**2 +
+  33*X0**2*Y0**4 - 30*X1**6 + 62*X1**4*Y0**2 - 34*X1**2*Y0**4 + X1**2*Y0**2*Y1**2 + 22*X2**6 - 56*X2**4*Y1**2 +
+  80*X2**4*Y2**2 + 32*X2**2*Y1**4 + 6*X2**2*Y1**2*Y2**2 + 40*X2**2*Y2**4 - 3*Y0**6 + 2*Y1**6 + 40*Y1**4*Y2**2 +
+  8*Y1**2*Y2**4 - 2*Y2**6
+A: 4*X0**3*X1*X2*Y1 + 5*X0*X1**3*X2*Y1 - 5*X0*X1*X2*Y0**2*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/83
+== mixed-biweight [SOLVED(fqlx PR#170)]
+title: Mixed biweights · asymmetric
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1/2 + X0*X2*Y0**3*Y2/3 + X1**6 + X1**3*X2*Y1*Y2/2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/56
+== mixed-polar [SOLVED(benediamond PR#182)]
+title: Mixed polar · balanced target
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1/2 + X0*X1*Y0*Y1**3/3 + X1**6 + X1**3*X2*Y1*Y2/2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0*X1*X2*Y0*Y1*Y2
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/58
+== off-paired [open]
+title: Broken paired signs
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1/2 + X0**2*X1*X2*Y0*Y2/3 + X1**6 + X1**3*X2*Y1*Y2/2 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/57
+== one-reflection [SOLVED(fqlx PR#123)]
+title: One reflection · residual sector
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y0*Y1 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: ['one-reflection-y2-sector'] disc: https://github.com/hodge-computer/sextics/discussions/54
+== one-reflection-skew [open]
+title: One reflection · skew coupling
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X0*X1*Y0**3*Y1/7 - X0*X1*Y0*Y1**3/7 + X1**6 + X1**3*X2*Y0*Y1
+  + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/127
+== one-reflection-y2-sector [SOLVED(DiamondJM PR#144)]
+title: One reflection · transverse sector
+q: 1
+F: X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y0*Y1 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0*Y1*Y2
+sameVariety: ['one-reflection'] disc: https://github.com/hodge-computer/sextics/discussions/126
+== passive-quadratic-d4-strict-rational [SOLVED(benediamond PR#19)]
+title: Passive quadratic · rational quartic
+q: 1
+F: X0**6 + X0**2*X1**2*Y0**2 + X0**2*X1**2*Y2**2 + X1**6 + X2**6 + X2**2*Y1**2*Y2**2 + Y0**6 + Y1**6 + Y2**6
+A: 4*X0**3*X1*X2*Y1 + 5*X0*X1**3*X2*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/81
+== polarized-contact-coupled-d2 [SOLVED(benediamond PR#39)]
+title: Polarized contact · coupled
+q: 1
+F: 1000005*X0**6 + 4000020*X0**5*X1 + 2*X0**5*X2 + 10000050*X0**4*X1**2 + 4*X0**4*X1*X2 - 2999979*X0**4*Y0**2 -
+  3999972*X0**4*Y0*Y1 + 10*X0**4*Y0*Y2 + 2000026*X0**4*Y1**2 + 4*X0**4*Y1*Y2 + 22000110*X0**3*X1**3 + 6*X0**3*X1**2*X2
+  - 7999944*X0**3*X1*Y0**2 - 23999912*X0**3*X1*Y0*Y1 + 16*X0**3*X1*Y0*Y2 + 18000186*X0**3*X1*Y1**2 + 12*X0**3*X1*Y1*Y2
+  + 20*X0**3*X2*Y0**2 + 16*X0**3*X2*Y0*Y1 + 6*X0**3*X2*Y1**2 + 29000145*X0**2*X1**4 + 10*X0**2*X1**3*X2 - 7999904*X0**2*X1**2*Y0**2
+  - 101999910*X0**2*X1**2*Y0*Y1 + 18*X0**2*X1**2*Y0*Y2 - 17999706*X0**2*X1**2*Y1**2 + 30*X0**2*X1**2*Y1*Y2 + 24*X0**2*X1*X2*Y0**2
+  + 36*X0**2*X1*X2*Y0*Y1 + 30*X0**2*X1*X2*Y1**2 + 3000039*X0**2*Y0**4 + 8000104*X0**2*Y0**3*Y1 + 20*X0**2*Y0**3*Y2
+  + 8000144*X0**2*Y0**2*Y1**2 + 24*X0**2*Y0**2*Y1*Y2 - 17999922*X0**2*Y0*Y1**3 + 18*X0**2*Y0*Y1**2*Y2 - 10999975*X0**2*Y1**4
+  + 10*X0**2*Y1**3*Y2 + 30000150*X0*X1**5 + 14*X0*X1**4*X2 + 18000186*X0*X1**3*Y0**2 - 79999776*X0*X1**3*Y0*Y1 +
+  20*X0*X1**3*Y0*Y2 - 59999580*X0*X1**3*Y1**2 + 56*X0*X1**3*Y1*Y2 + 18*X0*X1**2*X2*Y0**2 + 60*X0*X1**2*X2*Y0*Y1
+  + 84*X0*X1**2*X2*Y1**2 + 4000052*X0*X1*Y0**4 + 24000232*X0*X1*Y0**3*Y1 + 16*X0*X1*Y0**3*Y2 + 102000702*X0*X1*Y0**2*Y1**2
+  + 36*X0*X1*Y0**2*Y1*Y2 + 80000704*X0*X1*Y0*Y1**3 + 60*X0*X1*Y0*Y1**2*Y2 + 30000390*X0*X1*Y1**4 + 56*X0*X1*Y1**3*Y2
+  + 10*X0*X2*Y0**4 + 16*X0*X2*Y0**3*Y1 + 18*X0*X2*Y0**2*Y1**2 + 20*X0*X2*Y0*Y1**3 + 14*X0*X2*Y1**4 + 25000125*X1**6
+  + 22*X1**5*X2 + 11000091*X1**4*Y0**2 - 29999790*X1**4*Y0*Y1 + 14*X1**4*Y0*Y2 - 74999475*X1**4*Y1**2 + 110*X1**4*Y1*Y2
+  + 10*X1**3*X2*Y0**2 + 56*X1**3*X2*Y0*Y1 + 220*X1**3*X2*Y1**2 - 1999986*X1**2*Y0**4 - 17999922*X1**2*Y0**3*Y1 +
+  6*X1**2*Y0**3*Y2 + 18000402*X1**2*Y0**2*Y1**2 + 30*X1**2*Y0**2*Y1*Y2 + 60000780*X1**2*Y0*Y1**3 + 84*X1**2*Y0*Y1**2*Y2
+  + 75000975*X1**2*Y1**4 + 220*X1**2*Y1**3*Y2 + 4*X1*X2*Y0**4 + 12*X1*X2*Y0**3*Y1 + 30*X1*X2*Y0**2*Y1**2 + 56*X1*X2*Y0*Y1**3
+  + 110*X1*X2*Y1**4 + 2*X2**6 + 30*X2**4*Y2**2 + 30*X2**2*Y2**4 - 1000001*Y0**6 - 4000004*Y0**5*Y1 + 2*Y0**5*Y2
+  - 10000010*Y0**4*Y1**2 + 4*Y0**4*Y1*Y2 - 22000022*Y0**3*Y1**3 + 6*Y0**3*Y1**2*Y2 - 29000029*Y0**2*Y1**4 + 10*Y0**2*Y1**3*Y2
+  - 30000030*Y0*Y1**5 + 14*Y0*Y1**4*Y2 - 25000025*Y1**6 + 22*Y1**5*Y2 + 2*Y2**6
+A: -48*X0**5*Y0 - 40*X0**5*Y1 - 200*X0**4*X1*Y0 - 264*X0**4*X1*Y1 - 528*X0**3*X1**2*Y0 - 192*X0**3*X1**2*Y1 - 160*X0**3*Y0**3
+  - 400*X0**3*Y0**2*Y1 - 528*X0**3*Y0*Y1**2 - 64*X0**3*Y1**3 - 192*X0**2*X1**3*Y0 + 904*X0**2*X1**3*Y1 - 400*X0**2*X1*Y0**3
+  - 1584*X0**2*X1*Y0**2*Y1 - 576*X0**2*X1*Y0*Y1**2 + 904*X0**2*X1*Y1**3 + 452*X0*X1**4*Y0 + 1120*X0*X1**4*Y1 - 528*X0*X1**2*Y0**3
+  - 576*X0*X1**2*Y0**2*Y1 + 2712*X0*X1**2*Y0*Y1**2 + 2240*X0*X1**2*Y1**3 - 48*X0*Y0**5 - 200*X0*Y0**4*Y1 - 528*X0*Y0**3*Y1**2
+  - 192*X0*Y0**2*Y1**3 + 452*X0*Y0*Y1**4 + 224*X0*Y1**5 + 224*X1**5*Y0 + 720*X1**5*Y1 - 64*X1**3*Y0**3 + 904*X1**3*Y0**2*Y1
+  + 2240*X1**3*Y0*Y1**2 + 2400*X1**3*Y1**3 - 40*X1*Y0**5 - 264*X1*Y0**4*Y1 - 192*X1*Y0**3*Y1**2 + 904*X1*Y0**2*Y1**3
+  + 1120*X1*Y0*Y1**4 + 720*X1*Y1**5
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/102
+== polarized-contact-deformation-d2 [SOLVED(benediamond PR#40)]
+title: Polarized contact · moving target
+q: 1
+F: 1000005*X0**6 + 4000020*X0**5*X1 + 2*X0**5*X2 + 10000050*X0**4*X1**2 + 4*X0**4*X1*X2 - 2999979*X0**4*Y0**2 -
+  3999972*X0**4*Y0*Y1 + 10*X0**4*Y0*Y2 + 2000026*X0**4*Y1**2 + 4*X0**4*Y1*Y2 + 22000110*X0**3*X1**3 + 6*X0**3*X1**2*X2
+  - 7999944*X0**3*X1*Y0**2 - 23999912*X0**3*X1*Y0*Y1 + 16*X0**3*X1*Y0*Y2 + 18000186*X0**3*X1*Y1**2 + 12*X0**3*X1*Y1*Y2
+  + 20*X0**3*X2*Y0**2 + 16*X0**3*X2*Y0*Y1 + 6*X0**3*X2*Y1**2 + 29000145*X0**2*X1**4 + 10*X0**2*X1**3*X2 - 7999904*X0**2*X1**2*Y0**2
+  - 101999910*X0**2*X1**2*Y0*Y1 + 18*X0**2*X1**2*Y0*Y2 - 17999706*X0**2*X1**2*Y1**2 + 30*X0**2*X1**2*Y1*Y2 + 24*X0**2*X1*X2*Y0**2
+  + 36*X0**2*X1*X2*Y0*Y1 + 30*X0**2*X1*X2*Y1**2 + 3000039*X0**2*Y0**4 + 8000104*X0**2*Y0**3*Y1 + 20*X0**2*Y0**3*Y2
+  + 8000144*X0**2*Y0**2*Y1**2 + 24*X0**2*Y0**2*Y1*Y2 - 17999922*X0**2*Y0*Y1**3 + 18*X0**2*Y0*Y1**2*Y2 - 10999975*X0**2*Y1**4
+  + 10*X0**2*Y1**3*Y2 + 30000150*X0*X1**5 + 14*X0*X1**4*X2 + 18000186*X0*X1**3*Y0**2 - 79999776*X0*X1**3*Y0*Y1 +
+  20*X0*X1**3*Y0*Y2 - 59999580*X0*X1**3*Y1**2 + 56*X0*X1**3*Y1*Y2 + 18*X0*X1**2*X2*Y0**2 + 60*X0*X1**2*X2*Y0*Y1
+  + 84*X0*X1**2*X2*Y1**2 + 4000052*X0*X1*Y0**4 + 24000232*X0*X1*Y0**3*Y1 + 16*X0*X1*Y0**3*Y2 + 102000702*X0*X1*Y0**2*Y1**2
+  + 36*X0*X1*Y0**2*Y1*Y2 + 80000704*X0*X1*Y0*Y1**3 + 60*X0*X1*Y0*Y1**2*Y2 + 30000390*X0*X1*Y1**4 + 56*X0*X1*Y1**3*Y2
+  + 10*X0*X2*Y0**4 + 16*X0*X2*Y0**3*Y1 + 18*X0*X2*Y0**2*Y1**2 + 20*X0*X2*Y0*Y1**3 + 14*X0*X2*Y1**4 + 25000125*X1**6
+  + 22*X1**5*X2 + 11000091*X1**4*Y0**2 - 29999790*X1**4*Y0*Y1 + 14*X1**4*Y0*Y2 - 74999475*X1**4*Y1**2 + 110*X1**4*Y1*Y2
+  + 10*X1**3*X2*Y0**2 + 56*X1**3*X2*Y0*Y1 + 220*X1**3*X2*Y1**2 - 1999986*X1**2*Y0**4 - 17999922*X1**2*Y0**3*Y1 +
+  6*X1**2*Y0**3*Y2 + 18000402*X1**2*Y0**2*Y1**2 + 30*X1**2*Y0**2*Y1*Y2 + 60000780*X1**2*Y0*Y1**3 + 84*X1**2*Y0*Y1**2*Y2
+  + 75000975*X1**2*Y1**4 + 220*X1**2*Y1**3*Y2 + 4*X1*X2*Y0**4 + 12*X1*X2*Y0**3*Y1 + 30*X1*X2*Y0**2*Y1**2 + 56*X1*X2*Y0*Y1**3
+  + 110*X1*X2*Y1**4 + 2*X2**6 + 30*X2**4*Y2**2 + 101000303*X2**2*Y1**4 + 30*X2**2*Y2**4 - 1000001*Y0**6 - 4000004*Y0**5*Y1
+  + 2*Y0**5*Y2 - 10000010*Y0**4*Y1**2 + 4*Y0**4*Y1*Y2 - 22000022*Y0**3*Y1**3 + 6*Y0**3*Y1**2*Y2 - 29000029*Y0**2*Y1**4
+  + 10*Y0**2*Y1**3*Y2 - 30000030*Y0*Y1**5 + 14*Y0*Y1**4*Y2 - 25000025*Y1**6 + 22*Y1**5*Y2 - 101000303*Y1**4*Y2**2
+  + 2*Y2**6
+A: -48*X0**5*Y0 - 40*X0**5*Y1 - 200*X0**4*X1*Y0 - 264*X0**4*X1*Y1 - 528*X0**3*X1**2*Y0 - 192*X0**3*X1**2*Y1 - 160*X0**3*Y0**3
+  - 400*X0**3*Y0**2*Y1 - 528*X0**3*Y0*Y1**2 - 64*X0**3*Y1**3 - 192*X0**2*X1**3*Y0 + 904*X0**2*X1**3*Y1 - 400*X0**2*X1*Y0**3
+  - 1584*X0**2*X1*Y0**2*Y1 - 576*X0**2*X1*Y0*Y1**2 + 904*X0**2*X1*Y1**3 + 1212003636*X0**2*X2*Y1**3 + 452*X0*X1**4*Y0
+  + 1120*X0*X1**4*Y1 - 528*X0*X1**2*Y0**3 - 576*X0*X1**2*Y0**2*Y1 + 2712*X0*X1**2*Y0*Y1**2 + 2240*X0*X1**2*Y1**3
+  + 1616004848*X0*X1*X2*Y1**3 - 48*X0*Y0**5 - 200*X0*Y0**4*Y1 - 528*X0*Y0**3*Y1**2 - 192*X0*Y0**2*Y1**3 + 452*X0*Y0*Y1**4
+  - 2424007272*X0*Y0*Y1**3*Y2 + 224*X0*Y1**5 - 1616004848*X0*Y1**4*Y2 + 224*X1**5*Y0 + 720*X1**5*Y1 - 64*X1**3*Y0**3
+  + 904*X1**3*Y0**2*Y1 + 2240*X1**3*Y0*Y1**2 + 2400*X1**3*Y1**3 + 1212003636*X1**2*X2*Y1**3 - 40*X1*Y0**5 - 264*X1*Y0**4*Y1
+  - 192*X1*Y0**3*Y1**2 + 904*X1*Y0**2*Y1**3 + 1120*X1*Y0*Y1**4 - 1616004848*X1*Y0*Y1**3*Y2 + 720*X1*Y1**5 - 2424007272*X1*Y1**4*Y2
+  + 1212003636*X2*Y0**2*Y1**3 + 1616004848*X2*Y0*Y1**4 + 1212003636*X2*Y1**5
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/103
+== polarized-k3-remainder [open]
+title: Polarized split · K3 remainder
+q: 1
+F: X0**6 + 5*X0**5*X1/7 + 15*X0**4*Y0**2 + 25*X0**4*Y0*Y1/7 + 50*X0**3*X1*Y0**2/7 + 5*X0**2*X1**3*X2/7 + 15*X0**2*X1**2*Y1*Y2/7
+  + 15*X0**2*X1*X2*Y1**2/7 + 15*X0**2*Y0**4 + 50*X0**2*Y0**3*Y1/7 + 5*X0**2*Y1**3*Y2/7 + 10*X0*X1**3*Y0*Y2/7 + 30*X0*X1**2*X2*Y0*Y1/7
+  + 25*X0*X1*Y0**4/7 + 30*X0*X1*Y0*Y1**2*Y2/7 + 15*X0*X2**5/7 + 150*X0*X2**3*Y2**2/7 + 10*X0*X2*Y0*Y1**3/7 + 75*X0*X2*Y2**4/7
+  + X1**6 + 10*X1**5*X2/7 + 15*X1**4*Y1**2 + 50*X1**4*Y1*Y2/7 + 5*X1**3*X2*Y0**2/7 + 100*X1**3*X2*Y1**2/7 + 15*X1**2*Y0**2*Y1*Y2/7
+  + 15*X1**2*Y1**4 + 100*X1**2*Y1**3*Y2/7 + 15*X1*X2*Y0**2*Y1**2/7 + 50*X1*X2*Y1**4/7 + X2**6 + 75*X2**4*Y0*Y2/7 + 15*X2**4*Y2**2
+  + 150*X2**2*Y0*Y2**3/7 + 15*X2**2*Y2**4 + Y0**6 + 5*Y0**5*Y1/7 + 5*Y0**2*Y1**3*Y2/7 + 15*Y0*Y2**5/7 + Y1**6 + 10*Y1**5*Y2/7
+  + Y2**6
+A: X0*X1*X2*Y0*Y1*Y2
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/115
+== quadratic-cubic-pullback [open]
+title: Quadratic pullback · residual density
+q: 1
+F: X0**6 + 15*X0**4*X1*X2/7 + 15*X0**4*Y0*Y1/7 + 888750*X0**3*X1**3/10793861 + 1687250*X0**3*X2**3/16194277 + 2599425*X0**2*X1**2*X2**2/1002001
+  + 75*X0**2*X1**2*Y0**2/289 + 375*X0**2*X1**2*Y0*Y2/2197 + 375*X0**2*X1**2*Y1*Y2/4913 + 150*X0**2*X1*X2*Y0*Y1/49 + 375*X0**2*X2**2*Y0*Y1/12167
+  + 375*X0**2*X2**2*Y1*Y2/1331 + 75*X0**2*X2**2*Y2**2/529 + 75*X0**2*Y0**2*Y1**2/49 + 15*X0*X1**4*X2/11 + 150*X0*X1**2*X2*Y1*Y2/121
+  + 15*X0*X1*X2**4/13 + 150*X0*X1*X2**2*Y0*Y2/169 + 15*X0*X1*Y0**4/17 + 150*X0*X1*Y0**2*Y1*Y2/289 + 375*X0*X1*Y0**2*Y2**2/2197
+  + 375*X0*X1*Y1**2*Y2**2/4913 + 375*X0*X2*Y0**2*Y1**2/12167 + 150*X0*X2*Y0*Y1*Y2**2/529 + 375*X0*X2*Y1**2*Y2**2/1331 + 15*X0*X2*Y2**4/23
+  + X1**6 + 15*X1**4*Y1*Y2/11 + 900250*X1**3*X2**3/2352637 + 375*X1**2*X2**2*Y0*Y1/343 + 375*X1**2*X2**2*Y0*Y2/6859 + 75*X1**2*X2**2*Y1**2/361
+  + 75*X1**2*Y1**2*Y2**2/121 + 375*X1*X2*Y0**2*Y1**2/343 + 375*X1*X2*Y0**2*Y2**2/6859 + 150*X1*X2*Y0*Y1**2*Y2/361 + 15*X1*X2*Y1**4/19
+  + X2**6 + 15*X2**4*Y0*Y2/13 + 75*X2**2*Y0**2*Y2**2/169 + Y0**6 + 15*Y0**4*Y1*Y2/17 + 1563750*Y0**3*Y1**3/4173281 + 1132000*Y0**3*Y2**3/15069223
+  + 33613425*Y0**2*Y1**2*Y2**2/55190041 + 15*Y0*Y1**4*Y2/19 + 15*Y0*Y1*Y2**4/23 + Y1**6 + 780500*Y1**3*Y2**3/6539203 + Y2**6
+A: X0**3*Y0**3
+sameVariety: None disc: None
+== quadric-contact-broken [SOLVED(HeadOfNaps PR#122)]
+title: Quadric contact · broken reflections
+q: 1
+F: X0**6 + 5*X0**4*Y0**2 + 5*X0**2*X1**2*Y1**2 + 5*X0**2*X1*X2*Y1*Y2 + 5*X0**2*X2**2*Y2**2 + 5*X0**2*Y0**4 + 5*X0*X1*X2**2*Y0*Y1/7
+  + 10*X0*X1*Y0*Y1*Y2**2/7 + X1**6 + 5*X1**2*Y0**2*Y1**2 + 5*X1*X2*Y0**2*Y1*Y2 + X2**6 + 5*X2**2*Y0**2*Y2**2 + Y0**6 + Y1**6
+  + Y2**6
+A: X0**3*X1**2*Y0 - X0*X1**2*Y0**3
+sameVariety: ['quadric-contact-residual'] disc: https://github.com/hodge-computer/sextics/discussions/119
+== quadric-contact-residual [open]
+title: Quadric contact · residual sector
+q: 1
+F: X0**6 + 5*X0**4*Y0**2 + 5*X0**2*X1**2*Y1**2 + 5*X0**2*X1*X2*Y1*Y2 + 5*X0**2*X2**2*Y2**2
+  + 5*X0**2*Y0**4 + 5*X0*X1*X2**2*Y0*Y1/7 + 10*X0*X1*Y0*Y1*Y2**2/7 + X1**6 + 5*X1**2*Y0**2*Y1**2
+  + 5*X1*X2*Y0**2*Y1*Y2 + X2**6 + 5*X2**2*Y0**2*Y2**2 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: ['quadric-contact-broken'] disc: https://github.com/hodge-computer/sextics/discussions/125
+== rank-one-biquartic [open]
+title: Rank-one coupling · biquartic pencil
+q: 1
+F: X0**6 + 5*X0**5*X1/7 + 5*X0**4*Y0**2/7 + 5*X0**4*Y0*Y1/7 + 10*X0**4*Y1*Y2/7 + 15*X0**4*Y2**2/7 + 10*X0**3*X1*Y0**2/7 +
+  10*X0**3*X1*Y0*Y1/7 + 20*X0**3*X1*Y1*Y2/7 + 30*X0**3*X1*Y2**2/7 + 5*X0**2*X1**3*X2/7 + 5*X0**2*X1**2*Y0**2/7 + 5*X0**2*X1**2*Y0*Y1/7
+  + 10*X0**2*X1**2*Y1*Y2/7 + 15*X0**2*X1**2*Y2**2/7 + 20*X0**2*X1*X2*Y0**2/7 + 20*X0**2*X1*X2*Y0*Y1/7 + 40*X0**2*X1*X2*Y1*Y2/7
+  + 60*X0**2*X1*X2*Y2**2/7 + 30*X0**2*X2**2*Y0**2/7 + 30*X0**2*X2**2*Y0*Y1/7 + 60*X0**2*X2**2*Y1*Y2/7 + 90*X0**2*X2**2*Y2**2/7
+  + 20*X0*X1**2*X2*Y0**2/7 + 20*X0*X1**2*X2*Y0*Y1/7 + 40*X0*X1**2*X2*Y1*Y2/7 + 60*X0*X1**2*X2*Y2**2/7 + 30*X0*X1*X2**2*Y0**2/7
+  + 30*X0*X1*X2**2*Y0*Y1/7 + 60*X0*X1*X2**2*Y1*Y2/7 + 90*X0*X1*X2**2*Y2**2/7 + 15*X0*X2**5/7 + X1**6 + 10*X1**5*X2/7 + 20*X1**2*X2**2*Y0**2/7
+  + 20*X1**2*X2**2*Y0*Y1/7 + 40*X1**2*X2**2*Y1*Y2/7 + 60*X1**2*X2**2*Y2**2/7 + 60*X1*X2**3*Y0**2/7 + 60*X1*X2**3*Y0*Y1/7 +
+  120*X1*X2**3*Y1*Y2/7 + 180*X1*X2**3*Y2**2/7 + X2**6 + 45*X2**4*Y0**2/7 + 45*X2**4*Y0*Y1/7 + 90*X2**4*Y1*Y2/7 + 135*X2**4*Y2**2/7
+  + Y0**6 + 10*Y0**5*Y1/7 + 10*Y0**3*Y1*Y2**2/7 + 5*Y0*Y2**5/7 + Y1**6 + 15*Y1**5*Y2/7 + Y2**6
+A: X0**3*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/118
+== reflection-coupled-fano [SOLVED(fqlx PR#150)]
+title: Reflection · coupled Fano quotient
+q: 1
+F: X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7
+  + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y2**3
+sameVariety: ['reflection-coupled-residual'] disc: https://github.com/hodge-computer/sextics/discussions/111
+== reflection-coupled-residual [open]
+title: Reflection · complementary character
+q: 1
+F: X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7
+  + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**3
+sameVariety: ['reflection-coupled-fano'] disc: None
+== short-power-presentation [open]
+title: Eight powers · linear-section remainder
+q: 1
+F: 823553*X0**6/823543 + 120*X0**5*X1/823543 + 180*X0**5*X2/823543 + 600*X0**4*X1**2/823543 + 1800*X0**4*X1*X2/823543 + 1350*X0**4*X2**2/823543
+  + 150*X0**4*Y0**2/823543 + 900*X0**4*Y0*Y1/823543 + 1500*X0**4*Y0*Y2/823543 + 1350*X0**4*Y1**2/823543 + 4500*X0**4*Y1*Y2/823543
+  + 3750*X0**4*Y2**2/823543 + 1600*X0**3*X1**3/823543 + 7200*X0**3*X1**2*X2/823543 + 10800*X0**3*X1*X2**2/823543 + 1200*X0**3*X1*Y0**2/823543
+  + 7200*X0**3*X1*Y0*Y1/823543 + 12000*X0**3*X1*Y0*Y2/823543 + 10800*X0**3*X1*Y1**2/823543 + 36000*X0**3*X1*Y1*Y2/823543 +
+  30000*X0**3*X1*Y2**2/823543 + 5400*X0**3*X2**3/823543 + 1800*X0**3*X2*Y0**2/823543 + 10800*X0**3*X2*Y0*Y1/823543 + 18000*X0**3*X2*Y0*Y2/823543
+  + 16200*X0**3*X2*Y1**2/823543 + 54000*X0**3*X2*Y1*Y2/823543 + 45000*X0**3*X2*Y2**2/823543 + 2400*X0**2*X1**4/823543 + 14400*X0**2*X1**3*X2/823543
+  + 32400*X0**2*X1**2*X2**2/823543 + 3600*X0**2*X1**2*Y0**2/823543 + 21600*X0**2*X1**2*Y0*Y1/823543 + 36000*X0**2*X1**2*Y0*Y2/823543
+  + 32400*X0**2*X1**2*Y1**2/823543 + 108000*X0**2*X1**2*Y1*Y2/823543 + 90000*X0**2*X1**2*Y2**2/823543 + 32400*X0**2*X1*X2**3/823543
+  + 10800*X0**2*X1*X2*Y0**2/823543 + 64800*X0**2*X1*X2*Y0*Y1/823543 + 108000*X0**2*X1*X2*Y0*Y2/823543 + 97200*X0**2*X1*X2*Y1**2/823543
+  + 324000*X0**2*X1*X2*Y1*Y2/823543 + 270000*X0**2*X1*X2*Y2**2/823543 + 12150*X0**2*X2**4/823543 + 8100*X0**2*X2**2*Y0**2/823543
+  + 48600*X0**2*X2**2*Y0*Y1/823543 + 81000*X0**2*X2**2*Y0*Y2/823543 + 72900*X0**2*X2**2*Y1**2/823543 + 243000*X0**2*X2**2*Y1*Y2/823543
+  + 202500*X0**2*X2**2*Y2**2/823543 + 150*X0**2*Y0**4/823543 + 1800*X0**2*Y0**3*Y1/823543 + 3000*X0**2*Y0**3*Y2/823543 + 8100*X0**2*Y0**2*Y1**2/823543
+  + 27000*X0**2*Y0**2*Y1*Y2/823543 + 22500*X0**2*Y0**2*Y2**2/823543 + 16200*X0**2*Y0*Y1**3/823543 + 81000*X0**2*Y0*Y1**2*Y2/823543
+  + 135000*X0**2*Y0*Y1*Y2**2/823543 + 75000*X0**2*Y0*Y2**3/823543 + 12150*X0**2*Y1**4/823543 + 81000*X0**2*Y1**3*Y2/823543
+  + 202500*X0**2*Y1**2*Y2**2/823543 + 225000*X0**2*Y1*Y2**3/823543 + 93750*X0**2*Y2**4/823543 + 1920*X0*X1**5/823543 + 14400*X0*X1**4*X2/823543
+  + 43200*X0*X1**3*X2**2/823543 + 4800*X0*X1**3*Y0**2/823543 + 28800*X0*X1**3*Y0*Y1/823543 + 48000*X0*X1**3*Y0*Y2/823543 +
+  43200*X0*X1**3*Y1**2/823543 + 144000*X0*X1**3*Y1*Y2/823543 + 120000*X0*X1**3*Y2**2/823543 + 64800*X0*X1**2*X2**3/823543
+  + 21600*X0*X1**2*X2*Y0**2/823543 + 129600*X0*X1**2*X2*Y0*Y1/823543 + 216000*X0*X1**2*X2*Y0*Y2/823543 + 194400*X0*X1**2*X2*Y1**2/823543
+  + 648000*X0*X1**2*X2*Y1*Y2/823543 + 540000*X0*X1**2*X2*Y2**2/823543 + 48600*X0*X1*X2**4/823543 + 32400*X0*X1*X2**2*Y0**2/823543
+  + 194400*X0*X1*X2**2*Y0*Y1/823543 + 324000*X0*X1*X2**2*Y0*Y2/823543 + 291600*X0*X1*X2**2*Y1**2/823543 + 972000*X0*X1*X2**2*Y1*Y2/823543
+  + 810000*X0*X1*X2**2*Y2**2/823543 + 600*X0*X1*Y0**4/823543 + 7200*X0*X1*Y0**3*Y1/823543 + 12000*X0*X1*Y0**3*Y2/823543 +
+  32400*X0*X1*Y0**2*Y1**2/823543 + 108000*X0*X1*Y0**2*Y1*Y2/823543 + 90000*X0*X1*Y0**2*Y2**2/823543 + 64800*X0*X1*Y0*Y1**3/823543
+  + 324000*X0*X1*Y0*Y1**2*Y2/823543 + 540000*X0*X1*Y0*Y1*Y2**2/823543 + 300000*X0*X1*Y0*Y2**3/823543 + 48600*X0*X1*Y1**4/823543
+  + 324000*X0*X1*Y1**3*Y2/823543 + 810000*X0*X1*Y1**2*Y2**2/823543 + 900000*X0*X1*Y1*Y2**3/823543 + 375000*X0*X1*Y2**4/823543
+  + 14580*X0*X2**5/823543 + 16200*X0*X2**3*Y0**2/823543 + 97200*X0*X2**3*Y0*Y1/823543 + 162000*X0*X2**3*Y0*Y2/823543 + 145800*X0*X2**3*Y1**2/823543
+  + 486000*X0*X2**3*Y1*Y2/823543 + 405000*X0*X2**3*Y2**2/823543 + 900*X0*X2*Y0**4/823543 + 10800*X0*X2*Y0**3*Y1/823543 + 18000*X0*X2*Y0**3*Y2/823543
+  + 48600*X0*X2*Y0**2*Y1**2/823543 + 162000*X0*X2*Y0**2*Y1*Y2/823543 + 135000*X0*X2*Y0**2*Y2**2/823543 + 97200*X0*X2*Y0*Y1**3/823543
+  + 486000*X0*X2*Y0*Y1**2*Y2/823543 + 810000*X0*X2*Y0*Y1*Y2**2/823543 + 450000*X0*X2*Y0*Y2**3/823543 + 72900*X0*X2*Y1**4/823543
+  + 486000*X0*X2*Y1**3*Y2/823543 + 1215000*X0*X2*Y1**2*Y2**2/823543 + 1350000*X0*X2*Y1*Y2**3/823543 + 562500*X0*X2*Y2**4/823543
+  + 824183*X1**6/823543 + 5760*X1**5*X2/823543 + 21600*X1**4*X2**2/823543 + 2400*X1**4*Y0**2/823543 + 14400*X1**4*Y0*Y1/823543
+  + 24000*X1**4*Y0*Y2/823543 + 21600*X1**4*Y1**2/823543 + 72000*X1**4*Y1*Y2/823543 + 60000*X1**4*Y2**2/823543 + 43200*X1**3*X2**3/823543
+  + 14400*X1**3*X2*Y0**2/823543 + 86400*X1**3*X2*Y0*Y1/823543 + 144000*X1**3*X2*Y0*Y2/823543 + 129600*X1**3*X2*Y1**2/823543
+  + 432000*X1**3*X2*Y1*Y2/823543 + 360000*X1**3*X2*Y2**2/823543 + 48600*X1**2*X2**4/823543 + 32400*X1**2*X2**2*Y0**2/823543
+  + 194400*X1**2*X2**2*Y0*Y1/823543 + 324000*X1**2*X2**2*Y0*Y2/823543 + 291600*X1**2*X2**2*Y1**2/823543 + 972000*X1**2*X2**2*Y1*Y2/823543
+  + 810000*X1**2*X2**2*Y2**2/823543 + 600*X1**2*Y0**4/823543 + 7200*X1**2*Y0**3*Y1/823543 + 12000*X1**2*Y0**3*Y2/823543 +
+  32400*X1**2*Y0**2*Y1**2/823543 + 108000*X1**2*Y0**2*Y1*Y2/823543 + 90000*X1**2*Y0**2*Y2**2/823543 + 64800*X1**2*Y0*Y1**3/823543
+  + 324000*X1**2*Y0*Y1**2*Y2/823543 + 540000*X1**2*Y0*Y1*Y2**2/823543 + 300000*X1**2*Y0*Y2**3/823543 + 48600*X1**2*Y1**4/823543
+  + 324000*X1**2*Y1**3*Y2/823543 + 810000*X1**2*Y1**2*Y2**2/823543 + 900000*X1**2*Y1*Y2**3/823543 + 375000*X1**2*Y2**4/823543
+  + 29160*X1*X2**5/823543 + 32400*X1*X2**3*Y0**2/823543 + 194400*X1*X2**3*Y0*Y1/823543 + 324000*X1*X2**3*Y0*Y2/823543 + 291600*X1*X2**3*Y1**2/823543
+  + 972000*X1*X2**3*Y1*Y2/823543 + 810000*X1*X2**3*Y2**2/823543 + 1800*X1*X2*Y0**4/823543 + 21600*X1*X2*Y0**3*Y1/823543 +
+  36000*X1*X2*Y0**3*Y2/823543 + 97200*X1*X2*Y0**2*Y1**2/823543 + 324000*X1*X2*Y0**2*Y1*Y2/823543 + 270000*X1*X2*Y0**2*Y2**2/823543
+  + 194400*X1*X2*Y0*Y1**3/823543 + 972000*X1*X2*Y0*Y1**2*Y2/823543 + 1620000*X1*X2*Y0*Y1*Y2**2/823543 + 900000*X1*X2*Y0*Y2**3/823543
+  + 145800*X1*X2*Y1**4/823543 + 972000*X1*X2*Y1**3*Y2/823543 + 2430000*X1*X2*Y1**2*Y2**2/823543 + 2700000*X1*X2*Y1*Y2**3/823543
+  + 1125000*X1*X2*Y2**4/823543 + 830833*X2**6/823543 + 12150*X2**4*Y0**2/823543 + 72900*X2**4*Y0*Y1/823543 + 121500*X2**4*Y0*Y2/823543
+  + 109350*X2**4*Y1**2/823543 + 364500*X2**4*Y1*Y2/823543 + 303750*X2**4*Y2**2/823543 + 1350*X2**2*Y0**4/823543 + 16200*X2**2*Y0**3*Y1/823543
+  + 27000*X2**2*Y0**3*Y2/823543 + 72900*X2**2*Y0**2*Y1**2/823543 + 243000*X2**2*Y0**2*Y1*Y2/823543 + 202500*X2**2*Y0**2*Y2**2/823543
+  + 145800*X2**2*Y0*Y1**3/823543 + 729000*X2**2*Y0*Y1**2*Y2/823543 + 1215000*X2**2*Y0*Y1*Y2**2/823543 + 675000*X2**2*Y0*Y2**3/823543
+  + 109350*X2**2*Y1**4/823543 + 729000*X2**2*Y1**3*Y2/823543 + 1822500*X2**2*Y1**2*Y2**2/823543 + 2025000*X2**2*Y1*Y2**3/823543
+  + 843750*X2**2*Y2**4/823543 + 823553*Y0**6/823543 + 180*Y0**5*Y1/823543 + 300*Y0**5*Y2/823543 + 1350*Y0**4*Y1**2/823543
+  + 4500*Y0**4*Y1*Y2/823543 + 3750*Y0**4*Y2**2/823543 + 5400*Y0**3*Y1**3/823543 + 27000*Y0**3*Y1**2*Y2/823543 + 45000*Y0**3*Y1*Y2**2/823543
+  + 25000*Y0**3*Y2**3/823543 + 12150*Y0**2*Y1**4/823543 + 81000*Y0**2*Y1**3*Y2/823543 + 202500*Y0**2*Y1**2*Y2**2/823543 +
+  225000*Y0**2*Y1*Y2**3/823543 + 93750*Y0**2*Y2**4/823543 + 14580*Y0*Y1**5/823543 + 121500*Y0*Y1**4*Y2/823543 + 405000*Y0*Y1**3*Y2**2/823543
+  + 675000*Y0*Y1**2*Y2**3/823543 + 562500*Y0*Y1*Y2**4/823543 + 187500*Y0*Y2**5/823543 + 830833*Y1**6/823543 + 72900*Y1**5*Y2/823543
+  + 303750*Y1**4*Y2**2/823543 + 675000*Y1**3*Y2**3/823543 + 843750*Y1**2*Y2**4/823543 + 562500*Y1*Y2**5/823543 + 979793*Y2**6/823543
+A: X0**3*Y0**3
+sameVariety: None disc: None
+== split-ternary-q2 [SOLVED(fqlx PR#159)]
+title: Split ternaries · third-order pole
+q: 2
+F: X0**6 + 5*X0**5*X1/7 + 5*X0**2*X1**3*X2/7 + 15*X0*X2**5/7 + X1**6 + 10*X1**5*X2/7 + X2**6 + Y0**6 + 10*Y0**5*Y1/7 + 10*Y0**3*Y1*Y2**2/7
+  + 5*Y0*Y2**5/7 + Y1**6 + 15*Y1**5*Y2/7 + Y2**6
+A: X0**4*X1**3*Y0**3*Y1**2
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/113
+== symmetric-sextic-residual [open]
+title: Permutation symmetry · residual sector
+q: 1
+F: X0**6 + 5*X0**2*X1**2*Y0*Y1/7 + 5*X0**2*X1**2*Y0*Y2/7 + 5*X0**2*X1**2*Y1*Y2/7 + 10*X0**2*X1*X2*Y0*Y1/7 + 10*X0**2*X1*X2*Y0*Y2/7
+  + 10*X0**2*X1*X2*Y1*Y2/7 + 5*X0**2*X2**2*Y0*Y1/7 + 5*X0**2*X2**2*Y0*Y2/7 + 5*X0**2*X2**2*Y1*Y2/7 + 10*X0*X1**2*X2*Y0*Y1/7
+  + 10*X0*X1**2*X2*Y0*Y2/7 + 10*X0*X1**2*X2*Y1*Y2/7 + 10*X0*X1*X2**2*Y0*Y1/7 + 10*X0*X1*X2**2*Y0*Y2/7 + 10*X0*X1*X2**2*Y1*Y2/7
+  + 10*X0*X1*Y0**2*Y1**2/7 + 20*X0*X1*Y0**2*Y1*Y2/7 + 10*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y0*Y1**2*Y2/7 + 20*X0*X1*Y0*Y1*Y2**2/7
+  + 10*X0*X1*Y1**2*Y2**2/7 + 10*X0*X2*Y0**2*Y1**2/7 + 20*X0*X2*Y0**2*Y1*Y2/7 + 10*X0*X2*Y0**2*Y2**2/7 + 20*X0*X2*Y0*Y1**2*Y2/7
+  + 20*X0*X2*Y0*Y1*Y2**2/7 + 10*X0*X2*Y1**2*Y2**2/7 + X1**6 + 5*X1**2*X2**2*Y0*Y1/7 + 5*X1**2*X2**2*Y0*Y2/7 + 5*X1**2*X2**2*Y1*Y2/7
+  + 10*X1*X2*Y0**2*Y1**2/7 + 20*X1*X2*Y0**2*Y1*Y2/7 + 10*X1*X2*Y0**2*Y2**2/7 + 20*X1*X2*Y0*Y1**2*Y2/7 + 20*X1*X2*Y0*Y1*Y2**2/7
+  + 10*X1*X2*Y1**2*Y2**2/7 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0*X1*X2*Y0*Y1*Y2
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/117
+== ternary-collision-cb-d2 [SOLVED(benediamond PR#9)]
+title: Ternary collision · first character
+q: 1
+F: -3*X0**6 + X0**4*X1**2 + 4*X0**4*Y0**2 + X0**2*X1**4 + X0**2*X1**2*Y0**2 - 2*X0**2*Y0**4 - X1**6 + X1**4*Y0**2
+  + X1**2*Y0**4 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: -X0**5*Y0 + 7*X0*X1**4*Y0/5 + 21*X0*X1**2*Y0**3/5 + 4*X0*Y0**5
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/71
+== ternary-collision-cbp-d2 [SOLVED(benediamond PR#8)]
+title: Ternary collision · second character
+q: 1
+F: X0**6 + X0**4*X1**2 + X0**4*Y0**2 + X0**2*X1**4 + X0**2*X1**2*Y0**2 + X0**2*Y0**4 + X1**6 - 8*X1**4*Y0**2 + 10*X1**2*Y0**4
+  + X2**6 - 3*Y0**6 + Y1**6 + Y2**6
+A: -X0**4*X1*Y0 - 3*X0**2*X1*Y0**3 + 20*X1**3*Y0**3 - 265*X1*Y0**5/17
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/70
+== ternary-tangent-residual-h2-d2 [SOLVED(benediamond PR#6)]
+title: Ternary tangent · H₂
+q: 1
+F: X0**6 + X0**4*X1**2 + X0**4*Y0**2 + X0**2*X1**4 + X0**2*X1**2*Y0**2 + X0**2*Y0**4 - 3*X1**6/2 + X1**4*Y0**2 +
+  17*X1**2*Y0**4/2 + X2**6 - 14*Y0**6 + Y1**6 + Y2**6
+A: X0**5*Y0 - X0*X1**4*Y0/25 - 293*X0*X1**2*Y0**3/25 + 699*X0*Y0**5/25
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/68
+== three-block-rational-d4-strict [SOLVED(benediamond PR#7)]
+title: Three blocks · rational quartic
+q: 1
+F: X0**6 + 6*X1**6 - 15*X1**4*Y1**2 + 9*X1**2*Y1**4 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0*X1*X2**3*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/69
+== tie-offblock-ytype-d4-strict-rational [SOLVED(benediamond PR#14)]
+title: Off-block tie · quartic
+q: 1
+F: X0**6 + X0**2*X1**2*Y1**2 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**2*Y1
+sameVariety: ['tie-singleton-3odd-strict'] disc: https://github.com/hodge-computer/sextics/discussions/76
+== tie-singleton-3odd-strict [SOLVED(benediamond PR#13)]
+title: One tie · three odd coordinates
+q: 1
+F: X0**6 + X0**2*X1**2*Y1**2 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0*Y1*Y2
+sameVariety: ['tie-offblock-ytype-d4-strict-rational'] disc: https://github.com/hodge-computer/sextics/discussions/75
+== twoblock-cubic [SOLVED(benediamond PR#25)]
+title: Two-block · full cubic
+q: 1
+F: X0**6 - 11*X0**4*Y0**2/8 + X1**6 + X2**6 + 7*X2**4*Y2**2/3 - 2*X2**2*Y2**4 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**2*Y1 - 3*X0*Y0**4*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/88
+== two-reflection-cubic-surface-d2 [SOLVED(benediamond PR#18)]
+title: Two reflections · quadric polar
+q: 1
+F: X0**6 + 5*X0**4*Y0**2 + 5*X0**2*X1**2*Y1**2 + 5*X0**2*X1*X2*Y1*Y2 + 5*X0**2*X2**2*Y2**2 + 5*X0**2*Y0**4 + X1**6
+  + 5*X1**2*Y0**2*Y1**2 + 5*X1*X2*Y0**2*Y1*Y2 + X2**6 + 5*X2**2*Y0**2*Y2**2 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*X1**2*Y0 - X0*X1**2*Y0**3
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/80
+== two-ternary-dense-two-odd-hessian-d48 [SOLVED(benediamond PR#41)]
+title: Dense two-ternary · Hessian trace
+q: 1
+F: 14*X0**6 + 7*X0**4*X1**2 + 21*X0**4*Y0**2 + 23*X0**2*X1**4 + 12*X0**2*X1**2*Y0**2 + 23*X0**2*Y0**4 + 4*X1**6
+  + 39*X1**4*Y0**2 + 73*X1**2*Y0**4 + 31*X2**6 + 37*X2**4*Y1**2 + 41*X2**4*Y2**2 + 43*X2**2*Y1**4 + 47*X2**2*Y1**2*Y2**2
+  + 53*X2**2*Y2**4 + 8*Y0**6 + 59*Y1**6 + 61*Y1**4*Y2**2 + 67*Y1**2*Y2**4 + 71*Y2**6
+A: X0**5*Y1
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/104
+== twoties-crossblock-hesse-cofactor-d4-rational [SOLVED(benediamond PR#20)]
+title: Two ties · cross-block Hesse
+q: 1
+F: X0**6 + X0**2*X1**2*Y0**2 + X1**6 + X2**6 + X2**2*Y1**2*Y2**2 + Y0**6 + Y1**6 + Y2**6
+A: X2**3*Y0*Y1*Y2
+sameVariety: ['twoties-tie2-x2-quartic-strict'] disc: https://github.com/hodge-computer/sextics/discussions/82
+== twoties-tie2-x2-quartic-strict [SOLVED(benediamond PR#12)]
+title: Two ties · second-block contact
+q: 1
+F: X0**6 + X0**2*X1**2*Y0**2 + X1**6 + X2**6 + X2**2*Y1**2*Y2**2 + Y0**6 + Y1**6 + Y2**6
+A: X2**3*Y1**3 - 5*X2*Y1*Y2**4/3
+sameVariety: ['twoties-crossblock-hesse-cofactor-d4-rational'] disc: https://github.com/hodge-computer/sextics/discussions/74
+== xtype-sparse-rational-1m142 [SOLVED(benediamond PR#2)]
+title: Sparse X-type · rational bundle
+q: 1
+F: X0**6 + X0**4*Y0**2 - X0**2*Y0**4/4 + X1**6 + X2**6 + 2*Y0**6 + Y1**6 + Y2**6
+A: -X0**2*X1*Y0**3/29 + X1*Y0**5
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/64
+== xtype-strict-rational-113 [SOLVED(benediamond PR#3)]
+title: X-type · logarithmic interpolation
+q: 1
+F: X0**6 + X0**4*Y0**2 + X0**2*Y0**4 + X1**6 + X2**6 + 3*Y0**6 + Y1**6 + Y2**6
+A: X1*Y0**5
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/65
+== ytype-companion-231-d4-strict-rational [SOLVED(benediamond PR#5)]
+title: Y-type · second rational fiber
+q: 1
+F: X0**6 + 2*X0**4*Y0**2 + 3*X0**2*Y0**4 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**2*Y1 + 9*X0*Y0**4*Y1/7
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/67
+== ytype-companion-fiberA-d4-strict-rational [SOLVED(benediamond PR#4)]
+title: Y-type · quartic companion
+q: 1
+F: X0**6 - 2*X0**4*Y0**2 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6
+A: X0**3*Y0**2*Y1 - 6*X0*Y0**4*Y1/7
+sameVariety: [] disc: https://github.com/hodge-computer/sextics/discussions/66

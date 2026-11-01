@@ -1,0 +1,5 @@
+fU-U0sq-sym
+sumU8+sumV8
+Y0^8+Y1^8+Y2^8
+M01(U)+M01(V)
+sum_i f_i(U)V_i^3 + swap

@@ -1,0 +1,7 @@
+{"d": 1, "parD": 0, "dim_monsD": 3, "dim_E1kernel": 0, "dim_Jd": 0, "dim_kernel_mod_J": 0, "rank_J_d+6": 63, "rank_AJ": 66, "rows": 172, "cols": 66, "seconds": 0.1}
+{"d": 2, "parD": 0, "dim_monsD": 12, "dim_E1kernel": 0, "dim_Jd": 0, "dim_kernel_mod_J": 0, "rank_J_d+6": 168, "rank_AJ": 180, "rows": 402, "cols": 180, "seconds": 0.1}
+{"d": 3, "parD": 0, "dim_monsD": 28, "dim_E1kernel": 0, "dim_Jd": 0, "dim_kernel_mod_J": 0, "rank_J_d+6": 378, "rank_AJ": 406, "rows": 792, "cols": 406, "seconds": 2.1}
+{"d": 4, "parD": 0, "dim_monsD": 66, "dim_E1kernel": 0, "dim_Jd": 0, "dim_kernel_mod_J": 0, "rank_J_d+6": 747, "rank_AJ": 813, "rows": 1357, "cols": 822, "seconds": 7.0}
+{"d": 5, "parD": 0, "dim_monsD": 126, "dim_E1kernel": 3, "dim_Jd": 3, "dim_kernel_mod_J": 0, "rank_J_d+6": 1341, "rank_AJ": 1464, "rows": 2111, "cols": 1512, "seconds": 57.5}
+{"d": 6, "parD": 0, "dim_monsD": 236, "dim_E1kernel": 38, "dim_Jd": 18, "dim_kernel_mod_J": 20, "rank_J_d+6": 2214, "rank_AJ": 2412, "rows": 3054, "cols": 2612, "seconds": 95.5}
+{"d": 7, "parD": 0, "dim_monsD": 396, "dim_E1kernel": 126, "dim_Jd": 63, "dim_kernel_mod_J": 63, "rank_J_d+6": 3441, "rank_AJ": 3711, "rows": 4279, "cols": 4257, "seconds": 451.9}

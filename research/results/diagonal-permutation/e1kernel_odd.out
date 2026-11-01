@@ -1,0 +1,8 @@
+[Y-odd D] d=1: dim S_d^-=3, J_7^+ cols=63, rows=332, nullity=0, dim K_d=0, dim J_d^-=0, primitive E1 kernel=0  (build 0.0s, null 0.0s)
+[Y-odd D] d=2: dim S_d^-=9, J_8^+ cols=168, rows=596, nullity=0, dim K_d=0, dim J_d^-=0, primitive E1 kernel=0  (build 0.1s, null 0.0s)
+[Y-odd D] d=3: dim S_d^-=28, J_9^+ cols=378, rows=981, nullity=0, dim K_d=0, dim J_d^-=0, primitive E1 kernel=0  (build 0.3s, null 0.1s)
+[Y-odd D] d=4: dim S_d^-=60, J_10^+ cols=756, rows=1497, nullity=6, dim K_d=0, dim J_d^-=0, primitive E1 kernel=0  (build 0.8s, null 0.6s)
+[Y-odd D] d=5: dim S_d^-=126, J_11^+ cols=1386, rows=2181, nullity=48, dim K_d=3, dim J_d^-=3, primitive E1 kernel=0  (build 2.5s, null 10.1s)
+[Y-odd D] d=6: dim S_d^-=226, J_12^+ cols=2376, rows=3106, nullity=171, dim K_d=18, dim J_d^-=18, primitive E1 kernel=0  (build 13.9s, null 12.4s)
+[Y-odd D] d=7: dim S_d^-=396, J_13^+ cols=3861, rows=4284, nullity=483, dim K_d=63, dim J_d^-=63, primitive E1 kernel=0  (build 31.8s, null 78.7s)
+[Y-odd D] d=8: dim S_d^-=636, J_14^+ cols=6006, rows=5832, nullity=1104, dim K_d=168, dim J_d^-=168, primitive E1 kernel=0  (build 57.5s, null 184.6s)

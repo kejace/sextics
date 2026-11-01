@@ -1,0 +1,4 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[fU-U0sq-sym] d=8 terms=85 parity=0
+[fU-U0sq-sym] E1 solvable=True {'rank': 5052, 'rank_aug': 5052, 'rows': 5796, 'cols': 6006} (618.8s)
+[system] d=8 q=1 rows=40326 cols=7497 (N 6006, Q 1491) nnz=7105330 built in 142.4s

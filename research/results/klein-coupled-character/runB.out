@@ -1,0 +1,144 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[koszul p=2147483647] d=5 k=0 rows=79 cols=17 (p 11, Q 6) consistent=False rank=17 nullity=1 0.0s
+F_3: consistent=False rank=16 nullity=1
+[koszul p=2147483647] d=5 k=0 rows=80 cols=17 (p 11, Q 6) consistent=False rank=17 nullity=1 0.0s
+F_4: consistent=False rank=16 nullity=1
+[koszul p=2147483647] d=5 k=0 rows=78 cols=17 (p 11, Q 6) consistent=False rank=17 nullity=1 0.0s
+F_5: consistent=False rank=16 nullity=1
+X0*F_0: consistent=False rank=56 nullity=3 0.33s
+X1*F_0: consistent=False rank=47 nullity=3 0.41s
+X2*F_0: consistent=False rank=67 nullity=3 0.28s
+Y0*F_0: consistent=False rank=59 nullity=1 0.27s
+Y1*F_0: consistent=False rank=59 nullity=1 0.35s
+Y2*F_0: consistent=False rank=59 nullity=1 0.35s
+X0*F_1: consistent=False rank=58 nullity=3 0.33s
+X1*F_1: consistent=False rank=56 nullity=3 0.27s
+X2*F_1: consistent=False rank=46 nullity=3 0.3s
+Y0*F_1: consistent=False rank=48 nullity=1 0.38s
+Y1*F_1: consistent=False rank=48 nullity=1 0.9s
+Y2*F_1: consistent=False rank=48 nullity=1 1.35s
+X0*F_2: consistent=False rank=49 nullity=0 1.07s
+X1*F_2: consistent=False rank=47 nullity=3 2.0s
+X2*F_2: consistent=False rank=56 nullity=3 2.0s
+Y0*F_2: consistent=False rank=54 nullity=1 1.05s
+Y1*F_2: consistent=False rank=54 nullity=1 0.37s
+Y2*F_2: consistent=False rank=54 nullity=1 0.26s
+X0*F_3: consistent=False rank=48 nullity=1 0.27s
+X1*F_3: consistent=False rank=33 nullity=1 0.22s
+X2*F_3: consistent=False rank=76 nullity=12 0.38s
+Y0*F_3: consistent=False rank=56 nullity=3 0.61s
+Y1*F_3: consistent=False rank=56 nullity=3 0.24s
+Y2*F_3: consistent=False rank=56 nullity=3 0.31s
+X0*F_4: consistent=False rank=48 nullity=1 0.25s
+X1*F_4: consistent=False rank=33 nullity=1 0.22s
+X2*F_4: consistent=False rank=76 nullity=12 0.42s
+Y0*F_4: consistent=False rank=56 nullity=3 0.32s
+Y1*F_4: consistent=False rank=56 nullity=3 0.33s
+Y2*F_4: consistent=False rank=56 nullity=3 0.39s
+X0*F_5: consistent=False rank=48 nullity=1 0.44s
+X1*F_5: consistent=False rank=33 nullity=1 0.26s
+X2*F_5: consistent=False rank=76 nullity=12 0.43s
+Y0*F_5: consistent=False rank=56 nullity=3 0.32s
+Y1*F_5: consistent=False rank=56 nullity=3 0.36s
+Y2*F_5: consistent=False rank=56 nullity=3 0.28s
+J_6 parD=0 k=0 trial 0: consistent=False rank=56 nullity=3 rows=397 cols=59 0.3s
+J_6 parD=0 k=0 trial 1: consistent=False rank=56 nullity=3 rows=397 cols=59 0.3s
+J_6 parD=0 k=0 trial 2: consistent=False rank=56 nullity=3 rows=397 cols=59 0.25s
+J_6 parD=0 k=1 trial 0: consistent=False rank=47 nullity=3 rows=257 cols=50 0.69s
+J_6 parD=0 k=1 trial 1: consistent=False rank=47 nullity=3 rows=257 cols=50 0.45s
+J_6 parD=0 k=1 trial 2: consistent=False rank=47 nullity=3 rows=257 cols=50 0.63s
+J_6 parD=0 k=2 trial 0: consistent=False rank=46 nullity=3 rows=219 cols=49 0.76s
+J_6 parD=0 k=2 trial 1: consistent=False rank=46 nullity=3 rows=219 cols=49 0.49s
+J_6 parD=0 k=2 trial 2: consistent=False rank=46 nullity=3 rows=219 cols=49 0.46s
+J_6 parD=0 k=3 trial 0: consistent=False rank=67 nullity=3 rows=365 cols=70 1.08s
+J_6 parD=0 k=3 trial 1: consistent=False rank=67 nullity=3 rows=365 cols=70 1.17s
+J_6 parD=0 k=3 trial 2: consistent=False rank=67 nullity=3 rows=365 cols=70 0.68s
+J_6 parD=0 k=4 trial 0: consistent=False rank=49 nullity=0 rows=348 cols=49 0.66s
+J_6 parD=0 k=4 trial 1: consistent=False rank=49 nullity=0 rows=348 cols=49 0.5s
+J_6 parD=0 k=4 trial 2: consistent=False rank=49 nullity=0 rows=348 cols=49 0.95s
+J_6 parD=0 k=5 trial 0: consistent=False rank=47 nullity=3 rows=252 cols=50 1.15s
+J_6 parD=0 k=5 trial 1: consistent=False rank=47 nullity=3 rows=252 cols=50 1.14s
+J_6 parD=0 k=5 trial 2: consistent=False rank=47 nullity=3 rows=252 cols=50 1.19s
+J_6 parD=0 k=6 trial 0: consistent=False rank=58 nullity=3 rows=343 cols=61 1.1s
+J_6 parD=0 k=6 trial 1: consistent=False rank=58 nullity=3 rows=343 cols=61 0.7s
+J_6 parD=0 k=6 trial 2: consistent=False rank=58 nullity=3 rows=343 cols=61 1.03s
+J_6 parD=1 k=1 trial 0: consistent=False rank=48 nullity=1 rows=322 cols=49 0.86s
+J_6 parD=1 k=1 trial 1: consistent=False rank=48 nullity=1 rows=322 cols=49 1.22s
+J_6 parD=1 k=1 trial 2: consistent=False rank=48 nullity=1 rows=322 cols=49 1.88s
+J_6 parD=1 k=2 trial 0: consistent=False rank=33 nullity=1 rows=235 cols=34 0.29s
+J_6 parD=1 k=2 trial 1: consistent=False rank=33 nullity=1 rows=235 cols=34 0.22s
+J_6 parD=1 k=2 trial 2: consistent=False rank=33 nullity=1 rows=235 cols=34 0.31s
+J_6 parD=1 k=3 trial 0: consistent=False rank=54 nullity=1 rows=379 cols=55 0.38s
+J_6 parD=1 k=3 trial 1: consistent=False rank=54 nullity=1 rows=379 cols=55 0.21s
+J_6 parD=1 k=3 trial 2: consistent=False rank=54 nullity=1 rows=379 cols=55 0.34s
+J_6 parD=1 k=4 trial 0: consistent=False rank=77 nullity=11 rows=385 cols=88 0.54s
+J_6 parD=1 k=4 trial 1: consistent=False rank=77 nullity=11 rows=385 cols=88 0.54s
+J_6 parD=1 k=4 trial 2: consistent=False rank=77 nullity=11 rows=385 cols=88 0.57s
+J_6 parD=1 k=5 trial 0: consistent=False rank=48 nullity=1 rows=318 cols=49 0.22s
+J_6 parD=1 k=5 trial 1: consistent=False rank=48 nullity=1 rows=318 cols=49 1.02s
+J_6 parD=1 k=5 trial 2: consistent=False rank=48 nullity=1 rows=318 cols=49 0.39s
+J_6 parD=1 k=6 trial 0: consistent=False rank=59 nullity=1 rows=389 cols=60 0.45s
+J_6 parD=1 k=6 trial 1: consistent=False rank=59 nullity=1 rows=389 cols=60 0.77s
+J_6 parD=1 k=6 trial 2: consistent=False rank=59 nullity=1 rows=389 cols=60 1.82s
+J_7 parD=0 k=0 trial 0: consistent=False rank=129 nullity=6 rows=704 cols=135 3.13s
+J_7 parD=0 k=0 trial 1: consistent=False rank=129 nullity=6 rows=704 cols=135 2.18s
+J_7 parD=0 k=0 trial 2: consistent=False rank=129 nullity=6 rows=704 cols=135 2.73s
+J_7 parD=0 k=1 trial 0: consistent=False rank=139 nullity=6 rows=774 cols=145 3.33s
+J_7 parD=0 k=1 trial 1: consistent=False rank=139 nullity=6 rows=774 cols=145 4.54s
+J_7 parD=0 k=1 trial 2: consistent=False rank=139 nullity=6 rows=774 cols=145 5.36s
+J_7 parD=0 k=2 trial 0: consistent=False rank=111 nullity=6 rows=656 cols=117 2.86s
+J_7 parD=0 k=2 trial 1: consistent=False rank=111 nullity=6 rows=656 cols=117 1.13s
+J_7 parD=0 k=2 trial 2: consistent=False rank=111 nullity=6 rows=656 cols=117 1.14s
+J_7 parD=0 k=3 trial 0: consistent=False rank=144 nullity=6 rows=811 cols=150 4.64s
+J_7 parD=0 k=3 trial 1: consistent=False rank=144 nullity=6 rows=811 cols=150 4.6s
+J_7 parD=0 k=3 trial 2: consistent=False rank=144 nullity=6 rows=811 cols=150 3.71s
+J_7 parD=0 k=4 trial 0: consistent=False rank=180 nullity=24 rows=792 cols=204 3.17s
+J_7 parD=0 k=4 trial 1: consistent=False rank=180 nullity=24 rows=792 cols=204 2.38s
+J_7 parD=0 k=4 trial 2: consistent=False rank=180 nullity=24 rows=792 cols=204 2.06s
+J_7 parD=0 k=5 trial 0: consistent=False rank=139 nullity=6 rows=780 cols=145 1.42s
+J_7 parD=0 k=5 trial 1: consistent=False rank=139 nullity=6 rows=780 cols=145 1.75s
+J_7 parD=0 k=5 trial 2: consistent=False rank=139 nullity=6 rows=780 cols=145 1.32s
+J_7 parD=0 k=6 trial 0: consistent=False rank=154 nullity=6 rows=827 cols=160 0.77s
+J_7 parD=0 k=6 trial 1: consistent=False rank=154 nullity=6 rows=827 cols=160 0.74s
+J_7 parD=0 k=6 trial 2: consistent=False rank=154 nullity=6 rows=827 cols=160 1.56s
+J_7 parD=1 k=0 trial 0: consistent=False rank=149 nullity=8 rows=812 cols=157 6.68s
+J_7 parD=1 k=0 trial 1: consistent=False rank=149 nullity=8 rows=812 cols=157 5.07s
+J_7 parD=1 k=0 trial 2: consistent=False rank=149 nullity=8 rows=812 cols=157 2.92s
+J_7 parD=1 k=1 trial 0: consistent=False rank=134 nullity=11 rows=719 cols=145 5.37s
+J_7 parD=1 k=1 trial 1: consistent=False rank=134 nullity=11 rows=719 cols=145 5.37s
+J_7 parD=1 k=1 trial 2: consistent=False rank=134 nullity=11 rows=719 cols=145 3.08s
+J_7 parD=1 k=2 trial 0: consistent=False rank=131 nullity=8 rows=689 cols=139 2.08s
+J_7 parD=1 k=2 trial 1: consistent=False rank=131 nullity=8 rows=689 cols=139 0.71s
+J_7 parD=1 k=2 trial 2: consistent=False rank=131 nullity=8 rows=689 cols=139 0.76s
+J_7 parD=1 k=3 trial 0: consistent=False rank=164 nullity=8 rows=806 cols=172 0.88s
+J_7 parD=1 k=3 trial 1: consistent=False rank=164 nullity=8 rows=806 cols=172 0.81s
+J_7 parD=1 k=3 trial 2: consistent=False rank=164 nullity=8 rows=806 cols=172 0.85s
+J_7 parD=1 k=4 trial 0: consistent=False rank=135 nullity=3 rows=795 cols=138 0.73s
+J_7 parD=1 k=4 trial 1: consistent=False rank=135 nullity=3 rows=795 cols=138 0.96s
+J_7 parD=1 k=4 trial 2: consistent=False rank=135 nullity=3 rows=795 cols=138 0.8s
+J_7 parD=1 k=5 trial 0: consistent=False rank=134 nullity=11 rows=724 cols=145 1.91s
+J_7 parD=1 k=5 trial 1: consistent=False rank=134 nullity=11 rows=724 cols=145 2.92s
+J_7 parD=1 k=5 trial 2: consistent=False rank=134 nullity=11 rows=724 cols=145 3.25s
+J_7 parD=1 k=6 trial 0: consistent=False rank=149 nullity=11 rows=787 cols=160 5.07s
+J_7 parD=1 k=6 trial 1: consistent=False rank=149 nullity=11 rows=787 cols=160 4.76s
+J_7 parD=1 k=6 trial 2: consistent=False rank=149 nullity=11 rows=787 cols=160 6.22s
+J_8 parD=0 k=0 trial 0: consistent=False rank=339 nullity=22 rows=1435 cols=361 7.56s
+J_8 parD=0 k=0 trial 1: consistent=False rank=339 nullity=22 rows=1435 cols=361 3.01s
+J_8 parD=0 k=0 trial 2: consistent=False rank=339 nullity=22 rows=1435 cols=361 6.39s
+J_8 parD=0 k=1 trial 0: consistent=False rank=315 nullity=27 rows=1406 cols=342 10.89s
+J_8 parD=0 k=1 trial 1: consistent=False rank=315 nullity=27 rows=1406 cols=342 8.32s
+J_8 parD=0 k=1 trial 2: consistent=False rank=315 nullity=27 rows=1406 cols=342 7.28s
+J_8 parD=0 k=2 trial 0: consistent=False rank=310 nullity=22 rows=1362 cols=332 9.51s
+J_8 parD=0 k=2 trial 1: consistent=False rank=310 nullity=22 rows=1362 cols=332 9.98s
+J_8 parD=0 k=2 trial 2: consistent=False rank=310 nullity=22 rows=1362 cols=332 3.34s
+J_8 parD=0 k=3 trial 0: consistent=False rank=358 nullity=22 rows=1440 cols=380 9.39s
+J_8 parD=0 k=3 trial 1: consistent=False rank=358 nullity=22 rows=1440 cols=380 5.21s
+J_8 parD=0 k=3 trial 2: consistent=False rank=358 nullity=22 rows=1440 cols=380 13.43s
+J_8 parD=0 k=4 trial 0: consistent=False rank=315 nullity=12 rows=1469 cols=327 24.37s
+J_8 parD=0 k=4 trial 1: consistent=False rank=315 nullity=12 rows=1469 cols=327 7.02s
+J_8 parD=0 k=4 trial 2: consistent=False rank=315 nullity=12 rows=1469 cols=327 7.32s
+J_8 parD=0 k=5 trial 0: consistent=False rank=315 nullity=27 rows=1406 cols=342 7.28s
+J_8 parD=0 k=5 trial 1: consistent=False rank=315 nullity=27 rows=1406 cols=342 6.32s
+J_8 parD=0 k=5 trial 2: consistent=False rank=315 nullity=27 rows=1406 cols=342 9.61s
+J_8 parD=0 k=6 trial 0: consistent=False rank=334 nullity=27 rows=1438 cols=361 7.84s
+J_8 parD=0 k=6 trial 1: consistent=False rank=334 nullity=27 rows=1438 cols=361 11.87s

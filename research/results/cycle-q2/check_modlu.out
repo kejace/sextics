@@ -1,0 +1,4 @@
+[eq] d=12 q=2 |H|=432 gens=4 rows=10500 cols=4060 (N 3580, Q 480, T 0) nnz=223496 build 2.6s
+compressed shape (4101, 4061)
+modlu: consistent False rank 2846 rank_aug 2847 57.5s
+flint same matrix: rank 2846 rank_aug 2847 57.6s

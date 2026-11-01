@@ -1,0 +1,3 @@
+[eq] d=12 q=2 |H|=432 gens=4 rows=10500 cols=4060 (N 3580, Q 480, T 0) nnz=223496 build 0.6s
+[fast p=4194301] consistent=False rank=2846 nullity=1214 (compress 27.4s LU 47.2s)
+{'D': '(X0**6 + X1**6 + X2**6)**2 [fastval]', 'd': 12, 'family': 'X-block', 'consistent': False, 'rank': 2846, 'nullity': 1214, 'rows': 10500, 'cols': 4060, 'order': 432, 'e1': None, 'seconds': 75.19, 'note': 'validation of fast path vs flint rank 2847'} 75.19728088378906

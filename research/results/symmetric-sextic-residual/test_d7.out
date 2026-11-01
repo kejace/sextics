@@ -1,0 +1,7 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[system] d=7 q=1 rows=25935 cols=4497 (N 3861, Q 636) nnz=935346 built in 4.7s
+[compressed p=2147483647] k=4538 consistent=False rank=3991 nullity=506 (compress 45.5s, rref 105.4s)
+D7=DX*e2(X^2) {'D': 'D7=DX*e2(X^2)', 'd': 7, 'e1': True, 'e1_info': {'rank': 3441, 'rank_aug': 3441, 'rows': 4284, 'cols': 3861}, 'consistent': False, 'rank': 3991, 'nullity': 506, 'rows': 25935, 'cols': 4497} 343.1s
+[system] d=7 q=1 rows=25935 cols=4497 (N 3861, Q 636) nnz=935346 built in 6.8s
+[compressed p=2147483647] k=4538 consistent=False rank=3991 nullity=506 (compress 79.6s, rref 265.0s)
+D7Y=DY*e2(Y^2) {'D': 'D7Y=DY*e2(Y^2)', 'd': 7, 'e1': True, 'e1_info': {'rank': 3441, 'rank_aug': 3441, 'rows': 4284, 'cols': 3861}, 'consistent': False, 'rank': 3991, 'nullity': 506, 'rows': 25935, 'cols': 4497} 593.2s

@@ -1,0 +1,19 @@
+d= 6 cons=True  rank=    7/    7 cols=    7 rows=   12    2.9s verified=True fermat:join3-X                     X0**6 + X1**6 + X2**6
+   N = ['X0**4*Y0**3/6', 'X0**3*X1*Y0**3/6', 'X0**3*X2*Y0**3/6', '0', '0', '0']
+   Q = 0
+d= 6 cons=True  rank=    7/    7 cols=    7 rows=   12    3.4s verified=True fermat:join3-Y                     Y0**6 + Y1**6 + Y2**6
+   N = ['0', '0', '0', 'X0**3*Y0**4/6', 'X0**3*Y0**3*Y1/6', 'X0**3*Y0**3*Y2/6']
+   Q = 0
+d= 1 cons=False rank=    0/    1 cols=    0 rows=    1    0.9s verified=None fermat:reflection-hyperplane       X0
+d= 2 cons=False rank=    1/    2 cols=    1 rows=    2    0.4s verified=None fermat:reflection-hyperplane-sq    X0**2
+d= 3 cons=False rank=    6/    7 cols=    6 rows=    7    1.6s verified=None fermat:reflection-hyperplane-cube  X0**3
+d= 2 cons=False rank=    0/    1 cols=    0 rows=    1    1.0s verified=None fermat:two-hyperplanes             X0*Y0
+d= 6 cons=False rank=   26/   27 cols=   37 rows=   27    1.9s verified=None fermat:A-itself                    X0**3*Y0**3
+d= 6 cons=False rank=    7/    8 cols=    7 rows=   12    1.6s verified=None fermat:cone-hyperplanes            X0**6 + Y0**6
+d= 6 cons=False rank=    7/    8 cols=    7 rows=   12    1.4s verified=None fermat:sum3-mixed                  X0**6 + Y0**6 + Y1**6
+d= 6 cons=False rank=    7/    8 cols=    7 rows=   12    1.9s verified=None fermat:sum2                        X1**6 + X2**6
+d= 6 cons=False rank=    7/    8 cols=    7 rows=   12    0.8s verified=None fermat:sum4-complement             X1**6 + X2**6 + Y1**6 + Y2**6
+d= 6 cons=False rank=    7/    8 cols=    7 rows=   12    0.8s verified=None fermat:cone4-sextic                X0**6 + X1**6 + X2**6 + Y0**6
+d= 3 cons=False rank=    6/    7 cols=    6 rows=   12    0.4s verified=None fermat:cone3-cubic                 X0**3 + X1**3 + X2**3
+d= 2 cons=False rank=    1/    2 cols=    1 rows=    7    0.4s verified=None fermat:cone3-quadric               X0**2 + X1**2 + X2**2
+d= 6 cons=False rank=    7/    8 cols=    7 rows=   12    0.8s verified=None fermat:generic-sum6                X0**6 + X1**6 + X2**6 + 2*Y0**6 + 3*Y1**6 + 5*Y2**6

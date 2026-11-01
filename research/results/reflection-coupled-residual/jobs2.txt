@@ -1,0 +1,1 @@
+python3 batch.py cands_d6.txt d6 > batch_d6.out 2>&1

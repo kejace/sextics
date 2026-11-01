@@ -1,0 +1,28 @@
+== TARGET X1**3
+"d": 5, "parD": 0, "E1": 3, "dim_J_d": 3, "kernel_mod_J": 0
+"d": 5, "parD": 1, "E1": 3, "dim_J_d": 3, "kernel_mod_J": 0
+"d": 6, "parD": 0, "E1": 18, "dim_J_d": 18, "kernel_mod_J": 0
+"d": 6, "parD": 1, "E1": 18, "dim_J_d": 18, "kernel_mod_J": 0
+"d": 7, "parD": 0, "E1": 66, "dim_J_d": 63, "kernel_mod_J": 3
+"d": 7, "parD": 1, "E1": 63, "dim_J_d": 63, "kernel_mod_J": 0
+"d": 8, "parD": 0, "E1": 177, "dim_J_d": 168, "kernel_mod_J": 9
+"d": 8, "parD": 1, "E1": 177, "dim_J_d": 168, "kernel_mod_J": 9
+== TARGET X2**3
+"d": 5, "parD": 0, "E1": 3, "dim_J_d": 3, "kernel_mod_J": 0
+"d": 5, "parD": 1, "E1": 3, "dim_J_d": 3, "kernel_mod_J": 0
+"d": 6, "parD": 0, "E1": 18, "dim_J_d": 18, "kernel_mod_J": 0
+"d": 6, "parD": 1, "E1": 18, "dim_J_d": 18, "kernel_mod_J": 0
+"d": 7, "parD": 0, "E1": 66, "dim_J_d": 63, "kernel_mod_J": 3
+"d": 7, "parD": 1, "E1": 63, "dim_J_d": 63, "kernel_mod_J": 0
+"d": 8, "parD": 0, "E1": 177, "dim_J_d": 168, "kernel_mod_J": 9
+"d": 8, "parD": 1, "E1": 177, "dim_J_d": 168, "kernel_mod_J": 9
+== TARGET (X0+X1)**3
+"d": 5, "parD": 0, "E1": 3, "dim_J_d": 3, "kernel_mod_J": 0
+"d": 5, "parD": 1, "E1": 3, "dim_J_d": 3, "kernel_mod_J": 0
+"d": 6, "parD": 0, "E1": 18, "dim_J_d": 18, "kernel_mod_J": 0
+"d": 6, "parD": 1, "E1": 18, "dim_J_d": 18, "kernel_mod_J": 0
+"d": 7, "parD": 0, "E1": 66, "dim_J_d": 63, "kernel_mod_J": 3
+"d": 7, "parD": 1, "E1": 63, "dim_J_d": 63, "kernel_mod_J": 0
+"d": 8, "parD": 0, "E1": 177, "dim_J_d": 168, "kernel_mod_J": 9
+"d": 8, "parD": 1, "E1": 177, "dim_J_d": 168, "kernel_mod_J": 9
+== TARGET (X0+2*X1-X2)**3

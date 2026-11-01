@@ -1,0 +1,13 @@
+ours   delta              d=6 delta                                                        E1=False cons=False rank=2223 null=153 imgdim=18 120.6s
+ours   quadric            d=2 Q[0]                                                         E1=False cons=False rank=168 null=0 imgdim=18 0.9s
+ours   quadric            d=2 Q[3]                                                         E1=False cons=False rank=168 null=0 imgdim=18 0.5s
+ours   quadric            d=2 core.add(Q[0],Q[3])                                          E1=False cons=False rank=168 null=0 imgdim=18 0.6s
+ours   quadric            d=2 core.sub(Q[0],Q[3])                                          E1=False cons=False rank=168 null=0 imgdim=18 0.9s
+ours   quadric            d=2 core.add(Q[0],Q[1])                                          E1=False cons=False rank=168 null=0 imgdim=18 0.6s
+ours   quadric            d=2 core.add(Q[1],Q[2])                                          E1=False cons=False rank=168 null=0 imgdim=18 0.6s
+ours   quadric            d=2 core.add(core.add(Q[0],Q[3]),Q[1])                           E1=False cons=False rank=168 null=0 imgdim=18 0.5s
+ours   quadric            d=2 core.add(core.add(core.add(Q[0],Q[3]),Q[1]),Q[4])            E1=False cons=False rank=168 null=0 imgdim=18 0.7s
+ours   qprod              d=4 core.mul(Q[0],Q[3])                                          E1=False cons=False rank=747 null=9 imgdim=18 9.6s
+ours   qprod              d=4 core.mul(Q[0],Q[1])                                          E1=False cons=False rank=747 null=9 imgdim=18 11.4s
+ours   qprod              d=4 core.mul(Q[0],core.add(Q[0],Q[3]))                           E1=False cons=False rank=747 null=9 imgdim=18 13.7s
+ours   qcube              d=6 core.add(core.power(Q[0],3),core.power(Q[3],3))              E1=False cons=False rank=2214 null=162 imgdim=18 167.4s
