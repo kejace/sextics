@@ -128,3 +128,4 @@ d=9 parD=1 k=5: nontrivial kernel 6, J_d block 46 gens  [11.6s]
    random kernel+J 2: consistent=False rank=644 nullity=56 24.53s
 [e1-kernel] d=9 k=6 parD=1: #Dmon=136 dimR_(d+6)=87 kernel(total)=50 J_d=46 nontrivial=4
 d=9 parD=1 k=6: nontrivial kernel 4, J_d block 46 gens  [8.6s]
+   rep #0: e1=True consistent=False rank=667 nullity=56 rows=2360 cols=723 17.9s

@@ -91,3 +91,5 @@ G0*p                                                                   d=8 serve
 G0*t                                                                   d=8 served=6/0 A=False A+=False A-=False rank=766 null=124 18.2s
 G0*m                                                                   d=8 served=6/0 A=False A+=False A-=False rank=766 null=124 13.4s
 c*c                                                                    d=8 served=6/0 A=False A+=False A-=False rank=725 null=165 8.4s
+e*Y6                                                                   d=8 served=6/0 A=False A+=False A-=False rank=751 null=139 11.4s
+e*f                                                                    d=8 served=6/0 A=False A+=False A-=False rank=689 null=201 15.3s

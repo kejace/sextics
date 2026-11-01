@@ -7,3 +7,4 @@ f0+(1)*s^2                                                             d=6 serve
 f0+(1)*S^2                                                             d=6 served=12/0 A=False A+=False A-=False rank=705 null=115 25.5s
 f0+(-1)*s^2                                                            d=6 served=12/0 A=False A+=False A-=False rank=705 null=115 22.3s
 f0+(-1)*S^2                                                            d=6 served=12/0 A=False A+=False A-=False rank=705 null=115 15.2s
+f0+(3)*s^2                                                             d=6 served=12/0 A=False A+=False A-=False rank=705 null=115 24.8s

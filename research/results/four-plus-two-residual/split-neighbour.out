@@ -35,3 +35,4 @@
 {'D': '[split neighbour H0=f+g] core E1-kernel rref basis #0, d=7 par=1, 1 terms', 'consistent': False, 'rank': 775, 'nullity': 224, 'rows': 2604, 'cols': 999, 'seconds': 21.91}
 {'D': '[split neighbour H0=f+g] core E1-kernel rref basis #1, d=7 par=1, 1 terms', 'consistent': False, 'rank': 795, 'nullity': 204, 'rows': 2604, 'cols': 999, 'seconds': 25.36}
 {'D': '[split neighbour H0=f+g] core E1-kernel rref basis #2, d=7 par=1, 2 terms', 'consistent': False, 'rank': 825, 'nullity': 174, 'rows': 2625, 'cols': 999, 'seconds': 23.65}
+{'D': '[split neighbour H0=f+g] core E1-kernel rref basis #3, d=7 par=1, 2 terms', 'consistent': False, 'rank': 824, 'nullity': 175, 'rows': 2626, 'cols': 999, 'seconds': 26.18}
