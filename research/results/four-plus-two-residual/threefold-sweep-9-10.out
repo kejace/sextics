@@ -1,1 +1,2 @@
 d=9 par=0: core E1-kernel mod J(H) dim 38 (6.9s)
+{'D': 'random combo #0 of 38 core E1-kernel elements, d=9 par=0', 'consistent': False, 'rank': 1684, 'nullity': 380, 'rows': 4795, 'cols': 2064, 'seconds': 215.65}

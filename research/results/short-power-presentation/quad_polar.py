@@ -7,7 +7,7 @@ import sys, time, json, random, subprocess
 sys.path.insert(0, '/tmp/hodge/results/short-power-presentation')
 from hlib import *
 from flint import nmod_mat
-p = core.PRIMES[0]
+p = 536870909  # < 2^29 for Singular
 RES = '/tmp/hodge/results/short-power-presentation'
 
 def field_basis(d, parD):

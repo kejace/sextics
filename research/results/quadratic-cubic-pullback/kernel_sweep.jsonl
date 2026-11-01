@@ -5,3 +5,4 @@
 {"d": 5, "which": "ours", "cols": 2184, "rowsJ": 1386, "rowsA": 126, "rankJ": 1341, "rank_stack": 1464, "dimK": 3, "dimJd_even": 3, "dimK_mod_J": 0, "dimR_odd": 843, "seconds": 9.6}
 {"d": 6, "which": "ours", "cols": 3080, "rowsJ": 2376, "rowsA": 236, "rankJ": 2214, "rank_stack": 2432, "dimK": 18, "dimJd_even": 18, "dimK_mod_J": 0, "dimR_odd": 866, "seconds": 30.4}
 {"d": 7, "which": "ours", "cols": 4284, "rowsJ": 3861, "rowsA": 396, "rankJ": 3441, "rank_stack": 3774, "dimK": 63, "dimJd_even": 63, "dimK_mod_J": 0, "dimR_odd": 843, "seconds": 399.3}
+{"d": 8, "which": "ours", "cols": 5796, "rowsJ": 6006, "rowsA": 651, "rankJ": 5052, "rank_stack": 5535, "dimK": 168, "dimJd_even": 168, "dimK_mod_J": 0, "dimR_odd": 744, "seconds": 912.1}

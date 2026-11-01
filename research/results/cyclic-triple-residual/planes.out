@@ -9,3 +9,4 @@ Pi{X0,X2,Y1=0} k=3: solution space dim 19, contains D8-direction: True
     test [random-affine]: consistent=False rank=1155/1156 cols=1188 (125.4s)
 Pi{X0,X2,Y2=0}: maximal vanishing order along the plane within the E1 coset: 3
 Pi{X0,X2,Y2=0} k=3: solution space dim 17, contains D8-direction: True
+    test [particular]: consistent=False rank=1155/1156 cols=1188 (95.3s)

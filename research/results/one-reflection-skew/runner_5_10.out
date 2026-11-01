@@ -43,3 +43,7 @@ c*m*X1                                                                 d=7 serve
 c*m*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 7.5s
 s*s*X0                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 38.2s
 s*s*X1                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 32.3s
+s*s*X2                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 33.8s
+s*S*X0                                                                 d=7 served=6/0 A=False A+=False A-=False rank=521 null=94 10.3s
+s*S*X1                                                                 d=7 served=6/0 A=False A+=False A-=False rank=521 null=94 6.7s
+s*S*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=521 null=94 4.0s

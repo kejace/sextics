@@ -1,0 +1,9 @@
+roots f(t,1): [388111789]  roots g(s,1): [1961481078, 1596126164]
+E1 for D=L^6, L=X0-388111789X1 (f(t,1)=0): False
+E1 for D=L^6, L=Y0-1961481078Y1 (g(s,1)=0): False
+E1 for D=L^6, L=Y0-1596126164Y1 (g(s,1)=0): False
+E1 for D=L^6, X0: False
+E1 for D=L^6, Y0: False
+E1 for D=L^6, X0+Y0: False
+E1 for D=L^6, X0+2X1+3Y0+5Y1: False
+{'D': 'cone l^6+Y0^6+Y1^6, l=X0-388111789X1, vertex (t:1:0:0) on S_H', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1868, 'cols': 666, 'seconds': 16.25}

@@ -10,3 +10,6 @@ d=6 par=0: core E1-kernel mod J(H) dim 20 (0.1s)
 {'D': 'core E1-kernel rref basis #3, d=6 par=0, 17 terms', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 20.88}
 {'D': 'core E1-kernel rref basis #4, d=6 par=0, 17 terms', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 25.74}
 {'D': 'core E1-kernel rref basis #5, d=6 par=0, 17 terms', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 12.27}
+{'D': 'core E1-kernel rref basis #6, d=6 par=0, 17 terms', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 20.25}
+{'D': 'core E1-kernel rref basis #7, d=6 par=0, 17 terms', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 18.06}
+{'D': 'core E1-kernel rref basis #8, d=6 par=0, 17 terms', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 15.87}

@@ -9,3 +9,4 @@ X0**4 + X1**4 + X2**4 + Y2**4                                d=4 e1=False status
 X0**4 + Y0**4 + Y2**4                                        d=4 e1=False status=inconsistent rank=704 nullity=61 (19.8s)
 X1**4 + X2**4 + Y1**4 + Y2**4                                d=4 e1=False status=inconsistent rank=705 nullity=60 (25.2s)
 X0**6 + Y0**6                                                d=6 e1=True status=inconsistent rank=2299 nullity=303 (419.7s)
+X0**6 + Y0**6 + Y2**6                                        d=6 e1=True status=inconsistent rank=2311 nullity=291 (457.3s)

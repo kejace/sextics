@@ -80,3 +80,5 @@ d=9 parD=0 k=6: nontrivial kernel 3, J_d block 52 gens  [8.3s]
 d=9 parD=1 k=0: nontrivial kernel 0, J_d block 93 gens  [13.5s]
 [e1-kernel] d=9 k=1 parD=1: #Dmon=139 dimR_(d+6)=87 kernel(total)=54 J_d=49 nontrivial=5
 d=9 parD=1 k=1: nontrivial kernel 5, J_d block 49 gens  [13.3s]
+   rep #0: e1=True consistent=False rank=644 nullity=56 rows=2360 cols=700 22.56s
+   rep #1: e1=True consistent=False rank=644 nullity=56 rows=2369 cols=700 19.54s
