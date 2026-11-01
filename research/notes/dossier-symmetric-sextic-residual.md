@@ -76,6 +76,12 @@ primitive (3,1)-class (`D = 1` sanity row in `log.jsonl`: rank 18 vs augmented 1
   one-dimensional (the Euler field only): the linear automorphism group is finite (`ssr_struct.py`).
 * **[P]** No block exchange: `F(λY, μX) = F(X,Y)` would need `λ^4μ^2 = 2`, `λ^2μ^4 = 1/2`, `λ^6 = μ^6 = 1`,
   impossible (ratio `λ^2/μ^2 = 4` contradicts `λ^6 = μ^6`). The coefficients 5/7 vs 10/7 break the X↔Y symmetry.
+* **[N][P]** Monomial automorphism group (`monomial_aut2.py`): exactly 72 of the 720 coordinate
+  permutations preserve the 42-monomial support; for the 36 that preserve the blocks the coefficient ratios
+  are all 1 (automorphisms), for the 36 block-swapping ones the exact log-linear system
+  `m·v + κ = log_2|ratio(m)|` is **inconsistent** (no diagonal correction, even up to a global scalar). So
+  the monomial part of Aut(F) is exactly `S3×S3 × {1,σ}` (projectively order 72); only non-monomial
+  automorphisms remain unexcluded (§4.9).
 * **[P]** Projective diagonal group: `{1, σ}` only (`checks.json`: `projectiveDiagonalGroupOrder = 2`,
   consistent with the exponent-lattice rule of Chapter 1 §"support-coset rule": the mixed monomials
   generate all within-block transfers and `2(e_X − e_Y)`).
@@ -234,8 +240,11 @@ All entries are in `/tmp/hodge/results/symmetric-sextic-residual/log.jsonl` (131
 | 8 | 6 | 6 | includes `D7·X_i`, `D7Y·Y_j` (parity 0) resp. `D7·Y_j`, `D7Y·X_i` (parity 1); structure of the rest: see E1 below |
 
   **Rigour.** A zero kernel mod p implies a zero kernel over Q provided the Jacobian columns have their full
-  complete-intersection rank mod p in degree d+6 (rank can only drop mod p, so `dim_p ≥ dim_Q`). The solver
-  reports the J-rank; it equals the CI value in every degree used. So **[P]**: every certificate denominator
+  complete-intersection rank mod p in degree d+6 (rank can only drop mod p, so `dim_p ≥ dim_Q`). From the printed
+  nullities one reads off the J-rank; e.g. at d = 6, pD = 0: `nullity([J|A]) − dimK = 180 − 18 = 162`, so
+  `rank J_12^{odd} = 2376 − 162 = 2214 = 3080 − 866`, the complete-intersection value (R_12^{odd} = 866).
+  **[N]** This bookkeeping was repeated for all (d, pD) with d = 1…8 (rank J mod p = 63, 168, 378, 747/750,
+  1341, 2214/2223, 3441, 5052/5070 = complete-intersection value in every case). So **[P]**: every certificate denominator
   not in J(F) has degree ≥ 7, and in degree 7 it is (up to J) one of `D7`, `D7Y`.
   Inconsistency statements below are **[C]** (a rational solution could in principle have p in its
   denominators; with p ≈ 2^31 this is practically excluded but not proved).
@@ -378,9 +387,9 @@ and the cone over the 3-nodal (rational) quartic `e2(X^2) = 0` — the sgn_X cha
 8. **Correspondences beyond quotients**: the discriminant-type double cover `V`, the branch divisor
    `{disc_X = 0} ∩ W` (a quotient of a reflection section), relative/twisted cohomology
    `H^4(W∖B, L_{Δ})`. Nothing started.
-9. **The full linear automorphism group** is only bounded below (order 72 projectively, finite). A larger
-   finite group (e.g. a non-monomial element normalising S3×S3) was not searched for; the Lie algebra is
-   trivial, so a finite search over the stabiliser of F's Hessian or of the 42-monomial support would settle it.
+9. **The full linear automorphism group** is finite (trivial Lie algebra) and its monomial part is exactly
+   the 72-element G (§1.3). Non-monomial elements (e.g. an element of the normaliser of S3×S3 acting
+   through the standard representations, or mixing `e1X` with `e1Y`) were not searched for.
 
 ---
 
@@ -464,11 +473,10 @@ either the argument fails at the Hodge level (expected: `(1,10,1)` cannot sit in
 identifies the missing correspondence. Worth one careful day to settle on paper; chance of a complete proof
 this way: < 5 %, but it is the natural "why is this sector special" statement for a discussion post.
 
-**E8. Enlarge the symmetry group / find hidden structure.** [half a day] Compute the finite linear
-automorphism group of F exactly (stabiliser of the 42-monomial support under the normaliser of the torus is
-monomial, so search monomial matrices with 6th-root entries: 6^6·720 cases, trivial) and check for
-non-monomial elements by solving `F(MZ) = F(Z)` with M in the normaliser of `S3×S3` (e.g. `M` acting as a
-rotation in the `(e1X, e1Y)` plane). A larger group would change the character analysis and possibly supply
+**E8. Enlarge the symmetry group / find hidden structure.** [half a day] The monomial part is now known
+to be exactly G (§1.3, [N][P]). Check for non-monomial elements by solving `F(MZ) = F(Z)` with M in the
+normaliser of `S3×S3` (M acts on `triv_X ⊕ std_X ⊕ triv_Y ⊕ std_Y` by Schur's lemma as scalars on the
+std's and a 2×2 block on `(e1X, e1Y)`: a 6-parameter polynomial system, trivial to solve exactly). A larger group would change the character analysis and possibly supply
 a junior element. Chance of changing the picture: 10 %.
 
 **E9. q = 2 shadow.** [1 day] Although the instance fixes q = 1, Chapter 1 §3.6 ("from a computed support to
@@ -532,3 +540,52 @@ covers the algebra once the geometry is specified.
   `/tmp/hodge/discussions/symmetric-sextic-residual.raw.json`.
 
 Addenda (results that finished after the main text was written) are appended below.
+
+### 7.1 Addendum A — non-invariant denominators inside J(F) **[N][C]** (`jtests.py full`, engine v2, mod p)
+
+| D | d | rows × cols | rank / nullity | result |
+|---|---:|---|---|---|
+| `F_{X0}` | 5 | 10085 × 1446 | 1317 / 129 | inconsistent |
+| `F_{Y0}` | 5 | 10085 × 1446 | 1317 / 129 | inconsistent |
+| `F_{X0}+F_{X1}` | 5 | 10125 × 1446 | 1317 / 129 | inconsistent |
+| `X0·F_{X0}` | 6 | 16701 × 2602 | 2356 / 246 | inconsistent |
+
+| `Y0·F_{Y0}` | 6 | 16701 × 2602 | 2356 / 246 | inconsistent |
+
+(`X0F_{Y0}`, `Y0F_{X0}`, `X1F_{X0}`: still solving when this dossier was closed; the detached process
+appends to `/tmp/hodge/scratch-ssr/jtests_full.out` and to `log.jsonl` (family `J-inside-full`).)
+
+### 7.3 Still-running detached jobs (outputs land on disk; consult before continuing)
+
+* `exactK.py 8,0 9,0 9,1` → `/tmp/hodge/results/symmetric-sextic-residual/exactK.out`: exact e-monomial
+  coordinates of the accidental invariant E1-kernel classes (degree 8 even, degree 9 both parities). The
+  CRT lift at d = 8 succeeded (`ok`, 5 s); the per-representative printing (full E1 re-check with the slow
+  pure-Python builder) had not appeared after 30 min.
+* `e1_struct8.py` → `/tmp/claude-1000/-home-kejace-devel-sextics/2f213184-.../tasks/bn79dn9nu.output`
+  (also rerunnable in minutes with the numpy folding of `invsolve.py` instead of the dict builder):
+  remaining families `Δ_X·Sym^1Sym^4`, `Δ_XΔ_Y·quadrics`, Y-odd families, degree 9.
+* `jtests.py full` → `/tmp/hodge/scratch-ssr/jtests_full.out` (three denominators left).
+* Nothing has been posted to discussion #117; all of §3.2–3.3 and §7 is unpublished local work that
+  should be condensed into one top-level comment (rigorous exclusions: degree ≤ 6 outside J, age screen,
+  reflection-group sector identification; modular exclusions: D7, D7Y, J-elements of degree 5–6, invariant
+  E1 classes of degree 8–9, corrected served-span scan). Together with §3.2(c) this
+excludes [C] every polar-type denominator of degree 5 that is a single partial, a sum of two partials, or
+any invariant element of J_5, J_6, and the degree-6 products tested.
+
+### 7.2 Addendum B — structured E1 kernels at degree 8 **[N][C]** (`e1_struct8.py`, mod p)
+
+Inside `Δ_X·Sym^5(X)` (dimension 5; e-monomial coordinates `(a1,a2,a3)` for `e1^a1 e2^a2 e3^a3`) the E1
+kernel has dimension 3:
+
+```
+k1 = e2 e3 − 7 e1^3 e2 + 4 e1^5
+k2 = e1 e2^2 − 4 e1^3 e2 + 2 e1^5      = e1 · (e2^2 − 4e1^2e2 + 2e1^4)   (= e1 × degree-7 kernel)
+k3 = e1^2 e3 − 2 e1^3 e2 + e1^5        = e1 · (e1e3 − 2e1^2e2 + e1^4)    (= e1 × degree-7 kernel)
+```
+
+so `Δ_X·e1X·e2(X^2) = D7·e1X` is in the kernel as expected, and there is **one genuinely new
+anti-symmetric ternary octic** `Δ_X·(e2e3 − 7e1^3e2 + 4e1^5)` (modulo the J-part of the family) passing E1.
+Its cone divisor is again of the type of 3.3(i) (three reflection planes plus a cone over a quintic plane
+curve `e2e3 − 7e1^3e2 + 4e1^5 = 0`, which is `S3(X)`-symmetric). It is a natural next full-solve
+(experiment E1/E2; degree 8, Y-even, character (sgn, triv)). The remaining degree-8/9 families
+(`Δ_X·Sym^3Sym^2`, `Δ_XΔ_Y·quadrics`, `Δ_X·Sym^6`, …) were still computing when this addendum was written.

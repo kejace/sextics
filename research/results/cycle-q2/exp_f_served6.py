@@ -12,7 +12,7 @@ def run(Dstr, fam, note=''):
     D = core.parse(Dstr)
     r = served.served_dim(F, A, q, D)
     served.log_served(D, fam, note or Dstr, r)
-    print(f'{fam:16s} {Dstr[:80]:80s} d={core.degree(D)} |H|={r["order"]} served {r["served"]}/{r["sector"]} cons={r["consistent"]} rk={r["rank_NQ"]}/{r["cols_NQ"]} [{time.time()-t0:.0f}s]', flush=True)
+    print(f'{fam:16s} {Dstr[:80]:80s} d={core.degree(D)} |H|={r["order"]} new {r["new"]} (unserved {r["unserved"]}/{r["baseline"]} of {r["sector"]}) cons={r["consistent"]} rk={r["rank_NQ"]}/{r["cols_NQ"]} [{time.time()-t0:.0f}s]', flush=True)
     return r
 run('1', 'sanity')
 run('X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6', 'pure-power')
@@ -28,10 +28,10 @@ for tri in itertools.combinations(range(6), 3): run(' + '.join(f'{V[i]}**4' for 
 Fi = [core.pderiv(F, i) for i in range(6)]
 for i in range(6):
     r = served.served_dim(F, A, q, Fi[i]); served.log_served(Fi[i], 'partial', f'F_{V[i]}', r)
-    print(f'partial F_{V[i]}: served {r["served"]}/{r["sector"]} cons={r["consistent"]}', flush=True)
+    print(f'partial F_{V[i]}: new {r["new"]} (unserved {r["unserved"]}/{r["baseline"]} of {r["sector"]}) cons={r["consistent"]}', flush=True)
 for i in range(6):
     D = core.mul(core.parse(V[i]), Fi[i]); r = served.served_dim(F, A, q, D); served.log_served(D, 'radial', f'{V[i]}F_{V[i]}', r)
-    print(f'radial {V[i]}F_{V[i]}: served {r["served"]}/{r["sector"]} cons={r["consistent"]}', flush=True)
+    print(f'radial {V[i]}F_{V[i]}: new {r["new"]} (unserved {r["unserved"]}/{r["baseline"]} of {r["sector"]}) cons={r["consistent"]}', flush=True)
 for a, b, c in [('X0**4', '0', 'Y0**4'), ('X0**4 + X2**4', '0', 'Y0**4 + Y2**4'), ('X2**4', '0', 'Y2**4'), ('X0**4', '0', 'X2**4'),
                 ('Y0**4', '0', 'Y2**4'), ('X0**2*X2**2', 'X0*X2*Y0*Y2', 'Y0**2*Y2**2'), ('X0**4 + Y0**4', '0', 'X2**4 + Y2**4'),
                 ('X0**4', 'X0*X2*Y0*Y2', 'Y0**4'), ('X0**3*Y0', '0', 'X2**3*Y2'), ('X0*X2**3', '0', 'Y0*Y2**3')]:

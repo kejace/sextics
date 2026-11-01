@@ -588,4 +588,24 @@ supported by a special surface family. This is exploratory and does not by itsel
 
 ## Addendum: results of the pending computations
 
-(To be filled in below as the background jobs finish.)
+
+**A1. Degree-7 mixed-sector quadratic system — [failed: timed out].** `msolve -t 16` (DRL, mod
+`p = 1000000009`) and Singular `std` on the 1496 quadrics in 120 unknowns were both killed at the
+1500 s limit while the machine was shared with other agents' jobs (msolve never printed its first F4
+round). The degree-3 Macaulay matrix (179520 × 295240) cannot have full column rank, and the
+degree-4 one (10.9M × 9.0M) is out of reach for dense methods, so a quick linear-algebra closure is
+not available; a Gröbner run on a dedicated machine (`msolve -t 64`, or Singular with `option(prot)`
+to watch progress) is the next step. Status of degree 7 with mixed sectors: **still open**. Inputs
+kept: `d7_system.ms`, `d7_system.sing`.
+
+**A2. E1 at degree 12 [computed].** `dim (J:A)_12 = 5762 = 6188 − 426 = dim S_12 − dim R_18`
+(1325 non-Jacobian directions; the map `S_12 → R_18`, `m ↦ A·m`, is surjective), confirming that
+from `d = 11` on the colon ideal is as large as the Hilbert function permits and E1 carries no
+instance-specific information. The full sequence `dim (J:A)_d`, `d = 0..12`:
+`0, 0, 0, 0, 0, 6, 36, 126, 337, 760, 2053, 3702, 5762`.
+
+**A3. Fixed-denominator solves for `D8*` and `D8*·(quadratic form)` — [pending/not finished].** The
+engine job (`fixedD.py`) had not completed the first (degree-8) solve when this dossier was closed;
+rerun `python3 /tmp/hodge/scratch/qcr-dossier/fixedD.py` on an idle machine (expected minutes per
+denominator). Note fqlx's mod-`J_16` result already excludes `D = D8*` itself; the multiples
+`D8*·S0`, `D8*·P0`, `D8*·δ`, `D8*·X0²`, `D8*·Y0²`, `D8*·S1`, `D8*·P1` are the genuinely untested ones.

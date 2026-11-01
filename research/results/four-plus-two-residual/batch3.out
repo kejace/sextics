@@ -5,3 +5,4 @@
 {'D': '5*X0**3*X1*Y1/7 + 30*X0*X1*Y0**2*Y1/7 + 6*Y0**5 + 25*Y0**4*Y1/7 + 15*Y1**5/7', 'd': 5, 'e1': None, 'consistent': False, 'rank': 1316, 'nullity': 130, 'seconds': 100.54, 'note': 'dF/dY0 (in J_5; E1 trivial) | inconsistent'}
 {'D': '5*X0**3*X1*Y0/7 + 10*X0*X1*Y0**3/7 + 5*Y0**5/7 + 75*Y0*Y1**4/7 + 6*Y1**5', 'd': 5, 'e1': None, 'consistent': False, 'rank': 1316, 'nullity': 130, 'seconds': 129.53, 'note': 'dF/dY1 (in J_5; E1 trivial) | inconsistent'}
 {'D': '30*X2**4*Y2/7 + 40*X2**2*Y2**3/7 + 6*Y2**5', 'd': 5, 'e1': None, 'consistent': False, 'rank': 1302, 'nullity': 144, 'seconds': 102.02, 'note': 'dF/dY2 (in J_5; E1 trivial) | inconsistent'}
+{'D': '6*X0**6 + 25*X0**5*X1/7 + 20*X0**3*X1*Y0*Y1/7 + 10*X0*X1**5/7 + 40*X0*X1*Y0**3*Y1/7 + 6*Y0**6 + 25*Y0**5*Y1/7 + 15*Y0*Y1**5/7', 'd': 6, 'e1': None, 'consistent': False, 'rank': 2353, 'nullity': 249, 'seconds': 497.28, 'note': '(X0,Y0) radial derivative of F | inconsistent'}

@@ -46,32 +46,43 @@ def build(d, parD, verbose=True):
     F, A, q, rec = load()
     Fp = core.reduce_mod(F, p)
     e = 2 * d - 6
-    basis = field_basis(d, parD)
+    if parD == 'm':
+        basis = field_basis(d, 0) + field_basis(d, 1)
+    else:
+        basis = field_basis(d, parD)
     nb = len(basis)
     Hess = [[core.pderiv(core.pderiv(Fp, j, p), l, p) for l in range(6)] for j in range(6)]
-    mons, idx, Rr, pivots, r = jac_rref(Fp, e, 0)   # Phi is always Y-even
-    n = len(mons)
-    nonpiv = [j for j in range(n) if j not in set(pivots)]
     pairs = [(a, b) for a in range(nb) for b in range(a, nb)]
-    flat = [0] * (len(pairs) * n)
-    for k, (a, b) in enumerate(pairs):
-        (j, m), (l, m2) = basis[a], basis[b]
-        mm = tuple(x + y for x, y in zip(m, m2))
-        P = core.shift(Hess[j][l], mm, 1 if a == b else 2, p)   # a_a a_b counted twice for a != b
-        for mon, v in P.items(): flat[k * n + idx[mon]] = v
-    U = nmod_mat(len(pairs), n, flat, p)
-    # reduce mod J: U_red = U - U[:, pivots] * Rr
-    Upiv = nmod_mat(len(pairs), r, [int(U[k, pj]) for k in range(len(pairs)) for pj in pivots], p)
-    Ured = U - Upiv * Rr
-    eqs = []  # list of dict {(a,b): coef}
-    for c in nonpiv:
-        eq = {}
+    eqs = []
+    tot = {}
+    for par in ([0, 1] if parD == 'm' else [0]):
+        mons, idx, Rr, pivots, r = jac_rref(Fp, e, par)
+        n = len(mons)
+        nonpiv = [j for j in range(n) if j not in set(pivots)]
+        rows_k = []
+        flat = []
         for k, (a, b) in enumerate(pairs):
-            v = int(Ured[k, c])
-            if v: eq[(a, b)] = v
-        if eq: eqs.append(eq)
-    info = {'d': d, 'parD': parD, 'unknowns': nb, 'deg Phi': e, 'dim S_e': n, 'dim J_e': r,
-            'equations': len(eqs), 'p': p}
+            (j, m), (l, m2) = basis[a], basis[b]
+            mm = tuple(x + y for x, y in zip(m, m2))
+            P = core.shift(Hess[j][l], mm, 1 if a == b else 2, p)
+            if not P: continue
+            if core.parity_of(P) != par: continue
+            row = [0] * n
+            for mon, v in P.items(): row[idx[mon]] = v
+            flat.extend(row); rows_k.append(k)
+        if not rows_k: continue
+        U = nmod_mat(len(rows_k), n, flat, p)
+        Upiv = nmod_mat(len(rows_k), r, [int(U[i, pj]) for i in range(len(rows_k)) for pj in pivots], p)
+        Ured = U - Upiv * Rr
+        cnt = 0
+        for c in nonpiv:
+            eq = {}
+            for i, k in enumerate(rows_k):
+                v = int(Ured[i, c])
+                if v: eq[pairs[k]] = v
+            if eq: eqs.append(eq); cnt += 1
+        tot[par] = {'dim S_e': n, 'dim J_e': r, 'equations': cnt}
+    info = {'d': d, 'parD': parD, 'unknowns': nb, 'deg Phi': e, 'parts': tot, 'equations': len(eqs), 'p': p}
     if verbose: print(json.dumps(info), flush=True)
     return basis, eqs, info
 
@@ -88,6 +99,7 @@ def singular_file(d, parD, basis, eqs, path):
         f.write('print("dim = " + string(dim(G)));\n')
         f.write('print("vdim = " + string(vdim(G)));\n')
         f.write('print("time = " + string(timer - t));\n')
+        f.write('LIB "primdec.lib"; list L = minAssGTZ(G); print("ncomp = " + string(size(L))); L;\n')
         f.write('quit;\n')
 
 def check_identity(d, parD, trials=2):
@@ -124,7 +136,7 @@ def check_identity(d, parD, trials=2):
 
 if __name__ == '__main__':
     mode = sys.argv[1]
-    d = int(sys.argv[2]); parD = int(sys.argv[3])
+    d = int(sys.argv[2]); parD = sys.argv[3] if sys.argv[3] == 'm' else int(sys.argv[3])
     if mode == 'check':
         check_identity(d, parD)
     else:

@@ -7,3 +7,34 @@ E1 for D=L^6, Y0: False
 E1 for D=L^6, X0+Y0: False
 E1 for D=L^6, X0+2X1+3Y0+5Y1: False
 {'D': 'cone l^6+Y0^6+Y1^6, l=X0-388111789X1, vertex (t:1:0:0) on S_H', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1868, 'cols': 666, 'seconds': 16.25}
+{'D': 'cone l^6+g(Y0,Y1), vertex on S_H', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 10.02}
+{'D': 'cone l^6-g, vertex on S_H', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 13.53}
+{'D': 'cone quartic l^4+Y0^4+Y1^4, vertex on S_H', 'consistent': False, 'rank': 234, 'nullity': 35, 'rows': 855, 'cols': 269, 'seconds': 4.28}
+{'D': 'cone cubic l^3+Y0^3+Y1^3, vertex on S_H', 'consistent': False, 'rank': 141, 'nullity': 20, 'rows': 540, 'cols': 161, 'seconds': 1.13}
+{'D': 'quadric cone l^2+Y0^2+Y1^2, vertex on S_H', 'consistent': False, 'rank': 80, 'nullity': 10, 'rows': 321, 'cols': 90, 'seconds': 0.21}
+{'D': 'cone quartic l^2 Y0Y1 + Y0^4+Y1^4, vertex on S_H', 'consistent': False, 'rank': 234, 'nullity': 35, 'rows': 854, 'cols': 269, 'seconds': 2.34}
+{'D': 'random even sextic cone in (l,Y0,Y1), vertex on S_H #0', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 17.45}
+{'D': 'random even sextic cone in (l,Y0,Y1), vertex on S_H #1', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 17.71}
+{'D': "control: cone l'^6+Y0^6+Y1^6, vertex off S_H", 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1868, 'cols': 666, 'seconds': 25.45}
+{'D': 'cone X0^6+X1^6+m^6, m=Y0-1961481078Y1, vertex (0:0:s:1) on S_H', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1868, 'cols': 666, 'seconds': 24.85}
+{'D': 'cone f(X0,X1)+m^6, vertex on S_H', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 15.53}
+{'D': 'cone f-m^6, vertex on S_H', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 17.91}
+{'D': 'cone quartic X0^4+X1^4+m^4, vertex on S_H', 'consistent': False, 'rank': 234, 'nullity': 35, 'rows': 855, 'cols': 269, 'seconds': 3.34}
+{'D': 'cone cubic X0^3+X1^3+m^3 (Y-odd), vertex on S_H', 'consistent': False, 'rank': 141, 'nullity': 20, 'rows': 540, 'cols': 161, 'seconds': 0.57}
+{'D': 'Fermat sextic cone, vertex general point of S_H', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1869, 'cols': 666, 'seconds': 19.21}
+{'D': 'Fermat quartic cone, vertex general point of S_H', 'consistent': False, 'rank': 234, 'nullity': 35, 'rows': 855, 'cols': 269, 'seconds': 4.13}
+{'D': 'Fermat cubic cone, vertex general point of S_H', 'consistent': False, 'rank': 141, 'nullity': 20, 'rows': 540, 'cols': 161, 'seconds': 1.03}
+{'D': 'H + (1) L^6, L=X0-388111789X1 (f(t,1)=0)', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 13.72}
+{'D': 'H + (-1) L^6, L=X0-388111789X1 (f(t,1)=0)', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 14.64}
+{'D': 'H + (7) L^6, L=X0-388111789X1 (f(t,1)=0)', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 15.47}
+{'D': 'H + (1) L^6, L=Y0-1961481078Y1 (g(s,1)=0)', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 13.9}
+{'D': 'H + (-1) L^6, L=Y0-1961481078Y1 (g(s,1)=0)', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 23.72}
+{'D': 'H + (7) L^6, L=Y0-1961481078Y1 (g(s,1)=0)', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 24.63}
+{'D': 'H + (1) L^6, X0+2X1+3Y0+5Y1', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 33.15}
+{'D': 'H + (-1) L^6, X0+2X1+3Y0+5Y1', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 26.65}
+{'D': 'H + (7) L^6, X0+2X1+3Y0+5Y1', 'consistent': False, 'rank': 546, 'nullity': 120, 'rows': 1870, 'cols': 666, 'seconds': 36.84}
+{'D': 'X0^6+Y0^6 (6 planes through X0=Y0=0)', 'consistent': False, 'rank': 555, 'nullity': 111, 'rows': 1853, 'cols': 666, 'seconds': 19.93}
+{'D': 'X0^6-Y0^6', 'consistent': False, 'rank': 555, 'nullity': 111, 'rows': 1853, 'cols': 666, 'seconds': 14.6}
+{'D': '(X0+Y0)^6+(X0-Y0)^6', 'consistent': False, 'rank': 555, 'nullity': 111, 'rows': 1855, 'cols': 666, 'seconds': 12.25}
+{'D': 'X0^2+Y0^2', 'consistent': False, 'rank': 80, 'nullity': 10, 'rows': 285, 'cols': 90, 'seconds': 0.21}
+{'D': 'f(X0,X1) again (6 planes through X0=X1=0)', 'consistent': False, 'rank': 555, 'nullity': 111, 'rows': 1868, 'cols': 666, 'seconds': 11.93}

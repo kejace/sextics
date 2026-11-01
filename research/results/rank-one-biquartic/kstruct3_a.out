@@ -1,0 +1,1 @@
+SUB=S7+LMS3: dim 46, blocks [('S7', 36), ('LM.S3', 10)]

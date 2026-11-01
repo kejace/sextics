@@ -22,13 +22,14 @@ reflection quotient W = {H = 0} ⊂ P(1,1,1,1,1,2) (PR #150, nonconstructive: **
 neighbour denominator to transplant).
 
 ### 1.2 What a certificate means geometrically
-A certificate with denominator D ⇔ the residue class ω_A ∈ H^{2,2}_prim(X) restricts to zero on X \ V(D) ⇔ ω_A lies in the
-Gysin image of H²(Z̃)(−1), Z̃ a resolution of Z = X ∩ V(D). For a smooth (or merely rational-singular, normal) Z the image is
-spanned by h², so Z must be non-normal or have non-rational singularities with exceptional surfaces carrying (1,1)-classes of
-transcendental type (p_g > 0), *or* D must contain the branch/anti-invariant geometry: since ω_A is r2-anti-invariant, a
-supporting cycle must be of the form S − r2(S) (an r2-invariant Z̃ with H²(Z̃)^{r2 = −1} ≠ 0), so D containing pairs of
-non-r2-invariant components, or Y2-odd factors (D = Y2·D′ with D′ Y-odd), are the natural shapes. The quotient route that
-solved the companion cannot be reused (why.md: the density 2Y2 has the wrong character).
+At q = 1 the residue of AΩ/F² is a **(3,1)**-class ω_A ∈ H^{3,1}(X) ≅ R_6 (deg A = 6). A certificate with denominator D
+⇔ ω_A restricts to zero on X \ V(D) ⇔ ω_A lies in the Gysin image of H^{2,0}(Z̃)(−1) for a resolution Z̃ of
+Z = X ∩ V(D) (book ch. 3 §3.1). A smooth or rational-singular normal Z has H^{2,0}(Z̃) = 0, so Z must be non-normal or
+carry non-rational singularities whose exceptional surfaces have p_g > 0 (cone over a surface of degree ≥ 4 with vertex a
+line, cone over a curve of genus ≥ 1 with vertex a plane, …). Since ω_A is anti-invariant under both r2 and s, any
+r2- (or s-) invariant supporting Z̃ needs H^{2,0}(Z̃)^{−} ≠ 0: the 2-forms must be anti-invariant, i.e. the support should
+come in non-invariant pairs S ∪ r2(S) or from Y2-odd / (Y0,Y1)-odd factors. The quotient route that solved the companion
+cannot be reused (why.md: density 2Y2 has the wrong character); the companion's Lean proof is existential, no D.
 
 ### 1.3 Sector/dimension facts (exact, mod p, two primes where stated)
 * A ∉ J(F); D = 1 fails (E1 false). Hilbert function of R = S/J(F) is (1+t+…+t⁴)⁶ (smooth).
@@ -59,14 +60,21 @@ K8 = -75*X0**8/196 - 10609*X0**6*X1**2/1764 - X0**6*Y1**2 - 625*X0**5*X1*Y0*Y1/4
   E1 only fixes the class, so the E1-admissible degree-8 denominators form the 168-dimensional affine family
   D = K8 + Σ g_i F_i, g_i ∈ S_3 (parity of F_i), each member cutting a *different* divisor on X.
 
-### 1.4 A linear second-order screen for the whole E1 family (new)
-Write the certificate as E1: Σ N_i F_i = A D, E2: ρ := D·div N − N(D) ∈ (F) + K_D, where K_D = {Σ_{i<j} D²[F_j ∂_i(a_ij/D) − F_i ∂_j(a_ij/D)]}
-is the Koszul correction space (all syzygies of the regular sequence F_i are Koszul). Hence **ob(D) := [ρ] ∈ R_{2d}^odd is
-independent of the E1 solution N and vanishes for every certificate.** On the family D′ = D + T, T = Σ g_i F_i ∈ J, one may
-take N′ = N + A·g, and every term of ρ(D′) quadratic in g contains T ∈ J, so ob(D + Σ g_i F_i) = ob(D) + L(g) with L linear.
-For d = 8 this is a (dim R_16^odd = 468) × 168 linear system over F_p: if it is unsolvable, **no degree-8 denominator at all**
-satisfies E1 and E2-mod-J (the prescribed-support theorem then also kills all powers), and the search moves to multiples
-K8·G at degree ≥ 9. Script: `e2lin.py`.
+### 1.4 The second-order (E2-mod-J) obstruction on the whole E1 family (new)
+Write the certificate as E1: Σ N_i F_i = A D and E2: ρ := D·div N − N(D) ∈ (F) + K_D, with K_D the Koszul correction
+space {Σ_{i<j} D²[F_j ∂_i(a_ij/D) − F_i ∂_j(a_ij/D)]} ⊂ J (all syzygies of the regular sequence F_i are Koszul). Hence
+**ob(D) := [ρ] ∈ R_{2d}^odd is independent of the E1 solution N and vanishes for every certificate.**
+On the family D(g) = D + T, T = Σ g_i F_i (g_i ∈ S_{d−5}), one may take N(g) = N + A·g, and modulo J
+```
+ob(D + T) = ob(D) + [A·(D·div g − 2 g(D))] − [A·g(g(F))]        (g(h) := Σ g_i ∂_i h)
+```
+i.e. an affine-linear part plus the quadratic term −[A·Σ g_i g_j F_ij] coming from the Hessian (∂_i T ∉ J). So the
+E2-mod-J screen of the full degree-8 family is a quadratic system: 468 equations (dim R_16^odd; 274 in the relevant
+(+,−) sector) in 168 unknowns (112 in the invariant sector). Its linearisation at K8 is the linear system solved by
+`e2lin.py`; the exact quadratic map and a Newton-mod-p heuristic are in `e2quad.py`. (A Gröbner approach is out of reach:
+the semi-regular degree of regularity for 230 quadrics in 112 unknowns is ≥ 7.)
+Note the structural fact that both the linear and the quadratic g-dependence lie in A·R_10^even (dim R_10^even = 762 ≥ 468,
+so multiplication by A is presumably onto R_16^odd and this gives no extra linear constraint on D).
 
 ## 2. Experiments
 (see §2.x; tables are updated as runs finish)
@@ -84,5 +92,13 @@ On X0⁶+…+Y2⁶ with A = X0³Y0³: Φ12(X0,Y0), X0⁴+Y0⁴, X0²Y0², X0²±
 (rank 702/nullity 63 at d=4); X0Y0 and the quartic cone X0⁴+X1⁴+X2⁴+Y2⁴ fail E1. (Remaining entries: see `fermat_control.out`.)
 So even at t = 0 the (3,3) block class is not served by the small binary denominators; no deformation base point of low degree.
 
-### 2.3 Degree-8 E1 class K8 — full fixed-D test and E2 family screen
-RUNNING (see below for the outcome once available).
+### 2.3 Structured representatives of the degree-8 class (`repr.py`, mod p, linear algebra in S_8^even)
+For 55 shapes (divisible by Y2², Y2⁴, any variable or its square, X0X1, Y0Y1, X0Y0, …; independent of any pair of
+variables = cone with vertex a line; polynomial in the squares; Y-degree ≤ 2/4, X-degree ≤ 2/4; in (X0,Y0)⁴, (X0,Y0)⁶,
+(X0,X1,Y0,Y1)⁶, (X2,Y2)², (X2,Y2)⁴, (Y0,Y1)², (X0,X1)², (X0,X1,X2)⁴, (Y0,Y1,Y2)⁴ …): **no member of the 168-dimensional
+family K8 + Σ g_i F_i has any of these shapes.** The class has no cone, no product-with-a-coordinate and no fewer-variable
+representative; the geometry of Z = X ∩ V(D) for D in this family is a priori that of a general degree-8 section.
+
+### 2.4 Degree-8 E1 class K8 — full fixed-D test (engine v2 fast solver) and E2 family screen
+E1 for K8 confirmed by the engine (rank 5052 = rank_aug, 5793×6006, 1242 s under heavy CPU contention).
+Full system: 40301 rows × 7497 columns (N: 6006, Q: 1491), nnz 1.96M. RUNNING (see below for the outcome).

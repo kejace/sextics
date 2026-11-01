@@ -1,0 +1,18 @@
+p=31: chi(x) = x**6 - x**5 - 19*x**4 + 194*x**3 - 589*x**2 - 961*x + 29791
+   k=2: factor degrees [6]
+   k=3: factor degrees [6]
+   k=4: factor degrees [6]
+   k=6: factor degrees [6]
+   k=12: factor degrees [6]
+p=37: chi(x) = x**6 + 3*x**5 + 27*x**4 - 158*x**3 + 999*x**2 + 4107*x + 50653
+   k=2: factor degrees [6]
+   k=3: factor degrees [6]
+   k=4: factor degrees [6]
+   k=6: factor degrees [6]
+   k=12: factor degrees [6]
+p=13: chi(x) = x**6 - x**5 - x**4 + 50*x**3 - 13*x**2 - 169*x + 2197
+   k=2: factor degrees [2, 4]  <-- splits
+   k=3: factor degrees [2, 2]  <-- splits
+   k=4: factor degrees [2, 4]  <-- splits
+   k=6: factor degrees [2, 2]  <-- splits
+   k=12: factor degrees [2, 2]  <-- splits

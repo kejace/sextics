@@ -13,3 +13,5 @@ Fpart6 E1(delta): False {'rank': 2214, 'cols': 2376}
 {"D": "Fpart6", "d": 6, "family": "target=delta", "e1": false, "consistent": false, "rank": 2341, "nullity": 261, "seconds": 277.0, "note": "target A:=delta with D=Fpart6", "engine": 2}
 fermatX E1(delta): False {'rank': 2214, 'cols': 2376}
 [system] d=6 q=1 rows=16794 cols=2602 (N 2376, Q 226) nnz=486525 built in 5.0s
+[compressed p=2147483647] k=2643 consistent=False rank=2341 nullity=261 (compress 38.9s, rref 65.5s)
+{"D": "fermatX", "d": 6, "family": "target=delta", "e1": false, "consistent": false, "rank": 2341, "nullity": 261, "seconds": 243.7, "note": "target A:=delta with D=fermatX", "engine": 2}

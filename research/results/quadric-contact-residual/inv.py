@@ -7,7 +7,8 @@ import sys, time, json, itertools
 from common import *          # F, A, q, chi, chi_add, chi_neg, CHI_A, CHI_Z, monomials, mul, add, sub, scale, pderiv, shift, P0, log, SectorSystem, sector_e1
 from flint import nmod_mat
 
-p = P0
+import os
+p = int(os.environ.get("HODGE_P", P0))
 Fp = core.reduce_mod(F, p); Ap = core.reduce_mod(A, p)
 Fi = [pderiv(Fp, i, p) for i in range(NV)]
 CHI0 = (0, 0, 0, 0)
@@ -140,24 +141,36 @@ class Sector:
         return x
 
 # ---------------------------------------------------------------- E1 kernel in the invariant sector
-def e1_kernel(d, verbose=True):
+def e1_kernel(d, verbose=True, c=CHI0, sym=True):
     t0 = time.time()
-    basis = inv_basis(d)                     # Gamma-invariant S_d
+    if sym:
+        assert c == CHI0
+        basis = inv_basis(d)                 # Gamma-invariant S_d
+    else:
+        basis = [{e: 1} for e in monomials(d) if chi(e) == c]
     nb = len(basis)
-    S6 = Sector(d + 6, CHI_A, verbose=verbose)
+    S6 = Sector(d + 6, chi_add(c, CHI_A), verbose=verbose)
     vecs = [S6.vec(mul(Ap, D, p)) for D in basis]
     NF = S6.nf_matrix(vecs)                  # nb x dimR
     # kernel: c with c . NF = 0  -> nullspace of NF^T
     X, nul = NF.transpose().nullspace()
     ker = [[int(X[i, j]) for i in range(nb)] for j in range(nul)]
     # Jacobian part: symmetrized m F_i, with C vectors
-    jac = []       # list of (Dpoly, Cfield)
+    jac = []       # list of (Dpoly, Cfield); the first n_gauge entries are the gauge directions s*F
+    n_gauge = 0
+    INV6 = pow(6, p - 2, p)
+    if d >= 6:
+        gauge_s = inv_basis(d - 6) if sym else [{e: 1} for e in monomials(d - 6) if chi(e) == c]
+        for s in gauge_s:
+            C = [scale(mul(s, {tuple(1 if j == i else 0 for j in range(NV)): 1}, p), INV6, p) for i in range(NV)]
+            Dp = mul(s, Fp, p)
+            jac.append((Dp, C)); n_gauge += 1
     if d >= 5:
         for mm in monomials(d - 5):
             for i in range(NV):
-                if chi_add(chi(mm), chi_neg(CHI_Z[i])) == CHI0:
+                if chi_add(chi(mm), chi_neg(CHI_Z[i])) == c:
                     C = [{} for _ in range(NV)]; C[i] = {mm: 1}
-                    Cs = sym_field(C)
+                    Cs = sym_field(C) if sym else C
                     Dp = {}
                     for j in range(NV):
                         Dp = add(Dp, mul(Cs[j], Fi[j], p), p)
@@ -196,7 +209,7 @@ def e1_kernel(d, verbose=True):
             test = nmod_mat(len(span) + 1, nb, [x for u in span + [v] for x in u], p)
             if test.rank() == len(span) + 1:
                 span.append(v); extras.append(v)
-    info = {'d': d, 'dim_inv_Sd': nb, 'dim_kernel': nul, 'dim_J_inv': jrank, 'n_extra': len(extras),
+    info = {'d': d, 'sector': str(c), 'sym': sym, 'n_gauge': n_gauge, 'dim_inv_Sd': nb, 'dim_kernel': nul, 'dim_J_inv': jrank, 'n_extra': len(extras),
             'sector_rows': S6.nJ, 'sector_cols': S6.n, 'dimR_d6': S6.dimR, 'seconds': round(time.time() - t0, 1)}
     if verbose:
         print('[e1_kernel]', info, file=sys.stderr)
@@ -210,15 +223,16 @@ def e1_kernel(d, verbose=True):
     jac_sel = [jac[t] for t in indep]
     return info, basis, jac_sel, extra_polys, S6
 
-def lift_extra(Dp, d, S6):
-    """Solve N(F) = A*Dp for N (deg d+1), symmetrize over <s0,r1>; returns N list."""
+def lift_extra(Dp, d, S6, sym=True):
+    """Solve N(F) = A*Dp for N (deg d+1), optionally symmetrize over <s0,r1>; returns N list."""
     x = S6.lift(mul(Ap, Dp, p))
     assert x is not None, 'extra not in J?!'
     N = [{} for _ in range(NV)]
     for (i, mm), c in zip(S6.gens, x):
         if c:
             N[i] = add(N[i], {mm: c}, p)
-    N = sym_field(N)
+    if sym:
+        N = sym_field(N)
     # check
     chk = {}
     for i in range(NV):
@@ -242,16 +256,18 @@ def B_matrix(N, d, Sd0, S2d):
         rows.append(S2d.vec(P))
     return nmod_mat(len(rows), S2d.n, [x for r in rows for x in r], p)
 
-def quadratic_closure(d, verbose=True, out_prefix=None):
+def quadratic_closure(d, verbose=True, out_prefix=None, c=CHI0, sym=True):
     t0 = time.time()
-    info, basis, jac_sel, extras, S6 = e1_kernel(d, verbose=verbose)
+    info, basis, jac_sel, extras, S6 = e1_kernel(d, verbose=verbose, c=c, sym=sym)
     Ds = [Dp for Dp, _ in jac_sel] + extras
-    Ns = [[mul(Ap, c, p) for c in Cs] for _, Cs in jac_sel]
+    Ns = [[mul(Ap, cc, p) for cc in Cs] for _, Cs in jac_sel]
     for Dp in extras:
-        Ns.append(lift_extra(Dp, d, S6))
+        Ns.append(lift_extra(Dp, d, S6, sym=sym))
     n = len(Ds)
-    Sd0 = Sector(d, CHI0, verbose=False)       # only need monomial list
-    S2d = Sector(2 * d, CHI_A, verbose=verbose)
+    if n == 0:
+        return {'d': d, 'sector': str(c), 'n_params': 0}, [], [], []
+    Sd0 = Sector(d, c, verbose=False)          # only need monomial list
+    S2d = Sector(2 * d, chi_add(CHI_A, chi_add(c, c)), verbose=verbose)
     Dvecs = nmod_mat(n, Sd0.n, [x for Dp in Ds for x in Sd0.vec(Dp)], p)
     # B_{kl} = D_k . Bmat(N_l) ; collect all n*n then normal form
     allrows = []
@@ -301,7 +317,7 @@ def quadratic_closure(d, verbose=True, out_prefix=None):
             sub_ = nmod_mat(len(quads), len(cols), [int(QM[r, i]) for r in range(len(quads)) for i in cols], p)
             if sub_.rank() < full:
                 forced.append(k)
-    res = {'d': d, 'n_params': n, 'n_jac': len(jac_sel), 'n_extra': len(extras), 'dimR_2d_sector': m,
+    res = {'d': d, 'sector': str(c), 'sym': sym, 'n_params': n, 'n_gauge': info['n_gauge'], 'n_jac': len(jac_sel), 'n_extra': len(extras), 'dimR_2d_sector': m,
            'n_quadrics': len(quads), 'quadric_rank': qrank, 'n_pair_monomials': len(pairs),
            'forced_zero_by_square_columns': forced, 'seconds': round(time.time() - t0, 1)}
     res.update({'e1_' + k: v for k, v in info.items() if k != 'd'})
@@ -309,13 +325,24 @@ def quadratic_closure(d, verbose=True, out_prefix=None):
         print('[quadratic_closure]', res, file=sys.stderr)
     if out_prefix:
         # Singular input for the quadric ideal
-        with open(out_prefix + f'_quads_d{d}.sing', 'w') as f:
-            f.write(f'ring r = {p}, (c(1..{n})), dp;\nideal I;\n')
+        tag = f'_d{d}' + ('' if sym else '_c' + ''.join(str(x) for x in c))
+        ng = info['n_gauge']
+        with open(out_prefix + f'_quads{tag}.sing', 'w') as f:
+            f.write(f'// gauge fixed: c(1..{ng}) = 0 (directions s*F)\nring r = {p}, (c({ng+1}..{n})), dp;\nideal I;\n')
             for cf in quads:
-                terms = '+'.join(f'{v}*c({k+1})*c({l+1})' for (k, l), v in cf.items())
-                f.write(f'I = I, {terms};\n')
+                terms = '+'.join(f'{v}*c({k+1})*c({l+1})' for (k, l), v in cf.items() if k >= ng and l >= ng)
+                if terms:
+                    f.write(f'I = I, {terms};\n')
+        with open(out_prefix + f'_quads{tag}.ms', 'w') as f:
+            f.write(','.join(f'c{k+1}' for k in range(ng, n)) + '\n' + str(p) + '\n')
+            lines = []
+            for cf in quads:
+                terms = '+'.join(f'{v}*c{k+1}*c{l+1}' for (k, l), v in cf.items() if k >= ng and l >= ng)
+                if terms:
+                    lines.append(terms)
+            f.write(',\n'.join(lines) + '\n')
             f.write('I = simplify(I,2);\nideal G = std(I);\nprint("dim = " + string(dim(G)) + "  (0 means only c=0 over the algebraic closure, projectively empty)");\n')
             f.write('print("vdim = " + string(vdim(G)));\nif (dim(G) > 0) { print("--- components (minAssGTZ) ---"); LIB "primdec.lib"; list L = minAssGTZ(G); int i; for (i=1;i<=size(L);i++){ print(L[i]); print("----"); } }\nquit;\n')
-        with open(out_prefix + f'_family_d{d}.json', 'w') as f:
+        with open(out_prefix + f'_family{tag}.json', 'w') as f:
             json.dump({'res': res, 'D': [core.to_str({e: c for e, c in Dp.items()}) for Dp in Ds]}, f)
     return res, Ds, Ns, quads

@@ -1,0 +1,8 @@
+polar5 | core.pderiv(F,0)
+polar5 | core.add(core.pderiv(F,0), core.pderiv(F,1))
+polar5 | core.add(core.add(core.pderiv(F,0), core.scale(core.pderiv(F,1),2)), core.scale(core.pderiv(F,2),3))
+J6 | core.add(core.add(core.mul(P('X0+2*X1'),core.pderiv(F,0)), core.mul(P('X2-X0'),core.pderiv(F,1))), core.add(core.mul(P('Y0+Y1'),core.pderiv(F,3)), core.mul(P('3*Y2-Y0'),core.pderiv(F,4))))
+J6 | core.add(core.add(core.mul(P('X1'),core.pderiv(F,0)), core.mul(P('X0'),core.pderiv(F,1))), core.add(core.mul(P('Y1'),core.pderiv(F,3)), core.mul(P('Y0'),core.pderiv(F,4))))
+J6 | core.add(core.mul(P('X0'),core.pderiv(F,0)), core.mul(P('Y0'),core.pderiv(F,3)))
+J7 | core.add(core.add(core.mul(P('X0**2+X1*X2+2*Y0*Y1'),core.pderiv(F,0)), core.mul(P('X2**2-Y1**2'),core.pderiv(F,1))), core.add(core.mul(P('X0*Y0+X1*Y2'),core.pderiv(F,3)), core.mul(P('X2*Y1-3*X0*Y1'),core.pderiv(F,5))))
+J7 | core.add(core.mul(P('Y0**2'),core.pderiv(F,0)), core.mul(P('X0*Y0'),core.pderiv(F,3)))

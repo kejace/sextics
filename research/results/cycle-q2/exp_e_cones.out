@@ -6,3 +6,8 @@ fermat-cone4   cone X0,X1,Y0,Y2                                                 
 fermat-cone4   cone X0,X1,Y1,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2976 nul=1084 cols=4060 |H|=432 [647s]
 fermat-cone4   cone X0,X2,Y0,Y1                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2978 nul=1082 cols=4060 |H|=432 [743s]
 fermat-cone4   cone X0,X2,Y0,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2971 nul=1089 cols=4060 |H|=432 [848s]
+fermat-cone4   cone X0,X2,Y1,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2975 nul=1085 cols=4060 |H|=432 [963s]
+fermat-cone4   cone X0,Y0,Y1,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2966 nul=1094 cols=4060 |H|=432 [1055s]
+fermat-cone4   cone X1,X2,Y0,Y1                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2973 nul=1087 cols=4060 |H|=432 [1183s]
+fermat-cone4   cone X1,X2,Y0,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2978 nul=1082 cols=4060 |H|=432 [1340s]
+fermat-cone4   cone X1,X2,Y1,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2972 nul=1088 cols=4060 |H|=432 [1441s]

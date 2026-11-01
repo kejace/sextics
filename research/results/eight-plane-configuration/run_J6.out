@@ -2,3 +2,4 @@
 (X0 dX0 + Y0 dY0)F {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 412.19}
 (X1 dX1 + Y1 dY1)F {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 630.86}
 (X2 dX2 + Y2 dY2)F {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 690.11}
+eps_X(F) {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 628.14}

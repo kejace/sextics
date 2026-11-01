@@ -60,3 +60,39 @@ for kcol in range(nul):
     if P: imgs.append(P)
 r_img, _ = rank_of(imgs) if imgs else (0, 0)
 print('nullity', nul, 'dim of exact targets {B.gradF : divB in J6} =', r_img)
+
+# --- explicit verification of one exact target: A' = B.gradF, N = B/2 + F*C  (mod p)
+inv2 = pow(2, p - 2, p)
+J6meta = []
+for i in range(6):
+    for m in sector(1, eq.key_add(kA, kx[i], ng)):
+        J6meta.append((i, m))
+for kcol in range(nul):
+    Bv = [int(X[j, kcol]) for j in range(nB)]
+    if not any(Bv): continue
+    Cv = [int(X[nB + j, kcol]) for j in range(len(J6meta))]
+    # divB + sum Cv_j x_m F_i = 0  => divB/2 = -(1/2) sum Cv_j (x_m e_i).gradF  => C = -(1/2) sum Cv_j x_m e_i
+    N = [{} for _ in range(6)]
+    for j, v in enumerate(Bv):
+        if v:
+            i, m = Bcols[j]; N[i] = core.add(N[i], {m: v * inv2 % p}, p)
+    for j, v in enumerate(Cv):
+        if v:
+            i, m = J6meta[j]; N[i] = core.add(N[i], core.scale(core.mul(Fp, {m: 1}, p), (p - v) * inv2 % p, p), p)
+    Ap = {}
+    for j, v in enumerate(Bv):
+        if v:
+            i, m = Bcols[j]; Ap = core.add(Ap, core.scale(core.mul({m: 1}, Fi[i], p), v, p), p)
+    # E = A' - 2 N.gradF + F div N
+    E = dict(Ap)
+    for i in range(6):
+        E = core.sub(E, core.scale(core.mul(N[i], Fi[i], p), 2, p), p)
+        E = core.add(E, core.mul(Fp, core.pderiv(N[i], i, p), p), p)
+    print('example exact target: |A\'| terms', len(Ap), ' E == 0 ?', len(E) == 0, ' (nonzero terms:', len(E), ')')
+    # check also divB alone
+    dB = {}
+    for j, v in enumerate(Bv):
+        if v:
+            i, m = Bcols[j]; dB = core.add(dB, core.scale(core.pderiv({m: 1}, i, p), v, p), p)
+    print('   deg divB', core.degree(dB) if dB else None, 'terms', len(dB))
+    break

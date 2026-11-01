@@ -38,3 +38,19 @@ elif mode == 'expr':
     D = core.parse(sys.argv[2])
     r = run_D(D, sys.argv[3], sys.argv[4], note='engine v2')
     show(r)
+elif mode == 'mixed':
+    # D = sum_i K_i * H_i, K_i random members of the saved E1_7 family (mod p), H_i given quadrics; d = 9
+    import random
+    E = [core.parse(s, mod=p) for s in json.load(open(f'{WORK}/e1kernel_d7_par0.json'))['basis_modp']]
+    random.seed(int(sys.argv[3]) if len(sys.argv) > 3 else 5)
+    Hs = [core.reduce_mod(core.parse(s), p) for s in sys.argv[2].split(';')]
+    D = {}
+    for H in Hs:
+        K = {}
+        for e in E: K = core.add(K, core.scale(e, random.randint(1, p - 1), p), p)
+        D = core.add(D, core.mul(K, H, p), p)
+    test_modp(D, f'mixed d=9: sum_i K_i*H_i, H in [{sys.argv[2]}], K_i random in E1_7 family (mod p)', 'e1-family-d9-mixed', 9,
+              note='first non-base-type E1-admissible family; mod-p generic member')
+elif mode == 'gens_modp':
+    # test the canonical mod-p kernel representatives of a kstruct3-style run saved as json with key basis_modp (list of strings)
+    pass

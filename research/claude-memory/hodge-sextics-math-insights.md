@@ -17,5 +17,7 @@ Facts established while attacking the 16 open lanes (2026-11-01):
 - four-plus-two-residual: Thom–Sebastiani puts the target X0^3Y0^3 in the third-root (μ3) sector; the Fano companion W_H={H(X0,X1,Y0,Y1)+s^3+t^3} ⊂ P(1,1,1,1,2,2) has −K=O(2), but the binary block's triple-cover curve u^3=B(X2,Y2) (genus 4) has Prym of CM signature (2,1), so the elliptic contraction needs the specific B to be special (check J(T_B) splitting by point counts).
 - diagonal-permutation: target is in the standard rep of S3; served on the sub-family where the O2,O3 coupling orbits vanish (paired-sign sector theorem); the hard part is continuation in the two coefficients 5/11, 5/13.
 
+- Probe results (2026-11-01 evening, /tmp/hodge/notes/probe-*.md): four-plus-two-residual: the Prym P of T_B->E' is absolutely simple, End^0 = Q(ζ3), non-CM (point counts p<=400), so the elliptic-contraction route is excluded; W_H is a terminal Gorenstein Fano 4-fold (-K=O(2), h^{3,1}=56). polarized-k3-remainder: Aut(C_f)=1 (msolve, length-6 scheme), ρ(S)<=4 unconditionally (Frobenius at 3, NS disc -211), no order-2/3 automorphism; the instance is an open generalized-Hodge-type statement for Λ²T.
+
 **Why:** avoids re-deriving the frontier analysis each session.
 **How to apply:** consult before proposing a construction; update when a lane changes status. See [[hodge-sextics-project-setup]].
