@@ -52,3 +52,4 @@ d=7 par=0: core E1-kernel mod J(H) dim 30 (0.3s)
 {'D': 'core E1-kernel rref basis #4, d=7 par=0, 11 terms', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 43.04}
 {'D': 'core E1-kernel rref basis #5, d=7 par=0, 11 terms', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 58.34}
 {'D': 'core E1-kernel rref basis #6, d=7 par=0, 11 terms', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 22.26}
+{'D': 'core E1-kernel rref basis #7, d=7 par=0, 11 terms', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 36.47}

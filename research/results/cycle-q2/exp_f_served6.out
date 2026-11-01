@@ -54,3 +54,5 @@ fermat-cone3-d6  X0**6 + X1**6 + Y2**6                                          
 fermat-cone3-d6  X0**6 + X2**6 + Y0**6                                                            d=6 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=583/736 [538s]
 fermat-cone3-d6  X0**6 + X2**6 + Y1**6                                                            d=6 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=586/736 [544s]
 fermat-cone3-d6  X0**6 + X2**6 + Y2**6                                                            d=6 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=582/736 [550s]
+fermat-cone3-d6  X0**6 + Y0**6 + Y1**6                                                            d=6 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=582/736 [554s]
+fermat-cone3-d6  X0**6 + Y0**6 + Y2**6                                                            d=6 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=581/736 [561s]

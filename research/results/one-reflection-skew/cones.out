@@ -78,3 +78,4 @@ f+(4)*(Y0Y1^2)^2                                                       d=6 serve
 f+(1/2)*(Y0Y1^2)^2                                                     d=6 served=6/0 A=False A+=False A-=False rank=351 null=59 1.9s
 f+(1)*(Y0^3+2Y1^3)^2                                                   d=6 served=12/0 A=False A+=False A-=False rank=705 null=115 12.3s
 f+(-1)*(Y0^3+2Y1^3)^2                                                  d=6 served=12/0 A=False A+=False A-=False rank=705 null=115 14.2s
+f+(1/3)*(Y0^3+2Y1^3)^2                                                 d=6 served=12/0 A=False A+=False A-=False rank=705 null=115 16.7s

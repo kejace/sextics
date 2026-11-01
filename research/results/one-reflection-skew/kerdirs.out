@@ -15,3 +15,4 @@ d=7: kernel 47, J 39, extra directions 8
 <E1ker5 d7 random combo #5>                                            d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 57.5s
 DONE
 d=8: kernel 167, J 89, extra directions 78
+<E1ker5 d8 extra #0 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 28.1s
