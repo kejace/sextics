@@ -10,3 +10,4 @@
 {"d": 4, "parD": 1, "dim S_d": 60, "dim J_d": 0, "dim R_d": 60, "rank J_{d+6}": 750, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 1512, "cols": 816, "p": 2147483647, "engine": 2, "seconds": 17.4}
 {"d": 5, "parD": 1, "dim S_d": 126, "dim J_d": 3, "dim R_d": 123, "rank J_{d+6}": 1341, "kernel dim (incl J_d)": 3, "kernel mod J": 0, "rows": 2184, "cols": 1512, "p": 2147483647, "engine": 2, "seconds": 48.6}
 {"d": 6, "parD": 1, "dim S_d": 226, "dim J_d": 18, "dim R_d": 208, "rank J_{d+6}": 2223, "kernel dim (incl J_d)": 18, "kernel mod J": 0, "rows": 3108, "cols": 2602, "p": 2147483647, "engine": 2, "seconds": 135.7}
+{"d": 7, "parD": 0, "dim S_d": 396, "dim J_d": 63, "dim R_d": 333, "rank J_{d+6}": 3441, "kernel dim (incl J_d)": 64, "kernel mod J": 1, "rows": 4284, "cols": 4257, "p": 2147483647, "engine": 2, "seconds": 352.3}

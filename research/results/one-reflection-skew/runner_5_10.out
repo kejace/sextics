@@ -1,0 +1,45 @@
+365 candidates, degrees 5..10
+skip f_X0
+skip f_X1
+skip f_X2
+skip G0
+skip Y6
+skip cp
+skip skew
+skip f0
+skip pure
+skip c1
+skip c2
+skip f-G0
+skip f-Y6
+skip f-c1
+skip f-c2
+skip radial0
+skip radial1
+skip radial2
+skip G0*X0
+skip G0*X1
+skip G0*X2
+skip Y6*X0
+skip Y6*X1
+skip Y6*X2
+skip f*X0
+skip f*X1
+skip f*X2
+X0*cp                                                                  d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 14.7s
+X0*skew                                                                d=7 served=6/0 A=False A+=False A-=False rank=528 null=87 3.7s
+X1*cp                                                                  d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 3.0s
+X1*skew                                                                d=7 served=6/0 A=False A+=False A-=False rank=528 null=87 2.8s
+X2*cp                                                                  d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 2.7s
+X2*skew                                                                d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 3.3s
+c*e*X0                                                                 d=7 served=6/0 A=False A+=False A-=False rank=517 null=98 1.9s
+c*e*X1                                                                 d=7 served=6/0 A=False A+=False A-=False rank=517 null=98 4.6s
+c*e*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=518 null=97 9.2s
+c*t*X0                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 11.0s
+c*t*X1                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 4.3s
+c*t*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 6.9s
+c*m*X0                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 6.2s
+c*m*X1                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 5.2s
+c*m*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 7.5s
+s*s*X0                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 38.2s
+s*s*X1                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 32.3s

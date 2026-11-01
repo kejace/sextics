@@ -176,3 +176,6 @@ F_1*F_3: consistent=False rank=1216 nullity=107 76.81s
 F_1*F_4: consistent=False rank=1216 nullity=107 85.41s
 F_1*F_5: consistent=False rank=1216 nullity=107 56.49s
 F_2*F_2: consistent=False rank=1205 nullity=133 70.84s
+F_2*F_3: consistent=False rank=1210 nullity=91 76.43s
+F_2*F_4: consistent=False rank=1210 nullity=91 54.0s
+F_2*F_5: consistent=False rank=1210 nullity=91 67.8s

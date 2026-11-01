@@ -1,0 +1,10 @@
+{'D': 'f(X0,X1)', 'consistent': False, 'rank': 555, 'nullity': 111, 'rows': 1868, 'cols': 666, 'seconds': 13.1}
+{'D': 'g(Y0,Y1)', 'consistent': False, 'rank': 555, 'nullity': 111, 'rows': 1868, 'cols': 666, 'seconds': 18.7}
+{'D': 'coupling K', 'consistent': False, 'rank': 564, 'nullity': 102, 'rows': 1870, 'cols': 666, 'seconds': 16.17}
+{'D': 'f+g', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 15.68}
+{'D': 'f-g', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 7.44}
+{'D': 'f+2g', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 16.68}
+{'D': 'f+g/2', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 13.41}
+{'D': 'f+g-K', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 18.03}
+{'D': 'f+g+2K (H+K)', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 18.93}
+{'D': 'f+g+K/2', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 12.6}

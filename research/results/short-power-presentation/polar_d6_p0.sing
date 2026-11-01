@@ -223,4 +223,4 @@ ideal G = std(I);
 print("dim = " + string(dim(G)));
 print("vdim = " + string(vdim(G)));
 print("time = " + string(timer - t));
-quit;
+LIB "primdec.lib"; list L = minAssGTZ(G); print("ncomp = " + string(size(L))); L; quit;

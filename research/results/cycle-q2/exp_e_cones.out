@@ -4,3 +4,5 @@ fermat-cone4   cone X0,X1,X2,Y2                                                 
 fermat-cone4   cone X0,X1,Y0,Y1                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2973 nul=1087 cols=4060 |H|=432 [429s]
 fermat-cone4   cone X0,X1,Y0,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2973 nul=1087 cols=4060 |H|=432 [540s]
 fermat-cone4   cone X0,X1,Y1,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2976 nul=1084 cols=4060 |H|=432 [647s]
+fermat-cone4   cone X0,X2,Y0,Y1                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2978 nul=1082 cols=4060 |H|=432 [743s]
+fermat-cone4   cone X0,X2,Y0,Y2                                                       | d=6: e1=False cons=False rk=-1 nul=-1 cols=None |H|=432 | D^2 d=12: cons=False rk=2971 nul=1089 cols=4060 |H|=432 [848s]

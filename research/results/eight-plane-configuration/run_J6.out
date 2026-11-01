@@ -1,3 +1,4 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 (X0 dX0 + Y0 dY0)F {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 412.19}
 (X1 dX1 + Y1 dY1)F {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 630.86}
+(X2 dX2 + Y2 dY2)F {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 690.11}

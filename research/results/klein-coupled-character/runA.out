@@ -70,3 +70,13 @@ d=9 parD=0 k=6: nontrivial kernel 3, J_d block 52 gens  [8.3s]
    rep #0: e1=True consistent=False rank=682 nullity=49 rows=2400 cols=731 25.83s
    rep #1: e1=True consistent=False rank=682 nullity=49 rows=2390 cols=731 25.02s
    rep #2: e1=True consistent=False rank=682 nullity=49 rows=2396 cols=731 34.1s
+   random kernel combo 0: consistent=False rank=682 nullity=49 33.49s
+   random kernel combo 1: consistent=False rank=682 nullity=49 29.54s
+   random kernel combo 2: consistent=False rank=682 nullity=49 21.21s
+   random kernel+J 0: consistent=False rank=682 nullity=49 13.03s
+   random kernel+J 1: consistent=False rank=682 nullity=49 19.06s
+   random kernel+J 2: consistent=False rank=682 nullity=49 26.55s
+[e1-kernel] d=9 k=0 parD=1: #Dmon=176 dimR_(d+6)=93 kernel(total)=93 J_d=93 nontrivial=0
+d=9 parD=1 k=0: nontrivial kernel 0, J_d block 93 gens  [13.5s]
+[e1-kernel] d=9 k=1 parD=1: #Dmon=139 dimR_(d+6)=87 kernel(total)=54 J_d=49 nontrivial=5
+d=9 parD=1 k=1: nontrivial kernel 5, J_d block 49 gens  [13.3s]
