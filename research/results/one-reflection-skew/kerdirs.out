@@ -16,3 +16,29 @@ d=7: kernel 47, J 39, extra directions 8
 DONE
 d=8: kernel 167, J 89, extra directions 78
 <E1ker5 d8 extra #0 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 28.1s
+<E1ker5 d8 extra #1 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 12.6s
+<E1ker5 d8 extra #2 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 13.4s
+<E1ker5 d8 extra #3 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 6.0s
+<E1ker5 d8 extra #4 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 15.1s
+<E1ker5 d8 extra #5 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 10.7s
+<E1ker5 d8 extra #6 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 10.0s
+<E1ker5 d8 extra #7 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 10.2s
+<E1ker5 d8 extra #8 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 10.3s
+<E1ker5 d8 extra #9 (45 terms)>                                        d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 14.5s
+<E1ker5 d8 extra #10 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 9.9s
+<E1ker5 d8 extra #11 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 34.7s
+<E1ker5 d8 extra #12 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 22.9s
+<E1ker5 d8 extra #13 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 19.3s
+<E1ker5 d8 extra #14 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 14.6s
+<E1ker5 d8 extra #15 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 19.1s
+<E1ker5 d8 extra #16 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 22.3s
+<E1ker5 d8 extra #17 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 24.1s
+<E1ker5 d8 extra #18 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 18.2s
+<E1ker5 d8 extra #19 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 14.1s
+<E1ker5 d8 extra #20 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 17.4s
+<E1ker5 d8 extra #21 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 14.3s
+<E1ker5 d8 extra #22 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 5.3s
+<E1ker5 d8 extra #23 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 12.3s
+<E1ker5 d8 extra #24 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 18.3s
+<E1ker5 d8 extra #25 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 19.5s
+<E1ker5 d8 extra #26 (45 terms)>                                       d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 14.5s

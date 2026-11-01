@@ -8,3 +8,29 @@
 {'D': 'f+g-K', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 18.03}
 {'D': 'f+g+2K (H+K)', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 18.93}
 {'D': 'f+g+K/2', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 12.6}
+{'D': 'f*g (d=12)', 'consistent': False, 'rank': 4090, 'nullity': 1056, 'rows': 10251, 'cols': 5146, 'seconds': 1120.65}
+{'D': 'X0X1Y0Y1', 'consistent': False, 'rank': 234, 'nullity': 35, 'rows': 801, 'cols': 269, 'seconds': 0.82}
+{'D': 'X0^2 Y0^2', 'consistent': False, 'rank': 233, 'nullity': 36, 'rows': 685, 'cols': 269, 'seconds': 0.69}
+{'D': 'a itself', 'consistent': False, 'rank': 547, 'nullity': 119, 'rows': 1853, 'cols': 666, 'seconds': 10.76}
+{'D': 'X0^6+Y0^6', 'consistent': False, 'rank': 555, 'nullity': 111, 'rows': 1853, 'cols': 666, 'seconds': 11.03}
+{'D': 'pure powers', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1865, 'cols': 666, 'seconds': 6.31}
+{'D': 'cone X0^6+X1^6+Y0^6', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1860, 'cols': 666, 'seconds': 14.26}
+{'D': 'cone f+Y0^6', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1868, 'cols': 666, 'seconds': 7.58}
+{'D': 'cone g+X0^6', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1868, 'cols': 666, 'seconds': 4.76}
+{'D': 'cone quartic', 'consistent': False, 'rank': 234, 'nullity': 35, 'rows': 834, 'cols': 269, 'seconds': 2.54}
+{'D': 'cone quartic 2', 'consistent': False, 'rank': 234, 'nullity': 35, 'rows': 845, 'cols': 269, 'seconds': 1.69}
+{'D': 'X0^2+Y0^2', 'consistent': False, 'rank': 80, 'nullity': 10, 'rows': 285, 'cols': 90, 'seconds': 0.16}
+{'D': 'X0^2-Y0^2', 'consistent': False, 'rank': 80, 'nullity': 10, 'rows': 285, 'cols': 90, 'seconds': 0.12}
+{'D': 'X0X1+Y0Y1', 'consistent': False, 'rank': 80, 'nullity': 10, 'rows': 311, 'cols': 90, 'seconds': 0.1}
+{'D': 'X0^2+2Y0^2 (quadratic factor of K)', 'consistent': False, 'rank': 80, 'nullity': 10, 'rows': 285, 'cols': 90, 'seconds': 0.11}
+{'D': 'X0Y0', 'consistent': False, 'rank': 80, 'nullity': 10, 'rows': 261, 'cols': 90, 'seconds': 0.09}
+{'D': 'H_X0 (d=5)', 'consistent': False, 'rank': 371, 'nullity': 60, 'rows': 1290, 'cols': 431, 'seconds': 3.64}
+{'D': 'H_X1 (d=5)', 'consistent': False, 'rank': 371, 'nullity': 60, 'rows': 1290, 'cols': 431, 'seconds': 6.22}
+{'D': 'H_Y0 (d=5)', 'consistent': False, 'rank': 371, 'nullity': 60, 'rows': 1290, 'cols': 431, 'seconds': 4.03}
+{'D': 'H_Y1 (d=5)', 'consistent': False, 'rank': 371, 'nullity': 60, 'rows': 1290, 'cols': 431, 'seconds': 7.4}
+{'D': 'random linear combo of partials sum l_i H_i (d=6) #0', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 16.1}
+{'D': 'random linear combo of partials sum l_i H_i (d=6) #1', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 9.47}
+{'D': 'random linear combo of partials sum l_i H_i (d=6) #2', 'consistent': False, 'rank': 565, 'nullity': 101, 'rows': 1870, 'cols': 666, 'seconds': 14.55}
+{'D': 'random quadratic combo sum Q_i H_i (d=7) #0', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 29.98}
+{'D': 'random quadratic combo sum Q_i H_i (d=7) #1', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 28.7}
+{'D': 'random quadratic combo sum Q_i H_i (d=7) #2', 'consistent': False, 'rank': 835, 'nullity': 164, 'rows': 2626, 'cols': 999, 'seconds': 34.84}

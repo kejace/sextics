@@ -10,3 +10,5 @@ sum Q_i*H_i                  d=6 e1=False {'rank': 2214, 'rank_aug': 2215, 'rows
 X0*Y0                        d=2 e1=False {'rank': 168, 'rank_aug': 169, 'rows': 651, 'cols': 168} 0.44s
 X0*Y0*Q0                     d=4 e1=False {'rank': 750, 'rank_aug': 751, 'rows': 1512, 'cols': 756} 3.59s
 X0**3*Y0**3                  d=6 e1=False {'rank': 2223, 'rank_aug': 2224, 'rows': 3108, 'cols': 2376} 125.31s
+X0*Y0*Q1*Q2                  d=6 e1=False {'rank': 2223, 'rank_aug': 2224, 'rows': 3108, 'cols': 2376} 100.17s
+X0*Y0*K0                     d=6 e1=False {'rank': 2223, 'rank_aug': 2224, 'rows': 3108, 'cols': 2376} 134.6s

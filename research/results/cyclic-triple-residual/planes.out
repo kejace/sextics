@@ -33,3 +33,20 @@ Pi{X1,Y1,Y2=0} k=4: solution space dim 10, contains D8-direction: True
     test [particular]: consistent=False rank=1155/1156 cols=1188 (84.2s)
     test [random-affine]: consistent=False rank=1155/1156 cols=1188 (81.8s)
 Pi{X1,Y1,Y2=0} k=3: solution space dim 21, contains D8-direction: True
+    test [particular]: consistent=False rank=1155/1156 cols=1188 (72.0s)
+    test [random-affine]: consistent=False rank=1155/1156 cols=1188 (42.2s)
+Pi{X2,Y0,Y1=0}: maximal vanishing order along the plane within the E1 coset: None
+Pi{X2,Y0,Y2=0}: maximal vanishing order along the plane within the E1 coset: 3
+Pi{X2,Y0,Y2=0} k=3: solution space dim 12, contains D8-direction: True
+    test [particular]: consistent=False rank=1155/1156 cols=1188 (59.5s)
+    test [random-affine]: consistent=False rank=1155/1156 cols=1188 (51.3s)
+Pi{X2,Y1,Y2=0}: maximal vanishing order along the plane within the E1 coset: 4
+Pi{X2,Y1,Y2=0} k=4: solution space dim 5, contains D8-direction: True
+    test [particular]: consistent=False rank=1155/1156 cols=1188 (56.8s)
+    test [random-affine]: consistent=False rank=1155/1156 cols=1188 (46.3s)
+Pi{X2,Y1,Y2=0} k=3: solution space dim 15, contains D8-direction: True
+    test [particular]: consistent=False rank=1155/1156 cols=1188 (45.5s)
+    test [random-affine]: consistent=False rank=1155/1156 cols=1188 (36.3s)
+Pi{Y0,Y1,Y2=0}: maximal vanishing order along the plane within the E1 coset: 4
+Pi{Y0,Y1,Y2=0} k=4: solution space dim 15, contains D8-direction: True
+    test [particular]: consistent=False rank=1155/1156 cols=1188 (44.0s)

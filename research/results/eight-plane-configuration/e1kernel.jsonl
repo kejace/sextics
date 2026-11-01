@@ -17,3 +17,4 @@
 {"d": 8, "parD": 1, "rows": 5832, "cols": 6642, "nD": 636, "nullity": 1104, "kerdim": 168, "dimJ_d": 168, "kermodJ": 0, "t_build": 107.3, "t_null": 439.3, "engine": 2}
 {"d": 9, "parD": 0, "rows": 7752, "cols": 10010, "nD": 1001, "nullity": 2258, "kerdim": 378, "dimJ_d": 378, "kermodJ": 0, "t_build": 262.9, "t_null": 1394.3}
 {"d": 9, "parD": 0, "rows": 7752, "cols": 10010, "nD": 1001, "nullity": 2258, "kerdim": 378, "dimJ_d": 378, "kermodJ": 0, "t_build": 223.7, "t_null": 1386.7, "engine": 2}
+{"d": 9, "parD": 1, "rows": 7752, "cols": 10010, "nD": 1001, "nullity": 2258, "kerdim": 378, "dimJ_d": 378, "kermodJ": 0, "t_build": 216.6, "t_null": 972.5}

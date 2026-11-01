@@ -2,3 +2,4 @@
 {'I': ['X0', 'X1', 'X2'], 'allow_D1': True, 'rows': 9390, 'cols': 2838, 'rank': 2544, 'rank_aug': 2545, 'consistent': False, 'seconds': 852.0}
 {'I': ['X0', 'X1', 'Y1'], 'allow_D1': True, 'rows': 9381, 'cols': 2838, 'rank': 2532, 'rank_aug': 2533, 'consistent': False, 'seconds': 666.9}
 {'I': ['X0', 'X1', 'Y2'], 'allow_D1': True, 'rows': 9381, 'cols': 2838, 'rank': 2532, 'rank_aug': 2533, 'consistent': False, 'seconds': 490.9}
+{'I': ['X0', 'X2', 'Y1'], 'allow_D1': True, 'rows': 9381, 'cols': 2838, 'rank': 2532, 'rank_aug': 2533, 'consistent': False, 'seconds': 407.8}

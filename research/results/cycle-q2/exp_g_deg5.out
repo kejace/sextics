@@ -1,0 +1,6 @@
+F_X0                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=442 | D^2 d=10: cons=False rk=1714 nul=701 cols=2415 |H|=432 (p2 cons=False rk=1714) [11s]
+F_X1                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=427 | D^2 d=10: cons=False rk=1694 nul=697 cols=2391 |H|=432 (p2 cons=False rk=1694) [20s]
+F_X2                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=427 | D^2 d=10: cons=False rk=1690 nul=674 cols=2364 |H|=432 (p2 cons=False rk=1690) [29s]
+F_Y0                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=433 | D^2 d=10: cons=False rk=1724 nul=676 cols=2400 |H|=432 (p2 cons=False rk=1724) [38s]
+F_Y1                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=430 | D^2 d=10: cons=False rk=1701 nul=663 cols=2364 |H|=432 (p2 cons=False rk=1701) [46s]
+F_Y2                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=441 | D^2 d=10: cons=False rk=1718 nul=688 cols=2406 |H|=432 (p2 cons=False rk=1718) [55s]

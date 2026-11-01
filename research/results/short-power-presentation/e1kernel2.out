@@ -7,3 +7,4 @@
 {"d": 6, "parD": 1, "dim S_d": 226, "dim J_d": 18, "dim R_d": 208, "rank J_{d+6}": 2223, "kernel dim (incl J_d)": 18, "kernel mod J": 0, "rows": 3108, "cols": 2602, "p": 2147483647, "engine": 2, "seconds": 135.7}
 {"d": 7, "parD": 0, "dim S_d": 396, "dim J_d": 63, "dim R_d": 333, "rank J_{d+6}": 3441, "kernel dim (incl J_d)": 64, "kernel mod J": 1, "rows": 4284, "cols": 4257, "p": 2147483647, "engine": 2, "seconds": 352.3}
 {"d": 7, "parD": 1, "dim S_d": 396, "dim J_d": 63, "dim R_d": 333, "rank J_{d+6}": 3441, "kernel dim (incl J_d)": 64, "kernel mod J": 1, "rows": 4284, "cols": 4257, "p": 2147483647, "engine": 2, "seconds": 348.5}
+{"d": 8, "parD": 0, "dim S_d": 651, "dim J_d": 168, "dim R_d": 483, "rank J_{d+6}": 5052, "kernel dim (incl J_d)": 174, "kernel mod J": 6, "rows": 5796, "cols": 6657, "p": 2147483647, "engine": 2, "seconds": 790.9}

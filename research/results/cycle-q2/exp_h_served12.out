@@ -1,0 +1,9 @@
+fermat-cone4     (X0**6 + X1**6 + X2**6 + Y1**6)^2 |H|=432 new 0 (unserved 32/32 of 90) rkNQ=2976/4060 [18s]
+fermat-cone4     (X0**6 + X1**6 + Y0**6 + Y1**6)^2 |H|=432 new 0 (unserved 32/32 of 90) rkNQ=2973/4060 [37s]
+edge-cone        (X0**6 + X1**6 + Y0**6 + Y1**6 + X0**3*X1*Y0*Y1/2)^2 |H|=432 new 0 (unserved 32/32 of 90) rkNQ=2930/4060 [59s]
+edge-cone        (X1**6 + X2**6 + Y1**6 + Y2**6 + X1**3*X2*Y1*Y2/2)^2 |H|=432 new 0 (unserved 32/32 of 90) rkNQ=2926/4060 [76s]
+edge-cone        (X0**6 + X2**6 + Y0**6 + Y2**6 + X0*X2**3*Y0*Y2/2)^2 |H|=432 new 0 (unserved 32/32 of 90) rkNQ=2923/4060 [96s]
+X-block          (X0**6 + X1**6 + X2**6)^2 |H|=432 new 0 (unserved 32/32 of 90) rkNQ=2846/4060 [114s]
+pure-power       (X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6)^2 |H|=432 new 0 (unserved 32/32 of 90) rkNQ=2992/4060 [132s]
+coupling-sum     (X0**3*X1*Y0*Y1 + X1**3*X2*Y1*Y2 + X0*X2**3*Y0*Y2)^2 |H|=432 new 0 (unserved 32/32 of 90) rkNQ=2926/4060 [146s]
+DONE

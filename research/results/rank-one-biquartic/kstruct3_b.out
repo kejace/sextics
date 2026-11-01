@@ -1,2 +1,8 @@
 SUB=S7+MS5: dim 57, blocks [('S7', 36), ('M.S5', 21)]
   p=2147483647: dim(E1 cap B)=21, dim(J cap B)=18, kernel mod J = 3 (144s)
+    block S7 alone: kernel mod J = 0
+    block M.S5 alone: kernel mod J = 0
+  p=2147483629: dim(E1 cap B)=21, dim(J cap B)=18, kernel mod J = 3 (252s)
+  p=2147483587: dim(E1 cap B)=21, dim(J cap B)=18, kernel mod J = 3 (386s)
+  p=2147483579: dim(E1 cap B)=21, dim(J cap B)=18, kernel mod J = 3 (523s)
+  p=2147483563: dim(E1 cap B)=21, dim(J cap B)=18, kernel mod J = 3 (655s)
