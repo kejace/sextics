@@ -7,3 +7,5 @@ join345 E1(delta): True {'rank': 2214, 'cols': 2376}
 [system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=1865808 built in 17.5s
 [compressed p=2147483647] k=2643 consistent=True rank=2358 nullity=244 (compress 121.2s, rref 71.3s)
 {"D": "join345", "d": 6, "family": "target=delta", "e1": true, "consistent": true, "rank": 2358, "nullity": 244, "seconds": 329.0, "note": "target A:=delta with D=join345", "engine": 2}
+Fpart6 E1(delta): False {'rank': 2214, 'cols': 2376}
+[system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=937806 built in 7.9s

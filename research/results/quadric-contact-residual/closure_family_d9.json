@@ -1,0 +1,1 @@
+{"res": {"d": 9, "n_params": 0, "n_jac": 0, "n_extra": 0, "dimR_2d_sector": 30, "n_quadrics": 0, "quadric_rank": 0, "n_pair_monomials": 0, "forced_zero_by_square_columns": [], "seconds": 108.8, "e1_dim_inv_Sd": 0, "e1_dim_kernel": 0, "e1_dim_J_inv": 0, "e1_n_extra": 0, "e1_sector_rows": 0, "e1_sector_cols": 0, "e1_dimR_d6": 0, "e1_seconds": 0.1}, "D": []}

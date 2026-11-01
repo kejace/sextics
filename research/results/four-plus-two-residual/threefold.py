@@ -31,32 +31,41 @@ def build(cols, p, rows=None):
     for j, col in enumerate(cols):
         for e, v in col.items(): flat[rows[e] * C + j] = v % p
     return nmod_mat(R, C, flat, p), rows
-def threefold_test(D, p):
-    """D: core polynomial (coeffs int mod p or Fraction). Returns dict(consistent, rank, nullity, rows, cols)."""
+def reduced_test(Hcore, a, core_idx, D, p, uidx=None):
+    """Reduced model: F' = Hcore + U^6 (U at index uidx, not in core), A' = a U^(c-1), c = -(deg a + n_core) mod 6.
+    Fixed-D linear system mod p restricted to the U-degree sector. Returns dict."""
     t0 = time.time()
-    Dp = reduce_mod(D, p); Fp = reduce_mod(Fp_, p); Ap = reduce_mod(Ap_, p)
-    d = core.degree(D)
-    Fi = [pderiv(Fp, i, p) for i in range(6)]
-    Di = [pderiv(Dp, i, p) for i in range(6)]
+    n_core = len(core_idx)
+    if uidx is None:
+        uidx = [i for i in range(6) if i not in core_idx][0]
+    c = (-(core.degree(a) + n_core)) % 6
+    assert 1 <= c <= 5
+    allowed = set(core_idx) | {uidx}
+    def mons_sec(deg, umod):
+        return [e for e in monomials(deg) if all(e[j] == 0 for j in range(6) if j not in allowed) and e[uidx] % 6 == umod]
+    U6 = {tuple(6 if j == uidx else 0 for j in range(6)): 1}
+    Uc1 = {tuple(c - 1 if j == uidx else 0 for j in range(6)): 1}
+    Fp = add(reduce_mod(Hcore, p), U6, p); Ap = mul(reduce_mod(a, p), Uc1, p); Dp = reduce_mod(D, p)
+    d = core.degree(D); degA = core.degree(Ap)
+    degN = degA + d - 5; degQ = degA + 2 * d - 12
+    Fi = [pderiv(Fp, i, p) for i in range(6)]; Di = [pderiv(Dp, i, p) for i in range(6)]
     FD = mul(Fp, Dp, p); FF = mul(Fp, Fp, p)
-    degN = d + 1; degQ = 2 * d - 6
     cols = []
-    for i, umod in [(0, 1), (1, 1), (3, 1), (4, 1), (2, 2)]:
-        G = add(mul(Dp, Fi[i], p), mul(Fp, Di[i], p), p)      # D F_i + F D_i
-        for m in mons5(degN, umod):
+    for i in list(core_idx) + [uidx]:
+        umod = (c - 1) % 6 if i != uidx else c % 6
+        G = add(mul(Dp, Fi[i], p), mul(Fp, Di[i], p), p)
+        for m in mons_sec(degN, umod):
             dm = pderiv({m: 1}, i, p)
-            # column for N_i = m:  -(D F_i + F D_i) m + F D d_i m
-            col = add(scale(shift(G, m, 1, p), p - 1, p), mul(FD, dm, p), p)
-            cols.append(col)
+            cols.append(add(scale(shift(G, m, 1, p), p - 1, p), mul(FD, dm, p), p))
     if degQ >= 0:
-        for m in mons5(degQ, 1):
+        for m in mons_sec(degQ, (c - 1) % 6):
             cols.append(scale(shift(FF, m, 1, p), p - 1, p))
-    rhs = scale(mul(Ap, mul(Dp, Dp, p), p), p - 1, p)   # sum cols = -A D^2
-    M, rows = build(cols, p)
-    r1 = M.rank()
-    M2, _ = build(cols + [rhs], p, dict(rows))
-    r2 = M2.rank()
-    return dict(consistent=(r1 == r2), rank=r1, nullity=len(cols) - r1, rows=M2.nrows(), cols=len(cols), seconds=round(time.time() - t0, 2), d=d)
+    rhs = scale(mul(Ap, mul(Dp, Dp, p), p), p - 1, p)
+    M, rows = build(cols, p); r1 = M.rank()
+    M2, _ = build(cols + [rhs], p, dict(rows)); r2 = M2.rank()
+    return dict(consistent=(r1 == r2), rank=r1, nullity=len(cols) - r1, rows=M2.nrows(), cols=len(cols), seconds=round(time.time() - t0, 2), d=d, c=c, degN=degN, degQ=degQ)
+def threefold_test(D, p):
+    return reduced_test(H, A, CORE, D, p, uidx=2)
 def e1_kernel_core(k, par, p):
     """basis (rref, mod p) of {D core deg k parity par : a D in J(H)} modulo J(H)_k."""
     Hp = reduce_mod(H, p); ap = reduce_mod(A, p)

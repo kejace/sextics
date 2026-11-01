@@ -59,3 +59,14 @@ d=9 parD=0 k=4: nontrivial kernel 10, J_d block 63 gens  [132.3s]
    random kernel+J 0: consistent=False rank=729 nullity=84 56.84s
    random kernel+J 1: consistent=False rank=729 nullity=84 29.57s
    random kernel+J 2: consistent=False rank=729 nullity=84 42.56s
+[e1-kernel] d=9 k=5 parD=0: #Dmon=139 dimR_(d+6)=90 kernel(total)=53 J_d=52 nontrivial=1
+d=9 parD=0 k=5: nontrivial kernel 1, J_d block 52 gens  [10.0s]
+   rep #0: e1=True consistent=False rank=659 nullity=49 rows=2348 cols=708 20.76s
+   random kernel+J 0: consistent=False rank=659 nullity=49 27.9s
+   random kernel+J 1: consistent=False rank=659 nullity=49 10.17s
+   random kernel+J 2: consistent=False rank=659 nullity=49 31.05s
+[e1-kernel] d=9 k=6 parD=0: #Dmon=139 dimR_(d+6)=90 kernel(total)=55 J_d=52 nontrivial=3
+d=9 parD=0 k=6: nontrivial kernel 3, J_d block 52 gens  [8.3s]
+   rep #0: e1=True consistent=False rank=682 nullity=49 rows=2400 cols=731 25.83s
+   rep #1: e1=True consistent=False rank=682 nullity=49 rows=2390 cols=731 25.02s
+   rep #2: e1=True consistent=False rank=682 nullity=49 rows=2396 cols=731 34.1s

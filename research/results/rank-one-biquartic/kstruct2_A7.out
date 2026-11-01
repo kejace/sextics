@@ -1,1 +1,10 @@
 TARGET=X0**3*Y0**3 d=7: base-type space dim 73; blocks: [('S7.M0.g0', 36), ('S1.M0.g1', 3), ('S5.M1.g0', 21), ('S3.M2.g0', 10), ('S1.M3.g0', 3)]
+  p=2147483647: dim(E1 cap B)=27, dim((J+extra) cap B)=24, kernel mod (J+extra) = 3  (222.1s)
+    blocks ['S7.M0.g0', 'S5.M1.g0']: E1-cap=21, J-cap=18, kernel mod J = 3
+    blocks ['S7.M0.g0', 'S1.M0.g1', 'S5.M1.g0']: E1-cap=24, J-cap=21, kernel mod J = 3
+    blocks ['S7.M0.g0', 'S5.M1.g0', 'S3.M2.g0']: E1-cap=24, J-cap=21, kernel mod J = 3
+    blocks ['S7.M0.g0', 'S5.M1.g0', 'S1.M3.g0']: E1-cap=21, J-cap=18, kernel mod J = 3
+    blocks ['S7.M0.g0', 'S1.M0.g1', 'S5.M1.g0', 'S3.M2.g0']: E1-cap=27, J-cap=24, kernel mod J = 3
+    blocks ['S7.M0.g0', 'S1.M0.g1', 'S5.M1.g0', 'S1.M3.g0']: E1-cap=24, J-cap=21, kernel mod J = 3
+    blocks ['S7.M0.g0', 'S5.M1.g0', 'S3.M2.g0', 'S1.M3.g0']: E1-cap=24, J-cap=21, kernel mod J = 3
+    blocks ['S7.M0.g0', 'S1.M0.g1', 'S5.M1.g0', 'S3.M2.g0', 'S1.M3.g0']: E1-cap=27, J-cap=24, kernel mod J = 3

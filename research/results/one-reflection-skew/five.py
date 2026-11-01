@@ -28,6 +28,13 @@ X = [core.parse(v) for v in core.VARS]
 def rpar(e):
     return (e[3] + e[4]) & 1
 
+def spar(e):  # sigma: (X1,Y1) -> -(X1,Y1)
+    return (e[1] + e[4]) & 1
+
+def sparity_of(P):
+    ps = {spar(e) for e in P}
+    return ps.pop() if len(ps) == 1 else None
+
 def rparity_of(P):
     ps = {rpar(e) for e in P}
     return ps.pop() if len(ps) == 1 else None
@@ -54,7 +61,7 @@ def inv(a, p):
 
 class Sys5:
     """Columns for N (5 components) and optionally for targets (rho-odd degree-6 monomials)."""
-    def __init__(self, D, p, with_targets=True, verbose=False):
+    def __init__(self, D, p, with_targets=True, verbose=False, use_sigma=True):
         t0 = time.time()
         self.p = p
         fp = core.reduce_mod(f, p); Dp = core.reduce_mod(D, p)
@@ -64,6 +71,14 @@ class Sys5:
         pA = 1
         pars = [(pA - pD - (0 if i < 3 else 1)) % 2 for i in range(5)]
         self.pars = pars
+        sD = sparity_of(D)
+        self.use_sigma = bool(use_sigma and sD is not None)
+        if self.use_sigma:
+            # sigma-character of N_i: chi(A) + chi(D) + chi(f) + chi(Z_i); chi(A)=0 (X0^3Y0^3), chi(f)=0
+            self.spars = [(0 + sD + 0 + (1 if i in (1, 4) else 0)) % 2 for i in range(5)]
+            self.sT = 0  # targets: sigma-even only (A's sector)
+        else:
+            self.spars = None
         c65 = (6 * inv(5, p)) % p
         fD = scale(mul(fp, Dp, p), c65, p)                          # (6/5) f D
         G = []
@@ -74,6 +89,7 @@ class Sys5:
         cols = []; colpolys = []
         for i in range(5):
             for m in mons5(d + 1, pars[i]):
+                if self.use_sigma and spar(m) != self.spars[i]: continue
                 col = shift(G[i], m, 1, p)
                 if m[i]:
                     m2 = list(m); m2[i] -= 1
@@ -82,6 +98,7 @@ class Sys5:
         self.nN = len(cols)
         self.D2 = mul(Dp, Dp, p)
         self.tmons = mons5(6, 1) if with_targets else []
+        if self.use_sigma: self.tmons = [m for m in self.tmons if spar(m) == 0]
         for m in self.tmons:
             cols.append(('A', -1, m)); colpolys.append(shift(self.D2, m, 1, p))
         rows = {}
@@ -120,20 +137,24 @@ def target_vec(Aq, tmons, p):
         v[idx[e]] = c
     return v
 
-def jacobian6_odd(p):
-    """Basis (mod p) of J_f in degree 6, rho-odd part: Z_j f_i with odd parity."""
+def jacobian6_odd(p, sigma_even=False):
+    """Basis (mod p) of J_f in degree 6, rho-odd part (optionally sigma-even part): Z_j f_i."""
     out = []
     for i in range(5):
         for j in range(5):
             P = mul(core.reduce_mod(X[j], p), fi(i, p), p)
-            if P and rparity_of(P) == 1:
+            if P and rparity_of(P) == 1 and (not sigma_even or sparity_of(P) == 0):
                 out.append(P)
     return out
 
-def analyze(D, p=P1, verbose=False, targets=(('A', A), ('A+', A_plus), ('A-', A_minus))):
-    """Full served-target analysis of D mod p.  Returns dict."""
+def analyze(D, p=P1, verbose=False, targets=(('A', A), ('A+', A_plus), ('A-', A_minus)), use_sigma=True):
+    """Full served-target analysis of D mod p.  Returns dict.  With use_sigma and sigma-pure D only the
+    sigma-even target sector (A's sector) is computed; A+/A- (sigma-mixed) are then tested via their
+    sigma-even projection, which is A/2 -- so they are reported as served iff A is."""
     t0 = time.time()
-    S = Sys5(D, p, with_targets=True, verbose=verbose)
+    S = Sys5(D, p, with_targets=True, verbose=verbose, use_sigma=use_sigma)
+    if S.use_sigma:
+        targets = tuple((n, (A if n in ('A+', 'A-') else T)) for n, T in targets)
     M = S.matrix()
     t1 = time.time()
     Xn, nullity = M.nullspace()
@@ -141,6 +162,7 @@ def analyze(D, p=P1, verbose=False, targets=(('A', A), ('A+', A_plus), ('A-', A_
     nT = len(S.tmons); C = S.ncols; nN = S.nN
     res = {'d': S.d, 'rows': S.nrows, 'cols': C, 'nN': nN, 'nT': nT, 'nullity_full': nullity,
            'p': p, 't_build': round(S.t_build, 1), 't_null': round(t2 - t1, 1)}
+    res['sigma_sector'] = S.use_sigma
     if nullity == 0:
         res.update({'served_dim': 0, 'served_mod_J': 0, 'rank_N': nN, 'nullity_N': 0, 'served_basis': []})
         for name, _ in targets: res['serves_' + name] = False
@@ -160,7 +182,8 @@ def analyze(D, p=P1, verbose=False, targets=(('A', A), ('A+', A_plus), ('A-', A_
     res['rank_N'] = nN - (nullity - rk)
     res['nullity_N'] = nullity - rk
     # modulo J_f (degree 6, rho-odd part)
-    Jb = jacobian6_odd(p)
+    Jb = jacobian6_odd(p, sigma_even=S.use_sigma)
+    res['sigma_sector'] = S.use_sigma
     idx = {m: k for k, m in enumerate(S.tmons)}
     def vec(P):
         v = [0] * nT
@@ -188,7 +211,7 @@ def solve_exact(D, Aq=A, primes=(P1, P2, core.PRIMES[2], core.PRIMES[3]), verbos
     """Fixed-D strict 5-var solve for target Aq with rational lift; verifies as a 6-var certificate."""
     acc = None; piv0 = None
     for k, p in enumerate(primes):
-        S = Sys5(D, p, with_targets=False, verbose=verbose)
+        S = Sys5(D, p, with_targets=False, verbose=verbose, use_sigma=(sparity_of(Aq) == 0))
         rhs = scale(mul(core.reduce_mod(Aq, p), S.D2, p), p - 1, p)
         M = S.matrix(rhs)
         Mr, rank = M.rref()
@@ -300,7 +323,7 @@ def test5(D_expr, family, note='', Dpoly=None, verbose=False, do_exact=True):
     if (r['serves_A+'] or r['serves_A-']) and not r['serves_A']:
         status = 'half-served'
         print('!!!! HALF TARGET SERVED (mod p) !!!!', D_expr, r['serves_A+'], r['serves_A-'], file=sys.stderr)
-    note2 = (note + f' | 5var served_dim={r["served_dim"]} served_mod_J={r["served_mod_J"]} '
+    note2 = (note + f' | sigma_sector={r["sigma_sector"]} 5var served_dim={r["served_dim"]} served_mod_J={r["served_mod_J"]} '
              f'A={r["serves_A"]} A+={r["serves_A+"]} A-={r["serves_A-"]} rows={r["rows"]} cols={r["cols"]} status={status}')
     log(D_expr, d, '5var:' + family, True, bool(r['serves_A']), r['rank_N'], r['nullity_N'], r['seconds'], note2)
     r['status'] = status; r['D_expr'] = D_expr; r['family'] = family

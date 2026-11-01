@@ -3,3 +3,4 @@ ours   join3          d=6 core.add(core.add(core.power(Q[0],3),core.power(Q[1],3
 ours   join3          d=6 core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[ E1=False cons=False rank=2214 null=162 imgdim=None 289.7s
 ours   join3          d=6 core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[ E1=False cons=False rank=2214 null=162 imgdim=None 222.2s
 ours   join3          d=6 core.add(core.add(core.power(Q[0],3),core.power(Q[2],3)),core.power(Q[ E1=False cons=False rank=2214 null=162 imgdim=None 198.3s
+ours   join3          d=6 core.add(core.add(core.power(Q[0],3),core.power(Q[2],3)),core.power(Q[ E1=False cons=False rank=2214 null=162 imgdim=None 188.5s

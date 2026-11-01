@@ -23,3 +23,6 @@ G0*X2                                                                  d=7 serve
 Y6*X0                                                                  d=7 served=12/0 A=False A+=False A-=False rank=1042 null=188 23.5s
 Y6*X1                                                                  d=7 served=12/0 A=False A+=False A-=False rank=1042 null=188 38.6s
 Y6*X2                                                                  d=7 served=12/0 A=False A+=False A-=False rank=1042 null=188 36.3s
+f*X0                                                                   d=7 served=12/0 A=False A+=False A-=False rank=962 null=268 39.7s
+f*X1                                                                   d=7 served=12/0 A=False A+=False A-=False rank=962 null=268 45.4s
+f*X2                                                                   d=7 served=12/0 A=False A+=False A-=False rank=962 null=268 48.1s
