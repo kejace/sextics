@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:16 from 109 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:26 from 115 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -39,6 +39,7 @@ mod p) as a system of quadrics with saturation by the spurious component.
 | 9 | odd | 1001 | 378 | 623 | 378 | 0 | 264.2 |
 | 10 | even | 1512 | 750 | 762 | 1044 | 294 | 703.6 |
 | 10 | odd | 1491 | 747 | 744 | 1008 | 261 | 743.2 |
+| 11 | even | 2184 | 1341 | 843 | 1851 | 510 | 1726.4 |
 
 For d ≤ 9 the admissible space is exactly J(F)_d (Jacobian type); the extra kernel appears at d = 10.
 
@@ -57,10 +58,45 @@ Zero-residual points classified off P8 (distance > 1e−6; check whether they ar
 - seed 1 restart 2: f=1.1e-19, grad 4.0e-11, dist to P8 3.2e-04, profile {'0': 1.0, '1': 1.02e-07, '2': 9.18e-14, '3': 6.31e-19}, tangent nullity 16
 - seed 1 restart 4: f=2.3e-23, grad 5.2e-11, dist to P8 4.9e-05, profile {'0': 1.0, '1': 2.41e-09, '2': 3.76e-16, '3': 1.58e-22}, tangent nullity 21
 
+### 2c. Exact relaxation variety (tensor frame, Singular mod p)
+
+- exported d=8 p=32003: 147 variables (168 cofactor coordinates minus 21 Euler), 468 quadrics; the P8 component lives in 24 of the variables
+
+### 2d. Exact structure of the relaxation by (U,V)-bidegree piece (tensor frame, float rank with 1e−9 cutoff)
+
+d = 8: number of independent relaxation quadrics when the cofactors are restricted to the pieces of V-degree v (P_{8−v}):
+
+| cofactor pieces (V-degree) | parameters | independent quadrics |
+|---|---|---|
+| (0,) | 30 | 6 |
+| (1,) | 54 | 90 |
+| (2,) | 54 | 234 |
+| (3,) | 30 | 114 |
+| (0, 1) | 84 | 126 |
+| (0, 2) | 84 | 234 |
+| (0, 3) | 60 | 300 |
+| (1, 2) | 108 | 414 |
+| (1, 3) | 84 | 234 |
+| (2, 3) | 84 | 398 |
+| (0, 1, 2, 3) | 168 | 468 |
+
+Only the pure-block piece P_8 (V-degree 0) is under-determined (6 quadrics = dim R_{f,10}, as predicted); every other piece and every pair of pieces has more quadrics than parameters, so relaxation solutions off P_8 can only come from special loci, not from dimension counting.
+
+d = 9: K=378 cofactor quartics, 56 Euler directions, quotient dim 322, 208 independent quadrics (all independent generically: rank 208); on P_9 the residual span has rank 1 (single quadric, as predicted).  With 208 quadrics on 322 parameters the d = 9 relaxation has a solution variety of dimension ≥ 113 and is useless as a filter: the d = 9 search must be done with the full E2 system.
+
+Tangent analysis at converged P_8 relaxation solutions (d = 8): Jacobian nullity 33, 33, 33; kernel energy by cofactor V-degree {'0': 0.5455, '1': 0.4545, '2': 0.0, '3': 0.0}. The ~28–32 kernel directions leaving P_8 point into the V-degree-1 piece; they are a first-order artefact of the degree truncation of R_f (only ≤ 27 of the 468 quadrics have a nonzero mixed term between P_8 and P_7 because R_{f,k} = 0 for k > 12), and are obstructed at second order (the P_7 self-terms meet ≥ 90 independent quadrics).  Deflated restarts (f/dist(P_8)²) found no zero off P_8.
+
 ## 3. Exact Hessian relaxation (quadrics mod p, Singular std + saturation by the spurious component)
 
 - generated d=6 pD=0 p=32003: 17 variables (F-multiples removed), 866 quadrics, spurious component dim 0 cut by 17 linear forms; spurious points satisfy all quadrics: max residue []
 - generated d=6 pD=0 p=32003: 17 variables (F-multiples removed), 866 quadrics, spurious component dim 0 cut by 17 linear forms; spurious points satisfy all quadrics: max residue []
+
+## 4. Full reduced-E2 variable-projection search (Jacobian-type degrees), LM on the sphere
+
+- setup d=8 pD=0 seed 7: K=30 (dimP=30 after F-multiples), rows 10152 → 8661 after X0-remainder, c-unknowns 954 (eff 954), Q 1491 eliminated; build 1.5 s, one evaluation 13.04 s; probe rel 5.865e-03
+
+| d | pD | restarts | best rel | rel quantiles (10/50/90%) | median iters | median s/restart | dist-to-spurious at best | #rel<1e-6 | #rel<1e-10 |
+|---|---|---|---|---|---|---|---|---|---|
 
 ## 7. Structured linear families vs E1 (exact mod p: dim W ∩ J(F)_d; for d ≤ 9 E1-admissible ⟺ in J(F)_d)
 

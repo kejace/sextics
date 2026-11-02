@@ -1,5 +1,1 @@
-Traceback (most recent call last):
-  File "/tmp/hodge/results/diagonal-permutation/w2c_j5b.py", line 16, in <module>
-    Fpq = sp.expand(Fs.subs(sub_fw, simultaneous=True))
-                    ^^
-NameError: name 'Fs' is not defined. Did you mean: 'F'?
+{'exp': 'J5b-divisorE1-kernel', 'D': 'Q_orb = (X0-X1)(Y1-Y2)-(X1-X2)(Y0-Y1) [sign rep, sweep of S3-orbit planes]', 'd': 2, 'prime': 2147483647, 'result': 'ker dim 0 (both parities)', 'seconds': 0.0, 'job': 'local', 'note': '0 => V(D) serves no primitive (3,1) class'}

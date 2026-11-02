@@ -16,7 +16,7 @@ on success; 'WITNESS FOUND' printed).
 import sys, os, json, time, argparse, math
 sys.path.insert(0, '/tmp/hodge/results/quadric-contact-residual')
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
-os.environ.setdefault('OPENBLAS_NUM_THREADS', '1'); os.environ.setdefault('OMP_NUM_THREADS', '1')
+os.environ['OPENBLAS_NUM_THREADS'] = '1'; os.environ['OMP_NUM_THREADS'] = '1'; os.environ['MKL_NUM_THREADS'] = '1'   # multi-threaded BLAS is 30x slower here (contention)
 import numpy as np
 import multiprocessing as mp
 import w2lib as W

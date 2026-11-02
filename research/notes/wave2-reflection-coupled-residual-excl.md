@@ -146,6 +146,17 @@ identical degree-6 pipeline gives only 52 independent quadrics on the 35-dimensi
 (Hilbert function 1, 35, 578, 6078, … never vanishing). So the relaxation detects known certificates and the zero-dimensional
 results for the coupled F are not artefacts of the pipeline (`wave2-excl/control-fermat/`).
 
+### R11. Degree-9 kernel representatives (remote job excl-rcr-ker9) and the degree-11 cones (excl-rcr-struct)
+* The three rationally reconstructed representatives of the 21-dimensional non-Jacobian E1 kernel of character (0,0) at
+  degree 9: restricted systems 32214 × 6804, all **inconsistent mod p and certified over ℚ** (rank 6006, nullity 798 = a-priori
+  kernel rank), second prime agrees (822/299/249 s on the saturated box). The other 18 need more primes to reconstruct
+  (`e1recon.py`, queued); random combinations are being tested in the same job.
+* Structured screen at degree 11: **cones with a line vertex become E1-admissible for the first time** — polynomials in
+  (X0,X1,X2,Y2) (vertex the line Y0Y1): a 46-dimensional E1-admissible space with 45 classes outside J_11; polynomials in
+  (X0,X1,X2,Y0): 5. These are the book's natural (3,1)-support candidates (cone over a degree-11 surface with p_g > 0).
+  The mod-J relaxation is useless here ((S/J)_22^{(0,1)} has dimension 6), so only fixed-D tests (screens) apply;
+  restricted systems at degree 11 have ≈ 14 000 unknowns.
+
 ### Jobs submitted (remote)
 * `excl-rcr-e1char`: E1 kernels by Klein character, d = 1..10, p = 2147483587 (+ 2147483579 for reconstruction).
 * `excl-rcr-hess`: Φ-kernel at d = 6 (two primes); Macaulay-3 rank of the quadratic system per character at d = 7;

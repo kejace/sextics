@@ -10,7 +10,7 @@ def main():
     ap.add_argument('d', type=int); ap.add_argument('par', type=int)
     ap.add_argument('--primes', type=int, default=3); ap.add_argument('--threads', type=int, default=8)
     ap.add_argument('--numerators', action='store_true'); ap.add_argument('--tag', default='')
-    ap.add_argument('--maxprimes', type=int, default=6)
+    ap.add_argument('--maxprimes', type=int, default=6); ap.add_argument('--fresh', action='store_true')
     a = ap.parse_args()
     set_threads(a.threads)
     F, A, q, rec = load()
@@ -19,7 +19,18 @@ def main():
     t0 = time.time()
     bases = {}; info = {}; rat = None; rinfo = {}
     primes = (PGB + core.PRIMES)[:a.maxprimes]
+    # resume: reuse bases already stored in the json (same canonical rref form)
+    if os.path.exists(out_path) and not a.fresh:
+        old = json.load(open(out_path))
+        for pp, lst in old.get('basis_modp', {}).items():
+            if int(pp) in primes and old.get('info', {}).get(pp):
+                bases[int(pp)] = [modp_poly_from_json(o) for o in lst]
+                info[int(pp)] = old['info'][pp]
+        if bases:
+            print(f'[kernel] resumed {len(bases)} primes from {out_path}', file=sys.stderr, flush=True)
     for k, p in enumerate(primes):
+        if p in bases:
+            continue
         res = e1_kernel(F, A, d, par, p, verbose=True)
         bases[p] = res['basis_modJ']
         info[p] = {kk: res[kk] for kk in ('dim_S_d', 'dim_J_d', 'dim_R_d', 'dim_J_d6', 'dim_R_d6', 'kernel_dim_incl_J',
@@ -33,17 +44,15 @@ def main():
         dims = {info[pp]['kernel_mod_J'] for pp in bases}
         if len(dims) != 1:
             print(f'[kernel] WARNING: kernel dims differ between primes: {dims}', file=sys.stderr, flush=True)
-        if k + 1 >= 2 and len(dims) == 1 and bases[p]:
+        if len(bases) >= 2 and len(dims) == 1 and bases[p]:
             rat, rinfo = reconstruct_polys(bases)
-            print(f'[kernel] reconstruction with {k+1} primes: {"ok" if rat else "failed"} {rinfo}', file=sys.stderr, flush=True)
+            print(f'[kernel] reconstruction with {len(bases)} primes: {"ok" if rat else "failed"} {rinfo}', file=sys.stderr, flush=True)
             if rat:
                 save['basis_rational'] = [poly_to_json(P) for P in rat]
                 save['reconstruction'] = rinfo
                 with open(out_path, 'w') as f: json.dump(save, f)
                 break
-        if k + 1 >= a.primes and (not bases[p]):
-            break
-        if k + 1 >= a.primes and rat is None and k + 1 >= a.maxprimes:
+        if len(bases) >= a.primes and (not bases[p]):
             break
     kd = info[primes[0]]['kernel_mod_J']
     logrec = {'kind': 'e1-kernel', 'd': d, 'parity': par, 'kernel_mod_J': kd,

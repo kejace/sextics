@@ -74,3 +74,10 @@ already needed for the equivalence theorem; no extra assumption on ρ is require
 Status: k = 6 PROVEN above (exact).  k = 7 in progress (local chain).  The dossier's wave-1 formulation ("products of
 excluded denominators are excluded") implicitly needed this K3-sector step; the full-target degree ≤ 7 exclusion alone
 does not give it.
+
+### R5. Non-Jacobian E1 kernel of the K3-sector target at degree 8   [01:35]
+[A_K3] on (R/J)_8: kernel mod J has dimension 51 (Y-even) + 39 (Y-odd) at p = 2^31-1 (the full target has none through
+d = 9).  Source: eta = [z0^2 z1^2 z2^2] has kernels R_{f,a} -> R_{f,a+6} for a >= 4 (dimension reasons), e.g.
+ker(eta|R_4) (x) ker(eta|R_4) ⊂ R_4 (x) R_4.  These are the natural non-Jacobian candidates for the K3 sector; their
+full E2 test (fixed-D, 40k x 7.5k) is queued (k3kernel.py) but blocked by compute saturation.  Note the reducible
+rank-1 members g(U)g'(V) are already excluded by R2 (both factors have degree 4 <= 6).

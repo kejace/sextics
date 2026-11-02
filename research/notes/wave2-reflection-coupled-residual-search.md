@@ -30,11 +30,19 @@ Hessian-relaxation tensors + LM search, msolve export, sector-restricted VarPro,
   A = X0³Y0³, d=6 J-family: residual 4e-22 → reconstruction → exact witness verified (D = X0⁶+X1⁶+X2⁶-type);
   `fermat-pair-rational-d4-strict` (d=4 kernel family, 13 classes): zeros found, exact witness recovered and verified
   (also with the sparse NF-mod-F + random-compression metric used for the large degrees: rel 1.7e-16 → verified witness).
+  Two optimizers: L-BFGS variable projection (min over a inside) and a joint Levenberg–Marquardt on (c, a) with the exact
+  Jacobian (controls: d=4 rel 2.6e-31 in 13 evaluations, Fermat d=6 rel 2.5e-26 in 58); at d=8 (103+538 unknowns) one
+  LM restart ≈ 240 s, one L-BFGS restart ≈ 150 s (400 iterations, not converged); both end at rel 0.1–1 on our family.
 
 * Scope: denominators of pure Y-parity (τ-eigenvectors), the engine's and the dossier's convention. A mixed-parity D of
   degree d gives the Y-even denominator D·τ(D) of degree 2d (X∖V(Dτ(D)) ⊂ X∖V(D)), so pure-parity searches up to degree
   2d cover mixed-parity denominators up to degree d. Within pure parity, both Klein-eigen (4 sectors) and Klein-mixed
   ('e' = 00⊕11, 'o' = 01⊕10) families are searched.
+
+* **Served-space profiling** (`job_served.py`): for a denominator D, the whole space of Y-odd sextic targets it serves
+  (compressed fixed-D system with target columns, nullspace mod p), reduced mod J_6 and split by Klein sector. A D whose
+  served space meets the target's sector (0,1) is a building block even if it does not serve A (served(D1D2) =
+  served(D1)+served(D2)). Validated against wave 1 on degree-4 cones (served = J only, 2 s each vs 20–80 s).
 
 ## Results so far
 
@@ -59,6 +67,18 @@ Family D = Σ g_i F_i (the whole E1-admissible space at these degrees). Quadrics
 (sector 00 at d=6 first returned the Euler direction g = z/6, D = 6F — correctly flagged spurious by the exact pipeline; killed thereafter.)
 d = 7: sector (1,1): K = 18, 426 polys, **empty** (0.2 s). Sector (0,0) did not finish in 100 s locally; remaining sectors queued (remote job `search-rcr-relaxlo`, 2 h timeouts).
 
+### R2a. Full E2 (Koszul varpro, sparse metric) over the complete degree-7 families — local batch B
+E1 forces D ∈ J_7 in every sector (R1), so these families are everything at degree 7.
+| sector | K | search dim | n_a | restarts | best rel | median rel |
+|---|---|---|---|---|---|---|
+| 00 | 45 | 42 | 242 | 12 | 0.495 | 0.699 |
+| 01 | 40 | 38 | 238 | 12 | 0.699 | 0.943 |
+| 10 | 23 | 22 | 182 | 12 | 1.048 | 1.717 |
+| 11 | 18 | 18 | 178 | 12 | 1.564 | 1.81 |
+| e (00⊕11) | 63 | 60 | 420 | 4 | 0.970 | 1.19 |
+(mixed o: running). No descent below 0.1: the full-E2 landscape at degree 7 has no zero in reach of 12 restarts per
+sector, consistent with the exact relaxation emptiness in sectors 10/11 (R2).
+
 ### R2b. Whole degree-8 Y-even E1 family K8 ⊕ J_8^{(0,0)} (K = 113, spurious 10, search dim 103, 274 obstruction coordinates)
 Generalised family relaxation (pairs (D_k, N_k), tensor Π B(D_k, N_l), validated against the closed form at d=6 to 15 digits).
 40 LM restarts (local): **every restart converges to the same floor rel = 2.75e-3** (median 2.77e-3, none < 1e-4): the
@@ -75,6 +95,17 @@ E1 confirmed (rank 5052 = rank_aug). Sector-restricted compressed system 22016 �
 Unrestricted compressed system 40301 × 7497: **inconsistent** (rank 6703, nullity 794, 195 s). K8 alone is not a denominator; the affine family K8 + J_8 is attacked by the affine relaxation (queued).
 
 **Consequence:** no certificate with a pure-Y-parity denominator of degree 5 or 6 exists (mod-p evidence; the relaxation is a necessary condition and E1 forces D ∈ J there). With the rigorous d ≤ 4 exclusion: deg D ≥ 7.
+
+## Running summary (kept current; the final 10-line summary is derived from it)
+1. No witness found. 2. deg D ≤ 4: rigorous; d = 5, 6: all E1-admissible D lie in J(F) and the Hessian relaxation is empty
+in every Klein sector and both mixed parities (msolve mod p) → no pure-parity certificate of degree ≤ 6. 3. d = 7: E1 forces
+D ∈ J_7 in all four sectors (45/40/23/18); relaxation empty in sectors 10, 11 (exact), sectors 00/01 and mixed need >175 s
+(queued remotely); full-E2 varpro (12 restarts/sector) finds no descent below rel 0.5. 4. d = 8: the only non-Jacobian E1
+class in any sector is K8 (sector 00); K8 alone is inconsistent (restricted and full systems); the family K8 ⊕ J_8 has a
+relaxation floor 2.75e-3 (40 LM restarts) and full-E2 floors 0.08–1 (few restarts); exact msolve of the family queued.
+5. New tools validated on positive controls (Fermat): sector-aware E1 spaces, Hessian relaxation (exact + LM), Koszul-reduced
+full-E2 varpro with sparse quotient and joint LM. 6. Remote box saturated all evening (load 240–940, 150–200 jobs): the
+d ≥ 9 kernel families, the 8-seed searches and the structured/served sweeps are queued (scripts ready).
 
 ## Auto-generated tables
 Regenerated from the log by `python3 summarize_log.py` into `wave2-reflection-coupled-residual-tables.md` (same directory).

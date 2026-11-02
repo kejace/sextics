@@ -27,7 +27,10 @@ Results (all exact or modular-with-semicontinuity; scripts and receipts linked b
 * Lemma (non-zero-divisors): every nonzero linear form in span(X0,X1,X2) or span(Y0,Y1,Y2) is a NZD on R_6
   (quadratic syzygies of the restricted partials: module annihilator = (1) in every chart). By the Gysin description
   of N^1 (ch. 3) served(l·D) = served(D) modulo J for such l, so such linear factors can be stripped from denominators.
-* d = 7: [TO FILL: eigen sectors; full relaxation GB; lifted components l·D_λ handled by the lemma; new components]
+* d = 7, σ-eigen pure-parity denominators: the relaxation locus is empty for Y-even characters 0,3,5,6 and Y-odd
+  characters 1–6 (no such denominators), and for Y-even characters 1,2,4 it equals the lifted curves X_j·C exactly over Q
+  (characteristic-0 Gröbner bases), whose points X_j D_λ are excluded by the NZD lemma + sum principle + the d=6 result.
+  Y-odd character 0 (the lifted family span(Y)·C): [TO FILL]. Non-eigen degree 7: [TO FILL].
 * d = 8 (σ-eigen sectors): [TO FILL]
 * d = 9, 10: [TO FILL: kernel reps, random combos — modular screens; exact duals for Jhat, polars, polar products]
 * Re-verification of earlier claims: Jhat exclusion (exact dual), polars, Z_j F_i, products — agree at p = 1000003;

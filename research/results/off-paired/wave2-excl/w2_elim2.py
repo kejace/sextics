@@ -192,7 +192,30 @@ quit;
         for ci, polys in enumerate(comps):
             basis = linear_component_basis(polys, nt)
             if basis is None:
-                comp_results.append({'comp': ci, 'linear': False, 'gens': polys[:6]}); all_ok = False; continue
+                # nonlinear component: eliminate s from I + P over Q (restricted bilinear system on the component)
+                tt = [f't{i}' for i in range(nt)]; ss = [f's{k}' for k in range(ns)]
+                def vn(i): return f't{i}' if i < nt else f's{i - nt}'
+                polys_I = ['+'.join(f'{frac_str(v)}*{vn(i)}*{vn(j)}' for (i, j), v in e.items() if v) for e in eqs]
+                sing3 = f'''ring r = 0, ({",".join(tt + ss)}), dp;
+ideal I = {",\n".join(polys_I)};
+ideal P = {",\n".join(polys)};
+ideal IP = I + P;
+poly ps = {"*".join(ss) if ss else "1"};
+ideal E = eliminate(IP, ps);
+ideal G = std(E);
+print("DIME " + string(dim(G)));
+quit;
+'''
+                spath3 = f'{outdir}/d{a.d}_c{c[0]}{c[1]}_comp{ci}_nonlin.sing'; open(spath3, 'w').write(sing3)
+                out3, err3 = run_singular(spath3, a.timeout)
+                if out3 is None:
+                    comp_results.append({'comp': ci, 'linear': False, 'elim': 'timeout', 'gens_deg': [len(g) for g in polys[:3]]}); all_ok = False; continue
+                m3 = re.search(r'DIME (-?\d+)', out3)
+                dme = int(m3.group(1)) if m3 else None
+                okc = (dme is not None and dme - ns <= 0)
+                comp_results.append({'comp': ci, 'linear': False, 'elim_dim_t': (dme - ns) if dme is not None else None, 'proven': okc, 'n_gens_P': len(polys)})
+                if not okc: all_ok = False
+                continue
             w = len(basis)
             if w == 1:
                 v = basis[0]

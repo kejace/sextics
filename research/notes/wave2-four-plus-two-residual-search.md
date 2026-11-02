@@ -84,40 +84,64 @@ Per-sector detail for d = 6..8 (nonempty sectors only):
 | 8 | (5, 3, 0) | 0 | 68 | 56 | 26 | 30 | 2 |
 | 8 | (5, 3, 3) | 1 | 68 | 56 | 26 | 30 | 2 |
 
-## 2. Joint searches run so far (per family / degree / sector)
-rel = min_x |M(a)x-b(a)|^2 / |b(a)|^2 at the optimizer's end point (b = -A D^2), F-multiples projected out; "grid" = exhaustive scan for pencils (K<=2); cands = restarts with rel < 1e-8 (then polished / reconstructed / re-solved exactly).
+## 2. Joint searches run so far (per formulation / family / degree / sector) — search (3307 restarts total)
+rel = min_x |M(a)x-b(a)|^2 / |b(a)|^2 at the optimizer's end point (full formulation: b = -A D^2; Koszul formulation: b = -(D div N0 - N0(D)), so the two rel scales are not comparable), F-multiples projected out; "grid" = exhaustive scan for pencils (K<=2); cands = restarts with rel < 1e-8 (then polished / reconstructed / re-solved exactly).
 
-| family | d | sector | K | dimP | rows x cols (restricted) | mode | restarts | best rel | cands<1e-8 | CPU s |
+| formulation | family | d | sector (h,r2,s) | K | dimP | rows x cols | mode | restarts | best rel | median rel | hist (log10 bins) | cands<1e-8 | CPU s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| full | kernelJ | 5 | (0, 0, 0) | 1 | 1 | 888x64 | grid | 1 | 2.04e-01 | 2.0e-01 | <1e+00:1 | 0 | 0 |
+| full | kernelJ | 5 | (0, 3, 0) | 1 | 1 | 888x64 | grid | 1 | 1.87e-01 | 1.9e-01 | <1e+00:1 | 0 | 0 |
+| full | kernelJ | 5 | (1, 0, 0) | 2 | 2 | 1152x248 | grid | 20 | 7.05e-02 | 7.1e-02 | <1e+00:20 | 0 | 19 |
+| full | kernelJ | 5 | (1, 0, 3) | 2 | 2 | 1152x248 | grid | 20 | 5.29e-02 | 5.3e-02 | <1e+00:20 | 0 | 20 |
+| full | kernelJ | 6 | (0, 0, 0) | 30 | 29 | 1836x392 | lbfgs | 825 | 5.47e-04 | 2.8e-03 | <1e-02:823 <1e+00:2 | 0 | 13238 |
+| full | kernelJ | 6 | (0, 0, 3) | 21 | 21 | 1836x408 | lbfgs | 875 | 1.49e-03 | 2.0e-03 | <1e-02:872 <1e+00:3 | 0 | 11000 |
+| full | kernelJ | 6 | (0, 3, 0) | 2 | 2 | 1788x144 | grid | 20 | 1.17e-01 | 1.2e-01 | <1e+00:20 | 0 | 17 |
+| full | kernelJ | 6 | (1, 0, 0) | 2 | 2 | 1788x292 | grid | 20 | 6.93e-02 | 6.9e-02 | <1e+00:20 | 0 | 35 |
+| full | kernelJ | 6 | (1, 0, 3) | 2 | 2 | 1788x292 | grid | 20 | 5.23e-02 | 5.2e-02 | <1e+00:20 | 0 | 33 |
+| full | kernelJ | 6 | (1, 3, 0) | 2 | 2 | 1788x292 | grid | 20 | 6.90e-02 | 6.9e-02 | <1e+00:20 | 0 | 33 |
+| full | kernelJ | 6 | (1, 3, 3) | 2 | 2 | 1788x292 | grid | 20 | 5.21e-02 | 5.2e-02 | <1e+00:20 | 0 | 38 |
+| full | kernelJ | 6 | (5, 0, 0) | 2 | 2 | 1524x146 | grid | 20 | 1.54e-01 | 1.5e-01 | <1e+00:20 | 0 | 13 |
+| full | kernelJ | 6 | (5, 0, 3) | 2 | 2 | 1524x146 | grid | 20 | 1.45e-01 | 1.4e-01 | <1e+00:20 | 0 | 12 |
+| full | kernelJ | 6 | (5, 3, 0) | 2 | 2 | 1524x146 | grid | 20 | 1.41e-01 | 1.4e-01 | <1e+00:20 | 0 | 12 |
+| full | kernelJ | 6 | (5, 3, 3) | 2 | 2 | 1524x146 | grid | 20 | 1.33e-01 | 1.3e-01 | <1e+00:20 | 0 | 16 |
+| full | kernelJ | 7 | (0, 0, 0) | 31 | 30 | 2760x472 | lbfgs | 75 | 5.07e-04 | 2.8e-03 | <1e-02:75 | 0 | 1516 |
+| full | kernelJ | 7 | (0, 0, 3) | 21 | 21 | 2760x493 | lbfgs | 100 | 1.38e-03 | 2.7e-03 | <1e-02:99 <1e+00:1 | 0 | 2734 |
+| full | kernelJ | 7 | (0, 3, 0) | 31 | 30 | 2760x472 | lbfgs | 75 | 5.01e-04 | 2.8e-03 | <1e-02:75 | 0 | 1831 |
+| full | kernelJ | 7 | (0, 3, 3) | 21 | 21 | 2760x493 | lbfgs | 75 | 1.37e-03 | 1.9e-03 | <1e-02:75 | 0 | 1168 |
+| full | kernelJ | 7 | (1, 0, 0) | 4 | 4 | 2424x506 | lbfgs | 75 | 5.95e-02 | 6.0e-02 | <1e+00:75 | 0 | 396 |
+| full | kernelJ | 7 | (1, 0, 3) | 4 | 4 | 2424x506 | lbfgs | 75 | 3.82e-02 | 3.8e-02 | <1e+00:75 | 0 | 424 |
+| full | kernelJ | 7 | (1, 3, 0) | 2 | 2 | 2424x336 | grid | 20 | 6.86e-02 | 6.9e-02 | <1e+00:20 | 0 | 74 |
+| full | kernelJ | 7 | (1, 3, 3) | 2 | 2 | 2424x336 | grid | 20 | 5.19e-02 | 5.2e-02 | <1e+00:20 | 0 | 71 |
+| full | kernelJ | 7 | (4, 0, 0) | 6 | 6 | 2424x276 | lbfgs | 75 | 3.29e-02 | 3.3e-02 | <1e+00:75 | 0 | 184 |
+| full | kernelJ | 7 | (4, 0, 3) | 4 | 4 | 2424x295 | lbfgs | 75 | 8.48e-02 | 8.5e-02 | <1e+00:75 | 0 | 150 |
+| full | kernelJ | 7 | (4, 3, 0) | 6 | 6 | 2424x276 | lbfgs | 75 | 3.19e-02 | 3.2e-02 | <1e+00:75 | 0 | 133 |
+| full | kernelJ | 7 | (4, 3, 3) | 4 | 4 | 2424x295 | lbfgs | 75 | 7.83e-02 | 7.8e-02 | <1e+00:75 | 0 | 166 |
+| full | kernelJ | 7 | (5, 3, 0) | 4 | 4 | 2824x292 | lbfgs | 75 | 8.78e-02 | 1.0e-01 | <1e+00:75 | 0 | 171 |
+| full | kernelJ | 7 | (5, 3, 3) | 4 | 4 | 2824x292 | lbfgs | 75 | 8.17e-02 | 8.2e-02 | <1e+00:75 | 0 | 197 |
+| full | vars:X0,X1,Y0 | 7 | (5, 0, 0) | 10 | 10 | 2824x642 | lbfgs | 20 | 1.01e-03 | 1.1e-03 | <1e-02:20 | 0 | 1030 |
+| full | vars:X0,X1,Y0 | 7 | (5, 0, 3) | 6 | 6 | 2824x642 | lbfgs | 20 | 1.10e-02 | 1.9e-02 | <1e+00:20 | 0 | 715 |
+| koszul | kernelJ | 6 | (0, 0, 3) | 21 | 21 | 384x85 | lm | 50 | 7.67e-02 | 1.8e-01 | <1e+00:50 | 0 | 530 |
+| koszul | kernelJ | 6 | (0, 3, 0) | 2 | 2 | 376x56 | grid | 20 | 6.73e-01 | 6.7e-01 | <1e+00:20 | 0 | 12 |
+| koszul | kernelJ | 6 | (1, 0, 0) | 2 | 2 | 360x50 | grid | 20 | 9.54e-01 | 9.5e-01 | <1e+00:20 | 0 | 10 |
+| koszul | kernelJ | 6 | (1, 0, 3) | 2 | 2 | 360x50 | grid | 20 | 9.44e-01 | 9.4e-01 | <1e+00:20 | 0 | 10 |
+| koszul | kernelJ | 6 | (1, 3, 0) | 2 | 2 | 360x50 | grid | 20 | 9.53e-01 | 9.5e-01 | <1e+00:20 | 0 | 11 |
+| koszul | kernelJ | 6 | (1, 3, 3) | 2 | 2 | 360x50 | grid | 20 | 9.44e-01 | 9.4e-01 | <1e+00:20 | 0 | 11 |
+| koszul | kernelJ | 6 | (5, 0, 0) | 2 | 2 | 264x34 | grid | 20 | 9.95e-01 | 9.9e-01 | <1e+00:16 >=1:4 | 0 | 5 |
+| koszul | kernelJ | 6 | (5, 0, 3) | 2 | 2 | 264x34 | grid | 20 | 9.84e-01 | 9.8e-01 | <1e+00:20 | 0 | 5 |
+| koszul | kernelJ | 6 | (5, 3, 0) | 2 | 2 | 264x34 | grid | 20 | 9.94e-01 | 9.9e-01 | <1e+00:16 >=1:4 | 0 | 2 |
+| koszul | kernelJ | 6 | (5, 3, 3) | 2 | 2 | 264x34 | grid | 20 | 9.83e-01 | 9.8e-01 | <1e+00:20 | 0 | 3 |
+| koszul | vars:X0,X1,Y0,Y1 | 6 | (0, 0, 0) | 28 | 28 | 384x88 | lm | 50 | 3.69e-02 | 3.2e-01 | <1e+00:50 | 0 | 206 |
+| koszul | vars:X0,X1,Y0,Y1 | 6 | (0, 0, 3) | 21 | 21 | 384x85 | lm | 50 | 7.67e-02 | 1.8e-01 | <1e+00:50 | 0 | 237 |
+| koszul | vars:X0,X1,Y0,Y1 | 7 | (5, 0, 0) | 50 | 50 | 684x198 | lm | 25 | 3.74e-03 | 1.4e-02 | <1e-02:10 <1e+00:15 | 0 | 295 |
+| koszul | vars:X0,X1,Y0,Y1 | 7 | (5, 0, 3) | 50 | 50 | 684x198 | lm | 25 | 1.44e-03 | 1.6e-02 | <1e-02:12 <1e+00:13 | 0 | 270 |
+
+Control hit rates (positive control family-hesse-web, known witness):
+
+| instance | formulation | method | subgroup | K | dimP | system | restarts | hits (rel<1e-10) | exactly solved | hit rate |
 |---|---|---|---|---|---|---|---|---|---|---|
-| kernelJ | 5 | (0, 0, 0) | 1 | 1 | 888x64 | grid | 1 | 2.04e-01 | 0 | 0 |
-| kernelJ | 5 | (0, 3, 0) | 1 | 1 | 888x64 | grid | 1 | 1.87e-01 | 0 | 0 |
-| kernelJ | 5 | (1, 0, 0) | 2 | 2 | 1152x248 | grid | 20 | 7.05e-02 | 0 | 19 |
-| kernelJ | 5 | (1, 0, 3) | 2 | 2 | 1152x248 | grid | 20 | 5.29e-02 | 0 | 20 |
-| kernelJ | 6 | (0, 0, 0) | 30 | 29 | 1836x392 | lbfgs | 775 | 5.47e-04 | 0 | 11038 |
-| kernelJ | 6 | (0, 0, 3) | 21 | 21 | 1836x408 | lbfgs | 775 | 1.49e-03 | 0 | 7932 |
-| kernelJ | 6 | (0, 3, 0) | 2 | 2 | 1788x144 | grid | 20 | 1.17e-01 | 0 | 17 |
-| kernelJ | 6 | (1, 0, 0) | 2 | 2 | 1788x292 | grid | 20 | 6.93e-02 | 0 | 35 |
-| kernelJ | 6 | (1, 0, 3) | 2 | 2 | 1788x292 | grid | 20 | 5.23e-02 | 0 | 33 |
-| kernelJ | 6 | (1, 3, 0) | 2 | 2 | 1788x292 | grid | 20 | 6.90e-02 | 0 | 33 |
-| kernelJ | 6 | (1, 3, 3) | 2 | 2 | 1788x292 | grid | 20 | 5.21e-02 | 0 | 38 |
-| kernelJ | 6 | (5, 0, 0) | 2 | 2 | 1524x146 | grid | 20 | 1.54e-01 | 0 | 13 |
-| kernelJ | 6 | (5, 0, 3) | 2 | 2 | 1524x146 | grid | 20 | 1.45e-01 | 0 | 12 |
-| kernelJ | 6 | (5, 3, 0) | 2 | 2 | 1524x146 | grid | 20 | 1.41e-01 | 0 | 12 |
-| kernelJ | 6 | (5, 3, 3) | 2 | 2 | 1524x146 | grid | 20 | 1.33e-01 | 0 | 16 |
-| kernelJ | 7 | (0, 0, 0) | 31 | 30 | 2760x472 | lbfgs | 75 | 5.07e-04 | 0 | 1516 |
-| kernelJ | 7 | (0, 0, 3) | 21 | 21 | 2760x493 | lbfgs | 75 | 1.38e-03 | 0 | 1215 |
-| kernelJ | 7 | (0, 3, 0) | 31 | 30 | 2760x472 | lbfgs | 75 | 5.01e-04 | 0 | 1831 |
-| kernelJ | 7 | (0, 3, 3) | 21 | 21 | 2760x493 | lbfgs | 75 | 1.37e-03 | 0 | 1168 |
-| kernelJ | 7 | (1, 0, 0) | 4 | 4 | 2424x506 | lbfgs | 75 | 5.95e-02 | 0 | 396 |
-| kernelJ | 7 | (1, 0, 3) | 4 | 4 | 2424x506 | lbfgs | 75 | 3.82e-02 | 0 | 424 |
-| kernelJ | 7 | (1, 3, 0) | 2 | 2 | 2424x336 | grid | 20 | 6.86e-02 | 0 | 74 |
-| kernelJ | 7 | (1, 3, 3) | 2 | 2 | 2424x336 | grid | 20 | 5.19e-02 | 0 | 71 |
-| kernelJ | 7 | (4, 0, 0) | 6 | 6 | 2424x276 | lbfgs | 75 | 3.29e-02 | 0 | 184 |
-| kernelJ | 7 | (4, 0, 3) | 4 | 4 | 2424x295 | lbfgs | 75 | 8.48e-02 | 0 | 150 |
-| kernelJ | 7 | (4, 3, 0) | 6 | 6 | 2424x276 | lbfgs | 75 | 3.19e-02 | 0 | 133 |
-| kernelJ | 7 | (4, 3, 3) | 4 | 4 | 2424x295 | lbfgs | 75 | 7.83e-02 | 0 | 166 |
-| kernelJ | 7 | (5, 3, 0) | 4 | 4 | 2824x292 | lbfgs | 75 | 8.78e-02 | 0 | 171 |
-| kernelJ | 7 | (5, 3, 3) | 4 | 4 | 2824x292 | lbfgs | 75 | 8.17e-02 | 0 | 197 |
+| family-hesse-web | full | ? | None | 13 | 12 | 144x56 | 111 | 10 | 0 | 9.0% |
+| family-hesse-web | full | lbfgs | None | 13 | 12 | 144x56 | 169 | 7 | 0 | 4.1% |
+| family-hesse-web | full | lm | None | 13 | 12 | 144x56 | 162 | 8 | 8 | 4.9% |
 
 ## 3. Positive control (family-hesse-web, A = X0^3Y0^3, d = 6 witness) — pipeline validated
 Stabilizer of (A, D_witness): 864 elements; E1-admissible family in the witness sector: K = 13 (mod-p dim 13; J-part 6, F-multiples 1); restricted full system 144 x 56. Witness: projection residual 9e-16, rel residual 3.0e-29 (formulation exact). Witness sits at a rank drop of M(a) (rank 46 vs 48 generic) — but this is not a general signature (2 of 6 accepted witnesses tested show a drop). Basin: perturbations of angular size <= 0.3 polish back to the witness (6/6), 0.5: 2/6 — in dimP = 12 such a basin has measure ~1e-5 of the sphere for *uniform* sampling, yet the optimizers reach it from ~6% of Gaussian starts (the landscape funnels: along the straight line from a random point to the witness the residual decreases monotonically).

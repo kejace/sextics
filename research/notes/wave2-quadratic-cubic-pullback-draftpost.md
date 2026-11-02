@@ -26,7 +26,15 @@ Koszul syzygies).  All `H`-terms cancel identically and the certificate conditio
 unknowns gives a linear system whose kernel projects onto the `W`-coordinates; admissible `w` satisfy `w w^T in pi_W(ker)`.
 *Degree 5 (rigorous, exact integer nullspace):* `pi_W(ker) = 0` for the full 6-parameter family `w in C^6`
 (no parity assumption).  **No certificate with `deg D = 5` exists; hence `deg D >= 6` for every certificate.**
-*Degree 6:* [[result of the exact relaxation in the Y-even and Y-odd sectors; msolve candidate locus]].
+*Degree 6 (rigorous):* the certifiable part of the relaxation is the "Hessian" condition
+`A (w^T Hess(F) w) in J(F)_{12}` (because `L(c,w)` and `F Q` lie in `J(F)`); its kernel `K_H` is computed mod
+`p = 268435399` with the degree-12 Jacobian block at its Hilbert rank (2214 = odd, 2223 = even), so `dim K_H(Q) <= dim K_H(p)`.
+The mod-p bases have entries in `{0, +-1, +-2}`; their lifts are verified exactly to lie in `J(F)` (exact rational solve),
+so `K_H(Q)` is known exactly, and Singular over `Q` gives the locus `{w : w w^T in K_H}`:
+Y-odd sector (`dim K_H = 18`): only `w = 0`.  Y-even sector (`dim K_H = 36`): exactly the Euler line `w = lambda z`,
+i.e. `D = 6 lambda F`, not coprime to `F`.  [[mixed-parity sector: joint kernel of dimension ... ; locus ...]]
+**Hence no denominator of degree 6 with pure Y-parity exists[[, and none of mixed parity]]; every certificate has `deg D >= 7`[[pending mixed]].**
+*Degree 7:* [[K_H dims 1533 (even) / ... ; candidate locus mod p ...; exact lift not completed]].
 
 **3. Structured Jacobian-type denominators of degree 6-10 (certified fixed-D tests).**  [[table: block Euler fields
 E_X F (the deformation of the Fermat join E_X F_0/6 = X0^6+X1^6+X2^6, which serves 100 classes at the Fermat point),

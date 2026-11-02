@@ -2,6 +2,7 @@
 # Pipeline A: full-E2 Koszul varpro over every character sector, degrees 9..12, then second-seed passes.
 cd /tmp/hodge/results/quadric-contact-residual
 export PYTHONPATH=/home/kejace/devel/sextics-work
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
 export HODGE_W2LOG=/tmp/hodge/results/quadric-contact-residual/wave2-search.pipeA.log.jsonl
 run() { echo "=== $(date '+%F %T') $*"; python3 "$@" 2>&1 | grep -v 'hodge engine v2'; echo "=== exit $? $(date '+%F %T')"; }
 run w2_varpro.py --d 8  --chi all --restarts 300 --per-dim 10 --min-restarts 24 --procs 8 --seed 12000 --tag w2b --time-limit 1800

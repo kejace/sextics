@@ -88,7 +88,7 @@ def main():
     ap.add_argument('--sparse-frac', type=float, default=0.5)
     ap.add_argument('--time-limit', type=float, default=0, help='seconds; stop submitting new restarts after this')
     ap.add_argument('--cand-tol', type=float, default=1e-6)
-    ap.add_argument('--confirm-tol', type=float, default=1e-7)
+    ap.add_argument('--confirm-tol', type=float, default=1e-5)
     ap.add_argument('--defl-runs', type=int, default=10, help='sequential deflated LM runs per task (method defl)')
     ap.add_argument('--exclude-fmult', action='store_true', help='(not recommended) remove f*S_{d-6} from the family')
     ap.add_argument('--defl-perturb', type=float, default=0.0)

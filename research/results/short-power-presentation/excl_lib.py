@@ -502,3 +502,126 @@ def save_system(sysd, path):
         json.dump({'unknowns': [list(u) if u[0] == 'lam' else [u[0], u[1], list(u[2])] for u in sysd['unknowns']],
                    'eqs': [[[list(k), v] for k, v in eq.items()] for eq in sysd['eqs']],
                    'info': sysd['info']}, f)
+
+
+# --------------------------------------------------------------------------------------------
+# exact dependency certificates:  dim_Q (span{P_k} + J_e)/J_e  <=  #P - #verified dependencies
+# --------------------------------------------------------------------------------------------
+def _mpoly_ctx():
+    from flint import fmpq_mpoly_ctx, Ordering
+    return fmpq_mpoly_ctx.get(('X0', 'X1', 'X2', 'Y0', 'Y1', 'Y2'), Ordering.degrevlex)
+
+
+def _to_mpoly(P, ctx):
+    from flint import fmpq
+    return ctx.from_dict({e: fmpq(Fraction(v).numerator, Fraction(v).denominator) for e, v in P.items()})
+
+
+def exact_dependencies(F, polys, e, par, primes=None, max_primes=4, verbose=True):
+    """polys: exact rational homogeneous polys of degree e and parity par.  Finds, mod p, a basis of the space of
+    dependencies  sum_k c_k polys_k  in  J(F)_e  (c-part of the nullspace of [J gens | polys]), lifts each vector
+    (c, h) with sum_k c_k polys_k = sum_i h_i F_i to Q by CRT/rational reconstruction over several primes and verifies
+    the identity exactly with fmpq_mpoly.  Returns dict(n_polys, rank_modp (= dim of span mod J mod p), n_deps_verified,
+    dim_span_mod_J_exact_upper = n_polys - n_deps_verified, ...).  If every dependency verifies, dim_Q = rank_modp."""
+    primes = primes or PRIMES31
+    t0 = time.time()
+    K = len(polys)
+    mons = monomials(e, par); idx = {m: i for i, m in enumerate(mons)}
+    Fi = [pderiv(F, i) for i in range(NV)]
+    # generator bookkeeping (same order every prime)
+    gen_meta = []
+    for i in range(NV):
+        pi = 0 if i < 3 else 1
+        for m in monomials(e - 5, (par - pi) % 2):
+            gen_meta.append((i, m))
+    nG = len(gen_meta)
+    acc = []
+    piv0 = None
+    deps_vecs = None
+    for p in primes[:max_primes]:
+        Fp = reduce_mod(F, p)
+        gens = [shift(pderiv(Fp, i, p), m, 1, p) for (i, m) in gen_meta]
+        pp = [reduce_mod(P, p) for P in polys]
+        M = cols_matrix(gens + pp, idx, p)
+        X, nul = M.nullspace()
+        # restrict to vectors with nonzero c-part: rref of the c-part, then re-express
+        Xm = nmod_mat(nG + K, nul, [int(X[i, k]) for i in range(nG + K) for k in range(nul)], p)
+        C = nmod_mat(nul, K, [int(X[nG + k, j]) for j in range(nul) for k in range(K)], p)   # rows = nullvectors, cols = c-part
+        # choose rref of C to get independent c-parts, keeping track of the combination to rebuild the h-part
+        # simpler: rref the whole transposed nullspace with c-columns FIRST
+        T = nmod_mat(nul, K + nG, [int(X[nG + k, j]) for j in range(nul) for k in range(K)] and
+                     [ (int(X[nG + c, j]) if c < K else int(X[c - K, j])) for j in range(nul) for c in range(K + nG)], p)
+        Tr, r = T.rref()
+        rows = []
+        for i in range(r):
+            j = 0
+            while j < K + nG and int(Tr[i, j]) == 0:
+                j += 1
+            if j >= K:
+                break   # remaining rows have zero c-part (pure Koszul syzygies)
+            rows.append({c: int(Tr[i, c]) for c in range(K + nG) if int(Tr[i, c])})
+        ndep = len(rows)
+        piv = [min(rw) for rw in rows]
+        if piv0 is None:
+            piv0 = piv
+        elif piv != piv0:
+            if verbose:
+                print('[exact_dependencies] pivot structure differs between primes; restarting', flush=True)
+            acc = []; piv0 = piv
+        acc.append((p, rows))
+        if len(acc) < 2:
+            continue
+        # lift
+        lifted = []
+        ok = True
+        for i in range(ndep):
+            keys = set()
+            for p_, rws in acc:
+                keys |= set(rws[i])
+            vec = {}
+            for c in keys:
+                x, mod = 0, 1
+                for p_, rws in acc:
+                    x, mod = core.crt_pair(x, mod, rws[i].get(c, 0) % p_, p_)
+                v = core.ratrecon(x, mod)
+                if v is None:
+                    ok = False; break
+                if v:
+                    vec[c] = v
+            if not ok:
+                break
+            lifted.append(vec)
+        if not ok:
+            if verbose:
+                print(f'[exact_dependencies] lift failed with {len(acc)} primes; continuing', flush=True)
+            continue
+        # exact verification with fmpq_mpoly
+        ctx = _mpoly_ctx()
+        Fm = [_to_mpoly(f, ctx) for f in Fi]
+        Pm = [_to_mpoly(P, ctx) for P in polys]
+        Zm = {}
+        nver = 0
+        bad = 0
+        for vec in lifted:
+            lhs = ctx.from_dict({})
+            hpoly = [{} for _ in range(NV)]
+            for c, v in vec.items():
+                if c < K:
+                    lhs += _to_mpoly({(0,) * NV: v}, ctx) * Pm[c]
+                else:
+                    i, m = gen_meta[c - K]
+                    hpoly[i][m] = hpoly[i].get(m, 0) + v
+            for i in range(NV):
+                if hpoly[i]:
+                    lhs += _to_mpoly(hpoly[i], ctx) * Fm[i]
+            if lhs == ctx.from_dict({}):
+                nver += 1
+            else:
+                bad += 1
+        out = {'n_polys': K, 'n_gens': nG, 'rank_modp_span_mod_J': K - ndep, 'n_deps_modp': ndep, 'n_deps_verified': nver,
+               'n_deps_failed': bad, 'primes': [p_ for p_, _ in acc], 'dim_span_mod_J_exact_upper': K - nver,
+               'exact_equals_modp': (nver == ndep), 'seconds': round(time.time() - t0, 1)}
+        if verbose:
+            print('[exact_dependencies]', json.dumps(out), flush=True)
+        return out
+    return {'n_polys': K, 'lift_failed': True, 'seconds': round(time.time() - t0, 1)}

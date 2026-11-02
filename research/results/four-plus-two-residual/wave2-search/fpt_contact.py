@@ -9,7 +9,8 @@ os.environ['OPENBLAS_NUM_THREADS'] = '2'
 sys.path.insert(0, '/tmp/hodge/results/four-plus-two-residual/wave2-search')
 from fptlib import *
 import numpy as np
-p = int(sys.argv[1]) if len(sys.argv) > 1 else 1019
+PRIMES_ARG = [int(x) for x in sys.argv[1].split(',')] if len(sys.argv) > 1 else [1019]
+p = PRIMES_ARG[0]
 assert p % 4 == 3
 OUT = f'{LANE}/wave2-search/contact-p{p}.jsonl'
 inst = Instance()
@@ -83,13 +84,27 @@ def binpoly(coeffs, vi, vj, deg):
             P[tuple(e)] = c % p
     return P
 
-fco = [1, 5 * inv7, 0, 0, 0, 10 * inv7, 1]
-gco = [1, 5 * inv7, 0, 0, 0, 15 * inv7, 1]
-t0 = time.time()
-Pf = presentations(fco); print(f'f: {len(Pf)} F_p-rational presentations ({time.time()-t0:.0f}s)', flush=True)
-t0 = time.time()
-Pg = presentations(gco); print(f'g: {len(Pg)} F_p-rational presentations ({time.time()-t0:.0f}s)', flush=True)
-log_line(OUT, {'kind': 'contact-presentations', 'p': p, 'n_f': len(Pf), 'n_g': len(Pg), 'f': Pf[:60], 'g': Pg[:60]})
+def setup_prime(pp):
+    global p, inv7, inv2, sq, ar, Fp, Ap, OUT
+    p = pp; inv7 = pow(7, -1, p); inv2 = pow(2, -1, p)
+    ar = np.arange(p, dtype=np.int64)
+    cand = np.array([pow(int(a), (p + 1) // 4, p) for a in range(p)], dtype=np.int64)
+    sq = np.full(p, -1, dtype=np.int64); ok = (cand * cand) % p == ar; sq[ok] = cand[ok]
+    Fp = reduce_mod(F, p); Ap = reduce_mod(A, p)
+    OUT = f'{LANE}/wave2-search/contact-p{p}.jsonl'
+found = None
+for pp in PRIMES_ARG:
+    assert pp % 4 == 3
+    setup_prime(pp)
+    fco = [1, 5 * inv7, 0, 0, 0, 10 * inv7, 1]
+    gco = [1, 5 * inv7, 0, 0, 0, 15 * inv7, 1]
+    t0 = time.time(); Pf = presentations(fco); t1 = time.time(); Pg = presentations(gco)
+    print(f'p={p}: f has {len(Pf)}, g has {len(Pg)} F_p-rational contact presentations ({t1-t0:.0f}s + {time.time()-t1:.0f}s)', flush=True)
+    log_line(OUT, {'kind': 'contact-presentations', 'p': p, 'n_f': len(Pf), 'n_g': len(Pg), 'f': Pf[:60], 'g': Pg[:60]})
+    if Pf and Pg:
+        found = pp; break
+if not found:
+    print('no prime in the list has presentations for both f and g; testing single-block candidates where available', flush=True)
 # verify a presentation
 def check(pres, co, vi, vj):
     c0, c1, c2, r0, r1, r2, r3 = pres

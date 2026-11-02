@@ -1,11 +1,18 @@
 # Wave 2 — `one-reflection-skew` joint search (report rewritten after every batch)
 
-STATUS: NO WITNESS FOUND (searches running on the remote; the shared box is saturated by ~65 other jobs,
-load ~520 on 128 cores, so one 4-CPU chain was forced through the capacity gate and three 8-CPU chains are
-queued behind it). Pipeline validated end-to-end on an accepted witness (family-hesse-web): exact 6→5
-reduction, operator (rel 2.6e-15 at the known D), LM variable projection finds the known D from random
-starts (4/8 restarts, full E1-kernel family), snap-to-rational + exact confirm recovers exactly the accepted
-denominator and verifies the 6-variable lift (`core.verify_witness`).
+STATUS: NO WITNESS FOUND (so far). Searches are running on the remote under extreme contention (box load
+900–1300 from ~60 other jobs; capacity gate at load 150 never opened, so one 4-process chain was forced
+through and a second one followed; two more chains remain queued). Pipeline validated end-to-end on an accepted
+witness (family-hesse-web): exact 6→5 reduction, operator (rel 2.6e-15 at the known D), LM variable projection
+finds the known D from random starts (≈15–50 % of restarts at K = 32), snap-to-rational + exact confirm
+recovers exactly the accepted denominator and verifies the 6-variable lift (`core.verify_witness`).
+
+Summary of results so far (details below): (1) exact E1-admissible dimensions for all four (ρ,σ) sectors at
+d = 4..12 (table §1; non-Jacobian directions first appear at d = 7); (2) the Jacobian-type degrees d = 5, 6
+(6-variable denominators (w·∇f)² of degree 10/12) are excluded numerically in every sector (global minima of
+the variable-projection objective ≥ 6.5e-2 over tiny families, found 70–124 times out of 160 restarts);
+(3) degree-6/7 coordinate-cone families are empty or without zeros; (4) kernel-family searches at d = 7–12,
+structured candidates at d = 6–12, the half-target A⁺ and the solved-neighbour control are in progress.
 
 ## 0. Setting (exact reduction used throughout)
 
@@ -21,6 +28,15 @@ and then `(D², (N_i D)_{i<5}, Y2 (D div N − N(D))/5, Q = 0)` is a strict 6-va
 Verified on `family-hesse-web` (accepted degree-6 witness, same target): the reduced field satisfies (*)
 exactly, the float operator gives relative residual `3.7e-15` at it, `exact_confirm` recovers and
 verifies the 6-variable certificate.
+
+Cross-reference: the exclusion lens of this lane (`wave2-one-reflection-skew-excl.md`, same lane directory,
+log `wave2-excl.log.jsonl`) independently proved the *strict* Y2-free form (fringewidth's statement): for Y2-free
+`D` a certificate exists iff some Y2-free `N'` of degree `d+1` has `N'(f) = A D` and `D div N' − N'(D) = 0`. The two
+forms are equivalent: given `N` solving (*), `g := (N(f) − AD)/f` is a polynomial and `N' = N − (g/6)E'` (`E'` the
+5-variable Euler field) satisfies the strict system (`E'(g) = d·g`), and conversely strict solutions solve (*). Their
+exact degree-7 count `(J_f : A)_7 = 84 = 75 + 9` over all sectors matches the sector table below (28+19+18+19 = 84,
+non-Jacobian 7+1+0+1 = 9). Their rigorous degree-7 Gröbner/msolve exclusion work is complementary to the numerical
+joint search here.
 
 Two structural facts used in the search design (both one-line checks from (*)): (i) `(fG, fW)` solves (*) iff
 `(G, W)` does, so `f`-multiples are never spurious; (ii) more generally `(qD, qN)` solves (*) for every polynomial
@@ -64,7 +80,7 @@ at high degree (at d = 12 only 3 conditions remain in the main sector).
 | d | sector | target | kernel dim | primes used | max height (bits) | seconds |
 |---|---|---|---|---|---|---|
 | 6 | (0,0) | A | 7 | 3 | 6 | 0.7 |
-| 7 | (0,0) | A | 28 | 13 | 181 | 5.5 |
+| 7 | (0,0) | A | 28 | 13 | 181 | 7.1 |
 | 7 | (0,0) | Aplus | 21 | 3 | 13 | 5.4 |
 | 7 | (0,1) | A | 19 | 3 | 17 | 1.2 |
 | 7 | (0,1) | Aplus | 19 | 3 | 17 | 5.3 |
@@ -77,6 +93,11 @@ at high degree (at d = 12 only 3 conditions remain in the main sector).
 | 8 | (1,0) | A | 67 | 28 | 415 | 25.1 |
 | 8 | (1,1) | A | 76 | 52 | 680 | 47.1 |
 | 9 | (0,0) | A | 161 | 79 | 1137 | 150.6 |
+| 9 | (0,0) | Aplus | 141 | 42 | 525 | 332.8 |
+| 9 | (0,1) | A | 146 | 79 | 1132 | 74.7 |
+| 9 | (0,1) | Aplus | 126 | 28 | 407 | 128.1 |
+| 9 | (1,0) | A | 141 | 79 | 997 | 78.9 |
+| 9 | (1,1) | A | 146 | 79 | 1130 | 99.9 |
 <!-- /AUTO-KERNELS -->
 
 Symmetry breaking measured on the E1 kernel (sector (0,0), 5 variables, mod p): the undeformed
@@ -96,10 +117,18 @@ and why a fixed-D test of a *numerically* admissible D can be misleading (E1 mus
   wrong**: it removes solutions `D0 + F·G` that are not divisible by F. Recorded in
   `/tmp/hodge/notes/engine-bugs.md`; the lane driver now searches the full kernel (in the strict
   5-variable problem there are no spurious solutions: `(fG, fW)` solves iff `(G, W)` does).
+* Sector bookkeeping check (all four `(ρ,σ)` sectors at d = 7, random 12-term `D`): the fixed-D operator reproduces
+  the trivially served Jacobian targets `Z_j f_i` exactly (residual ≤ 9e-17 for the explicit solution
+  `N = D·Y0·e_X0` of target `Y0 f_X0`), and the served-target analysis returns exactly the 6-dimensional
+  Jacobian part with nothing beyond it (`served_mod_J = 0`), as expected for a random `D`.
 * With the full kernel (K = 32): **4/8 LM restarts converge to the needle** (rel 2e-13 … 6e-8,
   |cos(u,u*)| = 1.0000); the other restarts end at the usual local minima. So random-restart LM has a
-  ~50% per-restart hit rate on a 32-dimensional family with an 8-term solution. Hit rates at larger K
-  are measured by `calib-hesse-d6` (400 restarts, LM vs L-BFGS) and `calib-xtype-d6` on the remote.
+  ~50% per-restart hit rate on a 32-dimensional family with an 8-term solution in that small local sample.
+  Remote calibration `calib-hesse-d6` (same family, LM vs L-BFGS alternating; partial, 54 restarts): LM 4/28
+  below 1e-8 (95 % Wilson 0.06–0.31), 5/28 below 1e-6; L-BFGS 1/26 below 1e-8 (0.01–0.19), 5/26 below 1e-6;
+  LM is ~2.3× faster per restart (11 s vs 26 s under load). Every hit snapped to the accepted 8-term D
+  (τ = 1e-4 … 1e-2) and was confirmed exactly. Working estimate: ≈ 0.15–0.2 per LM restart at K = 32, so
+  N = 100 restarts miss a comparable needle with probability ≈ 1e-7 … 1e-9.
 
 ## 3. Search batches (filled from the log; remote chain `w2-chain1b`, 4 processes, box load ~900–1100)
 
@@ -120,6 +149,12 @@ never excluded before): full-E2 variable projection over the complete `w`-space,
 No zero anywhere (a solution shows rel ≤ 1e-10 in the calibration). A "Hessian relaxation" was unnecessary:
 the full E2 system over these tiny `w`-spaces is solved directly by the variable projection.
 
+Cost model (one unloaded core, LM with full Golub–Pereyra Jacobian, ≤150 evaluations per restart): d = 6:
+~5 s/restart (system 1815×410); d = 7: 19 s (2640×615, 0.22 s per evaluation, K = 28); d = 8: ~1 min (3740×900);
+d = 10 ≈ 5 min; d = 12 ≈ 20 min (11594×2975). On the shared remote (load 900–1300 during this run) wall times
+were 2–4× longer. Calibration hit rate at K = 32 (family-hesse-web needle): LM ≈ 15–50 % per restart,
+L-BFGS ≈ 5–10 % (final numbers in the table).
+
 ### Full table of searches (auto-generated from `wave2-search.log.jsonl`)
 
 <!-- AUTO-SEARCH -->
@@ -135,8 +170,9 @@ the full E2 system over these tiny `w`-spaces is solved directly by the variable
 | jac-d6-r0s1 | one-reflection-skew | 6 | (0,1) | jacobian | A | 6 | ?×? | both | 160 | 3.08e-01 | 3.62e-01 | 0 / 0 / 0 | 178.7 s |
 | jac-d6-r1s0 | one-reflection-skew | 6 | (1,0) | jacobian | A | 6 | ?×? | both | 160 | 2.93e-01 | 3.85e-01 | 0 / 0 / 0 | 191.7 s |
 | jac-d6-r1s1 | one-reflection-skew | 6 | (1,1) | jacobian | A | 6 | ?×? | both | 160 | 3.09e-01 | 3.17e-01 | 0 / 0 / 0 | 212.8 s |
-| cone-X0X1Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X0,X1,Y0,Y1 | A | 6 | ?×? | lm | 80 (running) | 1.04e-01 | 1.49e-01 | 0 / 0 / 0 | 470.3 s |
-| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 32 (running) | 4.83e-13 | 1.13e-02 | 3 / 2 / 0 | 448.5 s |
+| cone-X0X1Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X0,X1,Y0,Y1 | A | 6 | ?×? | lm | 120 | 1.04e-01 | 1.49e-01 | 0 / 0 / 0 | 667.6 s |
+| cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 48 (running) | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 480.9 s |
+| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 64 (running) | 4.83e-13 | 1.17e-02 | 4 / 5 / 1 | 1038.2 s |
 | cone-X0X1X2-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
@@ -149,7 +185,7 @@ the full E2 system over these tiny `w`-spaces is solved directly by the variable
 | cone-X1Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X1,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 
-Total restarts on the skew lane so far: 1600.
+Total restarts on the skew lane so far: 1688.
 <!-- /AUTO-SEARCH -->
 
 Kernel families (task 3) at d = 7 … 12 and the half-target/cone/structured runs: queued in the chains; the
@@ -159,6 +195,17 @@ SVD kernel is unreliable here: the skew term is a 1/7-perturbation of `one-refle
 directions of the undeformed sextic survive as near-kernel directions with singular values 1e-7 … 1e-15
 (the float basis in the main sector at d = 7 was off by 1.3e-5; in sector (0,1) the 19-dimensional kernel
 was not even separable from 4 spurious directions).
+
+### How to read the numbers
+
+`rel = ‖M(D)x − b(D)‖/‖b(D)‖` is the exact least-squares residual of the fixed-D system (SVD) at the end of a
+restart; a genuine solution gives `rel ≲ 1e-10` (calibration: 1e-13 … 1e-8 before polishing). Values of
+order 1e-2 … 1e-1 are ordinary local minima of the variable-projection landscape (there are many; e.g. the
+degree-6 Jacobian family has ≥ 10 distinct minima, the lowest `0.065` being reached by 70/160 restarts). The
+searches are heuristic: a zero that exists can be missed, but the calibration bounds the miss probability
+per restart (≈ 0.5–0.85 at K = 32), so N independent restarts miss a comparable needle with probability
+≈ 0.85^N (N = 100 ⇒ 1e-7). No statement here is a proof of nonexistence; exact exclusions are the business of
+the exclusion lane.
 
 ## 4. Structured families (task 4)
 
@@ -176,6 +223,9 @@ was not even separable from 4 spurious directions).
 No structured candidate serves any target beyond the trivially served Jacobian part.
 <!-- /AUTO-STRUCT -->
 
+* Note on provenance: the lane directory is shared with the exclusion lens of this lane; a run of my `w2_struct.py`
+  with default arguments (job `w2-struct`, 4386 candidates, d = 6..12) was started on the remote at 01:11 UTC that is
+  not one of my chain invocations — its records (same schema, same code) are included in the tables below.
 * Fixed-D structured candidates (`w2_struct.py`): companion pieces of the accepted `one-reflection`
   certificate (`f_c`, `h`, `δ`, skew-twisted variants and products), the homogenised binary-cubic covariants
   of `P(U) = G0 U³ + cp U² + skew U + Y6` (degree 12), 3×3 Hessian minors (degree 12), 2×2 minors × invariants,

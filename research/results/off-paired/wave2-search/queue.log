@@ -5,3 +5,6 @@
 20:18:04 submit call timed out (ssh hang); verifying via pid file
 20:18:25 servedscan confirmed submitted
 20:18:59 submitting d8c00b (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-servedscan']
+20:28:59 submit call timed out (ssh hang); verifying via pid file
+20:29:20 d8c00b confirmed submitted
+20:29:54 submitting d8h0b (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-servedscan']

@@ -1,6 +1,6 @@
 # Wave 2 — lane `quadratic-cubic-pullback` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness.  BEST RIGOROUS BOUND SO FAR: every certificate for (F,1,X0^3Y0^3) has deg D >= 6 (K_d = 0 for d<=4 and K_5 = J_5 [wave-1 prime, re-verified at a second prime], and the complete degree-5 polar family D = w.grad F, w in C^6 (no parity assumption), is excluded by the exact relaxation: pi_W(ker) = 0 over Z).  Remote jobs queued.
+STATUS: in progress — no witness.  RIGOROUS (exact, Hilbert-certified): every certificate has deg D >= 6; no Y-pure (even or odd) denominator of degree 6 exists [E1 kernel K_6 = J_6 at two primes + exact Hessian relaxation + Singular over Q]; mixed-parity degree 6 and degree 7 in progress.  Remote jobs still queued (remote saturated).
 
 Started 2026-11-01 (wave 2).  Log: `/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl.log.jsonl`.
 Packet: `/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/`.
@@ -94,3 +94,33 @@ Degree 6 (p = 268435399, rank J_12^odd = 2214 = Hilbert, J_12^even = 2223 = Hilb
 | cross (mixed parity) | 36 | 324 | 126 | coefficients +-1 |
 Full relaxation (T3, mod 4 primes): pi_W(ker) has dim 19 (even) / 18 (odd); the odd one coincides with K_H.
 msolve note: msolve silently miscomputes for primes near 2^31 ("Prime ... too large" on small inputs); use p < 2^28.
+
+### Result R2 (rigorous, exact): no Y-pure denominator of degree 6
+Every degree-6 admissible D is a polar D = w.grad F (K_6 = J_6, both parities, primes 2147483629 and 2147483587,
+Jacobian blocks at Hilbert rank).  Hessian relaxation (T4) at p = 268435399 (J_12^odd rank 2214 = Hilbert):
+* Y-odd sector: dim K_H = 18 (upper bound); the 18 symmetric-lifted basis vectors (entries in {0,+-1}) are verified
+  EXACTLY to satisfy A sum W_ab m_a m_b F_ab in J_12 (exact rational solve on a 2214x2214 pivot system + full check),
+  so K_H(Q) is exactly their span; the exact annihilator (153 quadrics) has, by Singular over Q (std + minAssGTZ),
+  the single zero-dimensional component {w = 0}.  => no Y-odd polar denominator of degree 6.
+* Y-even sector: dim K_H = 36 (upper bound, same at p = 2147483629); all 36 lifted vectors (entries in {0,+-1,+-2})
+  verified exactly; the exact annihilator (135 quadrics) defines, by Singular over Q, exactly ONE component of
+  dimension 1: the Euler line w2 = w4 = w6 = w11 = w13 = w15 (the six coordinates z_i e_i), all other coordinates 0,
+  i.e. w = lambda z, D = 6 lambda F, which is not coprime to F.  => no Y-even polar denominator of degree 6 coprime to F.
+Scripts: wave2_excl_hess.py (modular, certified upper bound), wave2_excl_hess_exact.py (exact lift + Singular);
+receipts: wave2-excl.hessL6.jsonl, wave2-excl.hessX6.jsonl, KH files wave2-excl-hess-hessL6-d6-par*-KH.json,
+Singular scripts wave2-excl-hess-exact-hessX6-d6-par*.sing.
+Caveat found and fixed: msolve parses `w*w` as `w` (and rejects primes near 2^31); every msolve-based count in this
+lens was discarded and redone with Singular over Q.
+
+### T5. Clean form of the Hessian condition, and the exact rigor logic
+For a polar denominator D = d_w F (d_w = w.grad the derivation along the polynomial vector field w), E2 implies
+      A . d_w D = A . d_w^2 F  in  J(F)   (degree 2 deg D).
+(Proof: Phi(w) = D(grad A.w + A div w) - A w.grad D with D in J, and w.grad D = sum_k (w.grad w_k) F_k + d_w^2 F.)
+Rigor of the modular computation: a rational w with A d_w^2 F in J(F) reduces to a solution mod p whenever the Jacobian
+block has its Hilbert rank mod p (p-integral Cramer solution), so dim K_H(Q) <= dim K_H(p); the exact lift of the
+mod-p basis (verified by an exact solve) then pins K_H(Q) and the candidate cone {w : w w^T in K_H(Q)} exactly; Singular
+over Q decides the cone.  A Singular computation over F_p alone (no exact lift) is screening: V(F_p-bar) = empty does
+not prove V(Q-bar) = empty (finitely many bad primes).
+Trivial/fake directions: u = z/6 gives D = F (not coprime), and u (.) w2 is in K_H for every w2 (polarization identity,
+verified exactly); the Y-odd d=6 kernel consists of the 18 antisymmetric "minor" directions e_(i,Y_a) (.) e_(j,Y_b)
+- e_(i,Y_b) (.) e_(j,Y_a) (and X-analogues), which have no diagonal part, forcing w = 0.

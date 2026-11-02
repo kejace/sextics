@@ -39,7 +39,7 @@ aw, prj = svp.coords_of(Dw)
 relw = svp.rel(aw)
 print(f'[control] witness projection residual {prj:.2e}; rel residual at witness {relw:.3e}; spurious? {svp.is_spurious(aw)}', flush=True)
 log_line(OUT, {'kind': 'control', 'instance': iid, 'd': d, 'sector': list(lab)[:6], 'K': fam['K'], 'dimP': svp.dimP, 'rows': svp.rows, 'cols': svp.ncols,
-               'nN': svp.nN, 'nQ': svp.nQ, 'full_nN': svp.full_nN, 'full_nQ': svp.full_nQ, 'witness_proj_res': prj, 'witness_rel': relw, 'method': METHOD, 'maxiter': MAXIT, 'subgroup_size': len(inst.Gsub.elements), 'ngen': NGEN, 'formulation': FORM,
+               'nN': svp.nN, 'nQ': svp.nQ, 'full_nN': getattr(svp, 'full_nN', None), 'full_nQ': getattr(svp, 'full_nQ', None), 'nC': getattr(svp, 'nC', None), 'witness_proj_res': prj, 'witness_rel': relw, 'method': METHOD, 'maxiter': MAXIT, 'subgroup_size': len(inst.Gsub.elements), 'ngen': NGEN, 'formulation': FORM,
                'modp_dim': dm['dim'], 'engine': ENGINE})
 
 def work(seed):

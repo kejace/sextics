@@ -23,18 +23,21 @@ def sector_kernel(Fi, Ap, kA, kD, Dmons, gens, p, mb, d, degE, red18):
     R = red18[kAD]
     std = R.standard; sidx = {m: i for i, m in enumerate(std)}
     K = len(Dmons); Cn = len(std)
+    imgs = []
     if Cn == 0:
         kervecs = [{m: 1} for m in Dmons]
     else:
         flat = [0] * (Cn * K)
         for j, m in enumerate(Dmons):
             nf = R.normal_form(shift(Ap, m, 1))
+            imgs.append(nf)
             for e, v in nf.items():
                 flat[sidx[e] * K + j] = v
         M = nmod_mat(Cn, K, flat, p)
         X, nullity = M.nullspace()
         kervecs = [{Dmons[j]: int(X[j, c]) for j in range(K) if int(X[j, c])} for c in range(nullity)]
     Rd = SectorReducer(Fi, d, kD, gens, p, mb[d], mb[max(d - 5, 0)] if d >= 5 else {})
+    sector_kernel.last_imgs = (imgs if Cn else None, std)
     return kervecs, Rd, kAD
 
 def solve_E1(Fi, AD, kAD, gens, p, mb, degE):
@@ -92,7 +95,7 @@ def singular_dim(polys, nvars, p, tag):
     return (int(m.group(1)) if m else None), (int(v.group(1)) if v else None), r.stdout[-400:]
 
 def analyze_sector(args):
-    (kD, Dmons, d, p, do_farkas, nrandom) = args
+    (kD, Dmons, d, p, do_farkas, nrandom, do_cones) = args[:7] if len(args) >= 7 else (args + (False,))
     t0 = time.time()
     F, A, q, G = w2lib.load()
     gens = G.generators
@@ -109,6 +112,27 @@ def analyze_sector(args):
     kervecs, Rd, kAD = sector_kernel(Fi, Ap, kA, kD, Dmons, gens, p, mb, d, degE, red18)
     dimK = len(kervecs); dimJ = Rd.rank
     rec = {'exp': f'sector-d{d}', 'd': d, 'prime': p, 'sector': list(kD), 'dimS': len(Dmons), 'dimK': dimK, 'dimJ': dimJ, 'complement': dimK - dimJ}
+    if do_cones and dimK:
+        import itertools as _it
+        imgs, std = sector_kernel.last_imgs
+        cones = {}
+        for sz in (3, 4):
+            for sub in _it.combinations(range(6), sz):
+                idx = [i for i, m in enumerate(Dmons) if all(m[t] == 0 for t in range(6) if t not in sub)]
+                if not idx: continue
+                if imgs is None:
+                    kd = len(idx); vecs = [{Dmons[i]: 1} for i in idx]
+                else:
+                    sidx = {m: i for i, m in enumerate(std)}
+                    flat = [0] * (len(std) * len(idx))
+                    for jj, i in enumerate(idx):
+                        for e, v in imgs[i].items(): flat[sidx[e] * len(idx) + jj] = v
+                    X, kd = nmod_mat(len(std), len(idx), flat, p).nullspace()
+                    vecs = [{Dmons[idx[j]]: int(X[j, c]) for j in range(len(idx)) if int(X[j, c])} for c in range(kd)]
+                if kd:
+                    nj = sum(1 for v in vecs if Rd.normal_form(v) == {})
+                    cones[''.join('XYZ'[0] if False else ['X0','X1','X2','Y0','Y1','Y2'][t] for t in sub)] = [kd, nj]
+        rec['cone_kernels'] = cones   # subset -> [dim E1-kernel within forms supported on the subset, number of basis vectors in J]
     os.makedirs(f'{w2lib.PACKET}/sectors', exist_ok=True)
     tag = f'd{d}_p{p}_k' + ''.join(map(str, kD))
     elems = []
@@ -131,6 +155,7 @@ def analyze_sector(args):
     # full E1+E2 tests of complement reps (+ random points)
     tests = []
     for i, Dc in enumerate(comp):
+        if os.environ.get('W2_NO_ELEMENTS'): break
         tests.append((f'{tag}_c{i}', Dc, 'complement-basis'))
     rng = random.Random(hash(kD) & 0xffff)
     if dimK >= 2:
@@ -158,8 +183,8 @@ def analyze_sector(args):
             e = {'exp': f'sector-d{d}-element', 'd': d, 'sector': list(kD), 'tag': name, 'result': 'ERROR ' + repr(ex)[:300], 'seconds': round(time.time() - t1, 1)}
         e['job'] = os.environ.get('W2JOB', 'sectors')
         w2lib.log(**e); elems.append(e)
-    # Hessian relaxation on the sector family (all of K_kappa)
-    if dimK >= 2:
+    # Hessian relaxation on the sector family (all of K_kappa); vacuous for 2d+6 > 24 (R_{2d+6} = 0)
+    if dimK >= 2 and 2 * d + 6 <= 24 and not os.environ.get('W2_NO_RELAX'):
         Ns = []
         for v in kervecs:
             AD = reduce_mod(mul(Ap, v, p), p)
@@ -197,7 +222,8 @@ def analyze_sector(args):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(); ap.add_argument('--deg', type=int, required=True); ap.add_argument('--prime', type=int, default=w2lib.P1)
     ap.add_argument('--max-sectors', type=int, default=0); ap.add_argument('--no-farkas', action='store_true'); ap.add_argument('--random', type=int, default=2)
-    ap.add_argument('--workers', type=int, default=8); ap.add_argument('--only-nonJ', action='store_true')
+    ap.add_argument('--workers', type=int, default=8); ap.add_argument('--only-nonJ', action='store_true'); ap.add_argument('--cones', action='store_true')
+    ap.add_argument('--no-relax', action='store_true')
     a = ap.parse_args()
     F, A, q, G = w2lib.load(); gens = G.generators; d = a.deg; p = a.prime
     byk = {}
@@ -220,7 +246,7 @@ if __name__ == '__main__':
     from concurrent.futures import ProcessPoolExecutor, as_completed
     allrec = []
     with ProcessPoolExecutor(max_workers=a.workers) as ex:
-        futs = [ex.submit(analyze_sector, (kD, Dmons, d, p, not a.no_farkas, a.random)) for kD, Dmons in sectors]
+        futs = [ex.submit(analyze_sector, (kD, Dmons, d, p, not a.no_farkas, a.random, a.cones)) for kD, Dmons in sectors]
         for f in as_completed(futs):
             try:
                 rec, elems = f.result()

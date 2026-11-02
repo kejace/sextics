@@ -2,6 +2,7 @@
 # Pipeline B: character-MIXED families (never searched before): Hessian relaxation + full-E2 Koszul varpro.
 cd /tmp/hodge/results/quadric-contact-residual
 export PYTHONPATH=/home/kejace/devel/sextics-work
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
 export HODGE_W2LOG=/tmp/hodge/results/quadric-contact-residual/wave2-search.pipeB.log.jsonl
 run() { echo "=== $(date '+%F %T') $*"; python3 "$@" 2>&1 | grep -v 'hodge engine v2'; echo "=== exit $? $(date '+%F %T')"; }
 run w2_hess.py   --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e

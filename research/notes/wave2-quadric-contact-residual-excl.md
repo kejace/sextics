@@ -1,61 +1,89 @@
 # Wave 2 — quadric-contact-residual — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness; rigorous bound: deg D >= 7 (fqlx; d<=6 independently replayed at P2). NEW at d=7: every subfamily with two of the three involution characters (sigma0, sigma2, tau_Y) fixed is excluded (12 subfamilies, msolve -g 1, m-primary). Full mixing at d=7 is beyond Groebner reach (Froeberg regularity >= 5 for 950 quadrics in 120 unknowns).
+STATUS: no witness. Best rigorous bound: every certificate denominator has deg D >= 7 (fqlx; d <= 6 independently replayed here at
+two new primes). NEW rigorous exclusions inside degrees 7, 8, 9 (items 3-5, 7-8, 12 below) and a structured-support theorem (item 9).
+Full mixing of all G_aff sectors at degree 7 is provably out of reach of the mod-J (Hessian) relaxation by Groebner methods (item 5).
+Remote jobs still running at the time of writing: excl-sub7 (degree-7 single-involution subfamilies, 60 unknowns), excl-d8large
+(the 4 large degree-8 sectors), excl-misc (engine cross-check, served spaces of the degree-6/8 blocks, degree-10 extras screen);
+their results append to /tmp/hodge/results/quadric-contact-residual/wave2-excl/excl-{sub7,d8large,misc}.log.jsonl on the remote
+(merge with wave2-excl/merge_remote_logs.py).
 
-Lane: q = 1, A = X0^3 Y0^3, F = quadric-contact sextic (see dossier).  New prime P2 = 2147483629 (wave 1: 2147483647; dossier: 1000000009; Singular: 32003).
-Code: /tmp/hodge/results/quadric-contact-residual/wave2-excl/{w2lib.py, family.py, reverify.py, fixedD_batch.py, d7mixed.py, msverdict.py}
-Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (+ per-job logs wave2-excl/excl-*.log.jsonl merged after pull)
+Lane: q = 1, A = X0^3 Y0^3. Primes: P2 = 2147483629 (main), 1000000007 (confirmation); wave 1 used 2147483647, the dossier
+1000000009, Singular 32003.  Code + receipts: /tmp/hodge/results/quadric-contact-residual/wave2-excl/ (README.md there).
+Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (one JSON line per experiment, prime recorded).
 
 ## Rigor conventions
 * A modular rank is a lower bound for the rational rank; "independent columns force zero" transfers to Q and C.
-* "Only the origin" for a homogeneous quadric ideal computed mod p (Singular dim 0 / msolve leading ideal m-primary) transfers
-  to Q-bar by properness of Proj(Z[c]/I) -> Spec Z (empty special fibre => empty generic fibre), PROVIDED the mod-p system is the
-  reduction of the rational one.  For the Hessian relaxation this holds because dim J_m mod p equals the rational Hilbert
-  function (checked in every run: the Jacobian ideal of F mod p is still a complete intersection with the same Hilbert series),
-  so the annihilator lattice of J_m reduces correctly.
+* "Only the origin" for a homogeneous quadric ideal computed mod p (msolve -g 1 leading ideal containing a pure power of every
+  variable, or Singular dim 0) transfers to Q-bar by properness of Proj(Z[c]/I) -> Spec Z (empty special fibre => empty generic
+  fibre), PROVIDED the mod-p system is the reduction of the rational one.  For the Hessian relaxation this holds because dim J_m
+  mod p equals the rational Hilbert function of the Jacobian ring (checked in every run), so the annihilator lattice of J_m reduces
+  correctly and the mod-p quadrics are reductions of integral quadrics.
 * Hessian relaxation (necessary condition): for D = sum c_k D_k in the E1 kernel with E1 lifts N_k, every certificate has
-  N = sum c_k N_k + Koszul, and B_D(N) = F Q in J_{2d}, hence sum c_k c_l B_{D_k}(N_l) in J_{2d}; gauge directions s*F drop.
+  N = sum c_k N_k + Koszul and B_D(N) = F Q in J_{2d}, hence sum_{k,l} c_k c_l B_{D_k}(N_l) in J_{2d}; Koszul terms and F*Q drop
+  mod J; gauge directions s*F (with N = A s Z/6) drop as well, so their coefficients are set to 0.
+* For D = C(F) in J_d (C a vector field of degree d-5) the relaxation reads A*C^T Hess(F) C in J_{2d}, i.e.
+  C^T Hess(F) C in (J:A)_{2d-6}; at d = 7 this is C^T Hess(F) C in (J:A)_8 = J_8 + <D8*>, which gives exactly 950 = 951 - 1
+  independent quadrics (dim R_8 = 951).
 
-## Results so far (all at P2 unless stated)
-1. [replayed, agrees] d = 5: 6 unknowns, 21 Hessian columns rank 21 in R_10, all squares forced, Singular dim 0 -> EXCLUDED.
-2. [replayed, agrees] d = 6: 35 unknowns (gauge m_55 = 0), rank 334 among 630 pair monomials, 28 square-column kills
-   (exactly the off-diagonal m_ij except (0,3),(3,0)), Singular dim 0 -> EXCLUDED over C.  msolve -g 1: m-primary leading ideal.
-3. [tooling] msolve misparses `c*c` squares (see /tmp/hodge/notes/engine-bugs.md); wave-1 msolve verdicts in this lane
-   (closure_quads_d8*.ms, dossier d7_system.ms) were computed on misparsed systems and must be discarded; Singular runs unaffected.
+## Results (all at P2 unless stated; "two primes" = also at 1000000007)
+1. [replayed, agrees] E1 colon dims dim (J:A)_d = 0,0,0,0,0,6,36,126,337,760 for d = 0..9; the non-Jacobian E1 directions below
+   degree 10 are D8* = 4G_S^2 - G_P^2 (d = 8, trivial sector) and X1 D8*, Y1 D8*, X2 D8*, Y2 D8* (d = 9).  [exp E1-colon]
+2. [replayed, agrees] d = 5: 21 Hessian columns rank 21 in R_10, Singular dim 0.  d = 6: 35 gauge-fixed unknowns, 630 pair
+   columns of rank 334 in R_12, the 28 off-diagonal m_ij except (0,3),(3,0) killed by square columns, Singular dim 0 and msolve
+   m-primary.  => deg D <= 6 EXCLUDED over C.  [exp closure-d5, closure-d6]
+3. [NEW, two primes] d = 7: the 12 subfamilies in which two of the three involution characters (b0 = sigma0, b2 = sigma2,
+   y = tau_Y) are fixed and everything else (incl. all six h1-characters) mixes: 24-32 unknowns, 227-258 quadrics, msolve -g 1
+   m-primary (max pure power 3-4), Singular dim 0 on d7_b01b21 (vdim 209) => EXCLUDED over C.  Consequence: a degree-7
+   denominator must mix both eigenvalues of at least two of sigma0, sigma2, tau_Y.  [exp sub-closure-msolve, tags d7_*, d7p3_*]
+   Pending (remote excl-sub7): the 6 subfamilies with ONE involution character fixed (60 unknowns, 477 quadrics, Froeberg
+   regularity 4; msolve -g 1 with block-Macaulay k=4 fallback).
+4. [replayed, agrees] fqlx's 8 pure parity classes at d = 7 are contained in item 3.
+5. [computed, two primes] the full d = 7 system (120 unknowns): 950 independent quadrics, mean 58 terms (max 298), no square
+   c_a^2 in I_2, only 8 product monomials c_a c_b in I_2 (the same 8 at both primes); branch-and-kill on I_2 does not cascade
+   (one kill per node).  Froeberg count for 950 quadrics in 120 unknowns: HS = 1, 120, 6310, 181240, 2632405, <0 => a
+   Nullstellensatz certificate needs degree >= 5, i.e. Macaulay matrices of size ~2.8e8 x 2.3e8: INFEASIBLE.  The same count
+   for the 60-unknown single-involution subfamilies gives regularity 4 (feasible), for 32 unknowns regularity 3.
+6. [tooling] msolve misparses `c*c` (not read as a square) and crashes in FGLM for primes >= ~2^31; wave-1's msolve verdicts in
+   this lane were on misparsed systems and are discarded; Singular runs are unaffected.  Fix: `c^2` syntax and `msolve -g 1`
+   (leading ideal; m-primary test).  Recorded in /tmp/hodge/notes/engine-bugs.md.  target_image validated on collision-h3 and
+   hesse-triangle (A in served(D_witness)).
+7. [NEW, two primes] d = 8, Gamma-invariant family (G_aff and the exchanges s0, r1; contains D8* and the gauge F*S_2^Gamma):
+   20 parameters = 3 gauge + 16 Jacobian + 1 extra (D8*), 17 unknowns, 52 quadrics of rank 35 (wave-1 numbers reproduced);
+   msolve -g 1 m-primary (max pure power 5) => EXCLUDED over C.  (Closes wave-1's pending item.)  [exp closure-Gamma-invariant]
+8. [NEW, two primes] d = 8, pure G_aff character sectors (gauge-fixed full E1-admissible family of the sector): 20 of 24 sectors
+   EXCLUDED — all sectors with h1-character != 0, i.e. (b0,b2,h,y) with h in {1,...,5}: unknowns 4-17, quadrics 37-52.
+   Pending (remote excl-d8large): (0,0,0,0) [29 unknowns], (0,0,0,1) [27], (1,1,0,0) [26], (1,1,0,1) [26] (52 quadrics each;
+   Froeberg regularity 6-7).  [exp closure-pure-sector, d=8]
+9. [NEW] served-target spaces (sum principle: served(D1 D2) = served(D1) + served(D2), served(D^k) = served(D)): for the 6
+   coordinate hyperplanes, 11 quadrics (S0, delta = X0^2-Y0^2, S1, S2, S0+-S2, S0+S1, X0^2+X2^2, X0^2-X1^2, X1^2-Y1^2, X2^2-Y2^2),
+   7 quartics (G_S, G_P, Q1, Q2, X0^4+Y0^4, S0^2+2P0^2, X1^4+Y1^4), the six polars dF/dZ_i and f0 = S0^3 + 2 S0 P0^2:
+   served(D) = J_6^odd (dim 18, the trivially served targets).  Their total span is J_6^odd and A is not in it => NO product of
+   these blocks, of any degree, serves A (or any nontrivial target).  Pending (remote excl-misc): rad_i, X1^6+Y1^6, X2^6+Y2^6, D8*.
+   [exp served, served-span; served_local.json]
+10. [replayed at P2, agrees] sector-restricted full fixed-D solves (own implementation) of D8* (rank 718, nullity 109) and
+    X1 D8*, Y1 D8* (rank 926), X2 D8*, Y2 D8*, X0 D8*, Y0 D8* (rank 1098): all inconsistent, identical ranks to wave 1.  With the
+    prescribed-support theorem and item 9 this excludes D8*^k times any product of the item-9 blocks at every degree.
+11. [computed] d = 9 pure sectors, (unknowns, quadrics) after gauge: (38,14)x4, (15,30)x2, (53,30)x2, (19,14)x8, (52,30)x2,
+    (34,14)x4, (12,30)x2 — in 20 of 24 sectors the relaxation has fewer quadrics than unknowns (dim R_18 = 426 in total), so its
+    solution set is positive-dimensional and it cannot close them; from degree 9 on exhaustive exclusion needs the full bilinear
+    E1+E2 system.  Froeberg regularities for degree 8 beyond pure sectors: parity classes (~40 unknowns, ~120 quadrics): 5;
+    two involutions fixed (~80, ~240): 8; full (316, 951): 14 — only pure sectors and (with effort) parity classes are in reach.
+12. [NEW, rigorous] d = 9: the four sectors with enough quadrics, (0,0,3,0), (0,0,3,1) [15 unknowns, 30 quadrics] and
+    (1,1,3,0), (1,1,3,1) [12, 30], are EXCLUDED (msolve -g 1 m-primary).  [exp closure-pure-sector, d=9]
+13. [screen] d = 10, trivial sector: 20 non-Jacobian E1 directions (kernel 128 = 108 + 20); the first 7 basis elements solved
+    exactly (sector-restricted full E1+E2 system, 1934 unknowns, rank 1667): inconsistent.  Not a family exclusion; the
+    remaining 549 extras at d = 10 are being screened by excl-misc.
+14. [second method] Singular dim 0 (vdim 209) on the msolve-closed d7_b01b21 system; Singular times out (80 s) on the
+    17-unknown Gamma-invariant system where msolve's F4 needs 3 s.
 
-4. [NEW, rigorous] d = 7, the 12 subfamilies in which two of (b0, b2, y) are fixed (all six h1-characters and the third
-   involution character mixed): 24-32 unknowns, 227-258 quadrics each, msolve -g 1 leading ideal m-primary (max pure power 3-4)
-   => only c = 0 => EXCLUDED over C (log: exp = sub-closure-msolve, tags d7_b00b20 ... d7_b21y1).  Consequence: a degree-7
-   denominator must mix both values of at least two of the three characters sigma0, sigma2, tau_Y.
-5. [computed] full d = 7 system (120 unknowns): exactly 950 independent quadrics (= dim R_8 - 1 = 951 - 1, via the degree-8
-   formulation C^T Hess F C in (J:A)_8 = J_8 + <D8*>), no square c_a^2 in I_2, only 8 product monomials c_a c_b in I_2;
-   branch-and-kill on I_2 does not cascade.  Froeberg count for 950 quadrics / 120 vars: HS(S/I) = 1, 120, 6310, 181240,
-   2.9e6, <0  => a Nullstellensatz certificate needs degree >= 5 (Macaulay matrices ~2.8e8 x 2.3e8): infeasible.
-6. [tooling check] target_image (served-target space, sum principle) validated on collision-h3 and hesse-triangle (A in served(D_witness)).
-
-7. [NEW, rigorous] d = 8, Gamma-invariant family (G_aff and s0, r1 invariant; contains D8* and the F*S_2^Gamma gauge):
-   20 parameters = 3 gauge + 16 Jacobian + 1 extra (D8*), 17 unknowns, 52 quadrics of rank 35 (wave-1 numbers reproduced at P2);
-   msolve -g 1: m-primary leading ideal (max pure power 5) => EXCLUDED over C.  This closes wave-1's pending Groebner item
-   (wave-1's own msolve runs were on misparsed input).
-8. [NEW, rigorous] d = 8, pure G_aff character sectors: 20 of the 24 sectors EXCLUDED (gauge-fixed full E1-admissible family,
-   4-17 unknowns, 37-52 quadrics, msolve -g 1 m-primary; log exp = closure-pure-sector).  Remaining: (0,0,0,0) [29 unknowns],
-   (0,0,0,1) [27], (1,1,0,0) [26], (1,1,0,1) [26] (52 quadrics each; Froeberg regularity ~5-6; queued for the remote).
-
-9. [NEW, rigorous] served-target spaces (sum principle): for the 6 coordinate hyperplanes, 11 quadrics (S0, delta, S1, S2,
-   S0+-S2, S0+S1, X0^2+X2^2, X0^2-X1^2, X1^2-Y1^2, X2^2-Y2^2), 7 quartics (GS, GP, Q1, Q2, T0, S0^2+2P0^2, X1^4+Y1^4), the six
-   polars F_Zi and f0 = S0^3 + 2 S0 P0^2: served(D) = J_6^odd (dim 18, the trivially served targets).  Span of all of them = J_6^odd,
-   A not in it => no product of these blocks (any degree) serves A.  [served_local.py; log exp = served, served-span]
-   Pending on the remote: rad_i, X1^6+Y1^6, X2^6+Y2^6, D8* (degree 6 and 8 blocks).
-
-10. [computed] Degree-9 pure sectors: (unknowns, quadrics) per sector after gauge = (38,14)x4, (15,30)x2, (53,30)x2, (19,14)x8,
-    (52,30)x2, (34,14)x4, (12,30)x2 — in 20 of 24 sectors there are fewer quadrics than unknowns, so the Hessian relaxation
-    (quadrics in R_18, dim 426 total) cannot close them (solution sets are positive-dimensional); only the four (.,.,3,.) sectors
-    can be closed by it.  From degree 9 on, exhaustive exclusion needs the full bilinear E1+E2 system.
-11. [computed] Froeberg regularity (first degree where the generic Hilbert series of m quadrics in n unknowns turns <= 0):
-    d7 full (120, 950): 5; d7 tau-even (60, 477): 4; d7 two-involutions-fixed (32, 241): 3; d8 Gamma-invariant (17, 52): 4;
-    d8 sectors (29,52): 7, (27,52): 6, (26,52): 6.  These bound the Groebner effort from below (generic case).
-
-## Running (remote)
-* excl-reverify: E1 colon dims d<=9, d=7 parity sectors, all 24 pure G_aff sectors at d=8 and d=9 (Singular verdicts).
-* excl-fixedD: sector re-solves of D8*, Z_i*D8* at P2; engine cross-check; served-target spaces of structured blocks (sum principle).
-* excl-d7mixed: 120-unknown degree-7 mixed-sector system (degree-8 Hessian formulation), I_2/I_3 monomial analysis, msolve -g 1.
+## What remains open / recommended next steps
+* Degree 7: the six single-involution subfamilies (running); the fully mixed 120-unknown problem needs a new idea — more
+  quadratic consequences of E2 than the 950 mod-J ones (the Koszul image B_D(Kos) + F S_8 has dimension <= 2127 << 7062 = dim J_14,
+  so the mod-J relaxation discards most of E2, but the extra conditions depend on D), or a geometric argument on
+  Z = X ∩ V(C(F)) (non-normal / non-rational singularities needed for a (3,1) support).
+* Degree 8: the four large pure sectors (running); the 8 parity classes (regularity 5, ~1.1e6 monomials of degree 5) are the
+  next feasible target; the gauge-fixed full family (316 unknowns) is hopeless for Groebner (regularity 14).
+* Degree >= 9: only screens and structured families; the served-space method (item 9) is the right tool for structured
+  supports and should be extended to the non-eigenvector blocks (needs a mixed-parity fixed-D solver) and to the remaining
+  degree-6/8 blocks (running).

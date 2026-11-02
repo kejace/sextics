@@ -1,6 +1,6 @@
 # Wave 2 — `rank-one-biquartic` — lens EXCLUSION / RIGOR
 
-STATUS: in progress (no witness; re-verification and rigorous degree bound in progress)
+STATUS: no witness. PROVED over Q: no certificate with deg D <= 5 (all parities; d<=4 has no E1-admissible D at all, d=5 by exact weight-2 certificates). Degree 6: excluded mod 10^9+7 at the Hessian-relaxation level (V(forms) = spurious line D ~ F); exact char-0 version: exact step still running (local queue; outputs: hpipe_d6.out, hpipe_d6.*.json, hpipe_d6.D.out). Degree 7+: local queue running (k7exact 7 -> hpipe_d7 -> Singular (J:A) p=65521 -> verify_e1kernel p=10^9+7); outputs land in wave2-excl/*.out and *.log.jsonl (NOT yet merged into the main log if the session ended before they finished).
 
 Log: `/tmp/hodge/results/rank-one-biquartic/wave2-excl.log.jsonl` (one line per experiment).
 Packet: `/tmp/hodge/results/rank-one-biquartic/wave2-excl/`.
@@ -41,6 +41,7 @@ the family coordinates `a` that must vanish for a certificate ("Hessian relaxati
 | `F = f + g + (5/7) L^2 M`, `M = L(Y)` (dossier 1.1) | exact | exact Fractions (R1) | AGREE |
 | `B_{E_X(F)}(A X) = 8 t A L^2 M` (dossier 1.6, 4.5) | exact | exact Fractions (R1) | AGREE |
 | E1-kernel `V_d = J_d` for `d <= 6` both parities; `dim K_7 = 3 (even), 0 (odd)`; `K_8 = 9+9`; `K_9 = 27+27` (wave-1 log, dossier 4.2) | p = 2^31-1, 10007, 65521 | `verify_e1kernel.py` at p = 10^9+7 (`hodge.jacobian.mult_kernel`, different code path) + J-block rank check | pending (local queue) |
+| `D in J` / `A D in J` membership table: `L, M, f, g, L^2M, f-g, A L, A M, A L^2, A M^2, A L M` not in `J`; `E_X(F), E_Y(F), f-2g, F` in `J`; degree-12 products `fg, fL^2M, gL^2M, (L^2M)^2, f^2, g^2` not in `J` (dossier 4.2/4.6) | p = 10007 (Singular) | `hodge.jacobian.in_jacobian` at p = 10^9+7 (J blocks at regular-sequence rank, so non-membership is rigorous over Q) | AGREE |
 | `(J:A)` minimal generators 3 (deg 7), 3 (deg 8), 456 (deg 10); HF of `S/(J:A)`; `Disc in J` (dossier 4.6) | Singular p = 10007 | `quotJA_p65521.sing` | pending (local queue) |
 | fixed-D inconsistency of `E_X(F), E_Y(F), X0 F_0, F_Xi, ...` (wave-1 log, engine v2 compressed solver) | p = 2^31-1 | `verify_fixedD.py` dense rref at p = 2147483423 | pending (remote saturated) |
 | `K_7 subset S_7(X) + M S_5(X)` (wave-1 kstruct3, 5 primes) | mod p | `k7exact.py 7`: exact Q-computation of `W = {b in B : A b in J}` (dim 21 = 18 + 3 expected) | pending (local queue) |
@@ -75,3 +76,32 @@ Suppose `(D, N, Q)` is a certificate with `d = deg D`, `D` coprime to `F` (any Y
    `V_d = J_d` over Q for `d <= 6` (modular kernel = `dim J_d`). Non-Jacobian generators (`d = 7, 8`) are computed
    exactly over Q inside the base-type subspace (`k7exact.py`), with exact E1 lifts; completeness of the basis uses the
    modular upper bound `dim_Q V_d <= dim_p V_d` again.
+
+### Last state of the degree-6 pipeline (hpipe_d6.out, 20:21:52)
+```
+[A blk0 p=1000000007] rank 2373 rank_J 2223 forms 150 (26s)
+[A blk0 p=999999937] rank 2373 rank_J 2223 forms 150 (48s)
+[A blk0 p=999999929] rank 2373 rank_J 2223 forms 150 (68s)
+[A blk1 p=1000000007] rank 2368 rank_J 2214 forms 154 (90s)
+[A blk1 p=999999937] rank 2368 rank_J 2214 forms 154 (110s)
+[A blk1 p=999999929] rank 2368 rank_J 2214 forms 154 (132s)
+[A] coordinate squares in row space mod p: 25 of 35; failing: ['a18', 'a19', 'a26', 'a31', 'a32', 'a5-a10', 'a5-a15', 'a5-a20', 'a5-a25', 'a5-a30']
+[B] residual vars 11 (10 failing + 1 centers); Singular mod p: dim V(I): 1  #forms: 39  time: 0; not in radical: 0 (132s)
+[B] blk0: restricted span rank 0, selected 0 full rows
+[B] blk1: restricted span rank 39, selected 39 full rows
+[C blk0] lifted 0/0 selected forms with 3 primes; certifying 0 targets (132s)
+[C blk1] lifted 36/39 selected forms with 3 primes; certifying 61 targets (132s)
+```
+
+Local queue log (`wave2-excl/localq.log`):
+```
+[20:15:31] START timeout 1800 python3 hess_pipeline.py 6 3 --sparse --tag hpipe_d6
+```
+
+## How to resume (for the next agent)
+* The local queue `wave2-excl/localq.sh` runs: `hess_pipeline.py 6 3 --sparse` -> `k7exact.py 7` -> `hess_pipeline.py 7 3 --sparse --nonj nonj_d7.json`
+  -> `Singular -q quotJA_p65521.sing` -> `verify_e1kernel.py 1000000007`.  Check `localq.log`, then merge `wave2-excl/*.log.jsonl` into
+  `wave2-excl.log.jsonl` and update this report.  Remote jobs to submit when the 128-core box is free: `wave2-excl/remote_jobs.sh`
+  (degree-8 exact generators + pipeline, degree-9 modular screening, dense fixed-D re-verification, Singular quotient at 32003).
+* Three remote submissions (`excl-rank-one-biquartic-fam6`, `-K7lift`, `-V1e1kernel`) were queued with `--wait 7200` while the remote
+  was saturated (load > 1000); if they never started, resubmit (the local queue covers V1 and the K7 lift exactly).

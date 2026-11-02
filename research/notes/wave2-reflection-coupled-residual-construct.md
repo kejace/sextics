@@ -21,7 +21,7 @@ Conventions as in the dossier (`/tmp/hodge/notes/dossier-reflection-coupled-resi
 | M4 | q-raising / Gauss–Manin from the companion (item iv) | a *family* `F + tC` on which the companion's certificate deforms, with `C` `r`-odd (to flip the character) | **fails**: `C` `r`-odd leaves the one-reflection locus, where nothing is supported; `C` `r`-even preserves the character (§2.4) |
 | M5 | twisted slices of the companion's curve family on `W` (item v) | a slice `S` of the rational-curve family on `W` whose hyperelliptic lift carries anti-invariant 2-forms, i.e. `H⁰(S, Ω¹_S ⊗ λ_hyp) ≠ 0`, with nonzero Gysin image | **the only mechanism on this variety that can produce `(−,−)` classes**; explicit integration is obstructed by `H³(S, R¹p_*L) ≠ 0` (positive-genus lifts) — exactly the period obstruction met in discussion #154; a finite-field incidence seed cannot be used because the lifted curves have genus `e − 1 ≥ 1` for every weighted degree `e ≥ 2`, and `e = 1` (weighted lines) gives `r`-invariant classes only (§3) |
 | M6 | Fermat-pencil continuation (item iv) | formal deformation of the degree-6 Fermat certificate along `F_c = Fermat + cP` | queued (`construct-rcr-fermatcont-X`, Exp C) |
-| M7 | pencil `(Y0:Y1)` and the variation `V₁₁` (new) | a level-1 sub-VHS `V' ⊂ V₁₁` realised by irregular surfaces in the fibres | the residual sector **is** `H¹(P¹, j_*V₁₁)` with `V₁₁` of rank 186 and Hodge numbers `(3,90,90,3)` [computed]; GHC forces `V₁₁ = V' ⊕ V''` with `H¹(P¹, j_*V'') = 0` (§4) — a sharp, testable structural prediction and the real content of "cross the character boundary" |
+| M7 | pencil `(Y0:Y1)` and the variation `V₁₁` (new) | Abel–Jacobi/normal-function supports would need a level-one sub-variation `V' ⊂ V₁₁` | the residual sector **is** `H¹(P¹, j_*V₁₁)`, `V₁₁` of rank 186 with Hodge numbers `(3,90,90,3)` [computed]; **`V₁₁` has no level-one sub-variation** (vanishing-cycle argument, §4) ⇒ supports must be horizontal divisors carrying `(−,−)` `(2,0)`-forms, consistent with M5 and excluding the "irregular surfaces in the fibres" route |
 
 ## 1. Exact data used
 
@@ -141,29 +141,42 @@ Blow up the base surface `Σ₀ = X ∩ {Y0 = Y1 = 0}` (the Fermat sextic surfac
 
 The three `(3,0)`-forms are `Res(X_i Ω/Φ_λ)`, `i = 0,1,2`.
 
-**Proposition (Leray constraint).** Let `E ⊂ X` be a divisor and `Ẽ` a resolution. The part of the Gysin
-image of `H²(Ẽ)(−1)` in the `(−,−)` sector lies in `H¹(P¹, j_*V'_E)`, where
-`V'_E = im(R¹f_*Q_{Ẽ}(−1) → R³f_*Q)` is a sub-variation of `V₁₁` of level one (type `(0,a,a,0)`).
-*Proof.* Restrict to an open `U ⊂ P¹` over which `X̃` and `Ẽ` are smooth; the Gysin map respects the
-Leray filtrations with a shift of two, the `(−,−)` sector of `H⁴(X_U)` is `H¹(U, V₁₁)`, the only Leray
-piece of `H²(Ẽ_U)` mapping there is `H¹(U, R¹f_*Q_{Ẽ})`, its image lies in `H¹(U, V'_E)`, and
-`H¹(P¹, j_*V₁₁) ↪ H¹(U, V₁₁)` is compatible with the decomposition `V₁₁ = V'_E ⊕ (V'_E)^⊥`. ∎
+**Proposition (no level-one sub-variation seen by the nodal fibres).** Let `E ⊂ V₁₁` be the span of the
+`(−,−)`-projections `δ_s` of the vanishing cycles of the *nodal* singular fibres (free Klein orbits of four
+nodes and `r`-fixed pairs; each such fibre contributes one `(−,−)` class and acts on `V₁₁` by the symplectic
+transvection in it). Every sub-variation `V'' ⊂ V₁₁` containing the three `(3,0)`-forms `ω_i = Res(X_iΩ/Φ_λ)`
+contains `E`. Consequently a level-one sub-variation `V'` (type `(0,a,a,0)`) of `V₁₁` is contained in
+`E^⊥`, the part of `V₁₁` with trivial local monodromy at every nodal fibre (nontrivial monodromy only at the
+six degenerate fibres `λ⁶ = −1`, whose singular point `(0:0:0:1:ζ:0)` has local equation
+`X1·(λ²X0 + X2) + (sextic in X0, Y2) + …`, Milnor number 25). If `E = V₁₁` (expected; equivalent to
+`rank` of the `∇`-span of the `(3,0)`-forms being 186, the quantity computed by `gm_rank.py`), then `V₁₁`
+has no level-one sub-variation at all.
+*Proof.* `V''` is stable under the transvection `T_s(x) = x + c⟨x,δ_s⟩δ_s`, so either `δ_s ∈ V''` or
+`δ_s ⊥ V''`. The period `∫_{δ_s} ω_i(λ) = c'·X_i(p_s)·(λ − s) + O((λ−s)^{3/2})` with a universal `c' ≠ 0`
+(integral of `dw₁dw₂dw₃/∂₄Q` over the vanishing sphere in a Morse chart), and `X(p_s) ≠ 0` at every nodal
+critical point (the only critical points on `{X = 0}` are the six Klein-fixed degenerate ones). Hence
+`⟨δ_s, ω_i⟩ ≢ 0`, so `δ_s ∈ V''` for every nodal `s`. For the level-one statement decompose
+`V₁₁ = V' ⊕ V'^⊥` (polarized, semisimple); `F³V' = 0` forces `ω_i ∈ V'^⊥`, hence `E ⊂ V'^⊥` and
+`V' ⊂ E^⊥`. ∎
 
-**Corollary.** Since `h^{3,0}(V₁₁) = 3 ≠ 0`, the level-one part `V' := Σ_E V'_E` is a *proper*
-sub-variation. The general Hodge conjecture (which predicts divisor support for the whole `τ`-invariant
-`H⁴`) therefore predicts that the monodromy of the pencil on `V₁₁` is **reducible**, `V₁₁ = V' ⊕ V''`,
-with `H¹(P¹, j_*V'') = 0` and `V''` containing the `(3,0)`-part; conversely, if the monodromy on `V₁₁`
-is irreducible, no certificate exists for this instance (and GHC fails). The vanishing cycles of the
-pencil in the `(−,−)` sector come from three kinds of critical points of `Y0/Y1` on `X`
-(`∂₀F = ∂₁F = ∂₂F = ∂₅F = F = 0`, 3750 points with multiplicity): free Klein orbits (4 nodes per singular
-fibre), `r`-fixed critical points (on `Y2 = 0`: 750 points, orbits of size 2, contributing only to the
-`r`-anti-invariant sectors), and the six Klein-fixed points `(0:0:0:1:ζ:0)`, `ζ⁶ = −1`, at the degenerate
-fibres `λ⁶ = −1`. A splitting `V' ⊕ V''` with `H¹(j_*V'') = 0` requires the `(−,−)` vanishing cycles to fall
-into two mutually orthogonal families with exactly `2·rank V''` fibres feeding `V''`; the different
-fixed-point types make this possible in principle (they are not conjugate under monodromy). This is the
-precise sense in which the residual sector needs *new* algebraic cycles: level-one pieces realised by
-irregular surfaces in the fibres `X_λ` (e.g. ruled surfaces over positive-genus parameter curves,
-necessarily singular complete-intersection surfaces), varying over the pencil.
+**Consequences for supports.** Write the Gysin map of a resolved divisor `Ẽ → X` through the Leray
+filtrations of `Ẽ_U → U` and `X_U → U`. The graded piece `H¹(U, R¹f_*Q_Ẽ)(−1) → H¹(U, V₁₁)` has image in
+`H¹(U, V'_E)` for the level-one sub-variation `V'_E = im(R¹f_*Q_Ẽ(−1) → R³f_*Q)`, which by the
+proposition lies in `E^⊥` (and is zero if `E = V₁₁`): **Abel–Jacobi-type contributions (irregular surfaces
+in the fibres `X_λ`, normal functions of families of 1-cycles) cannot support residual classes, except
+possibly through a piece with monodromy only at the six degenerate fibres.** What remains is the secondary map on
+monodromy-invariant fibre classes, `H⁰(U, R²f_*Q_Ẽ)^{(−,−)}(−1) → H¹(U, V₁₁)` (the Gysin map restricted to
+classes whose fibrewise degree vanishes), i.e. the `(2,0)`-classes of `Ẽ` restricted to the fibres `E_λ`.
+So a supporting divisor must be *horizontal* with respect to every such pencil and carry `(2,0)`-forms of
+character `(−,−)` — exactly the shape of the twisted-slice mechanism M5 (`E → S` with hyperelliptic fibres
+transverse to the pencils, `H^{2,0}(Ẽ)^− ⊂ H⁰(S, Ω¹_S ⊗ λ_hyp)`), and the opposite of the
+"Fano-quotient" shape, where the fibrewise intermediate Jacobians `J(V_λ)` (level one, rank 82) do the
+work for the companion sector.
+
+(An earlier draft of this note claimed that GHC forces the monodromy of `V₁₁` to be reducible; that
+argument ignored the secondary Leray map and is withdrawn. The proposition above is the correct statement.
+The computation `gm_rank.py` of the `∇`-span of the `(3,0)`-forms decides whether `E = V₁₁`: rank 186 closes
+the loophole `E^⊥ ≠ 0`.)
 
 ## 5. Where each shared Lean module fails here
 
@@ -189,10 +202,9 @@ necessarily singular complete-intersection surfaces), varying over the pencil.
   `D₀ = X0⁶+X1⁶+X2⁶`, `N₀ = A·X_i/6` along `F_c`, degree 6, Klein `(+,+)` sector, orders 1–5 mod `2³¹−1`.
 
 ## 7. Open questions recorded for the lane
-1. Monodromy of `V₁₁` (rank 186): reducible or not? (Decides existence by §4.) A finite computation:
-   classify the 3750 critical points (0-dimensional msolve system), then compute the intersection graph of
-   the `(−,−)` vanishing cycles (needs a Picard–Lefschetz/period computation — heavy).
-2. Irregular surfaces in the Klein-symmetric sextic threefolds `X_λ` (ruled surfaces over positive-genus
-   curves): any such family moving with `λ` is a support candidate for the residual sector.
+1. Verify numerically that the `∇`-span of the `(3,0)`-forms is all of `V₁₁` (predicted by §4; `gm_rank.py`,
+   queued) and classify the 3750 critical points of the pencil (`critpts.py`, queued) to pin down the
+   singular-fibre bookkeeping (`N_free + N_r + d_deg = 1116`).
+2. (withdrawn) irregular surfaces in the fibres cannot help (§4).
 3. A slice `S` of the conic family on `W` with `H⁰(S, Ω¹_S ⊗ λ) ≠ 0` and nonzero Gysin image would give
    generic existence on the one-reflection locus (§3), not yet a certificate at this `F`.

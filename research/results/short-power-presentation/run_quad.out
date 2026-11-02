@@ -8,3 +8,6 @@ wrote /tmp/hodge/results/short-power-presentation/polar_d7_p0.sing
 {"d": 7, "parD": 1, "unknowns": 63, "deg Phi": 8, "parts": {"0": {"dim S_e": 651, "dim J_e": 168, "equations": 483}}, "equations": 483, "p": 536870909}
 wrote /tmp/hodge/results/short-power-presentation/polar_d7_p1.sing
 == Singular d7 parD=0
+
+halt 1
+== Singular d7 parD=1

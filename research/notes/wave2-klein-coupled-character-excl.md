@@ -37,6 +37,10 @@ quadratic system in the coefficients of w (gauge w -> w + l z removed). Projecti
   (exact GB size 94 each, every generator of I_L has a power in the exact ideal); odd k=0 (24 vars) running.
   Once exact: lifted points are l.D_lambda with lambda in C, excluded by the NZD lemma + sum principle + the d=6 result
   => no sigma-eigen denominator of degree 7 of pure Y-parity.
+* LEMMA (rigorous, local_nzd/nzd_yquadrics.out): every Y-quadric q(Y) satisfies (J:q)_6 ∩ (Y-odd, char 3) = J_6^-[3]
+  (needed for the degree-8 lifts q(Y).D_lambda in the even character-0 sector).
+* Validation: the Koszul-form solver underlying the constant-dual proof reproduces 7 accepted witnesses (incl. two of
+  degree 6 with 388 unknowns) and rejects perturbed denominators (local_d6/koszul_validation3.out).
 * d = 7 full (non-eigen, 60 unknowns): msolve GB mod p running locally (local_d7full/); d = 8 eigen sectors running.
 
 ## Re-verification of wave 1 (so far)

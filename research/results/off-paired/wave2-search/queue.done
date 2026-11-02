@@ -1,2 +1,3 @@
 2026-11-01T20:07:27 d9all|8|python3 wave2-search/w2_batch_sectors.py --d 9 --sectors all --kind colon --restarts 300 --workers 8 --seed0 0 --maxiter 120 --job d9all --per-time 420 > wave2-search/d9all.out 2>&1
 2026-11-01T20:18:25 servedscan|4|python3 wave2-search/w2_served_scan.py --workers 4 --job servedscan > wave2-search/servedscan.out 2>&1; python3 wave2-search/w2_served_scan.py --workers 4 --job servedscan-all --all-sectors --members 1 > wave2-search/servedscan-all.out 2>&1
+2026-11-01T20:29:20 d8c00b|8|python3 wave2-search/w2_varpro.py --d 8 --c 0,0 --kind colon --restarts 500 --workers 8 --seed0 100 --maxiter 100 --time-limit 3600 --job d8c00b > wave2-search/d8c00b.out 2>&1

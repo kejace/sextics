@@ -22,6 +22,9 @@ leading ideal, or Singular dim 0 — which transfers to C by properness of Proj 
   least two of sigma0, sigma2, tau_Y simultaneously. [Single-involution subfamilies (60 unknowns): RUNNING.]
   The fully mixed system is out of Groebner reach: the Froeberg count for 950 quadrics in 120 unknowns gives a Hilbert series
   1, 120, 6310, 181240, ~2.9e6, <0, so a Nullstellensatz certificate needs degree >= 5 (Macaulay matrices ~3e8 x 2e8).
+* **Degree 9.** The four pure sectors with enough quadrics, (0,0,3,*) and (1,1,3,*), are excluded; in the other 20 sectors
+  the relaxation has fewer quadrics than unknowns (dim R_18 = 426 in total) and cannot close them — from degree 9 on an
+  exhaustive exclusion needs the full bilinear E1+E2 system.
 * **Degree 8.** (i) The Gamma-invariant family (G_aff plus the exchanges s0, r1; 20 parameters = 3 gauge + 16 Jacobian + D8*)
   is excluded (17 unknowns, 52 quadrics of rank 35, m-primary leading ideal with max pure power 5). (ii) 20 of the 24 pure
   G_aff character sectors are excluded (full gauge-fixed E1-admissible family of the sector: 4-17 unknowns, 37-52 quadrics).
@@ -34,6 +37,12 @@ S0, delta = X0^2 - Y0^2, S1, S2, S0 +- S2, S0 + S1, X0^2 + X2^2, X0^2 - X1^2, X1
 Q1, Q2, X0^4 + Y0^4, S0^2 + 2P0^2, X1^4 + Y1^4, the six polars dF/dZ_i, [f0 = S0^3 + 2 S0 P0^2, rad_i, X1^6+Y1^6, X2^6+Y2^6: pending]
 served(D) = J_6^odd (dimension 18, the trivially served targets). Hence no product of any of these blocks, of any degree, serves
 any nontrivial target, in particular not X0^3 Y0^3.
+
+### Independent checks
+* All new exclusions were recomputed from scratch at a second prime (1000000007): identical ranks and identical leading-ideal
+  verdicts. Singular (`dim(std(I)) = 0`) agrees with msolve wherever it finishes (degree 5, degree 6, the degree-7 subfamilies).
+* The sector-restricted fixed-D systems of D8* and Z_i D8* have the same ranks at the second prime as in the earlier run
+  (718/109 at degree 8; 926/131 and 1098/169 at degree 9).
 
 ### Caveats / tooling
 * Modular ranks are lower bounds for rational ranks; all "excluded" statements above are of the type "a modular rank is

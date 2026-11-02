@@ -16,7 +16,7 @@ rationally reconstructed and re-solved exactly.
 import sys, os, json, time, argparse
 sys.path.insert(0, '/tmp/hodge/results/quadric-contact-residual')
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
-os.environ.setdefault('OPENBLAS_NUM_THREADS', '1'); os.environ.setdefault('OMP_NUM_THREADS', '1')
+os.environ['OPENBLAS_NUM_THREADS'] = '1'; os.environ['OMP_NUM_THREADS'] = '1'; os.environ['MKL_NUM_THREADS'] = '1'   # multi-threaded BLAS is 30x slower here (contention)
 import numpy as np
 import scipy.linalg as sla
 from scipy.optimize import minimize
@@ -68,7 +68,6 @@ class HessRelax:
                 G[rows[e], j] = v
         t1 = time.time()
         # left null space of G (orthonormal basis of (S_{2d}/J_{2d})^* in these coordinates)
-        os.environ['OPENBLAS_NUM_THREADS'] = str(nthreads)
         U, s, Vt = sla.svd(G, full_matrices=True, lapack_driver='gesdd', check_finite=False, overwrite_a=True)
         tol = s[0] * 1e-11
         rk = int(np.sum(s > tol))
@@ -163,7 +162,6 @@ def main():
     HS = HessRelax(members, a.d, parity=parity, verbose=True, nthreads=a.procs)
     rec.update({'rows': HS.rows, 'rankJ2d': HS.rankJ, 'dimR_2d': HS.dimR, 'dimP': HS.dimP, 'excluded': HS.excluded,
                 't_build': round(HS.build_time, 1), 'tscale': HS.tscale})
-    os.environ['OPENBLAS_NUM_THREADS'] = '1'
     procs = max(1, min(a.procs, a.restarts))
     per = [a.restarts // procs + (1 if i < a.restarts % procs else 0) for i in range(procs)]
     jobs = [(a.seed + 1000 * i, n, a.maxiter) for i, n in enumerate(per) if n > 0]

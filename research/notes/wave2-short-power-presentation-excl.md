@@ -1,7 +1,8 @@
 # Wave 2 — `short-power-presentation` — lens EXCLUSION / RIGOR
 
 STATUS: in progress — no witness. Rigorous so far (this session, independent prime 1073741789, two Gröbner engines):
-**no Y-even and no Y-odd denominator of degree ≤ 6 exists (other than multiples of F); mixed parity d ≤ 5 trivial, d = 6 pending.**
+**no denominator of degree ≤ 5 of any parity; no Y-pure denominator of degree 6 (other than multiples of F).**
+Mixed parity d = 6: excluded mod p by the annihilator-functional argument (§0 R4); exact certificate queued (remote).
 
 Lane: `short-power-presentation` (q=1, A = X0^3 Y0^3, F = eX + eY + c((L+M)^6+(L-M)^6), c = 5/7^7,
 L = X0+2X1+3X2, M = Y0+3Y1+5Y2). Log: `/tmp/hodge/results/short-power-presentation/wave2-excl.log.jsonl`.
@@ -26,6 +27,22 @@ Packet: `/tmp/hodge/results/short-power-presentation/wave2-excl/` (assembled at 
   h_{S/I_p}(t) ≥ h_{S/I_Q}(t) for all t (rank_p ≤ rank_Q on the Macaulay matrices), the Q-variety is empty: every
   denominator of degree d with that parity structure is a multiple of F (not coprime). Nothing else is assumed.
 
+* (R4) Mixed parity. For D = D^+ + D^- the odd part of the relaxation reads Ξ^+(x) + Ξ^-(y) ∈ J_{2d}^- with NO cross
+  terms (x = (λ^+,w^+), y = (λ^-,w^-)); the cross terms sit in the even part. Let L^± ⊂ R_{2d}^- be the spans of the
+  coordinate polynomials of Ξ^±. Every linear functional φ on S_{2d}^- vanishing on J + L^+ kills Ξ^-(y) for every
+  mixed solution, giving dim L^- − dim(L^+ ∩ L^-) quadrics in y alone (and symmetrically in x). If that ideal is
+  m-primary mod p then y = 0 for every mixed solution over Q-bar (Hilbert-function inequality), and then Ξ^+(x) ∈ J
+  forces x = 0 by the pure result. Rigor needs the functionals to be reductions of rational ones, i.e.
+  dim_Q L^+ = dim_p L^+: certified by exact rational dependency certificates (c, h) with Σ c_k P_k = Σ h_i F_i,
+  verified with fmpq_mpoly (`excl_lib.exact_dependencies`).
+
+* (R5) Block elimination (generalises R4; `excl_blocks.py`). Because Hess(F) = 30 Σ_k l_k^4 ∇l_k ∇l_k^T has rank ≤ 8,
+  Φ(w) = 30 Σ_k l_k^4 g_k(w)^2 couples the six component blocks of w only through the two small cross spans
+  (l_7^4 ± l_8^4)·S. For a block B, functionals vanishing on J + span{pair polynomials not inside B} applied to Ξ give
+  quadrics in the B-unknowns only; if m-primary in the unknowns that occur, those unknowns vanish on every solution and
+  are dropped; the leftover ("invisible", typically the diagonal fields Z_i∂_i) directions go to a small residual
+  system. Validated on d = 6 even: six blocks of 2–3 unknowns, residual 3 unknowns, verdict proj-empty (matches §1).
+
 ## 1. Results so far (prime 1073741789 unless stated; all Hilbert checks passed)
 
 | exp | d | parity | unknowns (slice) | indep. quadrics | engine | result | status |
@@ -33,12 +50,17 @@ Packet: `/tmp/hodge/results/short-power-presentation/wave2-excl/` (assembled at 
 | relaxation | 5 | even | 3 | — | msolve + Singular | h = [1,3,2,0]: proj-empty | **rigorous** |
 | relaxation | 6 | even | 17 | 39 | msolve + Singular agree | h = [1,17,114,358,501,225,0]: proj-empty (Singular vdim 1216) | **rigorous** |
 | relaxation | 6 | odd | 18 | — | Singular (msolve count stopped at t=5) | dim 0, vdim 540 (wave 1: 540 with p=536870909), h(6)=0 | **rigorous** |
-| relaxation | 6 | mixed | 35 | 132 | msolve: >100 s locally; slices P^k, k ≤ 26, all empty | pending on remote | screened |
+| relaxation | 6 | mixed | 35 | 132 | msolve: >100 s locally; slices P^k, k ≤ 26, all empty | full 35-variable GB not finished | screened |
+| (R4) mixed d=6, y-side | 6 | mixed | 18 (all y visible) | 36 | msolve + Singular: dim 0, vdim 4096 | y = 0 for every mixed solution ⇒ x = 0 by pure even | **mod p; exact certificate (114 dependencies) queued** |
+| (R4) mixed d=6, x-side | 6 | mixed | 12 of 17 visible | 18 | dim 0, vdim 729 | x ∈ Π_x = span of the 5 diagonal fields Z_i∂_i; restricted system on Π_x: h=[1,5,0] | consistent |
+| L^+ ∩ L^- | 6 | mixed | dim L^+ = 39, dim L^- = 57, intersection 21 (mod p) | | | naive span argument insufficient | info |
 | bilinear block | 6 | mixed | 17×18 | rank 57/306 | — | cross-term shortcut fails (Hessian of 8 sixth powers has rank ≤ 8) | info |
 | E1 kernel d=1..3 | | both | | | own code, p=1073741789 | 0 (agrees with wave 1) | rigorous |
 
-Combined with the E1-kernel results (K_d^±/J_d^± = 0 for d ≤ 6, wave 1 with p = 2^31−1, re-verification queued):
-**every certificate denominator that is Y-pure has degree ≥ 7.** (Degrees 1–4: J_d = 0 and K_d = 0, nothing to test;
+Combined with the E1-kernel results (K_d^±/J_d^± = 0 for d ≤ 6, wave 1 with p = 2^31−1, re-verified by the sibling job
+excl-spp-e1k with p = 2147483629 for d ≤ 6 and by this session for d ≤ 3 with p = 1073741789):
+**every certificate denominator that is Y-pure has degree ≥ 7, and every denominator has degree ≥ 6
+(≥ 7 once the mixed d = 6 exact certificate is in).** (Degrees 1–4: J_d = 0 and K_d = 0, nothing to test;
 degree 5: w constant, Φ(w) = 30 Σ_k l_k^4 (w·∇l_k)^2 ∈ J_4 = 0 forces w = 0 since the eight quartics l_k^4 are
 independent — also confirmed computationally.)
 
@@ -52,9 +74,15 @@ independent — also confirmed computationally.)
    456, so 6 extra homogeneous solutions exist and that single test is modular evidence only. The d = 7 relaxation
    covers D7 + J_7 entirely and will supersede it.
 
+## 2b. Other agents on this lane (for the record, not re-derived here)
+* search lens: K_8^+/J and K_8^-/J both 6-dimensional (primes 2^31−1 and 2147483629); full fixed-D test of D7^+ inconsistent mod 2^31−1.
+* verify lens: jobs verify-spp-e1k, verify-spp-relax6, verify-spp-d7exact (running).
+* sibling excl instance: excl-spp-e1k (d ≤ 6 agree with wave 1 and with this session), excl-spp-quad6/7/8 (running).
+
 ## 3. Open / queued
-* excl-spp-e1k (E1 kernels d=1..10 both parities, p=1073741789, engine cross-check mult_kernel).
-* excl-spp-relax-d7 (d=7 even/odd, 62 unknowns, degree-14 system).
-* mixed d=6 and d=7: msolve on the remote; d=7 mixed has 122 unknowns (expected hard).
+* exclB-spp-relax-mixed (queued): exact D7^± + exact dependency certificates for mixed d=6; second prime; mixed d=7 by (R4).
+* exclB-spp-kernel (queued): exact D7^±, K_8/K_9 generation by K_7, λ-only sub-families at d=8,9.
+* exclB-spp-relax-d7 (queued): d=7 even/odd pure relaxation (61 unknowns + λ) with p = 1073741789, msolve + Singular.
+* The remote is saturated (load ≈ 800 on 128 cores, ≈ 90 jobs); submissions wait for admission.
 * d=8 pure: ~162 unknowns / 468 quadrics — semi-regular estimate puts the Gröbner regularity near 10 (infeasible);
   will be attempted only if the d=7 systems turn out much easier than generic.

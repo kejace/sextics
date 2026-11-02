@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T20:17:02. 3 search restarts collected over 2 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. 
+STATUS: NO WITNESS. Updated 2026-11-01T20:21:35. 29 search restarts collected over 2 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. 
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -37,6 +37,17 @@ Assembled residual equals the exact Fraction computation (max diff 2e-11 at scal
 - Mixed parity (w = w_+ + w_-) is a separate system; it was excluded at d = 6 (single point) and is searched numerically at d = 7, 8 (queued).
 - d = 10, ideal of the eight planes (exact mod p, local): (Q)*S_8 has dim 1311/1512 (even) and meets the admissible space in 843 dimensions (573 inside J); (Q)^2*S_6 (vanishing to order 2 along all eight planes): dim 924, meets the admissible space in 456 (237 in J); odd parity: 807/570 and 420/237. These are exactly the generic counts (1044 - codim), so the admissible space is not specially aligned with the plane arrangement; the order-2 family (456 / 420 parameters) is kept as the geometrically motivated restricted search space for d = 10. (Q)^3*S_4 meets the admissible space only inside J (18 = the F*(Q)^2-type spurious elements).
 
+## Predicted E1-admissible dimensions for d = 10..12 (parity-refined Koszul complex + maximal rank of [A], the latter verified mod p through d = 10)
+| d | parity | dim S_d | dim J_d | dim R_d | dim R_{d+6} (target parity) | kernel mod J | admissible total |
+|---:|:-:|---:|---:|---:|---:|---:|---:|
+| 10 | 0 | 1512 | 750 | 762 | 468 | 294 | 1044 |
+| 10 | 1 | 1491 | 747 | 744 | 483 | 261 | 1008 |
+| 11 | 0 | 2184 | 1341 | 843 | 333 | 510 | 1851 |
+| 11 | 1 | 2184 | 1341 | 843 | 333 | 510 | 1851 |
+| 12 | 0 | 3108 | 2223 | 885 | 208 | 677 | 2900 |
+| 12 | 1 | 3080 | 2214 | 866 | 218 | 648 | 2862 |
+Exact confirmation for d = 11, 12 is queued on the remote (`w2_kernel.py`); the d = 10 line reproduces the computed 294 / 261.
+
 
 ## 1. E1-admissible denominator spaces per degree (mod p = 2147483629)
 
@@ -58,10 +69,10 @@ Assembled residual equals the exact Fraction computation (max diff 2e-11 at scal
 
 rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q; r_part = component outside J(F)_{2d}.
 
-| batch | family | d | par | params (free) | rows | restarts | best rel | 10% | median | worst | best r_part | <1e-6 | <1e-10 | s/restart | nfev | recon |
-|---|---|---:|:-:|---|---:|---:|---|---|---|---|---|---:|---:|---:|---:|---:|
-| local-search-d6-p0 (running) | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 2 | 0.222 | 0.222 | 0.499 | 0.777 | - | 0 | 0 | 14.8 | 58.5 | 0 |
-| local-stage1-d7-p0 (stage 1 only) (running) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 1 | 0.0176 | 0.0176 | 0.0176 | 0.0176 | 0.0176 | 0 | 0 | 20.1 | 104.0 | 0 |
+| batch | family | d | par | params (free) | rows | c+Q unknowns (Koszul-block rank) | restarts | best rel | 10% | median | worst | best r_part | <1e-6 | <1e-10 | s/restart | nfev | recon |
+|---|---|---:|:-:|---|---:|---|---:|---|---|---|---|---|---:|---:|---:|---:|---:|
+| local-search-d6-p0 (running) | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 162+226 (144-144) | 13 | 0.17 | 0.222 | 0.592 | 0.813 | - | 0 | 0 | 25.2 | 78.8 | 0 |
+| local-stage1-d7-p0 (stage 1 only) (running) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 16 | 0.00441 | 0.00503 | 0.0148 | 0.0185 | 0.00441 | 0 | 0 | 17.1 | 98.9 | 0 |
 
 ## 4. Structured families at d = 10 intersected with the admissible space (mod p)
 

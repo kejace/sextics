@@ -1,0 +1,326 @@
+[
+ {
+  "dir": "link1",
+  "d": 6,
+  "S": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "D0": "X0**6 + X1**6 + X2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    210,
+    211
+   ],
+   [
+    2147483629,
+    210,
+    211
+   ]
+  ],
+  "rows": 702,
+  "cols": 242,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 2.6
+ },
+ {
+  "dir": "link1",
+  "d": 6,
+  "S": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "D0": "X0**6 + X1**6 + Y1**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    207,
+    208
+   ],
+   [
+    2147483629,
+    207,
+    208
+   ]
+  ],
+  "rows": 717,
+  "cols": 242,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 2.2
+ },
+ {
+  "dir": "link1",
+  "d": 6,
+  "S": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "D0": "X0**6 + X1**6 + Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    210,
+    211
+   ],
+   [
+    2147483629,
+    210,
+    211
+   ]
+  ],
+  "rows": 702,
+  "cols": 242,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 2.4
+ },
+ {
+  "dir": "link1",
+  "d": 6,
+  "S": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "D0": "X0**6 + X2**6 + Y1**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    208,
+    209
+   ],
+   [
+    2147483629,
+    208,
+    209
+   ]
+  ],
+  "rows": 705,
+  "cols": 242,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 1.6
+ },
+ {
+  "dir": "link1",
+  "d": 6,
+  "S": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "D0": "X0**6 + X2**6 + Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    205,
+    206
+   ],
+   [
+    2147483629,
+    205,
+    206
+   ]
+  ],
+  "rows": 678,
+  "cols": 242,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 1.6
+ },
+ {
+  "dir": "link1",
+  "d": 6,
+  "S": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "D0": "X0**6 + Y1**6 + Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    208,
+    209
+   ],
+   [
+    2147483629,
+    208,
+    209
+   ]
+  ],
+  "rows": 705,
+  "cols": 242,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 0.9
+ },
+ {
+  "dir": "link1",
+  "d": 7,
+  "S": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "D0": "X0**7 + X0*X1**6 + X0*X2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    340,
+    341
+   ],
+   [
+    2147483629,
+    340,
+    341
+   ]
+  ],
+  "rows": 1212,
+  "cols": 396,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 2.6
+ },
+ {
+  "dir": "link1",
+  "d": 7,
+  "S": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "D0": "X0**7 + X0*X1**6 + X0*Y1**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    335,
+    336
+   ],
+   [
+    2147483629,
+    335,
+    336
+   ]
+  ],
+  "rows": 1227,
+  "cols": 396,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 2.6
+ },
+ {
+  "dir": "link1",
+  "d": 7,
+  "S": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "D0": "X0**7 + X0*X1**6 + X0*Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    340,
+    341
+   ],
+   [
+    2147483629,
+    340,
+    341
+   ]
+  ],
+  "rows": 1212,
+  "cols": 396,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 3.2
+ },
+ {
+  "dir": "link1",
+  "d": 7,
+  "S": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "D0": "X0**7 + X0*X2**6 + X0*Y1**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    338,
+    339
+   ],
+   [
+    2147483629,
+    338,
+    339
+   ]
+  ],
+  "rows": 1218,
+  "cols": 396,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 3.4
+ },
+ {
+  "dir": "link1",
+  "d": 7,
+  "S": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "D0": "X0**7 + X0*X2**6 + X0*Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    333,
+    334
+   ],
+   [
+    2147483629,
+    333,
+    334
+   ]
+  ],
+  "rows": 1185,
+  "cols": 396,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 2.9
+ },
+ {
+  "dir": "link1",
+  "d": 7,
+  "S": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "D0": "X0**7 + X0*Y1**6 + X0*Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    338,
+    339
+   ],
+   [
+    2147483629,
+    338,
+    339
+   ]
+  ],
+  "rows": 1218,
+  "cols": 396,
+  "first_order_deformable": false,
+  "T_terms": 3,
+  "time": 2.7
+ }
+]

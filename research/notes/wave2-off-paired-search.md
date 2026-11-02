@@ -92,3 +92,45 @@ D ~ -0.654 X0^4 Y1^4 + 0.489 X0^2 Y1^6 + 0.381 X0^6 Y1^2 - 0.259 Y1^8 - 0.169 X0
 non-solution type that merely minimizes the defect (20 % of the residual sits on five degree-22 monomials
 X0^2 X1 Y0^4 Y1^9 * {Y0^6, Y1^4, Y2^6, X2^6, X1^6}). Consequence: genuine structured solutions, if any, have small basins;
 restart counts must be large, and the free-target variant (any served class) is the more sensitive probe.
+
+## Exact served-space scan (step 4, exact mod p, sector-reduced; job servedscan, 3 min)
+
+3922 structured denominators, each tested for the space of degree-6 targets of character (3,0) it serves (modulo the
+2-dimensional Jacobian part): all forms of degree 4, 5, 6 in every 3-, 4- and 5-variable coordinate subset, in every
+G-character (3 random integer members per family), the Fermat-type cones X_a^6+X_b^6+X_c^6 for all mixed triples, the named
+blocks f6, g6, H, C, D0, X2^6 +- Y2^6, Qx, R, and random elements of (J:A)_{9,(0,0)}, (J:A)_{9,(3,0)}.
+Result: 0 nontrivially served classes (every served space equals the Jacobian part). The same scan over all 18 Y-odd target
+sectors (1 member per family) is running (servedscan-all).
+
+Structural remark (why base cones cannot help). For a sigma2-eigen denominator D the threefold Z = X cap V(D) is sigma2-stable,
+and the Gysin map H^2(Z~) -> H^4(X) is equivariant; since the whole G-invariant H^4_prim is sigma2-ANTI-invariant (dossier 1.4),
+only sigma2-anti-invariant (2,0)-forms of a resolution of Z can serve A. For a cone over a surface S in the base
+P^3_{X0,X1,Y0,Y1} the pulled-back forms pi^* H^{2,0}(S) are sigma2-invariant, so they map to zero: cones over base surfaces of any
+degree can serve the (3,0) sector only through fibre-direction (hyperelliptic-anti-invariant) forms, i.e. through the genus-2 VHS
+of the thread. This matches the scan (H, C, all base quartics/quintics/sextics serve nothing) and explains why the search
+landscape's attractors are sigma2-even hyperplane arrangements.
+
+The E1-admissible sectors themselves are almost entirely sigma2-even: (J:A)_{8,(0,0)} = 28 even + 2 odd (gauge even 2),
+(J:A)_{9,(0,0)} = 50 + 5; the odd parts are tiny.
+
+## Exact first-order deformation test (w2_firstorder.py, local, seconds; mod p = 2^31-1)
+
+On the Fermat F0 the cone D0 = (X0^6 + Z_a^6 + Z_b^6) * X0^(d-6) over a Fermat plane curve through X0 (six choices of
+{Z_a, Z_b} in {X1, X2, Y1, Y2}, complements are gauge-equivalent) serves A = X0^3 Y0^3 at every degree d >= 6. Along
+F_t = F0 + t*Qx the certificate (D0, N0, Q0) (solved exactly at t = 0) must satisfy, to first order in t,
+L(dD, dN, dQ) = -dE/dt with L the linearization of the cleared identity and dD free in the whole degree-d sector.
+Result: for all 24 cases (6 cones x d = 6, 7, 8, 9) the augmented rank exceeds the rank of L by one: NO cone solution deforms
+even to first order. This sharpens attack-1's observation (served(f6) drops from 118 to 18 at t = 1): the join classes die at
+first order in the mixed term, at every degree up to 9, for every cone. (A numerical multi-start version of this test over all
+t = 0 solutions found by LM is queued: hom8m/hom9m/hom10m.)
+
+Direction dependence (d = 6, 7; two primes): along the full mixed part Qx, along the two-link chain, and along a single link
+X0^3 X1 Y0 Y1/2 every cone is obstructed at first order; along the EXTRA monomial X0^2 X1 X2 Y0 Y2/3 alone all six cones are
+first-order deformable (rank_aug = rank_L). So the extra term, which breaks the holdout's cover/quotient mechanisms, is harmless
+to the cone mechanism at first order; it is the chain that kills the cones (as it must, since the holdout needed a different
+mechanism). Two independent obstructions therefore have to be overcome simultaneously on off-paired.
+
+Served-space version (w2_firstorder_free.py, d = 6, D0 = f6): at t = 0 the X-cone serves 14 of the 24 sector monomials
+(12 join classes + 2 Jacobian-part directions). Along Qx and along the chain only the Jacobian-part direction X0^5 Y1 survives to
+first order (with dD free in the sector): every join class dies at first order. Along the extra monomial alone X0^3 Y0^3 and
+X0^3 Y1^3 survive. So the cone over C_X cannot be "corrected" perturbatively on off-paired in any target direction.

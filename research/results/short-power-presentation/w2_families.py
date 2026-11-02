@@ -121,6 +121,9 @@ def main():
                 continue
             seen_spans.add(sig)
             families['+'.join(names)] = family_monomials(names, d, par, FP)
+    # composite families: sums of the two cone families (vertex lines {X=M=0} and {Y=L=0}), and with binary (L,M) forms
+    fXM = family_monomials(['X0', 'X1', 'X2', 'M'], d, par, FP); fYL = family_monomials(['Y0', 'Y1', 'Y2', 'L'], d, par, FP)
+    families['XM+YL'] = [(('XM',) + e, P) for e, P in fXM] + [(('YL',) + e, P) for e, P in fYL]
     nfam = len(families)
     print(f'[families] d={d} par={par}: {nfam} families built ({time.time()-t0:.0f}s)', file=sys.stderr, flush=True)
     primes = [int(x) for x in a.plist.split(',')] if a.plist else (PGB + core.PRIMES)[:a.primes]

@@ -163,6 +163,20 @@ def worker(args, wid, conn):
         ns = sla_null_space(Dmat.T)
         if ns.shape[1]:
             fam.spurious = np.hstack([fam.spurious, ns]) if fam.spurious.size else ns
+        if args.vanish:
+            # linear conditions on a: coefficients of D(a) on monomials outside the ideal I^k vanish
+            spec = args.vanish
+            if spec.startswith('X'): idxs, k = [0, 1, 2], int(spec[1:])
+            elif spec.startswith('Y'): idxs, k = [3, 4, 5], int(spec[1:])
+            elif spec.startswith('L01x'): idxs, k = [0, 1, 3, 4], int(spec[4:])
+            elif spec.startswith('L02x'): idxs, k = [0, 2, 3, 5], int(spec[4:])
+            elif spec.startswith('P0x'): idxs, k = [0, 3], int(spec[3:])
+            else: raise ValueError(spec)
+            bad = [j for e, j in allm.items() if sum(e[i] for i in idxs) < k]
+            Cmat = Dmat[:, bad]                       # K x nbad ; need a with a @ Cmat = 0
+            Wv = sla_null_space(Cmat.T)
+            subspace = Wv if subspace is None else Wv @ np.linalg.lstsq(Wv, subspace, rcond=None)[0]
+            conn.send({'type': 'info', 'wid': wid, 'vanish': spec, 'subspace_dim': int(Wv.shape[1])})
         csector = None
         if args.sector:
             wb = [m['w'] for m in fam.members if m['w'] is not None]
@@ -171,7 +185,12 @@ def worker(args, wid, conn):
             Wfull[:len(wb), :Ws.shape[1]] = Ws
             for t in range(fam.K - len(wb)):
                 Wfull[len(wb) + t, Ws.shape[1] + t] = 1.0
-            subspace = Wfull if subspace is None else Wfull @ np.linalg.lstsq(Wfull, subspace, rcond=None)[0]
+            if subspace is None:
+                subspace = Wfull
+            else:
+                # intersection of span(Wfull) and span(subspace): null space of [Wfull, -subspace]
+                Nn = sla_null_space(np.hstack([Wfull, -subspace]))
+                subspace = Wfull @ Nn[:Wfull.shape[1], :]
             csector = c_sector_matrix(kb.cols, -args.sector)
         vp = VarPro(fam, kb, pts, csector=csector)
         if subspace is not None:
@@ -193,7 +212,7 @@ def worker(args, wid, conn):
         ref = float(np.median(refs))
         setup = time.time() - t0
         out_path = os.path.join(LANE, f'w2-pt-d{d}-{args.tag}.jsonl')
-        label = fam.label + (f'|pD{args.pD}' if args.pD else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
+        label = fam.label + (f'|pD{args.pD}' if args.pD else '') + (f'|vanish:{args.vanish}' if args.vanish else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
         conn.send({'type': 'setup', 'wid': wid, 'r': r, 'K': fam.K, 'nK': kb.nK, 'dimP': vp.dimP, 'nspur': vp.nspur,
                    'setup_s': round(setup, 1), 'Fres': pts.Fres, 'label': label, 'nKsector': int(vp.nKc), 'ref_B0norm2': ref})
         rels = []
@@ -305,6 +324,7 @@ def main():
     ap.add_argument('--maxiter', type=int, default=400)
     ap.add_argument('--margin', type=int, default=100, help='extra complex points beyond (dim a + dim c)/2')
     ap.add_argument('--hit', type=float, default=1e-9)
+    ap.add_argument('--vanish', default='', help='restrict D(a) to an ideal power: X3, X4, Y3, Y4, L01x4, P0x2 ...')
     ap.add_argument('--pD', type=int, default=0, help='Y-parity of D (0 even, 1 odd)')
     ap.add_argument('--sector', type=int, default=0, help='(01)-sector: +1 D invariant (N anti-equivariant), -1 D anti-invariant, 0 none')
     args = ap.parse_args()
@@ -331,7 +351,7 @@ def main():
     tot = sum(m.get('n', 0) for m in summary)
     best = min([m['best'] for m in summary if m.get('best') is not None], default=None)
     hist = [sum(m.get('hist_log10', [0]*11)[i] for m in summary) for i in range(11)]
-    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'workers': args.workers,
+    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'vanish': args.vanish, 'workers': args.workers,
            'restarts_total': tot, 'best_rel': best, 'hist_log10_bins': '[<-14,-12,-10,-8,-6,-4,-3,-2,-1,0,>0]', 'hist': hist,
            'maxiter': args.maxiter, 'seconds': round(time.time() - t0, 1), 'seed': args.seed, 'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
     with open(os.path.join(LANE, 'w2-pt-summary.jsonl'), 'a') as fh: fh.write(json.dumps(out) + '\n')

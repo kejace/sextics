@@ -24,6 +24,7 @@ Contents
 """
 from __future__ import annotations
 import sys, os, json, time, math, itertools, random
+os.environ['OPENBLAS_NUM_THREADS'] = '1'; os.environ['OMP_NUM_THREADS'] = '1'; os.environ['MKL_NUM_THREADS'] = '1'
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 from fractions import Fraction
 import numpy as np

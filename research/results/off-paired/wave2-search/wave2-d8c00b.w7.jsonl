@@ -1,0 +1,4 @@
+{"seed": 107, "f": 0.008679919125041161, "bnorm2": 1.9648197752040952, "relres": 0.06646553105477165, "iters": 37, "njac": 37, "nres": 85, "status": "stalled", "time": 79.93, "init": "gauss"}
+{"seed": 115, "f": 0.019468207498680168, "bnorm2": 1.8628126385285466, "relres": 0.10223000812780016, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 147.76, "init": "gauss"}
+{"seed": 123, "f": 0.005639860499885044, "bnorm2": 1.883303164210054, "relres": 0.05472352479660845, "iters": 50, "njac": 51, "nres": 92, "status": "flat", "time": 153.02, "init": "gauss"}
+{"seed": 131, "f": 0.005699030156784802, "bnorm2": 1.9372191607405687, "relres": 0.05423892827442941, "iters": 48, "njac": 49, "nres": 97, "status": "flat", "time": 117.3, "init": "gauss"}

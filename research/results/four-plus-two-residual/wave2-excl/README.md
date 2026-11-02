@@ -27,6 +27,19 @@ Certificate (cleared form, q = 1): A D^2 - D N(F) + F (D div N - N(D)) = F^2 Q, 
 Each script appends one JSON line per experiment to `remote/<job>.jsonl`.
 
 ## Statements and their rigor labels
-See `/tmp/hodge/notes/wave2-four-plus-two-residual-excl.md` (report) and the draft discussion comment
-`/tmp/hodge/notes/wave2-four-plus-two-residual-draftpost.md`.  Labels: [EXACT] exact over Q (hence over C);
-[RANK] modular rank + exact nullity (rigorous over C for the specific rational D); [MODP] modulo one prime (evidence).
+Labels: [EXACT] exact over Q (hence over C); [RANK] modular rank + exact nullity (rigorous over C for the specific
+rational D); [MODP] modulo one prime (evidence).  Full report: `/tmp/hodge/notes/wave2-four-plus-two-residual-excl.md`;
+draft discussion comment: `/tmp/hodge/notes/wave2-four-plus-two-residual-draftpost.md`.
+
+T1 [EXACT] (receipts `excl-kernels*.jsonl`, `excl-kernels-corereps.json`).  H and B have regular Jacobian sequences over Q and
+    mod 2^31-1, 10^9+7, 998244353.  ker(a. on R(H)_k) modulo J(H)_k, (Y0,Y1)-even/odd: k<=5: 0/0; 6: 20/13; 7: 30/30; 8: 41/34;
+    9: 38/38; 10: 36/31; 11: 26/26; 12: 19/16 (= all of R(H)_k for k >= 11).  Consequently {D : A D in J(F)}_d =
+    sum_k ker_{d-k}(H) (x) C[X2,Y2]_k + J(F)_d; no E1-admissible D of degree <= 4; degree 5: D in J(F)_5 only.
+T2 [EXACT] (receipts `excl-d5-local*`, `excl-d5-control-local.jsonl`).  No certificate with deg D = 5 exists over C
+    (Hessian relaxation of the reduced E2 for D = v.grad F; W of dim 8 with no rank-one point).  With T1: deg D >= 6.
+T3 [EXACT] (receipts `excl-d6jac-local*`, `excl-d6jac2-local*`).  No G-eigenvector Jacobian-type denominator of degree 6
+    (13 character classes, 10+8+11x2 parameters) admits a certificate; the only rank-one points are the Euler line D ~ F.
+T4 [RANK]/[EXACT] (receipts `excl-symsweep-local-*.jsonl`).  Individual core-only kernel representatives (exact rational,
+    verified) of degrees 6..12 in the sector-restricted full 6-variable system -- see the log for the per-D verdicts.
+T5 [MODP] (receipts `excl-sum-local.jsonl`, `-served.json`).  Served-target sectors and sum-principle membership tests.
+T6 [RANK]/[MODP] (receipts `excl-d6.jsonl`, `excl-generic.jsonl`, `excl-struct-local.jsonl`, when available).

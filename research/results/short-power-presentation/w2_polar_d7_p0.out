@@ -1,0 +1,16 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[polar] d=7 par=0 l=X0: dim (J_8 ∩ l S_d)/l mod J_d = 0 (incl J: 63), ∩ K_d = None
+[polar] d=7 par=0 l=X1: dim (J_8 ∩ l S_d)/l mod J_d = 0 (incl J: 63), ∩ K_d = None
+[polar] d=7 par=0 l=X2: dim (J_8 ∩ l S_d)/l mod J_d = 0 (incl J: 63), ∩ K_d = None
+[polar] d=7 par=0 l=Y0: dim (J_8 ∩ l S_d)/l mod J_d = 0 (incl J: 63), ∩ K_d = None
+[polar] d=7 par=0 l=Y1: dim (J_8 ∩ l S_d)/l mod J_d = 0 (incl J: 63), ∩ K_d = None
+[polar] d=7 par=0 l=Y2: dim (J_8 ∩ l S_d)/l mod J_d = 0 (incl J: 63), ∩ K_d = None
+[polar] d=7 par=0 l=L: dim (J_8 ∩ l S_d)/l mod J_d = 3 (incl J: 66), ∩ K_d = 1
+[polar] d=7 par=0 l=M: dim (J_8 ∩ l S_d)/l mod J_d = 3 (incl J: 66), ∩ K_d = 0
+Traceback (most recent call last):
+  File "/tmp/hodge/results/short-power-presentation/w2_polar.py", line 62, in <module>
+    main()
+  File "/tmp/hodge/results/short-power-presentation/w2_polar.py", line 26, in main
+    pare = (par + parl) % 2   # parity of l*D
+            ~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'

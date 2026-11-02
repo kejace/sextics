@@ -256,7 +256,7 @@ class VarPro:
         M, B0, D, Di, divN, Ni, G = self.assemble(a)
         Ms = M if self.csector is None else M @ self.csector
         Mr = np.vstack([Ms.real, Ms.imag]); br = np.concatenate([(-B0).real, (-B0).imag])
-        c, *_ = sla.lstsq(Mr, br, cond=self.cond, lapack_driver='gelsd', check_finite=False)
+        c, *_ = sla.lstsq(Mr, br, cond=self.cond, lapack_driver='gelsy', check_finite=False)
         if self.csector is not None:
             c = self.csector @ c
         rho = M @ c + B0

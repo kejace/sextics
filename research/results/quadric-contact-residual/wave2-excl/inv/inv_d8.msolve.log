@@ -3,7 +3,7 @@
 #variables                      17
 #equations                      52
 #invalid equations               0
-field characteristic    2147483629
+field characteristic    1000000007
 homogeneous input?               1
 signature-based computation      0
 monomial order                 DRL
@@ -18,17 +18,17 @@ generate pbm files               0
 ------------------------------------------
 Dimension of quotient: 595
 ------------------------------------------------------------------------------------
-msolve overall time           2.79 sec (elapsed) /  5.30 sec (cpu)
+msolve overall time           4.78 sec (elapsed) /  8.74 sec (cpu)
 ------------------------------------------------------------------------------------
 
 ---------------- TIMINGS ---------------
-overall(elapsed)        2.77 sec
-overall(cpu)            5.27 sec
-select                  0.18 sec   6.4%
-symbolic prep.          0.06 sec   2.0%
-update                  0.58 sec  21.1%
-convert                 0.01 sec   0.3%
-linear algebra          1.93 sec  69.5%
+overall(elapsed)        4.74 sec
+overall(cpu)            8.70 sec
+select                  0.38 sec   8.1%
+symbolic prep.          0.13 sec   2.7%
+update                  1.05 sec  22.1%
+convert                 0.02 sec   0.4%
+linear algebra          3.14 sec  66.2%
 reduce gb               0.00 sec   0.0%
 -----------------------------------------
 

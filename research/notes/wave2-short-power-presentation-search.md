@@ -77,6 +77,18 @@ degrees where E1 + the quadratic relaxation can classify are d <= 9.
   Since X0 D in J => A D in J, these give explicit E1-admissible sub-families with explicit numerators N = (A/X0) w.
 * d = 9: dim K_9^+ = 18 (mod J; two primes agree); the odd kernel and the structure analysis are running.
 
+### Numerical landscape (reduced varpro, d = 7 even, 6 restarts, 2 procs, local)
+* Every restart converges to the same basin: f/scale0 = 3.2e-6 (f = 1.1e-3), ~100 L-BFGS iterations, 10-15 min per restart under load 60-100.
+* The basin is the Fermat certificate X0*E_Y(F) (D ~ 6 X0 (Y0^6+Y1^6+Y2^6)): evaluating the functional directly gives f/scale0 = 2.6e-6 at
+  w = X0 E_Y and 1.2e-5 at w = X0 E_X.  Explanation: at c = 0 (Fermat) the pure-Jacobian relaxation A*Phi(w) in J has the 15-dimensional
+  (even, gauge-fixed) solution family w_j = z_j q_j (Phi = 30 sum z_j^6 q_j^2 = 0 in the Fermat ring), i.e. D = sum_j q_j z_j^6, many of which
+  are genuine Fermat certificates; the coupling c = 5/7^7 destroys them only at relative size ~c, so the numerical functional has deep
+  (but nonzero) minima there.  Hence numerical residuals ~1e-6 are expected and meaningless; only the exact confirmation step counts.
+  Deflation (multiplying f by prod (1 + eps/|a - a_k|^2)) was added so that batches explore other basins (to be run on the remote).
+* Exact relaxation Gröbner bases at d = 7 (61 variables after gauge; 734 even / 725 odd quadrics): running for > 40 CPU-minutes each
+  (msolve F4, 7-11 GB), i.e. the F4 degree-3 Macaulay matrix did not certify emptiness; the degree-4 step (635k columns) is in progress.
+  At d = 8 (162 variables, 468 equations) this formulation is out of reach (quadratic monomials 13203 >> 468 equations).
+
 ### Tooling validated (wave 2)
 * w2lib.JRef / e1_kernel: reproduces wave-1 ranks (J_10^- = 747, kernel 0 at d=4).
 * w2_varpro (reduced variable projection: unknowns = Koszul corrections c_ij (deg d-4) + Q; rows = degree-2d monomials):

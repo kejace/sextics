@@ -16,6 +16,7 @@ F, A, q, rec = core.load_instance('diagonal-permutation')
 Fs = sp.sympify(core.to_str(F))
 p = 1073741827
 chart = int(sys.argv[1]) if len(sys.argv)>1 else 0
+onX = (len(sys.argv)>2 and sys.argv[2]=='onX')   # variant: v on X (cone tangent sections) instead of F(v)!=0
 vv = list(v); vv[chart] = 1
 # directional derivative operator along v
 def dv(e):
@@ -27,8 +28,12 @@ quad_monos = [Z[i]*Z[j] for i in range(6) for j in range(i,6)]
 Q = sum(qs[k]*quad_monos[k] for k in range(21))
 E = sp.Poly(sp.expand(d3 - lv*Q), *Z)
 eqs = [c for c in E.coeffs()]
-eqs.append(sp.expand(u*Fv - 1))
-unknowns = [v[i] for i in range(6) if i != chart] + list(qs) + [u]
+if onX:
+    eqs.append(sp.expand(Fv))
+    unknowns = [v[i] for i in range(6) if i != chart] + list(qs)
+else:
+    eqs.append(sp.expand(u*Fv - 1))
+    unknowns = [v[i] for i in range(6) if i != chart] + list(qs) + [u]
 def to_ms(poly):
     poly = sp.Poly(poly, *unknowns)
     den = 1
@@ -42,20 +47,20 @@ def to_ms(poly):
         mstr = '*'.join('%s^%d'%(str(unknowns[i]),e) for i,e in enumerate(mon) if e>0)
         terms.append(('%d*%s'%(c, mstr)) if mstr else '%d'%c)
     return '+'.join(terms) if terms else '0'
-fname = 'reflection_v%d.ms'%chart
+tag = ('onX' if onX else 'offX'); fname = 'reflection_%s_v%d.ms'%(tag,chart)
 with open(fname,'w') as f:
     f.write(','.join(str(x) for x in unknowns)+'\n'); f.write('%d\n'%p)
     f.write(',\n'.join(to_ms(e) for e in eqs if sp.expand(e)!=0)+'\n')
 print('wrote', fname, len(eqs), 'equations', len(unknowns), 'unknowns', flush=True)
 t1=time.time()
 nthreads = int(os.environ.get('NTHREADS','16'))
-r = subprocess.run(['msolve','-v','1','-t',str(nthreads),'-f',fname,'-o','reflection_v%d.out'%chart], capture_output=True, text=True, timeout=7000)
+r = subprocess.run(['msolve','-v','1','-t',str(nthreads),'-f',fname,'-o',fname.replace('.ms','.out')], capture_output=True, text=True, timeout=7000)
 print(r.stdout[-3000:], r.stderr[-3000:], flush=True)
-out = open('reflection_v%d.out'%chart).read().strip()
+out = open(fname.replace('.ms','.out')).read().strip()
 print('OUTPUT:', out[:2000], flush=True)
-res = {"exp":"J2-hidden-reflection","family":"reflections r with F o r = F (chart v%d=1)"%chart,"prime":p,
-       "result": ("none (GB={1})" if out.startswith('[1') or out.strip()=='[]' else "see reflection_v%d.out"%chart),
-       "raw_head": out[:200], "seconds": round(time.time()-t1,1), "job":"construct-dp-reflection-v%d"%chart,
+res = {"exp":"J2-cubic-polar-condition","family":"points v with l_v | d_v^3 F, %s (chart v%d=1)"%(("v on X: cone tangent sections" if onX else "F(v)!=0: hidden reflections / §2.7 partner"),chart),"prime":p,
+       "result": ("none (GB={1})" if out.startswith('[1') or out.strip()=='[]' else "see "+fname.replace(".ms",".out")),
+       "raw_head": out[:200], "seconds": round(time.time()-t1,1), "job":"construct-dp-j1j2",
        "note":"cubic-polar condition l_v | d_v^3 F with F(v)!=0; empty => no hidden reflection (mod p evidence)"}
 with open('wave2-construct.log.jsonl','a') as f: f.write(json.dumps(res)+'\n')
 print(res)

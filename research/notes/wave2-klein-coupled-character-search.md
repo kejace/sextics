@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 20:11:06 from 59 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 20:28:25 from 68 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -26,6 +26,13 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
   (d, parity, weight) -- mod-p emptiness of a homogeneous system implies emptiness over Q (closure of the generic fibre).
   `dim > 0` mod p does not imply real/rational zeros (the (6,even,0) component is an octic curve with no real points found).
 
+
+## (1) E1-admissible sector dimensions (kernel of [A] on (R/J)_d^{parity}[k], mod p; upper bounds over Q)
+
+| d | parity | nD per k=0..6 | J_d per k | kernel mod J per k (nontrivial) | rational reps (max height) | lifts failed |
+|---|---|---|---|---|---|---|
+| 9 | even | -,156,156,139,-,139,139 | -,63,63,52,-,52,52 | -,3,3,2,-,1,3 | -,-,-,49994,-,31345,272340 | 0 |
+| 9 | odd | -,139,-,-,-,136,- | -,49,-,-,-,46,- | -,5,-,-,-,6,- | -,2420,-,-,-,3625,- | 0 |
 
 ## (2) Mod-J relaxation per sector (real zeros numerically; Singular exact dimension mod 32003)
 
@@ -84,17 +91,18 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 6 | even | 0 | J | 12 | 11 | 368x30 | 6 | 3.96e-01 | 3.96e-01 | 1.00e+00 | 0 | 0 | lm | 0 |
 | 6 | even | 3 | J | 1 | 1 | 365x70 | 2 | 9.56e-01 | 9.56e-01 | 9.56e-01 | 0 | 0 | lm | 0 |
+| 9 | even | 3 | K | 2 | 2 | 1969x240 | 4 | 3.41e-02 | 3.41e-02 | 3.41e-02 | 0 | 0 | lm | 0 |
 
 ## Remote job queue (tail)
 ```
-19:54:17 gate closed for w2-control: REMOTE BUSY: load 786 (max 150), available memory 67 GB (min 60), 92 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-19:55:50 gate closed for w2-control: REMOTE BUSY: load 853 (max 150), available memory 68 GB (min 60), 92 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-19:57:22 gate closed for w2-control: REMOTE BUSY: load 897 (max 150), available memory 71 GB (min 60), 91 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-19:58:55 gate closed for w2-control: REMOTE BUSY: load 923 (max 150), available memory 57 GB (min 60), 91 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:00:28 gate closed for w2-control: REMOTE BUSY: load 932 (max 150), available memory 70 GB (min 60), 88 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:02:01 gate closed for w2-control: REMOTE BUSY: load 1093 (max 150), available memory 76 GB (min 60), 89 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:03:34 gate closed for w2-control: REMOTE BUSY: load 1118 (max 150), available memory 71 GB (min 60), 92 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:05:07 gate closed for w2-control: REMOTE BUSY: load 1158 (max 150), available memory 54 GB (min 60), 91 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:20:49 gate closed for w2-control: 00), available memory 237 GB (min 90), 63 jobs running with 124 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:22:22 gate closed for w2-control: 00), available memory 235 GB (min 90), 67 jobs running with 152 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:23:54 gate closed for w2-control: 00), available memory 229 GB (min 90), 67 jobs running with 148 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:25:27 gate closed for w2-control: 00), available memory 190 GB (min 90), 66 jobs running with 146 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:26:59 gate closed for w2-control: 00), available memory 212 GB (min 90), 67 jobs running with 148 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation
@@ -121,4 +129,14 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
   so it is strong evidence (to be repeated at further primes / in characteristic 0), not yet a proof.
 * Degree 8 relaxation probes (local, 60-120 restarts, LM-polished minima): (8,even,0) global min rel 2.198e-8 (stable,
   nonzero; full-E2 rel there 0.25), (8,even,1) 2.45e-5, (8,even,4) 1.58e-5.
+* (6, even, 0) exact E2 saturation repeated at p = 1000003: again DIM_SAT = -1 (58 s).  Two independent primes.
+* Degree 8 relaxation, all 14 sectors probed locally (40-120 restarts each, LM-polished): global minima are nonzero,
+  rel between 6.4e-7 (8,odd,4) and 3.0e-5 (8,odd,0); no real zeros.  Remote job `w2-hess8` repeats this with 1500 restarts
+  and Singular (dim of the exact quadric system).
+* Correction to the wave-1/dossier description: fqlx's degree-9 denominator `Jhat` lies in J(F)_9 (membership verified
+  mod 2147483647 and 2147483629), i.e. it is of Jacobian type, not a non-Jacobian E1-kernel element.
+* Sector E1 kernels at d = 9: the nontrivial (mod J) kernel directions in sectors (9,even,1) and (9,even,2) have no
+  representative of height below ~1e21 (LLL on the mod-m kernel lattice, m = product of 4 primes, finds exactly the 63
+  short J-vectors and nothing else), while (9,even,0/3/5/6) have representatives of height 6e3..3e5.  For the large-height
+  sectors the joint search uses an orthonormal floating-point kernel basis (`float_kernel_reps`, lifts to 4e-15).
 

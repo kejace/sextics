@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-01 20:14:48.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-01 20:28:59.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -41,6 +41,13 @@ Last rebuilt 2026-11-01 20:14:48.  Work dir `/tmp/hodge/results/rank-one-biquart
   denominator in that family passes E2.  For d <= 6 the family is the complete set of E1-admissible Y-even
   denominators (proved over C in the dossier), so a full-rank result there is an unconditional exclusion of that
   degree.  Numerical search results are evidence only; a failed multistart search excludes nothing.
+
+**Invariance lemma (used for the exact exclusions).**  For `D' = D + F G` (G in S_{d-6}) with lift `N' = N0 + A G Z/6`
+one has `B_{D'}(N') - B_D(N0) = 6 A G D ... in J(F)` exactly (the cross terms are `A G D(a)`, `F G div N0 - G A D(a) - F N0(G)`
+and `A F G^2`, all in J), so the Jacobian-quotient relaxation is a condition on `P(V / F S_{d-6})`: the spurious
+F-multiples form the vertex of a cone and can be sliced away (one triangular coordinate per spurious direction set to 0,
+`slice_ms.py`, invariance verified numerically: 0 violations for the 82 (d=6) and 432x3 (d=7) checks).  Emptiness of the
+sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by the Macaulay-rank semicontinuity.
 
 ## 1. E1-admissible denominator spaces (exact mod p = 2^31-1)
 | d | parity | dim S_d | dim J_d | ring dim (S/J)_d | dim {D: AD in J} | kernel mod J | matrix | time s |

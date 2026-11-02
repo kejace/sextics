@@ -324,10 +324,22 @@ class ReducedVarPro:
             g[k] = 2.0 * (val + float(db[k] @ r))
         return g
 
+    deflate = []     # list of unit vectors a_k (known minima) for deflation
+    deflate_eps = 1e-2
+
     def value_and_grad(self, u):
         af = self.P @ u; na = np.linalg.norm(af); a = af / na
         f, x, r, b = self.solve(a)
         g = self.grad(a, x, r)
+        if self.deflate:
+            # multiply by prod_k (1 + eps / |a - a_k|^2); d/da of log term = -2 eps (a - a_k) / (|a-a_k|^2 (|a-a_k|^2 + eps))
+            fac = 1.0; gl = np.zeros(self.K)
+            for ak in self.deflate:
+                diff = a - ak; d2 = float(diff @ diff) + 1e-30
+                fac *= (1.0 + self.deflate_eps / d2)
+                gl += -2.0 * self.deflate_eps * diff / (d2 * (d2 + self.deflate_eps))
+            g = g * fac + f * fac * gl
+            f = f * fac
         g_full = (g - float(g @ a) * a) / na
         return f, self.P.T @ g_full
 
@@ -335,11 +347,16 @@ class ReducedVarPro:
         f, x, r, b = self.solve(a)
         return f / max(self.scale0, 1e-300), f, float(b @ b)
 
-    def search(self, n_restarts, seed, maxiter=400, verbose=False, stop_rel=1e-14):
+    def search(self, n_restarts, seed, maxiter=400, verbose=False, stop_rel=1e-14, deflate_found=False):
         rng = np.random.default_rng(seed)
         out = []
         for it in range(n_restarts):
             t0 = time.time()
+            if deflate_found and out:
+                best = min(out, key=lambda c: c['rel'])
+                ak = np.asarray(best['a']); ak = ak / np.linalg.norm(ak)
+                if not any(abs(float(ak @ q)) > 0.999 for q in self.deflate):
+                    self.deflate.append(ak)
             u0 = rng.standard_normal(self.dimP); u0 /= np.linalg.norm(u0)
             res = minimize(self.value_and_grad, u0, jac=True, method='L-BFGS-B',
                            options={'maxiter': maxiter, 'gtol': 1e-12, 'ftol': 1e-18})
@@ -374,7 +391,7 @@ class ReducedVarPro:
         return cands
 
 def worker(args):
-    (d, par, kfile, seed, n_restarts, maxiter, no_kernel) = args
+    (d, par, kfile, seed, n_restarts, maxiter, no_kernel, deflate) = args
     F, A, q, rec = load()
     reps, nums = [], []
     if not no_kernel and kfile and os.path.exists(kfile):
@@ -389,7 +406,7 @@ def worker(args):
             nums = [float_numerators(F, A, G) for G in reps]
             print(f'[rvp] using float least-squares numerators for {len(reps)} kernel reps', file=sys.stderr, flush=True)
     rvp = ReducedVarPro(F, A, d, par, reps, nums, verbose=(seed % 1000 == 0))
-    res = rvp.search(n_restarts, seed, maxiter=maxiter, verbose=True)
+    res = rvp.search(n_restarts, seed, maxiter=maxiter, verbose=True, deflate_found=deflate)
     return res
 
 def main():
@@ -399,11 +416,12 @@ def main():
     ap.add_argument('--seed', type=int, default=0); ap.add_argument('--maxiter', type=int, default=400)
     ap.add_argument('--tag', default=''); ap.add_argument('--no-kernel', action='store_true')
     ap.add_argument('--confirm-top', type=int, default=2); ap.add_argument('--confirm-tol', type=float, default=1e-9)
+    ap.add_argument('--deflate', action='store_true', help='deflate the best minimum found so far within each process')
     a = ap.parse_args()
     t0 = time.time()
     kfile = os.path.join(RES, f'kernel_d{a.d}_p{a.par}.json')
     per = max(1, a.restarts // a.procs)
-    jobs = [(a.d, a.par, kfile, a.seed + 1000 * i, per, a.maxiter, a.no_kernel) for i in range(a.procs)]
+    jobs = [(a.d, a.par, kfile, a.seed + 1000 * i, per, a.maxiter, a.no_kernel, a.deflate) for i in range(a.procs)]
     if a.procs > 1:
         import multiprocessing as mp
         with mp.get_context('fork').Pool(a.procs) as pool:

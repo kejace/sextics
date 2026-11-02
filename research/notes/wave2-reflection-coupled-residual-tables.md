@@ -1,4 +1,4 @@
-events: {'coker': 21, 'e1space': 21, 'relax': 3, 'relax-reconstruct': 1, 'confirm': 1, 'msolve-export': 18, 'msolve': 11, 'k8-e1': 1, 'k8-fixedD-symmetric': 1, 'wave2-search-start': 1, 'k8-fixedD-full': 1, 'famrelax': 2, 'msolve-family-export': 2, 'msolve-family': 2}
+events: {'coker': 21, 'e1space': 21, 'relax': 3, 'relax-reconstruct': 1, 'confirm': 1, 'msolve-export': 18, 'msolve': 11, 'k8-e1': 1, 'k8-fixedD-symmetric': 1, 'wave2-search-start': 1, 'k8-fixedD-full': 1, 'famrelax': 2, 'msolve-family-export': 2, 'msolve-family': 2, 'kvp': 8}
 
 ### E1 spaces (exact mod p)
 | d | sec | dim S | dim J | dim R | E1-admissible | non-J |
@@ -49,6 +49,14 @@ events: {'coker': 21, 'e1space': 21, 'relax': 3, 'relax-reconstruct': 1, 'confir
 
 ### Koszul-reduced full-E2 varpro
 | d | sectors | family | K | search dim | rows | n_a | restarts | best rel | median | time |
+| 8 | 00 | JK | 113 | 103 | 5676 | 538 | 1 | 1.26e-01 | 1.26e-01 | 151.2s |
+| 8 | 00 | JK | 113 | 103 | 5676 | 538 | 1 | 1.22e-01 | 1.22e-01 | 152.7s |
+| 7 | 00 | J | 45 | 42 | 3276 | 242 | 12 | 4.95e-01 | 6.99e-01 | 135.7s |
+| 7 | 01 | J | 40 | 38 | 3276 | 238 | 12 | 6.99e-01 | 9.43e-01 | 112.2s |
+| 7 | 10 | J | 23 | 22 | 3276 | 182 | 12 | 1.05e+00 | 1.72e+00 | 63.4s |
+| 7 | 11 | J | 18 | 18 | 3276 | 178 | 12 | 1.56e+00 | 1.81e+00 | 68.9s |
+| 8 | 00 | JK | 113 | 103 | 5676 | 538 | 1 | 1.07e+00 | 1.07e+00 | 241.9s |
+| 7 | e | J | 63 | 60 | 5796 | 420 | 4 | 9.70e-01 | 1.19e+00 | 210.9s |
 
 ### Exact confirmations
 - d=6 spurious (F | D) rank=None nullity=None note=relax d=6 secs=00 rel=1.49e-15 D=6*X0**6 + 30*X0**3*X1*Y0*Y1/7 + 30*X0*X1*Y0**3*Y1/7 + 30*X0*X1*Y0**2*Y

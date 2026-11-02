@@ -4,6 +4,7 @@ gauge (table e1_sectors_wave2.json written by w2_e1profile.py --cones), run the 
 over that (small) family.   python3 w2_cones.py [--dmin 6] [--dmax 12] [--restarts 60]
 """
 import sys, os, json, argparse
+os.environ['OPENBLAS_NUM_THREADS'] = '1'; os.environ['OMP_NUM_THREADS'] = '1'
 sys.path.insert(0, '/tmp/hodge/results/quadric-contact-residual')
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 import w2lib as W

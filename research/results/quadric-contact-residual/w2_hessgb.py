@@ -160,7 +160,7 @@ lines_s = []    # Singular syntax a(1)*a(2)
 for cf in quads:
     pairs_kept = [((kidx[k], kidx[l]), v) for (k, l), v in cf.items() if k in kidx and l in kidx]
     if pairs_kept:
-        lines.append('+'.join(f'{v}*a{i+1}*a{j+1}' for (i, j), v in pairs_kept))
+        lines.append('+'.join((f'{v}*a{i+1}^2' if i == j else f'{v}*a{i+1}*a{j+1}') for (i, j), v in pairs_kept))   # msolve: c*c parses as c, use ^2
         lines_s.append('+'.join(f'{v}*a({i+1})*a({j+1})' for (i, j), v in pairs_kept))
 nvar = len(keep)
 base = f'{W.RES}/hessgb-d{d}-' + ('mixed' if MIXED else f'par{par}')

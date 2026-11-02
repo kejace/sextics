@@ -1,6 +1,6 @@
 #Leading ideal data
 #---
-#field characteristic: 2147483629
+#field characteristic: 1000000007
 #variable order:       c0, c1, c2, c3
 #monomial order:       graded reverse lexicographical
 #length of basis:      10 elements sorted by increasing leading monomials

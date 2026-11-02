@@ -11,7 +11,7 @@ full-E2 Koszul varpro search (H-sector restricted unknowns, mixed parity) when t
 import sys, os, json, time, argparse, itertools
 sys.path.insert(0, '/tmp/hodge/results/quadric-contact-residual')
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
-os.environ.setdefault('OPENBLAS_NUM_THREADS', '1'); os.environ.setdefault('OMP_NUM_THREADS', '1')
+os.environ['OPENBLAS_NUM_THREADS'] = '1'; os.environ['OMP_NUM_THREADS'] = '1'; os.environ['MKL_NUM_THREADS'] = '1'   # multi-threaded BLAS is 30x slower here (contention)
 from fractions import Fraction
 import numpy as np
 import multiprocessing as mp

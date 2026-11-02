@@ -3,6 +3,7 @@ transposition-fixed points), and the cone over S_01 with a random (non-equivaria
 import sys, json, time, random
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 exec(open('w2c_randcone.py').read().split("log = open")[0])  # reuse kernel_full and setup
+Fs = sp.sympify(core.to_str(F))
 log = open('wave2-construct.log.jsonl','a')
 random.seed(7)
 Qorb = sp.expand((X0-X1)*(Y1-Y2) - (X1-X2)*(Y0-Y1))
@@ -21,6 +22,9 @@ for trial in range(2):
     Dpq = sp.expand(F0.subs(pi, simultaneous=True))
     back = {p_: X0+X1, r_: X0-X1, a_: X2, q_: Y0+Y1, t_: Y0-Y1, b_: Y2}
     cands['cone over S_01, vertex line w1=%s w2=%s'%(w1,w2)] = sp.expand(Dpq.subs(back, simultaneous=True))
+pp,aa,tt,rr,qq,bb = X0+X1, X2, Y0-Y1, X0-X1, Y0+Y1, Y2
+cands['cone over Fix(tau s)_+ curve, vertex E_-'] = sp.expand(Fs.subs({X0:pp/2, X1:pp/2, X2:aa, Y0:tt/2, Y1:-tt/2, Y2:0}, simultaneous=True))
+cands['cone over Fix(tau s)_- curve, vertex E_+'] = sp.expand(Fs.subs({X0:rr/2, X1:-rr/2, X2:0, Y0:qq/2, Y1:qq/2, Y2:bb}, simultaneous=True))
 for name, D in cands.items():
     Dd = core.parse(str(D))
     t0=time.time(); k, rk = kernel_full(F, Dd, core.degree(Dd), p); dt=time.time()-t0

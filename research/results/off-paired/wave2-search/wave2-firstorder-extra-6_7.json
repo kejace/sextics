@@ -1,0 +1,326 @@
+[
+ {
+  "dir": "extra",
+  "d": 6,
+  "S": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "D0": "X0**6 + X1**6 + X2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    210,
+    210
+   ],
+   [
+    2147483629,
+    210,
+    210
+   ]
+  ],
+  "rows": 702,
+  "cols": 242,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 1.4
+ },
+ {
+  "dir": "extra",
+  "d": 6,
+  "S": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "D0": "X0**6 + X1**6 + Y1**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    207,
+    207
+   ],
+   [
+    2147483629,
+    207,
+    207
+   ]
+  ],
+  "rows": 717,
+  "cols": 242,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 1.4
+ },
+ {
+  "dir": "extra",
+  "d": 6,
+  "S": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "D0": "X0**6 + X1**6 + Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    210,
+    210
+   ],
+   [
+    2147483629,
+    210,
+    210
+   ]
+  ],
+  "rows": 702,
+  "cols": 242,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 1.2
+ },
+ {
+  "dir": "extra",
+  "d": 6,
+  "S": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "D0": "X0**6 + X2**6 + Y1**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    208,
+    208
+   ],
+   [
+    2147483629,
+    208,
+    208
+   ]
+  ],
+  "rows": 705,
+  "cols": 242,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 1.2
+ },
+ {
+  "dir": "extra",
+  "d": 6,
+  "S": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "D0": "X0**6 + X2**6 + Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    205,
+    205
+   ],
+   [
+    2147483629,
+    205,
+    205
+   ]
+  ],
+  "rows": 678,
+  "cols": 242,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 1.3
+ },
+ {
+  "dir": "extra",
+  "d": 6,
+  "S": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "D0": "X0**6 + Y1**6 + Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    208,
+    208
+   ],
+   [
+    2147483629,
+    208,
+    208
+   ]
+  ],
+  "rows": 705,
+  "cols": 242,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 1.3
+ },
+ {
+  "dir": "extra",
+  "d": 7,
+  "S": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "D0": "X0**7 + X0*X1**6 + X0*X2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    340,
+    340
+   ],
+   [
+    2147483629,
+    340,
+    340
+   ]
+  ],
+  "rows": 1212,
+  "cols": 396,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 3.2
+ },
+ {
+  "dir": "extra",
+  "d": 7,
+  "S": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "D0": "X0**7 + X0*X1**6 + X0*Y1**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    335,
+    335
+   ],
+   [
+    2147483629,
+    335,
+    335
+   ]
+  ],
+  "rows": 1227,
+  "cols": 396,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 2.8
+ },
+ {
+  "dir": "extra",
+  "d": 7,
+  "S": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "D0": "X0**7 + X0*X1**6 + X0*Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    340,
+    340
+   ],
+   [
+    2147483629,
+    340,
+    340
+   ]
+  ],
+  "rows": 1212,
+  "cols": 396,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 3.4
+ },
+ {
+  "dir": "extra",
+  "d": 7,
+  "S": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "D0": "X0**7 + X0*X2**6 + X0*Y1**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    338,
+    338
+   ],
+   [
+    2147483629,
+    338,
+    338
+   ]
+  ],
+  "rows": 1218,
+  "cols": 396,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 3.4
+ },
+ {
+  "dir": "extra",
+  "d": 7,
+  "S": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "D0": "X0**7 + X0*X2**6 + X0*Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    333,
+    333
+   ],
+   [
+    2147483629,
+    333,
+    333
+   ]
+  ],
+  "rows": 1185,
+  "cols": 396,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 3.8
+ },
+ {
+  "dir": "extra",
+  "d": 7,
+  "S": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "D0": "X0**7 + X0*Y1**6 + X0*Y2**6",
+  "ranks_per_prime": [
+   [
+    2147483647,
+    338,
+    338
+   ],
+   [
+    2147483629,
+    338,
+    338
+   ]
+  ],
+  "rows": 1218,
+  "cols": 396,
+  "first_order_deformable": true,
+  "T_terms": 3,
+  "time": 3.9
+ }
+]
