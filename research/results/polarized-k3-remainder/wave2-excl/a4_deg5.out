@@ -1,0 +1,5 @@
+[relax d=5] params=96 (a 6) E2 monomials=1337 built 0.2s
+quadratic keys: cc 21 ck 468 kk 0
+rows=2071 rank(other)=411 rank(other+cc)=432 (need +21)
+DEGREE 5 EXCLUDED over Q (all c_i c_j forced to 0): True 2.3s
+LOGGED {"exp": "a4_deg5_exclusion", "rigor": "exact over Q (fmpz_mat.rank); full Koszul relaxation, parity-free, UV frame", "rows": 2071, "rank_other": 411, "rank_all": 432, "n_cc": 21, "excluded": true, "seconds": 2.3, "time": "2026-11-02T00:27:35", "lens": "excl", "lane": "polarized-k3-remainder", "engine": 2}

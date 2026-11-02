@@ -1,0 +1,9 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+colon basis failed 10 (0, 0) colon d=10 c=(0, 0): rational reconstruction failed with 6 primes
+colon basis failed 10 (3, 0) colon d=10 c=(3, 0): rational reconstruction failed with 6 primes
+colon basis failed 11 (0, 0) colon d=11 c=(0, 0): rational reconstruction failed with 6 primes
+colon basis failed 11 (3, 0) colon d=11 c=(3, 0): rational reconstruction failed with 6 primes
+colon basis failed 12 (0, 0) colon d=12 c=(0, 0): rational reconstruction failed with 6 primes
+colon basis failed 12 (3, 0) colon d=12 c=(3, 0): rational reconstruction failed with 6 primes
+3922 tasks
+{"ts": "2026-11-02T01:12:38", "step": "served-scan", "job": "servedscan", "n": 3922, "nontrivial": 0, "by_status": {"trivial": 3922}, "sectors": ["30"], "wall": 182.5}

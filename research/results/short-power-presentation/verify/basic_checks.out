@@ -1,0 +1,65 @@
+C1 F == eX+eY+c((L+M)^6+(L-M)^6): True
+   q = 1  A = X0**3*Y0**3  #terms F = 236
+   X0^6 coeff: 823553/823543 = 823553/823543 ;  Y2^6: 979793/823543 = 979793/823543
+quartic power rank (exact over Q): 8
+sextic power rank (l_k^6 independent?): 8
+Hessian symmetrizer dim (exact over Q): 1
+SNF diag of exponent-difference lattice: [1, 1, 1, 1, 2, 0]  (rank 5 )
+=> diagonal projective group order (index of L in sum-zero lattice): 2
+proper subsets I with E_I^2 F = 6 E_I F: []
+number of apolar quadrics (exact): 13  catalecticant Cat(2,4) rank: 8
+middle catalecticant rank (exact): 8
+--- Singular apolar base locus ---
+dim = 1
+degree = 8
+ncomp = 8
+[1]:
+   _[1]=u5
+   _[2]=u4
+   _[3]=u3
+   _[4]=u2
+   _[5]=u1
+[2]:
+   _[1]=u5
+   _[2]=u4
+   _[3]=u3
+   _[4]=u2
+   _[5]=u0
+[3]:
+   _[1]=u5
+   _[2]=u4
+   _[3]=u3
+   _[4]=u1
+   _[5]=u0
+[4]:
+   _[1]=u5
+   _[2]=u3
+   _[3]=u2
+   _[4]=u1
+   _[5]=u0
+[5]:
+   _[1]=u5
+   _[2]=u4
+   _[3]=u2
+   _[4]=u1
+   _[5]=u0
+[6]:
+   _[1]=5*u4-3*u5
+   _[2]=5*u3-u5
+   _[3]=5*u2+3*u5
+   _[4]=5*u1+2*u5
+   _[5]=5*u0+u5
+[7]:
+   _[1]=5*u4-3*u5
+   _[2]=5*u3-u5
+   _[3]=5*u2-3*u5
+   _[4]=5*u1-2*u5
+   _[5]=5*u0-u5
+[8]:
+   _[1]=u4
+   _[2]=u3
+   _[3]=u2
+   _[4]=u1
+   _[5]=u0
+
+8 power points lie on all apolar quadrics: True

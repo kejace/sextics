@@ -1,0 +1,16 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"exp": "hess-exact", "d": 6, "parity": "all", "prime_of_basis": 268435399, "dim_KH": 261, "nw": 36, "nW": 666, "J_blocks": {"0": {"J_rank": 2223, "n_targets": 30, "failures": 0}, "1": {"J_rank": 2214, "n_targets": 31, "failures": 0}}, "exact_membership_all": true, "seconds_solve": 223.8, "job": "hessX6"}
+DIM 1
+   ? overflow at t^21
+
+   ? error occurred in or before primdec.lib::newDecompStep_i line 7540: `    @hilb=hilb(tras,1,@w);`
+   ? leaving primdec.lib::newDecompStep_i (7539)
+   skipping text from `;` error at token `)`
+   ? leaving primdec.lib::minAssSLIteration (8748)
+   ? leaving primdec.lib::minAssSL (8688)
+   ? leaving primdec.lib::minAssPrimes_i (2264)
+   ? leaving primdec.lib::minAssGTZ_i (6215)
+   ? leaving primdec.lib::minAssGTZ (6109)
+NCOMP 0
+
+{"exp": "hess-exact", "d": 6, "parity": "all", "prime_of_basis": 268435399, "dim_KH": 261, "nw": 36, "nW": 666, "J_blocks": {"0": {"J_rank": 2223, "n_targets": 30, "failures": 0}, "1": {"J_rank": 2214, "n_targets": 31, "failures": 0}}, "exact_membership_all": true, "seconds_solve": 223.8, "job": "hessX6", "n_quadrics_exact": 405, "seconds": 226.9}

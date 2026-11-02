@@ -1,0 +1,4 @@
+sector (0, 2): 18 unknowns, 93 quadrics
+built 93 quadrics in 18 vars (47.4s)
+GB: rc=0 337 elements, 0 linear, 0.3s; msolve: 
+gauge-fixed: 16 vars (2 removed), 93 quadrics; leading ideal 337 monomials, pure powers for 16/16 variables => m-primary=True (0.2s)

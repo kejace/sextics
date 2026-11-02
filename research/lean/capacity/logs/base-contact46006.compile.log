@@ -1,0 +1,1 @@
+'HodgeComputer.Instances.Contact46006.solved' depends on axioms: [propext, Classical.choice, Quot.sound]

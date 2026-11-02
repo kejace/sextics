@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+best stored: 3100007 0.002385552738428072 status 3
+continuation: nfev 22 status 3 r_part_rel 0.0023855527384280726 time 0.7
+trajectory (||r||): [0.002386, 0.002386, 0.002386, 0.002386, 0.002386, 0.002386, 0.002386]
+|grad| / |r| = 5.207461080791221e-09

@@ -1,0 +1,48 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+gauge SectorVarPro value (expect ~0): 5.4526612830502095e-24 bnorm 1276.1135954026631
+D8* sector f=2.468996e+07 rel=9.654e-06
+[koszul] d=6 K=6 rows=326 cols=62 (a-dependent 28, const 34) gauge dim=1 dimP=5 built 0.8s
+Koszul gauge value (expect ~0): 1.7501930104130758e-24 bnorm 86.64777397425672 excluded_dim 1
+[hess] d=6 K=6 dimR=76 sectors=1 gauge=1 dimP=5 built 0.8s
+Hess gauge value (expect ~0): 5.7040958544808775e-28 Tnorm 37.16809890394477 excluded 1
+[hess] d=5 K=6 dimR=1506 sectors=48 gauge=0 dimP=6 built 8.8s
+Hess d=5 all sectors: best rel 0.7171772472007258 worst 1.0050139392689839
+[hess] d=6 K=36 dimR=1751 sectors=48 gauge=1 dimP=35 built 29.9s
+Hess d=6 all sectors: best rel 0.004279438488971671 median 0.0042794384889716765 time/restart 7.659658801555634
+[koszul] d=7 K=0 rows=585 cols=82 (a-dependent 0, const 82) gauge dim=0 dimP=0 built 0.6s
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadric-contact-residual/w2_test2.py", line 31, in <module>
+    t1 = time.time(); res = kv7.search(n_restarts=3, seed=1)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/quadric-contact-residual/w2lib.py", line 305, in search
+    res = minimize(self.value_and_grad, u0, jac=True, method='L-BFGS-B',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/optimize/_minimize.py", line 784, in minimize
+    res = _minimize_lbfgsb(fun, x0, args, jac, bounds,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/optimize/_lbfgsb_py.py", line 362, in _minimize_lbfgsb
+    sf = _prepare_scalar_function(fun, x0, jac=jac, args=args, epsilon=eps,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/optimize/_optimize.py", line 310, in _prepare_scalar_function
+    sf = ScalarFunction(fun, x0, args, grad, hess,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/optimize/_differentiable_functions.py", line 283, in __init__
+    self._update_fun()
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/optimize/_differentiable_functions.py", line 362, in _update_fun
+    fx = self._wrapped_fun(self.x)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/_lib/_util.py", line 544, in __call__
+    fx = self.f(np.copy(x), *self.args)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/optimize/_optimize.py", line 80, in __call__
+    self._compute_if_needed(x, *args)
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/optimize/_optimize.py", line 74, in _compute_if_needed
+    fg = self.fun(x, *args)
+         ^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/quadric-contact-residual/w2lib.py", line 269, in value_and_grad
+    M, b = self.assemble(a)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/quadric-contact-residual/w2lib.py", line 244, in assemble
+    M = self.Mk[0] * a[0]
+        ~~~~~~~^^^
+IndexError: list index out of range

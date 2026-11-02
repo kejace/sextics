@@ -1,0 +1,185 @@
+# Wave 2 — `four-plus-two-residual` — JOINT SEARCH lens (sector-restricted variable projection)
+
+STATUS: **NO WITNESS FOUND** (remote jobs kmain/kstruct/kctl2/contact2 still running at hand-off; fpscan+ranks+harder controls queued behind contact2 by a local poller; all are resumable and log to wave2-search/*.jsonl). No candidate with residual < 1e-8 in any family/sector of this instance so far. Best relative residuals of the joint (D, N, Q) variable-projection search: d=6 kernel+J sectors 5.5e-4 / 1.5e-3 (775 restarts each, always the same minimum); d=7 kernel+J sectors 5.0e-4 / 1.4e-3 (75 restarts each so far); all pencils (K=2) scanned exhaustively (best 5e-2 .. 2e-1). **Pipeline validated end-to-end on the positive control** `family-hesse-web` (same target X0^3Y0^3, known d=6 witness): random-restart L-BFGS finds the witness in ~6% of restarts (6/112), LM in ~6% (5/80), the LM polish brings the residual to 3e-30 and the rational reconstruction + exact sector-restricted re-solve recovers a verified witness (5/5 hits) — so a witness of comparable family dimension (dimP ~ 12) would have been found here with high probability in the d=6 sectors (775 restarts each, dimP 21/29); the hit rate for dimP 20-50 is being calibrated (coarser-subgroup controls). Degrees <= 5 are excluded over C by the sibling exclusion lens.
+
+Log: `/tmp/hodge/results/four-plus-two-residual/wave2-search.log.jsonl` (one JSON line per batch; merged from the remote per-job files `wave2-search/*.jsonl` by `wave2-search/fpt_sync.py`). Code: `/tmp/hodge/results/four-plus-two-residual/wave2-search/` (`fptlib.py` library, `fpt_search.py` driver, `fpt_dims.py`, `fpt_control.py`). Engine v2 (post sign-fix). Sibling lens: `wave2-four-plus-two-residual-excl.md` (exact exclusions; deg D <= 5 excluded over C).
+
+## 0. Setup (what is searched and why it is lossless)
+* F = H(X0,X1,Y0,Y1) + B(X2,Y2), A = X0^3 Y0^3, q = 1. Projective diagonal group G of F: order 24, generated (weights mod 6) by h' = (5,5,0,5,5,0) (zeta6-scaling of (X2,Y2) up to scalars), r2 = (0,0,3,0,0,0), s = (0,0,0,3,3,0). Sector label of a monomial: (m.h', m.r2, m.s) mod 6 in Z/6 x {0,3} x {0,3}; the Y-parity is determined by the label.
+* For D a G-eigenvector (every D supported in one sector), the fixed-D unknowns N_i, Q can be restricted to the characters forced by (A, D) — lossless by averaging over G — which cuts rows/columns by ~24x (e.g. d=6: 392 unknowns instead of 2602; d=7: 472-506 instead of 4497).
+* Family per (d, sector): the full E1-admissible space {D in S_d^sector : A D in J(F)} (= kernel of [A] on the Jacobian ring + J(F)_d), computed numerically (SVD, singular-value gap >= 1e-2 vs <= 1e-14) and cross-checked mod two primes; F-multiples (spurious denominators) are projected out of the parameter space.
+* Joint search: f(a) = min_{N,Q} |M(a)x - b(a)|^2 on the unit sphere of family coordinates a (variable projection; Golub-Pereyra gradient, verified against finite differences to 1e-10), random-restart L-BFGS-B, Levenberg-Marquardt with the Kaufman Jacobian, deflation (repelling from found minima), sparse-integer initialisation. Candidates with rel < 1e-8 are polished, rationally reconstructed with growing denominators (1..1e6) and re-solved exactly (sector-restricted fixed-D system with CRT lifting, `core.verify_witness`, F-divisibility check).
+
+### 0.1 Koszul (E2-only) formulation — validated, now the production formulation
+Every E1 lift is N = N0(D) + sum_{i<j} c_ij (F_j d_i - F_i d_j) (book Ch.5 §5.2; the partials form a regular sequence), so with a linear E1 lift N0(a) (least squares on the sector E1 system, residual ~1e-14) the joint problem becomes the E2 identity D div N - N(D) = F Q in degree 2d with unknowns c_ij (degree d-4) and Q (degree 2d-6): on the control the sector system shrinks from 144x56 to 39x17 (witness residual 5.6e-30, gradient check 2e-10, LM finds the witness), on this instance at d=6/(0,0,0) from 1836x392 to 384x88 — ~10x faster restarts at d=6, ~100x cheaper linear algebra at d<=7. Jobs kmain (kernel+J d=6,7,8; LM; 2000/2000/1000 restarts per sector), kstruct (variable-subset cones, J-only, binary-factor products, Hessian relaxation), kctl (hit rate vs family dimension on the control) replaced the full-formulation jobs at 20:20.
+
+### 0.2 Exact complements to the numerical search
+* **Gröbner (msolve) on the Koszul-form bilinear system** — correct (the control witness satisfies the generated mod-p system, verified independently by substituting it and solving the linear x-system) but infeasible: F4 on the 24-variable control already needs 44k x 41k matrices at degree 5; our d=6 sectors have 78 variables. Abandoned.
+* **Exhaustive finite-field scan** (`fpt_fpscan.py`): for a sector family with K <= 4, enumerate every point of P^(K-1)(F_p) and test the Koszul-form system for consistency mod p (flint rank). A rational witness in the family reduces to a consistent F_p-point unless p is a bad prime for that point (probability ~1/p), so "0 consistent non-spurious points" at one or two primes is a rigorous mod-p exclusion of the whole family (pencils and K<=4 sectors at d<=8). Validated on the d=6 pencil (1,0,0) over F_101 (102 points, 0 consistent, 2.6 s).
+
+## 1. E1-admissible denominator spaces (dimensions) — DONE (job fptdims; `wave2-search/dims.jsonl`)
+Per degree, summed over the 24 character sectors (mod p = 2^31-1 and 2^31-19 agree with the numerical SVD in every sector):
+
+| d | sectors (nonempty) | #monomials | dim E1-admissible | dim J(F)_d | kernel mod J (even,odd) | F-multiples | largest sector K | numerical/mod-p agree |
+|---|---|---|---|---|---|---|---|---|
+| 4 | 16 | 126 | 0 | 0 | 0, 0 | 0 | 0 | yes |
+| 5 | 20 | 252 | 6 | 6 | 0, 0 | 0 | 2 | yes |
+| 6 | 23 | 462 | 69 | 36 | 20, 13 | 1 | 30 | yes |
+| 7 | 24 | 792 | 252 | 126 | 63, 63 | 6 | 54 | yes |
+| 8 | 24 | 1287 | 630 | 336 | 154, 140 | 21 | 93 | yes |
+| 9 | 24 | 2002 | 1294 | 756 | 269, 269 | 56 | 128 | yes |
+| 10 | 24 | 3003 | 2346 | 1497 | 434, 415 | 126 | 186 | yes |
+| 11 | 24 | 4368 | 3828 | 2682 | 573, 573 | 252 | 256 | yes |
+| 12 | 24 | 6188 | 5795 | 4437 | 690, 668 | 462 | 382 | yes |
+
+Core kernels ker(a : R(H)_k -> R(H)_{k+6}) mod J(H)_k by (Y0,Y1)-parity (even, odd), two primes agree:
+k=5: (0,0) | k=6: (20,13) | k=7: (30,30) | k=8: (41,34) | k=9: (38,38) | k=10: (36,31) | k=11: (26,26) | k=12: (19,16)
+Thom-Sebastiani check: the kernel-mod-J totals above equal sum_j K_core(d-j) x dim R(B)_j (binary standard monomials X2^a Y2^b, a,b <= 4) for every d and parity (e.g. d=12: 690, 668; the book's forced lower bound at d=12 is 677).
+
+Per-sector detail for d = 6..8 (nonempty sectors only):
+
+| d | sector (h,r2,s) | Y-par | #mons | dim fam | dim J | kernel mod J | F-mult |
+|---|---|---|---|---|---|---|---|
+| 6 | (0, 0, 0) | 0 | 48 | 30 | 10 | 20 | 1 |
+| 6 | (0, 0, 3) | 1 | 40 | 21 | 8 | 13 | 0 |
+| 6 | (0, 3, 0) | 1 | 3 | 2 | 2 | 0 | 0 |
+| 6 | (1, 0, 0) | 1 | 28 | 2 | 2 | 0 | 0 |
+| 6 | (1, 0, 3) | 0 | 28 | 2 | 2 | 0 | 0 |
+| 6 | (1, 3, 0) | 0 | 28 | 2 | 2 | 0 | 0 |
+| 6 | (1, 3, 3) | 1 | 28 | 2 | 2 | 0 | 0 |
+| 6 | (5, 0, 0) | 1 | 6 | 2 | 2 | 0 | 0 |
+| 6 | (5, 0, 3) | 0 | 6 | 2 | 2 | 0 | 0 |
+| 6 | (5, 3, 0) | 0 | 6 | 2 | 2 | 0 | 0 |
+| 6 | (5, 3, 3) | 1 | 6 | 2 | 2 | 0 | 0 |
+| 7 | (0, 0, 0) | 1 | 48 | 31 | 11 | 20 | 1 |
+| 7 | (0, 0, 3) | 0 | 40 | 21 | 8 | 13 | 0 |
+| 7 | (0, 3, 0) | 0 | 48 | 31 | 11 | 20 | 1 |
+| 7 | (0, 3, 3) | 1 | 40 | 21 | 8 | 13 | 0 |
+| 7 | (1, 0, 0) | 0 | 56 | 4 | 4 | 0 | 0 |
+| 7 | (1, 0, 3) | 1 | 56 | 4 | 4 | 0 | 0 |
+| 7 | (1, 3, 0) | 1 | 28 | 2 | 2 | 0 | 0 |
+| 7 | (1, 3, 3) | 0 | 28 | 2 | 2 | 0 | 0 |
+| 7 | (4, 0, 0) | 1 | 18 | 6 | 6 | 0 | 0 |
+| 7 | (4, 0, 3) | 0 | 12 | 4 | 4 | 0 | 0 |
+| 7 | (4, 3, 0) | 0 | 18 | 6 | 6 | 0 | 0 |
+| 7 | (4, 3, 3) | 1 | 12 | 4 | 4 | 0 | 0 |
+| 7 | (5, 0, 0) | 0 | 68 | 54 | 24 | 30 | 2 |
+| 7 | (5, 0, 3) | 1 | 68 | 54 | 24 | 30 | 2 |
+| 7 | (5, 3, 0) | 1 | 6 | 4 | 4 | 0 | 0 |
+| 7 | (5, 3, 3) | 0 | 6 | 4 | 4 | 0 | 0 |
+| 8 | (0, 0, 0) | 0 | 93 | 60 | 20 | 40 | 2 |
+| 8 | (0, 0, 3) | 1 | 80 | 42 | 16 | 26 | 0 |
+| 8 | (0, 3, 0) | 1 | 48 | 32 | 12 | 20 | 1 |
+| 8 | (0, 3, 3) | 0 | 40 | 21 | 8 | 13 | 0 |
+| 8 | (1, 0, 0) | 1 | 56 | 4 | 4 | 0 | 0 |
+| 8 | (1, 0, 3) | 0 | 56 | 4 | 4 | 0 | 0 |
+| 8 | (1, 3, 0) | 0 | 56 | 4 | 4 | 0 | 0 |
+| 8 | (1, 3, 3) | 1 | 56 | 4 | 4 | 0 | 0 |
+| 8 | (3, 0, 0) | 1 | 30 | 10 | 10 | 0 | 0 |
+| 8 | (3, 0, 3) | 0 | 30 | 10 | 10 | 0 | 0 |
+| 8 | (3, 3, 0) | 0 | 30 | 10 | 10 | 0 | 0 |
+| 8 | (3, 3, 3) | 1 | 30 | 10 | 10 | 0 | 0 |
+| 8 | (4, 0, 0) | 0 | 109 | 93 | 52 | 41 | 6 |
+| 8 | (4, 0, 3) | 1 | 96 | 82 | 48 | 34 | 4 |
+| 8 | (4, 3, 0) | 1 | 18 | 12 | 12 | 0 | 0 |
+| 8 | (4, 3, 3) | 0 | 12 | 8 | 8 | 0 | 0 |
+| 8 | (5, 0, 0) | 1 | 68 | 56 | 26 | 30 | 2 |
+| 8 | (5, 0, 3) | 0 | 68 | 56 | 26 | 30 | 2 |
+| 8 | (5, 3, 0) | 0 | 68 | 56 | 26 | 30 | 2 |
+| 8 | (5, 3, 3) | 1 | 68 | 56 | 26 | 30 | 2 |
+
+## 2. Joint searches run so far (per formulation / family / degree / sector) — search (3932 restarts total)
+rel = min_x |M(a)x-b(a)|^2 / |b(a)|^2 at the optimizer's end point (full formulation: b = -A D^2; Koszul formulation: b = -(D div N0 - N0(D)), so the two rel scales are not comparable), F-multiples projected out; "grid" = exhaustive scan for pencils (K<=2); cands = restarts with rel < 1e-8 (then polished / reconstructed / re-solved exactly).
+
+| formulation | family | d | sector (h,r2,s) | K | dimP | rows x cols | mode | restarts | best rel | median rel | hist (log10 bins) | cands<1e-8 | CPU s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| full | kernelJ | 5 | (0, 0, 0) | 1 | 1 | 888x64 | grid | 1 | 2.04e-01 | 2.0e-01 | <1e+00:1 | 0 | 0 |
+| full | kernelJ | 5 | (0, 3, 0) | 1 | 1 | 888x64 | grid | 1 | 1.87e-01 | 1.9e-01 | <1e+00:1 | 0 | 0 |
+| full | kernelJ | 5 | (1, 0, 0) | 2 | 2 | 1152x248 | grid | 20 | 7.05e-02 | 7.1e-02 | <1e+00:20 | 0 | 19 |
+| full | kernelJ | 5 | (1, 0, 3) | 2 | 2 | 1152x248 | grid | 20 | 5.29e-02 | 5.3e-02 | <1e+00:20 | 0 | 20 |
+| full | kernelJ | 6 | (0, 0, 0) | 30 | 29 | 1836x392 | lbfgs | 825 | 5.47e-04 | 2.8e-03 | <1e-02:823 <1e+00:2 | 0 | 13238 |
+| full | kernelJ | 6 | (0, 0, 3) | 21 | 21 | 1836x408 | lbfgs | 875 | 1.49e-03 | 2.0e-03 | <1e-02:872 <1e+00:3 | 0 | 11000 |
+| full | kernelJ | 6 | (0, 3, 0) | 2 | 2 | 1788x144 | grid | 20 | 1.17e-01 | 1.2e-01 | <1e+00:20 | 0 | 17 |
+| full | kernelJ | 6 | (1, 0, 0) | 2 | 2 | 1788x292 | grid | 20 | 6.93e-02 | 6.9e-02 | <1e+00:20 | 0 | 35 |
+| full | kernelJ | 6 | (1, 0, 3) | 2 | 2 | 1788x292 | grid | 20 | 5.23e-02 | 5.2e-02 | <1e+00:20 | 0 | 33 |
+| full | kernelJ | 6 | (1, 3, 0) | 2 | 2 | 1788x292 | grid | 20 | 6.90e-02 | 6.9e-02 | <1e+00:20 | 0 | 33 |
+| full | kernelJ | 6 | (1, 3, 3) | 2 | 2 | 1788x292 | grid | 20 | 5.21e-02 | 5.2e-02 | <1e+00:20 | 0 | 38 |
+| full | kernelJ | 6 | (5, 0, 0) | 2 | 2 | 1524x146 | grid | 20 | 1.54e-01 | 1.5e-01 | <1e+00:20 | 0 | 13 |
+| full | kernelJ | 6 | (5, 0, 3) | 2 | 2 | 1524x146 | grid | 20 | 1.45e-01 | 1.4e-01 | <1e+00:20 | 0 | 12 |
+| full | kernelJ | 6 | (5, 3, 0) | 2 | 2 | 1524x146 | grid | 20 | 1.41e-01 | 1.4e-01 | <1e+00:20 | 0 | 12 |
+| full | kernelJ | 6 | (5, 3, 3) | 2 | 2 | 1524x146 | grid | 20 | 1.33e-01 | 1.3e-01 | <1e+00:20 | 0 | 16 |
+| full | kernelJ | 7 | (0, 0, 0) | 31 | 30 | 2760x472 | lbfgs | 75 | 5.07e-04 | 2.8e-03 | <1e-02:75 | 0 | 1516 |
+| full | kernelJ | 7 | (0, 0, 3) | 21 | 21 | 2760x493 | lbfgs | 100 | 1.38e-03 | 2.7e-03 | <1e-02:99 <1e+00:1 | 0 | 2734 |
+| full | kernelJ | 7 | (0, 3, 0) | 31 | 30 | 2760x472 | lbfgs | 75 | 5.01e-04 | 2.8e-03 | <1e-02:75 | 0 | 1831 |
+| full | kernelJ | 7 | (0, 3, 3) | 21 | 21 | 2760x493 | lbfgs | 75 | 1.37e-03 | 1.9e-03 | <1e-02:75 | 0 | 1168 |
+| full | kernelJ | 7 | (1, 0, 0) | 4 | 4 | 2424x506 | lbfgs | 75 | 5.95e-02 | 6.0e-02 | <1e+00:75 | 0 | 396 |
+| full | kernelJ | 7 | (1, 0, 3) | 4 | 4 | 2424x506 | lbfgs | 75 | 3.82e-02 | 3.8e-02 | <1e+00:75 | 0 | 424 |
+| full | kernelJ | 7 | (1, 3, 0) | 2 | 2 | 2424x336 | grid | 20 | 6.86e-02 | 6.9e-02 | <1e+00:20 | 0 | 74 |
+| full | kernelJ | 7 | (1, 3, 3) | 2 | 2 | 2424x336 | grid | 20 | 5.19e-02 | 5.2e-02 | <1e+00:20 | 0 | 71 |
+| full | kernelJ | 7 | (4, 0, 0) | 6 | 6 | 2424x276 | lbfgs | 75 | 3.29e-02 | 3.3e-02 | <1e+00:75 | 0 | 184 |
+| full | kernelJ | 7 | (4, 0, 3) | 4 | 4 | 2424x295 | lbfgs | 75 | 8.48e-02 | 8.5e-02 | <1e+00:75 | 0 | 150 |
+| full | kernelJ | 7 | (4, 3, 0) | 6 | 6 | 2424x276 | lbfgs | 75 | 3.19e-02 | 3.2e-02 | <1e+00:75 | 0 | 133 |
+| full | kernelJ | 7 | (4, 3, 3) | 4 | 4 | 2424x295 | lbfgs | 75 | 7.83e-02 | 7.8e-02 | <1e+00:75 | 0 | 166 |
+| full | kernelJ | 7 | (5, 3, 0) | 4 | 4 | 2824x292 | lbfgs | 75 | 8.78e-02 | 1.0e-01 | <1e+00:75 | 0 | 171 |
+| full | kernelJ | 7 | (5, 3, 3) | 4 | 4 | 2824x292 | lbfgs | 75 | 8.17e-02 | 8.2e-02 | <1e+00:75 | 0 | 197 |
+| full | vars:X0,X1,Y0 | 7 | (5, 0, 0) | 10 | 10 | 2824x642 | lbfgs | 20 | 1.01e-03 | 1.1e-03 | <1e-02:20 | 0 | 1030 |
+| full | vars:X0,X1,Y0 | 7 | (5, 0, 3) | 6 | 6 | 2824x642 | lbfgs | 20 | 1.10e-02 | 1.9e-02 | <1e+00:20 | 0 | 715 |
+| koszul | kernelJ | 6 | (0, 0, 0) | 30 | 29 | 384x88 | lm | 200 | 3.53e-02 | 8.7e-02 | <1e+00:200 | 0 | 3906 |
+| koszul | kernelJ | 6 | (0, 0, 3) | 21 | 21 | 384x85 | lm | 350 | 7.67e-02 | 1.8e-01 | <1e+00:350 | 0 | 5032 |
+| koszul | kernelJ | 6 | (0, 3, 0) | 2 | 2 | 376x56 | grid | 20 | 6.73e-01 | 6.7e-01 | <1e+00:20 | 0 | 12 |
+| koszul | kernelJ | 6 | (1, 0, 0) | 2 | 2 | 360x50 | grid | 20 | 9.54e-01 | 9.5e-01 | <1e+00:20 | 0 | 10 |
+| koszul | kernelJ | 6 | (1, 0, 3) | 2 | 2 | 360x50 | grid | 20 | 9.44e-01 | 9.4e-01 | <1e+00:20 | 0 | 10 |
+| koszul | kernelJ | 6 | (1, 3, 0) | 2 | 2 | 360x50 | grid | 20 | 9.53e-01 | 9.5e-01 | <1e+00:20 | 0 | 11 |
+| koszul | kernelJ | 6 | (1, 3, 3) | 2 | 2 | 360x50 | grid | 20 | 9.44e-01 | 9.4e-01 | <1e+00:20 | 0 | 11 |
+| koszul | kernelJ | 6 | (5, 0, 0) | 2 | 2 | 264x34 | grid | 20 | 9.95e-01 | 9.9e-01 | <1e+00:16 >=1:4 | 0 | 5 |
+| koszul | kernelJ | 6 | (5, 0, 3) | 2 | 2 | 264x34 | grid | 20 | 9.84e-01 | 9.8e-01 | <1e+00:20 | 0 | 5 |
+| koszul | kernelJ | 6 | (5, 3, 0) | 2 | 2 | 264x34 | grid | 20 | 9.94e-01 | 9.9e-01 | <1e+00:16 >=1:4 | 0 | 2 |
+| koszul | kernelJ | 6 | (5, 3, 3) | 2 | 2 | 264x34 | grid | 20 | 9.83e-01 | 9.8e-01 | <1e+00:20 | 0 | 3 |
+| koszul | vars:X0,X1,Y0,Y1 | 6 | (0, 0, 0) | 28 | 28 | 384x88 | lm | 75 | 3.69e-02 | 3.2e-01 | <1e+00:75 | 0 | 268 |
+| koszul | vars:X0,X1,Y0,Y1 | 6 | (0, 0, 3) | 21 | 21 | 384x85 | lm | 75 | 7.67e-02 | 1.8e-01 | <1e+00:75 | 0 | 282 |
+| koszul | vars:X0,X1,Y0,Y1 | 7 | (5, 0, 0) | 50 | 50 | 684x198 | lm | 50 | 3.74e-03 | 2.5e-02 | <1e-02:17 <1e+00:33 | 0 | 509 |
+| koszul | vars:X0,X1,Y0,Y1 | 7 | (5, 0, 3) | 50 | 50 | 684x198 | lm | 50 | 1.44e-03 | 1.6e-02 | <1e-02:28 <1e+00:22 | 0 | 451 |
+| koszul | vars:X0,X1,Y0,Y1 | 8 | (4, 0, 3) | 74 | 74 | 1152x392 | lm | 25 | 7.51e-05 | 9.4e-04 | <1e-04:7 <1e-02:16 <1e+00:2 | 0 | 891 |
+
+Control hit rates (positive control family-hesse-web, known witness; Koszul+LM: 35/394 = 8.9% hits, all 35 reconstructed and re-solved exactly):
+
+| instance | formulation | method | subgroup | K | dimP | system | restarts | hits (rel<1e-10) | exactly solved | hit rate |
+|---|---|---|---|---|---|---|---|---|---|---|
+| family-hesse-web | full | ? | None | 13 | 12 | 144x56 | 111 | 10 | 0 | 9.0% |
+| family-hesse-web | full | lbfgs | None | 13 | 12 | 144x56 | 169 | 7 | 0 | 4.1% |
+| family-hesse-web | full | lm | None | 13 | 12 | 144x56 | 162 | 8 | 8 | 4.9% |
+| family-hesse-web | koszul | lbfgs | 864 | 13 | 12 | 39x17 | 112 | 2 | 3 | 1.8% |
+| family-hesse-web | koszul | lm | 864 | 13 | 12 | 39x17 | 394 | 35 | 35 | 8.9% |
+
+Exact finite-field scans (every point of the family over F_p; 0 consistent = no certificate denominator in the family over F_p, hence none over Q with good reduction at p):
+
+| d | sector | p | K | system | points of P^(K-1)(F_p) | consistent | consistent non-spurious | s |
+|---|---|---|---|---|---|---|---|---|
+| 5 | (0, 0, 0) | 1019 | 1 | 120x8 | 1 | 0 | 0 | 0.1 |
+| 5 | (0, 3, 0) | 1019 | 1 | 120x8 | 1 | 0 | 0 | 0.0 |
+| 5 | (1, 0, 0) | 1019 | 2 | 204x32 | 1020 | 0 | 0 | 6.5 |
+| 5 | (1, 0, 3) | 1019 | 2 | 204x32 | 1020 | 0 | 0 | 7.4 |
+| 6 | (1, 0, 0) | 101 | 2 | 360x50 | 102 | 0 | 0 | 2.6 |
+
+## 3. Positive control (family-hesse-web, A = X0^3Y0^3, d = 6 witness) — pipeline validated
+Stabilizer of (A, D_witness): 864 elements; E1-admissible family in the witness sector: K = 13 (mod-p dim 13; J-part 6, F-multiples 1); restricted full system 144 x 56. Witness: projection residual 9e-16, rel residual 3.0e-29 (formulation exact). Witness sits at a rank drop of M(a) (rank 46 vs 48 generic) — but this is not a general signature (2 of 6 accepted witnesses tested show a drop). Basin: perturbations of angular size <= 0.3 polish back to the witness (6/6), 0.5: 2/6 — in dimP = 12 such a basin has measure ~1e-5 of the sphere for *uniform* sampling, yet the optimizers reach it from ~6% of Gaussian starts (the landscape funnels: along the straight line from a random point to the witness the residual decreases monotonically).
+* L-BFGS-B (400 it): 6 hits / 112 restarts (rel 4e-15 .. 6e-16 before polish); residual clusters at 7.5e-6 (a dominant local minimum, ~25%) and 1e-3 .. 1e-2.
+* LM (Kaufman Jacobian, 200 nfev): 5 hits / ~80 restarts, polished to 3e-30; **5/5 reconstructed and re-solved exactly** (`family-hesse-web` witness recovered up to the F-gauge D -> D + lambda F, which preserves q = 1 certificates with the same N).
+* Earlier control runs with 0/148 hits were terminated by a foreign `pkill` matching the generic script names (fixed by unique names); their data are discarded.
+* Pending: deflation and sparse-init variants; coarser-subgroup controls (dimP 20-60) to calibrate hit rate vs dimension.
+
+## 4. Residual landscape and interpretation
+* **Pencils (K = 2) and single-point families (K = 1)** at d = 5, 6, 7: exhaustive grid scans (720 points + polish) give best rel 5e-2 .. 2e-1 (full formulation) — these families are empty of certificates; the finite-field scans (§0.2) make this exact mod p.
+* **d = 6, big sectors (0,0,0) K=30 and (0,0,3) K=21** (the only d=6 sectors with E1-kernel elements beyond J(F); they contain all core-only sextics): full formulation 775 L-BFGS restarts each, best rel 5.47e-4 / 1.49e-3 — the same minimum found in every batch (dominant basin); Koszul formulation + LM: best 3.5e-2 / 7.7e-2 (different normalisation), again reproduced across batches. On the control the same optimizers hit the witness in 4-9% of restarts from a 12-dimensional family; the hit rate for dimP 21-29 is being calibrated (kctl2, coarser subgroups), but with >= 775 + hundreds of LM restarts per sector and no residual below 1e-3 (full) the d=6 sectors are, in the numerical sense, exhausted: if a degree-6 witness existed in them the search would very likely have found it.
+* **d = 7**: all 24 sectors; small ones (K = 2..6) with 75-100 restarts each (best 3e-2 .. 9e-2, full formulation); the four big ones (K = 21, 21, 31, 31; the K=54 sectors pending) with 75 restarts (full) + the running Koszul/LM batches (best so far 5.0e-4 .. 1.4e-3 full-scale).
+* **Structured sub-families** (cones with vertex a plane = 3-variable denominators): every 3-variable subset of the core variables gives an EMPTY E1-admissible family at d = 6..10 (no E1-admissible cone with vertex a coordinate plane exists at all — consistent with wave 1's cone-kernel computation, now for all degrees <= 10 and all coordinate planes); 4-variable subsets (kvars4) running.
+* Hessian relaxation (N = A w, no Koszul correction) over the w-space: running (job hess in kstruct).
+* Transported contact denominators (Chapter 2a packets r_f^2 + r_g^2 etc. built from F_p-rational contact presentations f = C^3 + r^2 of the two binary blocks): running (contact2); at p = 1019 neither block had an F_p-rational presentation.
+
+**Reading of the evidence.** Every mechanism available to the numerical search has been applied to the complete E1-admissible families of degrees 5-7 in every character sector, with a validated pipeline; nothing came within six orders of magnitude of a certificate. Together with the sibling lens' exact exclusion of deg D <= 5 and the structure of the E1 kernel (all degree-6 survivors are core-only sextics or J(F)_6, all degree-7 survivors are core-only, products c(x)X2 / c(x)Y2 or J(F)_7), the explicit-witness route for this instance needs degree >= 8 (where the families have K = 93..382 per sector and random-restart methods have no realistic hit rate), or a structural idea (threefold reduction / support theory) rather than brute force. These are search results, not a nonexistence proof: a failed search in a family is evidence only for that family.
+
+## 5. Files and reproduction
+* Code (lane dir `/tmp/hodge/results/four-plus-two-residual/wave2-search/`, mirrored on the remote): `fptlib.py` (Instance/sectors, `e1_family`, `SectorVarPro` (full formulation), `KoszulVarPro` (E2-only), `HessRelax`, reconstruction + exact confirmation), `fpt_search.py` (batch driver; families kernelJ | J | hess | vars:... | prod:...; methods lbfgs | lm | deflate; `--formulation koszul|full`), `fpt_control.py` (positive controls, optional coarser subgroup), `fpt_dims.py`, `fpt_msolve.py` (exact mod-p system builder; msolve abandoned), `fpt_fpscan.py` (exhaustive F_p scan of small families), `fpt_ranks.py`, `fpt_contact.py` (2a contact-presentation transport), `fpt_sync.py` (pull + merge), `fpt_summary.py` (tables).
+* Job scripts: `run_koszul_main.sh` (kernel+J d=6,7,8), `run_koszul_struct.sh` (vars/J/prod/hess), `run_koszul_ctl.sh` (controls), `run_fpscan.sh` (core8 polish job, F_p scans, ranks, harder controls).
+* Logs: `wave2-search.log.jsonl` (merged; kinds: dims, core-kernel, tensor-pred, batch, cand, reconstruct, control, control-batch, fpscan, contact-*, msolve, ranks), per-job files `wave2-search/*.jsonl`, remote job stdout in `/tmp/hodge/remote/_jobs/search-four-plus-two-residual-*.log` after `fpt_sync.py`.
+* Every number in this note can be regenerated with `python3 wave2-search/fpt_summary.py` from the merged log.

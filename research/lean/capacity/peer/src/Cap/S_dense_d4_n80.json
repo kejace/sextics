@@ -1,0 +1,33 @@
+{
+ "F": 236,
+ "A": 200,
+ "q": 1,
+ "D": 80,
+ "N": [
+  80,
+  80,
+  0,
+  80,
+  80,
+  0
+ ],
+ "Q": 0,
+ "d": 4,
+ "e1_pairs": 56320,
+ "e1_monos": 2942,
+ "e2_pairs": 16160,
+ "e2_monos": 0,
+ "e1_ok": true,
+ "e2_ok": true,
+ "pairs_total": 72480,
+ "monos_total": 2942,
+ "label": "dense_d4_n80",
+ "Fid": "dense-rational",
+ "which": [
+  "e1",
+  "e2"
+ ],
+ "seed": 0,
+ "yeven": false,
+ "bytes": 174015
+}

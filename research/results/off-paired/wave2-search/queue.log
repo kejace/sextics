@@ -1,0 +1,61 @@
+19:57:05 submitting d9all (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00', 'search-off-paired-s2-d8h0']
+20:07:05 submit call timed out (ssh hang); verifying via pid file
+20:07:27 d9all confirmed submitted
+20:08:04 submitting servedscan (cpus 4); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00', 'search-off-paired-s2-d8h0']
+20:18:04 submit call timed out (ssh hang); verifying via pid file
+20:18:25 servedscan confirmed submitted
+20:18:59 submitting d8c00b (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-servedscan']
+20:28:59 submit call timed out (ssh hang); verifying via pid file
+20:29:20 d8c00b confirmed submitted
+20:29:54 submitting d8h0b (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-servedscan']
+20:35:30 d8h0b: pid file exists on remote -> already submitted; popping
+20:35:35 submitting firstorder (cpus 1); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b']
+20:38:06 submit call timed out (ssh hang); verifying via pid file
+20:38:27 firstorder confirmed submitted
+20:39:01 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:41:35 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:44:08 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:46:42 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:49:15 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:51:48 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:54:23 submitting fe-control (cpus 4); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b']
+20:56:53 submit call timed out (ssh hang); verifying via pid file
+20:57:14 fe-control confirmed submitted
+20:57:48 submitting smallt (cpus 4); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-fe-control']
+21:00:18 submit call timed out (ssh hang); verifying via pid file
+21:00:39 smallt confirmed submitted
+21:01:12 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-fe-control', 'search-off-paired-s2-smallt']; waiting
+21:03:46 submitting d9h0 (cpus 8); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-smallt']
+21:06:16 submit call timed out (ssh hang); verifying via pid file
+21:06:37 d9h0 confirmed submitted
+21:07:09 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-smallt']; waiting
+21:09:43 submitting hess (cpus 4); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0']
+21:12:13 submit call timed out (ssh hang); verifying via pid file
+21:12:34 hess confirmed submitted
+21:13:10 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:15:43 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:18:16 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:20:53 submitting struct-hess3 (cpus 8); running now: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']
+21:23:23 submit call timed out (ssh hang); verifying via pid file
+21:23:44 struct-hess3 confirmed submitted
+21:24:17 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-struct-hess3']; waiting
+21:26:51 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-struct-hess3']; waiting
+21:29:24 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-struct-hess3']; waiting
+21:31:57 submitting homotopy (cpus 4); running now: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']
+21:34:27 submit call timed out (ssh hang); verifying via pid file
+21:34:49 homotopy confirmed submitted
+21:35:22 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:37:56 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:40:30 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:43:05 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:45:39 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:48:14 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:50:49 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:53:24 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:56:00 submitting d10h0 (cpus 8); running now: ['search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']
+up: done ['off-paired']
+submit search-off-paired-s2-d10h0: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d10h0)
+21:58:25 d10h0 confirmed submitted
+21:59:00 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+22:01:34 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+22:04:11 submitting d11c00c30 (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']

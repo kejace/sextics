@@ -1,0 +1,28 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[svd J_14^1] shape (5796, 6006) rank 5052 (sv[r-1]/s0=6.97e-01, sv[r]/s0=2.74e-15) 215.7s
+[K_full d=8 par=0] dim S=651 rank[A]=483 (target R dim 744) dim K_full=168 gap (np.float64(2.2375384232895712e-07), np.float64(1.276847364352702e-15))
+[hessrelax d=7 sector=0] eq parity 0: dim K_full(8)=168 (num rank 168) n_eq=483
+[hessrelax hr7e] nw=63 dimP=60 neq=483 f(random) median 1.806e+02 build 217s
+[hessrelax hr7e] 100 restarts best f 6.891e-04 (seed 78) median 7.749e-04 (51s)
+[hessrelax hr7e] 200 restarts best f 6.870e-04 (seed 177) median 7.785e-04 (97s)
+[hessrelax hr7e] 300 restarts best f 6.870e-04 (seed 177) median 7.785e-04 (153s)
+[hessrelax hr7e] 400 restarts best f 6.870e-04 (seed 177) median 7.786e-04 (198s)
+[hessrelax hr7e] 500 restarts best f 6.870e-04 (seed 177) median 7.787e-04 (240s)
+[hessrelax hr7e] 600 restarts best f 6.870e-04 (seed 177) median 7.785e-04 (292s)
+[hessrelax hr7e] 700 restarts best f 6.854e-04 (seed 623) median 7.786e-04 (339s)
+[hessrelax hr7e] 800 restarts best f 6.854e-04 (seed 623) median 7.785e-04 (413s)
+[hessrelax hr7e] 900 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (507s)
+[hessrelax hr7e] 1000 restarts best f 6.854e-04 (seed 623) median 7.785e-04 (588s)
+[hessrelax hr7e] 1100 restarts best f 6.854e-04 (seed 623) median 7.783e-04 (696s)
+[hessrelax hr7e] 1200 restarts best f 6.854e-04 (seed 623) median 7.785e-04 (775s)
+[hessrelax hr7e] 1300 restarts best f 6.854e-04 (seed 623) median 7.786e-04 (882s)
+[hessrelax hr7e] 1400 restarts best f 6.854e-04 (seed 623) median 7.785e-04 (995s)
+[hessrelax hr7e] 1500 restarts best f 6.854e-04 (seed 623) median 7.785e-04 (1108s)
+[hessrelax hr7e] 1600 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (1203s)
+[hessrelax hr7e] 1700 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (1333s)
+[hessrelax hr7e] 1800 restarts best f 6.854e-04 (seed 623) median 7.783e-04 (1464s)
+[hessrelax hr7e] 1900 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (1604s)
+[hessrelax hr7e] 2000 restarts best f 6.854e-04 (seed 623) median 7.783e-04 (1729s)
+[hessrelax hr7e] 2100 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (1853s)
+[hessrelax hr7e] 2200 restarts best f 6.854e-04 (seed 623) median 7.784e-04 (2019s)
+[hessrelax hr7e] 2300 restarts best f 6.854e-04 (seed 623) median 7.785e-04 (2227s)

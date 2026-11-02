@@ -1,0 +1,94 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[2026-11-02T02:05:04] job t01d7: d=7 c=(0, 0) kind=colon F=X0**6+X1**6+X2**6+Y0**6+Y1**6+Y2**6+X0**3*X1*Y0*Y1/20+X1**3*X2*Y1*Y2/20+X0**2*X1*X2*Y0*Y2/30 restarts=60 workers=4
+[exact basis colon d=7 c=(0, 0)] rank 15 with 2 primes (verified)
+[sector varpro] d=7 c=(0, 0) K=15 rank=15 gauge=1 dimP=14 rows=1676 N=300 Q=58 nnz(TN)=96061 built in 0.3s
+[2026-11-02T02:05:04] family built: K=15 rank=15 gauge=1 dimP=14 rows=1676 N=300 Q=58 build 0.3s
+gradient check: analytic -6.127284e-02 fd -6.127284e-02
+{
+ "ts": "2026-11-02T02:07:12",
+ "job": "t01d7",
+ "step": "varpro",
+ "F": "X0**6+X1**6+X2**6+Y0**6+Y1**6+Y2**6+X0**3*X1*Y0*Y1/20+X1**3*X2*Y1*Y2/20+X0**2*X1*X2*Y0*Y2/30",
+ "d": 7,
+ "sector": [
+  0,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 15,
+ "rank": 15,
+ "gauge": 1,
+ "dimP": 14,
+ "rows": 1676,
+ "nN": 300,
+ "nQ": 58,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 60,
+ "best_relres": 0.014567874790617994,
+ "median_relres": 0.09833330513278667,
+ "hist": {
+  "ge1e-2": 60
+ },
+ "top_minima": [
+  [
+   "1.457e-02",
+   9
+  ],
+  [
+   "1.458e-02",
+   9
+  ],
+  [
+   "1.468e-02",
+   5
+  ],
+  [
+   "1.469e-02",
+   3
+  ],
+  [
+   "1.485e-02",
+   1
+  ],
+  [
+   "1.487e-02",
+   1
+  ],
+  [
+   "9.833e-02",
+   3
+  ],
+  [
+   "9.835e-02",
+   5
+  ],
+  [
+   "1.292e-01",
+   3
+  ],
+  [
+   "1.310e-01",
+   6
+  ],
+  [
+   "1.311e-01",
+   1
+  ],
+  [
+   "1.312e-01",
+   2
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 7.01,
+ "statuses": {
+  "flat": 16,
+  "stalled": 42,
+  "maxiter": 2
+ },
+ "wall": 128.9,
+ "witness": false
+}

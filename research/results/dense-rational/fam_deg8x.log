@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[system] d=8 q=1 rows=40326 cols=7497 (N 6006, Q 1491) nnz=15278485 built in 29.0s
+[compressed p=2147483647] k=7538 consistent=False rank=6699 nullity=798 (compress 400.4s, rref 169.1s)
+X0^3*F_X0: d=8 e1=True consistent=False rank=6699 nullity=798 (745.3s)
+[system] d=8 q=1 rows=40326 cols=7497 (N 6006, Q 1491) nnz=22802380 built in 44.3s

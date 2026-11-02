@@ -1,0 +1,7 @@
+ring r = 1000003,(X0,X1,X2,Y0,Y1,Y2),dp;
+poly F2 = 2*X0^6 + X0^3*X1*Y0*Y1 + X0*X2^3*Y0*Y2 + 2*X1^6 + X1^3*X2*Y1*Y2 + 2*X2^6 + 2*Y0^6 + 2*Y1^6 + 2*Y2^6;
+ideal J = jacob(F2);
+ideal G = std(J);
+print("dim=" + string(dim(G)));
+print("vdim=" + string(vdim(G)));
+quit;

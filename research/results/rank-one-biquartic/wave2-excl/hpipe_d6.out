@@ -1,0 +1,17 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hessfam d=6] K=36 blocks: par0: rows 3108 cols 2700 (J 2376); par1: rows 3080 cols 2718 (J 2376) built in 1s
+[A blk0 p=1000000007] rank 2373 rank_J 2223 forms 150 (26s)
+[A blk0 p=999999937] rank 2373 rank_J 2223 forms 150 (48s)
+[A blk0 p=999999929] rank 2373 rank_J 2223 forms 150 (68s)
+[A blk1 p=1000000007] rank 2368 rank_J 2214 forms 154 (90s)
+[A blk1 p=999999937] rank 2368 rank_J 2214 forms 154 (110s)
+[A blk1 p=999999929] rank 2368 rank_J 2214 forms 154 (132s)
+[A] coordinate squares in row space mod p: 25 of 35; failing: ['a18', 'a19', 'a26', 'a31', 'a32', 'a5-a10', 'a5-a15', 'a5-a20', 'a5-a25', 'a5-a30']
+[B] residual vars 11 (10 failing + 1 centers); Singular mod p: dim V(I): 1  #forms: 39  time: 0; not in radical: 0 (132s)
+[B] blk0: restricted span rank 0, selected 0 full rows
+[B] blk1: restricted span rank 39, selected 39 full rows
+[C blk0] lifted 0/0 selected forms with 3 primes; certifying 0 targets (132s)
+[C blk1] lifted 36/39 selected forms with 3 primes; certifying 61 targets (132s)
+[C blk1] exact certificates verified 58 of 61; max certificate height digits 396 (400s)
+[D] dim V(I) over Q: 1  #gens: 58  time: 0 | PROVED over Q: no certificate of degree 6 (all parities) (402s)
+done 402 s

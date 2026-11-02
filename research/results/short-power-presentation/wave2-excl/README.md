@@ -1,0 +1,30 @@
+# Reproducibility packet — `short-power-presentation`, wave 2, exclusion/rigor lens
+
+Instance: q = 1, A = X0^3 Y0^3, F = eX + eY + c((L+M)^6 + (L−M)^6), c = 5/7^7, L = X0+2X1+3X2, M = Y0+3Y1+5Y2
+(variables X0,X1,X2,Y0,Y1,Y2; τ = global Y-sign; Y-parity of D is called even/odd; "mixed" = D = D^+ + D^-).
+
+## Exact statements (see `receipts.jsonl` for primes, ranks, Hilbert functions, timings)
+
+* **T1 (E1 kernel).** K_d^± := {D ∈ S_d^± : A·D ∈ J(F)}. dim_Q K_d^±/J_d^± = 0 for d ≤ 6 (both parities),
+  = 1 for d = 7 (both parities), and the d = 7 classes have exact rational representatives D7^+ ∈ Q[X0,X1,X2,M],
+  D7^- ∈ Q[Y0,Y1,Y2,L] with exact numerator certificates (N(F) = A·D7 over Q). Modular upper bounds use the
+  Hilbert-series check (prime good in degrees d and d+6; rank_p ≤ rank_Q); the lower bound at d = 7 is the exact
+  element.
+* **T2 (degree bound).** Every certificate denominator D satisfies: deg D ≥ 6, and if D is Y-pure then deg D ≥ 7.
+  (Proof: for d ≤ 5 and for Y-pure d = 6, K_d = J_d, so D = w(F); the E2 relaxation Ξ(w) := −A·w^T Hess(F) w ∈ J_{2d}
+  has, in the Euler slice, an m-primary ideal mod a good prime (Hilbert function reaches 0), hence by
+  h_{S/I_p} ≥ h_{S/I_Q} the only solutions over Q-bar are w = G·E, i.e. D = 6GF, not coprime to F.)
+* **T3 (mixed d = 6, Y-pure d = 7).** status in `receipts.jsonl` (`exp` = relaxation, `pars` = m / e / o).
+
+## Replay
+```
+cd /tmp/hodge/results/short-power-presentation
+python3 excl_e1kernel.py 0 1e 1o ... 10o          # E1 kernels, prime PRIMES30[0] = 1073741789, engine cross-check
+python3 excl_relax.py <d> <e|o|m> [--pidx k]       # relaxation system -> msolve -g 1 (+ Singular), verdict in the log
+python3 excl_kernel.py 9                           # exact D7^±, kernel generation by K_7, lambda-only sub-cases
+python3 excl_slice.py <system.json> k1 k2          # exploratory: random linear slices of a relaxation variety
+```
+Engine: `~/devel/sextics-work/hodge` (core.load_instance, python-flint nmod_mat), msolve, Singular 4.3.2.
+Every log line (`/tmp/hodge/results/short-power-presentation/wave2-excl.log.jsonl`) records exp, d, parity, prime,
+ranks/Hilbert data, seconds, job name.  The derivation of the relaxation and the rigor framework are in
+`/tmp/hodge/notes/wave2-short-power-presentation-excl.md` §0.

@@ -1,0 +1,1 @@
+{"p": 1000003, "mode": "dual", "d": 10, "par": 0, "e": 8, "rows": 5832, "cols": 6642, "rank": 5538, "rankN": 5070, "dimJ_target_exact": 5070, "rankN_attains_cap": true, "rankA": 468, "dimR_src": 468, "A_injective_on_src": true, "dimR_d": 762, "kernel_mod_J": 294, "seconds": 1485.0}

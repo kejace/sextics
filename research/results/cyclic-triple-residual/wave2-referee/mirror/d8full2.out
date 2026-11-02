@@ -1,0 +1,2 @@
+(ii) {'rows': 2357, 'cols': 1188, 'nN': 939, 'nQ': 249, 'G_order': 18, 'd': 8, 'primes': [1000003, 2147483587], 'nullity': [33, 33], 'rank': [1155, 1155], 'rank_aug': [1156, 1156], 'verified_null': 33, 'consistent_mod_p': False, 'sealed_inconsistent': True, 'method': 'modular-rank+exact-null-vectors', 'max_abs_D_coeff_digits': 3, 'seconds': 13.8}
+(iii) exact fmpq rref of augmented sector system: rank_aug=1156 consistent=False (7.7s)

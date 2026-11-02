@@ -1,0 +1,33 @@
+{
+ "F": 236,
+ "A": 200,
+ "q": 1,
+ "D": 10,
+ "N": [
+  10,
+  10,
+  0,
+  10,
+  10,
+  0
+ ],
+ "Q": 0,
+ "d": 2,
+ "e1_pairs": 7040,
+ "e1_monos": 1106,
+ "e2_pairs": 180,
+ "e2_monos": 0,
+ "e1_ok": true,
+ "e2_ok": true,
+ "pairs_total": 7220,
+ "monos_total": 1106,
+ "label": "dense_d2_n10",
+ "Fid": "dense-rational",
+ "which": [
+  "e1",
+  "e2"
+ ],
+ "seed": 0,
+ "yeven": false,
+ "bytes": 104801
+}

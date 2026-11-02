@@ -1,0 +1,43 @@
+DIM 1
+CHART1 dim 0 vdim 923 ngens 729
+RADICAL1 vdim 1 ngens 36
+R1[1]=w35
+R1[2]=w34
+R1[3]=w33
+R1[4]=w32
+R1[5]=w31
+R1[6]=85*w30-1
+R1[7]=w29
+R1[8]=w28
+R1[9]=w27
+R1[10]=w26
+R1[11]=85*w25-1
+R1[12]=w24
+R1[13]=w23
+R1[14]=w22
+R1[15]=w21
+R1[16]=85*w20-1
+R1[17]=w19
+R1[18]=w18
+R1[19]=w17
+R1[20]=w16
+R1[21]=85*w15-1
+R1[22]=w14
+R1[23]=w13
+R1[24]=w12
+R1[25]=w11
+R1[26]=85*w10-1
+R1[27]=w9
+R1[28]=w8
+R1[29]=w7
+R1[30]=w6
+R1[31]=85*w5-1
+R1[32]=w4
+R1[33]=w3
+R1[34]=w2
+R1[35]=w1
+R1[36]=w0
+HYPERPLANE1 dim 0
+CHART2 dim 0 vdim 923 ngens 729
+RADICAL2 vdim 1 ngens 36
+HYPERPLANE2 dim 0

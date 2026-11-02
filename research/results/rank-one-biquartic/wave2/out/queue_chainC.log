@@ -1,0 +1,17 @@
+REMOTE BUSY: load 392 (max 150), available memory 142 GB (min 60), 51 jobs running; waiting 60 s
+REMOTE BUSY: load 412 (max 150), available memory 126 GB (min 60), 51 jobs running; waiting 60 s
+REMOTE BUSY: load 432 (max 150), available memory 134 GB (min 60), 53 jobs running; waiting 60 s
+REMOTE BUSY: load 452 (max 150), available memory 140 GB (min 60), 56 jobs running; waiting 60 s
+REMOTE BUSY: load 461 (max 150), available memory 140 GB (min 60), 56 jobs running; waiting 60 s
+REMOTE BUSY: load 469 (max 150), available memory 146 GB (min 60), 57 jobs running; waiting 60 s
+REMOTE BUSY: load 459 (max 150), available memory 146 GB (min 60), 61 jobs running; waiting 60 s
+REMOTE BUSY: load 498 (max 150), available memory 122 GB (min 60), 64 jobs running; waiting 60 s
+REMOTE BUSY: load 521 (max 150), available memory 107 GB (min 60), 66 jobs running; waiting 60 s
+REMOTE BUSY: load 526 (max 150), available memory 132 GB (min 60), 67 jobs running; waiting 60 s
+REMOTE BUSY: load 530 (max 150), available memory 134 GB (min 60), 68 jobs running; waiting 60 s
+REMOTE BUSY: load 548 (max 150), available memory 115 GB (min 60), 73 jobs running; waiting 60 s
+REMOTE BUSY: load 597 (max 150), available memory 117 GB (min 60), 77 jobs running; waiting 60 s
+REMOTE BUSY: load 622 (max 150), available memory 123 GB (min 60), 76 jobs running; waiting 60 s
+REMOTE BUSY: load 645 (max 150), available memory 119 GB (min 60), 78 jobs running; waiting 60 s
+REMOTE BUSY: load 674 (max 150), available memory 121 GB (min 60), 77 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+capacity wait expired (rc=3); forcing submit of search-rank-one-biquartic-chainC at Sun Nov  1 07:47:46 PM EST 2026

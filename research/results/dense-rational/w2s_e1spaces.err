@@ -1,0 +1,27 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[svd J_10^0] shape (1512, 756) rank 750 (sv[r-1]/s0=7.04e-01, sv[r]/s0=4.45e-16) 0.8s
+[K_full d=4 par=1] dim S=60 rank[A]=60 (target R dim 762) dim K_full=0 gap (np.float64(0.0010350181898900362), 0.0)
+[svd J_11^1] shape (2184, 1386) rank 1341 (sv[r-1]/s0=7.02e-01, sv[r]/s0=8.79e-16) 2.4s
+[K_full d=5 par=0] dim S=126 rank[A]=123 (target R dim 843) dim K_full=3 gap (np.float64(6.4744286054001186e-06), np.float64(9.016917217828676e-16))
+[svd J_11^0] shape (2184, 1386) rank 1341 (sv[r-1]/s0=7.02e-01, sv[r]/s0=8.91e-16) 7.3s
+[K_full d=5 par=1] dim S=126 rank[A]=123 (target R dim 843) dim K_full=3 gap (np.float64(6.628082547265546e-06), np.float64(8.856507955127897e-16))
+[svd J_12^1] shape (3080, 2376) rank 2214 (sv[r-1]/s0=7.01e-01, sv[r]/s0=1.24e-15) 22.8s
+[K_full d=6 par=0] dim S=236 rank[A]=218 (target R dim 866) dim K_full=18 gap (np.float64(2.001590070959704e-06), np.float64(1.098085296384398e-15))
+[svd J_12^0] shape (3108, 2376) rank 2223 (sv[r-1]/s0=7.01e-01, sv[r]/s0=1.09e-15) 32.2s
+[K_full d=6 par=1] dim S=226 rank[A]=208 (target R dim 885) dim K_full=18 gap (np.float64(1.8246303481954588e-06), np.float64(1.0901805923806635e-15))
+[svd J_13^1] shape (4284, 3861) rank 3441 (sv[r-1]/s0=6.99e-01, sv[r]/s0=1.52e-15) 52.5s
+[K_full d=7 par=0] dim S=396 rank[A]=333 (target R dim 843) dim K_full=63 gap (np.float64(8.34797870861103e-07), np.float64(1.1057797707145534e-15))
+[svd J_13^0] shape (4284, 3861) rank 3441 (sv[r-1]/s0=6.99e-01, sv[r]/s0=1.88e-15) 71.1s
+[K_full d=7 par=1] dim S=396 rank[A]=333 (target R dim 843) dim K_full=63 gap (np.float64(6.16179108487046e-07), np.float64(1.167648054585606e-15))
+[svd J_14^1] shape (5796, 6006) rank 5052 (sv[r-1]/s0=6.97e-01, sv[r]/s0=2.44e-15) 189.4s
+[K_full d=8 par=0] dim S=651 rank[A]=483 (target R dim 744) dim K_full=168 gap (np.float64(2.2375384229121855e-07), np.float64(1.225096639404815e-15))
+[svd J_14^0] shape (5832, 6006) rank 5070 (sv[r-1]/s0=6.97e-01, sv[r]/s0=2.49e-15) 241.4s
+[K_full d=8 par=1] dim S=636 rank[A]=468 (target R dim 762) dim K_full=168 gap (np.float64(2.7857316373919853e-07), np.float64(1.5652050621115595e-15))
+[svd J_15^1] shape (7752, 9009) rank 7129 (sv[r-1]/s0=5.72e-01, sv[r]/s0=1.89e-15) 808.2s
+[K_full d=9 par=0] dim S=1001 rank[A]=622 (target R dim 623) dim K_full=379 gap (np.float64(6.957467311042178e-09), np.float64(3.5155604079349375e-10))
+[svd J_15^0] shape (7752, 9009) rank 7129 (sv[r-1]/s0=5.72e-01, sv[r]/s0=1.86e-15) 839.1s
+[K_full d=9 par=1] dim S=1001 rank[A]=622 (target R dim 623) dim K_full=379 gap (np.float64(6.957730564551012e-09), np.float64(3.516200541283396e-10))
+[svd J_16^1] shape (10152, 13104) rank 9684 (sv[r-1]/s0=5.71e-01, sv[r]/s0=3.01e-15) 3139.4s
+[K_full d=10 par=0] dim S=1512 rank[A]=468 (target R dim 468) dim K_full=1044 gap (np.float64(2.7833226199218573e-07), 0.0)
+[svd J_16^0] shape (10197, 13104) rank 9714 (sv[r-1]/s0=5.71e-01, sv[r]/s0=1.72e-15) 3427.6s
+[K_full d=10 par=1] dim S=1491 rank[A]=483 (target R dim 483) dim K_full=1008 gap (np.float64(2.2359375578835336e-07), 0.0)

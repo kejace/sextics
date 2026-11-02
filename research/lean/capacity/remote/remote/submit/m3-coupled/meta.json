@@ -1,0 +1,32 @@
+{
+ "instance": "m3-coupled",
+ "d": 10,
+ "q": 1,
+ "scale_witness": 6,
+ "scale_FA": 1,
+ "m": 21,
+ "W": 61,
+ "terms": {
+  "F": 22,
+  "A": 3,
+  "D": 190,
+  "N": [
+   88,
+   87,
+   83,
+   35,
+   83,
+   35
+  ],
+  "Q": 0
+ },
+ "bytes": {
+  "witness.json": 18863,
+  "proof.json": 131,
+  "solution.md": 64,
+  "meta.json": 393,
+  "Kron.lean": 34779,
+  "Witness.lean": 42567,
+  "Solution.lean": 72629
+ }
+}

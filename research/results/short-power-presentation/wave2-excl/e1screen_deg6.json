@@ -1,0 +1,2365 @@
+{
+ "summary": {
+  "exp": "e1screen",
+  "set": "deg6",
+  "p": 2147483629,
+  "n_candidates": 235,
+  "n_results": 235,
+  "hilbert_ok": false,
+  "hilb2": "1,6,21,56,126,246,426,666,951,1246,1506,1686,1751,1686,1506,1246,951,666,426,246,126,56,21,6,1,0",
+  "E1_passing": [],
+  "seconds": 754.8
+ },
+ "results": [
+  {
+   "name": "1",
+   "family": "constant",
+   "d": 0,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 1,
+   "terms-": 0
+  },
+  {
+   "name": "pow01",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow02",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow03",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow04",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow05",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow12",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow13",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow14",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow15",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow23",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow24",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow25",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow34",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow35",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow45",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 2,
+   "terms-": 0
+  },
+  {
+   "name": "pow012",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow013",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow014",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow015",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow023",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow024",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow025",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow034",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow035",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow045",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow123",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow124",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow125",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow134",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow135",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow145",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow234",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow235",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow245",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow345",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "pow0123",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0124",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0125",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0134",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0135",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0145",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0234",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0235",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0245",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow0345",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow1234",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow1235",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow1245",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow1345",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "pow2345",
+   "family": "coordinate power sums (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub01",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 7,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub02",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 7,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub03",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub04",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub05",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub12",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 7,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub13",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub14",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub15",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub23",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub24",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub25",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 4,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub34",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 7,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub35",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 7,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub45",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 7,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub012",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 28,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub013",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub014",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub015",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub023",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub024",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub025",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub034",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub035",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub045",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub123",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub124",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub125",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub134",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub135",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub145",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub234",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub235",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub245",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 16,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub345",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 28,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0123",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 50,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0124",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 50,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0125",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 50,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0134",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0135",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0145",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0234",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0235",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0245",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub0345",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 50,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub1234",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub1235",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub1245",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 44,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub1345",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 50,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub2345",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 50,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub01234",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 110,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub01235",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 110,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub01245",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 110,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub01345",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 110,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub02345",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 110,
+   "terms-": 0
+  },
+  {
+   "name": "Fsub12345",
+   "family": "sub-equations of F (sweep)",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 110,
+   "terms-": 0
+  },
+  {
+   "name": "DI06",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI07",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI16",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI17",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI26",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI27",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI36",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI37",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI46",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI47",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI56",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI57",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI67",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI016",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI017",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI026",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI027",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI036",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI037",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI046",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI047",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI056",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI057",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI067",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI126",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI127",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI136",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI137",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI146",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI147",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI156",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI157",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI167",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI236",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI237",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI246",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI247",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI256",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI257",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI267",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI346",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI347",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI356",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI357",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI367",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI456",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI457",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI467",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI567",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI0126",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0127",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0136",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0137",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0146",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0147",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0156",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0157",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0167",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI0236",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0237",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0246",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0247",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0256",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0257",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0267",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI0346",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0347",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0356",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0357",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0367",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI0456",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0457",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI0467",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI0567",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI1236",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1237",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1246",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1247",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1256",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1257",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1267",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI1346",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1347",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1356",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1357",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1367",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI1456",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1457",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI1467",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI1567",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI2346",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI2347",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI2356",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI2357",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI2367",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI2456",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI2457",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI2467",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI2567",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI3456",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI3457",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 226
+  },
+  {
+   "name": "DI3467",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI3567",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "DI4567",
+   "family": "eight-form subset sums D_I with l7/l8",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "eX",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "eY",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 3,
+   "terms-": 0
+  },
+  {
+   "name": "eX+eY",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 6,
+   "terms-": 0
+  },
+  {
+   "name": "B=(L+M)^6+(L-M)^6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "eX+2cL6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 28,
+   "terms-": 0
+  },
+  {
+   "name": "eY+2cM6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 28,
+   "terms-": 0
+  },
+  {
+   "name": "eX-L6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 27,
+   "terms-": 0
+  },
+  {
+   "name": "eX+L6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 28,
+   "terms-": 0
+  },
+  {
+   "name": "eY-M6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 27,
+   "terms-": 0
+  },
+  {
+   "name": "eY+M6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 28,
+   "terms-": 0
+  },
+  {
+   "name": "eX+M6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 31,
+   "terms-": 0
+  },
+  {
+   "name": "eY+L6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 31,
+   "terms-": 0
+  },
+  {
+   "name": "L6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 28,
+   "terms-": 0
+  },
+  {
+   "name": "M6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 28,
+   "terms-": 0
+  },
+  {
+   "name": "L4M2",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 90,
+   "terms-": 0
+  },
+  {
+   "name": "L2M4",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 90,
+   "terms-": 0
+  },
+  {
+   "name": "eX+L4M2",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 93,
+   "terms-": 0
+  },
+  {
+   "name": "(L2+M2)^3",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "(L2-M2)^3",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  },
+  {
+   "name": "L2M2(L2+M2)",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 180,
+   "terms-": 0
+  },
+  {
+   "name": "X0X1X2Y0Y1Y2",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": true,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 0,
+   "terms-": 1
+  },
+  {
+   "name": "prod_l1..l6",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": true,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 0,
+   "terms-": 1
+  },
+  {
+   "name": "(L+M)^5(L-M)",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": false,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 126
+  },
+  {
+   "name": "(L+M)^3(L-M)^3",
+   "family": "degree-6 special",
+   "d": 6,
+   "E1_even_part": false,
+   "E1_odd_part": true,
+   "E1": false,
+   "terms+": 236,
+   "terms-": 0
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "exp": "hessian-relaxation",
+ "kind": "full",
+ "d": 7,
+ "par": "1",
+ "chi": null,
+ "prime": 2147483647,
+ "job": "full_all_d7_par1_p2147483647",
+ "family": [
+  {
+   "pD": 1,
+   "rows": 4284,
+   "nA": 396,
+   "nJ": 3861,
+   "dimK": 64,
+   "dimJd": 63,
+   "ci_dimJd": 63,
+   "ker_R": 1,
+   "rankJtop_modp": 3441,
+   "rankJtop_CI": 3441,
+   "radial": 3,
+   "complement": 61
+  }
+ ],
+ "n_unknowns": 61,
+ "reducers": {
+  "1": {
+   "rank_modp": 5052,
+   "rank_CI": 5052,
+   "ring_dim": 744
+  }
+ },
+ "n_quadrics": 741,
+ "files": {
+  "msolve": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_full_all_d7_par1_p2147483647.ms",
+  "singular": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_full_all_d7_par1_p2147483647.sing"
+ },
+ "result": {
+  "msolve_rc": -9,
+  "msolve_seconds": 3347.6,
+  "verdict": "msolve failed/timeout"
+ },
+ "seconds": 4006.1
+}

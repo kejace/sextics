@@ -1,0 +1,1 @@
+{"F": 22, "A": 42, "D": 20, "N": [20, 20, 40, 0, 40, 0], "Q": 0, "q": 1, "e1_raw": 1680, "e1_lhs_raw": 840, "e1_rhs_raw": 840, "e1_collected": 794, "e2_raw": 2760, "e2_lhs_raw": 2760, "e2_rhs_raw": 0, "e2_collected": 0, "defs_terms": 204, "Fsrc": "m3", "d": 6, "kD": 20, "denseD": false, "kH": 1, "kT": 0, "seed": 0, "parts": ["e2"], "bytes": 47452, "name": "e2m3k20"}

@@ -1,0 +1,94 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[2026-11-02T02:20:10] job d8h0b-c40: d=8 c=(4, 0) kind=colon F=offpaired restarts=300 workers=8
+[exact basis colon d=8 c=(4, 0)] rank 26 with 1 primes (verified)
+[sector varpro] d=8 c=(4, 0) K=26 rank=26 gauge=2 dimP=24 rows=2424 N=418 Q=108 nnz(TN)=182298 built in 0.6s
+[2026-11-02T02:20:11] family built: K=26 rank=26 gauge=2 dimP=24 rows=2424 N=418 Q=108 build 0.6s
+gradient check: analytic 1.689345e-02 fd 1.689345e-02
+{
+ "ts": "2026-11-02T02:37:41",
+ "job": "d8h0b-c40",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 8,
+ "sector": [
+  4,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 26,
+ "rank": 26,
+ "gauge": 2,
+ "dimP": 24,
+ "rows": 2424,
+ "nN": 418,
+ "nQ": 108,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 151,
+ "best_relres": 0.024471360462216256,
+ "median_relres": 0.06635248556906931,
+ "hist": {
+  "ge1e-2": 151
+ },
+ "top_minima": [
+  [
+   "2.447e-02",
+   13
+  ],
+  [
+   "2.449e-02",
+   19
+  ],
+  [
+   "5.537e-02",
+   9
+  ],
+  [
+   "5.635e-02",
+   6
+  ],
+  [
+   "5.725e-02",
+   5
+  ],
+  [
+   "5.735e-02",
+   5
+  ],
+  [
+   "5.889e-02",
+   6
+  ],
+  [
+   "5.938e-02",
+   2
+  ],
+  [
+   "6.155e-02",
+   1
+  ],
+  [
+   "6.201e-02",
+   2
+  ],
+  [
+   "6.302e-02",
+   1
+  ],
+  [
+   "6.358e-02",
+   2
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 54.31,
+ "statuses": {
+  "stalled": 70,
+  "flat": 37,
+  "maxiter": 44
+ },
+ "wall": 1050.2,
+ "witness": false
+}

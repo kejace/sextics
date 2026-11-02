@@ -1,0 +1,7 @@
+ring r = 1000000007, (), dp;
+ideal I;
+ideal G = std(I);
+"dim V(I):", dim(G), " #forms:", size(I);
+int bad = 0; ideal T;
+"residual coordinates not in radical:", bad, "of", 0;
+quit;

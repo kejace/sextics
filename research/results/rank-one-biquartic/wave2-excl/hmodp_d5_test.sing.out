@@ -1,0 +1,16 @@
+   ? error occurred in or before /tmp/hodge/results/rank-one-biquartic/wave2-excl/hmodp_d5_test.sing line 1: `ring r = 1000000007, (), dp;`
+   ? expected ring-expression. type 'help ring;'
+   ? last reserved name was `ring`
+   skipping text from `,`
+   ? ...parse error
+   ? error occurred in or before /tmp/hodge/results/rank-one-biquartic/wave2-excl/hmodp_d5_test.sing line 2: `ideal I;`
+   ? wrong type declaration. type 'help ideal;'
+   ? ...parse error
+   ? error occurred in or before /tmp/hodge/results/rank-one-biquartic/wave2-excl/hmodp_d5_test.sing line 3: `ideal G = std(I);`
+   ? wrong type declaration. type 'help ideal;'
+   ? `G` is not defined
+   ? error occurred in or before /tmp/hodge/results/rank-one-biquartic/wave2-excl/hmodp_d5_test.sing line 4: `"dim V(I):", dim(G), " #forms:", size(I);`
+   ? ...parse error
+   ? error occurred in or before /tmp/hodge/results/rank-one-biquartic/wave2-excl/hmodp_d5_test.sing line 5: `int bad = 0; ideal T;`
+   ? wrong type declaration. type 'help ideal;'
+residual coordinates not in radical: 0 of 0

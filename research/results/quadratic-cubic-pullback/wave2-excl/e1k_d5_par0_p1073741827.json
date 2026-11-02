@@ -1,0 +1,21 @@
+{
+ "exp": "e1kernel",
+ "d": 5,
+ "parD": 0,
+ "p": 1073741827,
+ "rows": 2184,
+ "cols": 1512,
+ "nD": 126,
+ "nnz": 36162,
+ "rank_J_block": 1341,
+ "hilbert_J_target": 1341,
+ "J_rank_attained": true,
+ "rank_stacked": 1464,
+ "nullity": 48,
+ "dimK_p": 3,
+ "dim_J_d": 3,
+ "kernel_mod_J_p": 0,
+ "gorenstein_lower_bound": 0,
+ "rigorous": "K_Q = J_d exactly",
+ "seconds": 49.1
+}

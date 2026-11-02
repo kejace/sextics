@@ -1,0 +1,24 @@
+LIB "primdec.lib";
+ring r = 0, (t0,t1), dp;
+ideal J2 = (-40633270272000)*t0*t0,
+(12189981081600)*t0*t1,
+(146279772979200)*t0*t1,
+(-219419659468800)*t0*t1,
+(-54854914867200)*t0*t1,
+(-32506616217600)*t0*t1,
+(-1316517956812800)*t1*t1,
+(164564744601600)*t1*t1,
+(146279772979200)*t1*t1;
+ideal G = std(J2);
+int dm = dim(G);
+print("DIMJ2 " + string(dm));
+if (dm > 0) {
+  list L = minAssGTZ(J2);
+  int i; int j;
+  for (i = 1; i <= size(L); i++) {
+    string s = "COMP " + string(i) + ":";
+    for (j = 1; j <= size(L[i]); j++) { s = s + " " + string(L[i][j]) + " ;"; }
+    print(s);
+  }
+}
+quit;

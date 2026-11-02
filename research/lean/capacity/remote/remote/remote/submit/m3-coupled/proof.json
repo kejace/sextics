@@ -1,0 +1,6 @@
+{
+ "schemaVersion": 2,
+ "instanceId": "m3-coupled",
+ "theorem": "Submission.certificate",
+ "witnessTheorem": "Submission.witness"
+}

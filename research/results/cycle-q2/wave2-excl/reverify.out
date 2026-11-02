@@ -1,0 +1,101 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+190 candidates, 190 to do
+pair-fermat-2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2587 (M) / 2588 (aug) of 4060 cols certified 771.5
+pair-fermat-0^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2589 (M) / 2590 (aug) of 4060 cols certified 787.7
+coupling-20^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2520 (M) / 2521 (aug) of 4060 cols certified 799.3
+pair-fermat-1^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2582 (M) / 2583 (aug) of 4060 cols certified 814.6
+coupling-12^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2518 (M) / 2519 (aug) of 4060 cols certified 840.8
+Grad_1^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2907 (M) / 2908 (aug) of 4060 cols certified 880.8
+cone4-X0Y0Y1Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2966 (M) / 2967 (aug) of 4060 cols certified 883.3
+Y-block^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2839 (M) / 2840 (aug) of 4060 cols certified 894.0
+Grad_0^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2911 (M) / 2912 (aug) of 4060 cols certified 900.8
+cone4-X1X2Y0Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2978 (M) / 2979 (aug) of 4060 cols certified 902.8
+coupling-01^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2525 (M) / 2526 (aug) of 4060 cols certified 909.5
+edge-01^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2930 (M) / 2931 (aug) of 4060 cols certified 913.2
+X-block^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2846 (M) / 2847 (aug) of 4060 cols certified 919.3
+cone4-X0X1X2Y1^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2976 (M) / 2977 (aug) of 4060 cols certified 924.8
+cone4-X1X2Y0Y1^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2973 (M) / 2974 (aug) of 4060 cols certified 945.0
+cone4-X0X1X2Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2977 (M) / 2978 (aug) of 4060 cols certified 945.7
+cone4-X0X1Y0Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2973 (M) / 2974 (aug) of 4060 cols certified 948.1
+cone4-X1Y0Y1Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2965 (M) / 2966 (aug) of 4060 cols certified 957.7
+F_X0^2 10 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 1714 (M) / 1715 (aug) of 2415 cols certified 198.8
+cone4-X2Y0Y1Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2969 (M) / 2970 (aug) of 4060 cols certified 976.6
+pure-power^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2992 (M) / 2993 (aug) of 4060 cols certified 1014.0
+Grad_2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2912 (M) / 2913 (aug) of 4060 cols certified 1042.2
+cone4-X0X2Y0Y1^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2978 (M) / 2979 (aug) of 4060 cols certified 1044.2
+F_X1^2 10 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 1694 (M) / 1695 (aug) of 2391 cols certified 263.2
+cone4-X0X1Y1Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2976 (M) / 2977 (aug) of 4060 cols certified 1057.1
+B6 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 628 (M) / 629 (aug) of 736 cols certified 24.3
+cone4-X0X2Y0Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2971 (M) / 2972 (aug) of 4060 cols certified 1072.3
+X0*F_X0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 595 (M) / 596 (aug) of 736 cols certified 11.7
+B6^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2988 (M) / 2989 (aug) of 4060 cols certified 1089.5
+Grad_0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 609 (M) / 610 (aug) of 736 cols certified 41.0
+Grad_2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 611 (M) / 612 (aug) of 736 cols certified 28.7
+Grad_1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 610 (M) / 611 (aug) of 736 cols certified 40.7
+F_X2^2 10 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 1690 (M) / 1691 (aug) of 2364 cols certified 309.4
+X0*F_Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 591 (M) / 592 (aug) of 712 cols certified 13.0
+X0*F_Y0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 596 (M) / 597 (aug) of 735 cols certified 21.3
+X0*F_Y1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 589 (M) / 590 (aug) of 709 cols certified 16.2
+X0*F_X1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 592 (M) / 593 (aug) of 721 cols certified 30.1
+X0*F_X2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 589 (M) / 590 (aug) of 706 cols certified 29.1
+coupling-sum^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2926 (M) / 2927 (aug) of 4060 cols certified 1124.1
+X1*F_Y0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 591 (M) / 592 (aug) of 715 cols certified 18.7
+X2*F_X0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 593 (M) / 594 (aug) of 718 cols certified 11.6
+X1*F_X0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 593 (M) / 594 (aug) of 729 cols certified 27.7
+X1*F_X1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 598 (M) / 599 (aug) of 736 cols certified 26.6
+X1*F_X2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 583 (M) / 584 (aug) of 712 cols certified 25.4
+X1*F_Y1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 589 (M) / 590 (aug) of 733 cols certified 28.5
+X2*F_Y0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 592 (M) / 593 (aug) of 712 cols certified 6.9
+Y0*F_X1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 587 (M) / 588 (aug) of 715 cols certified 6.4
+X2*F_X1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 587 (M) / 588 (aug) of 714 cols certified 18.1
+X1*F_Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 599 (M) / 600 (aug) of 730 cols certified 35.5
+Y0*F_X2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 588 (M) / 589 (aug) of 709 cols certified 6.5
+X2*F_Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 592 (M) / 593 (aug) of 732 cols certified 24.8
+Y0*F_Y1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 591 (M) / 592 (aug) of 718 cols certified 15.1
+X2*F_Y1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 597 (M) / 598 (aug) of 718 cols certified 31.8
+Y0*F_X0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 604 (M) / 605 (aug) of 772 cols certified 33.5
+Y1*F_X0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 594 (M) / 595 (aug) of 730 cols certified 16.9
+Y0*F_Y0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 600 (M) / 601 (aug) of 736 cols certified 34.0
+X2*F_X2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 596 (M) / 597 (aug) of 736 cols certified 50.8
+Y0*F_Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 603 (M) / 604 (aug) of 732 cols certified 31.7
+Y1*F_X2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 584 (M) / 585 (aug) of 705 cols certified 20.6
+Y1*F_Y0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 589 (M) / 590 (aug) of 712 cols certified 20.0
+Y1*F_X1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 579 (M) / 580 (aug) of 727 cols certified 33.1
+Y2*F_X0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 598 (M) / 599 (aug) of 732 cols certified 16.3
+Y1*F_Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 596 (M) / 597 (aug) of 721 cols certified 19.0
+Y1*F_Y1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 601 (M) / 602 (aug) of 736 cols certified 43.6
+Y2*F_Y0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 591 (M) / 592 (aug) of 712 cols certified 30.3
+Y2*F_X2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 585 (M) / 586 (aug) of 718 cols certified 39.2
+X0^2X1^2X2^2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 519 (M) / 520 (aug) of 736 cols certified 26.4
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+190 candidates, 118 to do
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+190 candidates, 66 to do
+cone3-X0X1Y0^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X1Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X1Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X2Y0^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X2Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X2Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0Y0Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0Y0Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0Y1Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1X2Y0^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1X2Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1X2Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1Y0Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1Y0Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1Y1Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X2Y0Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X2Y0Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X2Y1Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+F_X0 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 442 (M) / 443 (aug) of 540 cols certified 6.3
+F_Y1 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 430 (M) / 431 (aug) of 514 cols certified 4.6
+F_X1 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 427 (M) / 428 (aug) of 521 cols certified 11.2
+F_X2 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 427 (M) / 428 (aug) of 505 cols certified 12.1
+F_Y0 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 433 (M) / 434 (aug) of 521 cols certified 12.6
+F_Y2 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 441 (M) / 442 (aug) of 528 cols certified 6.8
+cone4-X2Y0Y1Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 615 (M) / 616 (aug) of 736 cols certified 22.8
+cone4-X1Y0Y1Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 613 (M) / 614 (aug) of 736 cols certified 35.7
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+190 candidates, 55 to do

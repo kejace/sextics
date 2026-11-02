@@ -1,0 +1,15 @@
+# Wave-2 adversarial verification — lane `four-plus-two-residual` (q=1, A = X0^3 Y0^3)
+
+STATUS: 0 confirmed / 0 refuted / 0 weakened / 0 unverified (started 2026-11-02 ~00:20 UTC; running log in `/tmp/hodge/results/four-plus-two-residual/wave2-verify.log.jsonl`; scripts in `/tmp/hodge/work/verify42/`)
+
+Verifier: adversarial referee agent (independent code where the claim depends on engine correctness). Sources: `dossier-four-plus-two-residual.md` (D), `attack1-four-plus-two-residual.md` (A1), `probe-four-plus-two-jacobian.md` (P), lane logs. Verdicts: CONFIRMED / REFUTED / WEAKENED / UNVERIFIED.
+
+| # | claim | source | verdict | evidence | notes |
+|---|---|---|---|---|---|
+| 1 | A = X0^3Y0^3 is nonzero in R(F) (A ∉ J(F)_6) | D §1.8, P §1.3 | CONFIRMED | `quick1.py`: exact fmpq_mat rank 18→19 over Q (no prime); Singular `reduce` | rigorous over Q, hence over C |
+| 2 | Projective diagonal symmetry group of F has order 24 (288 affine solutions mod 12), stabiliser of χ_A is the Klein group {1, τ, r2r5, r2s} | D §1.3–1.4 | CONFIRMED | `quick1.py` brute force over (Z/12)^6: 288/24, stabiliser size 4 = {(0,0,6,6,6,0),(6,6,0,6,6,0),0,(6,6,6,0,0,0)} | A1's sentence "Symmetry group of F (mod scalars): (Z/2)^3" is WRONG as stated (misses h = ζ6-scaling of (X2,Y2), order 6); harmless for A1's conclusions since it uses the μ6-grading anyway. See row 2b |
+| 2b | "Symmetry group of F (mod scalars) = (Z/2)^3 = ⟨ι_1, ι_X2, ι_Y2⟩" | A1 conventions | REFUTED (as stated) | same | the diagonal group is Z/6×Z/2×Z/2 (order 24); (Z/2)^3 is only its 2-torsion |
+| 3 | χ_A-isotypic primitive sector has Hodge dims (32,80,32), rank 144 | D §1.4, A1 §1.1 | CONFIRMED | `quick1.py` Fermat-ring count with the full order-24 group: [32,80,32] | relies on constancy of the equivariant Koszul Euler characteristic along the G-invariant family to the Fermat sextic (standard, G ⊂ diagonal torus) |
+| 4 | Parity-graded Hilbert function of R(H): even (1,2,6,10,19,26,36,40,45,…), odd (0,2,4,10,16,26,32,40,40,…); R(H)_6^odd = 32, R(H)_12^odd = 16 | A1 §1.1 | CONFIRMED | `quick1.py` own rank computation mod 1000000007 (upper bounds on dim R(H)_k; equality with the complete-intersection series proves exactness) | total series (1+t+…+t^4)^4 ✓ |
+| 5 | Hodge numbers: T_H (1,103,103,1), ζ-sector (1,68,35,0), ζ²-sector (0,35,68,1); W_H h^{4,0}=0, h^{3,1}=56, h^{2,2}_prim=306 | A1 §1.1, P §4 | CONFIRMED | `quick1.py` Griffiths–Steenbrink from the exact Hilbert series | T_H smooth: ambient singular point (0:0:0:0:1) is off T_H since u^3=1≠0 there; S_H smooth (Singular dim V(jacob H) = 0) |
+| 6 | Core E1 kernel ker(a·: R(H)_k→R(H)_{k+6}) mod J(H)_k: 0 for k≤5 (both parities); k=6: 20 even / 13 odd; k=7: 30/30; k=8: 41/34; k=9: 38/38 | A1 §2.1, D A.2 | CONFIRMED (exact over Q) | `e1kernel_indep.py` p=1000000007 (third prime, own matrices): identical dims; and a· is SURJECTIVE mod p for every k≥5 (rank = dim R(H)_{k+6}) | rigour: ker_p ⊇ ker_Q gives "0 mod p ⇒ 0 over Q"; surjectivity mod p ⇒ surjectivity over Q, so for k≥5 dim ker_Q = dim R(H)_k − dim R(H)_{k+6} exactly: all listed dims are exact over Q, not just mod p |

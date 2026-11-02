@@ -1,0 +1,7 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[2026-11-02T02:56:06] job d10h0-c00: d=10 c=(0, 0) kind=colon F=offpaired restarts=150 workers=8
+[build_family] exact basis failed (colon d=10 c=(0, 0): rational reconstruction failed with 6 primes); using float basis
+[float colon basis d=10 c=(0, 0)] dim 95 (modular 95)
+[sector varpro] d=10 c=(0, 0) K=95 rank=95 gauge=10 dimP=85 rows=5121 N=904 Q=404 nnz(TN)=940910 built in 2.1s
+[2026-11-02T02:56:17] family built: K=95 rank=95 gauge=10 dimP=85 rows=5121 N=904 Q=404 build 2.1s
+gradient check: analytic -8.357455e-02 fd -8.357455e-02

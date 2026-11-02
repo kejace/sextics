@@ -1,0 +1,8 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[kerfam] target overridden by w2-Aprime.json
+[d=9] E1 matrix 7752 x 10010 built in 1.1s
+[d=9] svd 1086.0s rank=7731 nullity=2279 gap=(6.506e-02, 1.567e-14)
+[d=9] admissible dim = 399 (singular gap 2.659e-01 / 4.310e-14)
+[d=9] complement of J in admissible: dim 21 (J rank 378); gap 1.000e+00/1.025e-13
+[d=9] E1 residuals of first members: [np.float64(7.797148343646754e-15), np.float64(5.329070518200751e-15), np.float64(4.85722573273506e-15)]
+{"exp": "kerfam-float", "d": 9, "pD": 1, "Aprime": "w2-Aprime.json", "rows": 7752, "cols": 10010, "rank": 7731, "nullity": 2279, "gap": [0.06506226539449879, 1.5669261131735557e-14], "admissible_dim": 399, "kernel_mod_J_dim": 21, "e1_res": [7.797148343646754e-15, 5.329070518200751e-15, 4.85722573273506e-15], "seconds": 1151.6}

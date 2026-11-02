@@ -1,0 +1,33 @@
+{
+ "F": 22,
+ "A": 18,
+ "q": 1,
+ "D": 80,
+ "N": [
+  80,
+  80,
+  0,
+  80,
+  80,
+  0
+ ],
+ "Q": 0,
+ "d": 6,
+ "e1_pairs": 3680,
+ "e1_monos": 1313,
+ "e2_pairs": 19680,
+ "e2_monos": 0,
+ "e1_ok": true,
+ "e2_ok": true,
+ "pairs_total": 23360,
+ "monos_total": 1313,
+ "label": "R_m3_d6_n80",
+ "Fid": "m3-coupled",
+ "which": [
+  "e1",
+  "e2"
+ ],
+ "seed": 0,
+ "route": "reflect",
+ "bytes": 16743
+}

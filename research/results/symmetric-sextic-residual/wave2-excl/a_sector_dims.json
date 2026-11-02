@@ -1,0 +1,18 @@
+{
+ "2147483629": {
+  "rankJ6odd": 18,
+  "ci": 18,
+  "n_inv_orbits": 19,
+  "dim_inv_sector": 17,
+  "dim_sgnsgn_poly_sector": 1,
+  "A_in_J": false
+ },
+ "1000000007": {
+  "rankJ6odd": 18,
+  "ci": 18,
+  "n_inv_orbits": 19,
+  "dim_inv_sector": 17,
+  "dim_sgnsgn_poly_sector": 1,
+  "A_in_J": false
+ }
+}

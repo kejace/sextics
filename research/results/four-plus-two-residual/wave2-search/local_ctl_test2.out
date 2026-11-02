@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+search best rel 4.442393579339742e-15
+LM polished rel 1.2772062365781844e-24 5.4 s
+plain:limden12 5.0e-03 inconsistent 11 2*X0**6/11 - 6*X0**4*X1**2/11 + 9*X0**4*Y0**2/11 - 11*X0**2*X1**2*Y0**2/12 + 9*X0**2*Y0**4/11 + X1**
+plain:limden21 3.3e-03 inconsistent 11 3*X0**6/16 - 6*X0**4*X1**2/11 + 13*X0**4*Y0**2/16 - 11*X0**2*X1**2*Y0**2/12 + 13*X0**2*Y0**4/16 + X1
+plain:limden42 3.0e-03 inconsistent 11 3*X0**6/16 - 13*X0**4*X1**2/24 + 13*X0**4*Y0**2/16 - 11*X0**2*X1**2*Y0**2/12 + 13*X0**2*Y0**4/16 + X
+plain:limden84 2.0e-04 inconsistent 11 14*X0**6/75 - 45*X0**4*X1**2/83 + 61*X0**4*Y0**2/75 - 76*X0**2*X1**2*Y0**2/83 + 61*X0**2*Y0**4/75 + 
+plain:limden210 1.1e-04 inconsistent 11 37*X0**6/198 - 45*X0**4*X1**2/83 + 170*X0**4*Y0**2/209 - 76*X0**2*X1**2*Y0**2/83 + 161*X0**2*Y0**4/1
+plain:limden420 1.1e-04 inconsistent 11 37*X0**6/198 - 167*X0**4*X1**2/308 + 292*X0**4*Y0**2/359 - 76*X0**2*X1**2*Y0**2/83 + 161*X0**2*Y0**4
+plain:limden1000 1.1e-04 inconsistent 11 37*X0**6/198 - 379*X0**4*X1**2/699 + 523*X0**4*Y0**2/643 - 76*X0**2*X1**2*Y0**2/83 + 161*X0**2*Y0**4
+plain:limden10000 1.4e-08 inconsistent 13 720*X0**6/3853 - 3019*X0**4*X1**2/5568 + 7858*X0**4*Y0**2/9661 - X0**2*X1**4/9346 - 76*X0**2*X1**2*Y
+plain:limden100000 8.9e-09 inconsistent 13 8677*X0**6/46434 - 31783*X0**4*X1**2/58618 + 14901*X0**4*Y0**2/18320 - 6*X0**2*X1**4/56075 - 76*X0**
+plain:limden1000000 5.8e-09 inconsistent 13 79533*X0**6/425612 - 257283*X0**4*X1**2/474512 + 811697*X0**4*Y0**2/997939 - 72*X0**2*X1**4/672899 -
+gauge-kill-(6, 0, 0, 0, 0, 0):limden6 3.6e-04 solved 9 2*X0**4*X1**2/5 - 3*X0**4*Y0**2/5 + 2*X0**2*X1**2*Y0**2/5 - 3*X0**2*Y0**4/5 - 3*X1**6/5 + 2*X1**2*Y0

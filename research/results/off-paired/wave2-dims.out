@@ -1,0 +1,11 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d=4: total colon 1 (J 0, non-J 1); (0,0): {'d': 4, 'c': [0, 0], 'nD': 10, 'colon': 1, 'jac': 0, 'nonjac': 1, 'gauge': 0, 'eff': 1, 'yparity': 0}  [0s]
+d=5: total colon 11 (J 6, non-J 5); (0,0): {'d': 5, 'c': [0, 0], 'nD': 15, 'colon': 1, 'jac': 1, 'nonjac': 0, 'gauge': 0, 'eff': 1, 'yparity': 0}  [1s]
+d=6: total colon 54 (J 36, non-J 18); (0,0): {'d': 6, 'c': [0, 0], 'nD': 26, 'colon': 7, 'jac': 6, 'nonjac': 1, 'gauge': 1, 'eff': 6, 'yparity': 0}  [2s]
+d=7: total colon 177 (J 126, non-J 51); (0,0): {'d': 7, 'c': [0, 0], 'nD': 38, 'colon': 15, 'jac': 10, 'nonjac': 5, 'gauge': 1, 'eff': 14, 'yparity': 0}  [5s]
+d=8: total colon 457 (J 336, non-J 121); (0,0): {'d': 8, 'c': [0, 0], 'nD': 57, 'colon': 30, 'jac': 20, 'nonjac': 10, 'gauge': 2, 'eff': 28, 'yparity': 0}  [11s]
+d=9: total colon 1014 (J 756, non-J 258); (0,0): {'d': 9, 'c': [0, 0], 'nD': 84, 'colon': 55, 'jac': 42, 'nonjac': 13, 'gauge': 5, 'eff': 50, 'yparity': 0}  [21s]
+d=10: total colon 2173 (J 1497, non-J 676); (0,0): {'d': 10, 'c': [0, 0], 'nD': 122, 'colon': 95, 'jac': 76, 'nonjac': 19, 'gauge': 10, 'eff': 85, 'yparity': 0}  [42s]
+d=11: total colon 3753 (J 2682, non-J 1071); (0,0): {'d': 11, 'c': [0, 0], 'nD': 166, 'colon': 142, 'jac': 116, 'nonjac': 26, 'gauge': 15, 'eff': 127, 'yparity': 0}  [85s]
+d=12: total colon 5780 (J 4437, non-J 1343); (0,0): {'d': 12, 'c': [0, 0], 'nD': 230, 'colon': 211, 'jac': 177, 'nonjac': 34, 'gauge': 26, 'eff': 185, 'yparity': 0}  [167s]
+done

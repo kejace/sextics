@@ -1,0 +1,2 @@
+{"ts":"2026-11-02T00:12:50+00:00","step":"start","note":"theory-generic agent started; reading dossiers"}
+{"ts":"2026-11-02T01:10:26+00:00","step":"orientation-done","load":"928","mem_free_gb":44,"note":"box saturated (load 928, 44GB free); light jobs only with nice; heavy served-space runs deferred until load<140. Key reading facts: SPP E1 kernel mod J = 1 (d=7, both parities), 6 (d=8); D7^+ is a cone over the line X=M=0 and serves only J (search lane); DR/8PL/QCP: kernel mod J = 0 for d<=9, 294/261 at d=10."}

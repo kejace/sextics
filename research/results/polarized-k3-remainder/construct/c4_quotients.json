@@ -1,0 +1,250 @@
+{
+ "D6_rows": [
+  {
+   "K": "{h^0}",
+   "order": 1,
+   "hodge": [
+    1,
+    426,
+    1751,
+    426,
+    1
+   ],
+   "K3_retained": true,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^3}",
+   "order": 2,
+   "hodge": [
+    0,
+    208,
+    866,
+    208,
+    0
+   ],
+   "K3_retained": false,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^0tau}",
+   "order": 2,
+   "hodge": [
+    0,
+    208,
+    866,
+    208,
+    0
+   ],
+   "K3_retained": true,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^1tau}",
+   "order": 2,
+   "hodge": [
+    1,
+    208,
+    885,
+    208,
+    1
+   ],
+   "K3_retained": false,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^2tau}",
+   "order": 2,
+   "hodge": [
+    0,
+    208,
+    866,
+    208,
+    0
+   ],
+   "K3_retained": true,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^3tau}",
+   "order": 2,
+   "hodge": [
+    1,
+    208,
+    885,
+    208,
+    1
+   ],
+   "K3_retained": false,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^4tau}",
+   "order": 2,
+   "hodge": [
+    0,
+    208,
+    866,
+    208,
+    0
+   ],
+   "K3_retained": true,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^5tau}",
+   "order": 2,
+   "hodge": [
+    1,
+    208,
+    885,
+    208,
+    1
+   ],
+   "K3_retained": false,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^2,h^4}",
+   "order": 3,
+   "hodge": [
+    1,
+    138,
+    563,
+    138,
+    1
+   ],
+   "K3_retained": true,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^3,h^0tau,h^3tau}",
+   "order": 4,
+   "hodge": [
+    0,
+    99,
+    433,
+    99,
+    0
+   ],
+   "K3_retained": false,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^3,h^1tau,h^4tau}",
+   "order": 4,
+   "hodge": [
+    0,
+    99,
+    433,
+    99,
+    0
+   ],
+   "K3_retained": false,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^3,h^2tau,h^5tau}",
+   "order": 4,
+   "hodge": [
+    0,
+    99,
+    433,
+    99,
+    0
+   ],
+   "K3_retained": false,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^1,h^2,h^3,h^4,h^5}",
+   "order": 6,
+   "hodge": [
+    0,
+    100,
+    200,
+    100,
+    0
+   ],
+   "K3_retained": false,
+   "contains_junior": true
+  },
+  {
+   "K": "{h^0,h^2,h^4,h^0tau,h^2tau,h^4tau}",
+   "order": 6,
+   "hodge": [
+    0,
+    64,
+    272,
+    64,
+    0
+   ],
+   "K3_retained": true,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^2,h^4,h^1tau,h^3tau,h^5tau}",
+   "order": 6,
+   "hodge": [
+    1,
+    64,
+    291,
+    64,
+    1
+   ],
+   "K3_retained": false,
+   "contains_junior": false
+  },
+  {
+   "K": "{h^0,h^1,h^2,h^3,h^4,h^5,h^0tau,h^1tau,h^2tau,h^3tau,h^4tau,h^5tau}",
+   "order": 12,
+   "hodge": [
+    0,
+    45,
+    100,
+    45,
+    0
+   ],
+   "K3_retained": false,
+   "contains_junior": true
+  }
+ ],
+ "G72_summary": {
+  "(2, 30, False, False)": 2,
+  "(8, 6, False, True)": 3,
+  "(6, 28, False, True)": 2,
+  "(3, 37, True, False)": 1,
+  "(36, 0, False, False)": 1,
+  "(24, 0, False, True)": 3,
+  "(4, 9, False, False)": 1,
+  "(2, 58, True, False)": 1,
+  "(6, 19, False, True)": 6,
+  "(6, 7, True, False)": 2,
+  "(12, 0, False, False)": 3,
+  "(2, 55, False, True)": 6,
+  "(12, 9, False, False)": 1,
+  "(18, 0, False, False)": 2,
+  "(12, 0, True, True)": 3,
+  "(3, 10, True, False)": 2,
+  "(4, 34, False, True)": 3,
+  "(6, 9, False, False)": 2,
+  "(9, 1, True, False)": 1,
+  "(4, 27, True, True)": 3,
+  "(12, 1, False, True)": 3,
+  "(6, 3, False, False)": 2,
+  "(72, 0, False, True)": 1,
+  "(12, 21, True, True)": 1,
+  "(36, 1, False, True)": 1,
+  "(6, 18, False, False)": 2,
+  "(36, 0, True, True)": 1,
+  "(18, 1, False, True)": 2,
+  "(6, 0, False, False)": 2,
+  "(3, 46, True, False)": 1,
+  "(1, 100, True, False)": 1,
+  "(6, 46, True, False)": 1,
+  "(12, 28, False, True)": 1,
+  "(24, 6, False, True)": 1,
+  "(6, 1, True, False)": 1,
+  "(18, 1, True, False)": 1
+ }
+}

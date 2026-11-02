@@ -1,0 +1,103 @@
+import Reflect.Kron
+
+set_option maxHeartbeats 2000000
+set_option maxRecDepth 4000
+set_option linter.all false
+
+namespace HodgeComputer.Cap.K_m3k10
+
+open MvPolynomial HodgeTestbed HodgeComputer.Kron
+
+noncomputable def tF : PT := .node (.node (.node (.node (.leaf ⟨0, 0, 0, 0, 0, 6⟩ (-2)) (.leaf ⟨6, 0, 0, 0, 0, 0⟩ (-116))) (.node (.leaf ⟨4, 2, 0, 0, 0, 0⟩ (132)) (.node (.leaf ⟨2, 4, 0, 0, 0, 0⟩ (14)) (.leaf ⟨0, 6, 0, 0, 0, 0⟩ (-30))))) (.node (.node (.leaf ⟨0, 0, 2, 0, 0, 4⟩ (40)) (.node (.leaf ⟨2, 0, 2, 0, 0, 2⟩ (1)) (.leaf ⟨0, 0, 4, 0, 0, 2⟩ (80)))) (.node (.leaf ⟨0, 0, 6, 0, 0, 0⟩ (22)) (.node (.leaf ⟨4, 0, 0, 2, 0, 0⟩ (-171)) (.leaf ⟨2, 2, 0, 2, 0, 0⟩ (-52)))))) (.node (.node (.node (.leaf ⟨0, 4, 0, 2, 0, 0⟩ (62)) (.leaf ⟨2, 0, 0, 4, 0, 0⟩ (33))) (.node (.leaf ⟨0, 2, 0, 4, 0, 0⟩ (-34)) (.node (.leaf ⟨0, 0, 0, 6, 0, 0⟩ (-3)) (.leaf ⟨0, 0, 0, 0, 2, 4⟩ (8))))) (.node (.node (.leaf ⟨0, 0, 2, 0, 2, 2⟩ (6)) (.node (.leaf ⟨0, 0, 4, 0, 2, 0⟩ (-56)) (.leaf ⟨0, 2, 0, 2, 2, 0⟩ (1)))) (.node (.leaf ⟨0, 0, 0, 0, 4, 2⟩ (40)) (.node (.leaf ⟨0, 0, 2, 0, 4, 0⟩ (32)) (.leaf ⟨0, 0, 0, 0, 6, 0⟩ (2))))))
+
+noncomputable def tA : PT := .node (.node (.node (.node (.node (.leaf ⟨6, 0, 0, 0, 0, 0⟩ (3480)) (.node (.leaf ⟨0, 1, 0, 0, 0, 5⟩ (168)) (.leaf ⟨4, 2, 0, 0, 0, 0⟩ (-1056)))) (.node (.leaf ⟨2, 4, 0, 0, 0, 0⟩ (196)) (.node (.leaf ⟨0, 6, 0, 0, 0, 0⟩ (-1080)) (.leaf ⟨5, 0, 1, 0, 0, 0⟩ (8352))))) (.node (.node (.leaf ⟨3, 2, 1, 0, 0, 0⟩ (-6336)) (.node (.leaf ⟨1, 4, 1, 0, 0, 0⟩ (-336)) (.leaf ⟨0, 0, 2, 0, 0, 4⟩ (-720)))) (.node (.node (.leaf ⟨2, 0, 2, 0, 0, 2⟩ (-28)) (.leaf ⟨0, 1, 2, 0, 0, 3⟩ (-2240))) (.node (.leaf ⟨2, 1, 2, 0, 0, 1⟩ (-28)) (.leaf ⟨1, 0, 3, 0, 0, 2⟩ (-24)))))) (.node (.node (.node (.leaf ⟨0, 0, 4, 0, 0, 2⟩ (-2880)) (.node (.leaf ⟨0, 1, 4, 0, 0, 1⟩ (-2240)) (.leaf ⟨0, 0, 6, 0, 0, 0⟩ (-1188)))) (.node (.node (.leaf ⟨5, 0, 0, 1, 0, 0⟩ (-2418)) (.leaf ⟨3, 2, 0, 1, 0, 0⟩ (744))) (.node (.leaf ⟨1, 4, 0, 1, 0, 0⟩ (428)) (.leaf ⟨1, 0, 2, 1, 0, 2⟩ (4))))) (.node (.node (.leaf ⟨4, 0, 0, 2, 0, 0⟩ (684)) (.node (.leaf ⟨2, 2, 0, 2, 0, 0⟩ (-936)) (.leaf ⟨0, 4, 0, 2, 0, 0⟩ (2480)))) (.node (.node (.leaf ⟨3, 0, 1, 2, 0, 0⟩ (8208)) (.leaf ⟨1, 2, 1, 2, 0, 0⟩ (1248))) (.node (.leaf ⟨3, 0, 0, 3, 0, 0⟩ (-972)) (.leaf ⟨1, 2, 0, 3, 0, 0⟩ (-616))))))) (.node (.node (.node (.node (.leaf ⟨2, 0, 0, 4, 0, 0⟩ (726)) (.node (.leaf ⟨0, 2, 0, 4, 0, 0⟩ (-1496)) (.leaf ⟨1, 0, 1, 4, 0, 0⟩ (-792)))) (.node (.leaf ⟨1, 0, 0, 5, 0, 0⟩ (78)) (.node (.leaf ⟨0, 0, 0, 6, 0, 0⟩ (-144)) (.leaf ⟨0, 0, 0, 0, 1, 5⟩ (-128))))) (.node (.node (.leaf ⟨0, 1, 0, 0, 1, 4⟩ (-32)) (.node (.leaf ⟨0, 0, 2, 0, 1, 3⟩ (-96)) (.leaf ⟨0, 1, 2, 0, 1, 2⟩ (-24)))) (.node (.node (.leaf ⟨0, 0, 4, 0, 1, 1⟩ (896)) (.leaf ⟨0, 1, 4, 0, 1, 0⟩ (224))) (.node (.leaf ⟨0, 2, 0, 2, 1, 1⟩ (-16)) (.leaf ⟨0, 3, 0, 2, 1, 0⟩ (-4)))))) (.node (.node (.node (.leaf ⟨0, 1, 0, 0, 2, 3⟩ (-448)) (.node (.leaf ⟨0, 0, 2, 0, 2, 2⟩ (-108)) (.leaf ⟨0, 1, 2, 0, 2, 1⟩ (-168)))) (.node (.node (.leaf ⟨0, 0, 4, 0, 2, 0⟩ (2016)) (.leaf ⟨1, 2, 0, 1, 2, 0⟩ (6))) (.node (.leaf ⟨0, 2, 0, 2, 2, 0⟩ (28)) (.leaf ⟨0, 0, 0, 0, 3, 3⟩ (-1280))))) (.node (.node (.leaf ⟨0, 1, 0, 0, 3, 2⟩ (-320)) (.node (.leaf ⟨0, 0, 2, 0, 3, 1⟩ (-1024)) (.leaf ⟨0, 1, 2, 0, 3, 0⟩ (-256)))) (.node (.node (.leaf ⟨0, 1, 0, 0, 4, 1⟩ (-1120)) (.leaf ⟨0, 0, 2, 0, 4, 0⟩ (-576))) (.node (.leaf ⟨0, 0, 0, 0, 5, 1⟩ (-96)) (.leaf ⟨0, 1, 0, 0, 5, 0⟩ (-24)))))))
+
+noncomputable def tD : PT := .node (.node (.node (.leaf ⟨4, 2, 0, 0, 0, 0⟩ (-3)) (.leaf ⟨3, 1, 1, 0, 0, 1⟩ (6))) (.node (.leaf ⟨0, 5, 0, 1, 0, 0⟩ (8)) (.node (.leaf ⟨1, 0, 3, 2, 0, 0⟩ (-6)) (.leaf ⟨2, 1, 2, 0, 1, 0⟩ (9))))) (.node (.node (.leaf ⟨0, 4, 0, 0, 2, 0⟩ (2)) (.leaf ⟨1, 0, 2, 0, 2, 1⟩ (-1))) (.node (.leaf ⟨0, 1, 3, 0, 2, 0⟩ (-5)) (.node (.leaf ⟨0, 0, 0, 3, 2, 1⟩ (-5)) (.leaf ⟨1, 0, 0, 0, 5, 0⟩ (7)))))
+
+noncomputable def tQ : PT := .leaf ⟨6, 0, 0, 0, 0, 0⟩ 0
+
+noncomputable def tN0 : PT := .node (.node (.node (.node (.leaf ⟨5, 2, 0, 0, 0, 0⟩ (15)) (.node (.leaf ⟨4, 1, 1, 0, 0, 1⟩ (-30)) (.leaf ⟨4, 2, 1, 0, 0, 0⟩ (36)))) (.node (.node (.leaf ⟨3, 1, 2, 0, 0, 1⟩ (-72)) (.leaf ⟨4, 2, 0, 1, 0, 0⟩ (-6))) (.node (.leaf ⟨1, 5, 0, 1, 0, 0⟩ (-40)) (.leaf ⟨3, 1, 1, 1, 0, 1⟩ (12))))) (.node (.node (.node (.leaf ⟨0, 5, 1, 1, 0, 0⟩ (-96)) (.leaf ⟨0, 5, 0, 2, 0, 0⟩ (16))) (.node (.leaf ⟨2, 0, 3, 2, 0, 0⟩ (30)) (.leaf ⟨1, 0, 4, 2, 0, 0⟩ (72)))) (.node (.node (.leaf ⟨1, 0, 3, 3, 0, 0⟩ (-12)) (.leaf ⟨3, 1, 2, 0, 1, 0⟩ (-45))) (.node (.leaf ⟨2, 1, 3, 0, 1, 0⟩ (-108)) (.leaf ⟨2, 1, 2, 1, 1, 0⟩ (18)))))) (.node (.node (.node (.leaf ⟨1, 4, 0, 0, 2, 0⟩ (-10)) (.node (.leaf ⟨0, 4, 1, 0, 2, 0⟩ (-24)) (.leaf ⟨2, 0, 2, 0, 2, 1⟩ (5)))) (.node (.node (.leaf ⟨1, 0, 3, 0, 2, 1⟩ (12)) (.leaf ⟨1, 1, 3, 0, 2, 0⟩ (25))) (.node (.leaf ⟨0, 1, 4, 0, 2, 0⟩ (60)) (.leaf ⟨0, 4, 0, 1, 2, 0⟩ (4))))) (.node (.node (.node (.leaf ⟨1, 0, 2, 1, 2, 1⟩ (-2)) (.leaf ⟨0, 1, 3, 1, 2, 0⟩ (-10))) (.node (.leaf ⟨1, 0, 0, 3, 2, 1⟩ (25)) (.leaf ⟨0, 0, 1, 3, 2, 1⟩ (60)))) (.node (.node (.leaf ⟨0, 0, 0, 4, 2, 1⟩ (-10)) (.leaf ⟨2, 0, 0, 0, 5, 0⟩ (-35))) (.node (.leaf ⟨1, 0, 1, 0, 5, 0⟩ (-84)) (.leaf ⟨1, 0, 0, 1, 5, 0⟩ (14))))))
+
+noncomputable def tN1 : PT := .node (.node (.node (.leaf ⟨4, 3, 0, 0, 0, 0⟩ (-18)) (.leaf ⟨3, 2, 1, 0, 0, 1⟩ (36))) (.node (.leaf ⟨0, 6, 0, 1, 0, 0⟩ (48)) (.node (.leaf ⟨1, 1, 3, 2, 0, 0⟩ (-36)) (.leaf ⟨2, 2, 2, 0, 1, 0⟩ (54))))) (.node (.node (.leaf ⟨0, 5, 0, 0, 2, 0⟩ (12)) (.leaf ⟨1, 1, 2, 0, 2, 1⟩ (-6))) (.node (.leaf ⟨0, 2, 3, 0, 2, 0⟩ (-30)) (.node (.leaf ⟨0, 1, 0, 3, 2, 1⟩ (-30)) (.leaf ⟨1, 1, 0, 0, 5, 0⟩ (42)))))
+
+noncomputable def tN2 : PT := .node (.node (.node (.leaf ⟨4, 2, 1, 0, 0, 0⟩ (27)) (.leaf ⟨3, 1, 2, 0, 0, 1⟩ (-54))) (.node (.leaf ⟨0, 5, 1, 1, 0, 0⟩ (-72)) (.node (.leaf ⟨1, 0, 4, 2, 0, 0⟩ (54)) (.leaf ⟨2, 1, 3, 0, 1, 0⟩ (-81))))) (.node (.node (.leaf ⟨0, 4, 1, 0, 2, 0⟩ (-18)) (.leaf ⟨1, 0, 3, 0, 2, 1⟩ (9))) (.node (.leaf ⟨0, 1, 4, 0, 2, 0⟩ (45)) (.node (.leaf ⟨0, 0, 1, 3, 2, 1⟩ (45)) (.leaf ⟨1, 0, 1, 0, 5, 0⟩ (-63)))))
+
+noncomputable def tN3 : PT := .node (.node (.node (.node (.leaf ⟨5, 2, 0, 0, 0, 0⟩ (-9)) (.leaf ⟨4, 1, 1, 0, 0, 1⟩ (18))) (.node (.leaf ⟨4, 2, 0, 1, 0, 0⟩ (-24)) (.node (.leaf ⟨1, 5, 0, 1, 0, 0⟩ (24)) (.leaf ⟨3, 1, 1, 1, 0, 1⟩ (48))))) (.node (.node (.leaf ⟨0, 5, 0, 2, 0, 0⟩ (64)) (.leaf ⟨2, 0, 3, 2, 0, 0⟩ (-18))) (.node (.leaf ⟨1, 0, 3, 3, 0, 0⟩ (-48)) (.node (.leaf ⟨3, 1, 2, 0, 1, 0⟩ (27)) (.leaf ⟨2, 1, 2, 1, 1, 0⟩ (72)))))) (.node (.node (.node (.leaf ⟨1, 4, 0, 0, 2, 0⟩ (6)) (.leaf ⟨2, 0, 2, 0, 2, 1⟩ (-3))) (.node (.leaf ⟨1, 1, 3, 0, 2, 0⟩ (-15)) (.node (.leaf ⟨0, 4, 0, 1, 2, 0⟩ (16)) (.leaf ⟨1, 0, 2, 1, 2, 1⟩ (-8))))) (.node (.node (.leaf ⟨0, 1, 3, 1, 2, 0⟩ (-40)) (.leaf ⟨1, 0, 0, 3, 2, 1⟩ (-15))) (.node (.leaf ⟨0, 0, 0, 4, 2, 1⟩ (-40)) (.node (.leaf ⟨2, 0, 0, 0, 5, 0⟩ (21)) (.leaf ⟨1, 0, 0, 1, 5, 0⟩ (56))))))
+
+noncomputable def tN4 : PT := .node (.node (.node (.node (.leaf ⟨4, 2, 0, 0, 0, 1⟩ (24)) (.leaf ⟨4, 3, 0, 0, 0, 0⟩ (6))) (.node (.leaf ⟨3, 1, 1, 0, 0, 2⟩ (-48)) (.node (.leaf ⟨3, 2, 1, 0, 0, 1⟩ (-12)) (.leaf ⟨0, 5, 0, 1, 0, 1⟩ (-64))))) (.node (.node (.leaf ⟨0, 6, 0, 1, 0, 0⟩ (-16)) (.leaf ⟨1, 0, 3, 2, 0, 1⟩ (48))) (.node (.leaf ⟨1, 1, 3, 2, 0, 0⟩ (12)) (.node (.leaf ⟨2, 1, 2, 0, 1, 1⟩ (-72)) (.leaf ⟨2, 2, 2, 0, 1, 0⟩ (-18)))))) (.node (.node (.node (.leaf ⟨0, 4, 0, 0, 2, 1⟩ (-16)) (.leaf ⟨0, 5, 0, 0, 2, 0⟩ (-4))) (.node (.leaf ⟨1, 0, 2, 0, 2, 2⟩ (8)) (.node (.leaf ⟨1, 1, 2, 0, 2, 1⟩ (2)) (.leaf ⟨0, 1, 3, 0, 2, 1⟩ (40))))) (.node (.node (.leaf ⟨0, 2, 3, 0, 2, 0⟩ (10)) (.leaf ⟨0, 0, 0, 3, 2, 2⟩ (40))) (.node (.leaf ⟨0, 1, 0, 3, 2, 1⟩ (10)) (.node (.leaf ⟨1, 0, 0, 0, 5, 1⟩ (-56)) (.leaf ⟨1, 1, 0, 0, 5, 0⟩ (-14))))))
+
+noncomputable def tN5 : PT := .node (.node (.node (.leaf ⟨4, 3, 0, 0, 0, 0⟩ (42)) (.leaf ⟨3, 2, 1, 0, 0, 1⟩ (-84))) (.node (.leaf ⟨0, 6, 0, 1, 0, 0⟩ (-112)) (.node (.leaf ⟨1, 1, 3, 2, 0, 0⟩ (84)) (.leaf ⟨2, 2, 2, 0, 1, 0⟩ (-126))))) (.node (.node (.leaf ⟨0, 5, 0, 0, 2, 0⟩ (-28)) (.leaf ⟨1, 1, 2, 0, 2, 1⟩ (14))) (.node (.leaf ⟨0, 2, 3, 0, 2, 0⟩ (70)) (.node (.leaf ⟨0, 1, 0, 3, 2, 1⟩ (70)) (.leaf ⟨1, 1, 0, 0, 5, 0⟩ (-98)))))
+
+noncomputable section
+
+def F : Poly := toC tF
+def A : Poly := toC tA
+
+def D : Poly := toC tD
+def Q : Poly := toC tQ
+
+def N0 : Poly := toC tN0
+
+def N1 : Poly := toC tN1
+
+def N2 : Poly := toC tN2
+
+def N3 : Poly := toC tN3
+
+def N4 : Poly := toC tN4
+
+def N5 : Poly := toC tN5
+
+def N : Fin 6 → Poly := fun i => if i.val = 0 then N0 else if i.val = 1 then N1 else if i.val = 2 then N2 else if i.val = 3 then N3 else if i.val = 4 then N4 else N5
+
+noncomputable def L1 : E := (.smulN 1 (.add (.mul (.pd 0 tF) (.poly tN0)) (.add (.mul (.pd 1 tF) (.poly tN1)) (.add (.mul (.pd 2 tF) (.poly tN2)) (.add (.mul (.pd 3 tF) (.poly tN3)) (.add (.mul (.pd 4 tF) (.poly tN4)) (.mul (.pd 5 tF) (.poly tN5))))))))
+noncomputable def R1 : E := (.mul (.poly tA) (.poly tD))
+
+theorem e1_core : denC L1 = denC R1 := soundN (m := 13) (W := 25) L1 R1 (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel)
+
+theorem e1 : (1 : Poly) * directional F N = A*D := by
+  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]
+  change (1:Poly) * (pderiv (0 : Fin 6) F * N0 + (pderiv (1 : Fin 6) F * N1 + (pderiv (2 : Fin 6) F * N2 + (pderiv (3 : Fin 6) F * N3 + (pderiv (4 : Fin 6) F * N4 + (pderiv (5 : Fin 6) F * N5)))))) = A*D
+  have h := e1_core
+  simp only [L1, R1, denC_smulN, denC_add, denC_mul, denC_poly, denC_pd, Nat.cast_one, Nat.cast_ofNat] at h
+  simpa only [F, A, D, N0, N1, N2, N3, N4, N5] using h
+
+noncomputable def L2 : E := (.sub (.mul (.poly tD) (.add (.pd 0 tN0) (.add (.pd 1 tN1) (.add (.pd 2 tN2) (.add (.pd 3 tN3) (.add (.pd 4 tN4) (.pd 5 tN5))))))) (.add (.mul (.pd 0 tD) (.poly tN0)) (.add (.mul (.pd 1 tD) (.poly tN1)) (.add (.mul (.pd 2 tD) (.poly tN2)) (.add (.mul (.pd 3 tD) (.poly tN3)) (.add (.mul (.pd 4 tD) (.poly tN4)) (.mul (.pd 5 tD) (.poly tN5))))))))
+noncomputable def R2 : E := (.mul (.pow (.poly tF) 1) (.poly tQ))
+
+theorem e2_core : denC L2 = denC R2 := soundN (m := 13) (W := 25) L2 R2 (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel)
+
+theorem e2 : divergenceNumerator D N = F^1*Q := by
+  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]
+  change D * (pderiv (0 : Fin 6) N0 + (pderiv (1 : Fin 6) N1 + (pderiv (2 : Fin 6) N2 + (pderiv (3 : Fin 6) N3 + (pderiv (4 : Fin 6) N4 + (pderiv (5 : Fin 6) N5)))))) - (pderiv (0 : Fin 6) D * N0 + (pderiv (1 : Fin 6) D * N1 + (pderiv (2 : Fin 6) D * N2 + (pderiv (3 : Fin 6) D * N3 + (pderiv (4 : Fin 6) D * N4 + (pderiv (5 : Fin 6) D * N5)))))) = F^1*Q
+  have h := e2_core
+  simp only [L2, R2, denC_sub, denC_add, denC_mul, denC_pow, denC_poly, denC_pd] at h
+  simpa only [F, D, Q, N0, N1, N2, N3, N4, N5] using h
+
+theorem denominator_homogeneous : D.IsHomogeneous 6 := toC_isHomogeneous 6 tD (by decide +kernel)
+
+theorem N0_homogeneous : N0.IsHomogeneous 7 := toC_isHomogeneous 7 tN0 (by decide +kernel)
+
+theorem N1_homogeneous : N1.IsHomogeneous 7 := toC_isHomogeneous 7 tN1 (by decide +kernel)
+
+theorem N2_homogeneous : N2.IsHomogeneous 7 := toC_isHomogeneous 7 tN2 (by decide +kernel)
+
+theorem N3_homogeneous : N3.IsHomogeneous 7 := toC_isHomogeneous 7 tN3 (by decide +kernel)
+
+theorem N4_homogeneous : N4.IsHomogeneous 7 := toC_isHomogeneous 7 tN4 (by decide +kernel)
+
+theorem N5_homogeneous : N5.IsHomogeneous 7 := toC_isHomogeneous 7 tN5 (by decide +kernel)
+
+theorem numerator_homogeneous : ∀ i, (N i).IsHomogeneous 7 := by
+  intro i; fin_cases i
+  · exact N0_homogeneous
+  · exact N1_homogeneous
+  · exact N2_homogeneous
+  · exact N3_homogeneous
+  · exact N4_homogeneous
+  · exact N5_homogeneous
+
+theorem denominator_ne_zero : D ≠ 0 := toC_ne_zero_of_evalPT ![1,1,1,1,1,1] tD (by decide +kernel)
+
+end
+end HodgeComputer.Cap.K_m3k10

@@ -1,0 +1,20 @@
+{
+ "exp": "polyfarkas-deg1",
+ "family": "D(a) = sum_i a_i z_i F_i (trivial sector, deg 6)",
+ "tag": "trivial6_p1000000007",
+ "d": 6,
+ "prime": 1000000007,
+ "rows": 1678,
+ "cols": 736,
+ "equations": 15351,
+ "unknowns": 10068,
+ "nullity": 752,
+ "ncubics": 728,
+ "dimW_affine": 3,
+ "vdimW": null,
+ "dimW_minus_Euler_affine": 3,
+ "vdimW_minus_Euler": null,
+ "seconds": 516.6,
+ "job": "excl-cycle-q2-polyfarkas6",
+ "result": "W = V0 cap V(cubics): affine dim 3; after removing the Euler point (D = F): affine dim 3"
+}

@@ -1,0 +1,64 @@
+dim J:
+0
+vdim J:
+15625
+A in J (reduce==0?):
+0
+target A(q2) in J? 0
+  d = 0  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 1  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 2  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 3  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 4  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 5  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 6  Ann_d = dim(J:A)_d - dim J_d = 26
+  d = 7  Ann_d = dim(J:A)_d - dim J_d = 420
+  d = 8  Ann_d = dim(J:A)_d - dim J_d = 825
+// ** redefining Qk (  ideal Qk = quotient(J, ideal(tg[k]));) ann32003.sing:14
+target X0^3Y0^3(cycle-three) in J? 0
+  d = 0  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 1  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 2  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 3  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 4  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 5  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 6  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 7  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 8  Ann_d = dim(J:A)_d - dim J_d = 2
+// ** redefining Qk (  ideal Qk = quotient(J, ideal(tg[k]));) ann32003.sing:14
+target B in J? 0
+  d = 0  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 1  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 2  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 3  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 4  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 5  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 6  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 7  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 8  Ann_d = dim(J:A)_d - dim J_d = 3
+// ** redefining Qk (  ideal Qk = quotient(J, ideal(tg[k]));) ann32003.sing:14
+target B_bal in J? 0
+  d = 0  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 1  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 2  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 3  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 4  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 5  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 6  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 7  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 8  Ann_d = dim(J:A)_d - dim J_d = 6
+// ** redefining Qk (  ideal Qk = quotient(J, ideal(tg[k]));) ann32003.sing:14
+target C1 in J? 0
+  d = 0  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 1  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 2  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 3  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 4  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 5  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 6  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 7  Ann_d = dim(J:A)_d - dim J_d = 0
+  d = 8  Ann_d = dim(J:A)_d - dim J_d = 4
+
+real	0m13.694s
+user	0m9.924s
+sys	0m0.021s

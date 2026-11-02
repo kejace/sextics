@@ -1,0 +1,4 @@
+{"d": 9, "parD": 0, "rows": 7752, "cols": 10010, "nD": 1001, "nullity": 2258, "kerdim": 378, "dimJ_d": 378, "kermodJ": 0, "t_build": 16.8, "t_null": 127.0, "p": 2147483629, "engine": 2}
+{"d": 9, "parD": 1, "rows": 7752, "cols": 10010, "nD": 1001, "nullity": 2258, "kerdim": 378, "dimJ_d": 378, "kermodJ": 0, "t_build": 16.9, "t_null": 128.0, "p": 2147483629, "engine": 2}
+{"d": 10, "parD": 1, "rows": 10197, "cols": 14595, "nD": 1491, "nullity": 4398, "kerdim": 1008, "dimJ_d": 747, "kermodJ": 261, "t_build": 31.8, "t_null": 331.2, "p": 2147483629, "engine": 2}
+{"d": 10, "parD": 0, "rows": 10152, "cols": 14616, "nD": 1512, "nullity": 4464, "kerdim": 1044, "dimJ_d": 750, "kermodJ": 294, "t_build": 34.0, "t_null": 331.2, "p": 2147483629, "engine": 2}

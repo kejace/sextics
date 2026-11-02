@@ -1,0 +1,15 @@
+{"seed": 1, "f": 0.054629807193178524, "bnorm2": 1.7489558352081935, "relres": 0.17673615909431517, "iters": 17, "njac": 18, "nres": 56, "status": "flat", "time": 7.07, "init": "gauss"}
+{"seed": 5, "f": 0.05566793528085621, "bnorm2": 1.753282933207418, "relres": 0.17818722080289282, "iters": 17, "njac": 18, "nres": 50, "status": "flat", "time": 5.16, "init": "gauss"}
+{"seed": 9, "f": 0.007116592482518536, "bnorm2": 1.83395304381778, "relres": 0.0622933867073753, "iters": 11, "njac": 11, "nres": 46, "status": "stalled", "time": 3.34, "init": "gauss"}
+{"seed": 13, "f": 0.05538239282783841, "bnorm2": 1.7491604706810224, "relres": 0.17793895298691625, "iters": 15, "njac": 16, "nres": 53, "status": "flat", "time": 4.26, "init": "gauss"}
+{"seed": 17, "f": 0.055667935280856264, "bnorm2": 1.7532829332074045, "relres": 0.1781872208028936, "iters": 20, "njac": 21, "nres": 62, "status": "flat", "time": 5.14, "init": "gauss"}
+{"seed": 21, "f": 0.00896695946215898, "bnorm2": 1.8333031301714648, "relres": 0.06993675268802906, "iters": 10, "njac": 10, "nres": 43, "status": "stalled", "time": 3.94, "init": "gauss"}
+{"seed": 25, "f": 0.05566793528085623, "bnorm2": 1.753282933207404, "relres": 0.1781872208028936, "iters": 23, "njac": 23, "nres": 67, "status": "stalled", "time": 5.54, "init": "gauss"}
+{"seed": 29, "f": 0.05566793528085622, "bnorm2": 1.7532829332074074, "relres": 0.1781872208028934, "iters": 23, "njac": 23, "nres": 67, "status": "stalled", "time": 5.5, "init": "gauss"}
+{"seed": 33, "f": 0.007116592482518534, "bnorm2": 1.8339530438177796, "relres": 0.0622933867073753, "iters": 12, "njac": 13, "nres": 47, "status": "flat", "time": 3.84, "init": "gauss"}
+{"seed": 37, "f": 0.055667935280856194, "bnorm2": 1.7532829332074118, "relres": 0.17818722080289312, "iters": 19, "njac": 20, "nres": 50, "status": "flat", "time": 4.75, "init": "gauss"}
+{"seed": 41, "f": 0.007116592482518536, "bnorm2": 1.8339530438177802, "relres": 0.0622933867073753, "iters": 13, "njac": 14, "nres": 49, "status": "flat", "time": 4.1, "init": "gauss"}
+{"seed": 45, "f": 0.055667935280856236, "bnorm2": 1.7532829332074078, "relres": 0.1781872208028934, "iters": 18, "njac": 19, "nres": 50, "status": "flat", "time": 4.69, "init": "gauss"}
+{"seed": 49, "f": 0.055667935280856215, "bnorm2": 1.7532829332074056, "relres": 0.17818722080289348, "iters": 19, "njac": 20, "nres": 52, "status": "flat", "time": 5.44, "init": "gauss"}
+{"seed": 53, "f": 0.007116592482518539, "bnorm2": 1.8339530438177802, "relres": 0.06229338670737531, "iters": 11, "njac": 11, "nres": 46, "status": "stalled", "time": 1.99, "init": "gauss"}
+{"seed": 57, "f": 0.054629807193178524, "bnorm2": 1.7489558352078234, "relres": 0.17673615909433385, "iters": 14, "njac": 14, "nres": 51, "status": "stalled", "time": 1.7, "init": "gauss"}

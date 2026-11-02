@@ -1,0 +1,14 @@
+{
+ "name": "control_F_illegal",
+ "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0**3*X2**3/7 + 5*X0**2*Y0*Y1*Y2**2/7 + 5*X0*X1*Y1**3*Y2/7 + 5*X0*X2**3*Y1*Y2/7 + X1**6 + 5*X1*X2**3*Y0*Y1/7 + X2**6 + Y0**6 + Y1**6 + Y2**6",
+ "d": 6,
+ "full_columns": 2602,
+ "sector_rows": 2369,
+ "sector_cols": 440,
+ "stabilizer_order": 18,
+ "rank_exact": 365,
+ "rank_aug_exact": 365,
+ "consistent": true,
+ "farkas": null,
+ "seconds": 50.5
+}

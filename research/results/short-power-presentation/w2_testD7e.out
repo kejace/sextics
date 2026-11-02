@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[E1] d=7 par=0 K7-even D7 (cone over line X=M=0): True {'rank': 3441, 'rank_aug': 3441, 'rows': 4284, 'cols': 3861} (31s)
+[system] d=7 q=1 rows=26532 cols=4497 (N 3861, Q 636) nnz=11325408 built in 10.6s
+[compressed p=2147483647] k=4538 consistent=False rank=4035 nullity=462 (compress 83.7s, rref 22.3s)
+[E2] K7-even D7 (cone over line X=M=0): inconsistent rank=4035 nullity=462 rows=26532 cols=4497 (121s)
+[image] K7-even D7 (cone over line X=M=0): served dim 18 (191s)

@@ -1,0 +1,13 @@
+ring R = 1073741789, (u(1..1)), dp;
+ideal I;
+I[size(I)+1] = 1*u(1)*u(1);
+int t0 = timer;
+option(redSB);
+ideal G = std(I);
+print("std_time = " + string(timer - t0));
+print("dim = " + string(dim(G)));
+print("vdim = " + string(vdim(G)));
+print("degree:"); degree(G);
+intvec hv = hilb(G, 1);
+print("hilb1 = " + string(hv));
+quit;

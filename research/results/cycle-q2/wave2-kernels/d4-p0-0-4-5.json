@@ -1,0 +1,1 @@
+{"d": 4, "key": [0, 4, 5], "nmons": 1, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 1, "basis": [], "mons": [[0, 2, 0, 0, 1, 1]], "pivots": [], "primes": [2147483647, 2147483629], "n_jgens": 354, "shape": [276, 355], "seconds": 15.22}

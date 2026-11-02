@@ -1,0 +1,27 @@
+waiting for excl_kernel_D7.json Mon Nov  2 02:01:59 UTC 2026
+waiting for excl_kernel_D7.json Mon Nov  2 02:03:59 UTC 2026
+waiting for excl_kernel_D7.json Mon Nov  2 02:05:59 UTC 2026
+waiting for excl_kernel_D7.json Mon Nov  2 02:07:59 UTC 2026
+waiting for excl_kernel_D7.json Mon Nov  2 02:09:59 UTC 2026
+waiting for excl_kernel_D7.json Mon Nov  2 02:11:59 UTC 2026
+=== blocks 7 e --exact Mon Nov  2 02:13:59 UTC 2026
+kernel elements: 1 (exact available: True) [0s]
+pair table loaded from cache /tmp/hodge/results/short-power-presentation/excl_blocks_d7e_p0.pairs.json
+unknowns 61, pairs 1891, equation coordinates 734 [1s]
+blocks: {'lam': 1, 'w0': 9, 'w1': 12, 'w2': 12, 'w3': 9, 'w4': 9, 'w5': 9} order ['w0', 'w1', 'w2', 'w3', 'w4', 'w5', 'lam']
+[block w0] size 9 | pairs in block 45 (span 38) | others span 276 | functionals 458 | quadrics 29 in 9 visible unknowns | m-primary: False | invisible 0 [1s]
+[block w1] size 12 | pairs in block 78 (span 66) | others span 276 | functionals 458 | quadrics 29 in 9 visible unknowns | m-primary: False | invisible 3 [2s]
+[block w2] size 12 | pairs in block 78 (span 66) | others span 276 | functionals 458 | quadrics 29 in 9 visible unknowns | m-primary: False | invisible 3 [2s]
+[block w3] size 9 | pairs in block 45 (span 36) | others span 287 | functionals 447 | quadrics 18 in 6 visible unknowns | m-primary: True | invisible 3 [1s]
+[block w4] size 9 | pairs in block 45 (span 36) | others span 269 | functionals 465 | quadrics 18 in 6 visible unknowns | m-primary: True | invisible 3 [1s]
+[block w5] size 9 | pairs in block 45 (span 36) | others span 251 | functionals 483 | quadrics 18 in 6 visible unknowns | m-primary: True | invisible 3 [1s]
+[block lam] size 1 | pairs in block 1 (span 1) | others span 250 | functionals 484 | quadrics 1 in 1 visible unknowns | m-primary: True | invisible 0 [1s]
+[block w0] size 9 | pairs in block 45 (span 38) | others span 199 | functionals 535 | quadrics 32 in 9 visible unknowns | m-primary: False | invisible 0 [1s]
+[block w1] size 12 | pairs in block 78 (span 66) | others span 199 | functionals 535 | quadrics 32 in 9 visible unknowns | m-primary: False | invisible 3 [1s]
+[block w2] size 12 | pairs in block 78 (span 66) | others span 199 | functionals 535 | quadrics 32 in 9 visible unknowns | m-primary: False | invisible 3 [2s]
+[block w3] size 3 | pairs in block 6 (span 6) | others span 231 | functionals 503 | quadrics 0 in 0 visible unknowns | m-primary: False | invisible 3 [1s]
+[block w4] size 3 | pairs in block 6 (span 6) | others span 231 | functionals 503 | quadrics 0 in 0 visible unknowns | m-primary: False | invisible 3 [1s]
+[block w5] size 3 | pairs in block 6 (span 6) | others span 231 | functionals 503 | quadrics 0 in 0 visible unknowns | m-primary: False | invisible 3 [1s]
+remaining unknowns after block elimination: 42: [('w', 0, (0, 0, 0, 0, 0, 2)), ('w', 0, (0, 0, 0, 0, 1, 1)), ('w', 0, (0, 0, 0, 0, 2, 0)), ('w', 0, (0, 0, 0, 1, 0, 1)), ('w', 0, (0, 0, 0, 1, 1, 0)), ('w', 0, (0, 0, 0, 2, 0, 0)), ('w', 0, (0, 0, 2, 0, 0, 0)), ('w', 0, (0, 1, 1, 0, 0, 0)), ('w', 0, (0, 2, 0, 0, 0, 0)), ('w', 1, (0, 0, 0, 0, 0, 2)), ('w', 1, (0, 0, 0, 0, 1, 1)), ('w', 1, (0, 0, 0, 0, 2, 0)), ('w', 1, (0, 0, 0, 1, 0, 1)), ('w', 1, (0, 0, 0, 1, 1, 0)), ('w', 1, (0, 0, 0, 2, 0, 0)), ('w', 1, (0, 0, 2, 0, 0, 0)), ('w', 1, (0, 1, 1, 0, 0, 0)), ('w', 1, (0, 2, 0, 0, 0, 0)), ('w', 1, (1, 0, 1, 0, 0, 0)), ('w', 1, (1, 1, 0, 0, 0, 0)), ('w', 1, (2, 0, 0, 0, 0, 0)), ('w', 2, (0, 0, 0, 0, 0, 2)), ('w', 2, (0, 0, 0, 0, 1, 1)), ('w', 2, (0, 0, 0, 0, 2, 0)), ('w', 2, (0, 0, 0, 1, 0, 1)), ('w', 2, (0, 0, 0, 1, 1, 0)), ('w', 2, (0, 0, 0, 2, 0, 0)), ('w', 2, (0, 0, 2, 0, 0, 0)), ('w', 2, (0, 1, 1, 0, 0, 0)), ('w', 2, (0, 2, 0, 0, 0, 0)), ('w', 2, (1, 0, 1, 0, 0, 0)), ('w', 2, (1, 1, 0, 0, 0, 0)), ('w', 2, (2, 0, 0, 0, 0, 0)), ('w', 3, (0, 0, 1, 1, 0, 0)), ('w', 3, (0, 1, 0, 1, 0, 0)), ('w', 3, (1, 0, 0, 1, 0, 0)), ('w', 4, (0, 0, 1, 0, 1, 0)), ('w', 4, (0, 1, 0, 0, 1, 0)), ('w', 4, (1, 0, 0, 0, 1, 0)), ('w', 5, (0, 0, 1, 0, 0, 1))]
+verdict: residual-not-empty {'remaining': 42, 'msolve_hilbert': [1, 42, 903, 13244], 'msolve_seconds': 2471.6, 'singular_dim': None, 'singular_vdim': None, 'singular_hilbert': None, 'singular_seconds': None, 'unknowns': 42, 'quadrics': 231}
+=== blocks 7 o --exact Mon Nov  2 02:55:29 UTC 2026

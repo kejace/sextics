@@ -1,0 +1,3 @@
+{"seed": 2006, "rel": 2.0742516034139925e-06, "iters": 250, "nfev": 321, "spurious": false, "div_rel": 0.9991243365596735, "sparse_init": false}
+{"seed": 2014, "rel": 2.93619921745141e-06, "iters": 283, "nfev": 307, "spurious": false, "div_rel": 0.9992471224033513, "sparse_init": false}
+{"seed": 2022, "rel": 1.1657810737443775e-05, "iters": 371, "nfev": 388, "spurious": false, "div_rel": 0.9995281853562878, "sparse_init": false}

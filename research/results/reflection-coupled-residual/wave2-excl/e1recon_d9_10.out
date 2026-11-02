@@ -1,0 +1,10 @@
+p=2147483587: kernel mod J = 21 (27s)
+p=2147483579: kernel mod J = 21 (27s)
+p=2147483563: kernel mod J = 21 (27s)
+p=2147483549: kernel mod J = 21 (28s)
+p=2147483543: kernel mod J = 21 (28s)
+p=2147483497: kernel mod J = 21 (29s)
+p=2147483489: kernel mod J = 21 (27s)
+p=2147483477: kernel mod J = 21 (29s)
+RECEIPT {"exp": "e1-kernel-ratrecon-k", "d": 9, "chi": [1, 0], "primes": [2147483587, 2147483579, 2147483563, 2147483549, 2147483543, 2147483497, 2147483489, 2147483477], "n_classes": 21, "reconstructed": 1, "file": "/tmp/hodge/results/reflection-coupled-residual/wave2-excl/e1reps_d9_chi10_Qk.json", "ts": "2026-11-02T02:18:41", "job": "e1recon"}
+E1RECON DONE 1 of 21

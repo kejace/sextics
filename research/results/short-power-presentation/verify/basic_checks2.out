@@ -1,0 +1,11 @@
+dependent 4-sets: []  dependent 5-sets: [(0, 1, 2, 6, 7), (3, 4, 5, 6, 7)]
+B=(L+M)^6+(L-M)^6 in J_6^+ ? (member, rankJ, expected): (False, 18, 18)
+e(X)+e(Y) in J_6^+ ?: (False, 18, 18)
+odd part of (L+M)^6 in J_6^- ?: (False, 18, 18)
+A in J_6^- ? (D=1 E1): (False, 18, 18)
+subsets I with  c*evenpart((L+M)^6) + sum_I Z_k^6 in J_6^+  (c in {5/7^7, 1}): []
+rank of the 8 forms l_k^4: 8
+rank of the 8 forms l_k^5: 8
+rank of the 8 forms l_k^6: 8
+136080 Fermat P^3s; min 4th singular value = 1.739e-01 (66s)
+distinct lines (projector dedupe, 6 decimals): 136066

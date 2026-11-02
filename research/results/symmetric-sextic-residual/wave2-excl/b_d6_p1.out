@@ -1,0 +1,29 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[    0.5s] d=6 par=1 p=2147483629 fermat=False: n_J=18 n_vars=18
+[  378.8s] R_12^odd dim 866; left nullspace built
+[  379.7s] Hessian block built 0.7 s
+[  442.9s] quadric coefficient matrix 866 x 171: rank 104 (full = 171)
+[  446.7s] wrote 104 independent quadrics in 18 variables
+[  451.5s] msolve stderr tail: 
+--------------- INPUT DATA ---------------
+#variables                      18
+#equations                     104
+#invalid equations               0
+field characteristic    2147483629
+homogeneous input?               1
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         4
+info level                       1
+generate pbm files               0
+------------------------------------------
+Dimension of quotient: 1
+Prime 2147483629 is too large.
+One needs to use updated linear algebra fglm functions
+
+[  451.5s] msolve output head: 

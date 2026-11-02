@@ -1,0 +1,2 @@
+7cc3b80a0e92727894df9683808d2d5f  hodge/fixed_d.py
+1f4a1209665121578f7a998d95bc5201  hodge/rjob.py

@@ -1,0 +1,1 @@
+search agent launched w2_kernels.py for d=10,11,12 at 2026-11-02T00:20:15+00:00; pids: 62713 62716 62719 ; output -> w2-kernels.jsonl, w2-kernel-d<d>-par<par>.json. Do not relaunch.

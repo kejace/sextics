@@ -1,0 +1,33 @@
+{
+ "F": 22,
+ "A": 18,
+ "q": 1,
+ "D": 150,
+ "N": [
+  150,
+  150,
+  0,
+  150,
+  150,
+  0
+ ],
+ "Q": 0,
+ "d": 8,
+ "e1_pairs": 6900,
+ "e1_monos": 2425,
+ "e2_pairs": 75300,
+ "e2_monos": 0,
+ "e1_ok": true,
+ "e2_ok": true,
+ "pairs_total": 82200,
+ "monos_total": 2425,
+ "label": "m3_d8_n150",
+ "Fid": "m3-coupled",
+ "which": [
+  "e1",
+  "e2"
+ ],
+ "seed": 0,
+ "yeven": false,
+ "bytes": 192137
+}

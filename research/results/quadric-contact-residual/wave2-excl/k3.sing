@@ -1,0 +1,16 @@
+ring r = 0, (x,y,u,v), wp(1,1,2,2);
+number t1 = 2; number t2 = 3;
+poly Fs = x^6 + 5*x^4*y^2 + 5*x^2*y^4 + y^6 + (1+t1^6)*u^3 + (1+t2^6)*v^3 + 5*(x^2+y^2)*(t1^2*u^2 + t1*t2*u*v + t2^2*v^2) + (5/7)*t1*(1+2*t2^2)*x*y*u*v;
+ideal J = jacob(Fs); ideal Js = std(J);
+print("weighted Hilbert function of R(F_sub), d=0..13:");
+int d; string s = "";
+for (d = 0; d <= 13; d++) { s = s + string(size(weightKB(Js, d, intvec(1,1,2,2)))) + ","; }
+print(s);
+poly A = x^3*y^3;
+// d/dt1 F_sub and d/dt2 F_sub at (2,3)
+poly dF1 = 6*t1^5*u^3 + 5*(x^2+y^2)*(2*t1*u^2 + t2*u*v) + (5/7)*(1+2*t2^2)*x*y*u*v;
+poly dF2 = 6*t2^5*v^3 + 5*(x^2+y^2)*(t1*u*v + 2*t2*v^2) + (5/7)*t1*(4*t2)*x*y*u*v;
+print("A*dF1 in J_12? (0 = no): " + string(reduce(A*dF1, Js) == 0));
+print("A*dF2 in J_12? (0 = no): " + string(reduce(A*dF2, Js) == 0));
+print("A*u^3 (control, degree 12) in J_12?: " + string(reduce(A*u^3, Js) == 0));
+quit;

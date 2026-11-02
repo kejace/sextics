@@ -1,0 +1,73 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[Red n=6 par=1 sigma=None p=1000000007] C=226 gens=18 rank(J)=18 dim R=208 (0.0s)
+[Red n=8 par=1 sigma=None p=1000000007] C=636 gens=168 rank(J)=168 dim R=468 (0.1s)
+p2X {'label': 'p2X', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0**2+X1**2+X2**2', 'in_J': False}
+p2Y {'label': 'p2Y', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'Y0**2+Y1**2+Y2**2', 'in_J': False}
+[Red n=8 par=0 sigma=None p=1000000007] C=651 gens=168 rank(J)=168 dim R=483 (0.1s)
+pXY {'label': 'pXY', 'd': 2, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.3, 'expr': 'X0*Y0+X1*Y1+X2*Y2', 'in_J': False}
+e2X {'label': 'e2X', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0*X1+X1*X2+X2*X0', 'in_J': False}
+e2Y {'label': 'e2Y', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'Y0*Y1+Y1*Y2+Y2*Y0', 'in_J': False}
+X0^2+Y0^2 {'label': 'X0^2+Y0^2', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0**2+Y0**2', 'in_J': False}
+X0^2-Y0^2 {'label': 'X0^2-Y0^2', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0**2-Y0**2', 'in_J': False}
+X0X1+Y0Y1 {'label': 'X0X1+Y0Y1', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0*X1+Y0*Y1', 'in_J': False}
+X0X1-Y0Y1 {'label': 'X0X1-Y0Y1', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0*X1-Y0*Y1', 'in_J': False}
+(X0-X1)^2+(Y0-Y1)^2 {'label': '(X0-X1)^2+(Y0-Y1)^2', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': '(X0-X1)**2+(Y0-Y1)**2', 'in_J': False}
+(X0-X1)^2-(Y0-Y1)^2 {'label': '(X0-X1)^2-(Y0-Y1)^2', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': '(X0-X1)**2-(Y0-Y1)**2', 'in_J': False}
+X0Y1-X1Y0 {'label': 'X0Y1-X1Y0', 'd': 2, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0*Y1-X1*Y0', 'in_J': False}
+X0Y1+X1Y0 {'label': 'X0Y1+X1Y0', 'd': 2, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0*Y1+X1*Y0', 'in_J': False}
+X2^2 {'label': 'X2^2', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X2**2', 'in_J': False}
+X0X1 {'label': 'X0X1', 'd': 2, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X0*X1', 'in_J': False}
+X2Y2 {'label': 'X2Y2', 'd': 2, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.2, 'expr': 'X2*Y2', 'in_J': False}
+[Red n=9 par=1 sigma=None p=1000000007] C=1001 gens=378 rank(J)=378 dim R=623 (0.7s)
+p3X {'label': 'p3X', 'd': 3, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.2, 'expr': 'X0**3+X1**3+X2**3', 'in_J': False}
+e3X {'label': 'e3X', 'd': 3, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.1, 'expr': 'X0*X1*X2', 'in_J': False}
+VdmX {'label': 'VdmX', 'd': 3, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.9, 'expr': '(X0-X1)*(X1-X2)*(X2-X0)', 'in_J': False}
+[Red n=9 par=0 sigma=None p=1000000007] C=1001 gens=378 rank(J)=378 dim R=623 (0.7s)
+VdmY {'label': 'VdmY', 'd': 3, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.0, 'expr': '(Y0-Y1)*(Y1-Y2)*(Y2-Y0)', 'in_J': False}
+sXY2 {'label': 'sXY2', 'd': 3, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.7, 'expr': 'X0*Y0**2+X1*Y1**2+X2*Y2**2', 'in_J': False}
+sX2Y {'label': 'sX2Y', 'd': 3, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.9, 'expr': 'X0**2*Y0+X1**2*Y1+X2**2*Y2', 'in_J': False}
+XYYcyc {'label': 'XYYcyc', 'd': 3, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.0, 'expr': 'X0*Y1*Y2+X1*Y0*Y2+X2*Y0*Y1', 'in_J': False}
+Hesse {'label': 'Hesse', 'd': 3, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 0.8, 'expr': 'X0**3+X1**3+X2**3-3*X0*X1*X2', 'in_J': False}
+p3Y {'label': 'p3Y', 'd': 3, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.0, 'expr': 'Y0**3+Y1**3+Y2**3', 'in_J': False}
+e3Y {'label': 'e3Y', 'd': 3, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.1, 'expr': 'Y0*Y1*Y2', 'in_J': False}
+[Red n=10 par=1 sigma=None p=1000000007] C=1491 gens=756 rank(J)=747 dim R=744 (1.8s)
+p2X^2 {'label': 'p2X^2', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.3, 'expr': '(X0**2+X1**2+X2**2)**2', 'in_J': False}
+p2Xp2Y {'label': 'p2Xp2Y', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.2, 'expr': '(X0**2+X1**2+X2**2)*(Y0**2+Y1**2+Y2**2)', 'in_J': False}
+pXY^2 {'label': 'pXY^2', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.2, 'expr': '(X0*Y0+X1*Y1+X2*Y2)**2', 'in_J': False}
+p4X {'label': 'p4X', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.3, 'expr': 'X0**4+X1**4+X2**4', 'in_J': False}
+sX2Y2 {'label': 'sX2Y2', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.3, 'expr': 'X0**2*Y0**2+X1**2*Y1**2+X2**2*Y2**2', 'in_J': False}
+p4Y {'label': 'p4Y', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.3, 'expr': 'Y0**4+Y1**4+Y2**4', 'in_J': False}
+X0^4-X0^2Y0^2+Y0^4 {'label': 'X0^4-X0^2Y0^2+Y0^4', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.3, 'expr': 'X0**4-X0**2*Y0**2+Y0**4', 'in_J': False}
+X0^4-X1^2Y0^2 {'label': 'X0^4-X1^2Y0^2', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.0, 'expr': 'X0**4-X1**2*Y0**2', 'in_J': False}
+[Red n=12 par=1 sigma=None p=1000000007] C=3080 gens=2376 rank(J)=2214 dim R=866 (10.4s)
+VdmX^2 {'label': 'VdmX^2', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 7.4, 'expr': '((X0-X1)*(X1-X2)*(X2-X0))**2', 'in_J': False}
+VdmY^2 {'label': 'VdmY^2', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 6.5, 'expr': '((Y0-Y1)*(Y1-Y2)*(Y2-Y0))**2', 'in_J': False}
+[Red n=12 par=0 sigma=None p=1000000007] C=3108 gens=2376 rank(J)=2223 dim R=885 (12.2s)
+VdmXVdmY {'label': 'VdmXVdmY', 'd': 6, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 10.4, 'expr': '(X0-X1)*(X1-X2)*(X2-X0)*(Y0-Y1)*(Y1-Y2)*(Y2-Y0)', 'in_J': False}
+prod+ {'label': 'prod+', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 7.8, 'expr': '((X0-X1)**2+(Y0-Y1)**2)*((X1-X2)**2+(Y1-Y2)**2)*((X2-X0)**2+(Y2-Y0)**2)', 'in_J': False}
+prod- {'label': 'prod-', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 7.2, 'expr': '((X0-X1)**2-(Y0-Y1)**2)*((X1-X2)**2-(Y1-Y2)**2)*((X2-X0)**2-(Y2-Y0)**2)', 'in_J': False}
+p6X {'label': 'p6X', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 7.4, 'expr': 'X0**6+X1**6+X2**6', 'in_J': False}
+p6Y {'label': 'p6Y', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 7.2, 'expr': 'Y0**6+Y1**6+Y2**6', 'in_J': False}
+sumT {'label': 'sumT', 'd': 6, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 11.2, 'expr': 'X0**3*Y0**3+X1**3*Y1**3+X2**3*Y2**3', 'in_J': False}
+B2 {'label': 'B2', 'd': 6, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 9.9, 'expr': 'X0**3*Y0**3+X1**3*Y1**3-2*X2**3*Y2**3', 'in_J': False}
+A {'label': 'A', 'd': 6, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 10.4, 'expr': 'X0**3*Y0**3-X1**3*Y1**3', 'in_J': False}
+pXY^3 {'label': 'pXY^3', 'd': 6, 'par': 1, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 10.1, 'expr': '(X0*Y0+X1*Y1+X2*Y2)**3', 'in_J': False}
+O1 {'label': 'O1', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 6.1, 'expr': 'X0**3*X1*Y0*Y1+X0**3*X2*Y0*Y2+X1**3*X0*Y1*Y0+X1**3*X2*Y1*Y2+X2**3*X0*Y2*Y0+X2**3*X1*Y2*Y1', 'in_J': False}
+O2 {'label': 'O2', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 6.8, 'expr': 'X0**3*X1*Y2**2+X0**3*X2*Y1**2+X1**3*X0*Y2**2+X1**3*X2*Y0**2+X2**3*X0*Y1**2+X2**3*X1*Y0**2', 'in_J': False}
+O3 {'label': 'O3', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 6.5, 'expr': 'Y0**3*Y1*X2**2+Y0**3*Y2*X1**2+Y1**3*Y0*X2**2+Y1**3*Y2*X0**2+Y2**3*Y0*X1**2+Y2**3*Y1*X0**2', 'in_J': False}
+Fc {'label': 'Fc', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 6.3, 'expr': '5*(X0**3*X1*Y0*Y1+X0**3*X2*Y0*Y2+X1**3*X0*Y1*Y0+X1**3*X2*Y1*Y2+X2**3*X0*Y2*Y0+X2**3*X1*Y2*Y1)/7+5*(X0**3*X1*Y2**2+X0**3*X2*Y1**2+X1**3*X0*Y2**2+X1**3*X2*Y0**2+X2**3*X0*Y1**2+X2**3*X1*Y0**2)/11+5*(Y0**3*Y1*X2**2+Y0**3*Y2*X1**2+Y1**3*Y0*X2**2+Y1**3*Y2*X0**2+Y2**3*Y0*X1**2+Y2**3*Y1*X0**2)/13', 'in_J': False}
+hess_d_0 {'label': 'hess_d_0', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.3, 'field': 'd_0', 'deg_D': 5}
+hess_d_1 {'label': 'hess_d_1', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.3, 'field': 'd_1', 'deg_D': 5}
+hess_d_2 {'label': 'hess_d_2', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.2, 'field': 'd_2', 'deg_D': 5}
+hess_d_3 {'label': 'hess_d_3', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.2, 'field': 'd_3', 'deg_D': 5}
+hess_d_4 {'label': 'hess_d_4', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.2, 'field': 'd_4', 'deg_D': 5}
+hess_d_5 {'label': 'hess_d_5', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.2, 'field': 'd_5', 'deg_D': 5}
+hess_EulerX {'label': 'hess_EulerX', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 6.5, 'field': 'EulerX', 'deg_D': 6}
+hess_pairradial0 {'label': 'hess_pairradial0', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 6.4, 'field': 'pairradial0', 'deg_D': 6}
+hess_gA {'label': 'hess_gA', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 5.4, 'field': 'gA', 'deg_D': 6}
+hess_swap01 {'label': 'hess_swap01', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 5.4, 'field': 'swap01', 'deg_D': 6}
+hess_rot01 {'label': 'hess_rot01', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 5.6, 'field': 'rot01', 'deg_D': 6}
+hess_cycshift {'label': 'hess_cycshift', 'd': 6, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 5.6, 'field': 'cycshift', 'deg_D': 6}
+hess_d0+d1+d2 {'label': 'hess_d0+d1+d2', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.2, 'field': 'd0+d1+d2', 'deg_D': 5}
+hess_d0-d1 {'label': 'hess_d0-d1', 'd': 4, 'par': 0, 'dim_Ann6': 0, 'contains_A': False, 'rank': 208, 'seconds': 1.4, 'field': 'd0-d1', 'deg_D': 5}
+DONE

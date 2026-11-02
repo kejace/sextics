@@ -1,0 +1,40 @@
+// Fano scheme of lines on X = {F = 0} over F_p, random chart. p = 65521 (p = 1 mod 12).
+int p = 65521;
+ring R = p, (X0,X1,X2,Y0,Y1,Y2, t, a2,a3,a4,a5, b2,b3,b4,b5), dp;
+poly c = 5/7;
+poly P = X0^3*X1*Y0*Y1 + X0*X1*Y0^3*Y1 + X0*X1*Y0^2*Y2^2 + 2*X0*X1*Y1^2*Y2^2 + 3*X0*X2^3*Y0*Y1 + 2*X1^3*X2*Y0*Y1 + X1*X2*Y0*Y1^3;
+poly F = X0^6+X1^6+X2^6+Y0^6+Y1^6+Y2^6 + c*P;
+system("random", 20261102);
+matrix g[6][6];
+int i; int j; int k;
+for (i=1;i<=6;i++) { for (j=1;j<=6;j++) { g[i,j] = random(1,p-1); } }
+matrix v[6][1] = 1 + 0*t, t, a2 + t*b2, a3 + t*b3, a4 + t*b4, a5 + t*b5;
+matrix w = g*v;
+poly Fl = subst(F, X0, w[1,1]); Fl = subst(Fl, X1, w[2,1]); Fl = subst(Fl, X2, w[3,1]);
+Fl = subst(Fl, Y0, w[4,1]); Fl = subst(Fl, Y1, w[5,1]); Fl = subst(Fl, Y2, w[6,1]);
+matrix C = coeffs(Fl, t);
+ideal I;
+for (k=1;k<=nrows(C);k++) { I[k] = C[k,1]; }
+"number of equations:"; size(I);
+ring S = p, (a2,a3,a4,a5, b2,b3,b4,b5), dp;
+ideal I = imap(R, I);
+int tt = timer;
+ideal G = std(I);
+"dim of Fano scheme of lines (affine random chart, expect 1):"; dim(G);
+"degree:"; mult(G);
+"time:"; timer - tt;
+setring R;
+matrix v2[6][1] = 1 + 0*t, t, a2 + t*b2, a3 + t*b3, a4 + t*b4, a5 + t*b5;
+poly Fl2 = subst(F, X0, v2[1,1]); Fl2 = subst(Fl2, X1, v2[2,1]); Fl2 = subst(Fl2, X2, v2[3,1]);
+Fl2 = subst(Fl2, Y0, v2[4,1]); Fl2 = subst(Fl2, Y1, v2[5,1]); Fl2 = subst(Fl2, Y2, v2[6,1]);
+matrix C2 = coeffs(Fl2, t);
+ideal I2;
+for (k=1;k<=nrows(C2);k++) { I2[k] = C2[k,1]; }
+setring S;
+ideal I2 = imap(R, I2);
+tt = timer;
+ideal G2 = std(I2);
+"dim (standard chart X0=1 for p, X1=1 for q):"; dim(G2);
+"degree:"; mult(G2);
+"time:"; timer - tt;
+quit;

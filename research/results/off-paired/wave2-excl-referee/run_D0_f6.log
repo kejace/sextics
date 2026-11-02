@@ -1,0 +1,6 @@
+D0 == F_X0/(6*X0): exact identity holds
+{"check": "fixedD", "label": "D0", "d": 4, "char": [0, 0], "field": "Q", "rows": 344, "cols": 75, "nN": 72, "nQ": 3, "rank_M": 67, "rank_aug": 68, "nullity": 8, "explicit_kernel": 8, "inconsistent": true, "seconds": 0.1, "verdict": "EXACT: no certificate with this denominator"}
+{"check": "E1", "label": "D0", "d": 4, "char": [0, 0], "field": "Q", "rows": 102, "cols": 72, "rank_J": 69, "rank_aug": 69, "e1_passes": true, "seconds": 0.0, "verdict": "A*D in J(F) (exact over Q)"}
+{"check": "E1", "label": "f6", "d": 6, "char": [0, 0], "field": "Q", "rows": 216, "cols": 192, "rank_J": 176, "rank_aug": 177, "e1_passes": false, "seconds": 0.1, "verdict": "A*D NOT in J(F) (exact over Q)"}
+{"check": "E1", "label": "g6", "d": 6, "char": [0, 0], "field": "Q", "rows": 216, "cols": 192, "rank_J": 176, "rank_aug": 177, "e1_passes": false, "seconds": 0.1, "verdict": "A*D NOT in J(F) (exact over Q)"}
+{"check": "E1", "label": "f6+g6", "d": 6, "char": [0, 0], "field": "Q", "rows": 216, "cols": 192, "rank_J": 176, "rank_aug": 177, "e1_passes": false, "seconds": 0.1, "verdict": "A*D NOT in J(F) (exact over Q)"}

@@ -1,0 +1,7 @@
+ring r = PRIME, (X0,X1,X2,Y0,Y1,Y2), dp;
+poly F = FPOLY;
+ideal J = jacob(F);
+int t0 = timer;
+ideal G = std(J);
+print("prime PRIME: dim(S/J) = " + string(dim(G)) + "  vdim = " + string(vdim(G)) + "  time = " + string(timer - t0));
+quit;

@@ -1,0 +1,8 @@
+family all d=5 par=m p=1000000007: dim K cap V = 6, dim J_d = 6, dim J_d cap V = 6
+running Singular on relax_d5_m_all_1000000007
+dimension of S/I (Krull) = 0
+size of reduced GB = 21
+vdim (length if 0-dim) = 7
+time = 0
+
+{"exp": "relaxation", "d": 5, "parity": "m", "p": 1000000007, "family": "all", "m": 6, "dimJ_d": 6, "dimJ_cap_V": 6, "e1_rows": 4368, "e1_cols": 3024, "nD": 252, "n_quadrics": 75, "ring_dim_2d": 1506, "rank_J_2d": 1497, "t_setup": 639.5, "singular_dim": 0, "t_groebner": 0.3, "result": "V(Phi) = {0}: every nonzero F-reduced E1-admissible D of this family fails E2 (rigorous mod-p argument)", "ts": "2026-11-02 00:48:03", "lens": "excl", "engine": "w2.py (nmod_mpoly/nmod_mat), independent of hodge.fixed_d"}

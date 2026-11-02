@@ -1,0 +1,2234 @@
+{
+ "4": {
+  "sectors": {
+   "00": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 69,
+    "dimJ_d+6_exact": 69,
+    "ring_d": 10,
+    "ring_d+6": 48
+   },
+   "01": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 53,
+    "dimJ_d+6_exact": 53,
+    "ring_d": 5,
+    "ring_d+6": 41
+   },
+   "02": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 35,
+    "dimJ_d+6_exact": 35,
+    "ring_d": 3,
+    "ring_d+6": 44
+   },
+   "03": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 2,
+    "ring_d+6": 46
+   },
+   "04": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 35,
+    "dimJ_d+6_exact": 35,
+    "ring_d": 3,
+    "ring_d+6": 44
+   },
+   "05": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 53,
+    "dimJ_d+6_exact": 53,
+    "ring_d": 5,
+    "ring_d+6": 41
+   },
+   "10": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 65,
+    "dimJ_d+6_exact": 65,
+    "ring_d": 7,
+    "ring_d+6": 44
+   },
+   "11": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 48,
+    "dimJ_d+6_exact": 48,
+    "ring_d": 3,
+    "ring_d+6": 37
+   },
+   "12": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 1,
+    "ring_d+6": 43
+   },
+   "13": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 22,
+    "dimJ_d+6_exact": 22,
+    "ring_d": 1,
+    "ring_d+6": 43
+   },
+   "14": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 1,
+    "ring_d+6": 43
+   },
+   "15": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 45,
+    "dimJ_d+6_exact": 45,
+    "ring_d": 4,
+    "ring_d+6": 38
+   },
+   "20": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 66,
+    "dimJ_d+6_exact": 66,
+    "ring_d": 7,
+    "ring_d+6": 42
+   },
+   "21": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 48,
+    "dimJ_d+6_exact": 48,
+    "ring_d": 3,
+    "ring_d+6": 37
+   },
+   "22": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 2,
+    "ring_d+6": 40
+   },
+   "23": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 22,
+    "dimJ_d+6_exact": 22,
+    "ring_d": 1,
+    "ring_d+6": 43
+   },
+   "24": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 2,
+    "ring_d+6": 40
+   },
+   "25": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 45,
+    "dimJ_d+6_exact": 45,
+    "ring_d": 4,
+    "ring_d+6": 38
+   },
+   "30": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 76,
+    "dimJ_d+6_exact": 76,
+    "ring_d": 8,
+    "ring_d+6": 46
+   },
+   "31": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 53,
+    "dimJ_d+6_exact": 53,
+    "ring_d": 5,
+    "ring_d+6": 41
+   },
+   "32": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 34,
+    "dimJ_d+6_exact": 34,
+    "ring_d": 3,
+    "ring_d+6": 46
+   },
+   "33": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 2,
+    "ring_d+6": 46
+   },
+   "34": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 34,
+    "dimJ_d+6_exact": 34,
+    "ring_d": 3,
+    "ring_d+6": 46
+   },
+   "35": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 53,
+    "dimJ_d+6_exact": 53,
+    "ring_d": 5,
+    "ring_d+6": 41
+   },
+   "40": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 66,
+    "dimJ_d+6_exact": 66,
+    "ring_d": 7,
+    "ring_d+6": 42
+   },
+   "41": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 45,
+    "dimJ_d+6_exact": 45,
+    "ring_d": 4,
+    "ring_d+6": 38
+   },
+   "42": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 2,
+    "ring_d+6": 40
+   },
+   "43": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 22,
+    "dimJ_d+6_exact": 22,
+    "ring_d": 1,
+    "ring_d+6": 43
+   },
+   "44": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 2,
+    "ring_d+6": 40
+   },
+   "45": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 48,
+    "dimJ_d+6_exact": 48,
+    "ring_d": 3,
+    "ring_d+6": 37
+   },
+   "50": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 65,
+    "dimJ_d+6_exact": 65,
+    "ring_d": 7,
+    "ring_d+6": 44
+   },
+   "51": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 45,
+    "dimJ_d+6_exact": 45,
+    "ring_d": 4,
+    "ring_d+6": 38
+   },
+   "52": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 1,
+    "ring_d+6": 43
+   },
+   "53": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 22,
+    "dimJ_d+6_exact": 22,
+    "ring_d": 1,
+    "ring_d+6": 43
+   },
+   "54": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 28,
+    "dimJ_d+6_exact": 28,
+    "ring_d": 1,
+    "ring_d+6": 43
+   },
+   "55": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 48,
+    "dimJ_d+6_exact": 48,
+    "ring_d": 3,
+    "ring_d+6": 37
+   }
+  },
+  "total": {
+   "colon": 1,
+   "J": 0,
+   "nonjac": 1,
+   "gauge": 0
+  },
+  "seconds": 1.2,
+  "prime": 2147483629
+ },
+ "5": {
+  "sectors": {
+   "00": {
+    "colon": 1,
+    "dimJ_d": 1,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 116,
+    "dimJ_d+6_exact": 116,
+    "ring_d": 14,
+    "ring_d+6": 50
+   },
+   "01": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 88,
+    "dimJ_d+6_exact": 88,
+    "ring_d": 10,
+    "ring_d+6": 46
+   },
+   "02": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 65,
+    "dimJ_d+6_exact": 65,
+    "ring_d": 6,
+    "ring_d+6": 51
+   },
+   "03": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 57,
+    "dimJ_d+6_exact": 57,
+    "ring_d": 5,
+    "ring_d+6": 53
+   },
+   "04": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 65,
+    "dimJ_d+6_exact": 65,
+    "ring_d": 6,
+    "ring_d+6": 51
+   },
+   "05": {
+    "colon": 1,
+    "dimJ_d": 1,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 92,
+    "dimJ_d+6_exact": 92,
+    "ring_d": 8,
+    "ring_d+6": 44
+   },
+   "10": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 105,
+    "dimJ_d+6_exact": 105,
+    "ring_d": 13,
+    "ring_d+6": 47
+   },
+   "11": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 80,
+    "dimJ_d+6_exact": 80,
+    "ring_d": 7,
+    "ring_d+6": 42
+   },
+   "12": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 57,
+    "dimJ_d+6_exact": 57,
+    "ring_d": 4,
+    "ring_d+6": 47
+   },
+   "13": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 48,
+    "dimJ_d+6_exact": 48,
+    "ring_d": 3,
+    "ring_d+6": 50
+   },
+   "14": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 57,
+    "dimJ_d+6_exact": 57,
+    "ring_d": 4,
+    "ring_d+6": 47
+   },
+   "15": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 81,
+    "dimJ_d+6_exact": 81,
+    "ring_d": 7,
+    "ring_d+6": 41
+   },
+   "20": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 105,
+    "dimJ_d+6_exact": 105,
+    "ring_d": 13,
+    "ring_d+6": 47
+   },
+   "21": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 81,
+    "dimJ_d+6_exact": 81,
+    "ring_d": 7,
+    "ring_d+6": 41
+   },
+   "22": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 57,
+    "dimJ_d+6_exact": 57,
+    "ring_d": 4,
+    "ring_d+6": 47
+   },
+   "23": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 48,
+    "dimJ_d+6_exact": 48,
+    "ring_d": 3,
+    "ring_d+6": 50
+   },
+   "24": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 57,
+    "dimJ_d+6_exact": 57,
+    "ring_d": 4,
+    "ring_d+6": 47
+   },
+   "25": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 80,
+    "dimJ_d+6_exact": 80,
+    "ring_d": 7,
+    "ring_d+6": 42
+   },
+   "30": {
+    "colon": 2,
+    "dimJ_d": 1,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 116,
+    "dimJ_d+6_exact": 116,
+    "ring_d": 14,
+    "ring_d+6": 50
+   },
+   "31": {
+    "colon": 1,
+    "dimJ_d": 1,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 92,
+    "dimJ_d+6_exact": 92,
+    "ring_d": 8,
+    "ring_d+6": 44
+   },
+   "32": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 65,
+    "dimJ_d+6_exact": 65,
+    "ring_d": 6,
+    "ring_d+6": 51
+   },
+   "33": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 57,
+    "dimJ_d+6_exact": 57,
+    "ring_d": 5,
+    "ring_d+6": 53
+   },
+   "34": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 65,
+    "dimJ_d+6_exact": 65,
+    "ring_d": 6,
+    "ring_d+6": 51
+   },
+   "35": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 88,
+    "dimJ_d+6_exact": 88,
+    "ring_d": 10,
+    "ring_d+6": 46
+   },
+   "40": {
+    "colon": 1,
+    "dimJ_d": 1,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 109,
+    "dimJ_d+6_exact": 109,
+    "ring_d": 11,
+    "ring_d+6": 45
+   },
+   "41": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 81,
+    "dimJ_d+6_exact": 81,
+    "ring_d": 7,
+    "ring_d+6": 41
+   },
+   "42": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 56,
+    "dimJ_d+6_exact": 56,
+    "ring_d": 4,
+    "ring_d+6": 48
+   },
+   "43": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 48,
+    "dimJ_d+6_exact": 48,
+    "ring_d": 3,
+    "ring_d+6": 50
+   },
+   "44": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 56,
+    "dimJ_d+6_exact": 56,
+    "ring_d": 4,
+    "ring_d+6": 48
+   },
+   "45": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 80,
+    "dimJ_d+6_exact": 80,
+    "ring_d": 7,
+    "ring_d+6": 42
+   },
+   "50": {
+    "colon": 1,
+    "dimJ_d": 1,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 109,
+    "dimJ_d+6_exact": 109,
+    "ring_d": 11,
+    "ring_d+6": 45
+   },
+   "51": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 80,
+    "dimJ_d+6_exact": 80,
+    "ring_d": 7,
+    "ring_d+6": 42
+   },
+   "52": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 56,
+    "dimJ_d+6_exact": 56,
+    "ring_d": 4,
+    "ring_d+6": 48
+   },
+   "53": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 48,
+    "dimJ_d+6_exact": 48,
+    "ring_d": 3,
+    "ring_d+6": 50
+   },
+   "54": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 56,
+    "dimJ_d+6_exact": 56,
+    "ring_d": 4,
+    "ring_d+6": 48
+   },
+   "55": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 81,
+    "dimJ_d+6_exact": 81,
+    "ring_d": 7,
+    "ring_d+6": 41
+   }
+  },
+  "total": {
+   "colon": 11,
+   "J": 6,
+   "nonjac": 5,
+   "gauge": 0
+  },
+  "seconds": 1.8,
+  "prime": 2147483629
+ },
+ "6": {
+  "sectors": {
+   "00": {
+    "colon": 7,
+    "dimJ_d": 6,
+    "nonjac": 1,
+    "gauge": 1,
+    "rankJ_d+6_p": 176,
+    "dimJ_d+6_exact": 176,
+    "ring_d": 20,
+    "ring_d+6": 50
+   },
+   "01": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 142,
+    "dimJ_d+6_exact": 142,
+    "ring_d": 14,
+    "ring_d+6": 46
+   },
+   "02": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 111,
+    "dimJ_d+6_exact": 111,
+    "ring_d": 12,
+    "ring_d+6": 53
+   },
+   "03": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 102,
+    "dimJ_d+6_exact": 102,
+    "ring_d": 10,
+    "ring_d+6": 56
+   },
+   "04": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 111,
+    "dimJ_d+6_exact": 111,
+    "ring_d": 12,
+    "ring_d+6": 53
+   },
+   "05": {
+    "colon": 3,
+    "dimJ_d": 2,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 142,
+    "dimJ_d+6_exact": 142,
+    "ring_d": 14,
+    "ring_d+6": 46
+   },
+   "10": {
+    "colon": 3,
+    "dimJ_d": 3,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 165,
+    "dimJ_d+6_exact": 165,
+    "ring_d": 17,
+    "ring_d+6": 47
+   },
+   "11": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 129,
+    "dimJ_d+6_exact": 129,
+    "ring_d": 13,
+    "ring_d+6": 44
+   },
+   "12": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 100,
+    "dimJ_d+6_exact": 100,
+    "ring_d": 8,
+    "ring_d+6": 52
+   },
+   "13": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 91,
+    "dimJ_d+6_exact": 91,
+    "ring_d": 7,
+    "ring_d+6": 52
+   },
+   "14": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 100,
+    "dimJ_d+6_exact": 100,
+    "ring_d": 8,
+    "ring_d+6": 52
+   },
+   "15": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 131,
+    "dimJ_d+6_exact": 131,
+    "ring_d": 11,
+    "ring_d+6": 42
+   },
+   "20": {
+    "colon": 4,
+    "dimJ_d": 2,
+    "nonjac": 2,
+    "gauge": 0,
+    "rankJ_d+6_p": 162,
+    "dimJ_d+6_exact": 162,
+    "ring_d": 19,
+    "ring_d+6": 47
+   },
+   "21": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 129,
+    "dimJ_d+6_exact": 129,
+    "ring_d": 13,
+    "ring_d+6": 44
+   },
+   "22": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 101,
+    "dimJ_d+6_exact": 101,
+    "ring_d": 9,
+    "ring_d+6": 48
+   },
+   "23": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 91,
+    "dimJ_d+6_exact": 91,
+    "ring_d": 7,
+    "ring_d+6": 52
+   },
+   "24": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 101,
+    "dimJ_d+6_exact": 101,
+    "ring_d": 9,
+    "ring_d+6": 48
+   },
+   "25": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 131,
+    "dimJ_d+6_exact": 131,
+    "ring_d": 11,
+    "ring_d+6": 42
+   },
+   "30": {
+    "colon": 5,
+    "dimJ_d": 2,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 177,
+    "dimJ_d+6_exact": 177,
+    "ring_d": 22,
+    "ring_d+6": 53
+   },
+   "31": {
+    "colon": 3,
+    "dimJ_d": 2,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 142,
+    "dimJ_d+6_exact": 142,
+    "ring_d": 14,
+    "ring_d+6": 46
+   },
+   "32": {
+    "colon": 1,
+    "dimJ_d": 1,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 114,
+    "dimJ_d+6_exact": 114,
+    "ring_d": 10,
+    "ring_d+6": 53
+   },
+   "33": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 102,
+    "dimJ_d+6_exact": 102,
+    "ring_d": 10,
+    "ring_d+6": 56
+   },
+   "34": {
+    "colon": 1,
+    "dimJ_d": 1,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 114,
+    "dimJ_d+6_exact": 114,
+    "ring_d": 10,
+    "ring_d+6": 53
+   },
+   "35": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 142,
+    "dimJ_d+6_exact": 142,
+    "ring_d": 14,
+    "ring_d+6": 46
+   },
+   "40": {
+    "colon": 5,
+    "dimJ_d": 2,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 162,
+    "dimJ_d+6_exact": 162,
+    "ring_d": 19,
+    "ring_d+6": 47
+   },
+   "41": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 131,
+    "dimJ_d+6_exact": 131,
+    "ring_d": 11,
+    "ring_d+6": 42
+   },
+   "42": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 101,
+    "dimJ_d+6_exact": 101,
+    "ring_d": 9,
+    "ring_d+6": 48
+   },
+   "43": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 91,
+    "dimJ_d+6_exact": 91,
+    "ring_d": 7,
+    "ring_d+6": 52
+   },
+   "44": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 101,
+    "dimJ_d+6_exact": 101,
+    "ring_d": 9,
+    "ring_d+6": 48
+   },
+   "45": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 129,
+    "dimJ_d+6_exact": 129,
+    "ring_d": 13,
+    "ring_d+6": 44
+   },
+   "50": {
+    "colon": 4,
+    "dimJ_d": 3,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 165,
+    "dimJ_d+6_exact": 165,
+    "ring_d": 17,
+    "ring_d+6": 47
+   },
+   "51": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 131,
+    "dimJ_d+6_exact": 131,
+    "ring_d": 11,
+    "ring_d+6": 42
+   },
+   "52": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 100,
+    "dimJ_d+6_exact": 100,
+    "ring_d": 8,
+    "ring_d+6": 52
+   },
+   "53": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 91,
+    "dimJ_d+6_exact": 91,
+    "ring_d": 7,
+    "ring_d+6": 52
+   },
+   "54": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 100,
+    "dimJ_d+6_exact": 100,
+    "ring_d": 8,
+    "ring_d+6": 52
+   },
+   "55": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 129,
+    "dimJ_d+6_exact": 129,
+    "ring_d": 13,
+    "ring_d+6": 44
+   }
+  },
+  "total": {
+   "colon": 54,
+   "J": 36,
+   "nonjac": 18,
+   "gauge": 1
+  },
+  "seconds": 3.2,
+  "prime": 2147483629
+ },
+ "7": {
+  "sectors": {
+   "00": {
+    "colon": 15,
+    "dimJ_d": 10,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 255,
+    "dimJ_d+6_exact": 255,
+    "ring_d": 28,
+    "ring_d+6": 50
+   },
+   "01": {
+    "colon": 9,
+    "dimJ_d": 8,
+    "nonjac": 1,
+    "gauge": 1,
+    "rankJ_d+6_p": 213,
+    "dimJ_d+6_exact": 213,
+    "ring_d": 20,
+    "ring_d+6": 44
+   },
+   "02": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 179,
+    "dimJ_d+6_exact": 179,
+    "ring_d": 18,
+    "ring_d+6": 51
+   },
+   "03": {
+    "colon": 2,
+    "dimJ_d": 1,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 168,
+    "dimJ_d+6_exact": 168,
+    "ring_d": 17,
+    "ring_d+6": 53
+   },
+   "04": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 179,
+    "dimJ_d+6_exact": 179,
+    "ring_d": 18,
+    "ring_d+6": 51
+   },
+   "05": {
+    "colon": 7,
+    "dimJ_d": 4,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 214,
+    "dimJ_d+6_exact": 214,
+    "ring_d": 22,
+    "ring_d+6": 46
+   },
+   "10": {
+    "colon": 13,
+    "dimJ_d": 10,
+    "nonjac": 3,
+    "gauge": 1,
+    "rankJ_d+6_p": 239,
+    "dimJ_d+6_exact": 239,
+    "ring_d": 24,
+    "ring_d+6": 45
+   },
+   "11": {
+    "colon": 5,
+    "dimJ_d": 5,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 198,
+    "dimJ_d+6_exact": 198,
+    "ring_d": 17,
+    "ring_d+6": 41
+   },
+   "12": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 164,
+    "dimJ_d+6_exact": 164,
+    "ring_d": 16,
+    "ring_d+6": 48
+   },
+   "13": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 153,
+    "dimJ_d+6_exact": 153,
+    "ring_d": 14,
+    "ring_d+6": 50
+   },
+   "14": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 164,
+    "dimJ_d+6_exact": 164,
+    "ring_d": 16,
+    "ring_d+6": 48
+   },
+   "15": {
+    "colon": 6,
+    "dimJ_d": 3,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 197,
+    "dimJ_d+6_exact": 197,
+    "ring_d": 19,
+    "ring_d+6": 42
+   },
+   "20": {
+    "colon": 12,
+    "dimJ_d": 10,
+    "nonjac": 2,
+    "gauge": 1,
+    "rankJ_d+6_p": 239,
+    "dimJ_d+6_exact": 239,
+    "ring_d": 24,
+    "ring_d+6": 45
+   },
+   "21": {
+    "colon": 5,
+    "dimJ_d": 3,
+    "nonjac": 2,
+    "gauge": 0,
+    "rankJ_d+6_p": 197,
+    "dimJ_d+6_exact": 197,
+    "ring_d": 19,
+    "ring_d+6": 42
+   },
+   "22": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 164,
+    "dimJ_d+6_exact": 164,
+    "ring_d": 16,
+    "ring_d+6": 48
+   },
+   "23": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 153,
+    "dimJ_d+6_exact": 153,
+    "ring_d": 14,
+    "ring_d+6": 50
+   },
+   "24": {
+    "colon": 1,
+    "dimJ_d": 0,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 164,
+    "dimJ_d+6_exact": 164,
+    "ring_d": 16,
+    "ring_d+6": 48
+   },
+   "25": {
+    "colon": 6,
+    "dimJ_d": 5,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 198,
+    "dimJ_d+6_exact": 198,
+    "ring_d": 17,
+    "ring_d+6": 41
+   },
+   "30": {
+    "colon": 14,
+    "dimJ_d": 10,
+    "nonjac": 4,
+    "gauge": 1,
+    "rankJ_d+6_p": 255,
+    "dimJ_d+6_exact": 255,
+    "ring_d": 28,
+    "ring_d+6": 50
+   },
+   "31": {
+    "colon": 7,
+    "dimJ_d": 4,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 214,
+    "dimJ_d+6_exact": 214,
+    "ring_d": 22,
+    "ring_d+6": 46
+   },
+   "32": {
+    "colon": 3,
+    "dimJ_d": 2,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 179,
+    "dimJ_d+6_exact": 179,
+    "ring_d": 18,
+    "ring_d+6": 51
+   },
+   "33": {
+    "colon": 2,
+    "dimJ_d": 1,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 168,
+    "dimJ_d+6_exact": 168,
+    "ring_d": 17,
+    "ring_d+6": 53
+   },
+   "34": {
+    "colon": 3,
+    "dimJ_d": 2,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 179,
+    "dimJ_d+6_exact": 179,
+    "ring_d": 18,
+    "ring_d+6": 51
+   },
+   "35": {
+    "colon": 9,
+    "dimJ_d": 8,
+    "nonjac": 1,
+    "gauge": 1,
+    "rankJ_d+6_p": 213,
+    "dimJ_d+6_exact": 213,
+    "ring_d": 20,
+    "ring_d+6": 44
+   },
+   "40": {
+    "colon": 10,
+    "dimJ_d": 6,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 240,
+    "dimJ_d+6_exact": 240,
+    "ring_d": 26,
+    "ring_d+6": 47
+   },
+   "41": {
+    "colon": 6,
+    "dimJ_d": 3,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 197,
+    "dimJ_d+6_exact": 197,
+    "ring_d": 19,
+    "ring_d+6": 42
+   },
+   "42": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 165,
+    "dimJ_d+6_exact": 165,
+    "ring_d": 14,
+    "ring_d+6": 47
+   },
+   "43": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 153,
+    "dimJ_d+6_exact": 153,
+    "ring_d": 14,
+    "ring_d+6": 50
+   },
+   "44": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 165,
+    "dimJ_d+6_exact": 165,
+    "ring_d": 14,
+    "ring_d+6": 47
+   },
+   "45": {
+    "colon": 5,
+    "dimJ_d": 5,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 198,
+    "dimJ_d+6_exact": 198,
+    "ring_d": 17,
+    "ring_d+6": 41
+   },
+   "50": {
+    "colon": 11,
+    "dimJ_d": 6,
+    "nonjac": 5,
+    "gauge": 0,
+    "rankJ_d+6_p": 240,
+    "dimJ_d+6_exact": 240,
+    "ring_d": 26,
+    "ring_d+6": 47
+   },
+   "51": {
+    "colon": 6,
+    "dimJ_d": 5,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 198,
+    "dimJ_d+6_exact": 198,
+    "ring_d": 17,
+    "ring_d+6": 41
+   },
+   "52": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 165,
+    "dimJ_d+6_exact": 165,
+    "ring_d": 14,
+    "ring_d+6": 47
+   },
+   "53": {
+    "colon": 0,
+    "dimJ_d": 0,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 153,
+    "dimJ_d+6_exact": 153,
+    "ring_d": 14,
+    "ring_d+6": 50
+   },
+   "54": {
+    "colon": 2,
+    "dimJ_d": 2,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 165,
+    "dimJ_d+6_exact": 165,
+    "ring_d": 14,
+    "ring_d+6": 47
+   },
+   "55": {
+    "colon": 5,
+    "dimJ_d": 3,
+    "nonjac": 2,
+    "gauge": 0,
+    "rankJ_d+6_p": 197,
+    "dimJ_d+6_exact": 197,
+    "ring_d": 19,
+    "ring_d+6": 42
+   }
+  },
+  "total": {
+   "colon": 177,
+   "J": 126,
+   "nonjac": 51,
+   "gauge": 6
+  },
+  "seconds": 5.7,
+  "prime": 2147483629
+ },
+ "8": {
+  "sectors": {
+   "00": {
+    "colon": 30,
+    "dimJ_d": 20,
+    "nonjac": 10,
+    "gauge": 2,
+    "rankJ_d+6_p": 356,
+    "dimJ_d+6_exact": 356,
+    "ring_d": 37,
+    "ring_d+6": 48
+   },
+   "01": {
+    "colon": 19,
+    "dimJ_d": 14,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 306,
+    "dimJ_d+6_exact": 306,
+    "ring_d": 28,
+    "ring_d+6": 41
+   },
+   "02": {
+    "colon": 10,
+    "dimJ_d": 8,
+    "nonjac": 2,
+    "gauge": 1,
+    "rankJ_d+6_p": 267,
+    "dimJ_d+6_exact": 267,
+    "ring_d": 27,
+    "ring_d+6": 44
+   },
+   "03": {
+    "colon": 5,
+    "dimJ_d": 4,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 256,
+    "dimJ_d+6_exact": 256,
+    "ring_d": 26,
+    "ring_d+6": 46
+   },
+   "04": {
+    "colon": 10,
+    "dimJ_d": 8,
+    "nonjac": 2,
+    "gauge": 1,
+    "rankJ_d+6_p": 267,
+    "dimJ_d+6_exact": 267,
+    "ring_d": 27,
+    "ring_d+6": 44
+   },
+   "05": {
+    "colon": 18,
+    "dimJ_d": 14,
+    "nonjac": 4,
+    "gauge": 1,
+    "rankJ_d+6_p": 306,
+    "dimJ_d+6_exact": 306,
+    "ring_d": 28,
+    "ring_d+6": 41
+   },
+   "10": {
+    "colon": 24,
+    "dimJ_d": 17,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 339,
+    "dimJ_d+6_exact": 339,
+    "ring_d": 32,
+    "ring_d+6": 44
+   },
+   "11": {
+    "colon": 16,
+    "dimJ_d": 13,
+    "nonjac": 3,
+    "gauge": 1,
+    "rankJ_d+6_p": 286,
+    "dimJ_d+6_exact": 286,
+    "ring_d": 24,
+    "ring_d+6": 37
+   },
+   "12": {
+    "colon": 5,
+    "dimJ_d": 5,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 250,
+    "dimJ_d+6_exact": 250,
+    "ring_d": 22,
+    "ring_d+6": 43
+   },
+   "13": {
+    "colon": 3,
+    "dimJ_d": 2,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 238,
+    "dimJ_d+6_exact": 238,
+    "ring_d": 23,
+    "ring_d+6": 43
+   },
+   "14": {
+    "colon": 5,
+    "dimJ_d": 5,
+    "nonjac": 0,
+    "gauge": 0,
+    "rankJ_d+6_p": 250,
+    "dimJ_d+6_exact": 250,
+    "ring_d": 22,
+    "ring_d+6": 43
+   },
+   "15": {
+    "colon": 13,
+    "dimJ_d": 9,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 288,
+    "dimJ_d+6_exact": 288,
+    "ring_d": 26,
+    "ring_d+6": 38
+   },
+   "20": {
+    "colon": 27,
+    "dimJ_d": 20,
+    "nonjac": 7,
+    "gauge": 2,
+    "rankJ_d+6_p": 335,
+    "dimJ_d+6_exact": 335,
+    "ring_d": 32,
+    "ring_d+6": 42
+   },
+   "21": {
+    "colon": 15,
+    "dimJ_d": 13,
+    "nonjac": 2,
+    "gauge": 1,
+    "rankJ_d+6_p": 286,
+    "dimJ_d+6_exact": 286,
+    "ring_d": 24,
+    "ring_d+6": 37
+   },
+   "22": {
+    "colon": 6,
+    "dimJ_d": 3,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 250,
+    "dimJ_d+6_exact": 250,
+    "ring_d": 25,
+    "ring_d+6": 40
+   },
+   "23": {
+    "colon": 3,
+    "dimJ_d": 2,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 238,
+    "dimJ_d+6_exact": 238,
+    "ring_d": 23,
+    "ring_d+6": 43
+   },
+   "24": {
+    "colon": 6,
+    "dimJ_d": 3,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 250,
+    "dimJ_d+6_exact": 250,
+    "ring_d": 25,
+    "ring_d+6": 40
+   },
+   "25": {
+    "colon": 14,
+    "dimJ_d": 9,
+    "nonjac": 5,
+    "gauge": 0,
+    "rankJ_d+6_p": 288,
+    "dimJ_d+6_exact": 288,
+    "ring_d": 26,
+    "ring_d+6": 38
+   },
+   "30": {
+    "colon": 31,
+    "dimJ_d": 24,
+    "nonjac": 7,
+    "gauge": 3,
+    "rankJ_d+6_p": 358,
+    "dimJ_d+6_exact": 358,
+    "ring_d": 34,
+    "ring_d+6": 46
+   },
+   "31": {
+    "colon": 18,
+    "dimJ_d": 14,
+    "nonjac": 4,
+    "gauge": 1,
+    "rankJ_d+6_p": 306,
+    "dimJ_d+6_exact": 306,
+    "ring_d": 28,
+    "ring_d+6": 41
+   },
+   "32": {
+    "colon": 8,
+    "dimJ_d": 5,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 271,
+    "dimJ_d+6_exact": 271,
+    "ring_d": 27,
+    "ring_d+6": 46
+   },
+   "33": {
+    "colon": 5,
+    "dimJ_d": 4,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 256,
+    "dimJ_d+6_exact": 256,
+    "ring_d": 26,
+    "ring_d+6": 46
+   },
+   "34": {
+    "colon": 8,
+    "dimJ_d": 5,
+    "nonjac": 3,
+    "gauge": 0,
+    "rankJ_d+6_p": 271,
+    "dimJ_d+6_exact": 271,
+    "ring_d": 27,
+    "ring_d+6": 46
+   },
+   "35": {
+    "colon": 19,
+    "dimJ_d": 14,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 306,
+    "dimJ_d+6_exact": 306,
+    "ring_d": 28,
+    "ring_d+6": 41
+   },
+   "40": {
+    "colon": 26,
+    "dimJ_d": 20,
+    "nonjac": 6,
+    "gauge": 2,
+    "rankJ_d+6_p": 335,
+    "dimJ_d+6_exact": 335,
+    "ring_d": 32,
+    "ring_d+6": 42
+   },
+   "41": {
+    "colon": 13,
+    "dimJ_d": 9,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 288,
+    "dimJ_d+6_exact": 288,
+    "ring_d": 26,
+    "ring_d+6": 38
+   },
+   "42": {
+    "colon": 7,
+    "dimJ_d": 3,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 250,
+    "dimJ_d+6_exact": 250,
+    "ring_d": 25,
+    "ring_d+6": 40
+   },
+   "43": {
+    "colon": 3,
+    "dimJ_d": 2,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 238,
+    "dimJ_d+6_exact": 238,
+    "ring_d": 23,
+    "ring_d+6": 43
+   },
+   "44": {
+    "colon": 7,
+    "dimJ_d": 3,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 250,
+    "dimJ_d+6_exact": 250,
+    "ring_d": 25,
+    "ring_d+6": 40
+   },
+   "45": {
+    "colon": 16,
+    "dimJ_d": 13,
+    "nonjac": 3,
+    "gauge": 1,
+    "rankJ_d+6_p": 286,
+    "dimJ_d+6_exact": 286,
+    "ring_d": 24,
+    "ring_d+6": 37
+   },
+   "50": {
+    "colon": 23,
+    "dimJ_d": 17,
+    "nonjac": 6,
+    "gauge": 1,
+    "rankJ_d+6_p": 339,
+    "dimJ_d+6_exact": 339,
+    "ring_d": 32,
+    "ring_d+6": 44
+   },
+   "51": {
+    "colon": 14,
+    "dimJ_d": 9,
+    "nonjac": 5,
+    "gauge": 0,
+    "rankJ_d+6_p": 288,
+    "dimJ_d+6_exact": 288,
+    "ring_d": 26,
+    "ring_d+6": 38
+   },
+   "52": {
+    "colon": 6,
+    "dimJ_d": 5,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 250,
+    "dimJ_d+6_exact": 250,
+    "ring_d": 22,
+    "ring_d+6": 43
+   },
+   "53": {
+    "colon": 3,
+    "dimJ_d": 2,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 238,
+    "dimJ_d+6_exact": 238,
+    "ring_d": 23,
+    "ring_d+6": 43
+   },
+   "54": {
+    "colon": 6,
+    "dimJ_d": 5,
+    "nonjac": 1,
+    "gauge": 0,
+    "rankJ_d+6_p": 250,
+    "dimJ_d+6_exact": 250,
+    "ring_d": 22,
+    "ring_d+6": 43
+   },
+   "55": {
+    "colon": 15,
+    "dimJ_d": 13,
+    "nonjac": 2,
+    "gauge": 1,
+    "rankJ_d+6_p": 286,
+    "dimJ_d+6_exact": 286,
+    "ring_d": 24,
+    "ring_d+6": 37
+   }
+  },
+  "total": {
+   "colon": 457,
+   "J": 336,
+   "nonjac": 121,
+   "gauge": 21
+  },
+  "seconds": 9.3,
+  "prime": 2147483629
+ },
+ "9": {
+  "sectors": {
+   "00": {
+    "colon": 55,
+    "dimJ_d": 42,
+    "nonjac": 13,
+    "gauge": 5,
+    "rankJ_d+6_p": 485,
+    "dimJ_d+6_exact": 485,
+    "ring_d": 42,
+    "ring_d+6": 42
+   },
+   "01": {
+    "colon": 37,
+    "dimJ_d": 27,
+    "nonjac": 10,
+    "gauge": 2,
+    "rankJ_d+6_p": 425,
+    "dimJ_d+6_exact": 425,
+    "ring_d": 36,
+    "ring_d+6": 36
+   },
+   "02": {
+    "colon": 23,
+    "dimJ_d": 16,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 383,
+    "dimJ_d+6_exact": 383,
+    "ring_d": 36,
+    "ring_d+6": 36
+   },
+   "03": {
+    "colon": 17,
+    "dimJ_d": 12,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 370,
+    "dimJ_d+6_exact": 370,
+    "ring_d": 37,
+    "ring_d+6": 37
+   },
+   "04": {
+    "colon": 23,
+    "dimJ_d": 16,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 383,
+    "dimJ_d+6_exact": 383,
+    "ring_d": 36,
+    "ring_d+6": 36
+   },
+   "05": {
+    "colon": 38,
+    "dimJ_d": 31,
+    "nonjac": 7,
+    "gauge": 3,
+    "rankJ_d+6_p": 424,
+    "dimJ_d+6_exact": 424,
+    "ring_d": 34,
+    "ring_d+6": 34
+   },
+   "10": {
+    "colon": 46,
+    "dimJ_d": 35,
+    "nonjac": 11,
+    "gauge": 3,
+    "rankJ_d+6_p": 461,
+    "dimJ_d+6_exact": 461,
+    "ring_d": 39,
+    "ring_d+6": 39
+   },
+   "11": {
+    "colon": 30,
+    "dimJ_d": 23,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 402,
+    "dimJ_d+6_exact": 402,
+    "ring_d": 32,
+    "ring_d+6": 32
+   },
+   "12": {
+    "colon": 18,
+    "dimJ_d": 13,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 359,
+    "dimJ_d+6_exact": 359,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "13": {
+    "colon": 12,
+    "dimJ_d": 8,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 347,
+    "dimJ_d+6_exact": 347,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "14": {
+    "colon": 18,
+    "dimJ_d": 13,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 359,
+    "dimJ_d+6_exact": 359,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "15": {
+    "colon": 32,
+    "dimJ_d": 25,
+    "nonjac": 7,
+    "gauge": 2,
+    "rankJ_d+6_p": 399,
+    "dimJ_d+6_exact": 399,
+    "ring_d": 32,
+    "ring_d+6": 32
+   },
+   "20": {
+    "colon": 46,
+    "dimJ_d": 35,
+    "nonjac": 11,
+    "gauge": 3,
+    "rankJ_d+6_p": 461,
+    "dimJ_d+6_exact": 461,
+    "ring_d": 39,
+    "ring_d+6": 39
+   },
+   "21": {
+    "colon": 32,
+    "dimJ_d": 25,
+    "nonjac": 7,
+    "gauge": 2,
+    "rankJ_d+6_p": 399,
+    "dimJ_d+6_exact": 399,
+    "ring_d": 32,
+    "ring_d+6": 32
+   },
+   "22": {
+    "colon": 18,
+    "dimJ_d": 13,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 359,
+    "dimJ_d+6_exact": 359,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "23": {
+    "colon": 12,
+    "dimJ_d": 8,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 347,
+    "dimJ_d+6_exact": 347,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "24": {
+    "colon": 18,
+    "dimJ_d": 13,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 359,
+    "dimJ_d+6_exact": 359,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "25": {
+    "colon": 30,
+    "dimJ_d": 23,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 402,
+    "dimJ_d+6_exact": 402,
+    "ring_d": 32,
+    "ring_d+6": 32
+   },
+   "30": {
+    "colon": 55,
+    "dimJ_d": 42,
+    "nonjac": 13,
+    "gauge": 5,
+    "rankJ_d+6_p": 485,
+    "dimJ_d+6_exact": 485,
+    "ring_d": 42,
+    "ring_d+6": 42
+   },
+   "31": {
+    "colon": 38,
+    "dimJ_d": 31,
+    "nonjac": 7,
+    "gauge": 3,
+    "rankJ_d+6_p": 424,
+    "dimJ_d+6_exact": 424,
+    "ring_d": 34,
+    "ring_d+6": 34
+   },
+   "32": {
+    "colon": 23,
+    "dimJ_d": 16,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 383,
+    "dimJ_d+6_exact": 383,
+    "ring_d": 36,
+    "ring_d+6": 36
+   },
+   "33": {
+    "colon": 17,
+    "dimJ_d": 12,
+    "nonjac": 5,
+    "gauge": 1,
+    "rankJ_d+6_p": 370,
+    "dimJ_d+6_exact": 370,
+    "ring_d": 37,
+    "ring_d+6": 37
+   },
+   "34": {
+    "colon": 23,
+    "dimJ_d": 16,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 383,
+    "dimJ_d+6_exact": 383,
+    "ring_d": 36,
+    "ring_d+6": 36
+   },
+   "35": {
+    "colon": 37,
+    "dimJ_d": 27,
+    "nonjac": 10,
+    "gauge": 2,
+    "rankJ_d+6_p": 425,
+    "dimJ_d+6_exact": 425,
+    "ring_d": 36,
+    "ring_d+6": 36
+   },
+   "40": {
+    "colon": 48,
+    "dimJ_d": 39,
+    "nonjac": 9,
+    "gauge": 4,
+    "rankJ_d+6_p": 460,
+    "dimJ_d+6_exact": 460,
+    "ring_d": 37,
+    "ring_d+6": 37
+   },
+   "41": {
+    "colon": 32,
+    "dimJ_d": 25,
+    "nonjac": 7,
+    "gauge": 2,
+    "rankJ_d+6_p": 399,
+    "dimJ_d+6_exact": 399,
+    "ring_d": 32,
+    "ring_d+6": 32
+   },
+   "42": {
+    "colon": 18,
+    "dimJ_d": 11,
+    "nonjac": 7,
+    "gauge": 0,
+    "rankJ_d+6_p": 362,
+    "dimJ_d+6_exact": 362,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "43": {
+    "colon": 12,
+    "dimJ_d": 8,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 347,
+    "dimJ_d+6_exact": 347,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "44": {
+    "colon": 18,
+    "dimJ_d": 11,
+    "nonjac": 7,
+    "gauge": 0,
+    "rankJ_d+6_p": 362,
+    "dimJ_d+6_exact": 362,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "45": {
+    "colon": 30,
+    "dimJ_d": 23,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 402,
+    "dimJ_d+6_exact": 402,
+    "ring_d": 32,
+    "ring_d+6": 32
+   },
+   "50": {
+    "colon": 48,
+    "dimJ_d": 39,
+    "nonjac": 9,
+    "gauge": 4,
+    "rankJ_d+6_p": 460,
+    "dimJ_d+6_exact": 460,
+    "ring_d": 37,
+    "ring_d+6": 37
+   },
+   "51": {
+    "colon": 30,
+    "dimJ_d": 23,
+    "nonjac": 7,
+    "gauge": 1,
+    "rankJ_d+6_p": 402,
+    "dimJ_d+6_exact": 402,
+    "ring_d": 32,
+    "ring_d+6": 32
+   },
+   "52": {
+    "colon": 18,
+    "dimJ_d": 11,
+    "nonjac": 7,
+    "gauge": 0,
+    "rankJ_d+6_p": 362,
+    "dimJ_d+6_exact": 362,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "53": {
+    "colon": 12,
+    "dimJ_d": 8,
+    "nonjac": 4,
+    "gauge": 0,
+    "rankJ_d+6_p": 347,
+    "dimJ_d+6_exact": 347,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "54": {
+    "colon": 18,
+    "dimJ_d": 11,
+    "nonjac": 7,
+    "gauge": 0,
+    "rankJ_d+6_p": 362,
+    "dimJ_d+6_exact": 362,
+    "ring_d": 33,
+    "ring_d+6": 33
+   },
+   "55": {
+    "colon": 32,
+    "dimJ_d": 25,
+    "nonjac": 7,
+    "gauge": 2,
+    "rankJ_d+6_p": 399,
+    "dimJ_d+6_exact": 399,
+    "ring_d": 32,
+    "ring_d+6": 32
+   }
+  },
+  "total": {
+   "colon": 1014,
+   "J": 756,
+   "nonjac": 258,
+   "gauge": 56
+  },
+  "seconds": 11.9,
+  "prime": 2147483629
+ }
+}

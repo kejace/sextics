@@ -1,0 +1,394 @@
+[
+ {
+  "shape": "divisible by Y2^2 (D = u*G)",
+  "constraints": 415,
+  "rankT": 141,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y2^4",
+  "constraints": 585,
+  "rankT": 167,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "no Y2 (D in C[x])",
+  "constraints": 396,
+  "rankT": 122,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X0",
+  "constraints": 255,
+  "rankT": 105,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X0^2",
+  "constraints": 415,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X1",
+  "constraints": 255,
+  "rankT": 105,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X1^2",
+  "constraints": 415,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X2",
+  "constraints": 255,
+  "rankT": 105,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X2^2",
+  "constraints": 415,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y0",
+  "constraints": 255,
+  "rankT": 105,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y0^2",
+  "constraints": 415,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y1",
+  "constraints": 255,
+  "rankT": 105,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y1^2",
+  "constraints": 415,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y2",
+  "constraints": 255,
+  "rankT": 89,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y2^2",
+  "constraints": 415,
+  "rankT": 141,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "independent of X0,X1 (cone, vertex line)",
+  "constraints": 556,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X0,X2 (cone, vertex line)",
+  "constraints": 556,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X0,Y0 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X0,Y1 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X0,Y2 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 167,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "independent of X1,X2 (cone, vertex line)",
+  "constraints": 556,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X1,Y0 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X1,Y1 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X1,Y2 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X2,Y0 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X2,Y1 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of X2,Y2 (cone, vertex line)",
+  "constraints": 566,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of Y0,Y1 (cone, vertex line)",
+  "constraints": 556,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of Y0,Y2 (cone, vertex line)",
+  "constraints": 556,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "independent of Y1,Y2 (cone, vertex line)",
+  "constraints": 556,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "in ideal (X0,X1)^2",
+  "constraints": 195,
+  "rankT": 114,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X0*X1",
+  "constraints": 415,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in ideal (Y0,Y1)^2",
+  "constraints": 195,
+  "rankT": 92,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y0*Y1",
+  "constraints": 415,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in ideal (X0,Y0)^2",
+  "constraints": 205,
+  "rankT": 119,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X0*Y0",
+  "constraints": 425,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in ideal (X0,Y2)^2",
+  "constraints": 205,
+  "rankT": 100,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X0*Y2",
+  "constraints": 425,
+  "rankT": 144,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in ideal (Y0,Y2)^2",
+  "constraints": 195,
+  "rankT": 105,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by Y0*Y2",
+  "constraints": 415,
+  "rankT": 141,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in ideal (X1,Y1)^2",
+  "constraints": 205,
+  "rankT": 118,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "divisible by X1*Y1",
+  "constraints": 425,
+  "rankT": 150,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "Y-degree <= 2",
+  "constraints": 438,
+  "rankT": 162,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "Y-degree <= 4",
+  "constraints": 213,
+  "rankT": 129,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "X-degree <= 2",
+  "constraints": 438,
+  "rankT": 152,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "X-degree <= 4",
+  "constraints": 213,
+  "rankT": 114,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "only even exponents (poly in squares)",
+  "constraints": 525,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "in ideal (X0,X1,X2)^4",
+  "constraints": 213,
+  "rankT": 129,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in ideal (Y0,Y1,Y2)^4",
+  "constraints": 213,
+  "rankT": 114,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in ideal (X0,Y0)^4",
+  "constraints": 445,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "in ideal (X0,Y0)^6",
+  "constraints": 594,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "in (X0,X1,Y0,Y1)^6",
+  "constraints": 318,
+  "rankT": 140,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in (X2,Y2)^2",
+  "constraints": 205,
+  "rankT": 110,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "in (X2,Y2)^4",
+  "constraints": 445,
+  "rankT": 166,
+  "solvable_modp": false,
+  "transfer_to_Q": "mod-p only"
+ },
+ {
+  "shape": "independent of Y2 and Y0",
+  "constraints": 556,
+  "rankT": 168,
+  "solvable_modp": false,
+  "transfer_to_Q": "rigorous"
+ },
+ {
+  "shape": "a polynomial in (X0,X1,X2,Y0*Y1,Y0^2,Y1^2,Y2^2) i.e. rho-invariant monomials only",
+  "constraints": 238,
+  "rankT": 56,
+  "solvable_modp": true,
+  "transfer_to_Q": "-"
+ }
+]

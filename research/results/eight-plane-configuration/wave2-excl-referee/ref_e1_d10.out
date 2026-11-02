@@ -1,0 +1,1 @@
+{"check": "e1kernel d=10 par=0", "p": 1000000009, "rows": 14616, "cols": 10152, "nD": 1512, "rank_full": 10152, "rank_J_p": 9684, "exact_J_dim": 9684, "nodrop": true, "dimV_p": 1044, "dimJ_d_exact": 750, "kermodJ_p": 294, "forced_lower_bound": 294, "t_build": 2.3, "t_ranks": 1177.7, "verdict": "kernel mod J = 294 (forced >= 294)", "ts": "2026-11-01T22:17:12", "agent": "referee"}

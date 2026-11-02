@@ -1,0 +1,4 @@
+(i) unrestricted p=1000003: rows=40303 cols=7497 rank=6702 rank_aug=6703 (2110.6s)
+(ii) sector system rows=2357 cols=1188: nullity p1=33 p2=33; rank_aug p1=1156 p2=1156
+(ii) exact null vectors verified: 33/33  => rank_Q <= 1155; rank_p >= 1155 (11.7s)
+(iii) exact fmpq rref: rank_aug=1156 consistent=False (7.0s)

@@ -1,0 +1,62 @@
+{
+ "d": 6,
+ "p": 1073741789,
+ "cD": "yeven",
+ "allowed_chars": [
+  [
+   0,
+   0
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   2,
+   0
+  ],
+  [
+   2,
+   2
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   4,
+   0
+  ],
+  [
+   4,
+   2
+  ],
+  [
+   4,
+   4
+  ]
+ ],
+ "n_kernel": 0,
+ "n_w": 17,
+ "n_gauge_removed": 1,
+ "n_vars": 17,
+ "n_quadrics": 266,
+ "rankJ_2d_mod_p": 4437,
+ "ci_dimJ_2d": 4437,
+ "sanity_direct": true,
+ "kernel_names": [],
+ "msolve": {
+  "seconds": 0.9,
+  "pure_powers": 17,
+  "n": 17,
+  "m_primary": true,
+  "stderr_tail": "\n--------------- INPUT DATA ---------------\n#variables                      17\n#equations                     266\n#invalid equations               0\nfield characteristic    1073741789\nhomogeneous input?               1\nsignature-based computation      0\nmonomial order                 DRL\nbasis hash table resetting     OFF\nlinear algebra option            2\ninitial hash table size     131072 (2^17)\nmax pair selection             ALL\nreduce gb                        1\n#threads                         2\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\nDimension of quotient: 81\n------------------------------------------------------------------------------------\nmsolve overall time           0.89 sec (elapsed) /  0.48 sec (cpu)\n------------------------------------------------------------------------------------\n",
+  "stdout_tail": "\n---------------- TIMINGS ---------------\noverall(elapsed)        0.89 sec\noverall(cpu)            0.47 sec\nselect                  0.00 sec   0.2%\nsymbolic prep.          0.01 sec   1.2%\nupdate                  0.72 sec  80.9%\nconvert                 0.12 sec  13.4%\nlinear algebra          0.04 sec   4.1%\nreduce gb               0.00 sec   0.0%\n-----------------------------------------\n\n---------- COMPUTATIONAL DATA -----------\nsize of basis                   173\n#terms in basis                 373\n#pairs reduced                 2144\n#GM criterion                 66121\n#redundant elements             197\n#rows reduced                  4461\n#zero reductions               2040\nmax. matrix data               2035 x 1031 (0.223%)\nmax. symbolic hash table size  2^11\nmax. basis hash table size     2^16\n-----------------------------------------\n\n"
+ },
+ "seconds_total": 20.1,
+ "excluded": true
+}

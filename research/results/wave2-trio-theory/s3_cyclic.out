@@ -1,0 +1,10 @@
+{'order': 1, 'n_conj': 1, 'elems': [(0, 0, 0)], 'r_K': 0, 'K_pullback_degree': 2, 'inv_rho': 2, 'inv_rho_conj': 2, 'inv_sgn': 1}
+{'order': 2, 'n_conj': 3, 'elems': [(0, 0, 0), (0, 0, 1)], 'r_K': 1, 'K_pullback_degree': 1, 'inv_rho': 1, 'inv_rho_conj': 1, 'inv_sgn': 0}
+{'order': 3, 'n_conj': 2, 'elems': [(0, 0, 0), (0, 1, 0), (0, 2, 0)], 'r_K': 2, 'K_pullback_degree': 0, 'inv_rho': 1, 'inv_rho_conj': 1, 'inv_sgn': 1}
+{'order': 3, 'n_conj': 1, 'elems': [(0, 0, 0), (1, 1, 0), (2, 2, 0)], 'r_K': 0, 'K_pullback_degree': 2, 'inv_rho': 0, 'inv_rho_conj': 0, 'inv_sgn': 1}
+{'order': 3, 'n_conj': 1, 'elems': [(0, 0, 0), (1, 2, 0), (2, 1, 0)], 'r_K': 0, 'K_pullback_degree': 2, 'inv_rho': 0, 'inv_rho_conj': 0, 'inv_sgn': 1}
+{'order': 6, 'n_conj': 3, 'elems': [(0, 0, 0), (0, 0, 1), (1, 1, 0), (1, 1, 1), (2, 2, 0), (2, 2, 1)], 'r_K': 3, 'K_pullback_degree': -1, 'inv_rho': 0, 'inv_rho_conj': 0, 'inv_sgn': 0}
+{'order': 6, 'n_conj': 1, 'elems': [(0, 0, 0), (0, 0, 1), (1, 2, 0), (1, 2, 1), (2, 1, 0), (2, 1, 1)], 'r_K': 3, 'K_pullback_degree': -1, 'inv_rho': 0, 'inv_rho_conj': 0, 'inv_sgn': 0}
+{'order': 9, 'n_conj': 1, 'elems': [(0, 0, 0), (0, 1, 0), (0, 2, 0), (1, 0, 0), (1, 1, 0), (1, 2, 0), (2, 0, 0), (2, 1, 0), (2, 2, 0)], 'r_K': 4, 'K_pullback_degree': -2, 'inv_rho': 0, 'inv_rho_conj': 0, 'inv_sgn': 1}
+{'order': 18, 'n_conj': 1, 'elems': [(0, 0, 0), (0, 0, 1), (0, 1, 0), (0, 1, 1), (0, 2, 0), (0, 2, 1), (1, 0, 0), (1, 0, 1), (1, 1, 0), (1, 1, 1), (1, 2, 0), (1, 2, 1), (2, 0, 0), (2, 0, 1), (2, 1, 0), (2, 1, 1), (2, 2, 0), (2, 2, 1)], 'r_K': 13, 'K_pullback_degree': -11, 'inv_rho': 0, 'inv_rho_conj': 0, 'inv_sgn': 0}
+subgroups with rho-invariants and K_pullback_degree<0 (uniruled): []

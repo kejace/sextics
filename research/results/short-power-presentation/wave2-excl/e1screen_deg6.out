@@ -1,0 +1,239 @@
+std seconds = 32
+dim = 0
+vdim = 15625
+hilb2 = 1,6,21,56,126,246,426,666,951,1246,1506,1686,1751,1686,1506,1246,951,666,426,246,126,56,21,6,1,0
+RES|1|constant|0|0|1|1|0
+RES|pow01|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow02|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow03|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow04|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow05|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow12|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow13|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow14|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow15|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow23|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow24|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow25|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow34|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow35|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow45|coordinate power sums (sweep)|6|0|1|2|0
+RES|pow012|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow013|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow014|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow015|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow023|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow024|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow025|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow034|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow035|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow045|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow123|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow124|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow125|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow134|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow135|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow145|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow234|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow235|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow245|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow345|coordinate power sums (sweep)|6|0|1|3|0
+RES|pow0123|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0124|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0125|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0134|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0135|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0145|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0234|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0235|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0245|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow0345|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow1234|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow1235|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow1245|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow1345|coordinate power sums (sweep)|6|0|1|4|0
+RES|pow2345|coordinate power sums (sweep)|6|0|1|4|0
+RES|Fsub01|sub-equations of F (sweep)|6|0|1|7|0
+RES|Fsub02|sub-equations of F (sweep)|6|0|1|7|0
+RES|Fsub03|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub04|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub05|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub12|sub-equations of F (sweep)|6|0|1|7|0
+RES|Fsub13|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub14|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub15|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub23|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub24|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub25|sub-equations of F (sweep)|6|0|1|4|0
+RES|Fsub34|sub-equations of F (sweep)|6|0|1|7|0
+RES|Fsub35|sub-equations of F (sweep)|6|0|1|7|0
+RES|Fsub45|sub-equations of F (sweep)|6|0|1|7|0
+RES|Fsub012|sub-equations of F (sweep)|6|0|1|28|0
+RES|Fsub013|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub014|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub015|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub023|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub024|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub025|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub034|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub035|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub045|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub123|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub124|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub125|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub134|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub135|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub145|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub234|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub235|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub245|sub-equations of F (sweep)|6|0|1|16|0
+RES|Fsub345|sub-equations of F (sweep)|6|0|1|28|0
+RES|Fsub0123|sub-equations of F (sweep)|6|0|1|50|0
+RES|Fsub0124|sub-equations of F (sweep)|6|0|1|50|0
+RES|Fsub0125|sub-equations of F (sweep)|6|0|1|50|0
+RES|Fsub0134|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub0135|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub0145|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub0234|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub0235|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub0245|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub0345|sub-equations of F (sweep)|6|0|1|50|0
+RES|Fsub1234|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub1235|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub1245|sub-equations of F (sweep)|6|0|1|44|0
+RES|Fsub1345|sub-equations of F (sweep)|6|0|1|50|0
+RES|Fsub2345|sub-equations of F (sweep)|6|0|1|50|0
+RES|Fsub01234|sub-equations of F (sweep)|6|0|1|110|0
+RES|Fsub01235|sub-equations of F (sweep)|6|0|1|110|0
+RES|Fsub01245|sub-equations of F (sweep)|6|0|1|110|0
+RES|Fsub01345|sub-equations of F (sweep)|6|0|1|110|0
+RES|Fsub02345|sub-equations of F (sweep)|6|0|1|110|0
+RES|Fsub12345|sub-equations of F (sweep)|6|0|1|110|0
+RES|DI06|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI07|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI16|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI17|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI26|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI27|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI36|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI37|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI46|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI47|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI56|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI57|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI67|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI016|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI017|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI026|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI027|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI036|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI037|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI046|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI047|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI056|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI057|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI067|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI126|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI127|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI136|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI137|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI146|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI147|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI156|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI157|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI167|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI236|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI237|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI246|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI247|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI256|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI257|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI267|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI346|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI347|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI356|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI357|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI367|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI456|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI457|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI467|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI567|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI0126|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0127|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0136|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0137|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0146|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0147|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0156|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0157|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0167|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI0236|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0237|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0246|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0247|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0256|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0257|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0267|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI0346|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0347|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0356|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0357|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0367|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI0456|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0457|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI0467|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI0567|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI1236|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1237|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1246|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1247|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1256|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1257|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1267|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI1346|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1347|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1356|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1357|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1367|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI1456|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1457|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI1467|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI1567|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI2346|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI2347|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI2356|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI2357|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI2367|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI2456|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI2457|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI2467|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI2567|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI3456|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI3457|eight-form subset sums D_I with l7/l8|6|0|0|236|226
+RES|DI3467|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI3567|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|DI4567|eight-form subset sums D_I with l7/l8|6|0|1|236|0
+RES|eX|degree-6 special|6|0|1|3|0
+RES|eY|degree-6 special|6|0|1|3|0
+RES|eX+eY|degree-6 special|6|0|1|6|0
+RES|B=(L+M)^6+(L-M)^6|degree-6 special|6|0|1|236|0
+RES|eX+2cL6|degree-6 special|6|0|1|28|0
+RES|eY+2cM6|degree-6 special|6|0|1|28|0
+RES|eX-L6|degree-6 special|6|0|1|27|0
+RES|eX+L6|degree-6 special|6|0|1|28|0
+RES|eY-M6|degree-6 special|6|0|1|27|0
+RES|eY+M6|degree-6 special|6|0|1|28|0
+RES|eX+M6|degree-6 special|6|0|1|31|0
+RES|eY+L6|degree-6 special|6|0|1|31|0
+RES|L6|degree-6 special|6|0|1|28|0
+RES|M6|degree-6 special|6|0|1|28|0
+RES|L4M2|degree-6 special|6|0|1|90|0
+RES|L2M4|degree-6 special|6|0|1|90|0
+RES|eX+L4M2|degree-6 special|6|0|1|93|0
+RES|(L2+M2)^3|degree-6 special|6|0|1|236|0
+RES|(L2-M2)^3|degree-6 special|6|0|1|236|0
+RES|L2M2(L2+M2)|degree-6 special|6|0|1|180|0
+RES|X0X1X2Y0Y1Y2|degree-6 special|6|1|0|0|1
+RES|prod_l1..l6|degree-6 special|6|1|0|0|1
+RES|(L+M)^5(L-M)|degree-6 special|6|0|0|236|126
+RES|(L+M)^3(L-M)^3|degree-6 special|6|0|1|236|0

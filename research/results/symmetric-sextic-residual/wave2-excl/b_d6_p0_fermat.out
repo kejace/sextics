@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[    2.3s] d=6 par=0 p=2147483629 fermat=True: n_J=18 n_vars=18
+[  734.0s] R_12^odd dim 866; left nullspace built
+[  734.0s] Hessian block built 0.0 s
+[  739.7s] quadric coefficient matrix 866 x 171: rank 0 (full = 171)
+[  739.7s] Fermat self-test: p6X direction satisfies all quadrics: True

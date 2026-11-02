@@ -1,0 +1,66 @@
+{
+ "d": 5,
+ "parmode": "0",
+ "p": 1000000007,
+ "n": 3,
+ "tensors": 6,
+ "zero_polys": 0,
+ "rank_classes": 6,
+ "dimW": 0,
+ "dimGV": 0,
+ "gauge_vectors": 0,
+ "decisive": true,
+ "blocks": {
+  "1,0": {
+   "n_classes": 1,
+   "rank_classes": 1,
+   "dimJ": 75,
+   "dimS": 180,
+   "dimR": 105,
+   "expected_dimJ_Q": null
+  },
+  "1,1": {
+   "n_classes": 1,
+   "rank_classes": 1,
+   "dimJ": 120,
+   "dimS": 228,
+   "dimR": 108,
+   "expected_dimJ_Q": null
+  },
+  "1,2": {
+   "n_classes": 1,
+   "rank_classes": 1,
+   "dimJ": 120,
+   "dimS": 228,
+   "dimR": 108,
+   "expected_dimJ_Q": null
+  },
+  "1,4": {
+   "n_classes": 1,
+   "rank_classes": 1,
+   "dimJ": 120,
+   "dimS": 228,
+   "dimR": 108,
+   "expected_dimJ_Q": null
+  },
+  "1,5": {
+   "n_classes": 1,
+   "rank_classes": 1,
+   "dimJ": 104,
+   "dimS": 209,
+   "dimR": 105,
+   "expected_dimJ_Q": null
+  },
+  "1,6": {
+   "n_classes": 1,
+   "rank_classes": 1,
+   "dimJ": 104,
+   "dimS": 209,
+   "dimR": 105,
+   "expected_dimJ_Q": null
+  }
+ },
+ "gauge_checks": 0,
+ "gauge_check_failures": 0,
+ "seconds": 0.2
+}

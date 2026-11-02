@@ -1,0 +1,51 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+[    0.1s] d=6 par=0 p=2147483629 fermat=False: n_J=18 n_vars=18
+[  174.1s] R_12^odd dim 866; left nullspace built
+[  174.7s] Hessian block built 0.5 s
+[  203.3s] quadric coefficient matrix 866 x 171: rank 83 (full = 171)
+[  205.2s] wrote 83 independent quadrics in 18 variables
+[  286.7s] msolve stderr tail: UT DATA ---------------
+#variables                      18
+#equations                      83
+#invalid equations               0
+field characteristic    2147483629
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         4
+info level                       1
+generate pbm files               0
+------------------------------------------
+Dimension of quotient: 2
+Staircase is not generic
+Multiplication by x16 gets outside the staircase
+Time for rational param:         27.88 (elapsed) sec /  2.15 sec (cpu)
+
+
+--------------- INPUT DATA ---------------
+#variables                      18
+#equations                      83
+#invalid equations               0
+field characteristic    2147483629
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         4
+info level                       1
+generate pbm files               0
+------------------------------------------
+Dimension of quotient: 2
+Prime 2147483629 is too large.
+One needs to use updated linear algebra fglm functions
+
+[  286.7s] msolve output head: 

@@ -1,0 +1,15 @@
+{
+ "instance": "coupled-pair-rational-d4-strict",
+ "d": 4,
+ "D": "X0**4 - X0**2*Y0**2 + Y0**4",
+ "N": [
+  "X0**2*X1*X2*Y0/6 - X1*X2*Y0**3/6",
+  "0",
+  "0",
+  "X0**3*X1*X2/6",
+  "0",
+  "0"
+ ],
+ "Q": "0",
+ "family": "planted_cpr"
+}

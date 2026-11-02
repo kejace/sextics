@@ -1,0 +1,17 @@
+{'alive': 40, 'rank': 214, 'npairs': 400, 'nquads': 368, 'squares_modp': 23, 'squares_certified': 23, 'monos': 51}
+{'alive': 17, 'rank': 60, 'npairs': 76, 'nquads': 272, 'squares_modp': 12, 'squares_certified': 12, 'monos': 39}
+{'alive': 5, 'rank': 4, 'npairs': 10, 'nquads': 49, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 5, 'rank': 9, 'npairs': 15, 'nquads': 21, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 20, 'rank': 63, 'npairs': 184, 'nquads': 116, 'squares_modp': 1, 'squares_certified': 1, 'monos': 18}
+{'alive': 19, 'rank': 44, 'npairs': 165, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 19, 'rank': 44, 'npairs': 165, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 19, 'rank': 62, 'npairs': 165, 'nquads': 104, 'squares_modp': 1, 'squares_certified': 1, 'monos': 17}
+{'alive': 18, 'rank': 44, 'npairs': 147, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 18, 'rank': 64, 'npairs': 149, 'nquads': 86, 'squares_modp': 3, 'squares_certified': 3, 'monos': 6}
+{'alive': 15, 'rank': 49, 'npairs': 102, 'nquads': 58, 'squares_modp': 0, 'squares_certified': 0, 'monos': 3}
+{'alive': 20, 'rank': 63, 'npairs': 184, 'nquads': 109, 'squares_modp': 1, 'squares_certified': 1, 'monos': 18}
+{'alive': 19, 'rank': 44, 'npairs': 165, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 19, 'rank': 48, 'npairs': 165, 'nquads': 48, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 30, 'rank': 82, 'npairs': 392, 'nquads': 118, 'squares_modp': 2, 'squares_certified': 2, 'monos': 31}
+{'alive': 28, 'rank': 44, 'npairs': 345, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 28, 'rank': 44, 'npairs': 345, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}

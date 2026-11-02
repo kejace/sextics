@@ -1,0 +1,20 @@
+{
+ "exp": "polyfarkas-deg1",
+ "family": "test: single D = F_X0 (k = 1)",
+ "tag": "test_FX0",
+ "d": 5,
+ "prime": 1000000007,
+ "rows": 1075,
+ "cols": 540,
+ "equations": 540,
+ "unknowns": 1075,
+ "nullity": 633,
+ "ncubics": 194,
+ "dimW_affine": 0,
+ "vdimW": 3,
+ "dimW_minus_Euler_affine": null,
+ "vdimW_minus_Euler": null,
+ "seconds": 1.8,
+ "job": "polyfarkas",
+ "result": "W = V0 cap V(cubics): affine dim 0; after removing the Euler point (D = F): affine dim None"
+}

@@ -1,0 +1,29 @@
+{
+ "decomposition_exact": true,
+ "control1_split_D_f": true,
+ "control1_relaxation_zero": true,
+ "control1_quadrics_vanish_at_f": true,
+ "control2_coupled-pair-rational-d4-strict": {
+  "consistent": true,
+  "relaxation_zero": true
+ },
+ "control2_f3-block-x0-quartic-strict": {
+  "consistent": true,
+  "relaxation_zero": true
+ },
+ "control2_completed-square-nambu-holdout": {
+  "consistent": true,
+  "relaxation_zero": true
+ },
+ "control3_EX_F_w2": {
+  "consistent": false,
+  "rank_M": 364,
+  "rank_aug": 365,
+  "rows": 3080,
+  "cols": 388,
+  "n_koszul": 162,
+  "n_C": 226,
+  "t_build": 11.1,
+  "t_rref": 50.5
+ }
+}

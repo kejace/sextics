@@ -1,0 +1,36 @@
+Verification logs: /tmp/hodge-proof-check-l51w1uqy
+compile-HodgeTarget: starting
+compile-HodgeTarget: passed in 4.5s
+compile-HodgeWitness: starting
+compile-HodgeWitness: passed in 10.5s
+compile-Witness: starting
+compile-Witness: passed in 541.4s
+compile-Solution: starting
+compile-Solution: passed in 204.4s
+compile-HodgeChecked: starting
+compile-HodgeChecked: passed in 4.7s
+kernel-HodgeTarget: starting
+kernel-HodgeTarget: passed in 10.4s
+kernel-HodgeWitness: starting
+kernel-HodgeWitness: passed in 10.5s
+kernel-Witness: starting
+kernel-Witness: passed in 40.9s
+kernel-Solution: starting
+kernel-Solution: passed in 16.9s
+kernel-HodgeChecked: starting
+kernel-HodgeChecked: passed in 11.5s
+theorem-audit: starting
+theorem-audit: passed in 41.2s
+{
+  "leanVersion": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "kernelReplay": true,
+  "axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "witnessChecked": true,
+  "theorem": "Submission.certificate",
+  "sandbox": "docker-no-network",
+  "toolchain": "leanprover/lean4:v4.33.0"
+}

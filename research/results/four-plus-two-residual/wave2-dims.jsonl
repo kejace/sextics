@@ -1,0 +1,54 @@
+{"kind": "core-kernel", "k": 0, "par": 0, "nmons": 1, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 1, "agree_two_primes": true, "ts": "2026-11-02T00:24:29"}
+{"kind": "core-kernel", "k": 0, "par": 1, "nmons": 0, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 0, "agree_two_primes": true, "ts": "2026-11-02T00:24:29"}
+{"kind": "core-kernel", "k": 1, "par": 0, "nmons": 2, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 2, "agree_two_primes": true, "ts": "2026-11-02T00:24:29"}
+{"kind": "core-kernel", "k": 1, "par": 1, "nmons": 2, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 2, "agree_two_primes": true, "ts": "2026-11-02T00:24:29"}
+{"kind": "core-kernel", "k": 2, "par": 0, "nmons": 6, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 6, "agree_two_primes": true, "ts": "2026-11-02T00:24:29"}
+{"kind": "core-kernel", "k": 2, "par": 1, "nmons": 4, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 4, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 3, "par": 0, "nmons": 10, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 10, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 3, "par": 1, "nmons": 10, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 10, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 4, "par": 0, "nmons": 19, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 19, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 4, "par": 1, "nmons": 16, "dimKer": 0, "dimJk": 0, "dimKer_modJ": 0, "ring_dim": 16, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 5, "par": 0, "nmons": 28, "dimKer": 2, "dimJk": 2, "dimKer_modJ": 0, "ring_dim": 26, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 5, "par": 1, "nmons": 28, "dimKer": 2, "dimJk": 2, "dimKer_modJ": 0, "ring_dim": 26, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 6, "par": 0, "nmons": 44, "dimKer": 28, "dimJk": 8, "dimKer_modJ": 20, "ring_dim": 36, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 6, "par": 1, "nmons": 40, "dimKer": 21, "dimJk": 8, "dimKer_modJ": 13, "ring_dim": 32, "agree_two_primes": true, "ts": "2026-11-02T00:24:30"}
+{"kind": "core-kernel", "k": 7, "par": 0, "nmons": 60, "dimKer": 50, "dimJk": 20, "dimKer_modJ": 30, "ring_dim": 40, "agree_two_primes": true, "ts": "2026-11-02T00:24:31"}
+{"kind": "core-kernel", "k": 7, "par": 1, "nmons": 60, "dimKer": 50, "dimJk": 20, "dimKer_modJ": 30, "ring_dim": 40, "agree_two_primes": true, "ts": "2026-11-02T00:24:31"}
+{"kind": "core-kernel", "k": 8, "par": 0, "nmons": 85, "dimKer": 81, "dimJk": 40, "dimKer_modJ": 41, "ring_dim": 45, "agree_two_primes": true, "ts": "2026-11-02T00:24:31"}
+{"kind": "core-kernel", "k": 8, "par": 1, "nmons": 80, "dimKer": 74, "dimJk": 40, "dimKer_modJ": 34, "ring_dim": 40, "agree_two_primes": true, "ts": "2026-11-02T00:24:32"}
+{"kind": "core-kernel", "k": 9, "par": 0, "nmons": 110, "dimKer": 108, "dimJk": 70, "dimKer_modJ": 38, "ring_dim": 40, "agree_two_primes": true, "ts": "2026-11-02T00:24:33"}
+{"kind": "core-kernel", "k": 9, "par": 1, "nmons": 110, "dimKer": 108, "dimJk": 70, "dimKer_modJ": 38, "ring_dim": 40, "agree_two_primes": true, "ts": "2026-11-02T00:24:33"}
+{"kind": "core-kernel", "k": 10, "par": 0, "nmons": 146, "dimKer": 146, "dimJk": 110, "dimKer_modJ": 36, "ring_dim": 36, "agree_two_primes": true, "ts": "2026-11-02T00:24:34"}
+{"kind": "core-kernel", "k": 10, "par": 1, "nmons": 140, "dimKer": 139, "dimJk": 108, "dimKer_modJ": 31, "ring_dim": 32, "agree_two_primes": true, "ts": "2026-11-02T00:24:36"}
+{"kind": "core-kernel", "k": 11, "par": 0, "nmons": 182, "dimKer": 182, "dimJk": 156, "dimKer_modJ": 26, "ring_dim": 26, "agree_two_primes": true, "ts": "2026-11-02T00:24:37"}
+{"kind": "core-kernel", "k": 11, "par": 1, "nmons": 182, "dimKer": 182, "dimJk": 156, "dimKer_modJ": 26, "ring_dim": 26, "agree_two_primes": true, "ts": "2026-11-02T00:24:39"}
+{"kind": "core-kernel", "k": 12, "par": 0, "nmons": 231, "dimKer": 231, "dimJk": 212, "dimKer_modJ": 19, "ring_dim": 19, "agree_two_primes": true, "ts": "2026-11-02T00:24:42"}
+{"kind": "core-kernel", "k": 12, "par": 1, "nmons": 224, "dimKer": 224, "dimJk": 208, "dimKer_modJ": 16, "ring_dim": 16, "agree_two_primes": true, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 0, "parityY": 0, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 0, "parityY": 1, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 1, "parityY": 0, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 1, "parityY": 1, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 2, "parityY": 0, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 2, "parityY": 1, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 3, "parityY": 0, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 3, "parityY": 1, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 4, "parityY": 0, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 4, "parityY": 1, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 5, "parityY": 0, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 5, "parityY": 1, "dimKernel_modJ_pred": 0, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 6, "parityY": 0, "dimKernel_modJ_pred": 20, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 6, "parityY": 1, "dimKernel_modJ_pred": 13, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 7, "parityY": 0, "dimKernel_modJ_pred": 63, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 7, "parityY": 1, "dimKernel_modJ_pred": 63, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 8, "parityY": 0, "dimKernel_modJ_pred": 154, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 8, "parityY": 1, "dimKernel_modJ_pred": 140, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 9, "parityY": 0, "dimKernel_modJ_pred": 269, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 9, "parityY": 1, "dimKernel_modJ_pred": 269, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 10, "parityY": 0, "dimKernel_modJ_pred": 434, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 10, "parityY": 1, "dimKernel_modJ_pred": 415, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 11, "parityY": 0, "dimKernel_modJ_pred": 573, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 11, "parityY": 1, "dimKernel_modJ_pred": 573, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 12, "parityY": 0, "dimKernel_modJ_pred": 690, "ts": "2026-11-02T00:24:44"}
+{"kind": "tensor-pred", "d": 12, "parityY": 1, "dimKernel_modJ_pred": 668, "ts": "2026-11-02T00:24:44"}
+{"kind": "dims", "d": 4, "sector": [0, 3, 0], "nmons": 2, "dimFam_modp": [0, 0], "dimJ": 0, "dimFmult": 0, "rank_gens": 16, "rows": 56, "dimFam_num": 0, "sv_kept_max": NaN, "sv_dropped_min": 1.0, "dimFam": 0, "dimKernel_modJ": 0, "parityY": 1, "seconds": 0.0, "ts": "2026-11-02T00:24:45"}
+{"kind": "dims", "d": 4, "sector": [0, 0, 0], "nmons": 3, "dimFam_modp": [0, 0], "dimJ": 0, "dimFmult": 0, "rank_gens": 24, "rows": 84, "dimFam_num": 0, "sv_kept_max": NaN, "sv_dropped_min": 1.0, "dimFam": 0, "dimKernel_modJ": 0, "parityY": 0, "seconds": 0.0, "ts": "2026-11-02T00:24:45"}

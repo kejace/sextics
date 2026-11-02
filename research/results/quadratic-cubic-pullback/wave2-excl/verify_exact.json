@@ -1,0 +1,54 @@
+{
+ "claims": {
+  "F_eq_sum_Qi3": true,
+  "F_terms": 50,
+  "F_Yeven": true,
+  "A": "X0**3*Y0**3",
+  "q": 1,
+  "S6_odd": 226,
+  "S6_even": 236,
+  "R6_odd_h31_plus": 208,
+  "R6_even_h31_minus": 218,
+  "rank_J6_odd_exact": 18,
+  "A_notin_J6": true,
+  "delta_notin_J6": true,
+  "A_delta_independent_mod_J6": true,
+  "delta_terms": 64,
+  "delta_Yodd": true,
+  "delta_deg": 6,
+  "delta_mod5": {
+   "(1, 1, 1, 1, 1, 1)": 4
+  },
+  "F_mod5_is_Fermat": true,
+  "rank_second_partials_exact": 21,
+  "rank_first_partials_exact": 6,
+  "diagonal_group_order": 2,
+  "diagonal_group_elements": [
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "bigraded_term_counts_Xdeg": {
+   "6": 10,
+   "4": 15,
+   "2": 15,
+   "0": 10
+  },
+  "A_Yodd": true,
+  "fermat_control_witness_verifies": true
+ },
+ "seconds": 66.3
+}

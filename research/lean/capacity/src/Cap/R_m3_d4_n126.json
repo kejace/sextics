@@ -1,0 +1,33 @@
+{
+ "F": 22,
+ "A": 18,
+ "q": 1,
+ "D": 126,
+ "N": [
+  126,
+  126,
+  0,
+  126,
+  126,
+  0
+ ],
+ "Q": 0,
+ "d": 4,
+ "e1_pairs": 5796,
+ "e1_monos": 1698,
+ "e2_pairs": 40824,
+ "e2_monos": 0,
+ "e1_ok": true,
+ "e2_ok": true,
+ "pairs_total": 46620,
+ "monos_total": 1698,
+ "label": "R_m3_d4_n126",
+ "Fid": "m3-coupled",
+ "which": [
+  "e1",
+  "e2"
+ ],
+ "seed": 0,
+ "route": "reflect",
+ "bytes": 23987
+}
