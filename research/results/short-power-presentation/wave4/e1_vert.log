@@ -8,3 +8,4 @@ DONE vert 10 0 fam 12 kernel 6 6 J-part 6 interesting 0 0 hilbert True True Fdiv
 DONE vert 10 1 fam 9 kernel 4 4 J-part 4 interesting 0 0 hilbert True True Fdiv [] 26s
 DONE vert 11 0 fam 12 kernel 6 6 J-part 6 interesting 0 0 hilbert True True Fdiv [] 46s
 DONE vert 11 1 fam 12 kernel 6 6 J-part 6 interesting 0 0 hilbert True True Fdiv [] 42s
+DONE vert 12 0 fam 18 kernel 11 11 J-part 11 interesting 0 0 hilbert True True Fdiv [] 68s

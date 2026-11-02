@@ -33,3 +33,5 @@
 {"what": "E1-kernel-vert", "d": 11, "parD": 1, "prime": [2147483647, 2147483629], "result": "fam 12 | kernel 6/6 | J-part 6/6 | interesting 0/0 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T04:46:35Z"}
 {"what": "E1-kernel-coneXM", "d": 10, "parD": 1, "prime": [2147483647, 2147483629], "result": "fam 125 | kernel 70/70 | J-part 66/66 | interesting 4/4 | hilbert True/True", "file": "e1_coneXM.jsonl", "time": "2026-11-02T04:46:48Z"}
 {"what": "E1-kernel-coneLY", "d": 10, "parD": 1, "prime": [2147483647, 2147483629], "result": "fam 125 | kernel 70/70 | J-part 66/66 | interesting 4/4 | hilbert True/True", "file": "e1_coneLY.jsonl", "time": "2026-11-02T04:47:00Z"}
+{"what": "E1-kernel-vert", "d": 12, "parD": 0, "prime": [2147483647, 2147483629], "result": "fam 18 | kernel 11/11 | J-part 11/11 | interesting 0/0 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T04:47:43Z"}
+{"what": "E1-kernel-coneXM", "d": 11, "parD": 0, "prime": [2147483647, 2147483629], "result": "fam 203 | kernel 147/147 | J-part 141/141 | interesting 6/6 | hilbert True/True", "file": "e1_coneXM.jsonl", "time": "2026-11-02T04:47:51Z"}

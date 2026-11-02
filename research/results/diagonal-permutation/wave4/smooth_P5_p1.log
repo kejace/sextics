@@ -1,2 +1,7 @@
 chart X0 ('empty', 2.8)
 chart X1 ('empty', 2.6)
+chart X2 ('empty', 2.9)
+chart Y0 ('empty', 2.9)
+chart Y1 ('empty', 4.7)
+chart Y2 ('empty', 5.0)
+{"n": 6, "rows": 37, "cols": 279, "rank_Q": 36, "rank_Fp": 36, "kernel_dim_Q": 1, "kernel_dim_Fp": 1, "h0_T_Q": 0, "h0_T_Fp": 0}

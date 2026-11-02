@@ -17,3 +17,4 @@
 {"what": "chart-reduction-reverified", "result": {"2": {"w(G)-2lam^b s": "0", "(div - lam^b crit) vanishes on G=0": "0"}, "4": {"w(G)-2lam^b s": "0", "(div - lam^b crit) vanishes on G=0": "0"}}, "ts": "2026-11-02T04:46:26Z"}
 {"what": "scalar-conversion-(3,2)-reverified", "result": {"random_trials_identity_holds": [true, true, true, true]}, "ts": "2026-11-02T04:46:27Z"}
 {"ts":"2026-11-02T04:47:17Z","what":"msolve-incidence-degree-local-launch","prime":65521,"params":[2,3,1,1,1],"file":"wave4/inc_seed_p65521.local.log"}
+{"what": "e1-mult-kernel-Amix", "prime": 2147483647, "d": 8, "parity": 0, "result": {"d": 8, "parity": 0, "Amix_kernel_in_RJ": 0, "Amix_admissible": 168, "J_d": 168, "RJ_d": 483, "sec": 123.4}, "ts": "2026-11-02T04:47:53Z"}
