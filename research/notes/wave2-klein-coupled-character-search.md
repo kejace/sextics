@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 22:29:47 from 928 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 22:31:49 from 929 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -98,6 +98,7 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 | 9 | even | 3 | KJ | 54 | 52 | 1972x240 | 3 | 1.75e-02 | 1.75e-02 | 1.75e-02 | 0 | 0 | lm | 0 |
 | 9 | even | 4 | K | 10 | 10 | 1932x354 | 6 | 7.51e-01 | 7.51e-01 | 7.51e-01 | 0 | 0 | lm | 0 |
 | 9 | even | 4 | KJ | 73 | 66 | 1932x354 | 2 | 5.61e-01 | 5.61e-01 | 5.61e-01 | 0 | 0 | lm | 0 |
+| 9 | even | 5 | KJ | 53 | 51 | 1953x272 | 3 | 1.22e-02 | 4.54e-02 | 7.85e-02 | 0 | 0 | lm | 0 |
 | 9 | even | 6 | K | 3 | 3 | 1966x272 | 6 | 1.69e-01 | 8.54e-01 | 8.54e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 1 | K | 5 | 5 | 1947x264 | 5 | 8.90e-01 | 8.90e-01 | 8.90e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 4 | K | 9 | 9 | 1973x216 | 6 | 8.66e-01 | 8.66e-01 | 8.66e-01 | 0 | 0 | lm | 0 |
@@ -305,7 +306,6 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 
 ## Remote job queue (tail)
 ```
-22:18:04 gate closed for w2-control: 00), available memory 80 GB (min 110), 66 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:19:39 gate closed for w2-control: 0), available memory 136 GB (min 110), 65 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:21:13 gate closed for w2-control: 0), available memory 158 GB (min 110), 65 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:22:47 gate closed for w2-control: 0), available memory 172 GB (min 110), 62 jobs running with 322 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
@@ -313,6 +313,7 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 22:25:55 gate closed for w2-control: 0), available memory 165 GB (min 110), 61 jobs running with 320 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:27:29 gate closed for w2-control: 0), available memory 163 GB (min 110), 61 jobs running with 320 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:29:04 gate closed for w2-control: 0), available memory 134 GB (min 110), 62 jobs running with 328 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:30:38 gate closed for w2-control: 0), available memory 161 GB (min 110), 62 jobs running with 328 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation

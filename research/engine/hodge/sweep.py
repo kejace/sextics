@@ -22,7 +22,9 @@ Per candidate (in a separate worker process, killed on timeout):
      <witness-dir>/witness-<hash>.json in the witness.json format of the repo.
 
 Output: one JSON line per candidate appended to --out and (if given) to --log with the
-schema  {"D","d","family","e1","consistent","rank","nullity","seconds","note", ...}.
+schema  {"D","d","family","kind","e1","consistent","verify","control","rank","nullity","solver","seconds","note", ...}
+(kind: fixedD | e1 | skipped; verify: True only after core.verify_witness on an exact witness; control: from
+--control or a "control": true candidate field).
 Resumable: candidates whose normalized D already appears in --out are skipped.
 """
 from __future__ import annotations
@@ -72,12 +74,17 @@ def witness_record(iid, D, N, Q, family=None):
             'family': family}
 
 
-def run_candidate(iid, F, A, q, cand, dmax, do_e1=True, mode='fast', symmetric=False):
-    """Evaluate one candidate.  Returns the result record (dict)."""
+def run_candidate(iid, F, A, q, cand, dmax, do_e1=True, mode='fast', symmetric=False, control=False):
+    """Evaluate one candidate.  Returns the result record (dict).
+
+    Record schema additions (engine v3): kind = 'fixedD' (full system solved) | 'e1' (stopped at the e1
+    prefilter) | 'skipped' (parse/parity/degree-cap); verify = True only after core.verify_witness passed on
+    an exact witness; control = True for calibration runs (candidate field "control": true or --control)."""
     t0 = time.time()
     rec = {'D': cand['D'], 'family': cand.get('family', 'unspecified'), 'instance': iid,
-           'engine': fixed_d.ENGINE_VERSION, 'e1': None, 'consistent': None, 'rank': None,
-           'nullity': None, 'note': ''}
+           'engine': fixed_d.ENGINE_VERSION, 'kind': 'fixedD', 'verify': False,
+           'control': bool(control or cand.get('control', False)),
+           'e1': None, 'consistent': None, 'rank': None, 'nullity': None, 'note': ''}
     try:
         D = core.parse(cand['D'])
     except Exception as ex:
@@ -93,6 +100,7 @@ def run_candidate(iid, F, A, q, cand, dmax, do_e1=True, mode='fast', symmetric=F
     elif dmax is not None and d > dmax:
         rec['note'] = f'skipped: degree {d} > cap {dmax}'
     if rec['note']:
+        rec['kind'] = 'skipped'
         rec['seconds'] = round(time.time() - t0, 2)
         return rec
     notes = []
@@ -112,6 +120,7 @@ def run_candidate(iid, F, A, q, cand, dmax, do_e1=True, mode='fast', symmetric=F
             rec['e1_info'] = {k: info[k] for k in ('rank', 'rank_aug', 'rows', 'cols')}
             if not ok:
                 rec['consistent'] = False
+                rec['kind'] = 'e1'
                 notes.append('e1 fails: A*D not in J(F) mod p')
                 rec['note'] = '; '.join(notes)
                 rec['seconds'] = round(time.time() - t0, 2)
@@ -145,7 +154,9 @@ def run_candidate(iid, F, A, q, cand, dmax, do_e1=True, mode='fast', symmetric=F
                 out = fixed_d.solve_fixed_D_fast(F, A, q, D)
                 rec.update({'consistent': bool(out['consistent']), 'rank': out['rank'],
                             'nullity': out['nullity'], 'rows': out['rows'], 'cols': out['cols'],
-                            'solver': 'fast'})
+                            'solver': 'fast:' + str(out.get('solver', 'compressed'))})
+                if out.get('sparse_stats'):
+                    rec['sparse_stats'] = out['sparse_stats']
                 if out['consistent']:
                     if out.get('exact'):
                         exact = (out['N'], out['Q'])
@@ -175,6 +186,7 @@ def run_candidate(iid, F, A, q, cand, dmax, do_e1=True, mode='fast', symmetric=F
         N, Q = exact
         ok, info = core.verify_witness(F, A, q, D, N, Q)
         rec['exact'] = bool(ok)
+        rec['verify'] = bool(ok)
         if ok:
             rec['witness'] = witness_record(iid, D, N, Q, rec['family'])
             rec['strict'] = not Q
@@ -190,10 +202,10 @@ def run_candidate(iid, F, A, q, cand, dmax, do_e1=True, mode='fast', symmetric=F
 # worker processes
 # ----------------------------------------------------------------------------
 
-def _worker(iid, cand, dmax, do_e1, mode, symmetric, conn):
+def _worker(iid, cand, dmax, do_e1, mode, symmetric, conn, control=False):
     try:
         F, A, q, _ = core.load_instance(iid)
-        rec = run_candidate(iid, F, A, q, cand, dmax, do_e1, mode, symmetric)
+        rec = run_candidate(iid, F, A, q, cand, dmax, do_e1, mode, symmetric, control=control)
     except Exception as ex:
         rec = {'D': cand.get('D'), 'family': cand.get('family'), 'instance': iid, 'd': None,
                'e1': None, 'consistent': None, 'rank': None, 'nullity': None, 'seconds': None,
@@ -206,7 +218,7 @@ def _worker(iid, cand, dmax, do_e1, mode, symmetric, conn):
 
 
 def sweep(iid, cands, out_path, workers=2, dmax=None, log_path=None, witness_dir=None,
-          timeout=None, do_e1=True, mode='fast', symmetric=False, powers=(1,), verbose=True):
+          timeout=None, do_e1=True, mode='fast', symmetric=False, powers=(1,), verbose=True, control=False):
     """Run the sweep.  Returns list of result records (new ones only)."""
     done = read_done(out_path)
     jobs = []
@@ -244,7 +256,8 @@ def sweep(iid, cands, out_path, workers=2, dmax=None, log_path=None, witness_dir
         line = json.dumps(rec, default=str)
         out_f.write(line + '\n'); out_f.flush()
         if log_f:
-            slim = {k: rec.get(k) for k in ('D', 'd', 'family', 'e1', 'consistent', 'rank', 'nullity', 'seconds', 'note')}
+            slim = {k: rec.get(k) for k in ('D', 'd', 'family', 'kind', 'e1', 'consistent', 'verify', 'control',
+                                             'rank', 'nullity', 'solver', 'seconds', 'note')}
             slim['engine'] = rec.get('engine', fixed_d.ENGINE_VERSION)
             slim['instance'] = iid
             log_f.write(json.dumps(slim, default=str) + '\n'); log_f.flush()
@@ -265,7 +278,7 @@ def sweep(iid, cands, out_path, workers=2, dmax=None, log_path=None, witness_dir
             while idx < len(jobs) and len(running) < workers:
                 cand = jobs[idx]; idx += 1
                 parent, child = ctx.Pipe(duplex=False)
-                pr = ctx.Process(target=_worker, args=(iid, cand, dmax, do_e1, mode, symmetric, child))
+                pr = ctx.Process(target=_worker, args=(iid, cand, dmax, do_e1, mode, symmetric, child, control))
                 pr.start(); child.close()
                 running.append((pr, parent, cand, time.time()))
             still = []
@@ -315,6 +328,7 @@ def main(argv=None):
     ap.add_argument('--no-e1', action='store_true', help='skip the e1 prefilter')
     ap.add_argument('--dense', action='store_true', help='use the dense rref + CRT solver instead of the compressed one')
     ap.add_argument('--symmetric', action='store_true', help='use the diagonal-symmetry sector-restricted solver')
+    ap.add_argument('--control', action='store_true', help='mark every record control=true (calibration / illegal-D runs)')
     ap.add_argument('--quiet', action='store_true')
     a = ap.parse_args(argv)
     cands = read_candidates(a.candidates)
@@ -322,7 +336,7 @@ def main(argv=None):
     res = sweep(a.instance, cands, a.out, workers=a.workers, dmax=a.dmax, log_path=a.log,
                 witness_dir=a.witness_dir, timeout=a.timeout, do_e1=not a.no_e1,
                 mode='dense' if a.dense else 'fast', symmetric=a.symmetric, powers=powers,
-                verbose=not a.quiet)
+                verbose=not a.quiet, control=a.control)
     nwit = sum(1 for r in res if r.get('witness'))
     ncons = sum(1 for r in res if r.get('consistent'))
     print(f'[sweep] done: {len(res)} run, {ncons} consistent, {nwit} exact witnesses', file=sys.stderr)

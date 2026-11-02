@@ -11,3 +11,4 @@
 21:55:38 submitted search-symmetric-sextic-residual-w2b-xcheck (running before: ['search-symmetric-sextic-residual-w2b-vp1b', 'search-symmetric-sextic-residual-w2b-vp2b', 'search-symmetric-sextic-residual-w2b-jac1'])
 22:11:48 submitted search-symmetric-sextic-residual-w2b-polish (running before: ['search-symmetric-sextic-residual-w2b-vp1b', 'search-symmetric-sextic-residual-w2b-vp2b', 'search-symmetric-sextic-residual-w2b-jac1'])
 22:26:07 submitted search-symmetric-sextic-residual-w2b-struct (running before: ['search-symmetric-sextic-residual-w2b-vp1b', 'search-symmetric-sextic-residual-w2b-vp2b', 'search-symmetric-sextic-residual-w2b-jac1'])
+22:30:13 submitted search-symmetric-sextic-residual-w2b-vp3 (running before: ['search-symmetric-sextic-residual-w2b-vp1b', 'search-symmetric-sextic-residual-w2b-vp2b', 'search-symmetric-sextic-residual-w2b-jac1'])

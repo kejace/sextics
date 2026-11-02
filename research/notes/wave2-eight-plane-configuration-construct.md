@@ -1,7 +1,8 @@
 # Wave 2 — eight-plane-configuration — CONSTRUCTION lens
 
-STATUS: in progress (2026-11-01 22:30). NO WITNESS. Mechanisms (i),(iii),(iv),(v) analysed and excluded with
-verified hypotheses; (ii) awaiting the Fano-scheme-of-planes computation (remote job construct-epc-fanoplanes).
+STATUS: parts 1-3 written (2026-11-01 22:45). NO WITNESS. Mechanisms (i),(iii),(iv),(v) excluded with verified
+hypotheses; (ii): Aut(X) = <tau> proved within block-monomial maps (exact over Q(i)), conditional on the
+Fano-scheme-of-planes check (remote job construct-epc-fanoplanes queued behind capacity; local probe of chart00).
 
 Log: /tmp/hodge/results/eight-plane-configuration/wave2-construct.log.jsonl
 Scripts/data: /tmp/hodge/results/eight-plane-configuration/wave2-construct/ (mech_i_ranks.py/.json,
@@ -13,8 +14,9 @@ quartic_cover.py/.json, fano_planes_gen.py, fano/chart*.ms)
 2. wave2-eight-plane-configuration-construct-part2.md — the quartic plane-pair covers X -> Pi x Pi':
    explicit equations, computational checks (S_4 monodromy, reduced discriminant, non-isotrivial
    elliptic carrier), the omega-descent theorem and its proof, the precise failure point.
-3. wave2-eight-plane-configuration-construct-part3.md — Fano scheme of planes / Aut(X), loophole analysis,
-   remaining ideas (to be written).
+3. wave2-eight-plane-configuration-construct-part3.md — Aut(X) classification, the (H5) loophole analysis
+   (Delta on the twisted diagonal = F60 F06 S^2; smooth/transverse branches), ramification divisors of the
+   covers = X n V(sum eps_j R_j F) (excluded degree-6 Jacobian denominators), precise stopping statement.
 
 ## Summary (20 lines)
 - The target is the tau-invariant (3,1) class; X is Calabi–Yau with tau^* omega = -omega, tau^* alpha = alpha.

@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 22:20 EST from 783 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 22:32 EST from 789 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -95,7 +95,7 @@ towards a genuine zero in some higher degree. The discriminating test is Gauss�
 inside the admissible subspace (`w2lib.polish`): a true zero drops to ~1e-28 in a few iterations (as it does on the
 Fermat control), a nonzero minimum stays put (as at d = 7: 1.544e-4 before and after). The polish is now part of
 every sector summary (`best_polished_rel`) and the queued `xcheck` job polishes the best d = 8, 9, 10 points
-reproduced from their seeds. First result (job `polish`, §7b): the best d = 10 point (rel 2.1e-6, dimP = 80) is a genuine nonzero local minimum — unchanged by
+reproduced from their seeds. Result (job `polish`, §7b): the best points of all five sectors d = 8, 9 (both parities) and d = 10 (pD = 0; rel 2.1e-6, dimP = 80) are genuine nonzero local minima — unchanged by
 the polish, by 2000 further L-BFGS iterations and by a second polish — so the decreasing trend is the growing-freedom effect, not an
 approach to a solution. The remaining sectors are checked the same way as they finish.
 
@@ -157,9 +157,10 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=6 pD=1 | jac1 | 89 | 2.62e-01 | 3.5e-01 | 0 | 0 | 0.262: 1, 0.314: 1, 0.319: 14, 0.331: 3, 0.34: 8 |
-| triv d=9 pD=1 | vp1b | 23 | 1.63e-05 | 1.6e-05 | 0 | 0 | 1.63e-05: 22, 7.12e-05: 1 |
-| triv d=10 pD=0 | vp2b | 22 | 2.07e-06 | 1.2e-05 | 0 | 0 | 2.07e-06: 8, 2.94e-06: 2, 9.6e-06: 1, 1.17e-05: 9, 1.72e-05: 1 |
+| jac d=6 pD=1 | jac1 | 207 | 2.62e-01 | 3.5e-01 | 0 | 0 | 0.262: 1, 0.314: 1, 0.319: 35, 0.331: 6, 0.34: 17 |
+| ternX-triv d=7 pD=0 | struct | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
+| triv d=9 pD=1 | vp1b | 45 | 1.63e-05 | 1.6e-05 | 0 | 0 | 1.63e-05: 44, 7.12e-05: 1 |
+| triv d=10 pD=0 | vp2b | 25 | 2.07e-06 | 9.6e-06 | 0 | 0 | 2.07e-06: 10, 2.94e-06: 2, 9.6e-06: 1, 1.17e-05: 9, 1.72e-05: 1 |
 
 ## 7b. Gauss–Newton polish of the best points (is a small residual a zero?)
 
@@ -167,6 +168,10 @@ The best restart of a sector is reproduced from its seed, polished by joint Gaus
 
 | sector | dimP | remote rel | re-run | polished | +2000 L-BFGS | polished again | verdict |
 |---|---:|---:|---:|---:|---:|---:|---|
+| triv d=8 pD=0 | 18 | 6.39e-04 | 6.39e-04 | 6.39e-04 | 6.39e-04 | 6.39e-04 | nonzero minimum (stable) |
+| triv d=8 pD=1 | 13 | 1.00e-04 | 1.00e-04 | 1.00e-04 | 1.00e-04 | 1.00e-04 | nonzero minimum (stable) |
+| triv d=9 pD=0 | 29 | 3.84e-05 | 5.76e-05 | 5.76e-05 | 5.76e-05 | 5.76e-05 | nonzero minimum (stable) |
+| triv d=9 pD=1 | 29 | 1.63e-05 | 1.63e-05 | 1.63e-05 | 1.63e-05 | 1.63e-05 | nonzero minimum (stable) |
 | triv d=10 pD=0 | 80 | 2.07e-06 | 2.07e-06 | 2.07e-06 | 2.07e-06 | 2.07e-06 | nonzero minimum (stable) |
 
 ## 8. Single-denominator exact solves (character-reduced systems mod p, CRT lift on consistency)
@@ -181,6 +186,13 @@ Structured candidates: `HXY` d=-1 sgnsgn: inconsistent (rank None, null None, No
 
 Kernel classes / combos per sector (tested, consistent, errors): sgnX d=8 pD=1: 4/0/0; sgnX d=9 pD=0: 10/0/0; sgnX d=10 pD=0: 7/0/0; sgnX d=10 pD=1: 13/0/0; sgnX d=11 pD=0: 22/0/0; sgnX d=11 pD=1: 9/0/0; sgnX d=12 pD=0: 16/0/0; sgnX d=12 pD=1: 21/0/0; sgnY d=8 pD=1: 4/0/0; sgnY d=9 pD=1: 10/0/0; sgnY d=10 pD=0: 7/0/0; sgnY d=10 pD=1: 13/0/0; sgnY d=11 pD=0: 9/0/0; sgnY d=11 pD=1: 22/0/0; sgnY d=12 pD=0: 16/0/0; sgnY d=12 pD=1: 21/0/0; sgnsgn d=10 pD=1: 10/0/0; sgnsgn d=11 pD=0: 9/0/0; sgnsgn d=11 pD=1: 9/0/0; sgnsgn d=12 pD=0: 8/0/0; sgnsgn d=12 pD=1: 13/0/0; triv d=8 pD=0: 5/0/0; triv d=9 pD=0: 4/0/0; triv d=9 pD=1: 4/0/0; triv d=10 pD=0: 31/0/0; triv d=10 pD=1: 7/0/0; triv d=11 pD=0: 31/0/0; triv d=11 pD=1: 31/0/0; triv d=12 pD=0: 53/0/0; triv d=12 pD=1: 29/0/0
 
+## 9. Structured vertex families (cones with G-stable vertex; restricted E1 kernel + varpro)
+
+| family | χ | d | pD | monomials | nD | dimK | dimP | restarts | best rel | single solves (consistent/total) | note |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|
+| ternX | triv | 7 | 0 | 36 | 8 | 1 | 1 | 40 | 5.47e-01 | 0/1 |  |
+| ternX | triv | 7 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+
 ## 10. Batches logged per job
 
-`jac1`: 1 records, 1.7 h, `kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `polish`: 1 records, 0.2 h, `single`: 477 records, 14.7 h, `vp1b`: 3 records, 1.9 h
+`jac1`: 1 records, 1.7 h, `kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `polish`: 5 records, 0.2 h, `single`: 477 records, 14.7 h, `struct`: 2 records, 0.0 h, `vp1b`: 3 records, 1.9 h
