@@ -42,3 +42,7 @@
   hess-minor3 d=12 e1=True cons=False rk=2934 217.02s det H[X1,X2,Y1;X2,Y0,Y2] 
   hess-minor3 d=12 e1=True cons=False rk=3268 249.18s det H[X1,X2,Y1;X2,Y1,Y2] 
   hess-minor3 d=12 e1=True cons=False rk=3368 170.94s det H[X1,X2,Y1;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3290 178.22s det H[X1,X2,Y2;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3427 163.31s det H[X1,X2,Y2;X1,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3442 213.14s det H[X1,X2,Y2;X1,X2,Y2] 
+  hess-minor3 d=12 e1=False cons=False rk=-1 95.15s det H[X1,X2,Y2;X2,Y1,Y2] 

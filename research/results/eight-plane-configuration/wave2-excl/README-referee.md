@@ -51,3 +51,9 @@ log `referee.log.jsonl`, verdicts `referee-report.md`.
 
 Note (referee, 22:10 local): `ref_e1.py 1000000009 10` (forced d = 10 kernel, ~1.2 GB) was still running at the time of the commit linked from the
 discussion; its row lands in `referee.log.jsonl` / `ref_e1_d10.out` in a later cron sync of the research branch.
+
+Publication note (referee, 22:25 local): `research/bin/sync.sh` on brunos has not pushed since 19:10 local — the worktree
+`~/devel/sextics-research` sits on a detached HEAD inside an unfinished rebase (`.git/worktrees/sextics-research/rebase-merge`), so its
+commits (e.g. `aa380524`) exist only locally and every push is rejected as non-fast-forward. The owner should `git rebase --abort` (or finish it)
+there and re-run `sync.sh`. This packet and the referee files were published instead through the remote mirror
+(`python3 -m hodge.rjob up --lane eight-plane-configuration`, `rjob notes`, then `sync.sh` on the gcloud box): commit `9ef43ba5656e0ec81492a59c4859c2537f465f19`.
