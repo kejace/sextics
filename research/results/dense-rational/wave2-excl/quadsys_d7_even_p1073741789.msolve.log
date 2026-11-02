@@ -33,4 +33,4 @@ time(rd)  time of the current f4 round in seconds given
 deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
 ------------------------------------------------------------------------------------------------------
   2     482     482     483 x 1830       58.52%      482 new       0 zero         0.28 | 6.10         
-  3    9063    9063   28961 x 37801       2.77%
+  3    9063    9063   28961 x 37801       2.77%     9063 new       0 zero

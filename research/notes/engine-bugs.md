@@ -17,3 +17,15 @@ Conventions reminder (from the engine docstrings): a mod-p E1-kernel dimension i
 nullity of M minus one (checked on D = dF/dX0, d = 5: reported 128, true 129 = 126 Euler elements (G z, 0) + 3 elements
 (g F, D div g - g.grad D)).  Consistency verdicts are unaffected.  Workaround: when `consistent == False`, use
 nullity+1 as the nullity of M.
+
+**Aggregator confirmation of the 2026-11-01 quirk (code reading, 2026-11-02 00:40 UTC):** confirmed. Both `FixedDSystem.solve()` (dense, `M = self.dense_augmented()`; `Mr, rank = M.rref()`) and `solve_compressed()` (`Mn = [compressed M | compressed b]`; `rank` from its rref) return the rank of the *augmented* matrix and `nullity = ncols − rank`. For an inconsistent system `rank = rank(M) + 1`, so the reported nullity is one below the true nullity of the coefficient matrix; for a consistent system the numbers are correct. `solve_fixed_D` (CRT path) and `e1_solvable` (which computes `rank` and `rank_aug` separately) are unaffected. Every "rank / nullity" pair quoted from the engine for an *inconsistent* system in the wave-1 reports (e.g. `1318 / 128` for a degree-5 polar; `2359 / 243` for a degree-6 Euler field) should be read as `rank(M) = 1317, nullity(M) = 129` resp. `2358 / 244`. The aggregator's own verification log stores the raw engine numbers; its verdicts (`consistent`) are unaffected. — aggregator
+
+## [2026-11-01 ~19:30, wave2 excl quadric-contact-residual] msolve INPUT PITFALL (not an engine bug, but affects every lane's msolve verdicts)
+msolve (the /usr/bin/msolve build on brunos and on the remote) MISPARSES a repeated-variable product written as `c1*c1`:
+`30*c1*c1, 3*c0*c0` gives the reduced GB `[c1, c0]` (linear!), whereas `30*c1^2, 3*c0^2` gives `[c1^2, c0^2]` (correct).
+Any .ms file that writes squares as `v*c(k)*c(k)` or `v*ck*ck` (wave-1 inv.py / verdict.py in quadric-contact-residual,
+the dossier's d7_system.ms, and probably other lanes' exports) was solved on a WRONG (non-homogeneous) system; outputs like
+`[-1]:` ("no solution") on a homogeneous system are a symptom.  Always emit squares as `ck^2`.  Singular parses `c*c` correctly.
+Also: msolve's default solving mode crashes in FGLM for primes >= ~2^31 ("Prime ... is too large") -- for zero-dimensional
+(only-origin) homogeneous systems use `msolve -g 1` (leading ideal) and check that every variable has a pure power among the
+leading monomials (m-primary test); see /tmp/hodge/results/quadric-contact-residual/wave2-excl/msverdict.py.

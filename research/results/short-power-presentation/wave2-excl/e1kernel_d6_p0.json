@@ -1,0 +1,12 @@
+{
+ "rec": {
+  "exp": "e1kernel(from quad)",
+  "d": 6,
+  "parD": 0,
+  "p": 2147483629,
+  "kernel mod J": 0,
+  "dim J_d (mod p)": 18,
+  "dim J_d (expected smooth)": 18
+ },
+ "basis_modp": []
+}

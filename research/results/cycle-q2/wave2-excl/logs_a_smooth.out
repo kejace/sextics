@@ -1,0 +1,20 @@
+dim=0
+vdim=15625
+
+k 0 dim R_k = 1
+k 1 dim R_k = 6
+k 2 dim R_k = 21
+k 3 dim R_k = 56
+k 4 dim R_k = 126
+k 5 dim R_k = 246
+k 6 dim R_k = 426
+k 7 dim R_k = 666
+k 8 dim R_k = 951
+k 9 dim R_k = 1246
+k 10 dim R_k = 1506
+k 11 dim R_k = 1686
+k 12 dim R_k = 1751
+k 13 dim R_k = 1686
+k 14 dim R_k = 1506
+k 15 dim R_k = 1246
+k 16 dim R_k = 951

@@ -84,12 +84,16 @@ def to_sparse(colpolys, rhs):
     for e in rhs: rows.setdefault(e, len(rows))
     return rows
 
+def modp(v, p):
+    if isinstance(v, Fraction): return (v.numerator * pow(v.denominator, -1, p)) % p
+    return int(v) % p
+
 def dense_mod(colpolys, rhs, rows, p):
     R, C = len(rows), len(colpolys)
     flat = [0]*(R*(C+1))
     for j, col in enumerate(colpolys):
-        for e, v in col.items(): flat[rows[e]*(C+1)+j] = int(v) % p
-    for e, v in rhs.items(): flat[rows[e]*(C+1)+C] = int(v) % p
+        for e, v in col.items(): flat[rows[e]*(C+1)+j] = modp(v, p)
+    for e, v in rhs.items(): flat[rows[e]*(C+1)+C] = modp(v, p)
     return nmod_mat(R, C+1, flat, p)
 
 def ranks_mod(colpolys, rhs, p):
@@ -108,6 +112,10 @@ def _lin_indep_rows(M):
         if r < rk and int(T[r, j]) != 0:
             piv.append(j); r += 1
     return piv, rk
+
+def _crt(a1, m1, a2, m2):
+    r = core.crt_pair(a1, m1, a2, m2)
+    return r[0] if isinstance(r, tuple) else r
 
 def inconsistency_certificate(colpolys, rhs, primes=PRIMES, max_primes=12, verbose=False):
     """Exact proof that  M x = b  has no solution over Q (hence over C): a rational vector y with
@@ -153,7 +161,7 @@ def inconsistency_certificate(colpolys, rhs, primes=PRIMES, max_primes=12, verbo
             continue
         if acc is None: acc, mod = yp, p
         else:
-            acc = [core.crt_pair(a, mod, b, p) for a, b in zip(acc, yp)]; mod *= p
+            acc = [_crt(a, mod, b, p) for a, b in zip(acc, yp)]; mod *= p
         used_primes.append(p)
         rec = [core.ratrecon(a, mod) for a in acc]
         if all(v is not None for v in rec):

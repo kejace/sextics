@@ -1,0 +1,3 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[rf] E1 lstsq (1764, 1368) rank 1272: relres 4.03e-15 (33.0s)
+[rf] d=6 chi=(0, 0) K=14 rows=1764 nK=96 nQ=138 excludedF=1 built in 39.2s

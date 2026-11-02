@@ -6,6 +6,7 @@ import os, sys
 os.environ['OPENBLAS_NUM_THREADS'] = '4'; os.environ['OMP_NUM_THREADS'] = '4'
 sys.path.insert(0, '/tmp/hodge/results/four-plus-two-residual')
 from w2lib import *
+from w2lib import _nmod_from_polys, _dense
 import multiprocessing as mp
 
 OUT = f'{LANE}/wave2-dims.jsonl'

@@ -23,3 +23,13 @@
 {"event": "k8-e1", "e1": true, "info": {"rank": 5052, "rank_aug": 5052, "rows": 5793, "cols": 6006}, "seconds": 82.5, "lane": "reflection-coupled-residual", "ts": "2026-11-02T00:16:16", "engine": 2}
 {"event": "k8-fixedD-symmetric", "status": "inconsistent", "seconds": 36.1, "prime": 2147483647, "rank": 3781, "nullity": 475, "rows": 22016, "cols": 4256, "full_cols": 7497, "subgroup_size": 4, "group_size": 4, "d": 8, "lane": "reflection-coupled-residual", "ts": "2026-11-02T00:16:52", "engine": 2}
 {"ts": "2026-11-02T00:19:19Z", "event": "wave2-search-start", "lane": "reflection-coupled-residual", "note": "library build; prior: d<=4 excluded, Y-even kernel 0 d<=7, K8 unique at d=8"}
+{"event": "k8-fixedD-full", "seconds": 195.3, "consistent": false, "rank": 6703, "nullity": 794, "rows": 40301, "cols": 7497, "d": 8, "lane": "reflection-coupled-residual", "ts": "2026-11-02T00:20:07", "engine": 2}
+{"step": "e1-dims", "d": 7, "chi": [1, 1], "dim_S": 138, "dim_colon": 18, "dim_J": 18, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 4.2, "ts": "2026-11-02T00:25:48Z"}
+{"step": "e1-dims", "d": 7, "chi": [1, 0], "dim_S": 158, "dim_colon": 23, "dim_J": 23, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 13.2, "ts": "2026-11-02T00:25:59Z"}
+{"step": "e1-dims", "d": 7, "chi": [0, 1], "dim_S": 238, "dim_colon": 40, "dim_J": 40, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 20.6, "ts": "2026-11-02T00:26:05Z"}
+{"step": "e1-dims", "d": 7, "chi": [0, 0], "dim_S": 258, "dim_colon": 45, "dim_J": 45, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 19.1, "ts": "2026-11-02T00:26:07Z"}
+{"step": "e1-dims", "d": 8, "chi": [1, 0], "dim_S": 258, "dim_colon": 64, "dim_J": 64, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 27.3, "ts": "2026-11-02T00:26:11Z"}
+{"step": "e1-dims", "d": 8, "chi": [1, 1], "dim_S": 238, "dim_colon": 56, "dim_J": 56, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 49.1, "ts": "2026-11-02T00:26:33Z"}
+{"step": "e1-dims", "d": 9, "chi": [0, 1], "dim_S": 588, "dim_colon": 228, "dim_J": 228, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 168.5, "ts": "2026-11-02T00:28:32Z"}
+{"step": "e1-dims", "d": 9, "chi": [1, 1], "dim_S": 378, "dim_colon": 136, "dim_J": 136, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 199.0, "ts": "2026-11-02T00:29:03Z"}
+{"step": "e1-dims", "d": 8, "chi": [0, 1], "dim_S": 378, "dim_colon": 104, "dim_J": 104, "dim_nonjac": 0, "primes": [2147483647], "rational_lift": null, "seconds": 218.9, "ts": "2026-11-02T00:29:24Z"}

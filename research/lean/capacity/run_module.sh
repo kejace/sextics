@@ -21,12 +21,12 @@ if [ -n "$CPUSET" ]; then PIN="taskset -c $CPUSET"; fi
 LOG="$CAP/logs/${LABEL}.compile.log"; KLOG="$CAP/logs/${LABEL}.kernel.log"
 T0=$(date +%s.%N)
 /usr/bin/time -f "WALL=%e USER=%U SYS=%S MAXRSS_KB=%M" -o "$LOG.time" \
-  timeout -k 30 ${TMO:-3700} $PIN lean -j 2 -M 14336 -o "$CAP/out/${REL%.lean}.olean" "$REL" > "$LOG" 2>&1
+  $PIN lean -j 2 -M 14336 -o "$CAP/out/${REL%.lean}.olean" "$REL" > "$LOG" 2>&1
 CRC=$?
 KRC=-1
 if [ $CRC -eq 0 ]; then
   /usr/bin/time -f "WALL=%e USER=%U SYS=%S MAXRSS_KB=%M" -o "$KLOG.time" \
-    timeout -k 30 ${TMO:-3700} $PIN leanchecker --verbose "$MOD" > "$KLOG" 2>&1
+    $PIN leanchecker --verbose "$MOD" > "$KLOG" 2>&1
   KRC=$?
 fi
 python3 - "$MOD" "$LABEL" "$CRC" "$KRC" "$LOG" "$KLOG" "$CAP" <<'PY'

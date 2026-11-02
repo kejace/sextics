@@ -4,3 +4,5 @@ e1 True {'rank': 5052, 'rank_aug': 5052, 'rows': 5793, 'cols': 6006} 82.5
 [compressed p=2147483647] k=4297 consistent=False rank=3781 nullity=475 (compress 12.5s, rref 19.6s)
 symmetric: inconsistent {'prime': 2147483647, 'rank': 3781, 'nullity': 475, 'rows': 22016, 'cols': 4256, 'full_cols': 7497, 'subgroup_size': 4, 'group_size': 4, 'd': 8} 36.1
 [system] d=8 q=1 rows=40301 cols=7497 (N 6006, Q 1491) nnz=1958623 built in 2.0s
+[compressed p=2147483647] k=7538 consistent=False rank=6703 nullity=794 (compress 38.8s, rref 132.6s)
+full compressed: {'consistent': False, 'rank': 6703, 'nullity': 794, 'rows': 40301, 'cols': 7497, 'd': 8} 195.3

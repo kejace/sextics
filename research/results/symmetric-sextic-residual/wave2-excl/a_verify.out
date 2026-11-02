@@ -1,0 +1,18 @@
+[    0.0s] F == p6X+p6Y+(5/7)e2X e2Y (e2X+2e2Y): True
+[    0.0s] F mod 5 == Fermat: True
+[    0.0s] sector dims mod 2147483629 {'rankJ6odd': 18, 'ci': 18, 'n_inv_orbits': 19, 'dim_inv_sector': 17, 'dim_sgnsgn_poly_sector': 1, 'A_in_J': False}
+[    0.0s] sector dims mod 1000000007 {'rankJ6odd': 18, 'ci': 18, 'n_inv_orbits': 19, 'dim_inv_sector': 17, 'dim_sgnsgn_poly_sector': 1, 'A_in_J': False}
+[    0.1s] mult_kernel {'p': 2147483629, 'd': 1, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 3, 'ci_ring_dim': 3, 'rows': 312, 'cols': 66, 'seconds': 0.01}
+[    0.1s] mult_kernel {'p': 2147483629, 'd': 1, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 3, 'ci_ring_dim': 3, 'rows': 312, 'cols': 66, 'seconds': 0.02}
+[    0.2s] mult_kernel {'p': 2147483629, 'd': 2, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 12, 'ci_ring_dim': 12, 'rows': 600, 'cols': 180, 'seconds': 0.08}
+[    0.5s] mult_kernel {'p': 2147483629, 'd': 2, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 9, 'ci_ring_dim': 9, 'rows': 576, 'cols': 177, 'seconds': 0.07}
+[    1.0s] mult_kernel {'p': 2147483629, 'd': 3, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 28, 'ci_ring_dim': 28, 'rows': 973, 'cols': 406, 'seconds': 0.5}
+[    1.4s] mult_kernel {'p': 2147483629, 'd': 3, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 28, 'ci_ring_dim': 28, 'rows': 973, 'cols': 406, 'seconds': 0.31}
+[    2.9s] mult_kernel {'p': 2147483629, 'd': 4, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 66, 'ci_ring_dim': 66, 'rows': 1491, 'cols': 822, 'seconds': 1.52}
+[    4.5s] mult_kernel {'p': 2147483629, 'd': 4, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 60, 'ci_ring_dim': 60, 'rows': 1500, 'cols': 816, 'seconds': 1.55}
+[   17.9s] mult_kernel {'p': 2147483629, 'd': 5, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 3, 'jacobian_dim': 3, 'ring_dim': 123, 'ci_ring_dim': 123, 'rows': 2181, 'cols': 1512, 'seconds': 13.36}
+[   26.3s] mult_kernel {'p': 2147483629, 'd': 5, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 3, 'jacobian_dim': 3, 'ring_dim': 123, 'ci_ring_dim': 123, 'rows': 2181, 'cols': 1512, 'seconds': 8.33}
+[   46.1s] mult_kernel {'p': 2147483629, 'd': 6, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 18, 'jacobian_dim': 18, 'ring_dim': 218, 'ci_ring_dim': 218, 'rows': 3080, 'cols': 2612, 'seconds': 19.63}
+[   63.6s] mult_kernel {'p': 2147483629, 'd': 6, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 18, 'jacobian_dim': 18, 'ring_dim': 208, 'ci_ring_dim': 208, 'rows': 3106, 'cols': 2602, 'seconds': 17.44}
+[  161.4s] mult_kernel {'p': 2147483629, 'd': 7, 'par': 0, 'dim_ker_mod_J': 1, 'kernel_dim': 64, 'jacobian_dim': 63, 'ring_dim': 333, 'ci_ring_dim': 333, 'rows': 4284, 'cols': 4257, 'seconds': 97.69}
+[  221.3s] mult_kernel {'p': 2147483629, 'd': 7, 'par': 1, 'dim_ker_mod_J': 1, 'kernel_dim': 64, 'jacobian_dim': 63, 'ring_dim': 333, 'ci_ring_dim': 333, 'rows': 4284, 'cols': 4257, 'seconds': 59.89}

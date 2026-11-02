@@ -4,3 +4,5 @@ compile-HodgeTarget: passed in 4.5s
 compile-HodgeWitness: starting
 compile-HodgeWitness: passed in 10.5s
 compile-Witness: starting
+compile-Witness: passed in 541.4s
+compile-Solution: starting

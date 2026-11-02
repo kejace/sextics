@@ -1,0 +1,24 @@
+{
+ "exp": "obsys-msolve",
+ "d": 5,
+ "p": 1000000007,
+ "unknowns": 6,
+ "equations": 100,
+ "lead_monomials": 32,
+ "m_primary_mod_p": true,
+ "n_vars_without_pure_power": 0,
+ "max_pure_power": 1,
+ "msolve_seconds": 0.0,
+ "msolve_rc": 0,
+ "threads": 1,
+ "conclusion": "RIGOROUS: no certificate with deg D = 5 (E1 family mod (F) has only the zero solution of E2 mod J over C)",
+ "missing_vars": [],
+ "pure_powers": {
+  "0": 1,
+  "1": 1,
+  "2": 1,
+  "3": 1,
+  "4": 1,
+  "5": 1
+ }
+}

@@ -49,18 +49,36 @@ def label_of_poly(inst, P):
 
 
 class Instance:
-    def __init__(self, iid=IID):
+    def __init__(self, iid=IID, gens=None):
+        """gens: weight vectors (mod the group order) used to define character labels; they must lie in the diagonal
+        group of F.  The sector restriction of SectorVarPro averages over the subgroup Gsub they generate, so for a
+        family that is only semi-invariant under a subgroup pass that subgroup's elements/generators here."""
         self.iid = iid
         self.F, self.A, self.q, self.rec = core.load_instance(iid)
         self.G = symmetry.diagonal_group(self.F)
         self.n = self.G.order
         els = set(self.G.elements)
-        if iid == IID:
+        if gens is not None:
+            gens = [tuple(int(v) % self.n for v in g) for g in gens]
+        elif iid == IID:
             gens = [(5, 5, 0, 5, 5, 0), (0, 0, 3, 0, 0, 0), (0, 0, 0, 3, 3, 0)]
-            assert all(g in els for g in gens), 'sector generators not in the group'
         else:
             gens = [tuple(g) for g in self.G.generators]
+        assert all(g in els for g in gens), 'sector generators not in the diagonal group of F'
         self.gens = gens
+        # closure of the generators: the subgroup whose characters define the sectors
+        n = self.n
+        clos = {tuple([0] * NV)}
+        frontier = [tuple([0] * NV)]
+        while frontier:
+            nxt = []
+            for w in frontier:
+                for g in gens:
+                    u = tuple((a + b) % n for a, b in zip(w, g))
+                    if u not in clos:
+                        clos.add(u); nxt.append(u)
+            frontier = nxt
+        self.Gsub = symmetry.DiagonalGroup(n, sorted(clos), gens, None)
         self.Fi = [pderiv(self.F, i) for i in range(NV)]
         self.labF = label_of_poly(self, self.F)
         self.labA = label_of_poly(self, self.A)
@@ -277,7 +295,7 @@ class SectorVarPro:
         self.basis = [dict(B) for B in basis]
         D0 = {Dm[0]: 1}
         self.pD = core.parity_of(D0)
-        allowed, sub = symmetry.sector_filter(F, A, q, D0, inst.G)
+        allowed, sub = symmetry.sector_filter(F, A, q, D0, inst.Gsub)
         self.subgroup_size = len(sub)
         self.pars = fixed_d.numerator_parities(D0, A)
         degN = d + 6 * q - 5; degQ = 2 * d - 6

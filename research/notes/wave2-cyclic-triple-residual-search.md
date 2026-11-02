@@ -1,22 +1,18 @@
-# Wave 2 — cyclic-triple-residual — SEARCH lens
+# Wave 2 search report: `cyclic-triple-residual` (q = 1, A = X0^3 Y0^3)
 
-STATUS: STARTED 2026-11-02 00:20 (VM local). No witness. Reading done (dossier, attack1, wave-1 logs, wave-1 outputs
-of kdims/d8limit/planes). Building the sector-reduced, E1-eliminated variable-projection library
-(/tmp/hodge/results/cyclic-triple-residual/wave2/w2lib.py); no search batch run yet.
+STATUS: no witness found so far. Four remote jobs submitted at 19:35 local (aux: E1 spaces d=4..10 + structured sweep; jac: Fermat calibration + Jacobian-type d=5,6,7; sector joint searches at d=8 and d=9). Results pending.
 
-Lane dir: /tmp/hodge/results/cyclic-triple-residual/ (wave-1 scripts: sect.py sector solver, kernel8/9.py, planes.py ...)
-Wave-2 dir: /tmp/hodge/results/cyclic-triple-residual/wave2/
-Batch log: /tmp/hodge/results/cyclic-triple-residual/wave2-search.log.jsonl (one JSON line per batch)
+Code: `/tmp/hodge/results/cyclic-triple-residual/w2core.py` (exact E1-admissible spaces per G-sector via fmpz nullspace; Koszul-reduced, sector-restricted variable-projection search; mod-J relaxation; reconstruction + exact confirmation through the wave-1 sector solver `sect.py`), `w2run.py` (multiprocessing driver), job scripts `w2_e1space.py`, `w2_jac.py`, `w2_sector.py`, `w2_sweep.py`. Log: `/tmp/hodge/results/cyclic-triple-residual/wave2-search.log.jsonl`.
 
-## Plan
-1. E1-admissible spaces (J(F)_d^chi + kernel reps) for d = 4..12, all 18 characters of the order-18 diagonal group
-   (both Y-parities), dimensions logged.
-2. Jacobian-type degrees (d = 5, 6, 7; kernel mod J = 0): Hessian relaxation (N = A w, Q free) then full E2
-   varpro (Koszul-correction unknowns z) over the w-space, many restarts in parallel jobs.
-3. Non-Jacobian degrees d = 8 (D8 + J_8), 9 (120 + J_9), 10, 11, 12: sector-restricted varpro over kernel + J_d.
-4. Structured families (cones, discriminants, block Hessians, block radial derivatives, companion-transported
-   denominators) at degrees 6-12 via sweep / sector solver.
-5. Rational reconstruction + exact re-solve for every candidate with relative residual < 1e-10.
+## Method
+Split form E1: q N(F) = A D, E2: D div N - N(D) = F Q. Every E1 lift is N0 + K(c), K(c) = sum_{i<j} c_ij (F_j e_i - F_i e_j), deg c_ij = d - 4.
+For a linear family D(a) = sum a_k D_k with exact lifts N0_k the E2 residual r = Bil(D(a), N0(a) + K(c)) - F Q is linear in (c, Q):
+f(a) = min_{c,Q} |r|^2 on the unit sphere (variable projection, analytic gradient), F-multiples projected out.
+Mod-J relaxation: f_J(a) = |P_perp^T Bil(D(a), N0(a))|^2 (orthogonal complement of J(F)_{2d} in the E2 row space) -- a necessary condition.
+Character sectors of the order-18 diagonal group G (generators mu3 = (0,0,2,0,0,0), s = (1,5,1,2,2,0); labels (m.mu3, m.s) mod 6; chi_A = (0,3)).
+
+## Self-test (local)
+Vectorized residual vs direct evaluation: 1.3e-16. Gradient FD check: 8e-10 / 1.7e-8. Fermat control (F0, d=6, sector (0,0), family dim 31): the known witness direction has residual 0; 6 random restarts missed it (best rel 1e-2) -> hit-rate calibration with 400 restarts running on the remote.
 
 ## Results
-(none yet)
+(pending)

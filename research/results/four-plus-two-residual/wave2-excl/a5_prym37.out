@@ -1,0 +1,4 @@
+p=37 k=1: #T_B=30 #E'=27
+p=37 k=2: #T_B=1368 #E'=1323
+p=37 k=3: #T_B=49854 #E'=50544
+{"exp": "a5-prym-independent", "p": 37, "counts": {"1": [30, 27], "2": [1368, 1323], "3": [49854, 50544]}, "prym_traces": {"1": -3, "2": -45, "3": 690}, "L_P": "50653*T**6 + 4107*T**5 + 999*T**4 - 158*T**3 + 27*T**2 + 3*T + 1", "factor_over_Q": "(1, [(50653*T**6 + 4107*T**5 + 999*T**4 - 158*T**3 + 27*T**2 + 3*T + 1, 1)])", "irreducible_over_Q": true, "roots_abs_ok": true, "no_root_of_unity_ratio_upto_2000": true, "aE": 11, "Eprime_j0_shape": true, "seconds": 15.1, "t": "2026-11-02 00:28:38"}

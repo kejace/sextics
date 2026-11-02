@@ -1,140 +1,163 @@
-#!/usr/bin/env python3
-"""Multiprocess sector-restricted VarPro search (LM, random restarts) for one (d, chi, family).
+"""Step 2/3 driver: multi-restart reduced variable-projection search in one (d, chi, kind) family.
 
-  python3 w2_varpro.py --d 9 --c 0,0 --kind colon --restarts 2000 --workers 8 --seed0 1000 --job NAME
-         [--maxiter 120] [--time-limit 7000] [--F fermat|offpaired] [--A expr] [--opt lm|lbfgs] [--store-rel 1e-3]
-
-Outputs in cwd: wave2-<job>.w<k>.jsonl (per-seed records), wave2-<job>.summary.json, and one batch line appended to
-wave2-search.remote.log.jsonl.  Candidates with relres < 1e-9 are rationally reconstructed and re-solved exactly;
-a verified witness is written to witness-candidate-<job>.json and witness-candidate.json.
+usage: python3 -u w2_varpro.py --d 8 --chi 0,0 --kind full|jac|ker --hess 0|1 --restarts 1000
+                               --seed 100 --workers 8 --maxiter 300 --name <jobname> [--chunk 10]
+Per-restart records -> wave2-<name>.jsonl ; batch summary -> wave2-search.log.jsonl ; report rewritten.
+Candidates with rel < 1e-5 are polished (Levenberg-Marquardt on the VP residual); rel < 1e-10 ->
+rational reconstruction + exact sector-restricted re-solve; a solved candidate is written to
+witness-candidate.json and announced with WITNESS in the log.
 """
-import os, sys
-os.environ.setdefault('OPENBLAS_NUM_THREADS', '1'); os.environ['OMP_NUM_THREADS'] = os.environ.get('W2_THREADS', '1')
-os.environ['OPENBLAS_NUM_THREADS'] = os.environ['OMP_NUM_THREADS']
-import argparse, json, time, math, glob
-import multiprocessing as mp
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import sys, os, time, json, argparse, math
+os.environ.setdefault('OMP_NUM_THREADS', '1'); os.environ.setdefault('OPENBLAS_NUM_THREADS', '1')
+sys.path.insert(0, '/tmp/hodge/results/off-paired')
 import numpy as np
-import w2lib
+from scipy.optimize import least_squares
+import w2lib as W
 from hodge import core
+import multiprocessing as mp
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--d', type=int, required=True)
-ap.add_argument('--c', default='0,0')
-ap.add_argument('--kind', default='colon')
+ap.add_argument('--chi', type=str, required=True)       # "a,b"
+ap.add_argument('--kind', type=str, default='full')
+ap.add_argument('--hess', type=int, default=0)
 ap.add_argument('--restarts', type=int, default=100)
-ap.add_argument('--workers', type=int, default=8)
-ap.add_argument('--seed0', type=int, default=0)
-ap.add_argument('--maxiter', type=int, default=120)
-ap.add_argument('--time-limit', type=float, default=7000.0)
-ap.add_argument('--F', default='offpaired')
-ap.add_argument('--A', default=None)
-ap.add_argument('--opt', default='lm')
-ap.add_argument('--store-rel', type=float, default=1e-3)
-ap.add_argument('--confirm-rel', type=float, default=1e-9)
-ap.add_argument('--job', required=True)
-ap.add_argument('--cond', type=float, default=1e-9)
+ap.add_argument('--seed', type=int, default=0)
+ap.add_argument('--workers', type=int, default=4)
+ap.add_argument('--maxiter', type=int, default=300)
+ap.add_argument('--chunk', type=int, default=10)
+ap.add_argument('--name', type=str, required=True)
+ap.add_argument('--polish_tol', type=float, default=1e-5)
+ap.add_argument('--cand_tol', type=float, default=1e-7)
 args = ap.parse_args()
+chi = tuple(int(x) for x in args.chi.split(','))
 
-c = tuple(int(x) for x in args.c.split(','))
-F, A, q = w2lib.load()
-if args.F == 'fermat':
-    F = core.parse('X0**6+X1**6+X2**6+Y0**6+Y1**6+Y2**6')
-elif args.F != 'offpaired':
-    F = core.parse(args.F)
-if args.A:
-    A = core.parse(args.A)
-T0 = time.time()
-print(f'[{w2lib.now()}] job {args.job}: d={args.d} c={c} kind={args.kind} F={args.F} restarts={args.restarts} workers={args.workers}', flush=True)
-basis, gauge, info = w2lib.build_family(F, A, q, args.d, c, args.kind, verbose=True)
-if not basis or len(basis) <= len(gauge):
-    rec = {'ts': w2lib.now(), 'job': args.job, 'step': 'varpro', 'F': args.F, 'd': args.d, 'sector': list(c), 'family': args.kind,
-           'K': len(basis), 'gauge': len(gauge), 'note': 'empty family after gauge removal', 'restarts': 0}
-    w2lib.append_json('wave2-search.remote.log.jsonl', rec); print(rec, flush=True); sys.exit(0)
-fam = w2lib.SectorVarPro(F, A, q, basis, c, gauge=gauge, verbose=True, cond=args.cond)
-print(f'[{w2lib.now()}] family built: K={fam.K} rank={fam.rankB} gauge={fam.ng} dimP={fam.dimP} rows={fam.R} N={fam.nN} Q={fam.nQ} '
-      f'build {fam.build_time:.1f}s', flush=True)
-try:
-    g1, g2 = fam.fd_check(0)
-    print(f'gradient check: analytic {g1:.6e} fd {g2:.6e}', flush=True)
-except Exception as ex:
-    print('gradient check failed:', ex, flush=True)
+F, A, q = W.load()
+t0 = time.time()
+fam, S = W.build_family(F, A, q, args.d, chi, args.kind, hessian=bool(args.hess), verbose=True)
+if fam is None:
+    W.log_batch({'step': 'varpro', 'name': args.name, 'd': args.d, 'chi': list(chi), 'kind': args.kind,
+                 'hess': args.hess, 'restarts': 0, 'note': 'empty family', 'spaces': S.summary()})
+    print('empty family'); sys.exit(0)
+info = fam.info(); info['spaces'] = S.summary()
+# rank / nullity statistics of the linear part at a random point
+rng0 = np.random.default_rng(12345)
+a0 = rng0.standard_normal(fam.K); a0 /= np.linalg.norm(a0)
+M0, b0 = fam.assemble(a0)
+sv = np.linalg.svd(M0, compute_uv=False)
+rank0 = int(np.sum(sv > 1e-9 * sv[0])) if sv.size else 0
+info['rank_M_random'] = rank0; info['nullity_M_random'] = int(M0.shape[1] - rank0)
+info['independent_equations_random'] = rank0
+info['cokernel_random'] = int(M0.shape[0] - rank0)
+print('[info]', json.dumps(info), flush=True)
 
 
-def worker(k, seeds):
-    out = f'wave2-{args.job}.w{k}.jsonl'
-    done = set()
-    if os.path.exists(out):
-        for line in open(out):
-            try: done.add(json.loads(line)['seed'])
-            except Exception: pass
-    for s in seeds:
-        if s in done:
-            continue
-        if time.time() - T0 > args.time_limit:
-            break
-        try:
-            if args.opt == 'lm':
-                r = fam.lm_from(s, maxiter=args.maxiter)
-            else:
-                r = fam.minimize_from(s, maxiter=max(args.maxiter, 300))
-        except Exception as ex:
-            w2lib.append_json(out, {'seed': int(s), 'error': str(ex)}); continue
-        rec = {k_: v for k_, v in r.items() if k_ not in ('u', 'Dc')}
-        if r['relres'] < args.store_rel:
-            rec['Dc'] = [float(x) for x in r['Dc']]
-        w2lib.append_json(out, rec)
+def residual_vec(a):
+    a = np.asarray(a, float); a = a / np.linalg.norm(a)
+    f, x, r = fam.value(a)
+    return r
 
 
-seeds = list(range(args.seed0, args.seed0 + args.restarts))
-chunks = [seeds[k::args.workers] for k in range(args.workers)]
-ctx = mp.get_context('fork')
-procs = [ctx.Process(target=worker, args=(k, chunks[k])) for k in range(args.workers)]
-for p in procs: p.start()
-for p in procs: p.join()
+def polish(a, max_nfev=None):
+    """LM/TRF on the VP residual r(a) with finite-difference Jacobian; returns (a, rel)."""
+    K = fam.K
+    res = least_squares(residual_vec, np.asarray(a, float), method='trf', jac='2-point',
+                        max_nfev=max_nfev or 40 * K, xtol=1e-15, ftol=1e-15, gtol=1e-15)
+    a1 = res.x / np.linalg.norm(res.x)
+    f, x, r = fam.value(a1)
+    bn = fam.bnorm(a1)
+    return a1, f / max(bn * bn, 1e-300)
 
-# aggregate
-recs = []
-for fn in sorted(glob.glob(f'wave2-{args.job}.w*.jsonl')):
-    for line in open(fn):
-        try: recs.append(json.loads(line))
-        except Exception: pass
-rels = sorted(r['relres'] for r in recs if 'relres' in r)
-hist = {}
-for r in rels:
-    b = 'lt1e-12' if r < 1e-12 else ('lt1e-9' if r < 1e-9 else ('lt1e-6' if r < 1e-6 else ('lt1e-4' if r < 1e-4 else ('lt1e-2' if r < 1e-2 else 'ge1e-2'))))
-    hist[b] = hist.get(b, 0) + 1
-# distinct local minima (rounded)
-mins = {}
-for r in rels:
-    key = f'{r:.3e}'
-    mins[key] = mins.get(key, 0) + 1
-top_minima = sorted(mins.items(), key=lambda kv: float(kv[0]))[:12]
-summary = {'ts': w2lib.now(), 'job': args.job, 'step': 'varpro', 'F': args.F, 'd': args.d, 'sector': list(c), 'family': args.kind,
-           'K': fam.K, 'rank': fam.rankB, 'gauge': fam.ng, 'dimP': fam.dimP, 'rows': fam.R, 'nN': fam.nN, 'nQ': fam.nQ,
-           'restarts': len(rels), 'best_relres': rels[0] if rels else None, 'median_relres': rels[len(rels)//2] if rels else None,
-           'hist': hist, 'top_minima': top_minima, 'opt': args.opt, 'maxiter': args.maxiter,
-           'mean_time_per_restart': round(float(np.mean([r['time'] for r in recs if 'time' in r])), 2) if recs else None,
-           'statuses': {s: sum(1 for r in recs if r.get('status') == s) for s in set(r.get('status') for r in recs if 'status' in r)},
-           'wall': round(time.time() - T0, 1)}
-# confirmation attempts
-witness = None
-cands = sorted([r for r in recs if 'Dc' in r and r['relres'] < args.confirm_rel], key=lambda r: r['relres'])
-attempts = []
-for r in cands[:20]:
-    att = w2lib.try_reconstruct_and_confirm(fam, np.array(r['Dc']), verbose=False)
-    attempts.append({'seed': r['seed'], 'relres': r['relres'], 'attempts': att})
-    if any(a.get('status') == 'solved' for a in att):
-        sol = [a for a in att if a.get('status') == 'solved'][0]
-        witness = {'d': args.d, 'D': sol['D'], 'N': sol['N'], 'Q': sol['Q'], 'job': args.job, 'seed': r['seed'], 'relres': r['relres'],
-                   'F': args.F, 'sector': list(c), 'family': args.kind}
-        json.dump(witness, open(f'witness-candidate-{args.job}.json', 'w'))
-        if args.F == 'offpaired' and args.A is None:
-            json.dump(witness, open('witness-candidate.json', 'w'))
-        print('!!!!!!!! WITNESS FOUND (exact, verified) !!!!!!!!', flush=True)
-        break
-summary['confirm_attempts'] = attempts
-summary['witness'] = bool(witness)
-json.dump(summary, open(f'wave2-{args.job}.summary.json', 'w'), indent=1)
-w2lib.append_json('wave2-search.remote.log.jsonl', {k_: v for k_, v in summary.items() if k_ != 'confirm_attempts'})
-print(json.dumps({k_: v for k_, v in summary.items() if k_ not in ('confirm_attempts',)}, indent=1), flush=True)
+
+def work(task):
+    seed, n = task
+    t = time.time()
+    out = fam.search(n_restarts=n, seed=seed, maxiter=args.maxiter)
+    recs = []
+    for c in out:
+        rec = {'seed': seed, 'restart': c['restart'], 'rel': float(c['rel']), 'value': float(c['value']),
+               'iters': int(c['iters']), 'spurious': bool(c['spurious'])}
+        if c['rel'] < args.polish_tol:
+            a1, rel1 = polish(c['a'])
+            rec['polished_rel'] = float(rel1)
+            rec['a'] = [float(v) for v in a1]
+            rec['rel_before_polish'] = float(c['rel'])
+            rec['rel'] = float(min(rel1, c['rel']))
+            if rel1 > c['rel']:
+                rec['a'] = [float(v) for v in c['a']]
+        elif c['rel'] < 1e-3:
+            rec['a'] = [float(v) for v in c['a']]
+        recs.append(rec)
+    return recs, time.time() - t
+
+
+def try_exact(a, rel):
+    """Rational reconstruction with increasing denominators + exact re-solve."""
+    tried = []
+    for md in (10, 100, 1000, 10000, 100000):
+        for tol in (1e-6, 1e-8, 1e-10):
+            for fr in fam.reconstruct(a, max_den=md, tol=tol):
+                Dx = fam.D_exact(fr)
+                Ds = W.D_str(Dx)
+                if Ds in tried or not Dx:
+                    continue
+                tried.append(Ds)
+                st, data = fam.confirm(fr)
+                print(f'[exact] max_den={md} tol={tol} -> {st} rank={data.get("rank")} nullity={data.get("nullity")} D={Ds[:100]}', flush=True)
+                if st == 'solved':
+                    return st, data, fr
+    return 'none', {'tried': len(tried)}, None
+
+
+per_job = f'/tmp/hodge/results/off-paired/wave2-{args.name}.jsonl'
+cand_path = '/tmp/hodge/results/off-paired/wave2-candidates.jsonl'
+tasks = []
+nleft = args.restarts; k = 0
+while nleft > 0:
+    n = min(args.chunk, nleft)
+    tasks.append((args.seed * 100003 + k * 7919, n)); nleft -= n; k += 1
+rels = []; best = None; tsearch = 0.0; nspur = 0; ncand = 0
+with mp.get_context('fork').Pool(args.workers) as pool, open(per_job, 'a') as fj:
+    for recs, dt in pool.imap_unordered(work, tasks):
+        tsearch += dt
+        for r in recs:
+            r['d'] = args.d; r['chi'] = list(chi); r['kind'] = args.kind; r['hess'] = args.hess
+            fj.write(json.dumps(r) + '\n')
+            rels.append(r['rel']); nspur += r['spurious']
+            if best is None or r['rel'] < best['rel']:
+                best = r
+            if r['rel'] < args.cand_tol and not r['spurious']:
+                ncand += 1
+                with open(cand_path, 'a') as fc:
+                    fc.write(json.dumps({'name': args.name, **r, 'D_float': W.D_str({m: round(float(sum(aa * float(B.get(m, 0)) for aa, B in zip(r['a'], fam.basis))), 6) for m in set().union(*[set(B) for B in fam.basis])})}) + '\n')
+                if r['rel'] < 1e-10:
+                    st, data, fr = try_exact(np.array(r['a']), r['rel'])
+                    if st == 'solved':
+                        wit = {'d': args.d, 'D': W.D_str(data['D']), 'N': [W.D_str(n) for n in data['N']],
+                               'Q': W.D_str(data['Q']), 'name': args.name, 'chi': list(chi), 'kind': args.kind}
+                        ok, vinfo = core.verify_witness(F, A, q, data['D'], data['N'], data['Q'])
+                        wit['verify'] = ok
+                        with open('/tmp/hodge/results/off-paired/witness-candidate.json', 'w') as fw:
+                            json.dump(wit, fw, indent=1)
+                        W.log_batch({'step': 'WITNESS', 'name': args.name, 'd': args.d, 'chi': list(chi),
+                                     'kind': args.kind, 'D': wit['D'], 'verify': ok})
+                        print('WITNESS FOUND', wit['D'], flush=True)
+        fj.flush()
+        done = len(rels)
+        print(f'[progress] {done}/{args.restarts} best rel {min(rels):.3e} median {float(np.median(rels)):.3e} '
+              f'elapsed {time.time()-t0:.0f}s', flush=True)
+
+rels_arr = np.array(rels)
+lr = np.log10(np.maximum(rels_arr, 1e-300))
+rec = {'step': 'varpro', 'name': args.name, 'd': args.d, 'chi': list(chi), 'kind': args.kind, 'hess': args.hess,
+       'restarts': len(rels), 'maxiter': args.maxiter, 'seed': args.seed, 'workers': args.workers,
+       'best_rel': float(rels_arr.min()), 'median_rel': float(np.median(rels_arr)),
+       'q10_log10': float(np.quantile(lr, 0.1)), 'q90_log10': float(np.quantile(lr, 0.9)),
+       'n_below_1e-4': int(np.sum(rels_arr < 1e-4)), 'n_below_1e-7': int(np.sum(rels_arr < 1e-7)),
+       'n_below_1e-10': int(np.sum(rels_arr < 1e-10)), 'n_spurious': int(nspur), 'n_candidates': ncand,
+       'seconds_wall': round(time.time() - t0, 1), 'seconds_cpu_search': round(tsearch, 1),
+       'family': info, 'best_a': best.get('a') if best and 'a' in best else None,
+       'per_restart_file': os.path.basename(per_job)}
+W.log_batch(rec)
+os.system('python3 /tmp/hodge/results/off-paired/w2_report.py > /dev/null 2>&1')
+print('[done]', json.dumps({k: v for k, v in rec.items() if k not in ('family', 'best_a')}), flush=True)

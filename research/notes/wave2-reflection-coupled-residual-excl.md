@@ -13,4 +13,19 @@ Remote jobs named `excl-reflection-coupled-residual-*`.
 (d) packet; (e) draft post.
 
 ## Results so far
-(none yet)
+
+### R1. Degree 5 (Hessian relaxation, local, p = 2147483587) — DONE
+For D = Σ c_i F_i (c_i constants; this is the whole E1-admissible space at d = 5 once job e1char confirms
+"E1 ⇒ D ∈ J_5" in all four characters), the E2-mod-J obstruction is ob(c) = −[A Σ c_i c_j F_ij] ∈ (S/J)_10.
+The Hessian has exactly one vanishing off-diagonal entry, F_{X2 Y2} = 0; the other 20 classes [A F_ij] are
+linearly independent in (S/J)_10 (rank 20 in each of the four target-character blocks: sizes 6/10/2/2;
+good reduction verified: rank J_10^ψ = dim S_10^ψ − Fermat count for all ψ). Hence c_i c_j = 0 for all 20 pairs,
+in particular c_i² = 0, so c = 0. **No denominator of degree 5 (any character, mixed parity included).**
+Receipts: `wave2-excl/hess.jsonl` (exp phi-kernel/phi-verdict, d=5).
+
+### Jobs submitted (remote)
+* `excl-rcr-e1char`: E1 kernels by Klein character, d = 1..10, p = 2147483587 (+ 2147483579 for reconstruction).
+* `excl-rcr-hess`: Φ-kernel at d = 6 (two primes); Macaulay-3 rank of the quadratic system per character at d = 7;
+  msolve exports of the pair/full systems at d = 7.
+* `excl-rcr-k8job`: rigorous fixed-D test of K8 (restricted + full), K8 ∉ J, exact E1 lift, e2lin.
+

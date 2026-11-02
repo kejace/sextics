@@ -1,0 +1,2 @@
+d=7 p=1073741789 |G|=18 chiA=(0, 3) allowed D characters: [(0, 0), (0, 2), (0, 4), (2, 0), (2, 2), (2, 4), (4, 0), (4, 2), (4, 4)]
+unknowns: 0 kernel + 60 vector-field coordinates (gauge removed 3) = 60

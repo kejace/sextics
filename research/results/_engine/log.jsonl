@@ -1,2 +1,4 @@
 {"ts":"2026-11-02T00:13:31Z","step":"start","note":"engine maintainer session started on VM; inbox files created"}
 {"ts":"2026-11-02T00:17:15Z","step":"rjob-local-mode","result":"shipped+smoke-tested","files":["hodge/rjob.py","CHANGELOG.md"]}
+{"ts":"2026-11-02T00:24:27Z","step":"sge-core","result":"csrc/sge.c + hodge/sge.py written; 30 random systems x 3 stop policies agree with flint; fixed_d.solve_sparse/set_threads/chunked _compress added; real-instance test launched"}
+{"ts":"2026-11-02T00:25:48Z","step":"rank-bug-fix","result":"engine v3: rank/nullity of coefficient matrix for inconsistent systems in dense, compressed, sparse paths; random tests pass"}

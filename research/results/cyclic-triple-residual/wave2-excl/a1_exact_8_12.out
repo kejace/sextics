@@ -1,0 +1,3 @@
+|G|=18 gens=[(0, 0, 2, 0, 0, 0), (1, 5, 1, 2, 2, 0)] chiA=(0, 3) mode=exact
+d=8: Ann([A])_d mod J = 1  (kerA_in_S=337, dimJ_d=336 ci=336, dimJ_14=10122 ci=10122)  36.7s
+   nonzero sectors: {'(0, 4)': 1}

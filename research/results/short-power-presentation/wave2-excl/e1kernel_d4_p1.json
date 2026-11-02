@@ -1,0 +1,22 @@
+{
+ "rec": {
+  "exp": "e1kernel",
+  "d": 4,
+  "parD": 1,
+  "p": 2147483629,
+  "dim S_d": 60,
+  "dim J_d (mod p)": 0,
+  "dim J_d (expected smooth)": 0,
+  "rank J_{d+6} (mod p)": 750,
+  "rank J_{d+6} (expected)": 750,
+  "dim S_{d+6}": 1512,
+  "kernel incl J": 0,
+  "kernel mod J": 0,
+  "ring_dim": 60,
+  "hilbert_ok": true,
+  "rows": 1512,
+  "cols": 816,
+  "seconds": 11.6
+ },
+ "basis_modp": []
+}

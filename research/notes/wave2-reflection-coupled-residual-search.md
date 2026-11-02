@@ -18,4 +18,22 @@ Hessian-relaxation tensors + LM search, msolve export, sector-restricted VarPro,
   (sector-restricted compressed fixed-D solver) and verified.
 
 ## Results so far
-(filled in per batch)
+
+### R1. E1-admissible spaces (exact mod p = 2^31−1), Klein sectors of D = (Y2-parity, Y0+Y1-parity)
+| d | (0,0) | (0,1) | (1,0) | (1,1) | non-Jacobian classes |
+|---|---|---|---|---|---|
+| 4 | 0/48 | 0/38 | 0/22 | 0/18 | 0 (rigorous: no certificate of degree ≤ 4) |
+| 5 | 3 = J | 2 = J | 1 = J | 0 | 0 |
+| 6 | 14 = J (R_6 = 144) | 12 = J (R_6 = 126) | 6 = J | 4 = J | 0 |
+(dim R_{10}: 460/426/318/302; dim R_{11}: 505/480/363/338; dim R_12^{(0,1)} = 492, consistent with the dossier.)
+d = 7..12: remote jobs `search-rcr-e1lo` / `search-rcr-e1hi` (pending capacity).
+
+### R2. Hessian relaxation at d = 5, 6 — EXACT (msolve, mod p, random affine chart), spurious directions killed
+Family D = Σ g_i F_i (the whole E1-admissible space at these degrees). Quadrics = coordinates of [A gᵀHg] in R_{2d}^{(0,1)} (+ R_{2d}^{(1,0)} for mixed).
+| d | sector | K (g-unknowns) | polys | result |
+|---|---|---|---|---|
+| 5 | 00 / 01 / 10 | 3 / 2 / 1 | 23 / 19 / 8 | empty / empty / empty |
+| 6 | 00 / 01 / 10 / 11 | 14 / 12 / 6 / 4 | 296 / 294 / 234 / 66 | empty / empty / empty / empty |
+| 6 | Y-even mixed (00⊕11) / Y-odd mixed (01⊕10) | 18 / 18 | 418 / 473 | empty / empty |
+(sector 00 at d=6 first returned the Euler direction g = z/6, D = 6F — correctly flagged spurious by the exact pipeline; killed thereafter.)
+**Consequence:** no certificate with a pure-Y-parity denominator of degree 5 or 6 exists (mod-p evidence; the relaxation is a necessary condition and E1 forces D ∈ J there). With the rigorous d ≤ 4 exclusion: deg D ≥ 7.

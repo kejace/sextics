@@ -1,0 +1,25 @@
+# Wave 2 — `short-power-presentation` — VERIFY lens (adversarial referee)
+
+STATUS: 0 confirmed / 0 refuted / 0 weakened / 0 unverified — started 2026-11-02 00:20 local; in progress.
+
+Scope: every claim labelled rigorous/verified/proven/exact in `dossier-short-power-presentation.md`,
+`attack1-short-power-presentation.md`, `wave2-short-power-presentation-{excl,search}.md`, `checks.json`,
+and the lane logs. Independent code lives in `/tmp/hodge/results/short-power-presentation/verify/`
+(own polynomial code, flint nmod_mat for ranks, Singular/msolve for Groebner, primes different from
+`core.PRIMES[0..2]` = 2147483647/2147483629/2147483587 and from 536870909 used by wave 1).
+JSON log: `/tmp/hodge/results/short-power-presentation/wave2-verify.log.jsonl` (one line per check).
+
+## Claim table
+
+| # | claim | source | verdict | evidence | notes |
+|---|---|---|---|---|---|
+| 1 | Smoothness of V(F) over Q via good reduction to Fermat mod 5 | dossier 1.3 [rigorous]; checks.json | **CONFIRMED** | logic | c=5/7^7 is 5-integral and =0 mod 5; 6 is a unit mod 5 so partials are Z_i^5, m-primary; smoothness is open on Spec Z_(5) so the generic fibre is smooth. Sound. |
+| 2 | A = X0^3Y0^3 not in J(F) over Q | dossier 1.2; log.jsonl D=1 (rank 18 vs 19) | **CONFIRMED** | logic + Hilbert table (J_6^- = 226-208 = 18) | rank_p[J_6^-|A]=19 > 18 = rank_Q J_6^- (rank_p <= rank_Q) is a proof. The mod-5 argument also works: a p-adic descent needs syzygies of the Z_i^5 mod 5 in coefficient degree 1, which do not exist. |
+| 3 | E1 necessity: a certificate forces A*D in J(F) | dossier preamble [rigorous] | **CONFIRMED** | logic | Reduce the cleared identity mod F: D(AD - qN(F)) = 0 mod F; F irreducible (smooth hypersurface) and coprime to D; F in J by Euler. Sound for every q. |
+| 4 | Transfer of mod-p E1-kernel results to Q ('nullity_Q <= nullity_p') | dossier 3.4 | **WEAKENED (justification) / CONFIRMED (conclusion)** | hilbert_check.py: every logged rank J_{d+6}^{par} and dim J_d^{par} equals the Hilbert-series value | dim K_d = n_D - rank[J|AD] + rank J is a DIFFERENCE of two ranks, so rank_p <= rank_Q alone gives no inequality. It becomes a proof once rank_p J_{d+6}^{par} = rank_Q J_{d+6}^{par}; rank_Q is the Hilbert-series value (F_i regular sequence, tau-equivariant Koszul complex), rank_p <= rank_Q, and the logs attain it in every degree used (d<=8). Then dim_Q K <= dim_p K. Same argument makes every logged 'E1 fails' rigorous. |
+| 5 | Mixed-parity D: A*D in J forces D^+ and D^- in J separately; 'no mixed-parity denominator of degree <= 3' via D*tau(D) | dossier 3.4 | **CONFIRMED (stronger statement holds; stated route only covers d<=2)** | logic | J is tau-stable so the Y-odd/Y-even parts of A*D must lie in J separately. Product principle is valid: (D,N,Q) certificate => (DE, E N, E^2 Q) certificate for any E coprime to F (checked algebraically, any q). But D*tau(D) in J_{2d} is only contradictory for 2d<=4 since J_6 != 0; the direct splitting gives more: EVERY D of degree <= 4 (any parity mix) is excluded outright (K=0, J=0) and every D of degree 5 or 6 must lie in J_d. |
+| 6 | Hessian relaxation: for D = w(F) in J_d the certificate forces A*Phi(w) in J_{2d}, Phi(w) = w^T Hess(F) w | attack1 §4 / quad_polar.py | **CONFIRMED** | logic | Derived from scratch: N = A w + K + Z G/6 with K Koszul; the G terms cancel exactly, K^T Hess w and D div K, K(D) lie in J because every K_i is in J; E2 mod J becomes A Phi(w) in J_{2d}. Phi(w) is ALWAYS Y-even, so reducing to Phi(w) in J_{2d-6} needs K^+_{2d-6} = 0 (true for d=6, false for d=7 where K_8^+ has dim 6). |
+| 7 | wave-2 excl note: the wave-1 d=7 relaxation 'Phi(w) in J_8' is too strong | wave2-excl claim 3 | **CONFIRMED** | logic (row 6) + e1kernel.jsonl d=8 even | Correct: injectivity of [A]: R_8^+ -> R_14^- fails (kernel 6). The valid condition is A*Phi(w) in J_14 (quadratic system in R_14^-), or the full family D0 + w(F) condition of e2_mod_J.py (derivation also re-checked: constant term B_{D0}(N0), linear terms D0 w(A) - A w(D0) - N0^T H w, quadratic -A w^T H w; independent of the choice of N0). |
+| 8 | Residue character: A*Omega/F^2 is tau-invariant; no finer diagonal character | dossier 1.4 | **CONFIRMED** | logic | tau: Omega -> -Omega (three sign flips), A -> -A, F -> F. Full-support Y-even F has diagonal group {1,tau} (see row 11 for the computation). |
+| 9 | tau-invariant primitive Hodge numbers (208, 866, 208) | dossier 1.2 | **CONFIRMED** | hilbert_check.py table: R_6^- = 208, R_12^- = 866, R_18^- = 208 | Y-odd A gives tau-invariant residues; tau-refined Hilbert series Theta(t) = (1+t^2+...+t^8)^3. |
+| 10 | Age of tau is 3/2; X/tau has canonical singularities, kappa=0, not uniruled; no reflection | dossier 1.4 (book §3.3/§4.7) | **CONFIRMED (logic only)** | logic | Fixed locus on X = two plane sextics {Y=0}, {X=0}; all three Y-directions are tangent to X along {Y=0} (odd Y-derivatives of a Y-even F vanish there), so tau acts by -1 on a 3-dim subspace of T_X: age 3/2 >= 1, no reflection (codim 3). Reid-Tai => canonical, K trivial => kappa 0 => not uniruled. |

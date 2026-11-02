@@ -1,678 +1,460 @@
-"""w2lib — wave-2 search library for the off-paired lane.
+"""Wave-2 search library for lane off-paired (q = 1, A = X0^3 Y0^3).
 
-Sector-restricted variable projection (VarPro) over EXACT rational bases of linear denominator families
-(colon space (J(F):A)_{d,chi}, Jacobian part J_{d,chi}, sub-families), matrix-free gradient, multiprocessing
-driver with per-seed JSONL checkpoints, rational reconstruction + exact sector-reduced re-solve.
+Sector-restricted, *reduced* variable projection: the denominator ranges over a rational
+basis of an E1-admissible space (J:A)_{d,chi} (Jacobian part J_{d,chi} / non-Jacobian kernel /
+both), the Euler gauge F*R_{d-6} removed.  For D = sum_k a_k D_k we write
+    N = sum_k a_k N_k + sum_j s_j S_j,       q*sum_i N_k,i F_i = A D_k,   S_j = Koszul syzygies,
+so that E1 holds identically and the certificate reduces to
+    B_D(N) - F Q = 0,      B_D(N) = D div N - N . grad D      (degree 2d, character chi_A + 2 chi_D).
+For fixed a this is linear in (s, Q): f(a) = min_{s,Q} || M(a)(s;Q) - b(a) ||^2 with M(a) linear and
+b(a) quadratic in a -- exactly the structure of hodge.varpro.VarProFamily, whose optimizer we reuse.
+"Hessian relaxation" = the same family with no Koszul unknowns (N = sum a_k N_k).
 
-Character bookkeeping comes from the wave-1 oplib (generators g = (0,2,0,1,3,3), h = (0,0,1,0,0,5) mod 6).
-Engine: /home/kejace/devel/sextics-work/hodge (not modified).
+Everything numeric is float64; only the exact re-solve (symmetry.solve_fixed_D_symmetric on the
+rationally reconstructed D) counts as evidence.  Engine v2.
 """
-import sys, os, time, json, math, itertools
+import sys, time, json, math, os
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
-HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
-import numpy as np, scipy.linalg as sla, scipy.sparse as sp
-from scipy.optimize import minimize
 from fractions import Fraction
-from hodge import core, fixed_d, jacobian
-from hodge.core import NV, monomials, shift, mul, add, sub, scale, pderiv, power
-from flint import nmod_mat
-import oplib
+import numpy as np
+import scipy.sparse as sp
+import scipy.linalg as sla
+import flint
+from hodge import core, fixed_d, jacobian, symmetry, varpro
+from hodge.core import NV, monomials, mul, add, sub, scale, shift, pderiv, power
 
-LANE = HERE
-char, cadd, cneg, VARCHAR = oplib.char, oplib.cadd, oplib.cneg, oplib.VARCHAR
-P0 = core.PRIMES[0]
-BK = 64
-POW = np.array([BK ** i for i in range(6)], dtype=np.int64)
+LANE = 'off-paired'
+LANE_DIR = f'/tmp/hodge/results/{LANE}'
+LOG = f'{LANE_DIR}/wave2-search.log.jsonl'
+P0 = 1000003
+P1 = 2147483647
 
-
-def monos_char(deg, c):
-    return oplib.monos_char(deg, c)
-
-
-def key(e):
-    return int(sum(int(a) * int(b) for a, b in zip(e, POW)))
-
-
-def keys_of(mons):
-    return (np.array(mons, dtype=np.int64) @ POW) if len(mons) else np.zeros(0, np.int64)
+# diagonal group Z/6 x Z/6 of off-paired (dossier 1.3); verified in check_group()
+GW = [(0, 2, 0, 1, 3, 3), (0, 0, 1, 0, 0, 5)]
+NG = 6
+WZ = [(GW[0][i], GW[1][i]) for i in range(NV)]   # character of the coordinate z_i
 
 
-def poly_arrays(P):
-    ks = np.array([key(e) for e in P], dtype=np.int64)
-    vs = np.array([float(v) for v in P.values()], dtype=float)
-    return ks, vs
+def chi(m):
+    return (sum(a * b for a, b in zip(m, GW[0])) % NG, sum(a * b for a, b in zip(m, GW[1])) % NG)
+
+
+def cadd(*cs):
+    a = sum(c[0] for c in cs) % NG
+    b = sum(c[1] for c in cs) % NG
+    return (a, b)
+
+
+def cneg(c):
+    return ((-c[0]) % NG, (-c[1]) % NG)
+
+
+def poly_chi(Pl):
+    cs = {chi(m) for m in Pl}
+    return cs.pop() if len(cs) == 1 else None
+
+
+def mons_chi(d, c):
+    if d < 0:
+        return []
+    return [m for m in monomials(d) if chi(m) == c]
+
+
+def all_chars_parity(par):
+    """Characters (a,b) whose g-weight parity equals the Y-parity par."""
+    return [(a, b) for a in range(NG) for b in range(NG) if a % 2 == par]
 
 
 def load():
-    F, A, q, rec = core.load_instance('off-paired')
+    F, A, q, _rec = core.load_instance(LANE)
     return F, A, q
 
 
-# ----------------------------------------------------------------------------------------------------------
-# exact rational row-space bases via modular rref + CRT + rational reconstruction (+ third-prime verification)
-# ----------------------------------------------------------------------------------------------------------
-def _rref_rows_modp(vecs, ncols, p):
-    """vecs: list of lists of ints (mod p). Returns (rank, rref rows as lists, pivots)."""
-    if not vecs:
-        return 0, [], []
-    M = nmod_mat(len(vecs), ncols, [v % p for row in vecs for v in row], p)
-    Mr, rk = M.rref()
-    rows, piv = [], []
-    for i in range(rk):
-        row = [int(Mr[i, j]) for j in range(ncols)]
-        j = 0
-        while j < ncols and row[j] == 0:
-            j += 1
-        piv.append(j); rows.append(row)
-    return rk, rows, piv
+def check_group(F):
+    G = symmetry.diagonal_group(F)
+    assert G.order == 6 and len(G.elements) == 36, (G.order, len(G.elements))
+    els = set(G.elements)
+    for w in GW:
+        # the engine normalizes w_5 = 0; compare projectively (shift by a scalar weight)
+        shifts = [tuple((w[i] - s) % 6 for i in range(6)) for s in range(6)]
+        assert any(sh in els for sh in shifts), w
+    return G
 
 
-def exact_rowspace_basis(vec_fn, ncols, primes=None, verbose=False, tag=''):
-    """vec_fn(p) -> list of integer row vectors mod p spanning the same Q-space reduced mod p.
-    Returns (list of Fraction rows in rref, pivots)."""
-    primes = primes or core.PRIMES[:6]
-    acc = None; mod = None; piv0 = None
-    used = 0
-    for p in primes:
-        rk, rows, piv = _rref_rows_modp(vec_fn(p), ncols, p)
-        used += 1
-        if acc is None:
-            acc, mod, piv0 = rows, p, piv
-        else:
-            if piv != piv0:
-                raise RuntimeError(f'{tag}: pivot mismatch between primes')
-            acc = [[core.crt_pair(a, mod, b, p)[0] for a, b in zip(ra, rb)] for ra, rb in zip(acc, rows)]
-            mod *= p
-        rat = [[core.ratrecon(v, mod) for v in row] for row in acc]
-        if all(v is not None for row in rat for v in row):
-            # verify with the next prime
-            pv = primes[used] if used < len(primes) else None
-            if pv is None:
-                return rat, piv0
-            rkv, rowsv, pivv = _rref_rows_modp(vec_fn(pv), ncols, pv)
-            if pivv != piv0:
-                raise RuntimeError(f'{tag}: pivot mismatch at verification prime')
-            ok = True
-            for ra, rb in zip(rat, rowsv):
-                for v, b in zip(ra, rb):
-                    num, den = v.numerator, v.denominator
-                    if (num * pow(den, -1, pv) - b) % pv:
-                        ok = False; break
-                if not ok:
-                    break
-            if ok:
-                if verbose:
-                    print(f'[exact basis {tag}] rank {len(rat)} with {used} primes (verified)', file=sys.stderr)
-                return rat, piv0
-            # else continue accumulating
-    raise RuntimeError(f'{tag}: rational reconstruction failed with {len(primes)} primes')
+# ----------------------------------------------------------------------------------------------
+def fmpz_rows_from_polys(polys, idx, n, den):
+    """Integer matrix (len(polys) x n) of den*coefficients (den clears the denominators)."""
+    rows = []
+    for Pl in polys:
+        r = [0] * n
+        for e, c in Pl.items():
+            v = Fraction(c) * den
+            assert v.denominator == 1, (c, den)
+            r[idx[e]] = int(v)
+        rows.append(r)
+    return rows
 
 
-def colon_vecs_modp(F, A, q, d, c, Dpolys_or_mons, p):
-    """Rows (in the coordinates of the given D-basis) spanning {D in span : A*D in J(F)} mod p.
-    Dpolys_or_mons: list of exact polys (the D-family basis)."""
-    Fp = core.reduce_mod(F, p); Ap = core.reduce_mod(A, p)
-    cA = oplib.char_of(Ap)
-    degN = d + 6 * q - 5
-    Fi = [pderiv(Fp, i, p) for i in range(NV)]
-    cols = []; kinds = []
-    for i in range(NV):
-        ci = cadd(cadd(c, VARCHAR[i]), cA)
-        for m in monos_char(degN, ci):
-            cols.append(shift(Fi[i], m, q, p)); kinds.append(('N', i, m))
-    nW = len(Dpolys_or_mons)
-    for k, Bk in enumerate(Dpolys_or_mons):
-        Bp = core.reduce_mod(Bk, p)
-        cols.append(scale(mul(Ap, Bp, p), p - 1, p)); kinds.append(('D', k, None))
-    rows = {}
-    for col in cols:
-        for e in col:
-            rows.setdefault(e, len(rows))
-    R, C = len(rows), len(cols)
-    if C == 0 or nW == 0:
-        return []
-    flat = [0] * (R * C)
-    for j, col in enumerate(cols):
-        for e, v in col.items():
-            flat[rows[e] * C + j] = v
-    M = nmod_mat(R, C, flat, p)
-    X, nullity = M.nullspace()
-    if nullity == 0:
-        return []
-    didx = [j for j, k in enumerate(kinds) if k[0] == 'D']
-    vecs = [[int(X[j, kk]) for j in didx] for kk in range(nullity)]
-    return vecs
+def lcm_den(polys):
+    L = 1
+    for Pl in polys:
+        for c in Pl.values():
+            dn = Fraction(c).denominator
+            L = L * dn // math.gcd(L, dn)
+    return L
 
 
-def exact_colon_basis(F, A, q, d, c, family=None, verbose=False):
-    """Exact rational rref basis of (J:A)_{d,c} (family=None: all monomials of degree d, character c) or of
-    {D in span(family) : A D in J}.  Returns (polys, coord_vectors, Dbasis) where polys are exact dict polys."""
-    Dbasis = family if family is not None else [{m: Fraction(1)} for m in monos_char(d, c)]
-    nW = len(Dbasis)
-    if nW == 0:
-        return [], [], Dbasis
-    rat, piv = exact_rowspace_basis(lambda p: colon_vecs_modp(F, A, q, d, c, Dbasis, p), nW, verbose=verbose,
-                                    tag=f'colon d={d} c={c}')
-    polys = []
-    for row in rat:
-        P = {}
-        for k, v in enumerate(row):
-            if v:
-                P = add(P, scale(Dbasis[k], v))
-        polys.append(P)
-    return polys, rat, Dbasis
+# ----------------------------------------------------------------------------------------------
+# E1-admissible spaces in a character sector (exact over Q)
+class SectorSpaces:
+    """Rational bases of, in degree d and D-character c:
+         gauge  : F * R_{d-6, c}
+         jac    : J(F)_{d,c} = span{ m F_i }           (complement of gauge, basis = selected m F_i)
+         ker    : complement of (gauge + jac) inside (J:A)_{d,c}   (non-Jacobian E1 kernel)
+       and dimensions.  Basis polys have Fraction coefficients.
+    """
+
+    def __init__(self, F, A, q, d, c, p=P0, verbose=False):
+        t0 = time.time()
+        self.F, self.A, self.q, self.d, self.c, self.p = F, A, q, d, c, p
+        self.cA = poly_chi(A)
+        Dm = mons_chi(d, c)
+        self.Dmons = Dm
+        self.dimR = len(Dm)
+        K = len(Dm)
+        Fi = [pderiv(F, i) for i in range(NV)]
+        self.gauge = [shift(F, m, 1) for m in mons_chi(d - 6, c)] if d >= 6 else []
+        jac_gens = []
+        for i in range(NV):
+            for m in mons_chi(d - 5, cadd(c, WZ[i])):
+                jac_gens.append(((i, m), shift(Fi[i], m, 1)))
+        self.jac_gens = jac_gens
+        self.E1 = []
+        if K:
+            cAD = cadd(self.cA, c)
+            Ncols = []
+            for i in range(NV):
+                for m in mons_chi(d + 6 - 5, cadd(cAD, WZ[i])):
+                    Ncols.append(shift(Fi[i], m, 1))
+            Acols = [mul(A, {m: Fraction(1)}) for m in Dm]
+            ridx = {}
+            for Pl in Acols + Ncols:
+                for e in Pl:
+                    ridx.setdefault(e, len(ridx))
+            R = len(ridx)
+            den = lcm_den(Acols + Ncols)
+            colsI = fmpz_rows_from_polys(Acols + [scale(Pl, -1) for Pl in Ncols], ridx, R, den)
+            nC = len(colsI)
+            M = flint.fmpz_mat(R, nC, [colsI[j][r] for r in range(R) for j in range(nC)])
+            X, nul = M.nullspace()
+            E1 = []
+            for j in range(nul):
+                colv = [int(X[i, j]) for i in range(K)]
+                if any(colv):
+                    g = 0
+                    for v in colv:
+                        g = math.gcd(g, abs(v))
+                    E1.append([v // g for v in colv])
+            self.e1_raw = E1
+            self.E1 = self._independent(E1, K)
+        self.dimE1 = len(self.E1)
+        gauge_vecs = [self._vec(Pl, Dm) for Pl in self.gauge]
+        self.dim_gauge = self._rank_rows([self._modrow(v) for v in gauge_vecs], K)
+        jac_vecs = [self._vec(Pl, Dm) for _, Pl in jac_gens]
+        sel_jac = self._extend(gauge_vecs, jac_vecs, K)
+        self.jac_basis = [jac_gens[j][1] for j in sel_jac]
+        self.jac_tags = [jac_gens[j][0] for j in sel_jac]
+        self.dim_jac_total = self._rank_rows([self._modrow(v) for v in gauge_vecs + jac_vecs], K)
+        base = gauge_vecs + [jac_vecs[j] for j in sel_jac]
+        e1_vecs = [[Fraction(v) for v in row] for row in self.E1]
+        sel_ker = self._extend(base, e1_vecs, K)
+        self.ker_basis = [self._poly(self.E1[j], Dm) for j in sel_ker]
+        self.dim_ker = len(self.ker_basis)
+        self.dim_jac = len(self.jac_basis)
+        self.time = time.time() - t0
+        if verbose:
+            print(f'[spaces] d={d} chi={c}: R={self.dimR} E1={self.dimE1} gauge={self.dim_gauge} '
+                  f'jac(mod gauge)={self.dim_jac} ker={self.dim_ker} ({self.time:.1f}s)', file=sys.stderr)
+
+    def _vec(self, Pl, Dm):
+        idx = {m: i for i, m in enumerate(Dm)}
+        v = [Fraction(0)] * len(Dm)
+        for e, cf in Pl.items():
+            v[idx[e]] = Fraction(cf)
+        return v
+
+    def _poly(self, row, Dm):
+        return {m: Fraction(int(v)) for m, v in zip(Dm, row) if v}
+
+    def _modrow(self, v):
+        p = self.p
+        out = []
+        for x in v:
+            fx = Fraction(x)
+            out.append(int(fx.numerator % p * pow(fx.denominator % p, -1, p) % p))
+        return out
+
+    def _rank_rows(self, rows, K):
+        if not rows or K == 0:
+            return 0
+        M = flint.nmod_mat(len(rows), K, [x for r in rows for x in r], self.p)
+        return M.rank()
+
+    def _extend(self, base, cands, K):
+        """Greedy: indices of cands that extend span(base) (mod p)."""
+        rows = [self._modrow(v) for v in base]
+        r = self._rank_rows(rows, K)
+        sel = []
+        for j, v in enumerate(cands):
+            rows2 = rows + [self._modrow(v)]
+            r2 = self._rank_rows(rows2, K)
+            if r2 > r:
+                rows, r = rows2, r2
+                sel.append(j)
+        return sel
+
+    def _independent(self, introws, K):
+        if not introws:
+            return []
+        sel = self._extend([], [[Fraction(x) for x in r] for r in introws], K)
+        return [introws[j] for j in sel]
+
+    def basis(self, kind):
+        if kind == 'jac':
+            return list(self.jac_basis)
+        if kind == 'ker':
+            return list(self.ker_basis)
+        if kind == 'full':
+            return list(self.jac_basis) + list(self.ker_basis)
+        raise ValueError(kind)
+
+    def summary(self):
+        return {'d': self.d, 'chi': list(self.c), 'dimR': self.dimR, 'dimE1': self.dimE1,
+                'gauge': self.dim_gauge, 'jac_mod_gauge': self.dim_jac, 'ker': self.dim_ker,
+                'jac_total_with_gauge': self.dim_jac_total, 'seconds': round(self.time, 2)}
 
 
-def jacobian_generators_exact(F, d, c):
-    """m*F_i with deg m = d-5, char(m) = c + VARCHAR[i] (so that the product has character c)."""
+# ----------------------------------------------------------------------------------------------
+def koszul_generators(F, d, c, cA=(3, 0)):
+    """Koszul syzygies S = e (F_j e_i - F_i e_j), deg e = d-4, in the N-character sector of (d, c).
+    Returns list of (tag, [6 polys])."""
     Fi = [pderiv(F, i) for i in range(NV)]
     out = []
-    if d < 5:
+    if d - 4 < 0:
         return out
     for i in range(NV):
-        for m in monos_char(d - 5, cadd(c, VARCHAR[i])):
-            out.append(shift(Fi[i], m, 1))
+        for j in range(i + 1, NV):
+            ce = cadd(cA, c, WZ[i], WZ[j])
+            for e in mons_chi(d - 4, ce):
+                N = [dict() for _ in range(NV)]
+                N[i] = shift(Fi[j], e, 1)
+                N[j] = shift(Fi[i], e, -1)
+                out.append(((i, j, e), N))
     return out
 
 
-def exact_span_basis(polys, mons, verbose=False, tag='span'):
-    """Exact rref basis (as polys) of the span of exact polys in the monomial list mons."""
-    idx = {m: i for i, m in enumerate(mons)}
-    if not polys:
-        return []
-
-    def vec_fn(p):
-        vecs = []
-        for P in polys:
-            Pp = core.reduce_mod(P, p)
-            row = [0] * len(mons)
-            for e, v in Pp.items():
-                row[idx[e]] = v
-            vecs.append(row)
-        return vecs
-    rat, piv = exact_rowspace_basis(vec_fn, len(mons), verbose=verbose, tag=tag)
-    return [{mons[j]: v for j, v in enumerate(row) if v} for row in rat]
+def n_lift_exact_jac(A, q, tag):
+    """For D = m F_i (tag=(i,m)) the exact E1 lift N = (1/q) A m e_i."""
+    i, m = tag
+    N = [dict() for _ in range(NV)]
+    N[i] = scale(shift(A, m, 1), Fraction(1, q))
+    return N
 
 
-def gauge_polys(F, d, c):
-    """F * m for monomials m of degree d-6 and character c (F has character (0,0))."""
-    if d < 6:
-        return []
-    return [shift(F, m, 1) for m in monos_char(d - 6, c)]
+class E1Lifter:
+    """Float least-squares E1 lifts: q sum_i N_i F_i = A D in the sector of (d, c)."""
 
-
-# ----------------------------------------------------------------------------------------------------------
-# sector-restricted matrix-free VarPro
-# ----------------------------------------------------------------------------------------------------------
-class SectorVarPro:
-    """Family D(a) = sum_k a_k B_k (exact polys B_k of degree d and character c), fixed-D system restricted to the
-    character sector; f(a) = min_{N,Q} ||M(a) x - b(a)||^2 with b = -A D^2, evaluated on the unit sphere of the
-    complement of the gauge subspace span(F*R_{d-6}) (so D is never an F-multiple)."""
-
-    def __init__(self, F, A, q, basis, c, gauge=None, verbose=False, cond=1e-9, remove_gauge=True):
-        t0 = time.time()
-        self.F, self.A, self.q, self.c = F, A, q, c
-        self.basis = basis
-        K = len(basis); self.K = K
-        d = core.degree(basis[0]); self.d = d
-        for Bk in basis:
-            assert core.degree(Bk) == d and oplib.char_of(Bk) == c, 'basis must be homogeneous of one character'
-        cA = oplib.char_of(A); self.cA = cA
-        self.cond = cond
-        Dm = monos_char(d, c); self.Dm = Dm; nD = len(Dm); self.nD = nD
-        Didx = {m: i for i, m in enumerate(Dm)}
-        Bex = np.zeros((K, nD))
-        for k, Bk in enumerate(basis):
-            for e, v in Bk.items():
-                Bex[k, Didx[e]] = float(v)
-        self.Bex = Bex
-        # orthonormal basis of the row space of Bex (in D-monomial coordinates)
-        U, s, Vt = np.linalg.svd(Bex, full_matrices=False)
-        r = int(np.sum(s > 1e-10 * s[0]))
-        self.Borth = Vt[:r, :]              # r x nD, orthonormal rows
-        self.rankB = r
-        # gauge complement
-        gauge = gauge if gauge is not None else (gauge_polys(F, d, c) if remove_gauge else [])
-        ng = 0
-        if gauge:
-            G = np.zeros((len(gauge), nD))
-            for k, Gk in enumerate(gauge):
-                for e, v in Gk.items():
-                    G[k, Didx[e]] = float(v)
-            Gc = G @ self.Borth.T          # coordinates in the orthonormal basis (gauge subset of the family)
-            resid = np.linalg.norm(G - Gc @ self.Borth) / max(np.linalg.norm(G), 1e-300)
-            if resid > 1e-8:
-                raise ValueError(f'gauge vectors not inside the family (rel {resid:.1e})')
-            Ug, sg, Vgt = np.linalg.svd(Gc, full_matrices=True)
-            ng = int(np.sum(sg > 1e-10 * max(sg[0], 1e-300)))
-            self.P = Vgt[ng:, :].T          # r x (r-ng): orthonormal complement of the gauge in orth coords
-        else:
-            self.P = np.eye(r)
-        self.ng = ng
-        self.dimP = self.P.shape[1]
-        degN = d + 6 * q - 5; degQ = 2 * d - 6
-        self.degN, self.degQ = degN, degQ
-        crow = cadd(cA, cadd(c, c))
-        rowmons = monos_char(2 * d + 6, crow)
-        rowkeys = keys_of(rowmons)
-        order = np.argsort(rowkeys)
-        self._rk_sorted = rowkeys[order]; self._rk_order = order
-        R = len(rowmons); self.R = R
-
-        def row_index(ks):
-            pos = np.searchsorted(self._rk_sorted, ks)
-            pos = np.minimum(pos, len(self._rk_sorted) - 1)
-            if not np.all(self._rk_sorted[pos] == ks):
-                raise RuntimeError('monomial outside the row sector')
-            return self._rk_order[pos]
-        self.row_index = row_index
-        # N columns grouped by i
-        Ncols = []; self.Ncols_by_i = []
-        for i in range(NV):
-            ci = cadd(cadd(c, VARCHAR[i]), cA)
-            ms = monos_char(degN, ci)
-            self.Ncols_by_i.append((len(Ncols), ms))
-            Ncols += [(i, m) for m in ms]
-        nN = len(Ncols); self.nN = nN; self.Ncols = Ncols
-        # T_N: sparse (R*nN) x nD
+    def __init__(self, F, A, q, d, c):
+        self.F, self.A, self.q = F, A, q
         Fi = [pderiv(F, i) for i in range(NV)]
-        ri_l, ci_l, va_l = [], [], []
-        for mu_idx, mu in enumerate(Dm):
-            mup = {mu: Fraction(1)}
-            Fmu = mul(F, mup)
-            fk, fv = poly_arrays(Fmu)
+        cA = poly_chi(A)
+        cAD = cadd(cA, c)
+        cols = []
+        for i in range(NV):
+            for m in mons_chi(d + 1, cadd(cAD, WZ[i])):
+                cols.append(((i, m), scale(shift(Fi[i], m, 1), q)))
+        self.cols = cols
+        ridx = {}
+        for _, Pl in cols:
+            for e in Pl:
+                ridx.setdefault(e, len(ridx))
+        self.ridx = ridx
+        Mtx = np.zeros((len(ridx), len(cols)))
+        for j, (_, Pl) in enumerate(cols):
+            for e, v in Pl.items():
+                Mtx[ridx[e], j] = float(v)
+        self.M = Mtx
+
+    def lift(self, D):
+        AD = mul(self.A, D)
+        b = np.zeros(len(self.ridx))
+        for e, v in AD.items():
+            if e not in self.ridx:
+                raise ValueError('A D outside the column span support (not E1-admissible?)')
+            b[self.ridx[e]] = float(v)
+        x, *_ = sla.lstsq(self.M, b, cond=1e-12, lapack_driver='gelsd', check_finite=False)
+        res = np.linalg.norm(self.M @ x - b) / max(np.linalg.norm(b), 1e-300)
+        N = [dict() for _ in range(NV)]
+        for (i, m), v in zip([t for t, _ in self.cols], x):
+            if v != 0.0:
+                N[i][m] = v
+        return N, res
+
+
+def B_bilinear(D, N):
+    """B_D(N) = D div N - N . grad D  (float or Fraction coefficients)."""
+    divN = {}
+    for i in range(NV):
+        divN = add(divN, pderiv(N[i], i))
+    out = mul(D, divN)
+    for i in range(NV):
+        out = sub(out, mul(N[i], pderiv(D, i)))
+    return out
+
+
+# ----------------------------------------------------------------------------------------------
+class ReducedVarPro(varpro.VarProFamily):
+    """Reduced sector-restricted variable projection (see module docstring).
+
+    basis   : list of D polys (Fraction coefficients), all of degree d and character c
+    nlifts  : list of N (6 polys, float/Fraction) with q sum N_i F_i = A D_k
+    koszul  : list of N (6 polys) with sum S_i F_i = 0 (may be empty: Hessian relaxation)
+    """
+
+    def __init__(self, F, A, q, basis, nlifts, koszul, c, verbose=False, cond=1e-9, label=''):
+        t0 = time.time()
+        self.cond = cond
+        self.F, self.A, self.q = F, A, q
+        self.basis = [dict(B) for B in basis]
+        self.label = label
+        K = len(basis); self.K = K
+        degs = {core.degree(B) for B in basis}
+        assert len(degs) == 1, degs
+        d = degs.pop(); self.d = d
+        self.pD = core.parity_of(basis[0])
+        self.c = c
+        cA = poly_chi(A)
+        cQ = cadd(cA, c, c)
+        self.degN, self.degQ = d + 6 * q - 5, 2 * d - 6
+        self.Qmons = mons_chi(self.degQ, cQ) if self.degQ >= 0 else []
+        self.nS, self.nQ = len(koszul), len(self.Qmons)
+        self.nN = self.nS   # the parent's x[:nN] slot holds the Koszul coefficients
+        rows = {}
+
+        def ridx(e):
+            if e not in rows:
+                rows[e] = len(rows)
+            return rows[e]
+        Dk_i = [[pderiv(B, i) for i in range(NV)] for B in self.basis]
+        divS = []
+        for S in koszul:
+            dv = {}
             for i in range(NV):
-                start, ms = self.Ncols_by_i[i]
-                if not ms:
-                    continue
-                Gi = scale(add(scale(mul(mup, Fi[i]), q), mul(F, pderiv(mup, i))), -1)
-                mk = keys_of(ms)
-                cols = np.arange(start, start + len(ms), dtype=np.int64)
-                if Gi:
-                    gk, gv = poly_arrays(Gi)
-                    kk = (gk[:, None] + mk[None, :]).ravel()
-                    rows = row_index(kk)
-                    ri_l.append(rows * nN + np.broadcast_to(cols[None, :], (len(gk), len(ms))).ravel())
-                    ci_l.append(np.full(kk.size, mu_idx, dtype=np.int64))
-                    va_l.append(np.broadcast_to(gv[:, None], (len(gk), len(ms))).ravel().copy())
-                # F*mu * m_i * (m / z_i)
-                mi = np.array([m[i] for m in ms], dtype=np.int64)
-                sel = np.nonzero(mi)[0]
-                if sel.size:
-                    mk2 = mk[sel] - BK ** i
-                    kk = (fk[:, None] + mk2[None, :]).ravel()
-                    rows = row_index(kk)
-                    ri_l.append(rows * nN + np.broadcast_to(cols[sel][None, :], (len(fk), sel.size)).ravel())
-                    ci_l.append(np.full(kk.size, mu_idx, dtype=np.int64))
-                    va_l.append((fv[:, None] * mi[sel][None, :].astype(float)).ravel())
-        ri = np.concatenate(ri_l); ci = np.concatenate(ci_l); va = np.concatenate(va_l)
-        self.TN = sp.csr_matrix((va, (ri, ci)), shape=(R * nN, nD))
-        self.TNT = self.TN.T.tocsr()
-        # Q block (constant) and its orthonormal column basis
-        Qm = monos_char(degQ, crow) if degQ >= 0 else []
-        self.Qm = Qm; nQ = len(Qm); self.nQ = nQ
-        if nQ:
-            F2n = scale(mul(F, F), -1)
-            f2k, f2v = poly_arrays(F2n)
-            MQ = np.zeros((R, nQ))
-            qk = keys_of(Qm)
-            kk = (f2k[:, None] + qk[None, :]).ravel()
-            rows = row_index(kk)
-            cols = np.broadcast_to(np.arange(nQ)[None, :], (len(f2k), nQ)).ravel()
-            np.add.at(MQ, (rows, cols), np.broadcast_to(f2v[:, None], (len(f2k), nQ)).ravel())
-            self.MQ = MQ
-            Qq, Rq = np.linalg.qr(MQ, mode='reduced')
-            self.QQ = Qq
-        else:
-            self.MQ = np.zeros((R, 0)); self.QQ = np.zeros((R, 0))
-        # b pairs: -A mu nu
-        kA = key(next(iter(A)))
-        assert len(A) == 1, 'A must be a monomial for the pair table (true for X0^3 Y0^3)'
-        self.cAval = float(A[next(iter(A))])
-        dk = keys_of(Dm)
-        mu_i, nu_i = np.meshgrid(np.arange(nD), np.arange(nD), indexing='ij')
-        mu_i = mu_i.ravel(); nu_i = nu_i.ravel()
-        self.pair_mu, self.pair_nu = mu_i, nu_i
-        self.pair_row = row_index(kA + dk[mu_i] + dk[nu_i])
-        self.ncols = nN + nQ
+                dv = add(dv, pderiv(S[i], i))
+            divS.append(dv)
+        blocks = []
+        for k, B in enumerate(self.basis):
+            ri, ci, vals = [], [], []
+            for j, S in enumerate(koszul):
+                col = mul(B, divS[j])
+                for i in range(NV):
+                    if S[i] and Dk_i[k][i]:
+                        col = sub(col, mul(S[i], Dk_i[k][i]))
+                for e, v in col.items():
+                    ri.append(ridx(e)); ci.append(j); vals.append(float(v))
+            blocks.append((ri, ci, vals))
+        qri, qci, qvals = [], [], []
+        negF = scale(F, -1)
+        for j, m in enumerate(self.Qmons):
+            col = shift(negF, m, 1)
+            for e, v in col.items():
+                qri.append(ridx(e)); qci.append(j); qvals.append(float(v))
+        divN = []
+        for N in nlifts:
+            dv = {}
+            for i in range(NV):
+                dv = add(dv, pderiv(N[i], i))
+            divN.append(dv)
+        pair = {}
+        for k, B in enumerate(self.basis):
+            for l, N in enumerate(nlifts):
+                v = mul(B, divN[l])
+                for i in range(NV):
+                    if N[i] and Dk_i[k][i]:
+                        v = sub(v, mul(N[i], Dk_i[k][i]))
+                v = scale(v, -1)
+                pair[(k, l)] = v
+                for e in v:
+                    ridx(e)
+        R = len(rows); self.rows = R; self.row_index = rows
+        self.Mk = [sp.csr_matrix((np.array(vals, dtype=float), (np.array(ri, dtype=np.int64), np.array(ci, dtype=np.int64))),
+                                 shape=(R, self.nS)) for ri, ci, vals in blocks]
+        self.MQ = sp.csr_matrix((np.array(qvals, dtype=float), (np.array(qri, dtype=np.int64), np.array(qci, dtype=np.int64))),
+                                shape=(R, self.nQ)).toarray() if self.nQ else np.zeros((R, 0))
+        self.Vk = []
+        for k in range(K):
+            ri, ci, vals = [], [], []
+            for l in range(K):
+                v = add(pair[(k, l)], pair[(l, k)])
+                for e, cf in v.items():
+                    ri.append(rows[e]); ci.append(l); vals.append(0.5 * float(cf))
+            self.Vk.append(sp.csr_matrix((np.array(vals, dtype=float), (np.array(ri, dtype=np.int64), np.array(ci, dtype=np.int64))),
+                                         shape=(R, K)))
+        self.ncols = self.nS + self.nQ
+        self.P = np.eye(K); self.excluded_dim = 0; self.dimP = K
         self.build_time = time.time() - t0
         self._nfev = 0
         if verbose:
-            print(f'[sector varpro] d={d} c={c} K={K} rank={r} gauge={ng} dimP={self.dimP} rows={R} '
-                  f'N={nN} Q={nQ} nnz(TN)={self.TN.nnz} built in {self.build_time:.1f}s', file=sys.stderr)
+            print(f'[rvp {label}] d={d} chi={c} K={K} rows={R} cols={self.ncols} (S {self.nS}, Q {self.nQ}) '
+                  f'built in {self.build_time:.1f}s', file=sys.stderr)
 
-    # --- evaluation ---------------------------------------------------------------------------------------
-    def D_coef(self, u):
-        a = self.P @ np.asarray(u, float)
-        na = np.linalg.norm(a)
-        a = a / na
-        return self.Borth.T @ a, a, na
+    def confirm(self, frac, verbose=False, group=None):
+        D = self.D_exact(frac)
+        if not D:
+            return 'inconsistent', {'note': 'D = 0'}
+        ok, info = fixed_d.e1_solvable(self.F, self.A, self.q, D)
+        if not ok:
+            return 'inconsistent', {'note': 'e1 fails', 'e1': info, 'D': D}
+        status, data = symmetry.solve_fixed_D_symmetric(self.F, self.A, self.q, D, verbose=verbose, group=group)
+        data['D'] = D
+        return status, data
 
-    def assemble(self, Dc):
-        MN = (self.TN @ Dc).reshape(self.R, self.nN)
-        b = -self.cAval * np.bincount(self.pair_row, weights=Dc[self.pair_mu] * Dc[self.pair_nu], minlength=self.R)
-        return MN, b
-
-    def residual(self, Dc):
-        MN, b = self.assemble(Dc)
-        if self.nQ:
-            MNp = MN - self.QQ @ (self.QQ.T @ MN)
-            bp = b - self.QQ @ (self.QQ.T @ b)
-        else:
-            MNp, bp = MN, b
-        xN, *_ = sla.lstsq(MNp, bp, cond=self.cond, lapack_driver='gelsy', check_finite=False)
-        r = MNp @ xN - bp
-        self._nfev += 1
-        return r, xN, b
-
-    def value(self, u):
-        Dc, a, na = self.D_coef(u)
-        r, xN, b = self.residual(Dc)
-        f = float(r @ r); bn = float(b @ b)
-        return f, bn, r, xN, Dc
-
-    def value_and_grad(self, u):
-        Dc, a, na = self.D_coef(u)
-        r, xN, b = self.residual(Dc)
-        f = float(r @ r)
-        gD = 2.0 * (self.TNT @ np.outer(r, xN).ravel())
-        gb = -2.0 * self.cAval * np.bincount(self.pair_mu, weights=r[self.pair_row] * Dc[self.pair_nu], minlength=self.nD)
-        gD = gD - 2.0 * gb
-        ga = self.Borth @ gD
-        g_full = (ga - float(ga @ a) * a) / na
-        return f, self.P.T @ g_full
-
-    def relres(self, u):
-        f, bn, r, xN, Dc = self.value(u)
-        return math.sqrt(f / max(bn, 1e-300))
-
-    def fd_check(self, seed=0, h=1e-6):
-        rng = np.random.default_rng(seed)
-        u = rng.standard_normal(self.dimP); u /= np.linalg.norm(u)
-        f0, g = self.value_and_grad(u)
-        v = rng.standard_normal(self.dimP); v -= (v @ u) * u; v /= np.linalg.norm(v)
-        fp, _ = self.value_and_grad(u + h * v); fm, _ = self.value_and_grad(u - h * v)
-        fd = (fp - fm) / (2 * h)
-        return float(g @ v), fd
-
-    # --- search ---------------------------------------------------------------------------------------------
-    def minimize_from(self, seed, maxiter=400, gtol=1e-12, init=None):
-        rng = np.random.default_rng(seed)
-        u0 = rng.standard_normal(self.dimP) if init is None else np.asarray(init, float)
-        u0 /= np.linalg.norm(u0)
-        t0 = time.time()
-        res = minimize(self.value_and_grad, u0, jac=True, method='L-BFGS-B',
-                       options={'maxiter': maxiter, 'gtol': gtol, 'ftol': 1e-18, 'maxcor': 20})
-        u = res.x / np.linalg.norm(res.x)
-        f, bn, r, xN, Dc = self.value(u)
-        rel = math.sqrt(f / max(bn, 1e-300))
-        return {'seed': int(seed), 'f': f, 'bnorm2': bn, 'relres': rel, 'iters': int(res.nit), 'nfev': int(res.nfev),
-                'status': int(res.status), 'time': round(time.time() - t0, 2), 'u': u, 'Dc': Dc}
+    def info(self):
+        return {'K': self.K, 'rows': self.rows, 'nS': self.nS, 'nQ': self.nQ, 'd': self.d, 'chi': list(self.c),
+                'build_seconds': round(self.build_time, 1)}
 
 
-    # --- Levenberg-Marquardt on the VarPro residual (Kaufman Jacobian) -----------------------------------------
-    def _qr_solve(self, Dc):
-        """Pivoted QR of the Q-projected N block; returns (r, xN, b, Q1) with Q1 an orthonormal basis of
-        range(P_Q^perp M_N) so that range(M) = range(QQ) + range(Q1)."""
-        MN, b = self.assemble(Dc)
-        if self.nQ:
-            MNp = MN - self.QQ @ (self.QQ.T @ MN)
-            bp = b - self.QQ @ (self.QQ.T @ b)
-        else:
-            MNp, bp = MN, b
-        Qf, Rf, piv = sla.qr(MNp, mode='economic', pivoting=True, check_finite=False)
-        dg = np.abs(np.diag(Rf))
-        rank = int(np.sum(dg > self.cond * dg[0])) if dg.size and dg[0] > 0 else 0
-        Q1 = Qf[:, :rank]
-        y = Q1.T @ bp
-        xN = np.zeros(self.nN)
-        if rank:
-            z = sla.solve_triangular(Rf[:rank, :rank], y, check_finite=False)
-            xN[piv[:rank]] = z
-        r = bp - Q1 @ y
-        r = -r  # convention r = M x - b
-        self._nfev += 1
-        return r, xN, b, Q1
-
-    def resid(self, u):
-        Dc, a, na = self.D_coef(u)
-        r, xN, b, Q1 = self._qr_solve(Dc)
-        return r, b
-
-    def resid_jac(self, u):
-        """Residual r(u) and Kaufman Jacobian dr/du (R x dimP)."""
-        u = np.asarray(u, float)
-        a_full = self.P @ u
-        na = np.linalg.norm(a_full)
-        a = a_full / na
-        Dc = self.Borth.T @ a
-        r, xN, b, Q1 = self._qr_solve(Dc)
-        R, nN, nD = self.R, self.nN, self.nD
-        Xm = sp.csr_matrix((np.tile(xN, R), np.arange(R * nN, dtype=np.int64), np.arange(0, R * nN + 1, nN, dtype=np.int64)),
-                           shape=(R, R * nN))
-        Y = np.asarray((Xm @ self.TN).todense())
-        Bp = sp.csr_matrix((-2.0 * self.cAval * Dc[self.pair_nu], (self.pair_row, self.pair_mu)), shape=(R, nD)).toarray()
-        JD = Y - Bp
-        if self.nQ:
-            JD = JD - self.QQ @ (self.QQ.T @ JD)
-        JD = JD - Q1 @ (Q1.T @ JD)
-        Ja = JD @ self.Borth.T                      # R x rankB
-        Ja = (Ja - np.outer(Ja @ a, a)) / na        # normalization chain rule
-        Ju = Ja @ self.P
-        return r, Ju, b
-
-    def lm_from(self, seed, maxiter=150, init=None, tol=1e-13, verbose=False, lam0=1e-3):
-        rng = np.random.default_rng(seed)
-        u = rng.standard_normal(self.dimP) if init is None else np.asarray(init, float)
-        u = u / np.linalg.norm(u)
-        t0 = time.time()
-        r, J, b = self.resid_jac(u)
-        f = float(r @ r); bn = float(b @ b)
-        lam = lam0
-        it = 0; njac = 1; nres = 0
-        status = 'maxiter'
-        while it < maxiter:
-            it += 1
-            g = J.T @ r; H = J.T @ J
-            dH = np.diag(H).copy(); dH[dH < 1e-300] = 1e-300
-            accepted = False
-            for _ in range(30):
-                try:
-                    delta = np.linalg.solve(H + lam * np.diag(dH), -g)
-                except np.linalg.LinAlgError:
-                    lam *= 10; continue
-                u_new = u + delta
-                u_new /= np.linalg.norm(u_new)
-                r_new, b_new = self.resid(u_new); nres += 1
-                f_new = float(r_new @ r_new)
-                if f_new < f:
-                    accepted = True
-                    break
-                lam *= 4.0
-                if lam > 1e14:
-                    break
-            if not accepted:
-                status = 'stalled'; break
-            rel_impr = (f - f_new) / max(f, 1e-300)
-            u, f = u_new, f_new
-            lam = max(lam / 3.0, 1e-15)
-            if math.sqrt(f / max(bn, 1e-300)) < tol:
-                status = 'converged'; 
-                r, J, b = self.resid_jac(u); njac += 1
-                break
-            r, J, b = self.resid_jac(u); njac += 1
-            f = float(r @ r); bn = float(b @ b)
-            if rel_impr < 1e-12 and lam > 1e6:
-                status = 'flat'; break
-        Dc, a, na = self.D_coef(u)
-        rel = math.sqrt(f / max(bn, 1e-300))
-        return {'seed': int(seed), 'f': f, 'bnorm2': bn, 'relres': rel, 'iters': it, 'njac': njac, 'nres': nres,
-                'status': status, 'time': round(time.time() - t0, 2), 'u': u, 'Dc': Dc}
-
-    # --- exact confirmation --------------------------------------------------------------------------------
-    def D_exact_from_coef(self, Dc, max_den):
-        j = int(np.argmax(np.abs(Dc)))
-        v = Dc / Dc[j]
-        fr = [Fraction(float(x)).limit_denominator(max_den) for x in v]
-        err = max(abs(float(a) - b) for a, b in zip(fr, v))
-        D = {self.Dm[i]: fr[i] for i in range(self.nD) if fr[i] != 0}
-        return D, err
-
-    def D_exact_from_basis_coords(self, Dc, max_den):
-        """Reconstruct in the coordinates of the exact rref basis (often sparser)."""
-        a, *_ = np.linalg.lstsq(self.Bex.T, Dc, rcond=None)
-        j = int(np.argmax(np.abs(a)))
-        v = a / a[j]
-        fr = [Fraction(float(x)).limit_denominator(max_den) for x in v]
-        err = max(abs(float(x) - y) for x, y in zip(fr, v))
-        D = {}
-        for k, Bk in enumerate(self.basis):
-            if fr[k]:
-                D = add(D, scale(Bk, fr[k]))
-        return D, err
+def build_family(F, A, q, d, c, kind, hessian=False, verbose=False, spaces=None):
+    """kind in {'jac','ker','full'}; hessian=True drops the Koszul unknowns."""
+    sp_ = spaces or SectorSpaces(F, A, q, d, c, verbose=verbose)
+    basis, lifts = [], []
+    if kind in ('jac', 'full'):
+        for tag, B in zip(sp_.jac_tags, sp_.jac_basis):
+            basis.append(B); lifts.append(n_lift_exact_jac(A, q, tag))
+    if kind in ('ker', 'full') and sp_.ker_basis:
+        L = E1Lifter(F, A, q, d, c)
+        for B in sp_.ker_basis:
+            N, res = L.lift(B)
+            if res > 1e-8:
+                raise RuntimeError(f'E1 lift failed for kernel vector (res {res:.2e})')
+            basis.append(B); lifts.append(N)
+    if not basis:
+        return None, sp_
+    kos = [] if hessian else [N for _, N in koszul_generators(F, d, c, poly_chi(A))]
+    fam = ReducedVarPro(F, A, q, basis, lifts, kos, c, verbose=verbose,
+                        label=f'{kind}{"-hess" if hessian else ""}')
+    return fam, sp_
 
 
-def confirm_exact(F, A, q, D, verbose=False, max_primes=12):
-    """E1 (sector-reduced, mod p) then exact sector-reduced multi-prime solve; returns (status, data)."""
-    if not D:
-        return 'inconsistent', {'note': 'D=0'}
-    divF, _ = jacobian.divisible_by(F, D)
-    if divF:
-        return 'spurious', {'note': 'F divides D'}
-    ok, info = oplib.e1_reduced(F, A, q, D)
-    if not ok:
-        return 'inconsistent', {'note': 'e1 fails', 'e1': info}
-    st, data = oplib.lift_solution(F, A, q, D, verbose=verbose, max_primes=max_primes)
-    if st == 'solved':
-        ok2, info2 = core.verify_witness(F, A, q, D, data['N'], data['Q'])
-        data['verified'] = bool(ok2)
-    return st, data
-
-
-def try_reconstruct_and_confirm(fam, Dc, dens=(1, 2, 6, 12, 60, 120, 1000, 10000, 100000, 10 ** 6), tol=1e-5,
-                                verbose=False):
-    """Returns list of attempt records; a record with status 'solved' is a witness (N, Q included)."""
-    out = []
-    seen = set()
-    for mode in ('coef', 'basis'):
-        for md in dens:
-            try:
-                D, err = (fam.D_exact_from_coef(Dc, md) if mode == 'coef' else fam.D_exact_from_basis_coords(Dc, md))
-            except Exception as ex:
-                out.append({'mode': mode, 'max_den': md, 'error': str(ex)}); continue
-            if err > tol or not D:
-                out.append({'mode': mode, 'max_den': md, 'recon_err': err, 'status': 'no-fit'}); continue
-            s = core.to_str(D)
-            if s in seen:
-                continue
-            seen.add(s)
-            t0 = time.time()
-            st, data = confirm_exact(fam.F, fam.A, fam.q, D, verbose=verbose)
-            rec = {'mode': mode, 'max_den': md, 'recon_err': err, 'status': st, 'D': s, 'time': round(time.time() - t0, 1)}
-            for k in ('rank', 'nullity', 'note', 'verified'):
-                if k in data:
-                    rec[k] = data[k]
-            if st == 'solved':
-                rec['N'] = [core.to_str(n) for n in data['N']]; rec['Q'] = core.to_str(data['Q'])
-                out.append(rec)
-                return out
-            out.append(rec)
-    return out
-
-
-# ----------------------------------------------------------------------------------------------------------
-# families
-# ----------------------------------------------------------------------------------------------------------
-def var_subset_family(d, c, vars_):
-    """All monomials of degree d, character c, in the given variable subset (cone over a lower-dim variety)."""
-    vs = set(vars_)
-    return [{m: Fraction(1)} for m in monos_char(d, c) if all(m[i] == 0 for i in range(NV) if i not in vs)]
-
-
-def sigma2_symmetrize(polys, sign=+1):
-    """Span of P +/- sigma2(P) (sigma2: X2 <-> Y2) — only meaningful for h-invariant characters (a,0)."""
-    out = []
-    for P in polys:
-        Ps = {}
-        for e, v in P.items():
-            e2 = (e[0], e[1], e[5], e[3], e[4], e[2])
-            Ps[e2] = Ps.get(e2, 0) + v
-        Q = add(P, scale(Ps, sign))
-        if Q:
-            out.append(Q)
-    return out
-
-
-def build_family(F, A, q, d, c, kind, verbose=False):
-    """kind: 'colon' | 'jac' | 'vars:X0,X1,Y0,Y1' | 'colon-s2even' | 'colon-s2odd' | 'jac-s2even' | 'colon-vars:...'
-    Returns (basis polys, gauge polys, info)."""
-    cA = oplib.char_of(A)
-    gauge = gauge_polys(F, d, c)
-    info = {'d': d, 'c': list(c), 'kind': kind}
-    if kind == 'colon':
-        basis, _, _ = exact_colon_basis(F, A, q, d, c, verbose=verbose)
-    elif kind == 'jac':
-        gens = jacobian_generators_exact(F, d, c)
-        basis = exact_span_basis(gens, monos_char(d, c), verbose=verbose, tag=f'jac d={d} c={c}')
-    elif kind.startswith('colon-vars:') or kind.startswith('vars:'):
-        vs = [core.VARS.index(v) for v in kind.split(':', 1)[1].split(',')]
-        fam = var_subset_family(d, c, vs)
-        if kind.startswith('colon-vars:'):
-            basis, _, _ = exact_colon_basis(F, A, q, d, c, family=fam, verbose=verbose)
-        else:
-            basis = fam
-        # gauge inside this family: F*m with all variables in the subset -> only if F in the subset (never); so the
-        # gauge intersection is {0} unless the family is the full sector; use gauge vectors that lie in the span
-        gauge = _gauge_inside(basis, gauge)
-    elif kind in ('colon-s2even', 'colon-s2odd', 'jac-s2even', 'jac-s2odd'):
-        base_kind = 'colon' if kind.startswith('colon') else 'jac'
-        sign = +1 if kind.endswith('even') else -1
-        b0, g0, _ = build_family(F, A, q, d, c, base_kind, verbose=verbose)
-        sym = sigma2_symmetrize(b0, sign)
-        basis = exact_span_basis(sym, monos_char(d, c), verbose=verbose, tag=kind) if sym else []
-        gauge = exact_span_basis(sigma2_symmetrize(gauge, sign), monos_char(d, c), tag='gauge-s2') if gauge else []
-        gauge = _gauge_inside(basis, gauge)
-    else:
-        raise ValueError(kind)
-    info['K'] = len(basis); info['gauge'] = len(gauge)
-    return basis, gauge, info
-
-
-def _gauge_inside(basis, gauge):
-    """Keep only the part of span(gauge) that lies inside span(basis) (numerically)."""
-    if not basis or not gauge:
-        return []
-    mons = sorted({e for P in basis + gauge for e in P})
-    idx = {m: i for i, m in enumerate(mons)}
-    Bm = np.zeros((len(basis), len(mons))); Gm = np.zeros((len(gauge), len(mons)))
-    for k, P in enumerate(basis):
-        for e, v in P.items(): Bm[k, idx[e]] = float(v)
-    for k, P in enumerate(gauge):
-        for e, v in P.items(): Gm[k, idx[e]] = float(v)
-    U, s, Vt = np.linalg.svd(Bm, full_matrices=False)
-    r = int(np.sum(s > 1e-10 * s[0])); Vr = Vt[:r]
-    # intersection of span(G) with span(B): vectors g = sum c_j G_j with g (I - Vr^T Vr) = 0
-    Proj = Gm - (Gm @ Vr.T) @ Vr
-    Uc, sc, Vct = np.linalg.svd(Proj, full_matrices=True)
-    rc = int(np.sum(sc > 1e-8 * max(sc[0], 1e-300))) if sc.size else 0
-    C = Vct[rc:]  # combinations of gauge rows lying inside span(B)
-    out = []
-    for crow in C:
-        v = crow @ Gm
-        if np.linalg.norm(v) < 1e-12:
-            continue
-        # return as float polys (only used numerically)
-        out.append({mons[j]: float(v[j]) for j in range(len(mons)) if abs(v[j]) > 1e-14})
-    return out
-
-
-# ----------------------------------------------------------------------------------------------------------
-# logging helpers
-# ----------------------------------------------------------------------------------------------------------
-def append_json(path, rec):
+# ----------------------------------------------------------------------------------------------
+def log_batch(rec, path=LOG):
+    rec = dict(rec)
+    rec.setdefault('ts', time.strftime('%Y-%m-%dT%H:%M:%S'))
+    rec.setdefault('lane', LANE)
+    rec.setdefault('engine', 2)
     with open(path, 'a') as f:
-        f.write(json.dumps(rec) + '\n')
+        f.write(json.dumps(rec, default=str) + '\n')
 
 
-def now():
-    return time.strftime('%Y-%m-%dT%H:%M:%S')
+def D_str(Pl):
+    return core.to_str(Pl)

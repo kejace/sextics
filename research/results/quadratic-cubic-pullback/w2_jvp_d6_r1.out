@@ -1,0 +1,18 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[complement] n=3080 m=2376 rdim=866 eig[rdim-1]=4.905e-13 eig[rdim]=4.003793307224762 max|G^T Z|=2.93e-14 (4.6s)
+[jvp d=6] K=18 (w 18) dimP=17 nout=3080 rJ=866 nc=162 nQ=226 k=362 built in 5.2s
+[stage1 d=6] restart 0: rel=1.934e-02 |B|=2.762e+01 nfev=61 (14s)
+[stage1 d=6] restart 0: rel=1.934e-02 |B|=2.762e+01 nfev=58 (14s)
+[stage1 d=6] restart 0: rel=2.366e-02 |B|=2.485e+01 nfev=101 (17s)
+[stage1 d=6] restart 0: rel=3.578e-02 |B|=2.014e+01 nfev=139 (22s)
+[stage1 d=6] restart 0: rel=3.578e-02 |B|=2.014e+01 nfev=107 (26s)
+[stage1 d=6] restart 1: rel=1.934e-02 |B|=2.762e+01 nfev=65 (27s)
+[stage1 d=6] restart 0: rel=3.578e-02 |B|=2.014e+01 nfev=150 (30s)
+[stage1 d=6] restart 1: rel=2.828e-02 |B|=2.253e+01 nfev=55 (31s)
+[stage1 d=6] restart 0: rel=3.756e-02 |B|=1.963e+01 nfev=123 (31s)
+[stage1 d=6] restart 1: rel=2.303e-02 |B|=2.587e+01 nfev=91 (32s)
+[stage1 d=6] restart 1: rel=3.756e-02 |B|=1.963e+01 nfev=102 (40s)
+[stage1 d=6] restart 0: rel=3.459e-02 |B|=2.055e+01 nfev=200 (40s)
+[stage1 d=6] restart 2: rel=3.468e-02 |B|=2.046e+01 nfev=85 (43s)
+[stage1 d=6] restart 1: rel=3.505e-02 |B|=2.060e+01 nfev=62 (45s)
+[stage1 d=6] restart 1: rel=3.578e-02 |B|=2.014e+01 nfev=186 (47s)

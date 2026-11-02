@@ -1,59 +1,38 @@
-"""Positive control for the wave-2 sector varpro: on accepted instances with a known explicit witness (d, D),
-build the E1-admissible family of D's degree and character sector, check D lies in it and has residual ~0,
-then run random restarts and record how often the optimizer finds a rel<1e-10 point and whether
-reconstruction + exact confirmation recovers a witness.  Usage: python3 w2_control.py <job> <iid> [restarts] [procs]"""
-import os, sys
-os.environ['OPENBLAS_NUM_THREADS'] = '1'; os.environ['OMP_NUM_THREADS'] = '1'; os.environ['MKL_NUM_THREADS'] = '1'
+"""Positive control of the sector VarPro pipeline on solved instances with explicit witnesses (q=1, monomial A).
+Characters are taken from the stabilizer subgroup of (A, D_witness) so that the witness is an eigenvector."""
+import sys, time, json
 sys.path.insert(0, '/tmp/hodge/results/four-plus-two-residual')
-from w2lib import *
-import multiprocessing as mp
-
-job = sys.argv[1]; iid = sys.argv[2]
-NRES = int(sys.argv[3]) if len(sys.argv) > 3 else 64
-PROCS = int(sys.argv[4]) if len(sys.argv) > 4 else 8
-OUT = f'{LANE}/wave2-{job}.jsonl'
-inst = Instance(iid)
-d, Dw, Nw, Qw = core.load_witness(iid)
-lab = label_of_poly(inst, Dw)
-print(f'[control] {iid}: group order {len(inst.G.elements)} (mod {inst.n}), gens {inst.gens}; witness d={d} label={lab}', flush=True)
-assert lab is not None, 'witness D is not a character eigenvector; control not applicable'
-fam = e1_family(inst, d, lab, verbose=True)
-dm = e1_family_dim_modp(inst, d, lab)
-print('[control] family K =', fam['K'], 'mod-p dim', dm['dim'], 'J_d sector dim', jacobian_dim_sector(inst, d, lab), 'F-mult dim', fmult_dim_sector(inst, d, lab), flush=True)
-svp = SectorVarPro(inst, d, lab, fam['basis'], verbose=True)
-aw, prj = svp.coords_of(Dw)
-relw = svp.rel(aw)
-print(f'[control] witness projection residual {prj:.2e}; rel residual at witness {relw:.3e}; spurious? {svp.is_spurious(aw)}', flush=True)
-log_line(OUT, {'kind': 'control', 'instance': iid, 'd': d, 'sector': lab, 'K': fam['K'], 'dimP': svp.dimP, 'rows': svp.rows, 'cols': svp.ncols,
-               'nN': svp.nN, 'nQ': svp.nQ, 'full_nN': svp.full_nN, 'full_nQ': svp.full_nQ, 'witness_proj_res': prj, 'witness_rel': relw,
-               'modp_dim': dm['dim'], 'engine': ENGINE})
-
-def work(seed):
-    t0 = time.time()
-    cands = svp.search(n_restarts=8, seed=seed, maxiter=400)
-    res = []
-    for c in cands:
-        rec = {'rel': c['rel'], 'spurious': c['spurious'], 'iters': c['iters']}
-        if c['rel'] < 1e-8 and not c['spurious']:
-            a1, r1 = svp.polish(c['a'])
-            rec['polished_rel'] = r1
-            Dfl = svp.D_float(a1)
-            att = reconstruct_and_confirm(inst, Dfl, log_path=None, tag=f'control-{iid}-seed{seed}')
-            rec['confirm'] = [(x['max_den'], x['status']) for x in att]
-            rec['solved'] = any(x['status'] == 'solved' for x in att)
-            if rec['solved']:
-                rec['D'] = [x['D'] for x in att if x['status'] == 'solved'][0][:300]
-        res.append(rec)
-    return seed, res, time.time() - t0
-
-if __name__ == '__main__':
-    seeds = list(range(NRES // 8))
-    with mp.get_context('fork').Pool(PROCS) as pool:
-        for seed, res, dt in pool.imap_unordered(work, seeds):
-            nfound = sum(1 for r in res if r['rel'] < 1e-10 and not r['spurious'])
-            nsolved = sum(1 for r in res if r.get('solved'))
-            print(f'[control] seed {seed}: {len(res)} restarts, {nfound} with rel<1e-10, {nsolved} exactly solved, best rel {min(r["rel"] for r in res):.2e} ({dt:.0f}s)', flush=True)
-            log_line(OUT, {'kind': 'control-batch', 'instance': iid, 'd': d, 'sector': lab, 'seed': seed, 'restarts': len(res),
-                           'n_rel_lt_1e-10': nfound, 'n_solved': nsolved, 'rels': [r['rel'] for r in res],
-                           'solved_D': [r.get('D') for r in res if r.get('solved')][:1], 'seconds': round(dt, 1), 'engine': ENGINE})
-    print('[control] done', flush=True)
+import fplib, numpy as np
+from hodge import core, symmetry
+iid = sys.argv[1]
+nrest = int(sys.argv[2]) if len(sys.argv) > 2 else 4
+F, A, q, G = fplib.load(iid)
+w = json.load(open(f'/home/kejace/devel/sextics/data/{iid}/witness.json'))
+Dw = core.parse(w['D']); d = core.degree(Dw)
+sub = symmetry.stabilizer(G, [A, Dw])
+ch = fplib.Chars(G, elements=sub)
+c = ch.char_of(Dw)
+print(iid, 'q', q, 'group', G, 'stabilizer size', len(sub), 'A', core.to_str(A), 'cA', ch.char_of(A), 'witness d', d, 'char', c)
+dm = fplib.sector_dims_modp(F, A, q, d, c, ch); print('modp dims', dm)
+B, Dm, info = fplib.sector_basis_numeric(F, A, q, d, c, ch, verbose=True); print(info)
+idx = {m: i for i, m in enumerate(Dm)}
+v = fplib.poly_to_vec(Dw, idx, len(Dm))
+proj = B.T @ (B @ v); print('witness in span: rel err', np.linalg.norm(v - proj) / np.linalg.norm(v))
+fam = fplib.SectorVarPro(F, A, q, B, Dm, c, ch, verbose=True, tag=iid)
+print('fd check', fam.fd_check(0), fam.fd_check(1))
+a = B @ v; u = fam.P.T @ a
+print('relres at witness', fam.relres(u))
+r = fam.lm_from(0, init=u); print('LM from witness', {k: r[k] for k in ('relres', 'iters', 'status', 'time')})
+hits = 0
+for s in range(nrest):
+    r = fam.minimize_from(s, maxiter=300); print('LBFGS seed', s, {k: r[k] for k in ('relres', 'iters', 'time')})
+    r2 = fam.lm_from(s, init=r['u']); print('   LM polish', {k: r2[k] for k in ('relres', 'iters', 'status', 'time')})
+    if r2['relres'] < 1e-8:
+        print('   D ~', fam.D_float_str(r2['Dc'])[:200])
+        recs = fplib.try_reconstruct_and_confirm(fam, r2['Dc'], G=None)
+        for rr in recs:
+            print('   recon', {k: rr[k] for k in rr if k not in ('N', 'Q')})
+        if any(rr.get('status') == 'solved' for rr in recs):
+            hits += 1
+            print('   CONFIRMED WITNESS'); break
+print('hits', hits)

@@ -1,0 +1,6 @@
+{"check": "E1_colon", "d": 0, "p": 1000003, "dim_S_d": 1, "dim_J_d": 0, "dim_R_d": 1, "dim_J_d6": 36, "dim_R_d6": 426, "dim_colon": 0, "nonjac_by_sector": {}, "seconds": 0.0, "time": "2026-11-02T00:28:32"}
+{"check": "E1_colon", "d": 1, "p": 1000003, "dim_S_d": 6, "dim_J_d": 0, "dim_R_d": 6, "dim_J_d6": 126, "dim_R_d6": 666, "dim_colon": 0, "nonjac_by_sector": {}, "seconds": 0.1, "time": "2026-11-02T00:28:32"}
+{"check": "E1_colon", "d": 2, "p": 1000003, "dim_S_d": 21, "dim_J_d": 0, "dim_R_d": 21, "dim_J_d6": 336, "dim_R_d6": 951, "dim_colon": 0, "nonjac_by_sector": {}, "seconds": 0.2, "time": "2026-11-02T00:28:33"}
+{"check": "E1_colon", "d": 3, "p": 1000003, "dim_S_d": 56, "dim_J_d": 0, "dim_R_d": 56, "dim_J_d6": 756, "dim_R_d6": 1246, "dim_colon": 0, "nonjac_by_sector": {}, "seconds": 6.2, "time": "2026-11-02T00:28:39"}
+{"check": "E1_colon", "d": 4, "p": 1000003, "dim_S_d": 126, "dim_J_d": 0, "dim_R_d": 126, "dim_J_d6": 1497, "dim_R_d6": 1506, "dim_colon": 0, "nonjac_by_sector": {}, "seconds": 14.9, "time": "2026-11-02T00:28:54"}
+{"check": "E1_colon", "d": 5, "p": 1000003, "dim_S_d": 252, "dim_J_d": 6, "dim_R_d": 246, "dim_J_d6": 2682, "dim_R_d6": 1686, "dim_colon": 6, "nonjac_by_sector": {}, "seconds": 30.0, "time": "2026-11-02T00:29:24"}

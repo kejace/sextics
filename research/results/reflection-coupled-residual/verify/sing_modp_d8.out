@@ -1,0 +1,1941 @@
+std(J) truncated at 14 mod 1000003: size 553  time 2
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+// ** redefining e (  intvec e = leadexp(M[i]);) sing_modp_d8.sing:15
+// ** G is no standard basis
+Y-even degree-8 monomials: 651
+// ** G is no standard basis
+normal form of A: X0^3*Y0^3

@@ -1,2 +1,3 @@
 {"ts":"2026-11-02T00:12:50+00:00","step":"start","note":"theory group deformation started; reading dossiers"}
 {"ts":"2026-11-02T00:14:04+00:00","step":"read","note":"read dense-rational dossier (full), attack1 reports for rank-one/off-paired/diag-perm, first 2/3 of dossiers rank-one, off-paired, one-reflection-skew, diag-perm"}
+{"ts":"2026-11-02T00:28:14+00:00","step":"read","note":"finished dossiers; found prior first-order deformation runs: dense-rational deform.py (4 subsets, all inconsistent mod p), rank-one note_sec34 (defect -(2t/3) A f L^2 M), diag-perm family_kernel (Ann_8 dims 202/2/2/2/1)"}

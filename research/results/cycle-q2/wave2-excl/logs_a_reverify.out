@@ -1,0 +1,7 @@
+F_X0 deg5-J d 5 inconsistent-Q-certified [[442, 443], [442, 443]] {'size': 443, 'verified': True, 'seconds': 1.4, 'ell_digits': 169} 3.3s
+F_X1 deg5-J d 5 inconsistent-Q-certified [[427, 428], [427, 428]] {'size': 428, 'verified': True, 'seconds': 5.99, 'ell_digits': 30} 7.9s
+F_X2 deg5-J d 5 inconsistent-Q-certified [[427, 428], [427, 428]] {'size': 428, 'verified': True, 'seconds': 20.27, 'ell_digits': 20} 42.83s
+F_Y0 deg5-J-Yodd d 5 inconsistent-Q-certified [[433, 434], [433, 434]] {'size': 434, 'verified': True, 'seconds': 4.82, 'ell_digits': 52} 16.38s
+F_Y1 deg5-J-Yodd d 5 inconsistent-Q-certified [[430, 431], [430, 431]] {'size': 431, 'verified': True, 'seconds': 6.03, 'ell_digits': 23} 13.16s
+F_Y2 deg5-J-Yodd d 5 inconsistent-Q-certified [[441, 442], [441, 442]] {'size': 442, 'verified': True, 'seconds': 9.02, 'ell_digits': 17} 21.72s
+B6=sum X_i F_Xi deg6-J d 6 inconsistent-Q-certified [[628, 629], [628, 629]] {'size': 629, 'verified': True, 'seconds': 37.79, 'ell_digits': 178} 57.25s

@@ -1,2 +1,10 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 p1 {'nullity': 1128, 'dim J_d': 168, 'kernel mod J': 6} 92s
+p2 {'nullity': 1128, 'dim J_d': 168, 'kernel mod J': 6} 170s
+rational reconstruction failed for a representative
+rational reconstruction failed for a representative
+rational reconstruction failed for a representative
+rational reconstruction failed for a representative
+rational reconstruction failed for a representative
+E1 (mod p3): True {'rank': 5052, 'rank_aug': 5052, 'rows': 5796, 'cols': 6006}
+139 terms: 14898307*X0**8/11062500 + 4096657*X0**7*X1/3687500 - 10290619*X0**7*X2/6637500 + 854108*X0**6*X1**2/24890625 - 2310949*X0**6*X1*X2/33187500 + 880783*X0**6*X2**2/11062500 + 106*X0**6*Y0**2/110625 + 212*X0**6*Y0*Y1/36875 + 212*X0**6*Y0*Y2/22125 + 318*X0**6*Y1**2/36875 + 212*X0**6*Y1*Y2/7375 + 106*X0**6*Y2**2/4425 - 1610966*X0**5*X1**3/24890625 + 908383*X0**5*X1**2*X2/16593750 + 948583*X0**5*X1*X2**2/11062500 + 2084*X0**5*X1*Y0**2/995625 + 4168*X0**5*X1*Y0*Y1/331875 + 4168*X0**5*X1*Y0*Y2/199125 + 2084*X0**5*X1*Y1**2/110625 + 4168*X0**5*X1*Y1*Y2/66375 + 2084*X0**5*X1*Y2**2/39825 - 785383*X0**5*X2*
