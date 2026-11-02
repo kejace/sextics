@@ -2,7 +2,7 @@
 
 STATUS: in progress — no witness (exclusion lens). Running summary (03:00 EST):
 * Best rigorous bound for A (full target): deg D >= 8 (thread); degrees <= 6 independently REPLICATED exactly (p = 65521 and Q);
-  E1 injectivity of [A] through d = 9 RE-VERIFIED at a second prime (2^31-19), both parities; degree-7 block ranks and combined constraint rank 1779 replicated at p = 65521 (chart replay running);
+  E1 injectivity of [A] through d = 9 RE-VERIFIED at a second prime (2^31-19), both parities; degree-7 exclusion fully replicated at p = 65521 (ranks, 1779, 9 empty charts, 42 variables, DIM 0 / 1194 / 309);
   degree-8 point f(U)U0^2 exact in all 3 blocks; 6 random structured degree-7 members of J exact-inconsistent (both targets).
 * NEW exact theorem: the K3-sector target A_K3 has no denominator of degree <= 6 (E1 injective through 7; degree 5 killed; degree 6
   reduces to D ~ f(U), which fails exactly). served(f(U)), served(U0), served(V0) have zero K3-class projection EXACTLY over Q.
@@ -124,7 +124,8 @@ D = f(U)h are all reducible, so they are excluded by this argument without any f
 1. Best rigorous bound for the instance target A: deg D >= 8 (thread). Independently replicated exactly: degrees <= 6 (own code,
    p = 65521 and Q: identical block ranks 603/558/396/260/396/558, constraint rank 437, two-step square elimination); E1 injectivity of
    [A] through d = 9 at a second prime (2^31-19, both parities); the degree-8 point f(U)U0^2 exact in all 3 blocks (756/757, 828/829,
-   516/517); degree 7 [modular replication pending in chain3; L-ranks over Q = mod p already confirmed: 1635/1602/1635/1464/1287/1464].
+   516/517); degree 7 FULLY replicated at p = 65521 (L-ranks over Q = mod p 1635/1602/1635/1464/1287/1464; constraint rank 1779; nine empty charts;
+   square reduction to the thread's 42 variables; final GB DIM 0 / 1194 / 309) — the bound deg D >= 8 now rests on two codes and two primes.
 2. NEW exact theorem: the K3-sector class A_K3 = P_0(A) has no denominator of degree <= 6 (E1 injective through 7 at two primes (2^31-1, 2^31-19), both parities;
    degree 5 killed; degree 6 ↦ D ~ f(U) via residual quadrics (c0-c2)^2, (c0-c2)(c1-c2), (c1-c2)^2; f(U) fails exactly 136/137).
 3. Exact served-space statements: f(U), U0, V0 have zero K3-class projection over Q (the join of the two copies of C carries no K3 class).
@@ -181,6 +182,44 @@ and = Q-ranks computed in the K3 run, same L), constraint ranks 291/318/291/470/
 1926/1920/1926/1934/1975/1934 minus the L-ranks), 2541 constraint rows of combined rank 1779 (thread: 2,528 rows, rank 1,779).  The
 chart-wise projective emptiness replay (`d7_charts.py`, p = 65521): all nine charts c_0=…=c_{k-1}=0, c_k=1 (k = 0..8) give the
 unit ideal (1682 s), and the square reduction on the restricted system follows the thread's sequence exactly
-(111→108→104→92→63→…, identical forced-index sets); the final homogeneous Gröbner basis of the remaining variables
-(thread: 42 variables, affine dimension 0) is running; together with the equal Q/F_p L-ranks this re-establishes the thread's
+(111→108→104→92→63→…, identical forced-index sets); the final homogeneous Gröbner basis of the 42 remaining variables has DIM=0, SIZE=1194, VDIM=309 (thread: 0 / 1194 / 309) — the
+degree-7 exclusion is fully REPLICATED at an independent prime with independent code; together with the equal Q/F_p L-ranks this re-establishes the thread's
 "deg D >= 8" by the same flatness argument at an independent prime and with independent code.
+
+## FINAL SUMMARY (ready to submit; pending items marked)
+1. Best rigorous bound for the instance target A: deg D >= 8 (thread). Now independently replicated end to end: degrees <= 6
+   exactly over Q (own code, p = 65521: block L-ranks 603/558/396/260/396/558, constraint rank 437, squares kill all 35 gauged
+   parameters); degree 7 at p = 65521 (L-ranks over Q = mod p 1635/1602/1635/1464/1287/1464, constraint rank 1779, nine empty
+   charts, square reduction to the thread's 42 variables, final GB DIM 0 / 1194 / 309); E1 injectivity of [A] through d = 9 at a
+   second prime (2^31-19), both parities; the degree-8 point f(U)U0^2 exact in all three blocks (756/757, 828/829, 516/517).
+2. NEW exact theorem: the K3-sector class A_K3 = P_0(A) has no denominator of degree <= 6: [A_K3] injective on (R/J)_d for
+   d <= 7 (two primes); degree 5 killed by the relaxation; degree 6 reduces (residual quadrics (c0-c2)^2, (c0-c2)(c1-c2),
+   (c1-c2)^2) to D ~ f(U), which fails exactly (136/137); and the full served space of f(U), U0, V0 has zero K3-class projection
+   exactly over Q.
+3. Degree 7 for the K3 class is open by relaxation methods (single-target rank 935/7260, 19-target rank 1092 — every K3 class
+   imposes the same constraints — no squares); the reducible family f(U)·ℓ is excluded by the sum principle and f(U)U0, f(U)V0,
+   six random homogeneous members of J_7 fail exactly for both targets.
+4. Logic repaired: served spaces add over components of X ∩ V(D), so "deg >= 8" alone does not exclude products. With
+   End_Hdg(T) = Q (thread) and η ∉ NS_prim⊗C (the equivalence-theorem hypothesis, automatic if ρ = 1): no product of
+   degree-<=6 supports serves A; a legal octic has X ∩ V(D) irreducible and reduced, or = (irreducible degree-7 K3-carrying
+   support) ∪ (hyperplane section); all of the thread's spurious degree-8 relaxation points f(U)h are reducible, hence dead.
+5. Block cones g(U), g(V) and products g(U)h(V) are excluded in every degree (product divisors under Φ, H¹(S₆) = 0) — exactly what
+   the character-0 degree-8 sector relaxation leaves over (30 cone coefficients, 6 residual quadrics). Hodge-theoretic; double-check
+   the exceptional-divisor contribution before posting as a theorem.
+6. Non-Jacobian K3 kernel at degree 8 completely described: K4⊗K4 (81, char 4; K4 = ker(η|R_{f,4}), dim 9, exact basis) ⊕
+   {ℓ(U)ℓ'(V)((U0U1U2)²+(V0V1V2)²)} (9, char 1, reducible; closed form verified with a control). Ten tested elements all fail E2
+   for A_K3 (μ6-restricted systems 13572×2430 / 13464 rows, mod 2^31-1); the K4 pairing serves no K3-block class; the kernel
+   grows to 153+153 at degree 9.
+7. Exact structured screens: 6 random homogeneous members of J_7, 5 of J_8 (all characters), 1 of J_9 (char 0) fail for both
+   targets with rank gap exactly 1 (22 + 2 runs; degree-9 screen continuing). Character-1 degree-8 sector: relaxation
+   essentially empty (rank 180/4950) — no universal statement there. [chars 2,3,5 and K3 sectors pending; K3 d=8 relaxation:
+   rank 956/1050, kills nothing; full d=8 regeneration pending.]
+8. Rigor corrections made during the run: a zero MODULAR served-space projection is only evidence (rank mod p is a lower bound);
+   all vanishing statements used downstream were recomputed exactly over Q; the "sum principle ⟹ irreducible only" step was
+   restated with its exact hypotheses.
+9. Compute: the 128-core remote was saturated the whole night (load 580–1800, often < 60 GB free); rjob refused every submission;
+   everything above was computed on the shared 40-core box, mostly one nice'd process at a time; 7 remote jobs remain queued
+   (structured octic/decic sweeps mod p, exact degree-7 K3 relaxation, degree-8 relaxations, kernel tests).
+10. Packet: /tmp/hodge/results/polarized-k3-remainder/wave2-excl/ (README with replay recipe + glossary, 17 scripts, ~40 JSON/JSONL
+    receipts); log wave2-excl.log.jsonl (~75 entries); report /tmp/hodge/notes/wave2-polarized-k3-remainder-excl.md; draft post
+    /tmp/hodge/notes/wave2-polarized-k3-remainder-draftpost.md. No witness; no claim of nonexistence.

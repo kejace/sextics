@@ -19,6 +19,14 @@ def polys_for(kind, Yvals=(1,2,3), ab=(1,2)):
         x,y,z,t,T = V = sp.symbols('x y z t T')
         a,b = ab
         F = x**5*y + y**5*z + z**5*x + sp.Rational(5,7)*(x*y**3*t*a*T + 2*x**3*z*a*b*T**2 + 3*y*z**3*t*b*T) + t**6 + (a**6+b**6)*T**6
+    elif kind=='V2':   # fibration by [t:r]: t = a T, r = b T; coords (x,y,z,s,T)
+        x,y,z,s,T = V = sp.symbols('x y z s T')
+        a,b = ab
+        F = x**5*y + y**5*z + z**5*x + sp.Rational(5,7)*(a*b*x*y**3*T**2 + 2*b*x**3*z*T*s + 3*a*y*z**3*T*s) + s**6 + (a**6+b**6)*T**6
+    elif kind=='V3':   # fibration by [t:s]: t = a T, s = b T; coords (x,y,z,r,T)
+        x,y,z,r,T = V = sp.symbols('x y z r T')
+        a,b = ab
+        F = x**5*y + y**5*z + z**5*x + sp.Rational(5,7)*(a*x*y**3*T*r + 2*b*x**3*z*r*T + 3*a*b*y*z**3*T**2) + r**6 + (a**6+b**6)*T**6
     F = sp.expand(F*7)   # clear the 7
     return V, F
 def msolve_file(kind, chart, extra, path, Yvals=(1,2,3), ab=(1,2)):
