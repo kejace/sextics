@@ -1,0 +1,48 @@
+{
+ "exp": "hessian-relaxation",
+ "kind": "sector",
+ "d": 9,
+ "par": "0",
+ "chi": "sgnsgn",
+ "prime": 2147483647,
+ "job": "sector_sgnsgn_d9_par0_p2147483647",
+ "family": [
+  {
+   "pD": 0,
+   "rows": 79,
+   "nN": 489,
+   "nD": 5,
+   "dimK": 1,
+   "dimJd": 1,
+   "ker_R": 0,
+   "radial": 0,
+   "complement": 1,
+   "rankM": 79
+  }
+ ],
+ "n_unknowns": 1,
+ "reducers": {
+  "1": {
+   "rank_modp": 821,
+   "rank_CI": 821,
+   "ring_dim": 17,
+   "ring_CI": 17
+  }
+ },
+ "n_quadrics": 17,
+ "files": {
+  "msolve": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_sector_sgnsgn_d9_par0_p2147483647.ms",
+  "singular": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_sector_sgnsgn_d9_par0_p2147483647.sing"
+ },
+ "result": {
+  "msolve_rc": 0,
+  "msolve_seconds": 0.0,
+  "pure_powers": {
+   "a1": 2
+  },
+  "missing_pure_power": [],
+  "verdict": "V={0} (only trivial solution)",
+  "max_pure_power": 2
+ },
+ "seconds": 4.0
+}

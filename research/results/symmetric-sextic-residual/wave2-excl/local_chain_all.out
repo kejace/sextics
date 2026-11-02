@@ -66,4 +66,39 @@
 {"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "basis5", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 2.2, "job": "screen_2147483647"}
 {"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "basis6", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 1.5, "job": "screen_2147483647"}
 {"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "basis7", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 1.7, "job": "screen_2147483647"}
-{"
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "basis8", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 1.7, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "basis9", "result": "inconsistent", "rank": 376, "nullity": 81, "rows": 1858, "cols": 457, "seconds": 1.3, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "basis10", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 1.8, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "basis11", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 2.1, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "basis12", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 1.5, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "dense0", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 3.5, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "dense1", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 3.3, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "dense2", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 3.6, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "dense3", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 3.8, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "sparse2_0", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 2.7, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "sparse2_1", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 2.4, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "sparse2_2", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 3.2, "job": "screen_2147483647"}
+{"exp": "sector-screen", "d": 8, "pD": 1, "chi": "triv", "prime": 2147483647, "point": "sparse2_3", "result": "inconsistent", "rank": 377, "nullity": 80, "rows": 1858, "cols": 457, "seconds": 2.4, "job": "screen_2147483647"}
+[SectorFamily] chi=sgnX d=8 pD=0 p=2147483647 rows=151 nN=324 nD=15 dimK=6 dimJd=6 ker=0 radial=0 0.4s
+{"exp": "sector-family", "d": 8, "pD": 0, "chi": "sgnX", "prime": 2147483647, "rows": 151, "nN": 324, "nD": 15, "dimK": 6, "dimJd": 6, "ker_R": 0, "radial": 0, "seconds": 0.4, "job": "screen_2147483647"}
+Traceback (most recent call last):
+  File "/tmp/hodge/results/symmetric-sextic-residual/w2x_sector_screen_job.py", line 42, in <module>
+    S = CS.CharSystem(F, A, q, core.reduce_mod(D, p), fam.G, p=p)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/symmetric-sextic-residual/charsolve.py", line 134, in __init__
+    assert G.is_semi_invariant(D), 'D must be chi-semi-invariant under H'
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: D must be chi-semi-invariant under H
+CHAIN2 DONE
+[SectorFamily] chi=sgnsgn d=9 pD=0 p=2147483647 rows=79 nN=489 nD=5 dimK=1 dimJd=1 ker=0 radial=0 1.2s
+[{"pD": 0, "rows": 79, "nN": 489, "nD": 5, "dimK": 1, "dimJd": 1, "ker_R": 0, "radial": 0, "complement": 1, "rankM": 79}]
+products done 0.0s
+[FoldedReducer] deg=18 par=1 p=2147483647 orbits=838 gens=1206 rank=821 (CI 821) ring=17 (CI 17) 2.2s
+quadrics: 17 in 1 unknowns (4.0s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2}
+[SectorFamily] chi=sgnsgn d=9 pD=1 p=2147483647 rows=79 nN=489 nD=5 dimK=1 dimJd=1 ker=0 radial=0 1.2s
+[{"pD": 1, "rows": 79, "nN": 489, "nD": 5, "dimK": 1, "dimJd": 1, "ker_R": 0, "radial": 0, "complement": 1, "rankM": 79}]
+products done 0.0s
+[FoldedReducer] deg=18 par=1 p=2147483647 orbits=838 gens=1206 rank=821 (CI 821) ring=17 (CI 17) 2.4s
+quadrics: 17 in 1 unknowns (4.0s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2}

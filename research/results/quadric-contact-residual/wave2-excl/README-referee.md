@@ -30,7 +30,7 @@ python3 ref.py served-exact S0 delta GS F_X0 ...   # EXACT over Q: served(D) for
 python3 ref.py served-exact-full S1                # EXACT over Q, full (unsplit) system, for blocks that are not eigenvectors
 ```
 Every command appends one JSON line per result to `referee/referee.log.jsonl` (prime, sizes, ranks, verdicts, seconds);
-msolve/Singular inputs and the msolve leading ideals (`*.lead`) are kept next to it.  Set `REF_P=<prime>` to change the prime.
+msolve/Singular inputs and the msolve leading ideals (`*.lead`) are kept next to it.  Set the environment variable `REF_P` to another prime to change the prime.
 
 ## How each kind of claim is checked and why it transfers to C
 1. **Hessian relaxation closures (degrees 5-9).**  For `D = sum c_k D_k` in the E1 kernel with E1 lifts `N_k`, every certificate

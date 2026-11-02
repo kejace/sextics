@@ -210,8 +210,8 @@ degree-7 exclusion is fully REPLICATED at an independent prime with independent 
    {ℓ(U)ℓ'(V)((U0U1U2)²+(V0V1V2)²)} (9, char 1, reducible; closed form verified with a control). Ten tested elements all fail E2
    for A_K3 (μ6-restricted systems 13572×2430 / 13464 rows, mod 2^31-1); the K4 pairing serves no K3-block class; the kernel
    grows to 153+153 at degree 9.
-7. Exact structured screens: 6 random homogeneous members of J_7, 5 of J_8 (all characters), 1 of J_9 (char 0) fail for both
-   targets with rank gap exactly 1 (22 + 2 runs; degree-9 screen continuing). Character-1 degree-8 sector: relaxation
+7. Exact structured screens: 6 random homogeneous members of J_7, 5 of J_8 (all characters), members of J_9 (char 0 both targets, char 1 K3) fail
+   with rank gap exactly 1 (22 + 3 runs; degree-9 screen continuing detached). Character-1 degree-8 sector: relaxation
    essentially empty (rank 180/4950) — no universal statement there. [chars 2,3,5 and K3 sectors pending; K3 d=8 relaxation:
    rank 956/1050, kills nothing; full d=8 regeneration pending.]
 8. Rigor corrections made during the run: a zero MODULAR served-space projection is only evidence (rank mod p is a lower bound);
