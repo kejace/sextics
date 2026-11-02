@@ -1,0 +1,6 @@
+   ? cannot open poly.lib
+   ? error occurred in or before local_hfsandwich/d7_even_k1.sing line 1: `LIB "poly.lib";`
+IL_gb_size 12 dim 2 mult 8
+HS_L 1,-6,12,-2,-27,36,0,-36,27,2,-12,6,-1,0
+lead_dim 2 lead_mult 8
+HS_P 1,0,-27,60,155,-910,1683,-1158,-897,2708,-2685,1392,-315,-38,37,-6,0

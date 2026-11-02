@@ -9,23 +9,44 @@ algebra.  We solve mod large primes with python-flint and lift to Q by CRT +
 rational reconstruction, then verify exactly.
 """
 from __future__ import annotations
+import os as _os
 import sys, time
 from fractions import Fraction
 from . import core
 from .core import NV, monomials, shift, mul, add, sub, scale, pderiv, power, yparity
 
 
-ENGINE_VERSION = 2
+ENGINE_VERSION = 3
 import sys as _sys
-_sys.stderr.write('[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. '
-                  'Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. '
-                  'Record "engine": 2 in your logs from now on.\n')
+if not _os.environ.get('HODGE_QUIET'):
+    _sys.stderr.write('[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before '
+                      'that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix '
+                      'for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all '
+                      'consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.\n')
 
 try:
     import flint
     from flint import nmod_mat, fmpq_mat, fmpz_mat
 except ImportError:  # pragma: no cover
     flint = None
+
+
+def set_threads(n=None):
+    """Set the number of FLINT threads used by dense nmod_mat rref/nullspace (4x at 8 threads for n=4000).
+
+    Default: FLINT_NUM_THREADS from the environment (rjob submit --cpus N sets it), else 1.  Returns the value."""
+    if n is None:
+        try:
+            n = int(_os.environ.get('FLINT_NUM_THREADS', '1'))
+        except ValueError:
+            n = 1
+    n = max(1, int(n))
+    if flint is not None:
+        flint.ctx.threads = n
+    return n
+
+
+THREADS = set_threads()
 
 
 def numerator_parities(D, A, F=None):
@@ -130,12 +151,16 @@ class FixedDSystem:
                 j += 1
             pivots.append(j)
         consistent = not (pivots and pivots[-1] == C)
+        rank_aug = rank
+        if not consistent:
+            rank -= 1            # rank of the coefficient matrix M (the last pivot is the rhs column)
+            pivots = pivots[:-1]
         x = None
         if consistent:
             x = [0] * C
             for i, j in enumerate(pivots):
                 x[j] = int(Mr[i, C])
-        res = {'consistent': consistent, 'rank': rank, 'nullity': C - rank, 'x': x,
+        res = {'consistent': consistent, 'rank': rank, 'rank_aug': rank_aug, 'nullity': C - rank, 'x': x,
                'pivots': pivots, 'rows': self.nrows, 'cols': C,
                't_build': round(t1 - t0, 2), 't_rref': round(t2 - t1, 2)}
         if verbose:
@@ -299,19 +324,15 @@ def _sparse_matrix(S, with_rhs=True):
     return M
 
 
-def _compress(M, p, k, seed=1):
-    """Return (k x ncols) int64 array = (R @ M) mod p for random R with entries in [0,p)."""
-    rng = np.random.default_rng(seed)
-    nrows = M.shape[0]
-    R = rng.integers(0, p, size=(k, nrows), dtype=np.int64)
-    R_lo = R & 0xFFFF
-    R_hi = R >> 16
-    MT = M.T.tocsr()  # (ncols x nrows)
-    # (MT @ R^T)^T = R @ M ; scipy sparse @ dense -> dense
-    lo = (MT @ R_lo.T) % p
-    hi = (MT @ R_hi.T) % p
-    out = (lo + (hi * (1 << 16)) % p) % p
-    return np.ascontiguousarray(out.T)  # k x ncols
+def _compress(M, p, k, seed=1, chunk=4096):
+    """Return (k x ncols) int64 array = (R @ M) mod p for random R with entries in [0,p).
+
+    R is generated in chunks of `chunk` rows of M so memory stays ~ k*chunk*8 bytes (the old
+    one-shot version needed k*nrows*8 bytes: 54 GB at d=12).  Exact: 16-bit split, needs column
+    weights < 2^16 (checked)."""
+    from .sge import compress_rows, _check_colweights
+    _check_colweights(M)
+    return compress_rows(M, p, k, seed=seed, chunk=chunk)
 
 
 def solve_compressed(S, k_extra=40, seed=1, verbose=False):
@@ -332,6 +353,10 @@ def solve_compressed(S, k_extra=40, seed=1, verbose=False):
             j += 1
         pivots.append(j)
     consistent = not (pivots and pivots[-1] == C)
+    rank_aug = rank
+    if not consistent:
+        rank -= 1                # rank of the coefficient matrix M (the last pivot is the rhs column)
+        pivots = pivots[:-1]
     x = None
     if consistent:
         x = [0] * C
@@ -340,8 +365,27 @@ def solve_compressed(S, k_extra=40, seed=1, verbose=False):
     if verbose:
         print(f'[compressed p={S.p}] k={k} consistent={consistent} rank={rank} nullity={C-rank} '
               f'(compress {t1-t0:.1f}s, rref {t2-t1:.1f}s)', file=sys.stderr)
-    return {'consistent': consistent, 'rank': rank, 'nullity': C - rank, 'x': x, 'pivots': pivots,
+    return {'consistent': consistent, 'rank': rank, 'rank_aug': rank_aug, 'nullity': C - rank, 'x': x, 'pivots': pivots,
             'rows': S.nrows, 'cols': C, 'k': k, 't_compress': round(t1 - t0, 2), 't_rref': round(t2 - t1, 2)}
+
+
+def solve_sparse(S, stop_cols=400, verbose=False, want_nullspace=False, seed=1, **kw):
+    """Consistency + rank + particular solution mod p via sparse elimination (hodge.sge) with a dense finish.
+
+    Same result schema as solve_compressed (consistent, rank, nullity, x, pivots, rows, cols, timings) plus
+    the sparse-phase statistics.  `x` is verified by an exact sparse matvec (key 'verified'); on failure
+    consistent=None.  With want_nullspace the full nullspace basis (uint32 array nullity x cols) is returned.
+    Extra keyword arguments go to sge.solve_sparse_system (need_rank, max_nnz, cands, extra, ...)."""
+    from . import sge
+    t0 = time.time()
+    M = _sparse_matrix(S)
+    r = sge.solve_sparse_system(M, S.p, with_rhs=True, stop_cols=stop_cols, seed=seed, verbose=verbose,
+                                want_nullspace=want_nullspace, **kw)
+    r.update({'rows': S.nrows, 'cols': S.ncols, 't_matrix': round(time.time() - t0 - r.get('t_total', 0), 2)})
+    if verbose:
+        print(f'[sparse p={S.p}] consistent={r["consistent"]} rank={r["rank"]} nullity={r["nullity"]} '
+              f'(sparse {r["t_sparse"]}s, dense {r.get("t_dense")}s, total {r["t_total"]}s)', file=sys.stderr)
+    return r
 
 
 def exact_solution_from_pivots(F, A, q, D, pivots, verbose=False, seed=7):
@@ -448,13 +492,36 @@ def exact_solution_from_pivots(F, A, q, D, pivots, verbose=False, seed=7):
     return N, Qp
 
 
-def solve_fixed_D_fast(F, A, q, D, p=None, verbose=False, want_exact=True):
-    """Compressed modular consistency test, then exact solve if consistent."""
+def solve_fixed_D_fast(F, A, q, D, p=None, verbose=False, want_exact=True, method='auto', sparse_kw=None):
+    """Modular consistency test, then exact solve if consistent.
+
+    method: 'auto' (sparse elimination with a fill limit of 25x the initial nnz, the dense finish absorbs the
+    rest; compressed rows only if the sparse path raises), 'sparse', or 'compressed' (the pre-v3 behaviour).
+    The result carries 'solver' (which path produced the modular answer) and, for sparse, its statistics."""
     p = p or core.PRIMES[0]
     S = FixedDSystem(F, A, q, D, p, verbose=verbose)
-    r = solve_compressed(S, verbose=verbose)
+    r = None; solver = None
+    if method in ('auto', 'sparse'):
+        try:
+            kw = dict(sparse_kw or {})
+            if method == 'auto':
+                kw.setdefault('max_nnz', 25 * max(1, sum(len(c) for c in S.colpolys)))
+            r = solve_sparse(S, verbose=verbose, **kw); solver = 'sparse'
+            if r['consistent'] is None:
+                raise RuntimeError(r.get('note', 'sparse solve unverified'))
+        except Exception as ex:
+            if method == 'sparse':
+                raise
+            if verbose:
+                print(f'[fast] sparse path failed ({ex.__class__.__name__}: {ex}); using compressed rows', file=sys.stderr)
+            r = None
+    if r is None:
+        r = solve_compressed(S, verbose=verbose); solver = 'compressed'
     out = {'consistent': r['consistent'], 'rank': r['rank'], 'nullity': r['nullity'],
-           'rows': S.nrows, 'cols': S.ncols, 'd': S.d}
+           'rows': S.nrows, 'cols': S.ncols, 'd': S.d, 'solver': solver}
+    if solver == 'sparse':
+        out['sparse_stats'] = {k: r.get(k) for k in ('status_sparse', 'npiv_sparse', 'active_rows', 'active_cols',
+                                                     'active_nnz', 'fill_events', 't_sparse', 't_dense', 't_total')}
     if not r['consistent'] or not want_exact:
         return out
     for seed in range(3):

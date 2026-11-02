@@ -1,0 +1,21 @@
+ring r = 1000003, (u0,u1,u2), dp;
+option(redSB);
+ideal I = 142849*u0*u0,
+999983*u0*u0,
+142849*u0*u1+142849*u1*u0,
+999983*u0*u1+999983*u1*u0,
+142849*u0*u2+142849*u2*u0,
+999983*u0*u2+999983*u2*u0,
+142849*u1*u1,
+999983*u1*u1,
+142849*u1*u2+142849*u2*u1,
+999983*u1*u2+999983*u2*u1,
+448984*u2*u2,
+816330*u2*u2,
+714295*u2*u2,
+904767*u2*u2;
+ideal G = std(I);
+int dm = dim(G);
+print("DIM " + string(dm) + " GBSIZE " + string(size(G)) + " VARS " + string(nvars(r)) + " NEQ " + string(size(I)));
+if (dm == 0) { print("VDIM " + string(vdim(G))); }
+quit;

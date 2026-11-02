@@ -1,0 +1,10 @@
+// regular-sequence check: vdim of the Jacobian ideal of 7F mod p equals 5^6 = 15625
+int p = 1000003;
+ring r = p, (X0,X1,X2,Y0,Y1,Y2), dp;
+poly F = 7*X0^5*X1 + 10*X0^3*X2*Y1*Y2 + 5*X0*X1^3*Y0*Y1 + 7*X0*X2^5 + 7*X1^5*X2 + 15*X1*X2^3*Y0*Y2 + 7*Y0^6 + 7*Y1^6 + 7*Y2^6;
+ideal J = jacob(F);
+ideal SJ = std(J);
+"prime", p, "vdim", vdim(SJ), "dim", dim(SJ);
+intvec h = hilb(SJ, 2);
+"second_hilbert_numerator", h;
+quit;

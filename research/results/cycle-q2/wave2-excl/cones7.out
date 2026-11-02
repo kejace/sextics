@@ -1,2 +1,11 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 d=7: 35 coordinate subsets
+X0X1X2Y1 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 354.1
+X0X1Y1Y2 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 376.5
+X0X2Y0Y1 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 381.0
+X0X1X2Y0 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 385.8
+X0X1X2Y2 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 437.5
+X0X1Y0Y2 dimV 120 | E1-admissible cone family of dim 7 in 5 sectors; all sector relaxations: 1,0; element tests: 9 excluded(Farkas), 0 consistent, 0 errors 643.1
+X1X2Y0Y2 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 313.8
+X1X2Y0Y1 dimV 120 | E1-admissible cone family of dim 5 in 4 sectors; all sector relaxations: 0; element tests: 6 excluded(Farkas), 0 consistent, 0 errors 455.2
+X0X2Y0Y2 dimV 120 | E1-admissible cone family of dim 12 in 6 sectors; all sector relaxations: 2,0,1,1; element tests: 16 excluded(Farkas), 0 consistent, 0 errors 850.0

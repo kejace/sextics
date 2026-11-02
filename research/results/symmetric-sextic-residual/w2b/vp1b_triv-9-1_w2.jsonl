@@ -3,3 +3,6 @@
 {"seed": 1018, "rel": 1.6323674712837124e-05, "iters": 83, "nfev": 167, "spurious": false, "div_rel": 0.8136097633885196, "sparse_init": false}
 {"seed": 1026, "rel": 1.632367420442644e-05, "iters": 74, "nfev": 143, "spurious": false, "div_rel": 0.8136097631673679, "sparse_init": false}
 {"seed": 1034, "rel": 1.6323674469562174e-05, "iters": 70, "nfev": 96, "spurious": false, "div_rel": 0.8136097628666732, "sparse_init": false}
+{"seed": 1042, "rel": 1.6323674372077657e-05, "iters": 78, "nfev": 125, "spurious": false, "div_rel": 0.8136097610057783, "sparse_init": false}
+{"seed": 1050, "rel": 1.6323674288732762e-05, "iters": 72, "nfev": 106, "spurious": false, "div_rel": 0.8136097607926668, "sparse_init": true}
+{"seed": 1058, "rel": 1.6323674486018825e-05, "iters": 83, "nfev": 132, "spurious": false, "div_rel": 0.8136097610583886, "sparse_init": false}

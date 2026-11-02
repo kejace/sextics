@@ -2,3 +2,7 @@
 {"seed": 1009, "rel": 1.6323674109438354e-05, "iters": 83, "nfev": 107, "spurious": false, "div_rel": 0.8136097588696702, "sparse_init": true}
 {"seed": 1017, "rel": 1.6323674417594297e-05, "iters": 69, "nfev": 100, "spurious": false, "div_rel": 0.8136097629217439, "sparse_init": false}
 {"seed": 1025, "rel": 1.6323674388538993e-05, "iters": 100, "nfev": 128, "spurious": false, "div_rel": 0.8136097623303483, "sparse_init": false}
+{"seed": 1033, "rel": 7.117214476353886e-05, "iters": 83, "nfev": 133, "spurious": false, "div_rel": 0.982502804558137, "sparse_init": true}
+{"seed": 1041, "rel": 1.632367462207459e-05, "iters": 75, "nfev": 80, "spurious": false, "div_rel": 0.813609763283205, "sparse_init": false}
+{"seed": 1049, "rel": 1.632367385068629e-05, "iters": 76, "nfev": 111, "spurious": false, "div_rel": 0.8136097624431077, "sparse_init": false}
+{"seed": 1057, "rel": 1.6323674349847565e-05, "iters": 81, "nfev": 147, "spurious": false, "div_rel": 0.8136097608309005, "sparse_init": false}

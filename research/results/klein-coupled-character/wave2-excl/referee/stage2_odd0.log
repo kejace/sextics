@@ -1,0 +1,7 @@
+sector d=7 par=1 k=0: n=24 relaxation eqs 59; b_ab built [0s]
+Koszul columns 1680 [1s]
+M: 725 x 1680, exact rank 588, exact left-kernel dim 137 [6s]
+exact stage-2 necessary quadrics: 68 (relaxation: 59) [7s]
+msolve -g 1 rc 0: 3986 leading monomials; variables without a pure power: ['u13', 'u18'] => m-primary: False [57s]
+STAGE2_EXACT_DONE stage2exact_d7_p1_k0 [64s]
+EXIT 0

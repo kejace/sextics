@@ -1,0 +1,7 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+mixed d=5 relaxation: n 6 eqs 30 {'deg': 2, 'rows': 30, 'cols': 21, 'rank': 21, 'full_column_rank': True}
+X-span chart X0 = -(b1 X1 + b2 X2): nrows 193 ncols 90 ann_size 1 dim -1 vdim 0 | 1  [6.1s]
+X-span chart X1 = -(b1 X2) [X0 absent]: nrows 170 ncols 90 ann_size 1 dim -1 vdim 0 | 1  [2.8s]
+Y-span chart Y0 = -(b1 Y1 + b2 Y2): nrows 271 ncols 90 ann_size 1 dim -1 vdim 0 | 1  [2.1s]
+Y-span chart Y1 = -(b1 Y2) [Y0 absent]: nrows 212 ncols 90 ann_size 1 dim -1 vdim 0 | 1  [1.0s]
+DONE

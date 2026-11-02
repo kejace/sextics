@@ -1,0 +1,13 @@
+n_lead 6358 gb 6358 dim 4 mult 72
+   ? overflow at t^19
+
+   ? error occurred in or before hs_lens_p1000003.sing line 6362: `intvec h = hilb(SL, 1);`
+   ? expected intvec-expression. type 'help intvec;'
+HS1 `h`
+  [27s]
+Traceback (most recent call last):
+  File "/tmp/hodge/results/klein-coupled-character/wave2-excl/referee/ref_hs_odd0.py", line 15, in <module>
+    m = re.search(r'HS1\s+([\d\-, \n]+)', out); num = [int(x) for x in re.split(r'[,\s]+', m.group(1).strip()) if x not in ('', '-')]
+                                                                                           ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'group'
+HS_EXIT 1

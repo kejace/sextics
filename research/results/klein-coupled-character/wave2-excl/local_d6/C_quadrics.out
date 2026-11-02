@@ -1,0 +1,19 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+diag vars [(3, (1, (0, 1, 0, 0, 0, 0))), (5, (2, (0, 0, 1, 0, 0, 0))), (10, (3, (0, 0, 0, 1, 0, 0))), (12, (4, (0, 0, 0, 0, 1, 0))), (14, (5, (0, 0, 0, 0, 0, 1)))]
+restricted system: rows 3 rank (number of independent quadrics in lambda) 3
+  Q0: (1)*l1*l1 + (1/7)*l1*l4 + (-1/7)*l1*l5 + (-25/21)*l2*l2 + (-3/7)*l2*l3 + (76/105)*l2*l4 + (31/105)*l2*l5 + (5/21)*l3*l3 + (1/21)*l3*l4 + (-1/7)*l3*l5 + (-27/14)*l4*l4 + (76/105)*l4*l5 + (-61/42)*l5*l5
+  Q1: (1)*l1*l2 + (-2/7)*l1*l4 + (2/7)*l1*l5 + (-34/21)*l2*l2 + (6/7)*l2*l3 + (37/105)*l2*l4 + (127/105)*l2*l5 + (-10/21)*l3*l3 + (-2/21)*l3*l4 + (2/7)*l3*l5 + (-9/14)*l4*l4 + (37/105)*l4*l5 + (-67/42)*l5*l5
+  Q2: (1)*l1*l3 + (6/7)*l1*l4 + (1/7)*l1*l5 + (-15/7)*l2*l2 + (3/7)*l2*l3 + (33/35)*l2*l4 + (48/35)*l2*l5 + (-15/14)*l3*l3 + (2/7)*l3*l4 + (1/7)*l3*l5 + (-43/14)*l4*l4 + (33/35)*l4*l5 + (-19/7)*l5*l5
+Traceback (most recent call last):
+  File "<stdin>", line 42, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['Singular', '-q', 'local_d6/C_quadrics.sing']' timed out after 500 seconds

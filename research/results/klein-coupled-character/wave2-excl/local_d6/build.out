@@ -1,0 +1,8 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d=6 even: n=17 eqs=105 lead=201 irrelevant=False info={'pure_powers': {'u16': 2, 'u15': 2, 'u13': 2, 'u11': 2, 'u9': 2, 'u8': 2, 'u7': 2, 'u6': 2, 'u4': 2, 'u3': 2, 'u2': 2, 'u1': 2, 'u0': 2, 'u5': 3, 'u10': 4}, 'missing': ['u12', 'u14']} default-out='[1, 17, -1, []]:\n' [0.1s]
+   singular: n_gens 105 gb_size 201 dim 2 vdim -1
+d=6 odd: n=18 eqs=153 lead=135 irrelevant=True info=ok default-out="[0, [1000003, \n19, \n57, \n['u0', 'u1', 'u2', 'u3', 'u4', 'u5', 'u6', 'u7', 'u8', 'u9', 'u10', 'u11', 'u12', 'u13', 'u14', 'u15', 'u16', 'u17', 'A'],\n[-45,77,72,-120,80,-41,-6,-102,59,-104,83,-48,96,-8," [0.4s]
+   singular: n_gens 153 gb_size 135 dim 0 vdim 57
+d=6 mixed: n=35 eqs=313 lead=1354 irrelevant=False info={'pure_powers': {'u34': 2, 'u33': 2, 'u32': 2, 'u31': 2, 'u30': 2, 'u28': 2, 'u27': 2, 'u26': 2, 'u25': 2, 'u23': 2, 'u22': 2, 'u21': 2, 'u20': 2, 'u18': 2, 'u17': 2, 'u16': 2, 'u15': 2, 'u13': 2, 'u12': 2, 'u11': 2, 'u10': 2, 'u9': 2, 'u8': 2, 'u7': 2, 'u6': 2, 'u5': 2, 'u4': 2, 'u3': 2, 'u2': 2, 'u1': 2, 'u0': 2, 'u14': 3, 'u19': 4}, 'missing': ['u24', 'u29']} default-out='[1, 35, -1, []]:\n' [6.0s]
+   singular: n_gens 313 gb_size 1354 dim 2 vdim -1
+DONE

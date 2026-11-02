@@ -1,0 +1,13 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+unknowns 59 nP 30
+rows 294
+big matrix 294 209
+constant duals dim 150 [0.1s]
+dimension of the space of necessary quadrics in lambda: 8 of 21
+dim 1 vdim -1
+n_components 1
+   ? error occurred in or before local_d6/euler_quadrics.sing line 15: `{ "component", i, "dim", dim(std(L[i])); print(L[i]); }`
+   skipping text from `i`
+gauge-fixed (l0=0): dim 0 vdim 13
+ 
+DONE 4.0 s

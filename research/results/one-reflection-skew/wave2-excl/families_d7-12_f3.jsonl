@@ -1352,3 +1352,5 @@
 {"name": "X1*cq*f", "d": 10, "chi": [0, 3, 1], "e1": true, "status": "EXCLUDED-exact", "rank": 2679, "rank_aug": 2680, "nN": 2118, "nQ": 879, "rows": 4980, "seconds": 1041.45}
 {"name": "Y0*cq*f", "d": 10, "chi": [3, 3, 4], "e1": true, "status": "EXCLUDED-exact", "rank": 2754, "rank_aug": 2755, "nN": 2172, "nQ": 879, "rows": 5052, "seconds": 1081.03}
 {"name": "Y0*c1*f", "d": 10, "chi": [3, 3, 4], "e1": true, "status": "EXCLUDED-exact", "rank": 2754, "rank_aug": 2755, "nN": 2172, "nQ": 879, "rows": 5052, "seconds": 1467.06}
+{"name": "Y0*q2*f", "d": 10, "chi": [3, 3, 4], "e1": true, "status": "EXCLUDED-exact", "rank": 2754, "rank_aug": 2755, "nN": 2172, "nQ": 879, "rows": 5052, "seconds": 1026.67}
+{"name": "Y2*r2*f", "d": 11, "chi": [0, 0, 4], "e1": true, "status": "EXCLUDED-exact", "rank": 2742, "rank_aug": 2743, "nN": 2118, "nQ": 879, "rows": 4980, "seconds": 1022.83}

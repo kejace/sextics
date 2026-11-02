@@ -65,3 +65,28 @@
   hess-minor3 d=12 e1=True cons=False rk=2982 111.15s det H[X1,Y1,Y2;X2,Y0,Y2] 
   hess-minor3 d=12 e1=True cons=False rk=3465 133.17s det H[X1,Y1,Y2;X1,Y1,Y2] 
   hess-minor3 d=12 e1=True cons=False rk=3499 203.78s det H[X1,Y0,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3368 193.17s det H[X1,Y1,Y2;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=False cons=False rk=-1 62.13s det H[X2,Y0,Y1;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3465 147.75s det H[X2,Y0,Y1;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3307 157.67s det H[X1,Y1,Y2;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3404 196.21s det H[X1,Y1,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3377 177.04s det H[X2,Y0,Y1;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3369 157.3s det H[X2,Y0,Y1;X2,Y1,Y2] 
+  subset-euler d=6 e1=True cons=False rk=595 1.96s E_{X0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2819 128.29s E_{X0}(F) squared 
+  hess-minor3 d=12 e1=True cons=False rk=3441 257.82s det H[X2,Y0,Y2;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3411 172.5s det H[X2,Y0,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3406 190.17s det H[X2,Y0,Y2;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3401 193.18s det H[X2,Y1,Y2;Y0,Y1,Y2] 
+  subset-euler d=6 e1=True cons=False rk=598 4.59s E_{X1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2824 186.74s E_{X1}(F) squared 
+  hess-minor3 d=12 e1=True cons=False rk=3405 192.88s det H[Y0,Y1,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3455 204.31s det H[X2,Y1,Y2;X2,Y1,Y2] 
+  subset-euler d=6 e1=True cons=False rk=596 4.62s E_{X2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2818 167.59s E_{X2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=601 4.22s E_{Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2861 169.91s E_{Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=600 3.34s E_{Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2864 215.61s E_{Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=602 7.28s E_{Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2866 203.51s E_{Y2}(F) squared 
