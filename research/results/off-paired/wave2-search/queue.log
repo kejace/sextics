@@ -105,3 +105,15 @@ submit search-off-paired-s2-homotopy2: launch ssh timed out after 120 s (job may
 23:45:01 homotopy2 confirmed submitted
 23:45:36 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-homotopy2']; waiting
 23:48:12 submitting ft-d9h0 (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-homotopy2']
+up: done ['off-paired']
+submit search-off-paired-s2-ft-d9h0: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-ft-d9h0)
+23:50:37 ft-d9h0 confirmed submitted
+23:51:11 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:53:46 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:56:21 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:58:56 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:01:30 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:04:05 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:06:40 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:09:15 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:11:51 submitting d8hmix (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']

@@ -1,21 +1,23 @@
-# timeout_s min_avail_gb file   (wave 3 closure queue, smallest systems first)
+# timeout_s min_avail_gb file [maxpairs]   (wave 3 closure queue, smallest systems first; maxpairs = msolve -m, exact F4 with bounded matrices)
 5400 25 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W00_p2147483587.ms
-5400 35 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0111_p2147483587.ms
-5400 45 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0011_p2147483587.ms
-5400 45 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0110_p2147483587.ms
-7200 60 /tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_full_all_d7_par0_p2147483647.ms
-7200 60 /tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_full_all_d7_par1_p2147483647.ms
-21600 110 /tmp/hodge/results/eight-plane-configuration/wave2-excl/hess_d7_par0_p2147483587.ms
-21600 110 /tmp/hodge/results/eight-plane-configuration/wave2-excl/hess_d7_par1_p2147483587.ms
-21600 110 /tmp/hodge/results/dense-rational/wave2-excl/quadsys_d7_even_p1073741789.ms
-21600 110 /tmp/hodge/results/dense-rational/wave2-excl/quadsys_d7_odd_p1073741789.ms
-21600 110 /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d7e.ms
-21600 110 /tmp/hodge/results/quadric-contact-residual/wave2-excl/sub_d7_y0.ms
-14400 90 /tmp/hodge/results/quadric-contact-residual/wave2-excl/sub_d7_tri_000_011_101.ms
-5400 50 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0010_p2147483587.ms
-7200 70 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0001_p2147483587.ms
-7200 60 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d8_W11_p2147483587.ms
-7200 70 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hessK_d8_chi00_p2147483587.ms
-7200 60 /tmp/hodge/results/klein-coupled-character/wave2-excl/local_radical8/d8_even_k0.ms
-21600 110 /tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/wave3/w2_points_d7_p0_hom.ms
-21600 110 /tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/wave3/w2_points_d7_p1_hom.ms
+5400 35 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0111_p2147483587.ms 40000
+7200 60 /tmp/hodge/results/klein-coupled-character/wave2-excl/local_d7full/d7_even_all.ms 25000
+7200 60 /tmp/hodge/results/klein-coupled-character/wave2-excl/local_d7full/d7_odd_all.ms 25000
+7200 60 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0011_p2147483587.ms 25000
+7200 60 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0110_p2147483587.ms 25000
+10800 60 /tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_full_all_d7_par0_p2147483647.ms 25000
+10800 60 /tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_full_all_d7_par1_p2147483647.ms 25000
+21600 70 /tmp/hodge/results/eight-plane-configuration/wave2-excl/hess_d7_par0_p2147483587.ms 25000
+21600 70 /tmp/hodge/results/eight-plane-configuration/wave2-excl/hess_d7_par1_p2147483587.ms 25000
+21600 70 /tmp/hodge/results/dense-rational/wave2-excl/quadsys_d7_even_p1073741789.ms 25000
+21600 70 /tmp/hodge/results/dense-rational/wave2-excl/quadsys_d7_odd_p1073741789.ms 25000
+21600 70 /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d7e.ms 25000
+21600 70 /tmp/hodge/results/quadric-contact-residual/wave2-excl/sub_d7_y0.ms 25000
+14400 60 /tmp/hodge/results/quadric-contact-residual/wave2-excl/sub_d7_tri_000_011_101.ms 25000
+21600 70 /tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/wave3/w2_points_d7_p0_hom.ms 25000
+21600 70 /tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/wave3/w2_points_d7_p1_hom.ms 25000
+7200 60 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0010_p2147483587.ms 25000
+10800 70 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0001_p2147483587.ms 25000
+7200 60 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d8_W11_p2147483587.ms 25000
+10800 70 /tmp/hodge/results/reflection-coupled-residual/wave2-excl/hessK_d8_chi00_p2147483587.ms 25000
+7200 60 /tmp/hodge/results/klein-coupled-character/wave2-excl/local_radical8/d8_even_k0.ms 25000

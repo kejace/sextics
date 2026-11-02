@@ -3,3 +3,4 @@
 [hessrelax hr8e] nw=168 dimP=156 neq=468 f(random) median 6.385e+01 build 23s
 [hessrelax hr8e] 100 restarts best f 1.113e-06 (seed 52) median 7.366e-05 (1051s)
 [hessrelax hr8e] 200 restarts best f 2.276e-07 (seed 172) median 7.275e-05 (2021s)
+[hessrelax hr8e] 300 restarts best f 1.413e-07 (seed 309) median 7.366e-05 (2879s)

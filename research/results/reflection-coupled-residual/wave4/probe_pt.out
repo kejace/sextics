@@ -1,0 +1,2 @@
+[probe_pt] mode=pt p=32003 unknowns=12 equations=12 (t1-degrees [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]) built in 0.3s
+exit 124

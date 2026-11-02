@@ -12,3 +12,4 @@
 2026-11-01T21:58:25 d10h0|8|python3 wave2-search/w2_batch_sectors.py --d 10 --sectors h0 --kind colon --restarts 150 --workers 8 --seed0 0 --maxiter 100 --job d10h0 --per-time 1500 > wave2-search/d10h0.out 2>&1
 2026-11-01T22:06:36 d11c00c30|8|python3 wave2-search/w2_batch_sectors.py --d 11 --sectors "0,0;3,0" --kind colon --restarts 120 --workers 8 --seed0 0 --maxiter 80 --job d11a --per-time 3000 > wave2-search/d11a.out 2>&1
 2026-11-01T23:45:01 homotopy2|2|python3 wave2-search/w2_homotopy.py --d 8 --c 0,0 --steps 20 --job hom8m --multi 12 --t1 0.02 > wave2-search/hom8m.out 2>&1; python3 wave2-search/w2_homotopy.py --d 9 --c 0,0 --steps 20 --job hom9m --multi 8 --t1 0.02 > wave2-search/hom9m.out 2>&1
+2026-11-01T23:50:37 ft-d9h0|8|python3 wave2-search/w2_batch_sectors.py --d 9 --sectors h0 --kind colon --restarts 150 --workers 8 --seed0 5000 --maxiter 100 --job ftd9 --per-time 900 --free-target > wave2-search/ftd9.out 2>&1

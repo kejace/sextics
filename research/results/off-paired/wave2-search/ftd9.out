@@ -1,1 +1,3 @@
 [04:48:17] start ftd9-c00 (eff 50) elapsed 0s
+   -> best 1.561e-03 median 2.506e-03 restarts 8 dimP 50 t/restart 1408.56 witness False
+[05:13:34] start ftd9-c10 (eff 43) elapsed 1517s
