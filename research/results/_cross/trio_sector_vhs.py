@@ -127,11 +127,14 @@ for p in PRIMES:
     Am = [mulpoly(A, m) for m in Def]
     a = quotient_rank(S12, idx12, M12, r12, Am, p)
     print({'p':p, 'dims':dims, 'dim_Def_xi_in_R12': a, 't': round(time.time()-t0,1)}, flush=True)
-    S18, idx18, M18, r18 = sector_data(18, chiA, p)
-    dims['R18_diag_sector'] = len(S18)-r18
-    Amm = [mulpoly(Am[i], Def[j]) for i in range(len(Def)) for j in range(i, len(Def))]
-    b = quotient_rank(S18, idx18, M18, r18, Amm, p)
-    print({'p':p, 'dim_Def2_xi_in_R18': b, 't': round(time.time()-t0,1)}, flush=True)
+    if os.environ.get('TRIO_SKIP_R18'):
+        b = None
+    else:
+        S18, idx18, M18, r18 = sector_data(18, chiA, p)
+        dims['R18_diag_sector'] = len(S18)-r18
+        Amm = [mulpoly(Am[i], Def[j]) for i in range(len(Def)) for j in range(i, len(Def))]
+        b = quotient_rank(S18, idx18, M18, r18, Amm, p)
+        print({'p':p, 'dim_Def2_xi_in_R18': b, 't': round(time.time()-t0,1)}, flush=True)
     # (c) kernel: v in epsilon-part of S6^chi with Def.v in J12.  epsilon-part basis: projector with the target signs.
     def eps_project(m):
         P={}
@@ -169,22 +172,26 @@ for p in PRIMES:
         while j < len(S12) and MTr[i,j]==0: j+=1
         piv.append(j)
     pivset=set(piv); nonpiv=[j for j in range(len(S12)) if j not in pivset]
-    rows=[[int(MTr[i,j]) for j in range(len(S12))] for i in range(rkT)]
-    def nf(w):
-        for i,pi in enumerate(piv):
-            if w[pi]:
-                c=w[pi]; row=rows[i]
-                for j in range(len(S12)):
-                    if row[j]: w[j]=(w[j]-c*row[j])%p
-        return [w[j] for j in nonpiv]
-    big = nmod_mat(len(Def)*len(nonpiv), len(basis6), p)
-    for jcol,b6 in enumerate(basis6):
-        for k,m in enumerate(Def):
-            prod = mulpoly(b6, m); w=[0]*len(S12)
-            for e,v in prod.items(): w[idx12[e]] = (w[idx12[e]]+v)%p
-            vv = nf(w)
-            for i,val in enumerate(vv):
-                if val: big[k*len(nonpiv)+i, jcol]=val
+    # projection P: S12 -> S12/J12 in the nonpivot coordinates, as a matrix (len(nonpiv) x len(S12))
+    npv = len(nonpiv)
+    P = nmod_mat(npv, len(S12), p)
+    for a_, j in enumerate(nonpiv): P[a_, j] = 1
+    for i, pi in enumerate(piv):
+        for a_, j in enumerate(nonpiv):
+            val = MTr[i, j]
+            if val != 0: P[a_, pi] = (int(P[a_, pi]) - int(val)) % p
+    blocks = []
+    for m in Def:
+        Mult = nmod_mat(len(S12), len(basis6), p)
+        for jcol, b6 in enumerate(basis6):
+            prod = mulpoly(b6, m)
+            for e, v in prod.items(): Mult[idx12[e], jcol] = (int(Mult[idx12[e], jcol]) + v) % p
+        blocks.append(P * Mult)
+    big = nmod_mat(len(Def)*npv, len(basis6), p)
+    for k, blk in enumerate(blocks):
+        for i in range(npv):
+            for j in range(len(basis6)):
+                if blk[i, j] != 0: big[k*npv+i, j] = int(blk[i, j])
     kerdim = len(basis6) - big.rank()
     # dim of J6 inside the epsilon part: rank of J6 generators projected
     J6eps = quotient_rank(S6, idx6, nmod_mat(len(S6),0,p), 0, [], p)  # placeholder 0

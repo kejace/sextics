@@ -1,18 +1,37 @@
-STATUS: RUNNING — 2026-11-02 04:55 UTC — adversarial verification of the route agent's "what is DiamondJM" answer; 5 of 6 key claims replayed/verified so far, sweep replay still running
+STATUS: COMPLETE — 2026-11-02 05:10 UTC — route agent's "what is DiamondJM" answer verified: 5 of 6 key claims VERIFIED (exact independent replays of group/character, second-variation identity, S3 Jacobian ring+KS, and 3 sweep candidates + Fermat positive control), 1 PLAUSIBLE (modular GM rank-12 claim, not replayed), 0 UNSUPPORTED; no witness claimed; minor corrections listed
 
-# wave4 cycle-q2 / twisted-gauss-manin — VERIFY
+# wave4 cycle-q2 / twisted-gauss-manin — ADVERSARIAL VERIFICATION
 
-Route agent output: `/tmp/hodge/notes/external-diamondjm.md` (no wave4 note, no log.jsonl, no computation run — per its own statement).
-Verifier log: `/tmp/hodge/results/cycle-q2/wave4/log.jsonl` (created by the verifier). Scratch: `/tmp/hodge/scratch/verify-cq2/`.
+Route agent output under review: `/tmp/hodge/notes/external-diamondjm.md` (a review of DiamondJM's external repo) and its
+structured answer. The route agent ran **no computation** (its own statement) and wrote **no** `wave4-cycle-q2-twisted-gauss-manin*.md`
+note and **no** `log.jsonl`; both files were created by the verifier. Verifier scratch: `/tmp/hodge/scratch/verify-cq2/`;
+verifier log: `/tmp/hodge/results/cycle-q2/wave4/log.jsonl` (engine 3 for engine-based lines).
 
-## Running results table
-| # | claim | method of check | result |
+No witness candidate was claimed, so no witness verification was due (`witness_confirmed = false`).
+
+## Verdicts per key claim
+
+| # | route-agent claim (label) | verdict | how checked |
 |---|---|---|---|
-| 1 | one accepted solve (PR #144, 2026-10-19); logins 45/15/2/2/1/1 | recount data/*/acceptance.json | VERIFIED |
-| 2 | code at DiamondJM/hodgeHoldout, branch claude/inspiring-turing-tx2pbu, clone present | git in /tmp/hodge/ext/hodgeHoldout | VERIFIED (origin/main hash is bfe2fb9, not bfb2fb9) |
-| 3a | group order 72, character {1,ζ²,ζ⁴}, kernel 24 ∋ τ, paired signs | own brute force + engine symmetry.py | VERIFIED (exact) |
-| 3b | 2AΩ/F³ = ∂s1∂s2(Ω/F_s)|0 | sympy exact | VERIFIED (exact) |
-| 3c | S3 Jacobian ring dims, sectors, KS, p_g=2 | own fmpq code from accepted cycle-three Lean a8/b256 | VERIFIED (exact over Q at (2,3),(3,5),(1,4)) |
-| 4 | GM jets mod 1000003, spans 1,3,6,10,12,12 | not replayed (would require running untrusted clone code); consistency: engine ring has −x³; all S3 fibres I₁ | PLAUSIBLE, modular |
-| 5 | sweep 1,220 candidates, 0 solvable, cycle-q2 killed | log tally + engine replay (running) | tally VERIFIED; replay pending |
-| 6 | open question == route M* | wave3 ranking §3.1 / WO-2 | VERIFIED (naming V_ω vs V_{ω²}) |
+| 1 | DiamondJM has exactly one accepted solve: one-reflection-y2-sector, PR #144, accepted 2026-10-19; other logins benediamond 45, fqlx 15, hodgepodgeconjecture 2, HeadOfNaps 2, 1337isnot1337 1 (proven) | **VERIFIED** | recount of `data/*/acceptance.json`: exactly those counts, 66 accepted of 82 instances, 16 open. PR 144, head `f89a722`, acceptedAt 2026-10-19T20:58:42Z, owner authorization = review by `benediamond`. `solution.md` §5 credits fqlx's conic family and says the specialisation/new seed/Lean adaptation were "prepared with Claude Code assistance for a contribution through GitHub account `DiamondJM`" (wording differs slightly from "on behalf of"). |
+| 2 | code at github.com/DiamondJM/hodgeHoldout, branch claude/inspiring-turing-tx2pbu, local clone (proven) | **VERIFIED** | `git` in `/tmp/hodge/ext/hodgeHoldout`: HEAD `af0589e` 2026-10-23 18:28:28 UTC "Record the posted cycle-q2 update"; **correction: origin/main is `bfe2fb9` (2026-10-20), the note typed `bfb2fb9`.** |
+| 3 | cycle-q2 contributions: comments DC_kwDOVLOOJc4BI_1U / …BJC7I / …BJD3V (2026-10-23); group 72, character primitive on μ3 quotient; 2AΩ/F³ = ∂s1∂s2(Ω/F_s)|0; S3 with p_g = 2; exact Jacobian-ring/KS tests at (2,3),(3,5),(1,4) (proven) | **VERIFIED** (exact replays) | (a) thread `/tmp/hodge/discussions/cycle-q2.md` lines 296–377: IDs, timestamps 01:26:51Z / 15:15:41Z / 18:28:18Z, all "prepared with Claude Code assistance on behalf of `DiamondJM`". (b) **own brute force over (Z/6)^6**: 432 weight vectors fixing F, 72 mod scalars; residue character of AΩ/F³ takes exponents {0,2,4}; kernel order 24, index 3, contains τ=(0,0,0,3,3,3) and all three paired sign changes; engine `symmetry.diagonal_group` agrees (72 / 24 / {0,2,4}). (c) **sympy exact**: m1·m2 = A, ∂s1∂s2(1/F_s)|0 = 2A/F³. (d) **own fmpq code, a8/b256 taken from the accepted `data/cycle-three/JacobianModel.lean`** (not from the clone): a,b of degrees (12,18), orders (6,0) at ρ=0 and (3,0) at τ=0 (minimal, χ=3, p_g=2), j nonconstant; dim R_1,R_19,R_37,R_38,R_39 = 2,28,2,1,0; τ-exponent sectors (1,10,1),(1,10,1),(0,8,0); ∂c1G·S19+∂c2G·S19 spans R_37; ρ·∂c_iG span 2 dims in R_19 — all at (2,3),(3,5),(1,4), exact over Q. Sub-claim "P ∉ J_37" not replayed (P exists only in pickles `P37_*.pkl`, not loaded) — PLAUSIBLE; benediamond's independent 5-adic nonzero vertical remainder (ranking H5) corroborates it. |
+| 4 | mod P=1000003 GM jets: holomorphic form generates the rank-12 target sector, spans 1,3,6,10,12,12; rank-4 result withdrawn (modular) | **PLAUSIBLE** (label "modular" correct, not overclaimed) | Not replayed: no committed output log in the clone; replay needs either executing the untrusted clone code (not done) or a multi-hour independent Griffiths–Dwork jet implementation. Consistency: `gm_engine.py` line 54 inserts the −x³ term (the withdrawn rank-4 bug); its stated ring checks ((1,10,1), socle 38) equal my exact dims; 1,3,6,10 = C(k+2,2) saturating at 12 is the generic pattern; M1's discriminant at (2,3) is squarefree of degree 12 and nonzero at 0,∞ so all 36 singular fibres of S3 are I₁ (no fibre-component algebraic classes in nontrivial sectors; Mordell–Weil contributions not excluded). Transfer remark: a *full* span mod P implies full span over Q whenever the mod-P reduction is the reduction of the exact computation (rank only drops under reduction) — the opposite direction from the sweep's negatives. Source quirk: the thread lists six numbers for "orders ≤ 0,…,6" (seven orders). |
+| 5 | degree-6 sweep: ~1,220 denominators over the 15 open q=1 instances, 0 solvable mod 268435399; cycle-q2 never run (modular) | **VERIFIED** (record + 3 engine replays + positive control) | Log tally: 71+106+77+106+86+53+57+55+100+97+79+101+61+106+65 = 1,220 tested of 1,279 enumerated, 0 `SOLVABLE`, `cycle-q2.log` = "Killed"; total 46,757 s; **per-candidate 23–81 s (note said 34–81 s)**. Sign audit of `sweep/fixed_d.py`: N_i-column −q·D·m·∂iF + F·(D·∂i m − m·∂iD), Q-column −F^{q+1}m, rhs A·D² — correct sign of the F·N(D) term; parity cut is exact because all 16 open F are Y-even and all A Y-odd (checked). **Engine replays (hodge v3, prime 2147483647)**: one-reflection-skew pow01 → inconsistent, rows/cols/rank 11697/2602/2307; pow012 → inconsistent, 13122/2602/2340 — *identical* to DiamondJM's log lines; Fsub0134 → inconsistent, rank 2349 (identical to DiamondJM: rows 15263, cols 2602, rank 2349). **Positive control**: Fermat sextic F0=ΣZ⁶, A=X0³Y0³, D0=X0⁶+X1⁶+X2⁶ → `solved`, exact witness verified by `verify_witness`; explicit N_i=A·X_i/6, Q=0 also verifies. On holdout's own F the same D0 is inconsistent (engine), consistent with DiamondJM's exact `exact_support` result — so the README/RESULTS "control" sentence refers to the Fermat sextic; the route note's §1.5 should say so. "About 1,300" in the posted comment = 1,220 tested. |
+| 6 | the open question (is [σ]=0 in H²_dR of the rank-12 system over C(c1,c2)) is exactly this route's M*; undecided; nothing computed (conjectural) | **VERIFIED** as a correspondence; status correct | `/tmp/hodge/notes/wave3-construction-ranking.md` §3.1 M-a and WO-2 (lines 125–142, 647): "remaining equation `[σ]=0` in `H²_dR(B°, V_{ω²})`, rank 12, type (1,10,1)"; naming differs (ranking V_{ω²}, DiamondJM V_ω — both the nontrivial target sector). The M* computation was not started by the route agent (it answered the user's question only); nothing is overclaimed. |
+
+Headline items: DiamondJM is a GitHub login distinct from `benediamond` (git author "Benjamin Diamond", 284 commits; MAINTAINING.md: the only human with write access). Whether the humans behind the two logins are related is not determinable from repo data; the claim as stated (distinct accounts) holds. Holdout comment `DC_kwDOVLOOJc4BIp9D` confirmed read-only via `gh api`: author DiamondJM, 2026-10-19T17:07:03Z, same Claude Code label. Spot check: none of the 13 `holdout-*/solution.md` mention DiamondJM; 12 mention Codex — as the note says.
+
+## Pitfall checklist
+- msolve `c*c`: not used in `cycleq2/` (sympy/flint only); not applicable to the reviewed claims.
+- Sign of F·N(D): correct in DiamondJM's sweep code; engine v3 (post sign-fix) reproduces its ranks exactly.
+- Euler gauge: fixed-D tests use the full cleared identity with free Q; no gauge assumption. Parity cut justified for all 16.
+- Parity/character mixing: deck-sector rule (sector = τ-exponent + 1 mod 3) replayed; target sector = τ-exp 0, contains ρΩ/G; Hodge numbers (1,10,1) match.
+- "Timed out"/"Killed": cycle-q2's sweep is reported as *not run*, never as a negative — correct.
+- Modular → char 0: all sweep negatives stay modular (1/P false-negative heuristic); nobody claims otherwise.
+
+## Corrections to the route agent's output
+1. Hash typo: origin/main `bfe2fb9`. 2. Per-candidate time 23–81 s. 3. The positive control is on the Fermat sextic, not holdout F. 4. Accepted-proof wording: "for a contribution through GitHub account `DiamondJM`". 5. Rule compliance: no STATUS note / log were written by the route agent.
+
+## Not done / residual
+No independent replay of the rank-12 Gauss–Manin span (claim 4) and of P ∉ J_37; the M* computation itself (∇Ψ = σ over Q(c1,c2)) remains open — exactly as the route agent stated.

@@ -32,8 +32,14 @@ not special to F, must produce ≥ 22 independent twisted 2-forms, e.g. ≥ 22 "
 mechanism — far above anything degree ≤ 8 offers (a degree-d hypersurface section of W carries ≤ O(d) such parameters).
 This bound is for supports moving with F; special supports at the given F are not excluded.
 
-## 3.2 rcr budget (remote job trio-rcr-sectorvhs)
-(filled in below when the job returns; the remote is saturated — 356 cores allocated against the 200-core gate.)
+## 3.2 rcr budget (remote job trio-rcr-sectorvhs; LOCAL fallback run, nice 19, p = 1000003, because the remote gate stayed closed)
+Family: the 158 Klein-invariant sextic monomials (= the one-reflection+ρ locus of the book, codim 158 is NOT meant — the
+family has 158 monomial directions, 157 effective modulo scaling).  Sector (−,−) of ξ: R_6 = 126, R_12 = 492 reproduced mod p.
+* dim Def·ξ in (2,2): **144** of 492 (first-order variation does not fill the sector, as in ctr and qcr).
+* dim Def²·ξ in (1,3): RCR_B of 126.
+* kernel K = {v ∈ R_6^{(−,−)} : Def·v = 0}: RCR_K.
+* dim Def·R_6^{(−,−)} in (2,2): RCR_D of 492.
+Interpretation: RCR_INTERP
 
 ## 3.3 qcr: klt check of the Galois closure (remote job trio-qcr-ztsing)
 Z̃ = {e1(z²) = −a, e2(z²) = b, e3(z²) = −c} ⊂ P^7, CI (2,4,6), 8 variables; Singular computes the dimension and degree of

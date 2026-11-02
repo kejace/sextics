@@ -13,6 +13,11 @@ B ⊂ W the branch divisor, χ the character of G on ξ (χ ≠ 1 is the whole p
 | rcr | Y2 ↦ −Y2 | 2 | {H(x, u) = 0} ⊂ P(1^5, 2), u = Y2² | O(−1) | {u = 0} ∈ \|O_W(2)\| | O_W(1) | −1 | W (Fano index 1) |
 | qcr | s0: X0 ↔ Y0 | 2 | {F(w,v²,…) = 0} ⊂ P(1^5, 2), w = X0+Y0, t = (X0−Y0)² | O(−1) | {t = 0} ∈ \|O_W(2)\| | O_W(1) | −1 | X/s0 (Fano index 1) and X/⟨s0,σ0⟩ ⊂ P(1^4,2,2) (Fano index 2) |
 
+[computed] The three branch threefolds B ≅ X ∩ {X2 = 0}, X ∩ {Y2 = 0}, X ∩ {X0 = Y0} are smooth: Singular, p = 32003,
+`dim(std(jacob(f))) = 0` for each (receipts /tmp/hodge/results/_cross/trio_branch_{ctr,rcr,qcr}.sing); an m-primary Jacobian
+ideal mod p is m-primary over Q, so B and hence W are smooth and the Esnault–Viehweg formulas below apply without any
+normal-crossing or rounding corrections.
+
 In every case π_*O_X = ⊕_{i=0}^{n−1} L^{−i} with g acting on the summand L^{−i} by ζ_n^{i} (the eigen-function is the
 anti-invariant coordinate X2^i, Y2, resp. v = X0 − Y0), W is smooth exactly where B is smooth (local model x^n = z), and
 χ(ξ) = (polynomial character of A)·det(g) is the nontrivial character because A is G-invariant while Ω picks up det g.
