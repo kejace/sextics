@@ -57,6 +57,32 @@ L.append('Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residu
          'parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.\n')
 L.append('Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JSON line per batch; remote lines merged by w2_report.py). '
          'Scripts (lane dir): w2lib.py, w2_varpro.py, w2_e1profile.py, w2_hess.py, w2_struct.py, w2_report.py. Remote job logs: /tmp/hodge/remote/_jobs/search-quadric-contact-residual-*.log\n')
+# ---- summary of findings (computed)
+L.append('## Summary of findings so far\n')
+by_d = {}
+for r in vp:
+    if r.get('tag') in ('cone', 'cone2', 'uvcone'):
+        continue
+    e = by_d.setdefault((r['d'], 'mixed' if r['chi'] in ('mixed', 'par0', 'par1') else 'sector'), {'n': 0, 'restarts': 0, 'best': None, 'chis': set()})
+    e['n'] += 1; e['restarts'] += r.get('restarts_done', 0); e['chis'].add(r['chi'])
+    if r.get('best_rel') is not None and (e['best'] is None or r['best_rel'] < e['best']):
+        e['best'] = r['best_rel']
+for (d, kind), e in sorted(by_d.items()):
+    L.append(f'* degree {d}, {kind} families: {e["n"]} batches over {len(e["chis"])} sector(s)/mode(s), {e["restarts"]} restarts, best full-E2 rel {fmt(e["best"])} (no witness).')
+cone_recs = [r for r in vp if r.get('tag') in ('cone', 'cone2', 'uvcone')]
+if cone_recs:
+    bc = min((r['best_rel'] for r in cone_recs if r.get('best_rel') is not None), default=None)
+    L.append(f'* cone / coordinate-subspace / reflection-adapted families: {len(cone_recs)} batches, best rel {fmt(bc)} (no witness).')
+for r in hs:
+    L.append(f'* Hessian relaxation d={r["d"]} ({r["chi"]}, {r.get("n_members")} members, {r.get("dimP")} free parameters, {r.get("restarts_done")} restarts): best |T|^2/scale {fmt(r.get("best_frel"))}; '
+             + ('no zero of the necessary quadratic condition found' if (r.get('n_frel_lt_1e-12') or 0) == 0 else f'{r.get("n_frel_lt_1e-12")} near-zeros, polished: {[fmt(p.get("full_rel")) for p in r.get("polished", [])]}') + '.')
+gb = [r for r in recs if r.get('task') == 'hess-gb']
+for r in gb:
+    L.append(f'* EXACT Hessian-congruence closure d={r["d"]} ({r["chi"]}, {r.get("unknowns")} unknowns, {r.get("n_quadrics")} quadrics mod p): {r.get("status")}.')
+st_e1 = [r for r in st if r['task'] == 'struct']
+L.append(f'* structured candidates: {len(st_e1)} tested; E1 passed: {sum(1 for r in st_e1 if r.get("e1"))}; consistent (full sector solve): {sum(1 for r in st_e1 if r.get("consistent"))}; '
+         f'character-mixed skipped at d>=10: {sum(1 for r in st_e1 if r.get("e1") is None)}.')
+L.append('')
 L.append('## Method (what is new in wave 2)\n')
 L.append('* Exact E1 families per G_aff character sector: (J:A)_d[chi] = {D in S_d[chi] : A D in J_{d+6}} over Q (python-flint integer nullspace), '
          'split into the Jacobian part J_d[chi] (sparse generators m*F_i) and the non-Jacobian extras (exact integer polynomials).')

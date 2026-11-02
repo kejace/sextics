@@ -1,10 +1,24 @@
 # Wave 2 — quadric-contact-residual — SEARCH lens (joint (D,N,Q) search)
 
-STATUS: NO WITNESS. Updated 2026-11-02 01:17 local. Batches logged: 577 (359 varpro sector batches, 3 Hessian-relaxation batches, 6 E1 profiles, 203 structured candidates); random restarts so far: 13876; best full-E2 relative residual: 6.34e-07.
+STATUS: NO WITNESS. Updated 2026-11-02 01:37 local. Batches logged: 579 (361 varpro sector batches, 3 Hessian-relaxation batches, 6 E1 profiles, 203 structured candidates); random restarts so far: 13932; best full-E2 relative residual: 6.34e-07.
 
 Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residue character trivial on G_aff (order 48), odd under s0 (X0<->Y0) and r1 (X1<->Y1). Prior rigorous exclusions (fqlx #125, replicated in wave 1): deg D <= 6; deg 7 in every pure parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.
 
 Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JSON line per batch; remote lines merged by w2_report.py). Scripts (lane dir): w2lib.py, w2_varpro.py, w2_e1profile.py, w2_hess.py, w2_struct.py, w2_report.py. Remote job logs: /tmp/hodge/remote/_jobs/search-quadric-contact-residual-*.log
+
+## Summary of findings so far
+
+* degree 7, mixed families: 2 batches over 2 sector(s)/mode(s), 66 restarts, best full-E2 rel 0.07074 (no witness).
+* degree 8, sector families: 26 batches over 24 sector(s)/mode(s), 3679 restarts, best full-E2 rel 0.001436 (no witness).
+* degree 9, sector families: 25 batches over 24 sector(s)/mode(s), 2753 restarts, best full-E2 rel 6.34e-07 (no witness).
+* degree 10, sector families: 1 batches over 1 sector(s)/mode(s), 22 restarts, best full-E2 rel 8.18e-05 (no witness).
+* cone / coordinate-subspace / reflection-adapted families: 307 batches, best rel 0.07647 (no witness).
+* Hessian relaxation d=5 (par0, 3 members, 3 free parameters, 4 restarts): best |T|^2/scale 0.5164; no zero of the necessary quadratic condition found.
+* Hessian relaxation d=7 (par0, 63 members, 60 free parameters, 1500 restarts): best |T|^2/scale 4.64e-04; no zero of the necessary quadratic condition found.
+* Hessian relaxation d=7 (par1, 63 members, 60 free parameters, 1500 restarts): best |T|^2/scale 4.61e-04; no zero of the necessary quadratic condition found.
+* EXACT Hessian-congruence closure d=6 (par0, 17 unknowns, 406 quadrics mod p): singular-unparsed.
+* EXACT Hessian-congruence closure d=6 (par0, 17 unknowns, 406 quadrics mod p): EXCLUDED (affine dim 0: only a=0 mod p, hence over Q-bar).
+* structured candidates: 203 tested; E1 passed: 40; consistent (full sector solve): 0; character-mixed skipped at d>=10: 8.
 
 ## Method (what is new in wave 2)
 
@@ -25,7 +39,7 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
   - search-quadric-contact-residual-pipeA2.log: last line: `  rel = float(np.linalg.norm(Mb @ x - bv) / max(np`
   - search-quadric-contact-residual-pipeA3.log: last line: `=== 2026-11-02 05:39:54 w2_varpro.py --d 10 --chi all --restarts 160 --per-dim 3 --min-restarts 24 --procs 8 --seed 3000 --tag w2a --time-limit 2400`
   - search-quadric-contact-residual-pipeB.log: last line: `=== 2026-11-02 00:47:52 w2_hess.py --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e`
-  - search-quadric-contact-residual-pipeB2.log: last line: `=== 2026-11-02 05:34:43 w2_varpro.py --d 7 --parity 1 --restarts 300 --per-dim 0 --procs 8 --seed 6100 --tag w2m --time-limit 3600`
+  - search-quadric-contact-residual-pipeB2.log: last line: `=== 2026-11-02 06:35:49 w2_hess.py --d 7 --mixed --restarts 1000 --procs 8 --seed 13 --tag hd7m`
   - search-quadric-contact-residual-pipeC.log: last line: `PIPELINE C DONE Mon Nov  2 05:40:16 UTC 2026`
   - search-quadric-contact-residual-pipeD.log: last line: `=== 2026-11-02 05:49:38 w2_varpro.py --d 10 --chi 0000 --sym --restarts 500 --per-dim 8 --min-restarts 50 --procs 8 --seed 22000 --tag sym --time-limit 3000`
   - search-quadric-contact-residual-vp-d8.log: last line: `[koszul-varpro] d=8 chi=0000 K=33 rows=1002 cols=303 (K 130, Q 173) Mstack nnz=155331 Vstack nnz=43948 dimP=29 excluded=4 built 0.7s`
@@ -144,6 +158,7 @@ Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian 
 | cone | 7 | 1001 | X1Y0Y1 | 1 | 1 | 586 | 64+82 | 0.0045 | 12 | 0 | 0.9501 | 0.9501 | 0 | 0 | 0.00e+00 | 0.9 |
 | cone | 7 | 1001 | X1Y0Y1Y2 | 1 | 1 | 586 | 64+82 | 0.0051 | 12 | 0 | 0.9501 | 0.9501 | 0 | 0 | 0.00e+00 | 0.9 |
 | w2m | 7 | par0 | - | 63 | 60 | 5792 | 420+636 | 1.634 | 32 | 0 | 0.07074 | 0.07074 | 0 | 0 | 117.1 | 3619.6 |
+| w2m | 7 | par1 | - | 63 | 60 | 5792 | 420+636 | 1.356 | 34 | 0 | 0.07074 | 0.07074 | 0 | 0 | 126.3 | 3663.9 |
 | w2b | 8 | 0000 | - | 33 | 29 | 1002 | 130+173 | 0.3123 | 9 | 0 | 0.001466 | 0.05118 | 0 | 0 | 119.3 | 1858.5 |
 | w2b | 8 | 0000 | - | 33 | 29 | 1002 | 130+173 | 0.0284 | 290 | 0 | 0.001436 | 0.001657 | 0 | 0 | 106.8 | 671.8 |
 | cone | 8 | 0000 | X0X1X2Y0Y1 | 4 | 4 | 1000 | 130+173 | 0.0211 | 32 | 0 | 0.6739 | 0.6739 | 0 | 0 | 45.34 | 20.8 |
@@ -420,6 +435,7 @@ Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian 
 | cone | 9 | 1151 | X0X1X2Y0Y1 | 1 | 1 | 1356 | 192+240 | 0.0527 | 12 | 0 | 0.9003 | 0.9003 | 0 | 0 | 0.00e+00 | 3.8 |
 | cone | 9 | 1151 | X0X1X2Y1 | 1 | 1 | 1356 | 192+240 | 0.0612 | 12 | 0 | 0.9003 | 0.9003 | 0 | 0 | 0.00e+00 | 3.2 |
 | cone | 9 | 1151 | X0X1X2Y1Y2 | 1 | 1 | 1356 | 192+240 | 0.0527 | 12 | 0 | 0.9003 | 0.9003 | 0 | 0 | 0.00e+00 | 3.0 |
+| w2a | 10 | 0000 | - | 128 | 114 | 2490 | 402+594 | 0.4938 | 22 | 0 | 8.18e-05 | 0.002516 | 0 | 0 | 300 | 2430.2 |
 
 Reconstruction attempts (rel < 1e-10): 0
 
@@ -642,9 +658,10 @@ Reconstruction attempts (rel < 1e-10): 0
 ## Best residual landscape (full-E2 rel, log10 histogram of local minima over all restarts)
 
 * d=6: 1e-1: 192
-* d=7: 1e-2: 32, 1e-1: 792
+* d=7: 1e-2: 66, 1e-1: 792
 * d=8: 1e-3: 462, 1e-2: 2354, 1e-1: 2771
 * d=9: 1e-7: 120, 1e-4: 318, 1e-3: 485, 1e-2: 1706, 1e-1: 1640
+* d=10: 1e-5: 1, 1e-4: 1, 1e-3: 20
 
 Reading: a genuine witness in a family shows up as rel ~ 1e-14..1e-12 (float64 floor); the smallest values seen so far are listed above; all minima are separated from the floor by many orders of magnitude unless stated otherwise.
 
