@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-02 01:56 EST from 827 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-02 02:16 EST from 827 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -175,7 +175,7 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=7 pD=0 | jac1 | 56 | 5.51e-01 | 7.5e-01 | 0 | 0 | 0.551: 5, 0.552: 7, 0.752: 35, 0.774: 9 |
+| jac d=7 pD=0 | jac1 | 66 | 5.51e-01 | 7.5e-01 | 0 | 0 | 0.551: 6, 0.552: 10, 0.752: 39, 0.774: 11 |
 | ternX-sgnX d=7 pD=0 | struct2 | 60 | 6.46e-01 | 6.5e-01 | 0 | 0 | 0.646: 42, 0.667: 18 |
 | ternX-sgnX d=8 pD=0 | struct2 | 60 | 4.36e-01 | 5.2e-01 | 0 | 0 | 0.436: 25, 0.525: 25, 0.626: 10 |
 | ternX-sgnX d=9 pD=0 | struct2 | 60 | 9.13e-02 | 3.3e-01 | 0 | 0 | 0.0913: 22, 0.178: 1, 0.24: 5, 0.332: 13, 0.406: 5 |
@@ -185,7 +185,8 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 | ternX-triv d=8 pD=0 | struct2 | 60 | 4.52e-01 | 4.5e-01 | 0 | 0 | 0.452: 34, 0.603: 26 |
 | ternX-triv d=9 pD=0 | struct2 | 60 | 1.28e-01 | 3.4e-01 | 0 | 0 | 0.128: 1, 0.228: 13, 0.342: 46 |
 | ternX-triv d=10 pD=0 | struct2 | 60 | 1.07e-01 | 2.3e-01 | 0 | 0 | 0.107: 5, 0.116: 2, 0.122: 8, 0.169: 1, 0.176: 4 |
-| ternX-triv d=11 pD=0 | struct2 | 22 | 2.34e-02 | 8.5e-02 | 0 | 0 | 0.0234: 3, 0.0313: 1, 0.0341: 1, 0.0846: 7, 0.0989: 1 |
+| ternX-triv d=11 pD=0 | struct2 | 31 | 2.34e-02 | 8.5e-02 | 0 | 0 | 0.0234: 4, 0.0313: 1, 0.0341: 2, 0.0846: 11, 0.0989: 1 |
+| triv d=10 pD=1 | vp2b | 8 | 2.26e-06 | 2.3e-06 | 0 | 0 | 2.26e-06: 6, 5.77e-06: 1, 8.22e-06: 1 |
 
 ## 7b. Gauss–Newton polish of the best points (is a small residual a zero?)
 

@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-02 01:42:37.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-02 02:12:39.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -112,10 +112,10 @@ Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-typ
 Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02; d=7 odd (K=63): 16 restarts, best rel 1.440e-02; d=8 even (K=9): 40 restarts, best rel 2.502e-03
 
 ### Residual landscape (per-restart files)
-* `d7e_b0`: n=154, min 6.270e-03, 10% 1.652e-02, median 3.732e-02, 90% 6.069e-02, max 2.901e-01
+* `d7e_b0`: n=169, min 6.270e-03, 10% 1.639e-02, median 3.732e-02, 90% 6.118e-02, max 2.901e-01
 * `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
 * `d7o_a`: n=16, min 1.440e-02, 10% 1.822e-02, median 4.123e-02, 90% 7.103e-02, max 8.815e-02
-* `d8e_b0`: n=16, min 1.905e-03, 10% 2.292e-03, median 5.693e-03, 90% 8.383e-03, max 8.786e-03
+* `d8e_b0`: n=19, min 1.905e-03, 10% 2.158e-03, median 4.923e-03, 90% 8.383e-03, max 8.786e-03
 * `d8k_a`: n=40, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
 
 ## 4. Structured families vs the E1-admissible space (exact mod p)
