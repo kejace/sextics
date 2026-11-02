@@ -1,2 +1,4 @@
 built 1441 quadrics in 126 vars (35.9s)
 GB: rc=-9 0 elements, 0 linear, 9754.8s; msolve: 
+gauge-fixed: 120 vars (6 removed), 1441 quadrics; leading ideal 0 monomials, pure powers for 0/120 variables => m-primary=False (10429.7s)
+forms: 0/0 give empty V(I + (l-1)) (0.0s)

@@ -4,3 +4,4 @@
 [hessrelax hr8o] 100 restarts best f 1.174e-05 (seed 51) median 1.165e-04 (757s)
 [hessrelax hr8o] 200 restarts best f 1.174e-05 (seed 51) median 1.085e-04 (1468s)
 [hessrelax hr8o] 300 restarts best f 1.174e-05 (seed 51) median 1.097e-04 (2184s)
+[hessrelax hr8o] 400 restarts best f 1.174e-05 (seed 51) median 1.100e-04 (2985s)
