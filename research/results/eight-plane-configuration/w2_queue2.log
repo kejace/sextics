@@ -1,1 +1,4 @@
 [23:50:45] submitting search-eight-plane-configuration-d8 (my running: 0)
+REMOTE BUSY: load 515 (max 300), available memory 64 GB (min 110), 53 jobs running with 335 cpus allocated (max 200); waiting 60 s
+REMOTE BUSY: load 505 (max 300), available memory 64 GB (min 110), 53 jobs running with 335 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+[03:51:34] submitting search-eight-plane-configuration-fam10 (my running: 0)
