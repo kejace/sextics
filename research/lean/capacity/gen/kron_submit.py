@@ -36,122 +36,10 @@ def nestE(op, terms):
     return terms[0] if len(terms) == 1 else f'(.{op} {terms[0]} {nestE(op, terms[1:])})'
 
 
-def generate(instance_id, witness, out, name='KronWitness', heartbeats=4000000, recdepth=8000):
-    F, A, q, rec = core.load_instance(instance_id)
-    D = core.parse(witness['D']); N = [core.parse(s) for s in witness['N']]; Q = core.parse(witness['Q'])
-    d = int(witness['d'])
-    ok, info = core.verify_witness(F, A, q, D, N, Q)
-    assert ok, info
-    # integral witness: scale D, N by s and Q by s^2
-    s = lcm_den(D, Q, *N)
-    D = core.scale(D, s); N = [core.scale(n, s) for n in N]; Q = core.scale(Q, s * s)
-    ok, info = core.verify_witness(F, A, q, D, N, Q)
-    assert ok, info
-    Di = {e: int(c) for e, c in D.items()}; Ni = [{e: int(c) for e, c in n.items()} for n in N]
-    Qi = {e: int(c) for e, c in Q.items()}
-    # F, A scaling
-    sFA = lcm_den(F, A)
-    Fi = {e: int(Fraction(c) * sFA) for e, c in F.items()}; Ai = {e: int(Fraction(c) * sFA) for e, c in A.items()}
-    degN = d + 6 * q - 5
-    deg1 = d + 6 * q; deg2 = 2 * d + 6 * q - 6
-    m = max(deg1, deg2) + 1
-    l1 = K.l1
-    dF = [core.pderiv(Fi, i) for i in range(NV)]; dD = [core.pderiv(Di, i) for i in range(NV)]
-    dN = [core.pderiv(Ni[i], i) for i in range(NV)]
-    b1 = q * sum(l1(dF[i]) * l1(Ni[i]) for i in range(NV)) + l1(Ai) * l1(Di)
-    b2 = (sFA ** q) * (l1(Di) * sum(l1(dN[i]) for i in range(NV)) + sum(l1(dD[i]) * l1(Ni[i]) for i in range(NV))) + l1(Fi) ** q * l1(Qi)
-    W = max(max(b1, b2).bit_length() + 2, 8)
-    ns = f'HodgeComputer.Instances.{name}'
-    os.makedirs(out, exist_ok=True)
-    # ---------------- Kron.lean (library, flat helper module)
-    kron = open(KRON_SRC).read()
-    open(os.path.join(out, 'Kron.lean'), 'w').write(kron)
-    # ---------------- witness.json (balanced strings, integral coefficients)
-    def wstr(P, deg):
-        return B.witness_string(P, m) if P else '0'
-    wjson = {'d': d, 'D': wstr(Di, d), 'N': [wstr(Ni[i], degN) for i in range(NV)], 'Q': wstr(Qi, 2 * d - 6)}
-    json.dump(wjson, open(os.path.join(out, 'witness.json'), 'w'), indent=1)
-    # ---------------- Witness.lean
-    L = ['import Proposal.Kron\n', f'set_option maxHeartbeats {heartbeats}\nset_option maxRecDepth {recdepth}\n',
-         'set_option linter.all false\n', f'namespace {ns}\n', 'open MvPolynomial HodgeTestbed HodgeComputer.Kron\n']
-    L.append(f'noncomputable def tF : PT := {K.pt_lean(Fi, m, 6)}\n')
-    L.append(f'noncomputable def tA : PT := {K.pt_lean(Ai, m, 6 * q)}\n')
-    L.append(f'noncomputable def tD : PT := {K.pt_lean(Di, m, d)}\n')
-    L.append(f'noncomputable def tQ : PT := {K.pt_lean(Qi, m, 2 * d - 6)}\n')
-    for i in range(NV):
-        L.append(f'noncomputable def tN{i} : PT := {K.pt_lean(Ni[i], m, degN)}\n')
-    L.append('noncomputable section\n')
-    if sFA == 1:
-        L.append('def F : Poly := toC tF\ndef A : Poly := toC tA\n')
-    else:
-        L.append(f'def F : Poly := C (1 / {sFA} : ℂ) * toC tF\ndef A : Poly := C (1 / {sFA} : ℂ) * toC tA\n')
-    L.append('def D : Poly := toC tD\ndef Q : Poly := toC tQ\n')
-    for i in range(NV):
-        L.append(f'def N{i} : Poly := toC tN{i}\n')
-    L.append('def N : Fin 6 → Poly := fun i => ' + ''.join(f'if i.val = {i} then N{i} else ' for i in range(5)) + 'N5\n')
-    side = '(by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel)'
-    # e1
-    lhs = f'(.smulN {q} {nestE("add", [f"(.mul (.pd {i} tF) (.poly tN{i}))" for i in range(NV)])})'
-    rhs = '(.mul (.poly tA) (.poly tD))'
-    L.append(f'noncomputable def L1 : E := {lhs}\nnoncomputable def R1 : E := {rhs}\n')
-    L.append(f'theorem e1_core : denC L1 = denC R1 := soundN (m := {m}) (W := {W}) L1 R1 {side}\n')
-    e1_sum = nest([f'pderiv ({i} : Fin 6) F * N{i}' for i in range(NV)])
-    if sFA == 1:
-        L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
-                 f'  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
-                 f'  change ({q}:Poly) * ({e1_sum}) = A*D\n'
-                 f'  have h := e1_core\n'
-                 f'  simp only [L1, R1, denC_smulN, denC_add, denC_mul, denC_poly, denC_pd, Nat.cast_one, Nat.cast_ofNat] at h\n'
-                 f'  simpa only [F, A, D, N0, N1, N2, N3, N4, N5] using h\n')
-    else:
-        L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
-                 f'  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
-                 f'  change ({q}:Poly) * ({e1_sum}) = A*D\n'
-                 f'  have h := congrArg (fun p => C (1 / {sFA} : ℂ) * p) e1_core\n'
-                 f'  simp only [L1, R1, denC_smulN, denC_add, denC_mul, denC_poly, denC_pd, Nat.cast_one, Nat.cast_ofNat] at h\n'
-                 f'  simp only [F, A, D, N0, N1, N2, N3, N4, N5, pderiv_C_mul]\n'
-                 f'  linear_combination h\n')
-    # e2
-    div_r = nestE('add', [f'(.pd {i} tN{i})' for i in range(NV)])
-    dir_r = nestE('add', [f'(.mul (.pd {i} tD) (.poly tN{i}))' for i in range(NV)])
-    lhs = f'(.sub (.mul (.poly tD) {div_r}) {dir_r})'
-    if sFA != 1:
-        lhs = f'(.smulN {sFA ** q} {lhs})'
-    rhs = f'(.mul (.pow (.poly tF) {q}) (.poly tQ))'
-    L.append(f'noncomputable def L2 : E := {lhs}\nnoncomputable def R2 : E := {rhs}\n')
-    L.append(f'theorem e2_core : denC L2 = denC R2 := soundN (m := {m}) (W := {W}) L2 R2 {side}\n')
-    div_sum = nest([f'pderiv ({i} : Fin 6) N{i}' for i in range(NV)])
-    dir_sum = nest([f'pderiv ({i} : Fin 6) D * N{i}' for i in range(NV)])
-    if sFA == 1:
-        L.append(f'theorem e2 : divergenceNumerator D N = F^{q}*Q := by\n'
-                 f'  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
-                 f'  change D * ({div_sum}) - ({dir_sum}) = F^{q}*Q\n'
-                 f'  have h := e2_core\n'
-                 f'  simp only [L2, R2, denC_sub, denC_add, denC_mul, denC_pow, denC_poly, denC_pd] at h\n'
-                 f'  simpa only [F, D, Q, N0, N1, N2, N3, N4, N5] using h\n')
-    else:
-        sq = sFA ** q
-        div_u = nest([f'pderiv ({i} : Fin 6) (toC tN{i})' for i in range(NV)])
-        dir_u = nest([f'pderiv ({i} : Fin 6) (toC tD) * toC tN{i}' for i in range(NV)])
-        L.append(f'theorem hF{q} : F ^ {q} = C (1 / {sq} : ℂ) * toC tF ^ {q} := by\n  rw [F, mul_pow, ← C_pow]; norm_num\n')
-        L.append(f'theorem hs : (C (1 / {sq} : ℂ) : Poly) * ({sq} : Poly) = 1 := by\n  rw [← map_ofNat C {sq}, ← C_mul]; norm_num\n')
-        L.append(f'theorem e2 : divergenceNumerator D N = F^{q}*Q := by\n'
-                 f'  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
-                 f'  change D * ({div_sum}) - ({dir_sum}) = F^{q}*Q\n'
-                 f'  have h := congrArg (fun p => C (1 / {sq} : ℂ) * p) e2_core\n'
-                 f'  simp only [L2, R2, denC_smulN, denC_sub, denC_add, denC_mul, denC_pow, denC_poly, denC_pd, Nat.cast_ofNat] at h\n'
-                 f'  rw [hF{q}]\n'
-                 f'  simp only [D, Q, N0, N1, N2, N3, N4, N5]\n'
-                 f'  linear_combination h - (toC tD * ({div_u}) - ({dir_u})) * hs\n')
-    # homogeneity, nonvanishing
-    L.append(f'theorem denominator_homogeneous : D.IsHomogeneous {d} := toC_isHomogeneous {d} tD (by decide +kernel)\n')
-    for i in range(NV):
-        L.append(f'theorem N{i}_homogeneous : N{i}.IsHomogeneous {degN} := toC_isHomogeneous {degN} tN{i} (by decide +kernel)\n')
-    L.append(f'theorem numerator_homogeneous : ∀ i, (N i).IsHomogeneous {degN} := by\n  intro i; fin_cases i\n' +
-             ''.join(f'  · exact N{i}_homogeneous\n' for i in range(NV)))
-    nzpt = leangen.choose_nonzero_point(D)
-    vec = '![' + ','.join(str(v) for v in nzpt) + ']'
-    L.append(f'theorem denominator_ne_zero : D ≠ 0 := toC_ne_zero_of_evalPT {vec} tD (by decide +kernel)\n')
+
+def legality_text(F, D, q, d, ns):
+    LL = []
+    L = LL
     # legality: template machinery on the explicit (unfolded) polynomials
     jj, pt, (bu, bv), fF, fD = leangen.choose_specialization(F, D)
     others = [i for i in range(NV) if i != jj]
@@ -213,8 +101,137 @@ def generate(instance_id, witness, out, name='KronWitness', heartbeats=4000000, 
              '  denominator_legal := denominator_legal\n'
              '  identity := normalized_identity (by simpa using e1) e2\n')
     L.append(f'theorem solved : HasCertificate F A {q} := ⟨{d}, D, N, Q, certificate⟩\n')
-    L.append(f'end\nend {ns}\n')
-    open(os.path.join(out, 'Witness.lean'), 'w').write('\n'.join(L))
+    return '\n'.join(LL)
+
+def generate(instance_id, witness, out, name='KronWitness', heartbeats=4000000, recdepth=8000, slice=False):
+    F, A, q, rec = core.load_instance(instance_id)
+    D = core.parse(witness['D']); N = [core.parse(s) for s in witness['N']]; Q = core.parse(witness['Q'])
+    d = int(witness['d'])
+    ok, info = core.verify_witness(F, A, q, D, N, Q)
+    assert ok, info
+    # integral witness: scale D, N by s and Q by s^2
+    s = lcm_den(D, Q, *N)
+    D = core.scale(D, s); N = [core.scale(n, s) for n in N]; Q = core.scale(Q, s * s)
+    ok, info = core.verify_witness(F, A, q, D, N, Q)
+    assert ok, info
+    Di = {e: int(c) for e, c in D.items()}; Ni = [{e: int(c) for e, c in n.items()} for n in N]
+    Qi = {e: int(c) for e, c in Q.items()}
+    # F, A scaling
+    sFA = lcm_den(F, A)
+    Fi = {e: int(Fraction(c) * sFA) for e, c in F.items()}; Ai = {e: int(Fraction(c) * sFA) for e, c in A.items()}
+    degN = d + 6 * q - 5
+    deg1 = d + 6 * q; deg2 = 2 * d + 6 * q - 6
+    m = max(deg1, deg2) + 1
+    l1 = K.l1
+    dF = [core.pderiv(Fi, i) for i in range(NV)]; dD = [core.pderiv(Di, i) for i in range(NV)]
+    dN = [core.pderiv(Ni[i], i) for i in range(NV)]
+    b1 = q * sum(l1(dF[i]) * l1(Ni[i]) for i in range(NV)) + l1(Ai) * l1(Di)
+    b2 = (sFA ** q) * (l1(Di) * sum(l1(dN[i]) for i in range(NV)) + sum(l1(dD[i]) * l1(Ni[i]) for i in range(NV))) + l1(Fi) ** q * l1(Qi)
+    W = max(max(b1, b2).bit_length() + 2, 8)
+    ns = f'HodgeComputer.Instances.{name}'
+    os.makedirs(out, exist_ok=True)
+    # ---------------- Kron.lean (library, flat helper module)
+    kron = open(KRON_SRC).read()
+    open(os.path.join(out, 'Kron.lean'), 'w').write(kron)
+    # ---------------- witness.json (balanced strings, integral coefficients)
+    def wstr(P, deg):
+        return B.witness_string(P, m) if P else '0'
+    wjson = {'d': d, 'D': wstr(Di, d), 'N': [wstr(Ni[i], degN) for i in range(NV)], 'Q': wstr(Qi, 2 * d - 6)}
+    json.dump(wjson, open(os.path.join(out, 'witness.json'), 'w'), indent=1)
+    # ---------------- Witness.lean
+    if slice:
+        import kron_slice_gen as KS
+        Fq = {e: Fraction(c) for e, c in F.items()}; Aq = {e: Fraction(c) for e, c in A.items()}
+        extra = legality_text(F, D, q, d, ns)
+        src, smeta = KS.module(name, Fq, Aq, {e: Fraction(c) for e, c in Di.items()},
+                               [{e: Fraction(c) for e, c in n.items()} for n in Ni], {e: Fraction(c) for e, c in Qi.items()},
+                               q, d, ['e1', 'e2', 'homog'], None, heartbeats, recdepth, ns=ns, import_line='import Proposal.Kron', extra=extra)
+        open(os.path.join(out, 'Witness.lean'), 'w').write(src)
+        m = smeta['m']; W = smeta['W']
+    else:
+      L = ['import Proposal.Kron\n', f'set_option maxHeartbeats {heartbeats}\nset_option maxRecDepth {recdepth}\n',
+         'set_option linter.all false\n', f'namespace {ns}\n', 'open MvPolynomial HodgeTestbed HodgeComputer.Kron\n']
+      L.append(f'noncomputable def tF : PT := {K.pt_lean(Fi, m, 6)}\n')
+      L.append(f'noncomputable def tA : PT := {K.pt_lean(Ai, m, 6 * q)}\n')
+      L.append(f'noncomputable def tD : PT := {K.pt_lean(Di, m, d)}\n')
+      L.append(f'noncomputable def tQ : PT := {K.pt_lean(Qi, m, 2 * d - 6)}\n')
+      for i in range(NV):
+        L.append(f'noncomputable def tN{i} : PT := {K.pt_lean(Ni[i], m, degN)}\n')
+      L.append('noncomputable section\n')
+      if sFA == 1:
+        L.append('def F : Poly := toC tF\ndef A : Poly := toC tA\n')
+      else:
+        L.append(f'def F : Poly := C (1 / {sFA} : ℂ) * toC tF\ndef A : Poly := C (1 / {sFA} : ℂ) * toC tA\n')
+      L.append('def D : Poly := toC tD\ndef Q : Poly := toC tQ\n')
+      for i in range(NV):
+        L.append(f'def N{i} : Poly := toC tN{i}\n')
+      L.append('def N : Fin 6 → Poly := fun i => ' + ''.join(f'if i.val = {i} then N{i} else ' for i in range(5)) + 'N5\n')
+      side = '(by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel)'
+      # e1
+      lhs = f'(.smulN {q} {nestE("add", [f"(.mul (.pd {i} tF) (.poly tN{i}))" for i in range(NV)])})'
+      rhs = '(.mul (.poly tA) (.poly tD))'
+      L.append(f'noncomputable def L1 : E := {lhs}\nnoncomputable def R1 : E := {rhs}\n')
+      L.append(f'theorem e1_core : denC L1 = denC R1 := soundN (m := {m}) (W := {W}) L1 R1 {side}\n')
+      e1_sum = nest([f'pderiv ({i} : Fin 6) F * N{i}' for i in range(NV)])
+      if sFA == 1:
+        L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
+                 f'  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
+                 f'  change ({q}:Poly) * ({e1_sum}) = A*D\n'
+                 f'  have h := e1_core\n'
+                 f'  simp only [L1, R1, denC_smulN, denC_add, denC_mul, denC_poly, denC_pd, Nat.cast_one, Nat.cast_ofNat] at h\n'
+                 f'  simpa only [F, A, D, N0, N1, N2, N3, N4, N5] using h\n')
+      else:
+        L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
+                 f'  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
+                 f'  change ({q}:Poly) * ({e1_sum}) = A*D\n'
+                 f'  have h := congrArg (fun p => C (1 / {sFA} : ℂ) * p) e1_core\n'
+                 f'  simp only [L1, R1, denC_smulN, denC_add, denC_mul, denC_poly, denC_pd, Nat.cast_one, Nat.cast_ofNat] at h\n'
+                 f'  simp only [F, A, D, N0, N1, N2, N3, N4, N5, pderiv_C_mul]\n'
+                 f'  linear_combination h\n')
+      # e2
+      div_r = nestE('add', [f'(.pd {i} tN{i})' for i in range(NV)])
+      dir_r = nestE('add', [f'(.mul (.pd {i} tD) (.poly tN{i}))' for i in range(NV)])
+      lhs = f'(.sub (.mul (.poly tD) {div_r}) {dir_r})'
+      if sFA != 1:
+        lhs = f'(.smulN {sFA ** q} {lhs})'
+      rhs = f'(.mul (.pow (.poly tF) {q}) (.poly tQ))'
+      L.append(f'noncomputable def L2 : E := {lhs}\nnoncomputable def R2 : E := {rhs}\n')
+      L.append(f'theorem e2_core : denC L2 = denC R2 := soundN (m := {m}) (W := {W}) L2 R2 {side}\n')
+      div_sum = nest([f'pderiv ({i} : Fin 6) N{i}' for i in range(NV)])
+      dir_sum = nest([f'pderiv ({i} : Fin 6) D * N{i}' for i in range(NV)])
+      if sFA == 1:
+        L.append(f'theorem e2 : divergenceNumerator D N = F^{q}*Q := by\n'
+                 f'  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
+                 f'  change D * ({div_sum}) - ({dir_sum}) = F^{q}*Q\n'
+                 f'  have h := e2_core\n'
+                 f'  simp only [L2, R2, denC_sub, denC_add, denC_mul, denC_pow, denC_poly, denC_pd] at h\n'
+                 f'  simpa only [F, D, Q, N0, N1, N2, N3, N4, N5] using h\n')
+      else:
+        sq = sFA ** q
+        div_u = nest([f'pderiv ({i} : Fin 6) (toC tN{i})' for i in range(NV)])
+        dir_u = nest([f'pderiv ({i} : Fin 6) (toC tD) * toC tN{i}' for i in range(NV)])
+        L.append(f'theorem hF{q} : F ^ {q} = C (1 / {sq} : ℂ) * toC tF ^ {q} := by\n  rw [F, mul_pow, ← C_pow]; norm_num\n')
+        L.append(f'theorem hs : (C (1 / {sq} : ℂ) : Poly) * ({sq} : Poly) = 1 := by\n  rw [← map_ofNat C {sq}, ← C_mul]; norm_num\n')
+        L.append(f'theorem e2 : divergenceNumerator D N = F^{q}*Q := by\n'
+                 f'  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
+                 f'  change D * ({div_sum}) - ({dir_sum}) = F^{q}*Q\n'
+                 f'  have h := congrArg (fun p => C (1 / {sq} : ℂ) * p) e2_core\n'
+                 f'  simp only [L2, R2, denC_smulN, denC_sub, denC_add, denC_mul, denC_pow, denC_poly, denC_pd, Nat.cast_ofNat] at h\n'
+                 f'  rw [hF{q}]\n'
+                 f'  simp only [D, Q, N0, N1, N2, N3, N4, N5]\n'
+                 f'  linear_combination h - (toC tD * ({div_u}) - ({dir_u})) * hs\n')
+      # homogeneity, nonvanishing
+      L.append(f'theorem denominator_homogeneous : D.IsHomogeneous {d} := toC_isHomogeneous {d} tD (by decide +kernel)\n')
+      for i in range(NV):
+        L.append(f'theorem N{i}_homogeneous : N{i}.IsHomogeneous {degN} := toC_isHomogeneous {degN} tN{i} (by decide +kernel)\n')
+      L.append(f'theorem numerator_homogeneous : ∀ i, (N i).IsHomogeneous {degN} := by\n  intro i; fin_cases i\n' +
+             ''.join(f'  · exact N{i}_homogeneous\n' for i in range(NV)))
+      nzpt = leangen.choose_nonzero_point(D)
+      vec = '![' + ','.join(str(v) for v in nzpt) + ']'
+      L.append(f'theorem denominator_ne_zero : D ≠ 0 := toC_ne_zero_of_evalPT {vec} tD (by decide +kernel)\n')
+      L.append(legality_text(F, D, q, d, ns))
+      L.append(f'end\nend {ns}\n')
+      open(os.path.join(out, 'Witness.lean'), 'w').write('\n'.join(L))
     # ---------------- Solution.lean: bind protected terms
     S = ['import HodgeWitness\nimport Proposal.Kron\nimport Proposal.Witness\n',
          f'set_option maxHeartbeats {heartbeats}\nset_option maxRecDepth {recdepth}\nset_option linter.all false\n',
@@ -259,12 +276,13 @@ def main():
     ap.add_argument('--witness')
     ap.add_argument('--out', required=True)
     ap.add_argument('--name', default='KronWitness')
+    ap.add_argument('--slice', action='store_true')
     a = ap.parse_args()
     if a.witness:
         witness = json.load(open(a.witness))
     else:
         witness = json.load(open(f'/home/kejace/devel/sextics/data/{a.instance}/witness.json'))
-    print(json.dumps(generate(a.instance, witness, a.out, a.name)))
+    print(json.dumps(generate(a.instance, witness, a.out, a.name, slice=a.slice)))
 
 
 if __name__ == '__main__':

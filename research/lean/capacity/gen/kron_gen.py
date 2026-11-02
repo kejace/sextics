@@ -55,6 +55,16 @@ def nestE(op, terms):
     return terms[0] if len(terms) == 1 else f'(.{op} {terms[0]} {nestE(op, terms[1:])})'
 
 
+def integralize(D, N, Q):
+    """Scale the witness to integer coefficients: D, N by s, Q by s^2 (the identities are homogeneous of degree 2)."""
+    s = 1
+    for P in (D, Q, *N):
+        for c in P.values():
+            den = Fraction(c).denominator
+            s = s * den // math.gcd(s, den)
+    return (core.scale(D, Fraction(s)), [core.scale(n, Fraction(s)) for n in N], core.scale(Q, Fraction(s * s)), s)
+
+
 def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdepth=4000):
     Fi, sF = clear_denominators(F)
     Ai, sA = clear_denominators(A)
@@ -188,7 +198,9 @@ def main():
     a = ap.parse_args()
     parts = ['e1', 'e2', 'homog'] if a.parts == 'full' else a.parts.split(',')
     F, A, D, N, Q, dF, dD = G.build(a.F, a.q, a.d, a.kD, a.kH, a.kT, a.seed, a.denseD)
+    D, N, Q, sW = integralize(D, N, Q)
     st = G.stats(F, A, D, N, Q, a.q, dF, dD)
+    st['scale_witness'] = sW
     st.update({'Fsrc': a.F, 'd': a.d, 'kD': a.kD, 'denseD': a.denseD, 'kH': a.kH, 'kT': a.kT, 'seed': a.seed,
                'parts': parts, 'route': 'kron'})
     src, meta = module(a.name, F, A, D, N, Q, a.q, a.d, parts, a.W, a.heartbeats, a.recdepth)

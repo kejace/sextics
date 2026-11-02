@@ -35,3 +35,4 @@ orig (X0,X1,Y0,Y1)^4 d7 [quadruple pts on (X2,Y2)-line] (01)-anti random combo -
 orig (X0,X1,Y0,Y1)^4 d7 [quadruple pts on (X2,Y2)-line] generic random combo -> d 7 e1 True cons False served 18 348.68 s
 == sigma (r,s)^2 d7 [double along (01)-fixed surface]: dim 17
    S3-inv dim 10, (01)-inv dim 14, (01)-anti dim 3
+sigma (r,s)^2 d7 [double along (01)-fixed surface] S3-invariant random combo -> d 7 e1 True cons False served 18 571.02 s

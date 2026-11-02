@@ -299,8 +299,9 @@ def run_key(task):
     cand_file = os.path.join(LANE, f'w2cand_{args.tag}_d{d}.jsonl')
     n_cand = 0
     tk0 = time.time()
-    batch = max(1, min(args.batch, args.restarts))
-    while done < args.restarts:
+    n_target = max(1, args.restarts // max(1, args.split))   # --restarts is the total over the --split parts
+    batch = max(1, min(args.batch, n_target))
+    while done < n_target:
         if args.key_budget and time.time() - tk0 > args.key_budget:
             break
         n = min(batch, args.restarts - done)

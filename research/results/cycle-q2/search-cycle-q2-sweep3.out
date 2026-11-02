@@ -1,0 +1,2 @@
+[struct-sweep] 420 candidates, 172 new
+  hess-minor3 d=12 e1=True cons=False rk=3389 217.84s det H[X0,Y0,Y1;Y0,Y1,Y2] 

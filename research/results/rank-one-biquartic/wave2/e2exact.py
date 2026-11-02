@@ -29,6 +29,8 @@ ap.add_argument('--name', default='')
 ap.add_argument('--compress', action='store_true', help='random row compression to ncols+40 rows before rref')
 ap.add_argument('--random-member', action='store_true', help='D = random mod-p combination of J-type generators and kernel reps of degree --d, parity --parity')
 ap.add_argument('--seed', type=int, default=0)
+ap.add_argument('--mixed-member', action='store_true', help='degree-9 member sum_{i,H} r_iH K_i(X,M) H(Y) (K_i = degree-7 kernel reps, H in S_2(Y) mod M) [+ random J part with --with-J]')
+ap.add_argument('--with-J', action='store_true')
 args = ap.parse_args()
 
 F, A, q = load()
@@ -192,6 +194,23 @@ if __name__ == '__main__':
             for b in kj['basis_modp']:
                 D = add(D, scale(core.parse(b, p), rnd.randrange(p), p), p); nker += 1
         Ds.append((f'random member d={d} par={par} seed={args.seed} (J + {nker} kernel)', D))
+    if args.mixed_member:
+        import random
+        rnd = random.Random(args.seed)
+        kj = json.load(open(f'{OUT}/e1kernel_d7_p0.json')); assert kj['p'] == p
+        K7 = [core.parse(b, p) for b in kj['basis_modp']]
+        Hs = [core.parse(h) for h in ('Y0**2', 'Y0*Y1', 'Y0*Y2', 'Y1**2', 'Y1*Y2')]   # complement of M in S_2(Y)
+        D = {}
+        for Ki in K7:
+            for H in Hs:
+                D = add(D, scale(mul(Ki, core.reduce_mod(H, p), p), rnd.randrange(p), p), p)
+        tagname = f'mixed member d=9 seed={args.seed}'
+        if args.with_J:
+            for i in range(NV):
+                for m in monomials(4, (0 - par_idx(i)) % 2):
+                    D = add(D, shift(Fi[i], m, rnd.randrange(p), p), p)
+            tagname += ' + random J_9'
+        Ds.append((tagname, D))
     for name, D in Ds:
         rec = solve(D, name)
         print(json.dumps(rec), flush=True)

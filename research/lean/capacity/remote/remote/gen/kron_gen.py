@@ -105,7 +105,7 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
         lhs = f'(.smulN {q} {nestE("add", [f"(.mul (.pd {i} tF) (.poly tN{i}))" for i in range(NV)])})'
         rhs = '(.mul (.poly tA) (.poly tD))'
         L.append(f'noncomputable def L1 : E := {lhs}\nnoncomputable def R1 : E := {rhs}\n')
-        L.append(f'theorem e1_core : denC L1 = denC R1 := soundC (m := {m}) (W := {W}) L1 R1 {side}\n')
+        L.append(f'theorem e1_core : denC L1 = denC R1 := soundN (m := {m}) (W := {W}) L1 R1 {side}\n')
         e1_sum = nest([f'pderiv ({i} : Fin 6) F * N{i}' for i in range(NV)])
         if s_ == 1:
             L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
@@ -130,7 +130,7 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
             lhs = f'(.smulN {s_ ** q} {lhs})'
         rhs = f'(.mul (.pow (.poly tF) {q}) (.poly tQ))'
         L.append(f'noncomputable def L2 : E := {lhs}\nnoncomputable def R2 : E := {rhs}\n')
-        L.append(f'theorem e2_core : denC L2 = denC R2 := soundC (m := {m}) (W := {W}) L2 R2 {side}\n')
+        L.append(f'theorem e2_core : denC L2 = denC R2 := soundN (m := {m}) (W := {W}) L2 R2 {side}\n')
         div_sum = nest([f'pderiv ({i} : Fin 6) N{i}' for i in range(NV)])
         dir_sum = nest([f'pderiv ({i} : Fin 6) D * N{i}' for i in range(NV)])
         if s_ == 1:

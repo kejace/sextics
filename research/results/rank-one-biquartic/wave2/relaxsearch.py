@@ -36,23 +36,15 @@ t0 = time.time()
 prob = E2Float(F, A, d, pD)
 fam = E1Family(prob, rcond=args.rcond)
 Dbasis, Nbasis = fam.Dbasis, fam.Nbasis
-if args.family == 'kernel':
-    gens = []
-    for i in range(NV):
-        par = (pD - par_idx(i)) % 2
-        Sm = Space(d - 5, par)
-        if Sm.n:
-            gens.append(mult_op(prob.Fi[i], Sm, prob.SD).toarray())
-    G = np.hstack(gens)
-    QJ, sJ, _ = sla.svd(G, full_matrices=False)
-    rJ = int((sJ > 1e-9 * sJ[0]).sum()); QJ = QJ[:, :rJ]
-    Pperp = fam.Dbasis.T - QJ @ (QJ.T @ fam.Dbasis.T)
-    U, s, Vt = sla.svd(Pperp, full_matrices=False)
-    rk = int((s > 1e-7 * s[0]).sum())
-    Dbasis = U[:, :rk].T
-    coords = fam.Dbasis @ Dbasis.T
-    Nbasis = (fam.Nbasis.T @ coords).T
+fam_info = {'K': fam.K}
+if args.family in ('kernel', 'kernel-mixed'):
+    Dbasis, Nbasis, fam_info = restricted_family(prob, fam, args.family)
+    print(f'[family] {args.family}: {fam_info}', file=sys.stderr, flush=True)
 K = Dbasis.shape[0]
+if K == 0:
+    log_line(f'{OUT}/{args.tag}.batch.jsonl', {'batch': 'relaxsearch', 'tag': args.tag, 'family': args.family, 'd': d, 'pD': pD, 'K': 0, 'skipped': True,
+             'note': f'empty restricted family ({fam_info})', 'restarts': 0})
+    print(f'[relaxsearch] empty family {args.family} at d={d} pD={pD}: {fam_info}', file=sys.stderr); sys.exit(0)
 # orthonormal complement of J_{2d} inside Srow (float)
 S2 = prob.Srow
 Jm = sp.hstack([mult_op(prob.Fi[i], Space(2 * d - 5, (prob.pA - par_idx(i)) % 2), S2) for i in range(NV)]).toarray()
@@ -167,7 +159,7 @@ if __name__ == '__main__':
         recs = run(0, seeds)
     rr = sorted(r['relax_rel'] for r in recs)
     e2s = sorted(r['e2_rel_refined'] for r in recs if 'e2_rel_refined' in r)
-    summary = {'batch': 'relaxsearch', 'tag': args.tag, 'family': args.family, 'd': d, 'pD': pD, 'K': K, 'n_spurious': n_sp, 'ring_dim_2d': ring_dim,
+    summary = {'batch': 'relaxsearch', 'tag': args.tag, 'family': args.family, 'fam_info': fam_info, 'd': d, 'pD': pD, 'K': K, 'n_spurious': n_sp, 'ring_dim_2d': ring_dim,
                'restarts': len(recs), 'seed0': args.seed, 'best_relax_rel': rr[0] if rr else None, 'median_relax_rel': rr[len(rr)//2] if rr else None,
                'n_relax_lt_1e-6': sum(1 for x in rr if x < 1e-6), 'n_refined': len(e2s), 'best_e2_rel_refined': e2s[0] if e2s else None,
                'n_e2_lt_1e-6': sum(1 for x in e2s if x < 1e-6), 'time_s': round(time.time() - ts, 1)}

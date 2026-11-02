@@ -27,7 +27,7 @@ ap.add_argument('--seed', type=int, default=0)
 ap.add_argument('--workers', type=int, default=1)
 ap.add_argument('--maxiter', type=int, default=400)
 ap.add_argument('--tag', required=True)
-ap.add_argument('--family', default='all', help="all = full E1-admissible space; J = Jacobian part only; kernel = complement of J_d inside the admissible space (pure E1-kernel directions); path.json = list of D expressions")
+ap.add_argument('--family', default='all', help="all = full E1-admissible space; J = Jacobian part only; kernel = complement of J_d inside the admissible space; kernel-mixed = kernel directions orthogonal to the Y-base-type class P(X)M^a g^b too; path.json = list of D expressions")
 ap.add_argument('--rcond', type=float, default=1e-9)
 ap.add_argument('--cond', type=float, default=1e-10)
 ap.add_argument('--cand-rel', type=float, default=1e-6)
@@ -75,28 +75,10 @@ if args.family in ('all', 'J'):
         Y = np.linalg.lstsq(G.T, Dbasis.T, rcond=None)[0]   # (ngen x r)
         Nbasis = (Ls.T @ Y).T
     fam_info = {'K': fam.K, 'J_rank': fam.J_rank, 'ring_dim': fam.ring_dim, 'J_gap': fam.J_gap, 'C_gap': fam.C_gap, 'e1_rel': fam.e1_rel}
-elif args.family == 'kernel':
+elif args.family in ('kernel', 'kernel-mixed'):
     fam = E1Family(prob, rcond=args.rcond)
-    gens = []
-    for i in range(NV):
-        par = (pD - par_idx(i)) % 2
-        Sm = Space(d - 5, par)
-        if Sm.n:
-            gens.append(mult_op(prob.Fi[i], Sm, prob.SD).toarray())
-    if gens:
-        G = np.hstack(gens)
-        QJ, sJ, _ = sla.svd(G, full_matrices=False)
-        rJ = int((sJ > 1e-9 * sJ[0]).sum()); QJ = QJ[:, :rJ]
-        Pperp = fam.Dbasis.T - QJ @ (QJ.T @ fam.Dbasis.T)      # SD.n x K, columns = family basis minus J-part
-        U, s, Vt = sla.svd(Pperp, full_matrices=False)
-        rk = int((s > 1e-7 * s[0]).sum()) if s.size else 0
-        Dbasis = U[:, :rk].T                                   # rk x SD.n orthonormal, orthogonal to J_d
-        coords = fam.Dbasis @ Dbasis.T                         # K x rk
-        Nbasis = (fam.Nbasis.T @ coords).T
-        fam_info = {'K': int(rk), 'K_full': fam.K, 'dim_J_d': rJ, 'sv_gap': [float(s[rk-1]) if rk else None, float(s[rk]) if rk < len(s) else None]}
-    else:
-        Dbasis, Nbasis = fam.Dbasis, fam.Nbasis
-        fam_info = {'K': fam.K, 'K_full': fam.K, 'dim_J_d': 0}
+    Dbasis, Nbasis, fam_info = restricted_family(prob, fam, args.family)
+    print(f'[family] {args.family}: {fam_info}', file=sys.stderr, flush=True)
 else:
     exprs = json.load(open(args.family))
     cols, lifts = [], []
@@ -119,6 +101,10 @@ else:
     fam = famE
     fam_info = {'K': int(r), 'K_full': famE.K}
 K = Dbasis.shape[0]
+if K == 0:
+    log_line(f'{OUT}/{args.tag}.batch.jsonl', {'batch': 'e2search', 'tag': args.tag, 'family': args.family, 'd': d, 'pD': pD, 'K': 0, 'skipped': True,
+             'note': f'empty restricted family ({fam_info})', 'restarts': 0, 'witness': False})
+    print(f'[search] empty family {args.family} at d={d} pD={pD}: {fam_info}', file=sys.stderr); sys.exit(0)
 # spurious subspace coordinates (F multiples)
 SG = Space(d - 6, (pD - core.parity_of(F)) % 2) if d >= 6 else None
 if SG is not None and SG.n:

@@ -704,4 +704,96 @@ theorem matchW_sound (w : W) (t : PT) (h : matchW w t = true) : denW w = toC t :
     | pow _ _ => simp [matchW] at h
 
 
+/-! ## Kronecker values as pairs of naturals (positive and negative parts)
+
+Avoids `Int` constructor matching and the separate `1 <<< s` literal of `shl`: every big-number operation is a
+single kernel-accelerated `Nat` operation, roughly halving kernel memory. -/
+
+abbrev NN := ℕ × ℕ
+
+def nnAdd (a b : NN) : NN := (a.1 + b.1, a.2 + b.2)
+def nnSub (a b : NN) : NN := (a.1 + b.2, a.2 + b.1)
+def nnMul (a b : NN) : NN := (a.1 * b.1 + a.2 * b.2, a.1 * b.2 + a.2 * b.1)
+def nnShl (a : NN) (s : ℕ) : NN := (a.1 <<< s, a.2 <<< s)
+def nnSmul (c : ℕ) (a : NN) : NN := (c * a.1, c * a.2)
+def nnPow (a : NN) : ℕ → NN
+  | 0 => (1, 0)
+  | n + 1 => nnMul a (nnPow a n)
+def nnOfInt : ℤ → NN
+  | .ofNat n => (n, 0)
+  | .negSucc n => (0, n + 1)
+def nnVal (a : NN) : ℤ := (a.1 : ℤ) - a.2
+
+theorem nnVal_add (a b : NN) : nnVal (nnAdd a b) = nnVal a + nnVal b := by simp [nnVal, nnAdd]; ring
+theorem nnVal_sub (a b : NN) : nnVal (nnSub a b) = nnVal a - nnVal b := by simp [nnVal, nnSub]; ring
+theorem nnVal_mul (a b : NN) : nnVal (nnMul a b) = nnVal a * nnVal b := by simp [nnVal, nnMul]; ring
+theorem nnVal_shl (a : NN) (s : ℕ) : nnVal (nnShl a s) = nnVal a * 2 ^ s := by
+  simp [nnVal, nnShl, Nat.shiftLeft_eq]; ring
+theorem nnVal_smul (c : ℕ) (a : NN) : nnVal (nnSmul c a) = (c : ℤ) * nnVal a := by simp [nnVal, nnSmul]; ring
+theorem nnVal_pow (a : NN) (n : ℕ) : nnVal (nnPow a n) = nnVal a ^ n := by
+  induction n with
+  | zero => simp [nnPow, nnVal]
+  | succ n ih => simp [nnPow, nnVal_mul, ih, pow_succ]; ring
+theorem nnVal_ofInt (c : ℤ) : nnVal (nnOfInt c) = c := by
+  cases c with
+  | ofNat n => simp [nnOfInt, nnVal]
+  | negSucc n => simp [nnOfInt, nnVal, Int.negSucc_eq]
+
+def psiRelN (m W : ℕ) : PT → NN × ℕ
+  | .leaf mo c => (nnOfInt c, mo.pos m)
+  | .node l r =>
+    let a := psiRelN m W l
+    let b := psiRelN m W r
+    let p := min a.2 b.2
+    (nnAdd (nnShl a.1 (W * (a.2 - p))) (nnShl b.1 (W * (b.2 - p))), p)
+
+def psiN (m W : ℕ) (t : PT) : NN := nnShl (psiRelN m W t).1 (W * (psiRelN m W t).2)
+
+theorem psiRelN_spec (m W : ℕ) (t : PT) :
+    (psiRelN m W t).2 = (psiRel m W t).2 ∧ nnVal (psiRelN m W t).1 = (psiRel m W t).1 := by
+  induction t with
+  | leaf mo c => simp [psiRelN, psiRel, nnVal_ofInt]
+  | node l r ihl ihr =>
+    simp [psiRelN, psiRel, nnVal_add, nnVal_shl, shl_eq, ihl.1, ihr.1, ihl.2, ihr.2]
+
+theorem nnVal_psiN (m W : ℕ) (t : PT) : nnVal (psiN m W t) = psi m W t := by
+  rw [psiN, psi, nnVal_shl, shl_eq, (psiRelN_spec m W t).1, (psiRelN_spec m W t).2]
+
+def psiEN (m W : ℕ) : E → NN
+  | .poly t => psiN m W t
+  | .pd i t => psiN m W (pderivPT i t)
+  | .mul a b => nnMul (psiEN m W a) (psiEN m W b)
+  | .add a b => nnAdd (psiEN m W a) (psiEN m W b)
+  | .sub a b => nnSub (psiEN m W a) (psiEN m W b)
+  | .smulN c a => nnSmul c (psiEN m W a)
+  | .pow a n => nnPow (psiEN m W a) n
+
+theorem nnVal_psiEN (m W : ℕ) (e : E) : nnVal (psiEN m W e) = psiE m W e := by
+  induction e with
+  | poly t => simp [psiEN, psiE, nnVal_psiN]
+  | pd i t => simp [psiEN, psiE, nnVal_psiN]
+  | mul a b iha ihb => simp [psiEN, psiE, nnVal_mul, iha, ihb]
+  | add a b iha ihb => simp [psiEN, psiE, nnVal_add, iha, ihb]
+  | sub a b iha ihb => simp [psiEN, psiE, nnVal_sub, iha, ihb]
+  | smulN c a iha => simp [psiEN, psiE, nnVal_smul, iha]
+  | pow a n iha => simp [psiEN, psiE, nnVal_pow, iha]
+
+/-- equality of Kronecker values, decided with one `Nat` comparison -/
+def psiEq (m W : ℕ) (L R : E) : Bool :=
+  let a := psiEN m W L
+  let b := psiEN m W R
+  (a.1 + b.2) == (a.2 + b.1)
+
+theorem psiE_eq_of_psiEq {m W : ℕ} {L R : E} (h : psiEq m W L R = true) : psiE m W L = psiE m W R := by
+  simp only [psiEq, beq_iff_eq] at h
+  rw [← nnVal_psiEN, ← nnVal_psiEN]
+  simp only [nnVal]
+  omega
+
+theorem soundN {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true) (hdeg : degE L = degE R)
+    (hm : degE L < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiEq m W L R = true) :
+    denC L = denC R :=
+  soundC L R hL hR hdeg hm hb (psiE_eq_of_psiEq hpsi)
+
+
 end HodgeComputer.Kron

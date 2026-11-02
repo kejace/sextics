@@ -1,0 +1,6490 @@
+[
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   3
+  ],
+  "dimS": 30,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1": [
+    2,
+    0
+   ],
+   "X0Y0Y1": [
+    2,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1": [
+    2,
+    0
+   ],
+   "X1Y0Y1": [
+    4,
+    0
+   ],
+   "X1Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    4,
+    0
+   ],
+   "Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    7,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1Y2": [
+    7,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 172.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   5
+  ],
+  "dimS": 29,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1Y0": [
+    1,
+    0
+   ],
+   "X0X1Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1": [
+    3,
+    0
+   ],
+   "X0Y0Y1": [
+    1,
+    0
+   ],
+   "X0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    3,
+    0
+   ],
+   "X1X2Y2": [
+    1,
+    0
+   ],
+   "X1Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1": [
+    3,
+    0
+   ],
+   "X2Y1Y2": [
+    5,
+    0
+   ],
+   "Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    5,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    3,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y0Y1": [
+    5,
+    0
+   ],
+   "X0X2Y1Y2": [
+    6,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    8,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    6,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 177.2,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   4
+  ],
+  "dimS": 29,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y2": [
+    3,
+    0
+   ],
+   "X0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y2": [
+    3,
+    0
+   ],
+   "X2Y1Y2": [
+    5,
+    0
+   ],
+   "Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    5,
+    0
+   ],
+   "X0X1Y0Y2": [
+    3,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    6,
+    0
+   ],
+   "X0X2Y1Y2": [
+    6,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    3,
+    0
+   ],
+   "X1X2Y0Y2": [
+    5,
+    0
+   ],
+   "X1X2Y1Y2": [
+    8,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    6,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 319.2,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   1
+  ],
+  "dimS": 30,
+  "dimK": 30,
+  "dimJ": 12,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1Y0": [
+    1,
+    0
+   ],
+   "X0X1Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1": [
+    1,
+    0
+   ],
+   "X0Y0Y1": [
+    1,
+    0
+   ],
+   "X0Y1Y2": [
+    3,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y2": [
+    1,
+    0
+   ],
+   "X1Y1Y2": [
+    3,
+    0
+   ],
+   "X2Y0Y1": [
+    1,
+    0
+   ],
+   "X2Y1Y2": [
+    5,
+    0
+   ],
+   "Y0Y1Y2": [
+    3,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    5,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    5,
+    0
+   ],
+   "X0X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    6,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    6,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    8,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    6,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 30,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 30 (not decided)",
+  "seconds": 323.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   0
+  ],
+  "dimS": 30,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y2": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    4,
+    0
+   ],
+   "Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y0Y2": [
+    7,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    7,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 324.2,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   2
+  ],
+  "dimS": 32,
+  "dimK": 31,
+  "dimJ": 14,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X2Y0": [
+    2,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X1Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    4,
+    0
+   ],
+   "Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X2Y0Y2": [
+    6,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    7,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 31,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 31 (not decided)",
+  "seconds": 337.6,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   1
+  ],
+  "dimS": 27,
+  "dimK": 27,
+  "dimJ": 12,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "Y0Y1Y2": [
+    3,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 254.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   0
+  ],
+  "dimS": 32,
+  "dimK": 32,
+  "dimJ": 14,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1Y0": [
+    1,
+    0
+   ],
+   "X0X1Y1": [
+    3,
+    0
+   ],
+   "X0X2Y0": [
+    1,
+    0
+   ],
+   "X0X2Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1": [
+    1,
+    0
+   ],
+   "X0Y0Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "X1Y0Y2": [
+    3,
+    0
+   ],
+   "X2Y0Y1": [
+    1,
+    0
+   ],
+   "X2Y0Y2": [
+    3,
+    0
+   ],
+   "Y0Y1Y2": [
+    3,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    7,
+    0
+   ],
+   "X0X1Y0Y2": [
+    6,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X2Y0Y2": [
+    8,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    6,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    5,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    6,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 32,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 32 (not decided)",
+  "seconds": 314.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   3
+  ],
+  "dimS": 24,
+  "dimK": 23,
+  "dimJ": 8,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 23,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 23 (not decided)",
+  "seconds": 237.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   5
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 11,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    3,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 248.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   4
+  ],
+  "dimS": 28,
+  "dimK": 27,
+  "dimJ": 11,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X2Y0": [
+    2,
+    0
+   ],
+   "X1X2Y0": [
+    2,
+    0
+   ],
+   "X2Y0Y1": [
+    2,
+    0
+   ],
+   "X2Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 272.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   2
+  ],
+  "dimS": 30,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0Y0Y1": [
+    1,
+    0
+   ],
+   "X1Y0Y1": [
+    3,
+    0
+   ],
+   "X2Y0Y1": [
+    1,
+    0
+   ],
+   "Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    6,
+    0
+   ],
+   "X0X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X2Y0Y2": [
+    3,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    3,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 314.2,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   1
+  ],
+  "dimS": 32,
+  "dimK": 31,
+  "dimJ": 14,
+  "complement": 17,
+  "cone_kernels": {
+   "X0Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1": [
+    4,
+    0
+   ],
+   "X2Y0Y1": [
+    2,
+    0
+   ],
+   "Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    3,
+    0
+   ],
+   "X0X1Y0Y1": [
+    7,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    3,
+    0
+   ],
+   "X1X2Y1Y2": [
+    6,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 31,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 31 (not decided)",
+  "seconds": 241.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   5
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 10,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    6,
+    0
+   ],
+   "X0X1Y0Y2": [
+    4,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 186.8,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   0
+  ],
+  "dimS": 30,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y2": [
+    2,
+    0
+   ],
+   "Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y0Y2": [
+    7,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 395.6,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   0
+  ],
+  "dimS": 30,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1Y0": [
+    2,
+    0
+   ],
+   "X0X2Y0": [
+    2,
+    0
+   ],
+   "X0Y0Y1": [
+    2,
+    0
+   ],
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y0": [
+    2,
+    0
+   ],
+   "X1Y0Y1": [
+    4,
+    0
+   ],
+   "X1Y0Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1": [
+    2,
+    0
+   ],
+   "X2Y0Y2": [
+    2,
+    0
+   ],
+   "Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    7,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    7,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 137.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   4
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 8,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0": [
+    1,
+    0
+   ],
+   "X0X2Y2": [
+    1,
+    0
+   ],
+   "X0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y2": [
+    1,
+    0
+   ],
+   "Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    3,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    3,
+    0
+   ],
+   "X1X2Y1Y2": [
+    5,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    3,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    3,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 305.2,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   3
+  ],
+  "dimS": 26,
+  "dimK": 25,
+  "dimJ": 7,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 25,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 25 (not decided)",
+  "seconds": 322.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   2
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 10,
+  "complement": 18,
+  "cone_kernels": {
+   "X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y0Y2": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    6,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 365.6,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   5
+  ],
+  "dimS": 24,
+  "dimK": 23,
+  "dimJ": 8,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 23,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 23 (not decided)",
+  "seconds": 64.2,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   3
+  ],
+  "dimS": 23,
+  "dimK": 23,
+  "dimJ": 6,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 23,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 23 (not decided)",
+  "seconds": 130.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   2
+  ],
+  "dimS": 26,
+  "dimK": 25,
+  "dimJ": 8,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 25,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 25 (not decided)",
+  "seconds": 209.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   1
+  ],
+  "dimS": 26,
+  "dimK": 25,
+  "dimJ": 11,
+  "complement": 14,
+  "cone_kernels": {
+   "X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    3,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 25,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 25 (not decided)",
+  "seconds": 230.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   4
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 7,
+  "complement": 19,
+  "cone_kernels": {
+   "X0X1Y0": [
+    1,
+    0
+   ],
+   "X0X1Y1": [
+    1,
+    0
+   ],
+   "X0X2Y0": [
+    1,
+    0
+   ],
+   "X0X2Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "X1Y0Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1": [
+    1,
+    0
+   ],
+   "X2Y0Y2": [
+    1,
+    0
+   ],
+   "Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    5,
+    0
+   ],
+   "X0X1Y0Y2": [
+    3,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X2Y0Y2": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    3,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    3,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 161.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   1
+  ],
+  "dimS": 28,
+  "dimK": 27,
+  "dimJ": 11,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1": [
+    2,
+    0
+   ],
+   "X0Y0Y1": [
+    2,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 119.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   0
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y0Y2": [
+    7,
+    0
+   ],
+   "X0X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 172.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   4
+  ],
+  "dimS": 28,
+  "dimK": 27,
+  "dimJ": 11,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    4,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y0Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    5,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 88.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   2
+  ],
+  "dimS": 26,
+  "dimK": 24,
+  "dimJ": 7,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 24,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 24 (not decided)",
+  "seconds": 168.8,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   1
+  ],
+  "dimS": 24,
+  "dimK": 23,
+  "dimJ": 8,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 23,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 23 (not decided)",
+  "seconds": 120.8,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   3
+  ],
+  "dimS": 26,
+  "dimK": 25,
+  "dimJ": 8,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 25,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 25 (not decided)",
+  "seconds": 187.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   2
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 10,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    3,
+    0
+   ],
+   "X0X1Y0Y1": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    6,
+    0
+   ],
+   "X0X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 94.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   5
+  ],
+  "dimS": 29,
+  "dimK": 27,
+  "dimJ": 12,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1Y1": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1Y0Y1": [
+    3,
+    0
+   ],
+   "X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1Y0Y1": [
+    6,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 196.7,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   0
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1Y0": [
+    2,
+    0
+   ],
+   "X0X2Y0": [
+    2,
+    0
+   ],
+   "X0Y0Y1": [
+    2,
+    0
+   ],
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    5,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    7,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 192.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   3
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 11,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y1": [
+    3,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    3,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 153.8,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   4
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1Y0": [
+    2,
+    0
+   ],
+   "X1X2Y0": [
+    2,
+    0
+   ],
+   "X1Y0Y1": [
+    4,
+    0
+   ],
+   "X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    7,
+    0
+   ],
+   "X0X1Y0Y2": [
+    4,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 121.9,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   0
+  ],
+  "dimS": 32,
+  "dimK": 31,
+  "dimJ": 14,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2": [
+    2,
+    0
+   ],
+   "X0X1Y0": [
+    2,
+    0
+   ],
+   "X0X1Y1": [
+    2,
+    0
+   ],
+   "X0X1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0": [
+    2,
+    0
+   ],
+   "X1X2Y1": [
+    2,
+    0
+   ],
+   "X1X2Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1": [
+    4,
+    0
+   ],
+   "X1Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    3,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y1": [
+    7,
+    0
+   ],
+   "X0X1Y0Y2": [
+    4,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    9,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 31,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 31 (not decided)",
+  "seconds": 111.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   5
+  ],
+  "dimS": 24,
+  "dimK": 24,
+  "dimJ": 9,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    3,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    3,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    3,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 24,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 24 (not decided)",
+  "seconds": 137.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   1
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X2Y1": [
+    2,
+    0
+   ],
+   "X1X2Y1": [
+    2,
+    0
+   ],
+   "X2Y0Y1": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    7,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 116.0,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   2
+  ],
+  "dimS": 29,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2": [
+    3,
+    0
+   ],
+   "X0X1Y0": [
+    3,
+    0
+   ],
+   "X0X1Y1": [
+    3,
+    0
+   ],
+   "X0X1Y2": [
+    3,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y1Y2": [
+    3,
+    0
+   ],
+   "X0X1X2Y0": [
+    5,
+    0
+   ],
+   "X0X1X2Y1": [
+    5,
+    0
+   ],
+   "X0X1X2Y2": [
+    5,
+    0
+   ],
+   "X0X1Y0Y1": [
+    6,
+    0
+   ],
+   "X0X1Y0Y2": [
+    6,
+    0
+   ],
+   "X0X1Y1Y2": [
+    5,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    3,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    3,
+    0
+   ],
+   "X1X2Y0Y2": [
+    3,
+    0
+   ],
+   "X1X2Y1Y2": [
+    6,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    3,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 148.7,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   3
+  ],
+  "dimS": 32,
+  "dimK": 32,
+  "dimJ": 14,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1X2": [
+    3,
+    0
+   ],
+   "X0X2Y0": [
+    3,
+    0
+   ],
+   "X0X2Y1": [
+    3,
+    0
+   ],
+   "X0X2Y2": [
+    3,
+    0
+   ],
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y0": [
+    3,
+    0
+   ],
+   "X1X2Y1": [
+    3,
+    0
+   ],
+   "X1X2Y2": [
+    3,
+    0
+   ],
+   "X1Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1": [
+    3,
+    0
+   ],
+   "X2Y0Y2": [
+    3,
+    0
+   ],
+   "X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0X1X2Y0": [
+    5,
+    0
+   ],
+   "X0X1X2Y1": [
+    5,
+    0
+   ],
+   "X0X1X2Y2": [
+    5,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    5,
+    0
+   ],
+   "X0X2Y0Y2": [
+    10,
+    0
+   ],
+   "X0X2Y1Y2": [
+    6,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    5,
+    0
+   ],
+   "X1X2Y1Y2": [
+    8,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    6,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 32,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 32 (not decided)",
+  "seconds": 171.0,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   0
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 11,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0Y1Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 145.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   5
+  ],
+  "dimS": 30,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X1X2Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y2": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    6,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    7,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 187.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   4
+  ],
+  "dimS": 30,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0Y0Y1": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    6,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    5,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 197.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   1
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 8,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0X1Y0": [
+    1,
+    0
+   ],
+   "X0X1Y1": [
+    1,
+    0
+   ],
+   "X0X1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0": [
+    1,
+    0
+   ],
+   "X0X2Y1": [
+    1,
+    0
+   ],
+   "X0X2Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1": [
+    1,
+    0
+   ],
+   "X0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    3,
+    0
+   ],
+   "X0X1Y0Y1": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    3,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X2Y0Y2": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    3,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 211.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   2
+  ],
+  "dimS": 24,
+  "dimK": 24,
+  "dimJ": 8,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X1Y0Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    3,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    3,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 24,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 24 (not decided)",
+  "seconds": 173.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   4
+  ],
+  "dimS": 27,
+  "dimK": 26,
+  "dimJ": 12,
+  "complement": 14,
+  "cone_kernels": {
+   "X0X1X2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    3,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 171.7,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   0
+  ],
+  "dimS": 28,
+  "dimK": 27,
+  "dimJ": 10,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2": [
+    2,
+    0
+   ],
+   "X1X2Y0": [
+    2,
+    0
+   ],
+   "X1X2Y1": [
+    2,
+    0
+   ],
+   "X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    6,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 167.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   5
+  ],
+  "dimS": 30,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X1Y0Y1": [
+    2,
+    0
+   ],
+   "X2Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    5,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    6,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 215.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   3
+  ],
+  "dimS": 30,
+  "dimK": 30,
+  "dimJ": 12,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0X1Y0": [
+    3,
+    0
+   ],
+   "X0X1Y1": [
+    1,
+    0
+   ],
+   "X0X1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0": [
+    3,
+    0
+   ],
+   "X0X2Y1": [
+    1,
+    0
+   ],
+   "X0X2Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1": [
+    3,
+    0
+   ],
+   "X0Y0Y2": [
+    5,
+    0
+   ],
+   "X0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    5,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    3,
+    0
+   ],
+   "X0X1Y0Y1": [
+    7,
+    0
+   ],
+   "X0X1Y0Y2": [
+    6,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y0Y1": [
+    5,
+    0
+   ],
+   "X0X2Y0Y2": [
+    8,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    6,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    3,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 30,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 30 (not decided)",
+  "seconds": 269.8,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   1
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 7,
+  "complement": 19,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0X2Y0": [
+    1,
+    0
+   ],
+   "X0X2Y1": [
+    1,
+    0
+   ],
+   "X0X2Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y2": [
+    1,
+    0
+   ],
+   "X1Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1": [
+    1,
+    0
+   ],
+   "X2Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    3,
+    0
+   ],
+   "X0X2Y0Y2": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    3,
+    0
+   ],
+   "X1X2Y0Y2": [
+    3,
+    0
+   ],
+   "X1X2Y1Y2": [
+    5,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    3,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 198.7,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   2
+  ],
+  "dimS": 29,
+  "dimK": 29,
+  "dimJ": 11,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0X1Y0": [
+    1,
+    0
+   ],
+   "X0X1Y1": [
+    1,
+    0
+   ],
+   "X0X1Y2": [
+    3,
+    0
+   ],
+   "X0Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y2": [
+    3,
+    0
+   ],
+   "X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    5,
+    0
+   ],
+   "X0X1Y0Y1": [
+    5,
+    0
+   ],
+   "X0X1Y0Y2": [
+    6,
+    0
+   ],
+   "X0X1Y1Y2": [
+    5,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    5,
+    0
+   ],
+   "X1X2Y1Y2": [
+    7,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 197.6,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   3
+  ],
+  "dimS": 30,
+  "dimK": 29,
+  "dimJ": 12,
+  "complement": 17,
+  "cone_kernels": {
+   "X0Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    5,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    6,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 29,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 29 (not decided)",
+  "seconds": 158.7,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   4
+  ],
+  "dimS": 30,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1Y1": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1Y0Y1": [
+    3,
+    0
+   ],
+   "X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    6,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1Y2": [
+    5,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 152.6,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   1
+  ],
+  "dimS": 28,
+  "dimK": 27,
+  "dimJ": 10,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2": [
+    2,
+    0
+   ],
+   "X0X1Y0": [
+    2,
+    0
+   ],
+   "X0X1Y1": [
+    2,
+    0
+   ],
+   "X0X1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y1": [
+    6,
+    0
+   ],
+   "X0X1Y0Y2": [
+    4,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 111.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   0
+  ],
+  "dimS": 23,
+  "dimK": 22,
+  "dimJ": 6,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 22,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 22 (not decided)",
+  "seconds": 143.6,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   2
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 11,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0Y1Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y2": [
+    3,
+    0
+   ],
+   "X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 128.9,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   5
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 11,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X2Y0": [
+    2,
+    0
+   ],
+   "X1X2Y0": [
+    2,
+    0
+   ],
+   "X2Y0Y1": [
+    2,
+    0
+   ],
+   "X2Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    6,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    4,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 209.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   3
+  ],
+  "dimS": 32,
+  "dimK": 31,
+  "dimJ": 14,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2": [
+    2,
+    0
+   ],
+   "X0X1Y0": [
+    2,
+    0
+   ],
+   "X0X1Y1": [
+    2,
+    0
+   ],
+   "X0X1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0": [
+    2,
+    0
+   ],
+   "X0X2Y1": [
+    2,
+    0
+   ],
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y1": [
+    2,
+    0
+   ],
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y1": [
+    9,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    7,
+    0
+   ],
+   "X0X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 31,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 31 (not decided)",
+  "seconds": 152.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   0
+  ],
+  "dimS": 26,
+  "dimK": 25,
+  "dimJ": 7,
+  "complement": 18,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    4,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 25,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 25 (not decided)",
+  "seconds": 96.5,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   4
+  ],
+  "dimS": 26,
+  "dimK": 25,
+  "dimJ": 8,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 25,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 25 (not decided)",
+  "seconds": 73.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   5
+  ],
+  "dimS": 26,
+  "dimK": 24,
+  "dimJ": 7,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y1": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y0Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 24,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 24 (not decided)",
+  "seconds": 179.9,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   4
+  ],
+  "dimS": 24,
+  "dimK": 23,
+  "dimJ": 8,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 23,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 23 (not decided)",
+  "seconds": 230.9,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   1
+  ],
+  "dimS": 26,
+  "dimK": 25,
+  "dimJ": 8,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 25,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 25 (not decided)",
+  "seconds": 196.0,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   2
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1Y0": [
+    2,
+    0
+   ],
+   "X1X2Y0": [
+    2,
+    0
+   ],
+   "X1Y0Y1": [
+    4,
+    0
+   ],
+   "X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    7,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    5,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 217.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   3
+  ],
+  "dimS": 29,
+  "dimK": 27,
+  "dimJ": 12,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0": [
+    1,
+    0
+   ],
+   "X1X2Y1": [
+    1,
+    0
+   ],
+   "X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    3,
+    0
+   ],
+   "X0X1X2Y1": [
+    3,
+    0
+   ],
+   "X0X1X2Y2": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y0Y2": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    1,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    3,
+    0
+   ],
+   "X1X2Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 202.3,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   0
+  ],
+  "dimS": 24,
+  "dimK": 24,
+  "dimJ": 8,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0Y1Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    3,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    3,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 24,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 24 (not decided)",
+  "seconds": 114.8,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   1
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1X2": [
+    2,
+    0
+   ],
+   "X0X2Y0": [
+    2,
+    0
+   ],
+   "X0X2Y1": [
+    2,
+    0
+   ],
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y1": [
+    5,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    5,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 113.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   5
+  ],
+  "dimS": 28,
+  "dimK": 27,
+  "dimJ": 10,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1X2": [
+    2,
+    0
+   ],
+   "X0X2Y0": [
+    2,
+    0
+   ],
+   "X0X2Y1": [
+    2,
+    0
+   ],
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    4,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    6,
+    0
+   ],
+   "X0X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1X2Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 27,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 27 (not decided)",
+  "seconds": 188.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   3
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 12,
+  "complement": 16,
+  "cone_kernels": {
+   "X0X1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    7,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 115.1,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   2
+  ],
+  "dimS": 24,
+  "dimK": 23,
+  "dimJ": 9,
+  "complement": 14,
+  "cone_kernels": {
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y0Y2": [
+    2,
+    0
+   ],
+   "X0X1Y1Y2": [
+    1,
+    0
+   ],
+   "X0X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X2Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 23,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 23 (not decided)",
+  "seconds": 163.7,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   5
+  ],
+  "dimS": 29,
+  "dimK": 28,
+  "dimJ": 11,
+  "complement": 17,
+  "cone_kernels": {
+   "X0X1Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1": [
+    2,
+    0
+   ],
+   "X0Y0Y1": [
+    2,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    4,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y1": [
+    6,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    4,
+    0
+   ],
+   "X0X2Y0Y2": [
+    4,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 28,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 28 (not decided)",
+  "seconds": 117.4,
+  "job": "excl-cycle-q2-survey"
+ },
+ {
+  "exp": "sector-d9",
+  "d": 9,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   4
+  ],
+  "dimS": 26,
+  "dimK": 26,
+  "dimJ": 11,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1X2": [
+    1,
+    0
+   ],
+   "X0Y1Y2": [
+    3,
+    0
+   ],
+   "X1Y0Y2": [
+    1,
+    0
+   ],
+   "X2Y0Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    2,
+    0
+   ],
+   "X0X1Y0Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    2,
+    0
+   ],
+   "X1X2Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    1,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 26,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 26 (not decided)",
+  "seconds": 137.8,
+  "job": "excl-cycle-q2-survey"
+ }
+]

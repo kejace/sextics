@@ -555,3 +555,66 @@ class E1Family:
         G = np.hstack(gens)
         r = np.linalg.matrix_rank(G, tol=1e-9 * np.linalg.norm(G, 2))
         return int(r)
+
+
+# ----------------------------------------------------------------------------
+# restricted sub-families of the admissible space (float)
+# ----------------------------------------------------------------------------
+def ybase_polys(F, d, par):
+    """Y-base-type polynomials P(X) M(Y)^a g(Y)^b of degree d and parity par (the packet's compact-Y class)."""
+    st = structure(F)
+    M, g = st['M'], st['g']
+    out = []
+    for a in range(0, d // 2 + 1):
+        for b in range(0, 2):
+            k = d - 2 * a - 6 * b
+            if k < 0:
+                continue
+            W = power(M, a) if a else {(0,) * 6: Fraction(1)}
+            if b:
+                W = mul(W, g)
+            for m in monomials(k):
+                if m[3] or m[4] or m[5]:
+                    continue
+                P_ = mul({m: Fraction(1)}, W)
+                if core.parity_of(P_) == par:
+                    out.append(P_)
+    return out
+
+
+def restricted_family(prob, fam, kind):
+    """Sub-family (Dbasis, Nbasis, info) of the admissible family `fam`:
+       'kernel'       : complement of J_d inside the admissible space (pure E1-kernel directions)
+       'kernel-mixed' : kernel directions orthogonal to the Y-base-type span P(X) M^a g^b as well
+    """
+    d, pD = prob.d, prob.pD
+    gens = []
+    for i in range(NV):
+        par = (pD - par_idx(i)) % 2
+        Sm = Space(d - 5, par)
+        if Sm.n:
+            gens.append(mult_op(prob.Fi[i], Sm, prob.SD).toarray())
+    Q_list = []
+    rJ = 0
+    if gens:
+        G = np.hstack(gens)
+        QJ, sJ, _ = sla.svd(G, full_matrices=False)
+        rJ = int((sJ > 1e-9 * sJ[0]).sum())
+        Q_list.append(QJ[:, :rJ])
+    rU = 0
+    if kind == 'kernel-mixed':
+        U = np.array([prob.SD.vec(P_) for P_ in ybase_polys(prob.F, d, pD)]).T
+        QU, sU, _ = sla.svd(U, full_matrices=False)
+        rU = int((sU > 1e-9 * sU[0]).sum())
+        Q_list.append(QU[:, :rU])
+    Pperp = fam.Dbasis.T.copy()
+    for Qx in Q_list:
+        Pperp = Pperp - Qx @ (Qx.T @ Pperp)
+    Uf, s, Vt = sla.svd(Pperp, full_matrices=False)
+    rk = int((s > 1e-7 * s[0]).sum()) if s.size else 0
+    Dbasis = Uf[:, :rk].T
+    coords = fam.Dbasis @ Dbasis.T
+    Nbasis = (fam.Nbasis.T @ coords).T
+    info = {'K': int(rk), 'K_full': fam.K, 'dim_J_d': int(rJ), 'dim_ybase_span': int(rU),
+            'sv_gap': [float(s[rk - 1]) if rk else None, float(s[rk]) if rk < len(s) else None]}
+    return Dbasis, Nbasis, info

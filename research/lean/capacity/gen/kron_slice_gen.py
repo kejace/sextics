@@ -41,7 +41,17 @@ def l1(P):
     return sum(abs(int(c)) for c in P.values())
 
 
-def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdepth=4000):
+def integralize(D, N, Q):
+    """Scale the witness to integer coefficients: D, N by s, Q by s^2 (the identities are homogeneous of degree 2)."""
+    s = 1
+    for P in (D, Q, *N):
+        for c in P.values():
+            den = Fraction(c).denominator
+            s = s * den // math.gcd(s, den)
+    return (core.scale(D, Fraction(s)), [core.scale(n, Fraction(s)) for n in N], core.scale(Q, Fraction(s * s)), s)
+
+
+def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdepth=4000, ns=None, import_line='import Reflect.Kron', extra=''):
     Fi0, sF = K.clear_denominators(F); Ai0, sA = K.clear_denominators(A)
     s_ = sF * sA // math.gcd(sF, sA)
     Fi = {e: int(Fraction(c) * s_) for e, c in F.items()}; Ai = {e: int(Fraction(c) * s_) for e, c in A.items()}
@@ -63,8 +73,8 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
     bound = max(b1, b2)
     if W is None:
         W = max(bound.bit_length() + 2, 8)
-    ns = f'HodgeComputer.Cap.{name}'
-    L = ['import Reflect.Kron\n', f'set_option maxHeartbeats {heartbeats}\nset_option maxRecDepth {recdepth}\n',
+    ns = ns or f'HodgeComputer.Cap.{name}'
+    L = [import_line + '\n', f'set_option maxHeartbeats {heartbeats}\nset_option maxRecDepth {recdepth}\n',
          'set_option linter.all false\n', f'namespace {ns}\n', 'open MvPolynomial HodgeTestbed HodgeComputer.Kron\n']
     for k, P in polys.items():
         L.append(f'noncomputable def t{k} : PT := {K.pt_lean(P, m, degs[k])}\n')
@@ -231,6 +241,8 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
         pt = G.leangen.choose_nonzero_point(D)
         vec = '![' + ','.join(str(v) for v in pt) + ']'
         L.append(f'theorem denominator_ne_zero : D ≠ 0 := toC_ne_zero_of_evalPT {vec} tD (by decide +kernel)\n')
+    if extra:
+        L.append(extra)
     L.append(f'end\nend {ns}\n')
     meta = {'m': m, 'W': W, 'bound_bits': bound.bit_length(), 'deg1': deg1, 'deg2': deg2, 'scale': s_,
             'slices_e1': (M1 + 1) if 'e1' in parts else 0, 'slices_e2': (M2 + 1) if 'e2' in parts else 0, 'Kmax': Kmax}
@@ -255,7 +267,9 @@ def main():
     a = ap.parse_args()
     parts = ['e1', 'e2', 'homog'] if a.parts == 'full' else a.parts.split(',')
     F, A, D, N, Q, dF, dD = G.build(a.F, a.q, a.d, a.kD, a.kH, a.kT, a.seed, a.denseD)
+    D, N, Q, sW = integralize(D, N, Q)
     st = G.stats(F, A, D, N, Q, a.q, dF, dD)
+    st['scale_witness'] = sW
     st.update({'Fsrc': a.F, 'd': a.d, 'kD': a.kD, 'denseD': a.denseD, 'kH': a.kH, 'kT': a.kT, 'seed': a.seed,
                'parts': parts, 'route': 'kron-slice'})
     src, meta = module(a.name, F, A, D, N, Q, a.q, a.d, parts, a.W, a.heartbeats, a.recdepth)

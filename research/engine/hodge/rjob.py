@@ -6,7 +6,8 @@ repo at ~/devel/sextics (Lean built). Jobs run detached with nohup; outputs stay
 
 CLI (run from anywhere):
   python3 -m hodge.rjob up                       # push engine + all lane dirs to the remote (rsync, fast)
-  python3 -m hodge.rjob up --lane <lane>          # push engine + one lane dir
+  python3 -m hodge.rjob up --lane <lane>          # push engine + one lane dir (never overwrites newer remote files)
+  python3 -m hodge.rjob notes                     # mirror /tmp/hodge/notes both ways (--update)
   python3 -m hodge.rjob submit --lane <lane> --name <job> [--cpus N] [--wait SECS] [--force] -- <command ...>
         # refuses (exit 3) when the remote is near capacity (allocated cores > 220, < 90 GB free, or load > 700; jobs are core-pinned so load overstates contention); --wait polls for capacity
         # runs `cd /tmp/hodge/results/<lane> && <command>` on the remote, log in /tmp/hodge/jobs/<job>.log
@@ -18,7 +19,7 @@ CLI (run from anywhere):
                                                   # append new JSONL lines of its log.jsonl to the local lane log
   python3 -m hodge.rjob sh -- <command>           # run a short command on the remote and print its output
 
-Conventions for agents: every job is pinned to its --cpus cores (taskset) and capped at max(64 GB, 8 GB per cpu) address space; request --cpus honestly (multiprocessing pools must not exceed it). Keep local processes light (<1 CPU-minute); anything heavier goes through `submit`.
+Conventions for agents: every job is pinned to its --cpus cores (taskset) and capped at max(32 GB, 6 GB per cpu) address space (env HODGE_JOB_MEM_GB overrides; big exact solves must request more cpus or set it explicitly); request --cpus honestly (multiprocessing pools must not exceed it). Keep local processes light (<1 CPU-minute); anything heavier goes through `submit`.
 Write per-job outputs to files named after the job inside the lane dir so pulls never collide.
 """
 from __future__ import annotations
@@ -47,18 +48,27 @@ def rsync(src, dst, extra=()):
 
 
 def up(lane=None):
+    """Push the engine and lane dir(s). Never overwrites files that are newer on the remote (--update),
+    and never pushes notes (remote-only reports live there); notes are mirrored by `python3 -m hodge.rjob notes`."""
     ssh('mkdir -p /tmp/hodge/results /tmp/hodge/jobs /tmp/hodge/notes ~/devel/sextics-work')
-    r = rsync(str(ENGINE) + '/', f'{USER}@{HOST}:{ENGINE}/')
+    r = rsync(str(ENGINE) + '/', f'{USER}@{HOST}:{ENGINE}/', extra=('--update',))
     if r.returncode: print(r.stderr[-500:], file=sys.stderr)
     lanes = [lane] if lane else [p.name for p in RESULTS.iterdir() if p.is_dir()]
     for ln in lanes:
         src = RESULTS / ln
         if src.is_dir():
-            r = rsync(str(src) + '/', f'{USER}@{HOST}:{RESULTS}/{ln}/', extra=('--exclude', '*.npz', '--max-size=50m'))
+            r = rsync(str(src) + '/', f'{USER}@{HOST}:{RESULTS}/{ln}/', extra=('--update', '--exclude', '*.npz', '--max-size=50m'))
             if r.returncode: print(ln, r.stderr[-300:], file=sys.stderr)
-    # notes too (dossiers etc.) so remote scripts can read them
-    rsync('/tmp/hodge/notes/', f'{USER}@{HOST}:/tmp/hodge/notes/')
     print('up: done', lanes if lane else f'{len(lanes)} lanes')
+
+
+def notes(direction='both'):
+    """Mirror /tmp/hodge/notes both ways without overwriting newer files."""
+    if direction in ('both', 'pull'):
+        rsync(f'{USER}@{HOST}:/tmp/hodge/notes/', '/tmp/hodge/notes/', extra=('--update',))
+    if direction in ('both', 'push'):
+        rsync('/tmp/hodge/notes/', f'{USER}@{HOST}:/tmp/hodge/notes/', extra=('--update',))
+    print('notes: mirrored', direction)
 
 
 
@@ -91,13 +101,17 @@ def submit(lane, name, command, cpus=1, force=False, max_load=700.0, min_avail_g
     import random as _rnd
     start = _rnd.randint(0, max(0, 128 - cpus))
     cpuset = f'{start}-{start + cpus - 1}' if cpus > 1 else f'{start}'
-    mem_kb = max(64, 8 * cpus) * 1024 * 1024
+    mem_kb = int(os.environ.get('HODGE_JOB_MEM_GB', max(32, 6 * cpus))) * 1024 * 1024  # address-space cap; override with HODGE_JOB_MEM_GB
     remote_cmd = (f'mkdir -p /tmp/hodge/jobs {RESULTS}/{lane} && cd {RESULTS}/{lane} && '
                   f'export PYTHONPATH={ENGINE} OMP_NUM_THREADS={cpus} OPENBLAS_NUM_THREADS={cpus} FLINT_NUM_THREADS={cpus} HODGE_JOB_CPUS={cpus} && '
                   f'echo {cpus} > /tmp/hodge/jobs/{name}.cpus && '
                   f'nohup setsid taskset -c {cpuset} bash -c {shlex.quote("ulimit -v " + str(mem_kb) + "; " + command)} > /tmp/hodge/jobs/{name}.log 2>&1 < /dev/null & '
                   f'echo $! > /tmp/hodge/jobs/{name}.pid; echo $!')
-    r = ssh(remote_cmd)
+    try:
+        r = ssh(remote_cmd, timeout=120)
+    except subprocess.TimeoutExpired:
+        print(f'submit {name}: launch ssh timed out after 120 s (job may still have started; check status --name {name})', file=sys.stderr)
+        return '?'
     pid = r.stdout.strip().splitlines()[-1] if r.stdout.strip() else '?'
     with REGISTRY.open('a') as f:
         f.write(json.dumps({'name': name, 'lane': lane, 'pid': pid, 'cmd': command, 'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}) + '\n')
@@ -151,6 +165,7 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest='cmd', required=True)
     p = sub.add_parser('up'); p.add_argument('--lane')
+    p = sub.add_parser('notes'); p.add_argument('--direction', default='both')
     p = sub.add_parser('submit'); p.add_argument('--lane', required=True); p.add_argument('--name', required=True); p.add_argument('--cpus', type=int, default=1); p.add_argument('--force', action='store_true'); p.add_argument('--wait', type=int, default=0, help='seconds to wait for remote capacity'); p.add_argument('command', nargs=argparse.REMAINDER)
     p = sub.add_parser('status'); p.add_argument('--name')
     p = sub.add_parser('log'); p.add_argument('--name', required=True); p.add_argument('--tail', type=int, default=50)
@@ -159,6 +174,7 @@ def main():
     p = sub.add_parser('sh'); p.add_argument('command', nargs=argparse.REMAINDER)
     a = ap.parse_args()
     if a.cmd == 'up': up(a.lane)
+    elif a.cmd == 'notes': notes(a.direction)
     elif a.cmd == 'submit':
         cmd = a.command[1:] if a.command and a.command[0] == '--' else a.command
         submit(a.lane, a.name, ' '.join(cmd), a.cpus, force=a.force, wait_s=a.wait)

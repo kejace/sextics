@@ -1,0 +1,21 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+skipping 0 sectors already logged
+d=11: 72 sectors, dimS_d=4368
+[0, 0, 1] dimS 63 K 63 J 40 | dim K = 1: single element tested above (complement 23) | [] 22.7
+[0, 0, 2] dimS 63 K 63 J 38 | dim K = 1: single element tested above (complement 25) | [] 27.0
+[0, 0, 5] dimS 66 K 66 J 41 | dim K = 1: single element tested above (complement 25) | [] 27.5
+[0, 0, 3] dimS 63 K 63 J 39 | dim K = 1: single element tested above (complement 24) | [] 29.0
+[0, 0, 4] dimS 63 K 63 J 41 | dim K = 1: single element tested above (complement 22) | [] 29.0
+[0, 0, 0] dimS 66 K 66 J 41 | dim K = 1: single element tested above (complement 25) | [] 29.2
+[0, 1, 2] dimS 63 K 63 J 38 | dim K = 1: single element tested above (complement 25) | [] 13.1
+[0, 1, 0] dimS 63 K 63 J 41 | dim K = 1: single element tested above (complement 22) | [] 26.1
+[0, 1, 3] dimS 57 K 57 J 36 | dim K = 1: single element tested above (complement 21) | [] 24.8
+[0, 1, 5] dimS 57 K 57 J 36 | dim K = 1: single element tested above (complement 21) | [] 25.0
+[0, 1, 1] dimS 57 K 57 J 36 | dim K = 1: single element tested above (complement 21) | [] 27.4
+[0, 2, 0] dimS 63 K 63 J 39 | dim K = 1: single element tested above (complement 24) | [] 15.1
+[0, 1, 4] dimS 63 K 63 J 40 | dim K = 1: single element tested above (complement 23) | [] 28.5
+[0, 2, 1] dimS 63 K 63 J 38 | dim K = 1: single element tested above (complement 25) | [] 19.4
+[0, 2, 5] dimS 62 K 62 J 37 | dim K = 1: single element tested above (complement 25) | [] 17.2
+[0, 2, 2] dimS 63 K 63 J 38 | dim K = 1: single element tested above (complement 25) | [] 26.4
+[0, 2, 3] dimS 63 K 62 J 38 | dim K = 1: single element tested above (complement 24) | [] 26.9
+[0, 2, 4] dimS 60 K 60 J 36 | dim K = 1: single element tested above (complement 24) | [] 32.5

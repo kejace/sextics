@@ -1,1 +1,21 @@
 [w2_search] kernel d=8: 72 sectors, 150 restarts each, 16 procs
+  key 273: K=7 best_rel=1.266242219090585e-06 restarts=150 297x76 94.5s  
+  key 12: K=7 best_rel=4.461008522201713e-07 restarts=150 285x67 97.8s  
+  key 243: K=4 best_rel=0.7322182584746377 restarts=150 285x68 153.8s  
+  key 183: K=4 best_rel=0.10378290144458471 restarts=150 294x63 158.2s  
+  key 123: K=4 best_rel=0.7427568449339398 restarts=150 285x69 174.3s  
+  key 252: K=7 best_rel=7.662077711156708e-07 restarts=150 297x75 199.4s  
+  key 303: K=7 best_rel=6.422079275241099e-06 restarts=150 285x70 121.3s  
+  key 222: K=7 best_rel=6.174787313834484e-06 restarts=150 285x60 220.0s  
+  key 198: K=3 best_rel=0.7262444007924849 restarts=150 294x71 236.4s  
+  key 63: K=4 best_rel=0.8164807004458304 restarts=150 294x73 242.8s  
+  key 42: K=7 best_rel=4.98156121870665e-06 restarts=150 294x74 248.7s  
+  key 72: K=7 best_rel=8.73464587085002e-07 restarts=150 294x69 250.6s  
+  key 33: K=5 best_rel=0.7177128694141197 restarts=150 285x64 274.6s  
+  key 153: K=4 best_rel=0.7638772808125692 restarts=150 294x77 325.8s  
+  key 93: K=4 best_rel=0.7276492058319426 restarts=150 294x74 340.7s  
+  key 348: K=4 best_rel=0.7858585310343029 restarts=150 285x71 193.7s  
+  key 168: K=2 best_rel=0.8600905816938182 restarts=150 294x71 358.3s  
+  key 138: K=8 best_rel=6.319333882948272e-07 restarts=150 285x67 386.2s  
+  key 363: K=4 best_rel=0.8797123012472207 restarts=150 297x75 212.9s  
+  key 498: K=4 best_rel=0.7052743860810091 restarts=150 297x70 139.2s  
