@@ -1,0 +1,1 @@
+{"d": 8, "chi": [0, 0, 1], "nN": 714, "nQ": 123, "rows": 1548, "rowsE1": 669, "rowsE2": 879, "name": "6v:d8:(0, 0, 1):14", "family": "6v-extra-dirs-d8", "p": 2147483647, "rank": 819, "rank_aug": 820, "nullity": 18, "consistent_modp": false, "status": "EXCLUDED-exact", "dual_height_bits": 5506, "seconds": 63.44}

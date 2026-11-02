@@ -34,4 +34,27 @@ deg     sel   pairs        mat          density            new data         time
 ------------------------------------------------------------------------------------------------------
   2     165    3445     390 x 1745        0.53%      165 new       0 zero         7.98 | 14.08        
   3    7161    7161   26791 x 37791       0.03%     5522 new    1639 zero       855.77 | 1077.30      
-  4  235392  265446  694846 x 524952      0.02%
+  4  235392  265446  694846 x 524952      0.02%    45734 new  189658 zeroCommand terminated by signal 9
+	Command being timed: "timeout 7200 msolve -v 2 -t 16 -g 1 -f /tmp/hodge/results/klein-coupled-character/wave2-excl/local_d7full/d7_even_all.ms -o /tmp/hodge/results/klein-coupled-character/wave2-excl/local_d7full/wave3/d7_even_all.ms.wave3-B1.lead"
+	User time (seconds): 6031.05
+	System time (seconds): 79.65
+	Percent of CPU this job got: 174%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 58:23.92
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 40409880
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 22819024
+	Voluntary context switches: 176374
+	Involuntary context switches: 2264299
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

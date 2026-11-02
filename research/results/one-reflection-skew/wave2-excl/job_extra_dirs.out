@@ -223,3 +223,21 @@ d=8: 5v family 310, extra 228, combos 12 872.7
 5v:d8:(3, 3, 2):56 EXCLUDED-exact 905 906 218.44
 5v:d8:(3, 3, 2):58 EXCLUDED-exact 905 906 232.57
 5v:d8:(3, 3, 2):62 EXCLUDED-exact 905 906 168.58
+5v:d8:(3, 3, 2):60 EXCLUDED-exact 905 906 223.18
+5v:d8:(3, 3, 2):61 EXCLUDED-exact 905 906 237.89
+5v:d8:(3, 3, 2):66 EXCLUDED-exact 905 906 175.54
+5v:d8:(3, 3, 2):63 EXCLUDED-exact 905 906 250.79
+5v:d8:(3, 0, 5):randcombo0 EXCLUDED-exact 890 891 228.02
+5v:d8:(3, 0, 5):randcombo1 EXCLUDED-exact 890 891 228.4
+5v:d8:(0, 0, 2):randcombo0 EXCLUDED-exact 890 891 416.2
+5v:d8:(0, 3, 5):randcombo0 EXCLUDED-exact 890 891 375.77
+5v:d8:(0, 0, 2):randcombo1 EXCLUDED-exact 890 891 459.74
+5v:d8:(0, 3, 5):randcombo1 EXCLUDED-exact 890 891 404.84
+5v:d8:(0, 0, 2):randcombo2 EXCLUDED-exact 890 891 480.93
+5v:d8:(0, 3, 5):randcombo2 EXCLUDED-exact 890 891 414.23
+5v:d8:(3, 3, 2):randcombo0 EXCLUDED-exact 905 906 174.69
+5v:d8:(3, 3, 2):randcombo1 EXCLUDED-exact 905 906 166.34
+5v:d8:(3, 3, 2):randcombo2 EXCLUDED-exact 905 906 145.81
+5v:d8:(3, 0, 5):randcombo2 EXCLUDED-exact 890 891 195.81
+d=8: 6v non-Jacobian basis directions 232
+6v:d8:(0, 0, 1):14 EXCLUDED-exact 819 820 63.44
