@@ -55,6 +55,7 @@ Results:
  * V (threefold fibres over P^1): H^{3,0} = R_1 = linear forms; no linear form has weight 3 => H^{3,0}(V)[zeta^3] = 0;
    the sector of H^3(V) is of type (2,1)+(1,2) only. A relative support theorem for this sector would need the zeta^3-part
    of H^3 of a sextic CY threefold to be supported on divisors (Abel-Jacobi type); no book mechanism gives that.
- * Dossier 1.5 correction (not load-bearing): sigma^3 tau has age 1/2 at the coordinate points (weights (2,1,1,1)/14 on
-   the tangent directions (z,t,r,s)/x), so G = <sigma,tau> DOES contain junior elements; that is why W = X/G is Fano
-   (-K = O(3)) while X/sigma and X/tau have kappa = 0. The audit's "juniorElementsFixingTarget: []" stays correct.
+ * Dossier 1.5 correction (not load-bearing; w2c_ages.py, full table): the junior elements of G = <sigma,tau> are exactly
+   sigma^3 tau (age 1/2 at e_x), sigma^5 tau (1/2 at e_y), sigma^6 tau (1/2 at e_z); all sigma^k have ages >= 1 and tau
+   has age 3/2 everywhere. That is why W = X/G is uniruled (Fano, -K = O(3)) while X/sigma and X/tau have kappa = 0
+   (Kollar-Larsen). The audit's "juniorElementsFixingTarget: []" stays correct (none of the three fixes weight 3).

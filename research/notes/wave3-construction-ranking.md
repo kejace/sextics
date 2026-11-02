@@ -253,3 +253,139 @@ P(decide) 0.7, P(solve) 0.04. Lean: **L-A** — a strict 5-variable identity lif
 checkable by the Kronecker route; no new library layer.
 **M-b**: reducible `c·X2`, `c·Y2` products (joining across the fibre `Y_0`): 33 candidates in the pending sum-principle job.
 P(solve) 0.01.
+
+### 3.7 klein-coupled-character (`A = x³t³`, `σ`-character 3 of `Z/7`; sector (26,123,37); `Sym = Z/14`)
+
+Excluded with receipts: every quotient of `X` (averaging over `σ^k` kills `A`; `X/τ` has `κ = 0`); the §4.3 weighted Fano
+`𝒲 ⊂ P(2,2,2,1,1,1)` serves only character 0; no linear fibrewise exchange on any `Y`-ratio fibration (the `σ⁻¹`-eigenvalues
+`ζ⁶, ζ⁵, ζ³` are absent among `x, y, z`), and **no birational one**: `Aut(S_(1,2,3)) = Z/14` exactly (msolve char 0 on the
+Hessian-degeneracy locus; monomial automorphisms = diagonal only), so by Matsusaka–Mumford the geometric generic fibre of
+`X → P²_Y` has `Aut = ⟨σ,τ⟩` (`w2c/sigma_*.out`); E1 forces `deg D ≥ 9` unless `D ∈ J(F)`; `Jhat` and all polars excluded
+exactly.
+
+**M-a (kept): cones with vertex `P²_X` over plane curves of base degree ≥ 9, or fibrations over `X`-ratios.** For
+`D = g(X)`, `Z = X ∩ V(g)` is singular along `B = {K = 0}` (the Klein plane sextic, `H^{1,0}(B) = R(K)_3 ∋ x³, yz²` of
+character 3) and fibred over `C_g` by the sextic surfaces `S_y = {K(x) + λ²M(x,y) + λ⁶G(y) = 0}` whose `H^{2,0}` contains
+character 3 once (`xy`); E1 shows the Gysin image misses `x³t³` for base degree `≤ 8`. Verified: the geometry above; the
+E1 tables through `d = 12` by character (search lens). Not verified: the Gysin image for base degree 9–12, and any
+fibration over an `X`-ratio (where the `σ`-eigenvalues do mix) — the lens's part 2 (linear classification) was never written.
+Decisive: (1) sector-restricted served-space test of `D = g(X)` for `g` in the character-3-compatible part of the degree-9..12
+E1 kernels (`w2lib` sector solver, 1–5 k unknowns per sector, minutes each); (2) list the `X`-ratio fibrations and repeat the
+fibrewise-automorphism computation (`Aut` of the generic fibre of `X → P²_X`-type maps) — an afternoon of msolve.
+P(decide) 0.6, P(solve) 0.02. Lean: **L-A** only.
+**M-b**: the §4.6 cover `u⁷ = (xt²/z³)` (adjoin a 7th root of the degree-0 character-3 function) with an exchange — speculative
+(dossier §5.5); no exchange symmetry of the cover equation is in sight. P(solve) 0.01.
+
+### 3.8 off-paired (`A = X0³Y0³`; det character of `D6 = ⟨h, σ2⟩` on the `(X2,Y2)`-block; sector (22,50,22), all `σ2`-anti-invariant)
+
+Structure (verified exactly, `c1_identities.py`, Singular): `F = H(x) + C(x)X2Y2 + X2⁶ + Y2⁶`; `X/D6 = P(1,1,1,1,2)`;
+Klein cover `Ŷ = X/⟨h²⟩: t1² = H + Cm − 2m³, t2² = H + Cm + 2m³` (`m = X2Y2`); `Y_∓ = X/⟨h², σ2 h^{0/3}⟩` are **Fano**
+Weierstrass fibrations `t² = ±2m³ − Cm − H` over `P³_x` (`−K = O(3)`, discriminant `∝ 2C³ ∓ 27H²`) serving the other two
+characters; the target is the `(−,−)` character, i.e. the `σ2`-anti-invariant part of `H⁴(X/⟨h⟩)`; the genus-2 family
+`v² = (H + Cu)² − 4u⁶` depends only on `κ = C³/H²` and its total space `Σ ⊂ P(1,2,3,3)` is rational (2A1 + 2A2, explicit
+parametrisation), so all `(3,1)`-classes involve `H^{2,0}` of the pencil surfaces `S̃_κ = {C = ks², H = ks³} ⊂ P(1,1,1,1,2)`
+(`p_g = 45`); base changes `κ = ρⁿ` have `p_g(Σ̃_n) = 0,0,0,1,2,1` (n = 1..6). Excluded: all `X/K` (Reid–Tai, `P_2 ≥ 1`),
+twisted products, §2.7 hubs (no-hub theorem: `Q_X(Y)` has rank 3), Galois closure (det served only by `p_g = 1` rotation
+quotients), vertical denominators with `κ` constant or with linearly-equivalent conjugate components; served-space scan:
+`X2⁶ − 2Y2⁶`, `C² − (X0²+Y1²)⁴`, `C² − (X0Y1+X1Y0)⁴`, `C² − X0⁸` serve only `J` in all 18 Y-odd sectors (two pass E1);
+**no polynomial Mordell–Weil section of `Y_∓`** (`m` quadric, `t` cubic): msolve `[-1]` for `ε = −1` at 1000003, 2147483647,
+1073741827 and for `ε = +1` at 1073741827 and (job `construct-off-paired-mw`, finished) at the two further primes.
+
+**M-a (kept): descent through a reflection (new sufficient criterion, proved in part 3 §E).** If `p: Z → X` has a deck
+automorphism `e`, an involution `σ` with `σeσ = d` and `p∘d = σ2∘p`, and `R` commutes with `σ` acting trivially on `p^*ξ`,
+then divisor support of `H⁴` of a smooth model of `Z/⟨σ,R⟩` gives `ξ ∈ N¹` — no supported quotient of `X` is needed.
+Realisation: `Z = X ×_W X^φ` with `W = X/σ2 = {H + Cm + s⁶ − 6s⁴m + 9s²m² − 2m³ = 0} ⊂ P(1,1,1,1,1,2)` (`s = X2+Y2`, Fano,
+`−K = O(1)`), `φ` a birational involution of `W` **not lifting to `X`**, `e = (1,σ2)`, `d = (σ2,1)`, `σ = swap`, `R = ⟨(τ,τ)⟩`.
+Verified: every automorphism `φ` (centraliser `⟨g², h³⟩`) makes `Z` reducible; a hypothetical linear involution of
+`P(1,1,1,1,1,2)` preserving `W` gives `p_g(Z/⟨σ,r⟩) ≥ 1`; the natural birational candidates — fibrewise translations by
+Mordell–Weil sections of `Y_∓` — have no polynomial instance (above). Not verified: sections with denominators
+(`m = M/d², t = T/d³`, `deg d ≥ 1`); any non-fibre-preserving birational involution of `W` (a degree-6 index-1 weighted Fano
+4-fold is expected to be birationally rigid, so `Bir(W)` should be generated by `Aut(W)` and untwisting involutions centred
+on special points/curves — none identified); uniruledness of `Z/⟨σ,r⟩` for a given `φ` (fibrewise: a degree-4 cover of
+`W/φ` modulo the swap must be Fano-fibred over a curve or `p_g = q = 0`-fibred).
+Decisive: (1) MW sections with `deg d = 1` (`M` quartic 35, `T` sextic 84, `d` linear 4: 123 unknowns, 455 equations of
+degree 12; msolve `-g 1` over `F_p`, hours) and `deg d = 2` (314 unknowns, 1330 equations; borderline) — P(section) ≈ 0.02;
+(2) a rigidity/untwisting classification of `W` (theory; Pukhlikov-style for quasi-smooth weighted hypersurfaces) deciding
+whether non-automorphic birational involutions exist at all. P(decide) 0.5, P(solve) 0.03.
+Lean if positive: **L-B** — the holdout architecture verbatim (polynomial curve family on the Fano quotient `Z/⟨σ,r⟩`,
+polynomial normal, integration, trace, transport; `PolynomialCurves` + `CertificateOperations`; a new cover-field layer
+replaces `HoldoutCover`'s `F_H`-bound modules).
+**M-b**: the type-V1 loophole — a Picard local system of the pencil `S̃_κ` with finite monodromy (compute `ρ(S̃_κ)` at a few
+rational `κ` by point counts / van Luijk); if `ρ = 1` generically only mixed-type (M) divisors remain (fibrewise correspondences
+coupling `J(E_κ)` to `H²_tr(S_κ)`). P(solve) 0.01. Pending: `construct-off-paired-served30` (degree-12 `H² − ν⁶`, `(X2³+Y2³)(X2³−Y2³)H`).
+
+### 3.9 one-reflection-skew (`A = X0³Y0³`, `F = F_eq + (1/7)X0X1Y0Y1(Y0² − Y1²)`; even in `Y2` only; diagonal group of order 24; sector (0,44,77,3,0))
+
+No construct lens was written for this lane; the material is fqlx/benediamond/DiamondJM/rbajaj5's thread work (dossier §3)
+and the search lens's exact `6 → 5`-variable reduction (a certificate exists iff a rational 5-variable field `u = N/D` has
+`A D² − D N(f) + (6/5) f (D div N − N(D)) = 0`, `f = F − Y2⁶`; then `(D², (N_iD), Y2(D div N − N(D))/5, 0)` is a strict
+6-variable certificate of degree `2d`; validated on `family-hesse-web`). Excluded: the two hidden reflections of `one-reflection`
+(the skew term is odd in `P = Y0+Y1` and in `M = Y0−Y1`); the §2.7 cover (the skew pair `(αX0X1/7)·yT·(α²T² − y²)` is not
+`y ↔ T` symmetric); the `Y2`-reflection serves the wrong character; no cubic-surface reduction with one active `X`
+coordinate (DiamondJM, Gröbner); `deg D ≥ 7` exact, degree-7 `Y2`-odd and three pure even characters excluded, character
+`1110` + mixtures open; rigorous exclusions of several bounded primitive families (R1, R2 Lean-checked, R4 rank 26/27 and
+38/39, C8 1,698-parameter family).
+
+**M-a (kept): fqlx's twisted CM elliptic companion, completed by E4/E5.** Chart `Y0 = 1`, `X0 = x`, `X1 = rx`, `X2 = wx`,
+`Y1 = t`, `Y2 = z`, `U = x²`: `F = z⁶ + P(U)`, `P = aU³ + bU² + cU + d`, `(a,b,c,d) = (1 + r⁶ + w⁶, t(r + r³w), rt(1 − t²)/7, 1 + t⁶)`
+(the `U = x²` reduction is legitimate because the simultaneous `X`-sign change is a symmetry). Residue
+`θ = (5U²/(72z¹¹)) dU∧ν`, `ν = dr∧dw∧dt`; Hermite reduction `θ = θ₀ + d(Sν)`, `θ₀ = (H0ω0 + H1ω1)/(72δ)∧ν`, `δ = disc_U(P)`.
+Quartic cover `B = K[β]/(R)`, `R = 3a²β⁴ − 4abβ³ + 6acβ² − 12adβ + 4bd − c²` (`K = C(r,w,t)`), `M = b − 3aβ`,
+`N = (c − 3aβ²)/2`, `k = N − Mβ`, `P = a(U+β)³ + (MU+N)²/M`; twisted j = 0 curves `E_β: υ² + M(1 + aξ³) = 0` with degree-3 maps
+`φ_β: C_B → E_β` (`ξ = (U+β)/z²`, `υ = (MU+N)/z³`), `Tr_{B/K}(φ^*φ_*) = 6·I₂`, and `θ = d(Sν) + (1/6)Tr_{B/K}(φ_β^*Θ_β)`,
+`Θ_β = C_β ω_E∧ν`, `C_β = M²(3aβ²k − 2N²)/(12ak⁴)`. Remaining equation on the total space `𝓛 = B(ξ,υ)`:
+`∂_E W + Σ_i (D_iV_i − γ_iV_i) = C_β`, `γ = da/(3a) + dM/(2M)` (the twist), `W, V_i ∈ 𝓛` with moving poles allowed.
+Verified (reported by fqlx, replayed mod p by DiamondJM): all identities; the shortcut via a translation field `T` fails
+(`div T ≠ 0`); R3's rank-17 reformulation; R4's simpler cover (degree-18 `f(r) = 0`, independent of `t`) and the explicit
+current `Ξ` reducing the source to a one-row term. Not verified: **E5** — whether the remaining base 2-form class vanishes on
+the complement of some divisor (if a transcendental period is nonzero, no rational primitive exists in the compact
+presentation; `W = 0`, base-only `V_i`); **E4** — the monodromy of the rank-2 unitary CM local system `L` (finite subgroup of
+`U(2)`) and the Kodaira dimension / rational connectedness of the trivialising cover `B'' → (r,w,t)-space (Galois closure of
+`R(β) = 0` with `√M` and `a^{1/3}`; branch locus `δ = 0` (degree ≤ 24), `a = 0`, `M = 0`). If a smooth model `B̄''` is
+uniruled (or merely has `H³(B̄'')_{χ'} ⊂ N¹`), the class lies in `H³(B̄'') ⊗ H¹(E_ρ)` and is supported on `Z × E_ρ` for a divisor
+`Z ⊂ B̄''` (covering-curve theorem on `B̄''`; the elliptic factor rides along as a closed (1,0)-form, no contraction needed),
+and the quotient-transfer lemma pushes the support to `X`.
+Decisive: E4(a)+(b) — explicit construction of `B''` (field extension of degree ≤ 144 over `C(r,w,t)`), its branch data and
+`h^{3,0}`/`κ` of a resolution (weighted Hurwitz on a compactification; Singular/sympy, days); E5 — numerical periods of
+`C_β ν` (or R4's reduced density) over 2-cycles of the base cover (one careful high-precision computation).
+Honest expectation: a cover of `P³` branched along a degree-24 surface is typically of general type, so E4 most likely
+returns `κ ≥ 0` (closing the route) — but the computation has never been done, and this is the only lane where a complete
+transport identity to an auxiliary variety already exists. P(decide) 0.7, P(solve) 0.04.
+Lean if positive: **L-B/L-C** — `PolynomialCurves` on `B̄''` (incidence seed over `F_p`, polynomial normal, integration,
+trace to `K`), the twisted elliptic substitution through `ScalarEmbedding`-type lemmas, a new cover-field layer for
+`R(β)`, and the exact source identities `θ = d(Sν) + (1/6)Tr(φ^*Θ_β)` (already in closed form).
+**M-b**: E3 — first-order deformation of the accepted degree-30 half-certificate `(D₊, N₊)` of `one-reflection` along the
+skew term (`≈ 1.4 M × 4.1 M` sparse modular system after `τ`-parity; engine-v3 `sge` on 64 cores could attempt it); gives a
+first-order family only. P(solve) 0.02.
+
+### 3.10 polarized-k3-remainder (`A = X0X1X2Y0Y1Y2`, `F = ½(f(U) + f(V))`; `A = A_K3 + A_mix`, both nonzero mod `J`)
+
+Verified: `Aut(X) = D6 = ⟨h, τ⟩` exactly (corrected from the dossier; six planes `V = λU`, `λ⁶ = −1`); averaging-ideal
+exhaustion (Theorem A5): no quotient of `X` by any subgroup of `D6`, and no intermediate quotient of `X → P² × P²`, serves
+the K3 sector; `Aut(C_f) = 1`, `ρ(S) ≤ 4` unconditional (`≤ 3` with the thread's lift obstruction), `End_Hdg(T) = Q`
+(thread); hence `A_K3` is equivalent to GHC (coniveau 1) for `Λ²T` of a very general degree-2 K3 — **new mathematics, not
+a construction**, and the literature check (F8) confirms no applicable algebraic Kuga–Satake theorem.
+**M-a (partial, kept as a deliverable): the six mixed monomials `A_mix` (sixth-root sector) via the second elliptic
+companion.** Chart reduction for every `V`-degree `b` (sympy); explicit strict certificate for the joining sector
+(`D = f(V)`, `N = (A/3)E_V`, verified with `core.verify_witness`); scalar conversion identity for weights (3,2) on
+`W_{23,f} = {7f(x,a,y) + 7S² + 7T³ = 0} ⊂ P(1,1,1,3,2)` (smooth, `−K = O(2)`); **finite-field incidence seed found** (profile A,
+13 unknowns: `x = 4t, a = 1 + t + 2t², y = 2 + 3t², S = 3 + 4t + 4t⁵ + t⁶, T = 1 + 2t² + t⁴` mod 5, `det J = 3`, freeness ranks
+12/12, dominant), Hensel lift converges mod `5⁶`. Not verified/absent: Lean modules for the (3,2)-weight scalar calculus,
+the `E_23` (`μ6`) contraction with its own theta kernels and infinity recurrence, the `b = 2,4` chart identities (≈ PR #149
+size, months). Deliverable: a `HasCertificate` component for `A_mix` only. P(solve of the instance) 0.005; P(component
+formalised in a long wave) ≈ 0.5. Lean: **L-C**.
+
+### 3.11 quadratic-cubic-pullback (`A = X0³Y0³`, `F = Σ Q_i³`, `φ = (Q_i): P⁵ → P⁵` finite flat of degree 32, `X = φ⁻¹(Fermat cubic 4-fold C)`)
+
+Verified: `f^*H^{3,1}(C) = ⟨δ⟩`, `δ = det(∂Q/∂Z)`; `A, δ` independent mod `J`; group `{1,τ}`; `F` not a join; the Galois
+closure's intransitive quotients are of general type; all natural degree-6 supports serve only `J ⊕ ⟨δ⟩` (joins
+`Q_a³ + Q_b³ + Q_c³` serve exactly `δ`, consistent with the adjoint-cokernel criterion); the two-plane Fermat mechanism is
+unrealisable in any degree (`c_{20}F_{42} = −c_{02}F_{60}` impossible); `deg D ≥ 7` exact, `≥ 10` unless polar.
+**M-a (kept): non-ACM adjoint schemes at degree ≥ 10 / an imprimitive intermediate cover.** Decisive: E7 — Frobenius cycle
+types of `φ` over `F_p` (factor `(Q_i(z) − u_i)` for 50 random `u`; hours of setup, minutes of compute): if the monodromy of
+`X/τ → C` is imprimitive there is an intermediate cover `C' → C` whose uniruledness would open §3.2 for the part of `V_15`
+it carries (the mod-5 limit is the Kummer cover with group `(Z/2)⁵`, imprimitive; generically destroyed). Then E8b/E3 —
+adjoint pre-screen of singular configurations at `d = 10` (curves on the 405 K3 surfaces `{Q_i = Q_j = Q_k = 0} ∩ X`,
+`C_S ∪ C_{S'}` with 96 common points, corank-1 locus of the ramification surface) intersected with the degree-10 E1 kernel
+(294/261), each survivor one sparse fixed-`D` solve (18 900 unknowns, 84 903 equations; ≈ 1 h with `sge`). P(decide) 0.8,
+P(solve) 0.02. Lean: **L-A**.

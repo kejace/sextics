@@ -73,12 +73,30 @@ by §0 the corresponding sector has no denominator of that degree over ℂ (give
 | cyclic-triple-residual | d7 G-semi-invariant sectors s00–s05, s20–s25, s40 (gauge-fixed) + s41–s45 (referee files, trivially all quadratic monomials) | 3–16 unknowns | 1000003 / 999999937 | `wave2-excl/relax_d7_p1000003_s*_gauge_lead.txt`, `wave2-referee/.../wave3/*.lead` |
 | eight-plane-configuration | d7 subfamilies arr / blockX / blockY / coefB0 / coefX, both parities; d8 subfamilies coefB0 / coefX / comp-0..5, both parities | 9–36 unknowns | 2147483587 / 2147483629 | `wave2-excl/hsub_d{7,8}_par*_*.lm` |
 | quadric-contact-residual | d7: all 28 (σ0,σ2,τ_Y)-parity-class pairs at two primes (56 files) | 24–32 / 227–258 | 2147483629 and p3 | `wave2-excl/sub_d7_*.ms.lead`, `sub_d7p3_*.ms.lead` |
-| klein-coupled-character | d7 even k=0 sector | 3/15 | 1000003 | `wave2-excl/local_d7/d7_even_k0.lead` |
+| klein-coupled-character | d7 σ-eigen sectors even k=0,3,5,6 and odd k=1..6 (even k=1,2,4 and odd k=0 are positive-dimensional at this level; the lens closed even k=1,2,4 by exact stage-2 duals, odd k=0 stays open) | 3–8 unknowns | 1000003 | `wave2-excl/local_d7/d7_{even,odd}_k*.lead` |
+| dense-rational | d7 mixed-parity structured subfamilies blockdiag, cross, gradient, weuler | 36/951, 36/951, 56/951, 30/951 | 1073741789 | `wave2-excl/fam_d7_mixed_*_p1073741789.g1.out` |
 
 Not decided by this check (leading ideal positive-dimensional; the lenses closed these with second-stage exact
 arguments, not re-derived here): one-reflection-skew `d7_sub_tor_{1000,0100,0010}`, `d7_5v_tor_*`; klein `local_d7`
 k1, k2 sectors.
 
-## 4. Rigorous degree bounds per lane (running)
+## 4. Rigorous degree bounds per lane (running; start = wave2-status.md v8.5, updated only when a wave-3 row lands)
 
-(unchanged from wave2-status.md until a row lands in §3)
+| lane | bound for arbitrary D (start) | wave-3 change |
+|---|---|---|
+| cycle-q2 (q=2) | ≥ 6 exact; degree 6 needs ≥ 5 character components (62-var GB pending elsewhere) | — |
+| cyclic-triple-residual | ≥ 7 exact; d7: 13/18 semi-invariant sectors closed (harvest) | s41–s45 trivial sectors in B1 → all 18 semi-invariant sectors |
+| dense-rational | ≥ 7 exact; d7 τ-pure cones open (OOM) | queued (Q) |
+| diagonal-permutation | ≥ 7 exact; d7 even/odd open | even queued (Q); odd running elsewhere |
+| eight-plane-configuration | ≥ 7 exact; d7 pure cones open (OOM) | queued (Q) |
+| four-plus-two-residual | ≥ 7 (aggregator mixed-parity d6) | no d7 system exists yet (not built) |
+| klein-coupled-character | ≥ 7 exact (≥ 9 unless D ∈ J); d7 σ-eigen closed except (odd, k=0); non-eigen d7 open | non-eigen d7 even/odd running (B1) |
+| off-paired | ≥ 7 (34/36 d7 characters exact; (1,0),(3,0) exact runs pending elsewhere; mixed open) | — (no homogeneous msolve input; chart files only) |
+| one-reflection-skew | ≥ 7 exact; d7 even mixtures open (job running elsewhere) | — |
+| polarized-k3-remainder | ≥ 8; d7 for A_K3 beyond relaxation | — |
+| quadratic-cubic-pullback | ≥ 7 exact; d7 polar cones open | both parities queued (Q, homogenised inputs) |
+| quadric-contact-residual | ≥ 7; d7 needs ≥ 3 parity classes (28 pairs, harvest-confirmed) | y0, tri queued (Q); others running elsewhere |
+| rank-one-biquartic | ≥ 7 | — (no d7 msolve input) |
+| reflection-coupled-residual | ≥ 7 exact; d7 closed in (0,1),(1,0),(1,1),(1,0)+(1,1) (harvest-confirmed) | (0,0) and remaining pairs queued (Q) |
+| short-power-presentation | ≥ 7 pure parity (mixed d6 closed); d7 Y-even 42-unknown residual running elsewhere | — |
+| symmetric-sextic-residual | ≥ 7 exact; d7 semi-invariant sectors closed (harvest-confirmed); full pure-parity d7 open | both parities queued (Q) |
