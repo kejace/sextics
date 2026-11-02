@@ -177,6 +177,38 @@ def worker(args, wid, conn):
             Wv = sla_null_space(Cmat.T)
             subspace = Wv if subspace is None else Wv @ np.linalg.lstsq(Wv, subspace, rcond=None)[0]
             conn.send({'type': 'info', 'wid': wid, 'vanish': spec, 'subspace_dim': int(Wv.shape[1])})
+        if args.vanishL:
+            # D(a) vanishes to order k along the linear subspace L = {l_1 = ... = l_m = 0}: all derivatives of order < k of
+            # D(a) vanish at random points of L -> linear conditions on a (evaluated exactly on polynomial coefficients)
+            forms_s, k = args.vanishL.rsplit(':', 1); k = int(k)
+            forms = [core.parse(t) for t in forms_s.split(',')]
+            # parametrize L: solve the linear forms for a basis of their common kernel
+            Lm = np.zeros((len(forms), NV))
+            for t, P in enumerate(forms):
+                for e, v in P.items(): Lm[t, [i for i in range(NV) if e[i]][0]] = float(v)
+            Lbasis = sla_null_space(Lm)                    # NV x (NV - m)
+            rngL = np.random.default_rng(777 + wid)
+            npts = 60
+            ptsL = (Lbasis @ rngL.standard_normal((Lbasis.shape[1], npts))).T   # npts x NV real points on L
+            import itertools as _it
+            conds = []
+            for kk, m in enumerate(fam.members):
+                P0 = m['Dpoly']
+                derivs = [P0]
+                row = []
+                # all partial derivatives up to order k-1
+                for order in range(0, k):
+                    for alpha in _it.combinations_with_replacement(range(NV), order):
+                        P = P0
+                        for i in alpha: P = pderiv(P, i)
+                        E, C = exps_coefs(P)
+                        vals = (C @ np.prod(ptsL[None, :, :] ** E[:, None, :], axis=2)) if len(C) else np.zeros(npts)
+                        row.append(vals)
+                conds.append(np.concatenate(row))
+            Cmat = np.array(conds)                        # K x nconds
+            Wv = sla_null_space(Cmat.T)
+            subspace = Wv if subspace is None else Wv @ np.linalg.lstsq(Wv, subspace, rcond=None)[0]
+            conn.send({'type': 'info', 'wid': wid, 'vanishL': args.vanishL, 'subspace_dim': int(Wv.shape[1])})
         csector = None
         if args.sector:
             wb = [m['w'] for m in fam.members if m['w'] is not None]
@@ -212,7 +244,7 @@ def worker(args, wid, conn):
         ref = float(np.median(refs))
         setup = time.time() - t0
         out_path = os.path.join(LANE, f'w2-pt-d{d}-{args.tag}.jsonl')
-        label = fam.label + (f'|pD{args.pD}' if args.pD else '') + (f'|vanish:{args.vanish}' if args.vanish else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
+        label = fam.label + (f'|pD{args.pD}' if args.pD else '') + (f'|vanish:{args.vanish}' if args.vanish else '') + (f'|vanishL:{args.vanishL}' if args.vanishL else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
         conn.send({'type': 'setup', 'wid': wid, 'r': r, 'K': fam.K, 'nK': kb.nK, 'dimP': vp.dimP, 'nspur': vp.nspur,
                    'setup_s': round(setup, 1), 'Fres': pts.Fres, 'label': label, 'nKsector': int(vp.nKc), 'ref_B0norm2': ref})
         rels = []
@@ -324,6 +356,7 @@ def main():
     ap.add_argument('--maxiter', type=int, default=400)
     ap.add_argument('--margin', type=int, default=100, help='extra complex points beyond (dim a + dim c)/2')
     ap.add_argument('--hit', type=float, default=1e-9)
+    ap.add_argument('--vanishL', default='', help='linear forms and order, e.g. "X0-X1,Y0-Y1,X2:3" (D vanishes to order 3 along their common zero set)')
     ap.add_argument('--vanish', default='', help='restrict D(a) to an ideal power: X3, X4, Y3, Y4, L01x4, P0x2 ...')
     ap.add_argument('--pD', type=int, default=0, help='Y-parity of D (0 even, 1 odd)')
     ap.add_argument('--sector', type=int, default=0, help='(01)-sector: +1 D invariant (N anti-equivariant), -1 D anti-invariant, 0 none')
@@ -351,7 +384,7 @@ def main():
     tot = sum(m.get('n', 0) for m in summary)
     best = min([m['best'] for m in summary if m.get('best') is not None], default=None)
     hist = [sum(m.get('hist_log10', [0]*11)[i] for m in summary) for i in range(11)]
-    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'vanish': args.vanish, 'workers': args.workers,
+    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'vanish': args.vanish, 'vanishL': args.vanishL, 'workers': args.workers,
            'restarts_total': tot, 'best_rel': best, 'hist_log10_bins': '[<-14,-12,-10,-8,-6,-4,-3,-2,-1,0,>0]', 'hist': hist,
            'maxiter': args.maxiter, 'seconds': round(time.time() - t0, 1), 'seed': args.seed, 'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
     with open(os.path.join(LANE, 'w2-pt-summary.jsonl'), 'a') as fh: fh.write(json.dumps(out) + '\n')

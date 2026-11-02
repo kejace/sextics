@@ -2,3 +2,8 @@
 {"seed": 112, "f": 0.008103800173103599, "bnorm2": 2.3155700731716435, "relres": 0.059158260810175625, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 160.19, "init": "gauss"}
 {"seed": 120, "f": 0.00563986049988504, "bnorm2": 1.8833031655573713, "relres": 0.05472352477703379, "iters": 39, "njac": 40, "nres": 78, "status": "flat", "time": 121.08, "init": "gauss"}
 {"seed": 128, "f": 0.00571059971968292, "bnorm2": 1.9347116061459309, "relres": 0.05432912885537395, "iters": 58, "njac": 58, "nres": 106, "status": "stalled", "time": 161.88, "init": "gauss"}
+{"seed": 136, "f": 0.005504917572322771, "bnorm2": 1.9565097978490429, "relres": 0.05304377163744291, "iters": 39, "njac": 39, "nres": 91, "status": "stalled", "time": 97.7, "init": "gauss"}
+{"seed": 144, "f": 0.00787381350279079, "bnorm2": 1.8499342092887316, "relres": 0.06524007028352626, "iters": 49, "njac": 49, "nres": 100, "status": "stalled", "time": 158.95, "init": "gauss"}
+{"seed": 152, "f": 0.0056990301567848, "bnorm2": 1.937219160461712, "relres": 0.05423892827833317, "iters": 81, "njac": 83, "nres": 120, "status": "flat", "time": 112.47, "init": "gauss"}
+{"seed": 160, "f": 0.009360580457813964, "bnorm2": 2.7534308343793095, "relres": 0.05830614180055943, "iters": 85, "njac": 85, "nres": 138, "status": "stalled", "time": 129.64, "init": "gauss"}
+{"seed": 168, "f": 0.005699030156784805, "bnorm2": 1.937219160791756, "relres": 0.05423892827371284, "iters": 48, "njac": 48, "nres": 96, "status": "stalled", "time": 176.7, "init": "gauss"}

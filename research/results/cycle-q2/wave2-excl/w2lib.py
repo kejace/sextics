@@ -87,7 +87,7 @@ def exact_columns(F, A, q, D, cols):
     rhs = {e: int(v) for e, v in rhs.items()}
     return colpolys, rhs, Dz
 
-def farkas(F, A, q, D, p, G=None, save=None, Dstr=None, verbose=False, max_store=4_000_000):
+def farkas(F, A, q, D, p, G=None, save=None, Dstr=None, verbose=False, max_store=60_000_000):
     """Exact Farkas certificate of inconsistency of the sector system for D (if inconsistent mod p).
 
     Returns dict(status, ...).  status in {'consistent-mod-p', 'certified', 'failed'}."""

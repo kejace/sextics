@@ -153,6 +153,40 @@ if d >= 10:
 # A-multiples and A-related: A * S_{d-6}^odd (D divisible by the target itself)
 fams.append((f'A * S_{d-6}^odd', [mul(A, {m: Fraction(1)}) for m in monomials(d - 6, 1)]))
 # Hessian of the cubic-in-Q structure: det of Hess_Z (sum Q_i^3) is degree 24; skip.  Discriminant-type: skip.
+# --- union families and shape-symmetry invariant subspaces (dossier E3)
+def union(names):
+    out = []
+    for nm, polys in fams:
+        if any(nm.startswith(s) for s in names):
+            out.extend(polys)
+    return out
+if d % 2 == 0:
+    fams.append(('UNION C[Q]_k + delta*S + A*S + F_iF_j*S', union([f'C[Q]_{d//2}', 'delta * S', 'A * S', 'F_i F_j'])))
+    fams.append(('UNION C[Q]_k + bihomogeneous + all C[Q_S]_k', union([f'C[Q]_{d//2}', 'C[Q_0,Q_1,Q_2]', 'C[Q_S]'])))
+fams.append(('UNION all cones with vertex a line', union(['C[z_'])))
+fams.append(('UNION cones vertex a plane + extreme bidegrees', union(['C[X0,X1,X2]', 'C[Y0,Y1,Y2]', f'bidegree ({d-2},2)', f'bidegree (2,{d-2})'])))
+def orbit_sums(perms):
+    seen = set(); out = []
+    for m in monomials(d, 0):
+        if m in seen: continue
+        orb = {m}; frontier = [m]
+        while frontier:
+            x = frontier.pop()
+            for pm in perms:
+                y = tuple(x[pm[i]] for i in range(6))
+                if y not in orb: orb.add(y); frontier.append(y)
+        seen |= orb
+        P = {}
+        for y in orb: P[y] = Fraction(1)
+        out.append(P)
+    return out
+rho = (1, 2, 0, 4, 5, 3)     # X0->X1->X2->X0, Y0->Y1->Y2->Y0  (as index permutation of exponents)
+sigma = (3, 4, 5, 0, 1, 2)   # X_i <-> Y_i
+fams.append(('rho-invariant (cyclic shift of both blocks) Y-even polynomials', orbit_sums([rho])))
+fams.append(('sigma-invariant (X_i <-> Y_i) Y-even polynomials', orbit_sums([sigma])))
+fams.append(('(rho,sigma)-invariant Y-even polynomials', orbit_sums([rho, sigma])))
+tau_x = (1, 0, 2, 4, 3, 5)   # X0<->X1, Y0<->Y1 (a transposition of the shape symmetry S3)
+fams.append(('S3 x (X<->Y) shape-symmetric Y-even polynomials', orbit_sums([rho, sigma, tau_x])))
 out_path = a.out or f'/tmp/hodge/results/{LANE}/w2_struct_d{d}_cands.jsonl'
 recs = []
 with open(out_path, 'a') as out_f:

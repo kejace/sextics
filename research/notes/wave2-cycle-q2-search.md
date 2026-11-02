@@ -77,25 +77,28 @@ So at d = 6 the right-hand side -B_D(N0) must satisfy ~240 independent linear co
 parameters: a solution needs a genuine geometric reason (this quantifies why every tested D fails with rank/aug = +1).
 The Koszul unknowns carry a 32-34 dimensional gauge (second syzygies), handled by the rank-revealing least squares.
 
-### Steps 2-5: joint numerical search (remote jobs, running)
+### Steps 2-5: joint numerical search (remote jobs)
 
-Mid-course correction (20:00): the box reached load > 1000 (69 agent sessions), so the first chains (300/150/60 restarts
-per sector at d = 6/7/8, 50 structured sub-family invocations per degree) were killed after ~1 h of near-zero progress and
-resubmitted with 16 worker processes, fewer restarts (100/60/30/12 at d = 6/7/8/9; 1000 extra restarts on the d = 6
-trivial sector), and a `multi` mode that builds each sector system once and searches all structured sub-families
-(cone4, mult4, cone3) on it through linear sub-family views (`KoszulVarPro.subfamily`).  A fifth chain searches the q = 1
-sibling (F, B = X0 X1^2 Y0 Y1^2) at d = 8..12 (systems ~300 x 75 at d = 8): a lambda-family of sibling certificates
-differentiates to a q = 2 certificate for A = M1 B with denominator D^2 (dossier P2 / A.7).
+Mid-course corrections (20:00-20:40): the box reached load 1000-1300 (70 agent sessions on 128 cores), so the first chains
+(300/150/60 restarts per sector at d = 6/7/8, 200 LM evaluations per restart, 8-16 workers, 50 structured sub-family
+invocations per degree) made almost no progress in an hour and were killed and resubmitted twice with 32 worker processes,
+at most 60 LM evaluations per restart (LM converges in 20-35 at true zeros, see the Fermat calibration), fewer restarts,
+and a `multi` mode that builds each sector system once and searches all structured sub-families on it through linear
+sub-family views (`KoszulVarPro.subfamily`).  Final job set:
 
-* chain A `search-cycle-q2-chainA`: e1dims (done to d = 11) -> kernel d = 6, all sectors, 300 LM restarts each -> d = 7
-  (150) -> d = 8 (60).
-* chain B `search-cycle-q2-chainB`: J-type relaxation d = 6 (numeric, 400 restarts) -> cone4 (15 line vertices), mult4
-  (15 lines: multiplicity >= 4 at the six points of X ∩ line), cone3 (20 plane vertices) at d = 7, 8, 9, 10, 40/40/30
-  restarts per sector.
-* chain C `search-cycle-q2-chainC`: trivial sector at d = 6 (the 6-dim family D = sum a_i Z_i F_i whose Jacobian
-  relaxation is a degree-8 surface V0, see excl notes R6) with 3000 LM restarts in 8 parallel parts -> kernel d = 9 (30).
-* chain D `search-cycle-q2-chainD`: modular sector tests of 420 structured semi-invariant candidates (117 Hessian 2x2
-  minors d = 8, 210 Hessian 3x3 minors d = 12, 63 subset-Euler forms E_I(F) d = 6 and their squares d = 12, block-q2
-  cubics in each pair, pair-Fermat products, F_i F_j), two primes.
+* chain A3 `search-cycle-q2-chainA3`: kernel d = 6 (40 LM restarts per sector, 72 sectors) -> trivial sector d = 6 (the
+  6-dim family D = sum a_i Z_i F_i whose Jacobian relaxation is the degree-8 surface V0 of the excl notes, 400 extra
+  restarts) -> kernel d = 7 (30) -> d = 8 (15) -> d = 9 (8).
+* chain B3 `search-cycle-q2-chainB3`: structured sub-families inside every sector kernel at d = 7, 8, 9, 10: cone4 (15
+  line vertices), mult4 (15 coordinate lines: multiplicity >= 4 at the six points of X ∩ line, a linear condition over Q
+  because the six points form one G-orbit), cone3 (20 plane vertices); 15 restarts each.  Then kernel d = 10 (12
+  restarts), the product/square relaxation prod6 at d = 12 (span of products of degree-6 kernel elements of complementary
+  characters), kernel d = 11 (8) and d = 12 (6).
+* chain D2 `search-cycle-q2-chainD2`: modular sector tests (two primes) of 420 structured semi-invariant candidates:
+  117 Hessian 2x2 minors (d = 8), 210 Hessian 3x3 minors (d = 12), 63 subset-Euler forms E_I(F) (d = 6) and their squares
+  (d = 12), block-q2 cubics in each pair, pair-Fermat products, F_i F_j; then an exact scan of the nine 2-dimensional
+  E1-kernel sectors at d = 6 (all F_p-rational points of each pencil through a maximal-minor polynomial, `w2_pencil.py`).
+* chain E `search-cycle-q2-chainE`: q = 1 sibling (F, B = X0 X1^2 Y0 Y1^2) kernel search at d = 8..12 (systems
+  ~300 x 75 at d = 8); its d = 8 run was killed by mistake at 20:38 and must be repeated.
 
 Results: pending.

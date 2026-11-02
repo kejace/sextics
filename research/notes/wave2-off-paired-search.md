@@ -1,15 +1,19 @@
 # Wave 2 — off-paired — SEARCH lens
 
-STATUS: IN PROGRESS (2026-11-01 20:20 local). No witness; no nontrivially served class found so far.
-Remote (128 cores) is at load 1000-1300 from ~50 agents (10x oversubscribed), so throughput is ~1/10 of nominal; jobs are
-force-submitted through a local queue runner (op_s2_queue.py, <= 4 running, prefix search-off-paired-s2-).
-DONE: step 1 (E1 dimension table); Fermat calibration d=6 (16/96 exact hits), d=7 (10/96); exact served-space scan of 3922
-structured denominators (all 3/4/5-variable-subset forms of degree 4-6 in every G-character, Fermat-type cones, named blocks,
-random colon elements at d=9..12): 0 nontrivially served (3,0)-classes; d=8 (0,0) colon search, first 52 restarts (exact-QR
-solver): best relres 1.3173e-2 (a hyperplane-arrangement attractor, see landscape note), 25 distinct minima; d=8 (1,0): 25 restarts,
-best 7.3e-2. Solver sped up 3x (ridge normal equations + SVD polish, identical minima); d=8 jobs relaunched (d8c00b, d8h0b).
-RUNNING/QUEUED: d8c00b, d8h0b, d9h0, d10h0, hess, struct-hess3, homotopy(+served tracking, multi-start), d11, ft-d9h0, d8hmix,
-d12, d9h0more, struct-cones, d8gmix, d10rest, ft-d8h0, struct-hess4, d7tau, d10h0more; servedscan-all (all 18 Y-odd target sectors).
+STATUS: IN PROGRESS (2026-11-01 20:35 local). No witness; no nontrivially served class found.
+Remote (128 cores) at load ~1000-1300 from ~50 agents (10x oversubscribed): throughput ~1/10 nominal; my jobs go through a local
+queue runner (op_s2_queue.py, <= 4 running, job prefix search-off-paired-s2-).
+DONE: (1) E1 dimension table d=4..12, all 36 characters; Fermat calibration d=6 (16/96 exact hits), d=7 (10/96); (2) exact
+served-space scan of 3922 structured denominators (all 3/4/5-variable-subset forms of degree 4-6 in every character, Fermat
+cones, named blocks, random colon elements): 0 nontrivially served (3,0)-classes; (3) exact first-order deformation theory
+along F_t = Fermat + t*Qx: every Fermat cone certificate (6 cones x d = 6..9) is obstructed at first order, every join class
+served by the X-cone dies at first order (along Qx and along the chain; the extra monomial alone is harmless); (4) d=8 (0,0)
+colon search: 84 restarts so far (two solver variants), best relres 1.3173e-2 = a hyperplane-arrangement attractor (not a
+solution type), 25+ distinct local minima; d=8 (1,0): 25 restarts, best 7.3e-2.
+RUNNING: Fermat d=8 calibration, servedscan-all (18 target sectors), d8c00b (500 restarts), d8h0b ((3,0),(1,0),(2,0),(4,0),(5,0)).
+QUEUED: firstorder d=10,11; fe-control (Fermat+extra term alone, d=6,7); d9h0; hess (Hessian relaxation d=8..12); struct-hess3;
+homotopy (+ exact served tracking, multi-start); d10h0; d11; ft-d9h0 (free target); d8hmix; d12; d9h0more; struct-cones; d8gmix;
+d10rest; ft-d8h0; struct-hess4; d7tau (parity-only d=7); d10h0more.
 Sector VarPro library validated on the Fermat positive control (exact f6 recovered to 7e-14, confirmed exactly).
 Remote jobs queued (remote at load ~250/128, waiting for capacity): Fermat success-rate calibration, d=8 (0,0) colon search.
 NOTE: a second agent (lens `excl`) works on this lane in wave2-excl/ and runs the Delta_t full solve and the two-prime
@@ -99,8 +103,8 @@ restart counts must be large, and the free-target variant (any served class) is 
 2-dimensional Jacobian part): all forms of degree 4, 5, 6 in every 3-, 4- and 5-variable coordinate subset, in every
 G-character (3 random integer members per family), the Fermat-type cones X_a^6+X_b^6+X_c^6 for all mixed triples, the named
 blocks f6, g6, H, C, D0, X2^6 +- Y2^6, Qx, R, and random elements of (J:A)_{9,(0,0)}, (J:A)_{9,(3,0)}.
-Result: 0 nontrivially served classes (every served space equals the Jacobian part). The same scan over all 18 Y-odd target
-sectors (1 member per family) is running (servedscan-all).
+Result: 0 nontrivially served classes (every served space equals the Jacobian part). The same scan over all 18 Y-odd target sectors (1386 denominators, 1 member per family) also found 0 nontrivially
+served classes: these structured supports serve nothing at all on off-paired, in any sector (exact mod p).
 
 Structural remark (why base cones cannot help). For a sigma2-eigen denominator D the threefold Z = X cap V(D) is sigma2-stable,
 and the Gysin map H^2(Z~) -> H^4(X) is equivariant; since the whole G-invariant H^4_prim is sigma2-ANTI-invariant (dossier 1.4),
@@ -133,4 +137,10 @@ mechanism). Two independent obstructions therefore have to be overcome simultane
 Served-space version (w2_firstorder_free.py, d = 6, D0 = f6): at t = 0 the X-cone serves 14 of the 24 sector monomials
 (12 join classes + 2 Jacobian-part directions). Along Qx and along the chain only the Jacobian-part direction X0^5 Y1 survives to
 first order (with dD free in the sector): every join class dies at first order. Along the extra monomial alone X0^3 Y0^3 and
-X0^3 Y1^3 survive. So the cone over C_X cannot be "corrected" perturbatively on off-paired in any target direction.
+X0^3 Y1^3 survive. Same for the Y-cone g6 (14 served, only the J-part direction survives) and for the mixed cones X0^6+X1^6+Y1^6, X0^6+X2^6+Y2^6
+(6 served each, none survives). So no Fermat cone can be "corrected" perturbatively on off-paired in any target direction.
+
+Sector (3,0), d = 8 (Y-odd D, K = 31, gauge 3, dimP = 28; job d8h0b-c30): after 70 restarts the best minimum (relres 2.053e-2, hit twice)
+is again a binary form in (X0, Y1): 0.64 X0^5 Y1^3 - 0.58 X0^3 Y1^5 + 0.35 X0 Y1^7 - 0.27 X0^7 Y1 + small corrections, sigma2-even and
+99.8 % inside J_8 -- the same hyperplane-arrangement attractor type (eight hyperplanes through {X0 = Y1 = 0}, here including X0 = 0
+and Y1 = 0). Median restart 8.3e-2.

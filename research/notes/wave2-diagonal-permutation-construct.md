@@ -1,6 +1,6 @@
 # Wave 2 — diagonal-permutation — CONSTRUCTION lens
 
-STATUS: no witness. Mechanisms (i)–(v) analysed against the exact (F, q=1, A = X0^3Y0^3 − X1^3Y1^3); each fails for an identified structural reason (§2). New rigorous negative facts: every natural "geometric" degree-6 divisor (Shioda-type cones over the tau-fixed curves with any vertex, the cones over the transposition-fixed sextic surface, the tau·s-cones, the sign-type quadric) supports NO primitive tau-invariant (3,1)-class (§3, X1/J5/J5b). Exact msolve tests for the two cheapest hidden-structure shapes (hidden reflection / §2.7 exchange partner, and the same on the (01)-pencil fibres) are running remotely (jobs `construct-dp-j1j2`, `construct-dp-fibre`); numerical screens found nothing (§3).
+STATUS: no witness. Mechanisms (i)–(v) analysed against the exact (F, q=1, A = X0^3Y0^3 − X1^3Y1^3); each fails for an identified structural reason (§2). New rigorous negative facts: every natural geometric degree ≤ 6 divisor tested (Shioda-type cones over the tau-fixed curves with any vertex, cones over the transposition-fixed sextic surface with equivariant or random vertex lines, the tau·s-cone, the sign-type quadric) supports NO primitive (3,1)-class (§3, X1/J5/J5b, 13 divisors, all kernels zero). Exact msolve tests for hidden reflections / §2.7 exchange partners on P^5 and on the (01)-pencil fibres were still running on the remote at hand-off (jobs `construct-dp-j1j2`, `construct-dp-fibre`; results will be appended to the REMOTE copy of wave2-construct.log.jsonl — retrieve with `python3 -m hodge.rjob pull --lane diagonal-permutation`); numerical screens found no candidate. A ready-to-run served-space job for D8 (w2c_d8_served.py) is prepared but not submitted (concurrency budget).
 
 Log (one JSON line per experiment): /tmp/hodge/results/diagonal-permutation/wave2-construct.log.jsonl
 Scripts: /tmp/hodge/results/diagonal-permutation/w2c_*.py, w2c_j1j2.sh, w2c_fibre.sh.
@@ -14,7 +14,11 @@ Scripts: /tmp/hodge/results/diagonal-permutation/w2c_*.py, w2c_j1j2.sh, w2c_fibr
 6. (v) No companion on the same variety.
 7. Served-space facts (X1/J5/J5b): multiplication by [D] on R_6^- is injective for D = ΣX_i^6, ΣY_i^6, their sum, the cones over S_01, S_02 with the anti-invariant vertex line, the cones over Z_X with random vertex planes (both parities), the cone over S_01 with random vertex lines, the tau·s cones, the sign quadric u_X∧u_Y, X0^6+Y0^6 and the coupling part; since served(D) ⊆ Ann([D]) ∩ R_6^- these divisors support nothing. On the Fermat member ΣX_i^6 ∈ J and the join carries all bidegree-(3,3) classes (control: kernel 208).
 8. Consequence: the (3,1)-class of A is transcendental for every "visible" divisor of degree ≤ 6; with the E1 bound deg D ≥ 8 (attack1), a support must be a divisor of degree ≥ 8 with non-rational singularities or a non-normal locus whose (2,0)-forms globalize (the join structure that does this at Fermat is destroyed by the couplings).
-9. Correct test for a non-symmetric candidate divisor D (for the search lane): A is served by the S3-orbit product ∏_g D∘g iff m_A ∈ M_U, where U = served(D) (fixed_d.target_image), U_std = ⊕ std ⊗ M_U is its standard-isotypic part and m_A ∈ Hom_{S3}(std, R_6^-) is the multiplicity vector of A; for (01)-stable D this is "B ∈ served(D)". Products of excluded denominators are NOT automatically excluded (served spaces add).
+9. Correct test for ANY candidate divisor D (for the search lane): A is served by the S3-orbit product ∏_g D∘g iff
+   A ∈ Q[S3]·served(D) + J_6^-, i.e. iff A lies in the span of the six S3-translates of served(D) = fixed_d.target_image(F,1,D)
+   modulo J(F)_6^- (helper: w2c_served_orbit.py). Products of excluded denominators are NOT automatically excluded (served spaces
+   add), and a (01)-stable divisor may serve the anti-invariant A without serving the invariant B (served spaces are (01)-stable
+   subspaces, not necessarily (01)-invariant classes): the E1 facts A·D8 ∈ J, B·D8 ∉ J are consistent with V(D8) serving A.
 10. No finite-field incidence seed can be proposed: there is no uniruled auxiliary variety on which the shared Lean modules (HoldoutCover, PolynomialCurves, …) could be instantiated; the first new object a construction would need is a (01)-stable divisor of degree ≥ 8 serving B, or a hidden fibre reflection on the (01)-pencil (job J2f).
 
 ## 1. Inherited rigorous facts (dossier + attack1; not re-derived)
@@ -59,6 +63,21 @@ with vertex v (the Fermat support type: cones over p_g = 10 sextic surfaces).
 - Uniruledness: ages ≥ 1 for all 11 nontrivial elements at all fixed strata (dossier table), K_X = 0 ⇒ every X/K has canonical
   singularities and K ≡ 0: none is uniruled (Reid–Tai, Kollár–Larsen). S3 preserves the 4-form (det = +1) ⇒ p_g(X/K) = 1 for K ≤ S3;
   X/tau, X/<s,tau>, X/<tau s>, X/<tau c> have p_g = 0 and Kodaira dimension 0.
+- Hodge numbers of the quotients (from the dossier's equivariant Griffiths decomposition R_6^- = 39 triv + 31 sign + 69·2 std,
+  R_6^+ = 46 triv + 28 sign + 72·2 std; residues of Y-odd numerators are tau-invariant, of Y-even ones tau-anti-invariant):
+  | K | h^{4,0}(X/K) | h^{3,1}(X/K) = dim R_6^K | uniruled? |
+  |---|---|---|---|
+  | 1 | 1 | 426 | no (CY) |
+  | <s> | 1 | 108 + 118 = 226 | no |
+  | A3 | 1 | 70 + 74 = 144 | no |
+  | S3 | 1 | 39 + 46 = 85 | no |
+  | <tau> | 0 | 208 | no (κ = 0) |
+  | <tau s> | 0 | 108 + 100 = 208 | no (κ = 0) |
+  | <s, tau> | 0 | 108 | no (κ = 0) |
+  | <tau c> (order 6) | 0 | 70 | no (free action, K trivial) |
+  | <A3, tau> | 0 | 70 | no |
+  | S3 × <tau> | 0 | 39 | no |
+  The class of A lives in the 69·2-dimensional std-part of the 208; its (01)-fixed partner B in the 108 of X/<s,tau>.
 - Surface fibrations with p_g = q = 0 fibres (book §3.2): impossible for K ≤ S3 (a nonzero 4-form restricts to a nonzero 2-form on a
   general fibre). For G = <s,tau>: the G-stable P^3's are sums of the eigenspaces E_{++} = <p,a>, E_{+-} = <q,b>, E_{-+} = <r>,
   E_{--} = <t> (p = X0+X1, r = X0−X1, q = Y0+Y1, t = Y0−Y1, a = X2, b = Y2); the 2-forms of the sextic surface S = X ∩ P^3 are
@@ -102,29 +121,30 @@ exactly the bilinear search problem (D in the 294-dimensional kernel). Not pursu
 |---|---|---|---|
 | X1 | ker [D] on R_6^- (Y-odd targets), D ∈ {ΣX^6, ΣY^6, ΣX^6+ΣY^6, cone_01 = F|_{r=t=0}, cone_02, X0^6+Y0^6, F − Fermat} | all 0 (ring dim 208); Fermat control for ΣX^6: 208 | p = 2^31−1; zero kernel transfers to Q |
 | J5 | ker [D_P] on R_6 (both parities), D_P = Σ(L_P Z)_i^6 cones over Z_X with random vertex planes (2 samples) | 0, 0 | mod p ⇒ Q |
-| J5b | ker on R_6 for the sign quadric u_X∧u_Y (sweep of the S3-orbit planes), cones over S_01 with random vertex lines (2), tau·s-cones (2) | see log (running) | mod p ⇒ Q |
+| J5b | ker on R_6 (both parities) for the sign quadric u_X∧u_Y (sweep of the S3-orbit planes), cones over S_01 with random vertex lines (2), tau·s-cone over Fix(tau s)_+ with vertex E_- | all 0 (the second tau·s-cone was still running at hand-off; see log) | mod p ⇒ Q |
 | J3 | p_g of <s,tau>-quotients of stable linear sections | min 1 (1-param), 4 (2-param) | exact |
 | J1-num | 200 BFGS starts on the rank-≤2 Hessian objective | finds only the trivial rank-deficient points (coordinate points; (1,±i,0,..)) | numerical |
 | J2-num | 30 Powell starts on the restricted-cubic objective | no candidate | numerical |
-| J2 | ℓ_v ∣ ∂_v^3 F, F(v) ≠ 0 (hidden reflections / §2.7 partners), 6 charts, msolve F_p | PENDING (remote `construct-dp-j1j2`) | mod p evidence |
+| J2 | ℓ_v ∣ ∂_v^3 F, F(v) ≠ 0 (hidden reflections / §2.7 partners), 6 charts, msolve F_p, 4 threads | RUNNING at hand-off (remote `construct-dp-j1j2`, chart 0 started 01:23 UTC) | mod p evidence |
 | J2-onX | same with F(v) = 0 (cone tangent sections) | PENDING | mod p evidence |
 | J1 | rank Hess F ≤ 2 locus (3×3 minors), 6 charts | PENDING (last in the job; expected to return the trivial points) | mod p |
-| J2f/J1f | the same two tests on the (01)-pencil fibre F_μ, μ = 3/7 (5 charts each) | PENDING (remote `construct-dp-fibre`) | mod p evidence |
+| J2f/J1r1/J1f | hidden reflections of the fibre F_μ (μ = 3/7, 5 charts), then the rank-1 Hessian locus on P^5 (2×2 minors, 6 charts: order-3/6 quasi-reflections and §2.7 partners), then rank ≤ 2 on the fibre | RUNNING at hand-off (remote `construct-dp-fibre`) | mod p evidence |
 
 Interpretation of X1/J5/J5b. For Y = X ∩ V(D) at q = 1 every served target A' satisfies A'·D ∈ J(F) (reduce the certificate
 identity mod F), so served(D)/J_6^- ⊆ ker([D]: R_6^- → R_12^-); zero kernel ⇒ Y supports no nonzero tau-invariant primitive
 (3,1)-class, whatever its singularities. Geometric reading: on the Fermat member the join {ΣX^6 = 0} ∩ X_0 = J(Z_X, Z_Y) (a cone over
 Z_X × Z_Y) carries all 100 bidegree-(3,3) classes including A (Shioda); on X the divisor X ∩ {ΣX^6 = 0} still has the curve Z_Y of
 transversal cone-over-Z_X singularities (exceptional surface Z_X × Z_Y, 100 candidate (2,0)-forms) but its tau-invariant Gysin image is
-zero — the forms do not globalise once the join structure is broken (along Z_X the transversal type becomes the quadric cone
-Y^T M(x) Y = 0, rational). Likewise the cone over S_01 with vertex the anti-invariant line is the sweep of the s-equivariant plane
+zero (rigorous). Interpretation (not proved here): either the candidate forms do not globalise to the resolution once the join
+structure is broken (the d_2 differential H^1(Z_Y, R^1π_*O) → H^3(O_Y) of the Leray sequence need not vanish; along Z_X the
+transversal type becomes the quadric cone Y^T M(x) Y = 0, which is rational), or they globalise and the Gysin map kills them. Likewise the cone over S_01 with vertex the anti-invariant line is the sweep of the s-equivariant plane
 sextics C_p = X ∩ (p + E_−), p ∈ S_01, a family whose total space has H^{2,0} ⊇ H^{2,0}(S_01) (10-dimensional), and its cylinder map to
 H^{3,1}(X)^tau vanishes. These are the first supported-sector computations on this variety and they show the obvious geometry is
 "invisible" to the primitive (3,1)-cohomology.
 
 ## 4. What a construction would have to supply (precise)
 - A divisor Y ⊂ X of degree ≥ 8 (E1) with non-rational singularities or a non-normal locus whose (2,0)-forms globalise, such that
-  m_A ∈ M_{served(Y)} (criterion in §0.9); for a (01)-stable Y: B ∈ served(Y). All degree-≤ 6 natural candidates are excluded (§3).
+  A ∈ Q[S3]·served(Y) (criterion in §0.9). All degree-≤ 6 natural candidates are excluded (§3).
 - Or a second reflection on the (01)-pencil fibres after base change (J2f), which would make Z/<s̃,σ> fibrewise Fano and give
   H^4(X)^{(01)} ⊂ N^1 via the descent of §4.6 (with the exchange conjugating the deck action into a lift of a physical symmetry).
 - Or a non-quotient correspondence from a uniruled 4-fold; none of the natural incidence varieties (lines, conics: 1-parameter

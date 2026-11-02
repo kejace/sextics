@@ -1,0 +1,28 @@
+[
+ {
+  "file": "w2-pt-d7-j7a.jsonl",
+  "d": 7,
+  "tag": "j7a",
+  "family": "jac-d7",
+  "restarts": 558,
+  "best_rel": 0.09857032642640834,
+  "median_rel": 0.2147305662228749,
+  "best_rel_abs": null,
+  "iters_median": 85.0,
+  "iters_max": 214,
+  "sec_per_restart": 31.7,
+  "hist_log10": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   557,
+   0
+  ]
+ }
+]

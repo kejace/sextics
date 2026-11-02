@@ -64,6 +64,15 @@ excl-spp-e1k with p = 2147483629 for d ≤ 6 and by this session for d ≤ 3 wit
 degree 5: w constant, Φ(w) = 30 Σ_k l_k^4 (w·∇l_k)^2 ∈ J_4 = 0 forces w = 0 since the eight quartics l_k^4 are
 independent — also confirmed computationally.)
 
+### 1a. Degree 7, Y-even, block elimination (R5), prime 1073741789, pass 1 (local run, ~7 min)
+61 unknowns in the slice (λ for D7^+ plus 60 field coefficients), 1891 pairs, span of all pair polynomials in R_14^- = 734 (of 744).
+* Y-component blocks w3, w4, w5 (9 unknowns each): 18 quadrics in 6 visible unknowns, m-primary → eliminated; 3 invisible each.
+* λ: the λ^2 coefficient B_{D7}(N7) survives all functionals → **λ = 0: no degree-7 Y-even denominator involves D7^+
+  (every solution of the relaxation is a pure Jacobian denominator w(F))** (mod p; exact certificate pending).
+* X-component blocks w0, w1, w2: 29 quadrics in 9 visible unknowns each, NOT m-primary in pass 1.
+* Residual: 42 unknowns, 231 independent quadrics → iterated passes + msolve on the residual running (local), remote job
+  exclB-spp-blocks will repeat with exact certificates.
+
 ## 2. Wave-1 claims: re-verification status
 1. E1 kernel dims (p = 2^31−1): d ≤ 3 confirmed with p = 1073741789; d = 4..10 queued (job excl-spp-e1k).
 2. d = 6 Hessian relaxation (p = 536870909, Singular): confirmed with p = 1073741789 by both msolve and Singular;
@@ -74,10 +83,19 @@ independent — also confirmed computationally.)
    456, so 6 extra homogeneous solutions exist and that single test is modular evidence only. The d = 7 relaxation
    covers D7 + J_7 entirely and will supersede it.
 
-## 2b. Other agents on this lane (for the record, not re-derived here)
-* search lens: K_8^+/J and K_8^-/J both 6-dimensional (primes 2^31−1 and 2147483629); full fixed-D test of D7^+ inconsistent mod 2^31−1.
-* verify lens: jobs verify-spp-e1k, verify-spp-relax6, verify-spp-d7exact (running).
-* sibling excl instance: excl-spp-e1k (d ≤ 6 agree with wave 1 and with this session), excl-spp-quad6/7/8 (running).
+## 2b. Other agents on this lane (for the record, read from their logs; not re-derived here)
+* E1-kernel dimensions now agree across FOUR primes: 2^31−1 (wave 1), 2147483629 (sibling excl job, d ≤ 7 even),
+  1000000007 (verify lens, d ≤ 7 both parities), 1073741789 (this session: d ≤ 3 both parities, d = 7 even).
+* verify lens: Singular re-run of the wave-1 d = 6 relaxation (no Euler slice): even dim 1 / mult 1216 (the Euler line),
+  odd dim 0 / mult 540 — matches this session's sliced computation (vdim 1216 / 540).
+* search lens (`wave2-search.log.jsonl`): K_8^-/J = S_1·K_7 exactly (Y_i D7^+, X_i D7^-); K_8^+/J = 6 of which S_1·K_7 gives
+  only 4 because **L·D7^+ ∈ J_8 and M·D7^- ∈ J_8** (D7^± are residuals of degree-8 polar divisors containing the
+  hyperplane sections L = 0 resp. M = 0), plus 2 new even elements; K_9^+/J = 18; Gorenstein-duality forced values
+  dim Ann_10 = (300, 267), Ann_11 = (511, 511), Ann_12 = (677, 648). Full fixed-D test of D7^+ inconsistent mod 2^31−1
+  (served space = J_6^- only). Structured points (D7 alone, polar-residual fields, pencils) fail the d = 7 relaxation.
+* construct lens: exact identities (e.g. eX·M^6 − eY·L^6 = (L^2+M^2)·G10 − L^6·F), Fano scheme of lines, rationality of the
+  τ-quotient discriminant curve, a non-domination lemma for X/τ.
+* sibling excl instance: excl-spp-quad6/7/8 (Gröbner on the unsliced relaxations; no output yet after >1 h).
 
 ## 3. Open / queued
 * exclB-spp-relax-mixed (queued): exact D7^± + exact dependency certificates for mixed d=6; second prime; mixed d=7 by (R4).

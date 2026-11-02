@@ -153,3 +153,21 @@ if __name__ == '__main__':
                     n_cons += 1
     W.log(step='struct-sweep-end', which=which, n_new=len(jobs), n_consistent=n_cons, seconds=round(time.time() - t0, 1))
     print(f'[struct-sweep] done {time.time()-t0:.0f}s consistent={n_cons}', flush=True)
+    # exact pencil scan of the 2-dimensional E1-kernel sectors at d = 6 (two primes)
+    try:
+        import w2_pencil
+        F, A, q, rec = core.load_instance('cycle-q2')
+        S = W.Sectors(F, A)
+        for p in (W.PRIME, core.PRIMES[1]):
+            for kappa in S.all_keys(6):
+                r = W.e1_kernel_modp(S, 6, kappa, q, p=p)
+                if r['dimK'] != 2:
+                    continue
+                D1, D2 = r['basis']
+                info = w2_pencil.pencil_scan(F, A, q, D1, D2, p)
+                info.update({'d': 6, 'key': kappa, 'p': p, 'dimJ': r['dimJ'], 'D1': core.to_str(D1)[:150], 'D2': core.to_str(D2)[:150]})
+                print('[pencil]', json.dumps(info), flush=True)
+                W.log(step='pencil-scan', **info, note='exact scan of a 2-dim E1-kernel sector family at d=6: F_p-roots of a maximal minor polynomial, each verified by the full sector solve')
+    except Exception as ex:
+        import traceback
+        W.log(step='pencil-scan', error=str(ex), note=traceback.format_exc()[-800:])

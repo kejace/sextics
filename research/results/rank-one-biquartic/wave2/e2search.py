@@ -36,6 +36,14 @@ ap.add_argument('--batch-note', default='')
 ap.add_argument('--report-every', type=int, default=25)
 ap.add_argument('--instance', default=None, help='override instance id (validation runs)')
 args = ap.parse_args()
+# cooperative skip: a file out/STOP_<tag> makes this invocation exit immediately (used to drop steps from running chains)
+if os.path.exists(f'{OUT}/STOP_{args.tag}'):
+    print(f'[search] STOP file present for tag {args.tag}; skipping this step', file=sys.stderr)
+    log_line(f'{OUT}/{args.tag}.batch.jsonl', {'batch': 'e2search', 'tag': args.tag, 'd': args.d, 'pD': args.pD, 'skipped': True,
+             'note': 'skipped via STOP file (degree excluded exactly / reprioritized)', 'K': None, 'n_spurious': None, 'n_c': None, 'n_C': None,
+             'rows': None, 'rows_red': None, 'nN': None, 'restarts': 0, 'best_rel': None, 'median_rel': None, 'worst_rel': None,
+             'n_rel_lt_1e-3': 0, 'n_rel_lt_1e-6': 0, 'n_rel_lt_1e-8': 0, 'witness': False, 'time_s': 0})
+    sys.exit(0)
 
 F, A, q = load(args.instance)
 IID_RUN = args.instance or IID
@@ -240,6 +248,9 @@ def run_restarts(worker_id, seeds):
     path = f'{OUT}/{args.tag}.restarts.jsonl'
     cpath = f'{OUT}/{args.tag}.cands.jsonl'
     for sd in seeds:
+        if os.path.exists(f'{OUT}/STOP_{args.tag}'):
+            print(f'[search] STOP file for {args.tag}: ending batch early after {len(recs)} restarts in this worker', file=sys.stderr, flush=True)
+            break
         rng = np.random.default_rng(sd)
         u0 = rng.standard_normal(n_u); u0 /= np.linalg.norm(u0)
         z0 = np.concatenate([u0, np.zeros(n_sp)])

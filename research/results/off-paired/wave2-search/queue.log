@@ -8,3 +8,5 @@
 20:28:59 submit call timed out (ssh hang); verifying via pid file
 20:29:20 d8c00b confirmed submitted
 20:29:54 submitting d8h0b (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-servedscan']
+20:35:30 d8h0b: pid file exists on remote -> already submitted; popping
+20:35:35 submitting firstorder (cpus 1); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b']

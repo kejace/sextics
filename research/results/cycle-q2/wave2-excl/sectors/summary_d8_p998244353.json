@@ -1,0 +1,202 @@
+[
+ {
+  "exp": "sector-d8",
+  "d": 8,
+  "prime": 998244353,
+  "sector": [
+   0,
+   0,
+   1
+  ],
+  "dimS": 20,
+  "dimK": 19,
+  "dimJ": 8,
+  "complement": 11,
+  "cone_kernels": {
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X1Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    3,
+    0
+   ],
+   "Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    1,
+    0
+   ],
+   "X0X1X2Y1": [
+    1,
+    0
+   ],
+   "X0X1X2Y2": [
+    1,
+    0
+   ],
+   "X0X1Y1Y2": [
+    3,
+    0
+   ],
+   "X0X2Y1Y2": [
+    4,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X1X2Y0Y2": [
+    1,
+    0
+   ],
+   "X1X2Y1Y2": [
+    6,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    4,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 19,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 19 (not decided)",
+  "seconds": 39.7,
+  "job": "sectors"
+ },
+ {
+  "exp": "sector-d8",
+  "d": 8,
+  "prime": 998244353,
+  "sector": [
+   0,
+   0,
+   0
+  ],
+  "dimS": 23,
+  "dimK": 22,
+  "dimJ": 7,
+  "complement": 15,
+  "cone_kernels": {
+   "X0X1Y2": [
+    2,
+    0
+   ],
+   "X0X2Y2": [
+    2,
+    0
+   ],
+   "X0Y0Y2": [
+    4,
+    0
+   ],
+   "X0Y1Y2": [
+    2,
+    0
+   ],
+   "X1X2Y2": [
+    2,
+    0
+   ],
+   "X1Y0Y2": [
+    2,
+    0
+   ],
+   "X1Y1Y2": [
+    2,
+    0
+   ],
+   "X2Y0Y2": [
+    2,
+    0
+   ],
+   "X2Y1Y2": [
+    4,
+    0
+   ],
+   "Y0Y1Y2": [
+    2,
+    0
+   ],
+   "X0X1X2Y0": [
+    2,
+    0
+   ],
+   "X0X1X2Y1": [
+    2,
+    0
+   ],
+   "X0X1X2Y2": [
+    4,
+    0
+   ],
+   "X0X1Y0Y1": [
+    3,
+    0
+   ],
+   "X0X1Y0Y2": [
+    5,
+    0
+   ],
+   "X0X1Y1Y2": [
+    4,
+    0
+   ],
+   "X0X2Y0Y1": [
+    2,
+    0
+   ],
+   "X0X2Y0Y2": [
+    6,
+    0
+   ],
+   "X0X2Y1Y2": [
+    5,
+    0
+   ],
+   "X0Y0Y1Y2": [
+    5,
+    0
+   ],
+   "X1X2Y0Y1": [
+    1,
+    0
+   ],
+   "X1X2Y0Y2": [
+    4,
+    0
+   ],
+   "X1X2Y1Y2": [
+    6,
+    0
+   ],
+   "X1Y0Y1Y2": [
+    4,
+    0
+   ],
+   "X2Y0Y1Y2": [
+    5,
+    0
+   ]
+  },
+  "relax_nquadrics": 0,
+  "relax_dim_affine": 22,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 22 (not decided)",
+  "seconds": 44.8,
+  "job": "sectors"
+ }
+]

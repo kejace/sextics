@@ -584,4 +584,124 @@ theorem toC_ne_zero_of_evalPT (x : Fin 6 → ℤ) (t : PT) (h : evalPT x t ≠ 0
   rw [eval_toC, map_zero] at this
   exact h (by exact_mod_cast this)
 
+/-! ## Binding the verifier's witness terms
+
+`scripts/proposals/check.py` translates a witness string into nested `+`, `*`, `^`, unary `-`, variables
+`MvPolynomial.X i` and numerals `(n : Poly)`.  `W` mirrors exactly these shapes, so `HodgeWitness.D = denW w`
+holds by `rfl`, and `matchW w t` certifies (by kernel evaluation) that the same monomials, in the same tree
+order, are the leaves of the `PT` tree `t`. -/
+
+inductive W where
+  | var (i : Fin 6)
+  | nat (n : ℕ)
+  | neg (a : W)
+  | add (a b : W)
+  | sub (a b : W)
+  | mul (a b : W)
+  | pow (a : W) (n : ℕ)
+
+noncomputable def denW : W → Poly
+  | .var i => MvPolynomial.X i
+  | .nat n => (n : Poly)
+  | .neg a => -denW a
+  | .add a b => denW a + denW b
+  | .sub a b => denW a - denW b
+  | .mul a b => denW a * denW b
+  | .pow a n => denW a ^ n
+
+def Mono.zero : Mono := ⟨0, 0, 0, 0, 0, 0⟩
+
+def Mono.unit (i : Fin 6) (e : ℕ) : Mono :=
+  match i.val with
+  | 0 => ⟨e, 0, 0, 0, 0, 0⟩
+  | 1 => ⟨0, e, 0, 0, 0, 0⟩
+  | 2 => ⟨0, 0, e, 0, 0, 0⟩
+  | 3 => ⟨0, 0, 0, e, 0, 0⟩
+  | 4 => ⟨0, 0, 0, 0, e, 0⟩
+  | _ => ⟨0, 0, 0, 0, 0, e⟩
+
+def Mono.mul (a b : Mono) : Mono := ⟨a.e0 + b.e0, a.e1 + b.e1, a.e2 + b.e2, a.e3 + b.e3, a.e4 + b.e4, a.e5 + b.e5⟩
+
+/-- the monomial and coefficient denoted by a product-shaped witness term -/
+def leafVal : W → Option (Mono × ℤ)
+  | .var i => some (Mono.unit i 1, 1)
+  | .nat n => some (Mono.zero, n)
+  | .pow (.var i) e => some (Mono.unit i e, 1)
+  | .neg a => (leafVal a).map fun p => (p.1, -p.2)
+  | .mul a b => match leafVal a, leafVal b with
+    | some p, some q => some (Mono.mul p.1 q.1, p.2 * q.2)
+    | _, _ => none
+  | _ => none
+
+def matchW : W → PT → Bool
+  | .add a b, .node l r => matchW a l && matchW b r
+  | w, .leaf mo c => leafVal w == some (mo, c)
+  | _, _ => false
+
+theorem toC_leaf_mul (a b : Mono) (x y : ℤ) :
+    toC (.leaf (Mono.mul a b) (x * y)) = toC (.leaf a x) * toC (.leaf b y) := by
+  simp only [toC, Mono.mul, pow_add, Int.cast_mul, C_mul]; ring
+
+theorem toC_leaf_neg (a : Mono) (x : ℤ) : toC (.leaf a (-x)) = -toC (.leaf a x) := by
+  simp only [toC, Int.cast_neg, C_neg]; ring
+
+theorem toC_unit (i : Fin 6) (e : ℕ) : toC (.leaf (Mono.unit i e) 1) = MvPolynomial.X i ^ e := by
+  fin_cases i <;> simp [toC, Mono.unit]
+
+theorem toC_nat (n : ℕ) : toC (.leaf Mono.zero n) = (n : Poly) := by
+  simp [toC, Mono.zero]
+
+theorem leafVal_sound (w : W) (mo : Mono) (c : ℤ) (h : leafVal w = some (mo, c)) : denW w = toC (.leaf mo c) := by
+  induction w generalizing mo c with
+  | var i => simp only [leafVal, Option.some.injEq, Prod.mk.injEq] at h; obtain ⟨rfl, rfl⟩ := h
+             rw [denW, toC_unit, pow_one]
+  | nat n => simp only [leafVal, Option.some.injEq, Prod.mk.injEq] at h; obtain ⟨rfl, rfl⟩ := h
+             exact (toC_nat n).symm
+  | neg a ih =>
+    simp only [leafVal, Option.map_eq_some_iff] at h
+    obtain ⟨⟨mo', c'⟩, h1, h2⟩ := h
+    simp only [Prod.mk.injEq] at h2
+    obtain ⟨rfl, rfl⟩ := h2
+    simp only [denW, ih mo' c' h1, toC_leaf_neg]
+  | add a b iha ihb => simp [leafVal] at h
+  | sub a b iha ihb => simp [leafVal] at h
+  | mul a b iha ihb =>
+    simp only [leafVal] at h
+    split at h
+    · rename_i p q hp hq
+      simp only [Option.some.injEq, Prod.mk.injEq] at h
+      obtain ⟨rfl, rfl⟩ := h
+      rw [denW, iha p.1 p.2 hp, ihb q.1 q.2 hq, toC_leaf_mul]
+    · exact absurd h (by simp)
+  | pow a n ih =>
+    cases a with
+    | var i =>
+      simp only [leafVal, Option.some.injEq, Prod.mk.injEq] at h; obtain ⟨rfl, rfl⟩ := h
+      simp only [denW]; exact (toC_unit i n).symm
+    | nat _ => simp [leafVal] at h
+    | neg _ => simp [leafVal] at h
+    | add _ _ => simp [leafVal] at h
+    | sub _ _ => simp [leafVal] at h
+    | mul _ _ => simp [leafVal] at h
+    | pow _ _ => simp [leafVal] at h
+
+theorem matchW_sound (w : W) (t : PT) (h : matchW w t = true) : denW w = toC t := by
+  induction t generalizing w with
+  | leaf mo c =>
+    have h' : leafVal w = some (mo, c) := by
+      cases w <;> simpa [matchW] using h
+    exact leafVal_sound w mo c h'
+  | node l r ihl ihr =>
+    cases w with
+    | add a b =>
+      simp only [matchW, Bool.and_eq_true] at h
+      simp only [denW, toC, ihl a h.1, ihr b h.2]
+    | var _ => simp [matchW] at h
+    | nat _ => simp [matchW] at h
+    | neg _ => simp [matchW] at h
+    | sub _ _ => simp [matchW] at h
+    | mul _ _ => simp [matchW] at h
+    | pow _ _ => simp [matchW] at h
+
+
 end HodgeComputer.Kron

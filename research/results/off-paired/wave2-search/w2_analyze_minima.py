@@ -43,5 +43,5 @@ for key in sorted(groups, key=float)[:8]:
         m2 = (m[0], m[1], m[5], m[3], m[4], m[2])
         if m2 in fam.Dm: Ds[fam.Dm.index(m2)] = Dc[i]
     s2 = float(Dc @ Ds)
-    top = sorted([(abs(v), core.to_str({fam.Dm[i]: Fraction(round(float(v), 3))})) for i, v in enumerate(Dc)], reverse=True)[:6]
+    top = sorted([(abs(v), f'{float(v):+.3f}*' + core.to_str({fam.Dm[i]: Fraction(1)})) for i, v in enumerate(Dc)], reverse=True)[:6]
     print(f'  minimum relres {key}: hit by {len(rs)} restarts; |J-part| = {fracJ:.3f}; <D, sigma2 D> = {s2:+.3f}; top terms: ' + ', '.join(t[1] for t in top))

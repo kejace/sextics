@@ -78,6 +78,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--d', type=int, required=True); ap.add_argument('--chars', required=True); ap.add_argument('--job', required=True)
     ap.add_argument('--timeout', type=int, default=1800); ap.add_argument('--prime', type=int, default=WB.PM); ap.add_argument('--tsub', default='all')
+    ap.add_argument('--direct', action='store_true')
     a = ap.parse_args()
     F, A, q = w2lib.load(); cA = char_of(A); p = a.prime
     chars = [(x, y) for x in range(6) for y in range(6)] if a.chars == 'all' else [(int(s[0]), int(s[1])) for s in a.chars.split(',')]
@@ -155,6 +156,29 @@ def main():
             Qd = {k: v for k, v in Qd.items() if v != 0 and k[1] < nt}
             if Qd: quads.append(Qd)
         if not ok: continue
+        if a.direct:
+            tt = [f't{i}' for i in range(nt)]; ss = [f's{k}' for k in range(ns)]
+            def vn(i): return f't{i}' if i < nt else f's{i - nt}'
+            polys_I = ['+'.join(f'{frac_str(v)}*{vn(i)}*{vn(j)}' for (i, j), v in e.items() if v) for e in eqs]
+            polys_Q = ['+'.join(f'{frac_str(v)}*t{i}*t{j}' for (i, j), v in Qd.items()) for Qd in quads]
+            singd = f'''ring r = 0, ({",".join(tt + ss)}), dp;
+ideal I = {",\n".join(polys_Q + polys_I)};
+poly ps = {"*".join(ss) if ss else "1"};
+ideal E = eliminate(I, ps);
+ideal G = std(E);
+print("DIME " + string(dim(G)));
+print("NGENS " + string(size(E)));
+quit;
+'''
+            spathd = f'{outdir}/d{a.d}_c{c[0]}{c[1]}_direct.sing'; open(spathd, 'w').write(singd)
+            outd, errd = run_singular(spathd, a.timeout)
+            if outd is None:
+                emit(dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), result='singular-timeout(direct eliminate I+J2)')); continue
+            md = re.search(r'DIME (-?\d+)', outd)
+            dme = int(md.group(1)) if md else None
+            rec = dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), elim_dim_t=(dme - ns) if dme is not None else None)
+            rec['result'] = 'PROVEN-no-denominator-in-sector(exact elimination over Q of I+J2: E m-primary)' if (dme is not None and dme - ns <= 0) else f'elimination ideal positive-dimensional ({None if dme is None else dme - ns})'
+            emit(rec); continue
         names = [f't{i}' for i in range(nt)]
         qstr = ['+'.join(f'{frac_str(v)}*t{i}*t{j}' for (i, j), v in Qd.items()) for Qd in quads]
         sing = f'''LIB "primdec.lib";

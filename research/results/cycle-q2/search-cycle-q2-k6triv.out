@@ -1,1 +1,1 @@
-[w2_search] kernel d=6: 1 sectors, 3000 restarts each, 8 procs
+[w2_search] kernel d=6: 1 sectors, 1000 restarts each, 16 procs

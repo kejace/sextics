@@ -29,9 +29,14 @@ already closed in wave 1 (K_d = J_d).  New (this batch):
 | 9 | odd | 1001 | 378 | 623 | 378 | 0 | 623 | 7752x10010 | 150.9 |
 | 10 | even | 1512 | 750 | 762 | 1044 | 294 | 468 | 10152x14616 | 445.5 |
 | 10 | odd | 1491 | 747 | 744 | 1008 | 261 | 483 | 10197x14595 | 435.3 |
+| 11 | even | 2184 | 1341 | 843 | 1851 | 510 | 333 | 13167x20748 | 1418.5 |
+| 11 | odd | 2184 | 1341 | 843 | 1851 | 510 | 333 | 13167x20748 | 1481.2 |
+| 12 | even | 3108 | 2223 | 885 | 2900 | 677 | 208 | 16797x28812 | 4338.7 |
+| 12 | odd | 3080 | 2214 | 866 | 2862 | 648 | 218 | 16852x28784 | 4559.4 |
 
 Conclusions: every E1-admissible denominator of degree <= 9 (both parities) lies in J(F) = (F_0..F_5); the first
-non-Jacobian degree is d = 10 with exactly the Gorenstein-duality numbers (294 Y-even, 261 Y-odd).  d = 11, 12 pending.
+non-Jacobian degree is d = 10 with exactly the Gorenstein-duality numbers (294 Y-even, 261 Y-odd); d = 11: 510 / 510, d = 12: 677 / 648
+(all equal to dim R_d - dim R_{d+6}, i.e. multiplication by [A] is surjective onto R_{d+6} in these degrees).
 
 ### Batch 2 (item 4, linear part): structured subspaces W of S_10^even against the exact K_10 (job struct10, mod p)
 E1 for D is exactly D in K_10, so dim(W cap K_10) counts the family members passing E1; the last column is the part not in J(F).

@@ -48,7 +48,7 @@ if rel:
 else:
     out.append('(pending)\n')
 # 3. searches
-sr = [r for r in recs if r.get('batch') == 'e2search' and not str(r.get('tag','')).startswith('smoke')]
+sr = [r for r in recs if r.get('batch') == 'e2search' and not str(r.get('tag','')).startswith('smoke') and not r.get('skipped')]
 out.append('\n## 3. Full-E2 variable-projection multistart searches (normalized system, float, L-BFGS)\n')
 if sr:
     out.append('| tag | d | parity | family dim K | n_c | rows_red | restarts | best rel | median rel | #rel<1e-3 | #rel<1e-6 | #rel<1e-8 | generic rank/nullity of T_D | time s |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n')
@@ -114,5 +114,8 @@ for r in val:
 out.append('\n## 7. Jobs\n')
 for path in sorted(glob.glob(f'{MIR}/chain*.log')):
     out.append(f"* `{os.path.basename(path)}`: " + ' / '.join(l.strip() for l in open(path) if l.strip())[-600:] + '\n')
+nar = os.path.join(os.path.dirname(__file__), 'report_narrative.md')
+if os.path.exists(nar):
+    out.append(open(nar).read())
 open(REP, 'w').write(''.join(out))
 print('report rebuilt:', REP, len(recs), 'log lines')

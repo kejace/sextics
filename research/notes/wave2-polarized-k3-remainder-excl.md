@@ -44,9 +44,10 @@ degree <= 6 can serve A; a legal octic would need X ∩ V(D) to have a component
 ### R3. Served-space K3-projection tool (unconditional vanishing statements)   [01:05]
 `wave2-excl/servedK3.py`: for a mu6-homogeneous D, the certificate system with a VARIABLE target in the K3 block
 (all 56 pure-U / pure-V sextic monomials) is character-graded; the projection of its nullspace to the target
-coordinates, reduced modulo J(f)(U) + J(f)(V), is the K3-class projection of served(D).  Because served_Q(D)
-reduces into served_p(D), a zero modular projection is a rigorous statement over Q (no dichotomy / ρ needed).
-Results: D = f(U): class dim 0 (served K3 monomials = 17 trivial J-classes).  D = U0, V0: class dim 0.
+coordinates, reduced modulo J(f)(U) + J(f)(V), is the K3-class projection of served(D).  CORRECTION (01:50): a zero MODULAR class projection is only evidence (the modular rank of the class map is a lower
+bound for its rational rank, so it cannot certify vanishing); the tool now has an --exact mode (fmpz nullspace over Q,
+integer model G = 14 F-hat) and the rigorous statements below are the exact ones.
+Results (mod p evidence): D = f(U), U0, V0: class dim 0.  EXACT over Q: U0 and V0: class dim 0 (rigorous); f(U): see R6.
 This is the statement needed for the sum principle (N_{Y1∪Y2} = N_{Y1} + N_{Y2}): a product D1·D2 can only serve
 the K3 part of A if some factor has a NONZERO K3-projection; "A_K3 ∉ served(D_j)" alone is not enough.
 Controls: D = G (illegal, divisible by F) passes the exact Koszul checker for both targets.
@@ -57,7 +58,7 @@ char-0 block 3366 × 888, rank 756, augmented 757 => inconsistent, for the FULL 
 Q and F_101 -- REPLICATED) and ALSO for the K3-sector target A_K3 (new; identical ranks).
 Tangent-hyperplane probe: hyperplanes λ·U through the plane {V=0} tangent to X (λ = tangent line of C at an F_p-point) have
 a non-rational singularity t² + f(V) whose exceptional divisor is the K3 S₂ itself; nevertheless their served K3-class
-projection is 0 (as forced by E1-injectivity at d = 1).  The copy of T(S₂)(−1) such a section carries is not a sub-Hodge
+projection is 0 mod p (consistent with E1-injectivity of [A_K3] at d = 1, which is rigorous).  The copy of T(S₂)(−1) such a section carries is not a sub-Hodge
 structure of Λ²V₂, so this mechanism cannot produce K3-sector (3,1)-classes.
 Remote: saturated (load 900+/128 cores, <60 GB free) -- rjob refuses submissions; queue waiting (--wait 4h). Local
 fallback chain (nice 19, one process at a time): K3 d=7 relaxation -> full d=7 replication -> E1 tables (2nd prime) ->
@@ -81,3 +82,12 @@ d = 9).  Source: eta = [z0^2 z1^2 z2^2] has kernels R_{f,a} -> R_{f,a+6} for a >
 ker(eta|R_4) (x) ker(eta|R_4) ⊂ R_4 (x) R_4.  These are the natural non-Jacobian candidates for the K3 sector; their
 full E2 test (fixed-D, 40k x 7.5k) is queued (k3kernel.py) but blocked by compute saturation.  Note the reducible
 rank-1 members g(U)g'(V) are already excluded by R2 (both factors have degree 4 <= 6).
+
+### R6. Exact served-space statements   [01:55]
+`servedK3.py --exact` (integer model G = 14 F-hat, fmpz nullspace over Q, classes modulo J(7f)_6(U) + J(7f)_6(V)):
+* D = f(U) (char 0): 4923 × 832, nullity 110, 17 served K3-monomial vectors, class dimension 0.
+  => π_K3(served(f(U))) = 0 over Q, unconditionally.  (The join X ∩ V(f(U)) of the two copies of C carries no K3 class.)
+* D = U0, D = V0: class dimension 0 over Q.
+For hyperplanes ℓ = λ·U + μ·V with λ, μ ≠ 0 the tensor structure R_F = R_f ⊗ R_f gives A'·ℓ ∉ J for every nonzero
+K3-block class A' (the components B'⊗(μ·V), (λ·U)⊗B'' of the product vanish only if B' = B'' = 0), so E1 already
+forbids any K3 class; only hyperplanes through one of the two planes {U=0}, {V=0} need the full system.

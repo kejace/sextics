@@ -158,7 +158,36 @@ def main():
     sel = good if len(good) <= a.nvec else [good[(i * len(good)) // a.nvec] for i in range(a.nvec)]
     vars_ = [f'a{i}' for i in range(k)]
     cubics = []; vinfo = []
+    os.makedirs(f'{w2lib.PACKET}/polyfarkas', exist_ok=True)
+    ckpt = f'{w2lib.PACKET}/polyfarkas/{a.tag}.cubics_Q.jsonl'
+    done_fc = set()
+    if os.path.exists(ckpt):
+        for line in open(ckpt):
+            try:
+                e = json.loads(line); cubics.append(e['cubic']); vinfo.append(e['info']); done_fc.add(e['info']['free_coord'])
+            except Exception: pass
+        print(f'checkpoint: {len(cubics)} lifted cubics loaded', flush=True)
+    def singular_W(cubics):
+        sing = f'{w2lib.PACKET}/polyfarkas/{a.tag}_Q.sing'
+        with open(sing, 'w') as f:
+            f.write('LIB "elim.lib";\nring r = 0, (a0,a1,a2,a3,a4,a5), dp;\n')
+            f.write('ideal V0 = (3*a0+a1+a3+a4)^2 - 6*(3*a0^2+a1^2+a3^2+a4^2), (3*a1+a2+a4+a5)^2 - 6*(3*a1^2+a2^2+a4^2+a5^2), (3*a2+a0+a5+a3)^2 - 6*(3*a2^2+a0^2+a5^2+a3^2);\n')
+            f.write('ideal C = ' + (',\n'.join(cubics) if cubics else '0') + ';\n')
+            f.write('ideal Conly = std(C); "DIM_C_only", dim(Conly); if (dim(Conly) <= 1) { "VDIM_C_only", vdim(Conly); }\n')
+            f.write('ideal W = std(V0 + C); "DIMW", dim(W); if (dim(W) <= 1) { "VDIMW", vdim(W); }\n')
+            f.write('ideal Eu = a0-a5,a1-a5,a2-a5,a3-a5,a4-a5; "EULER_IN_W (0 = yes)", size(reduce(W, std(Eu)));\n')
+            f.write('def WS = sat(W, Eu); ideal Wsat; if (typeof(WS) == "list") { Wsat = WS[1]; } else { Wsat = WS; }\nWsat = std(Wsat); "DIM_W_minus_Euler", dim(Wsat); if (dim(Wsat) <= 1) { "VDIM_W_minus_Euler", vdim(Wsat); }\n')
+            f.write('def CS = sat(Conly, Eu); ideal Csat; if (typeof(CS) == "list") { Csat = CS[1]; } else { Csat = CS; }\nCsat = std(Csat); "DIM_C_minus_Euler", dim(Csat);\nquit;\n')
+        r = subprocess.run(['Singular', '-q', sing], capture_output=True, text=True, timeout=3600)
+        g = lambda pat: (lambda m: int(m.group(1)) if m else None)(re.search(pat, r.stdout))
+        return r.stdout, g
+    if cubics:
+        out, g = singular_W(cubics)
+        print('checkpoint Singular:', out.replace(chr(10), ' | ')[-300:], flush=True)
+        if g(r'DIM_W_minus_Euler (-?\d+)') in (-1, 0):
+            sel = []   # already decided
     for t, fcoord in enumerate(sel):
+        if fcoord in done_fc: continue
         rhs = fmpz_mat(rank, 1)
         for i, ri in enumerate(prow):
             v = eqs[ri].get(fcoord, 0)
@@ -189,24 +218,19 @@ def main():
         if not coef: continue
         den = 1
         for v in coef.values(): den = den * v.denominator // math.gcd(den, v.denominator)
-        cubics.append('+'.join(f'({int(v * den)})*' + '*'.join(vars_[i] for i in kk) for kk, v in sorted(coef.items())))
-        vinfo.append({'free_coord': fcoord, 'maxbits': maxbits, 'sha256_y': hashlib.sha256('\n'.join(str(v) for v in y).encode()).hexdigest()})
-        if t % 5 == 0: print(f'vector {t}: verified exactly (max bits {maxbits})  [{time.time()-t0:.1f}s]', flush=True)
-    os.makedirs(f'{w2lib.PACKET}/polyfarkas', exist_ok=True)
+        cub = '+'.join(f'({int(v * den)})*' + '*'.join(vars_[i] for i in kk) for kk, v in sorted(coef.items()))
+        info = {'free_coord': fcoord, 'maxbits': maxbits, 'sha256_y': hashlib.sha256('\n'.join(str(v) for v in y).encode()).hexdigest()}
+        cubics.append(cub); vinfo.append(info)
+        with open(ckpt, 'a') as f: f.write(json.dumps({'cubic': cub, 'info': info}) + '\n')
+        print(f'vector {t}: verified exactly (max bits {maxbits}), {len(cubics)} cubics  [{time.time()-t0:.1f}s]', flush=True)
+        if len(cubics) % 5 == 0:
+            out, g = singular_W(cubics)
+            print('interim Singular:', out.replace(chr(10), ' | ')[-200:], flush=True)
+            if g(r'DIM_W_minus_Euler (-?\d+)') in (-1, 0):
+                print('EARLY STOP: W minus Euler already empty over Q', flush=True); break
     with open(f'{w2lib.PACKET}/polyfarkas/{a.tag}.cubics_Q.txt', 'w') as f: f.write('\n'.join(cubics) + '\n')
-    sing = f'{w2lib.PACKET}/polyfarkas/{a.tag}_Q.sing'
-    with open(sing, 'w') as f:
-        f.write('LIB "elim.lib";\nring r = 0, (a0,a1,a2,a3,a4,a5), dp;\n')
-        f.write('ideal V0 = (3*a0+a1+a3+a4)^2 - 6*(3*a0^2+a1^2+a3^2+a4^2), (3*a1+a2+a4+a5)^2 - 6*(3*a1^2+a2^2+a4^2+a5^2), (3*a2+a0+a5+a3)^2 - 6*(3*a2^2+a0^2+a5^2+a3^2);\n')
-        f.write('ideal C = ' + (',\n'.join(cubics) if cubics else '0') + ';\n')
-        f.write('ideal Conly = std(C); "DIM_C_only", dim(Conly); if (dim(Conly) <= 1) { "VDIM_C_only", vdim(Conly); }\n')
-        f.write('ideal W = std(V0 + C); "DIMW", dim(W); if (dim(W) <= 1) { "VDIMW", vdim(W); }\n')
-        f.write('ideal Eu = a0-a5,a1-a5,a2-a5,a3-a5,a4-a5; "EULER_IN_W (0 = yes)", size(reduce(W, std(Eu)));\n')
-        f.write('def WS = sat(W, Eu); ideal Wsat; if (typeof(WS) == "list") { Wsat = WS[1]; } else { Wsat = WS; }\nWsat = std(Wsat); "DIM_W_minus_Euler", dim(Wsat); if (dim(Wsat) <= 1) { "VDIM_W_minus_Euler", vdim(Wsat); }\n')
-        f.write('def CS = sat(Conly, Eu); ideal Csat; if (typeof(CS) == "list") { Csat = CS[1]; } else { Csat = CS; }\nCsat = std(Csat); "DIM_C_minus_Euler", dim(Csat);\nquit;\n')
-    r = subprocess.run(['Singular', '-q', sing], capture_output=True, text=True, timeout=3600)
-    print(r.stdout[-1500:], flush=True)
-    g = lambda pat: (lambda m: int(m.group(1)) if m else None)(re.search(pat, r.stdout))
+    out, g = singular_W(cubics)
+    print(out[-1500:], flush=True)
     res = {'exp': 'redsys-polyfarkas-deg1-EXACT', 'family': 'D(a) = sum_k a_k z_k F_k (trivial sector, deg 6)', 'tag': a.tag, 'd': 6, 'prime': p, 'rows': R,
            'cols': S['nK'] + S['nQ'], 'equations': E, 'unknowns': U, 'rank_mod_p': rank, 'nullity_mod_p': nullity, 'vectors_lifted_verified': len(cubics),
            'maxbits': max((v['maxbits'] for v in vinfo), default=None), 'sha256_vectors': [v['sha256_y'] for v in vinfo],

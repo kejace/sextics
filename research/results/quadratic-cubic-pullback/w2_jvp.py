@@ -128,22 +128,23 @@ def complement_basis(G, rdim, verbose=False):
 # ----------------------------------------------------------------------------------------------------------------------
 class JVP:
     def __init__(self, F, A, d, extra=None, stage2=True, compress_extra=200, seed=12345, verbose=True,
-                 stage1=True):
+                 stage1=True, parD=0):
         """extra: optional dict with 'B' (list of dense vectors over S_d^even), 'n' (list of 6 dense vectors per B over
         the N0 bases) for non-Jacobian kernel directions."""
         t0 = time.time()
         self.F, self.A, self.d = F, A, d
+        self.parD = parD
         self.verbose = verbose
         Fi = [pderiv(F, i) for i in range(NV)]
         self.Fi = Fi
-        parN = [1 if i < 3 else 0 for i in range(NV)]   # Y-parity of N0_i for Y-even D and Y-odd A
+        parN = [(1 - parD) if i < 3 else parD for i in range(NV)]   # Y-parity of N0_i (A Y-odd, D parity parD)
         self.parN = parN
-        self.BD = Basis(d, 0)
+        self.BD = Basis(d, parD)
         self.BN = [Basis(d + 1, parN[i]) for i in range(NV)]
-        self.BDi = [Basis(d - 1, 0 if i < 3 else 1) for i in range(NV)]
-        self.Bdiv = Basis(d, 1)
+        self.BDi = [Basis(d - 1, parD if i < 3 else 1 - parD) for i in range(NV)]
+        self.Bdiv = Basis(d, 1 - parD)
         self.Bout = Basis(2 * d, 1)
-        self.Bw = [Basis(d - 5, 0 if l < 3 else 1) for l in range(NV)]
+        self.Bw = [Basis(d - 5, parD if l < 3 else 1 - parD) for l in range(NV)]
         nout = self.Bout.n
         # --- parameter columns
         cols_D, cols_N = [], [[] for _ in range(NV)]
@@ -243,7 +244,7 @@ class JVP:
         K = self.K
         blocks = [self.U_D]
         if d >= 6:
-            BG = Basis(d - 6, 0)
+            BG = Basis(d - 6, self.parD)
             MF = mult_matrix(self.F, BG, self.BD).toarray()
             blocks.append(-MF)
         Mb = np.hstack(blocks)
@@ -271,7 +272,7 @@ class JVP:
         self.Bc = Bc
         # column polys: T_D(c) = sum_{i<j} [ D * (d_i c F_j - d_j c F_i) - c (D_i F_j - D_j F_i) ]
         # = Mult_D(P1 c) - sum_t Mult_{D_t}(P2_t c)  with P2_t c = sum over pairs containing t of (+/-) c F_other
-        self.Bodd_d = Basis(d, 1)
+        self.Bodd_d = Basis(d, 1 - self.parD)
         P1 = sp.lil_matrix((self.Bodd_d.n, 0))
         p1_cols = []
         p2_cols = [[] for _ in range(NV)]   # over BN[t] (degree d+1, parity parN[t])
@@ -481,7 +482,7 @@ def run_stage1(jvp, n_restarts, seed, out_path, tag, maxiter=200, method='lm', v
                 continue
             v = v / np.linalg.norm(v)
             rel, bnorm = jvp.stage1_rel(v)
-            rec = {'stage': 1, 'd': jvp.d, 'tag': tag, 'seed': seed, 'restart': it, 'rel': rel, 'bnorm': bnorm,
+            rec = {'stage': 1, 'd': jvp.d, 'parity': jvp.parD, 'tag': tag, 'seed': seed, 'restart': it, 'rel': rel, 'bnorm': bnorm,
                    'nfev': int(res.nfev), 'seconds': round(time.time() - t1, 2), 'v': v.tolist()}
             results.append(rec)
             f.write(json.dumps(rec) + '\n'); f.flush()
@@ -512,7 +513,7 @@ def run_stage2(jvp, starts, seed, out_path, tag, maxiter=300, verbose=False, exa
             v = res.x / np.linalg.norm(res.x)
             f2, b2, c, r = jvp.r2_value(v)
             rel = f2 / max(b2, 1e-300)
-            rec = {'stage': 2, 'd': jvp.d, 'tag': tag, 'seed': seed, 'restart': it, 'rel_compressed': rel,
+            rec = {'stage': 2, 'd': jvp.d, 'parity': jvp.parD, 'tag': tag, 'seed': seed, 'restart': it, 'rel_compressed': rel,
                    'f2': f2, 'bnorm2': b2, 'nit': int(res.nit), 'nfev': int(res.nfev),
                    'seconds': round(time.time() - t1, 2), 'v': v.tolist()}
             if jvp.Z is not None:
@@ -561,17 +562,18 @@ def main():
     ap.add_argument('--seeds-from', default=None, help='jsonl of stage-1 records to seed stage 2 (sorted by rel, below thresh1)')
     ap.add_argument('--max-seeds', type=int, default=1000)
     ap.add_argument('--worker-threads', type=int, default=1)
+    ap.add_argument('--parity', type=int, default=0, help='Y-parity of D (0 even, 1 odd)')
     a = ap.parse_args()
     F, A, q, _ = core.load_instance(a.instance)
     if a.fermat:
         F = {tuple(6 if j == i else 0 for j in range(6)): Fraction(1) for i in range(6)}
-    out = a.out or f'w2_jvp_d{a.d}_{a.tag}.jsonl'
+    out = a.out or f'w2_jvp_d{a.d}_{"odd" if a.parity else "even"}_{a.tag}.jsonl'
     extra = None
     if a.extra:
         z = np.load(a.extra)
         extra = {'B': list(z['B'].T), 'n': [[z[f'n{i}'][:, k] for i in range(6)] for k in range(z['B'].shape[1])]}
     verbose = not a.quiet
-    jvp = JVP(F, A, a.d, extra=extra, stage2=('2' in a.stage), stage1=('1' in a.stage), verbose=verbose)
+    jvp = JVP(F, A, a.d, extra=extra, stage2=('2' in a.stage), stage1=('1' in a.stage), verbose=verbose, parD=a.parity)
     _attach_funs(jvp)
     _SHARED['jvp'] = jvp
     if a.procs > 1:

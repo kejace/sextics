@@ -25,14 +25,24 @@ total Y-degree; A is Y-odd, F is Y-even.
   At q = 1 this excludes V(D) ∩ X as a support at every pole order (prescribed-support theorem).
 * R3 (exact).  The relaxation nullspaces are computed over Z (flint fmpz_mat.nullspace), no primes involved.
 
-## Statements (filled in as the jobs finish; see ../wave2-excl.log.jsonl)
-S1. K_d = J(F)_d for d <= [[9]] in both parity sectors (primes 2147483629 and 2147483587; wave 1: 2147483647).
-    Hence every certificate has deg D >= 10 or D = w.grad F.
-S2. No certificate has deg D = 5: for the full family D = w.grad F, w in C^6, the exact relaxation has pi_W(ker) = 0.
-    With K_d = 0 for d <= 4: deg D >= 6 for every certificate.
-S3. Degree 6 polar sectors: [[relaxation result]].
-S4. Structured polars of degree 6..10: [[table]] (served dimension mod J, certified or modular).
-S5. Degree 10: dim K_10/J_10 = [[294 even / 261 odd]]; intersections with structured subspaces: [[...]].
+## Statements (see ../wave2-excl.log.jsonl and the per-job receipts in receipts/)
+S1 (rigorous). K_d = J(F)_d for Y-even d <= 8 and Y-odd d <= 6 (prime 2147483647, wave 1) and for d = 3, 5, 6(odd)
+    also at 2147483629 (wave 2); Jacobian blocks at Hilbert rank in every case.  [d = 7, 8 odd and d = 9: queued remotely]
+    Consequence: every denominator of degree <= 6 is a polar D = w.grad F; every D of degree <= 6 not in J(F) is excluded
+    at every pole order.
+S2 (rigorous, exact). No certificate has deg D = 5: for D = w.grad F, w in C^6 (no parity assumption), the exact integer
+    nullspace of the full relaxation (W = w w^T, V = c (x) w, Q) projects to zero on W.  Hence deg D >= 6.
+S3 (rigorous, exact). No Y-pure denominator of degree 6: Hessian relaxation A (w^T Hess F w) in J_12, kernel dims 18 (odd)
+    / 36 (even) as Hilbert-certified upper bounds, bases lifted and verified exactly, Singular over Q: the locus
+    {w : w w^T in K_H} is {0} (odd) and exactly the Euler line w = lambda z, D = 6 lambda F (even), which is not coprime.
+S3' (in progress). Mixed-parity degree 6: joint 36-coordinate relaxation (666 W-unknowns), then exact lift + Singular.
+S4 (screened). Degree-7 Y-even polars: dim K_H = 1533 of 2016 (certified upper bound); candidate locus mod p pending.
+S5 (queued remotely). Structured polars of degree 6..10 (74 candidates, certified served-space tests), K_10 bases and
+    their intersections with the structured subspaces (quintics in Q, delta x quartics, K3-curve and K3-surface windows,
+    plane windows), d = 11, 12 kernels.
+Structural identities used (verified exactly): E = F (Phi(w) + L(c,w)) for N = A w + c.grad F;  H-terms cancel;
+Phi(u, w2) = (1/2) F (grad A . w2 + A div w2) for u = z/6 (so u (.) w2 are kernel directions for every w2: the trivial
+solution D = F and its polarizations); the fixed-D kernel elements (G z, 0) and (g F, D div g - g.grad D).
 
 ## How to replay
     cd /tmp/hodge/results/quadratic-cubic-pullback

@@ -24,9 +24,10 @@ even when no factor does; to use "deg >= 8" for products one needs that no low-d
 * Degree 5: the relaxation forces all parameters to vanish (exact).
 * Degree 6: the relaxation leaves exactly the gauge class of D = f(U) (residual quadrics (c0-c2)^2, (c0-c2)(c1-c2),
   (c1-c2)^2); the exact Koszul-normalized system for D = f(U) is inconsistent (rank 136 vs 137). Moreover the full
-  served space of f(U), of U0, of V0 and of tangent hyperplane sections through {V=0} has zero projection onto the K3
-  block (a modular computation that is rigorous for vanishing). So X ∩ V(f(U)) (the join of the two copies of C) only
-  supports the joining sector, as Chapter 3A predicts.
+  served target space of f(U) (exact rational nullspace, 4923 x 832) has zero projection onto the K3 block modulo J,
+  and so do the hyperplanes U0, V0. So X ∩ V(f(U)) (the join of the two copies of C) carries no K3-sector class at all,
+  as Chapter 3A predicts (it supports the joining sector).
+* Degree 7 (exact, specific): f(U)·U0 and f(U)·V0 are inconsistent for the K3 target (377/378); [universal relaxation pending].
 * Degree 7: [pending].
 Consequence, conditional on ρ(S_2) = 1 (via the dichotomy: End_Hdg(T) = Q makes Λ²T irreducible, so a support either
 carries no K3 (3,1)-class or all of them): no denominator whose divisor X ∩ V(D) has only components of degree <= 6·[7]

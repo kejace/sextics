@@ -124,3 +124,28 @@ not prove V(Q-bar) = empty (finitely many bad primes).
 Trivial/fake directions: u = z/6 gives D = F (not coprime), and u (.) w2 is in K_H for every w2 (polarization identity,
 verified exactly); the Y-odd d=6 kernel consists of the 18 antisymmetric "minor" directions e_(i,Y_a) (.) e_(j,Y_b)
 - e_(i,Y_b) (.) e_(j,Y_a) (and X-analogues), which have no diagonal part, forcing w = 0.
+
+### Degree 5 via the Hessian relaxation alone (rigorous, 3 s): K_H = 0 in the even, odd and unrestricted sectors
+(p = 268435399, J_10 blocks at Hilbert rank 747/747/1497).  So "no degree-5 denominator" needs only a certified
+rank computation, independently of the exact full relaxation of R1.
+
+### Degree 6, mixed parity (joint 36-coordinate relaxation): dim K_H = 261 (certified upper bound; = 36 + 18 + 126
++ 81 coupling directions between the two Y-odd blocks), coefficients in {0,+-1,+-2}; exact lift + Singular over Q
+running (receipt wave2-excl.hessX6.jsonl when done).
+
+### Degree 7 (Y-even polars): dim K_H = 1533 of 2016 (certified upper bound), basis coefficients large (~1e8 mod p), so
+the exact lift is not cheap; the cone {w : A d_w^2 F in J} is cut by 483 dense quadrics in 63 variables; Singular std and
+msolve (two charts) over F_p both exceeded 100 s locally.  Status: inconclusive (neither excluded nor screened).
+
+## Summary of the lens (to be finalized)
+1. Best rigorous bound: deg D >= 6 for every certificate (E1 kernels + exact relaxation / Hessian relaxation at d = 5);
+   no Y-pure degree-6 denominator coprime to F (exact); mixed-parity degree 6: [[pending exact run]] -> deg D >= 7.
+2. All wave-1 structural claims re-verified at a second prime / exactly; three wave-1 degree-5 polar results upgraded
+   to rigorous; one dossier error corrected (E_I F in J for every I).
+3. New tools: certification lemma for fixed-D verdicts (structural kernel), E2 reduction for polars (H cancels),
+   exact relaxation (d=5) and Hilbert-certified Hessian relaxation A d_w^2 F in J (d = 5, 6, 7 computed).
+4. Not executed (remote saturated all session, load 300-1060): E1 kernels d = 7..9 odd / d = 9, 10, 11, 12 both parities
+   at new primes; 74 structured polar candidates (certified served-space tests); K_10 structured intersections and
+   candidates (incl. K3-surface double windows); all scripts are in the packet and queued (submit_queue.sh).
+5. msolve pitfalls documented (c*c parsed as c; primes near 2^31 silently wrong); Singular over Q used for all
+   candidate-locus statements.

@@ -5,3 +5,5 @@
 [rvp] seed=1000 restart 0: rel=3.176e-06 f=1.123e-03 iters=99 (889s)
 [rvp] seed=0 restart 1: rel=3.162e-06 f=1.118e-03 iters=95 (594s)
 [rvp] seed=1000 restart 1: rel=3.222e-06 f=1.139e-03 iters=108 (658s)
+[rvp] seed=0 restart 2: rel=3.618e-06 f=1.280e-03 iters=100 (745s)
+[rvp] seed=1000 restart 2: rel=3.168e-06 f=1.121e-03 iters=102 (736s)

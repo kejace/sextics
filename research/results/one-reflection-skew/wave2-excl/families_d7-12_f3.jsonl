@@ -1305,3 +1305,12 @@
 {"name": "Y1*t*f", "d": 9, "chi": [0, 0, 3], "e1": true, "status": "EXCLUDED-exact", "rank": 1802, "rank_aug": 1803, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 483.78}
 {"name": "Y1*u*f", "d": 9, "chi": [0, 0, 3], "e1": true, "status": "EXCLUDED-exact", "rank": 1813, "rank_aug": 1814, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 485.79}
 {"name": "Y1*v*f", "d": 9, "chi": [0, 0, 3], "e1": true, "status": "EXCLUDED-exact", "rank": 1813, "rank_aug": 1814, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 487.3}
+{"name": "c1*f", "d": 9, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1822, "rank_aug": 1823, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 496.55}
+{"name": "cq*f", "d": 9, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1822, "rank_aug": 1823, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 510.3}
+{"name": "q2*f", "d": 9, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1840, "rank_aug": 1841, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 511.69}
+{"name": "X0*m*f", "d": 9, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1825, "rank_aug": 1826, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 516.15}
+{"name": "X0*t*f", "d": 9, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1825, "rank_aug": 1826, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 517.64}
+{"name": "X0*u*f", "d": 9, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1804, "rank_aug": 1805, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 528.31}
+{"name": "X2*m*f", "d": 9, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1825, "rank_aug": 1826, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 525.6}
+{"name": "X0*v*f", "d": 9, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1804, "rank_aug": 1805, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 543.86}
+{"name": "Y2*m*f", "d": 9, "chi": [0, 0, 2], "e1": true, "status": "EXCLUDED-exact", "rank": 1202, "rank_aug": 1203, "nN": 1056, "nQ": 261, "rows": 2340, "seconds": 198.14}

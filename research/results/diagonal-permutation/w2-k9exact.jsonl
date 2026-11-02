@@ -22,3 +22,11 @@
 {"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(p,q)^2", "dim_IkJ_modJ": 573, "dim_kernel_in_Ik_modJ": 0, "seconds": 13.0, "ts": "2026-11-02T01:24:48"}
 {"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(X0,X1,Y0,Y1)^4", "dim_IkJ_modJ": 623, "dim_kernel_in_Ik_modJ": 21, "seconds": 158.8, "ts": "2026-11-02T01:27:26"}
 {"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(X0,X1,X2,Y0)^4", "dim_IkJ_modJ": 615, "dim_kernel_in_Ik_modJ": 13, "seconds": 145.7, "ts": "2026-11-02T01:29:52"}
+{"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(r,s,X2)^3", "dim_IkJ_modJ": 618, "dim_kernel_in_Ik_modJ": 17, "seconds": 39.6, "ts": "2026-11-02T01:30:32"}
+{"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(r,s,Y2)^3", "dim_IkJ_modJ": 614, "dim_kernel_in_Ik_modJ": 12, "seconds": 42.0, "ts": "2026-11-02T01:31:14"}
+{"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(r,r2,s,s2)^4", "dim_IkJ_modJ": 623, "dim_kernel_in_Ik_modJ": 21, "seconds": 167.4, "ts": "2026-11-02T01:34:01"}
+{"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(r,r2,s,s2)^3", "dim_IkJ_modJ": 623, "dim_kernel_in_Ik_modJ": 21, "seconds": 128.9, "ts": "2026-11-02T01:36:10"}
+{"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(r,r2)^2", "dim_IkJ_modJ": 563, "dim_kernel_in_Ik_modJ": 0, "seconds": 9.8, "ts": "2026-11-02T01:36:20"}
+{"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(s,s2)^2", "dim_IkJ_modJ": 583, "dim_kernel_in_Ik_modJ": 0, "seconds": 7.8, "ts": "2026-11-02T01:36:27"}
+{"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(X0,Y0,X1)^3", "dim_IkJ_modJ": 615, "dim_kernel_in_Ik_modJ": 13, "seconds": 22.2, "ts": "2026-11-02T01:36:50"}
+{"exp": "kernel-vanishing-probe", "d": 9, "pD": 0, "ideal": "(X0,Y0,Y1)^3", "dim_IkJ_modJ": 620, "dim_kernel_in_Ik_modJ": 18, "seconds": 21.6, "ts": "2026-11-02T01:37:11"}

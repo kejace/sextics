@@ -47,7 +47,7 @@ while True:
         print('pid check failed', ex, flush=True); time.sleep(60); continue
     print(time.strftime('%H:%M:%S'), f'submitting {name} (cpus {cpus}); running now: {running}', flush=True)
     try:
-        out = rjob('submit', '--lane', 'off-paired', '--name', PREFIX + name, '--cpus', cpus, '--force', '--', cmd, timeout=600)
+        out = rjob('submit', '--lane', 'off-paired', '--name', PREFIX + name, '--cpus', cpus, '--force', '--', cmd, timeout=150)
         print(out.strip()[-300:], flush=True)
     except subprocess.TimeoutExpired:
         print(time.strftime('%H:%M:%S'), 'submit call timed out (ssh hang); verifying via pid file', flush=True)

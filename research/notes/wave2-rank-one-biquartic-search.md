@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-01 20:28:59.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-01 20:32:52.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -63,6 +63,7 @@ sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by th
 | 8 | even | 651 | 168 | 483 | 177 | **9** | 5796x6657 | 107 |
 | 8 | odd | 636 | 168 | 468 | 177 | **9** | 5832x6642 | 107 |
 | 9 | even | 1001 | 378 | 623 | 405 | **27** | 7752x10010 | 270 |
+| 9 | odd | 1001 | 378 | 623 | 405 | **27** | 7752x10010 | 277 |
 
 ## 2. Jacobian-quotient ("Hessian") relaxation ranks (exact mod p)
 Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-type generators m F_i with lifts A m e_i, plus kernel reps with their lifts). rank Phi = #pairs means no nonzero solution over F_p-bar, hence over C.
@@ -76,10 +77,15 @@ Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-typ
 | 7 | even | 63 + 3 = 66 | 2211 | 744 | 432 | no (rank-deficient by count) |
 
 ## 3. Full-E2 variable-projection multistart searches (normalized system, float, L-BFGS)
-(pending)
+| tag | d | parity | family dim K | n_c | rows_red | restarts | best rel | median rel | #rel<1e-3 | #rel<1e-6 | #rel<1e-8 | generic rank/nullity of T_D | time s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| d7k_a | 7 | even | 3 | 420 | 5160 | 40 | 2.268e-02 | 7.835e-02 | 0 | 0 | 0 | 360/60 | 361 |
+
+Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02
 
 ### Residual landscape (per-restart files)
-* `d7e_b0`: n=9, min 1.652e-02, 10% 1.652e-02, median 3.312e-02, 90% 1.228e-01, max 1.228e-01
+* `d7e_b0`: n=20, min 6.392e-03, 10% 1.652e-02, median 3.772e-02, 90% 5.418e-02, max 1.228e-01
+* `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
 
 ## 4. Structured families vs the E1-admissible space (exact mod p)
 (pending)
@@ -96,3 +102,30 @@ None so far: no restart reached rel < 1e-8 on this instance (see landscape above
 * `chainB.log`: chainB start Mon Nov  2 00:47:54 UTC 2026
 * `chainC.log`: chainC start Mon Nov  2 00:47:55 UTC 2026
 * `chainD.log`: chainD start Mon Nov  2 00:47:58 UTC 2026
+* `chainD2.log`: chainD2 start Mon Nov  2 01:12:04 UTC 2026 / d7 kernel probe done Mon Nov  2 01:19:50 UTC 2026
+
+## 8. Interpretation and what remains
+
+* **Rigorous frontier moved from "deg D >= 7 for Y-even D (E1)" to "deg D >= 7 for any parity (E1 + E2
+  relaxation)".**  Degrees <= 4: E1 forces D in J and J_d = 0 (dossier).  Degree 5 (both parities): the relaxation
+  map on Sym^2(J_5) has full rank 6/6.  Degree 6, Y-odd: the relaxation ideal has a finite quotient (projectively
+  empty).  Degree 6, Y-even: the relaxation variety is the single point [F] (the Euler/spurious multiple), length 184,
+  at two primes; after slicing away the spurious direction (invariance lemma) the system is projectively empty.  All
+  statements are mod p (2^31-1 and/or 1073741789, 1000000007) and lift to C by rank semicontinuity because every
+  J-rank used equals its regular-sequence value.
+* **Degree 7** is the first open degree.  The Y-even admissible family is 66-dimensional (63 polar + 3 kernel, the
+  latter T-base-type per wave 1); its relaxation has 432 independent quadrics (rank Phi = 432 of 2211 pairs, 744
+  available), which is far above the 63 unknowns of the sliced system, so emptiness is expected; msolve reached F4
+  degree 3 in minutes, the degree-4 round decides (queued).  The numerical full-E2 search on the 66-dim family and on
+  the 3-dim pure-kernel subfamily finds no residual below 1e-3 so far (see section 3); the degree-7 landscape has a
+  floor around 5e-3 .. 1e-1, i.e. no near-solutions.
+* **Degree 8, 9, 10** are the "prime candidate" degrees of the task statement (non-Jacobian kernel elements 9 / 27 /
+  >= 294).  The relaxation can no longer exclude by rank or Groebner (468 quadrics in 177 unknowns at d=8 has
+  regularity far beyond reach; at d=9 the relaxation is underdetermined, 208 equations in 405 unknowns).  Only the
+  full normalized-E2 search applies there; under the current machine load (load average ~1000 on 128 cores) the
+  throughput is ~10x below nominal, so the restart counts in section 3 are what could be done, not what was planned.
+* **Structured families** (block subrings, 3/4/5-variable cones, bidegree pieces, base-type P(X)M^a g^b and
+  Q(Y)L^a f^b, (f,g,L,M)-monomials, Hessian minors): see section 4 for the exact intersections with the admissible
+  space; anything that intersects outside J is tested exactly (section 4, e2exact rows).
+* **No candidate** with residual below 1e-8 appeared on this instance; the only sub-1e-10 residuals of the whole
+  run were the planted-witness validation on a solved instance.

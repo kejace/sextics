@@ -1,103 +1,98 @@
-# Wave 2 search report — short-power-presentation (q=1, A = X0^3 Y0^3)
+# Wave 2 search report — short-power-presentation (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-02 00:10; in progress)
+STATUS: NO WITNESS FOUND (wave 2, 2026-11-01 19:10 – ongoing; this file is rewritten after every batch)
 
-Log: /tmp/hodge/results/short-power-presentation/wave2-search.log.jsonl (one JSON line per batch).
-Scripts: /tmp/hodge/results/short-power-presentation/w2_*.py (remote jobs run there via hodge.rjob).
+Log: /tmp/hodge/results/short-power-presentation/wave2-search.log.jsonl (one JSON line per batch/experiment).
+Scripts (all in the lane dir): w2lib.py (exact mod-p machinery), w2_kernel.py (E1 kernels + multi-prime reconstruction),
+w2_relax.py (E2-mod-J quadratic relaxation over K_d + J_d, gauge-fixed, msolve/Singular), w2_relax_sub.py / w2_subfam.py
+(relaxation restricted to structured subfamilies), w2_varpro.py (reduced variable projection with Koszul-correction unknowns,
+deflation), w2_families.py (exact subring-family screen), w2_cands.py (named candidates + kernel structure), w2_polar.py,
+w2_annl.py, w2_annpow.py (annihilator surveys), w2_fulltest_modp.py + msparse.py (mod-p full test of relaxation points).
+Remote jobs (hodge.rjob): search-spp-j1 (done); search-spp-kA / search-spp-kBC queued with --wait since 00:20 UTC — the remote
+has been refusing all submissions (load 300–1150 on 128 cores, 40–93 jobs of other agents).  Everything below after job j1 was
+therefore computed locally on brunos (1–2 threads per process, load 60–100).
 
-## Plan
-1. E1-admissible spaces K_d^± (mult-kernel mod J) for d = 4..12, both Y-parities (the diagonal group of F is {1, tau}: Y-parity is the only character).
-2. d <= 8: exact classification — E1 kernel + quadratic (Hessian) relaxation of E2 over the full family K_d + J(F)_d via Groebner bases mod p, then exact linear algebra on every relaxation solution.
-3. Reduced variable-projection (Koszul-correction unknowns only) numeric search over K_d + J(F)_d, thousands of restarts, d = 7, 8 (and 9 if feasible).
-4. Structured candidates at d = 7..12 screened exactly by E1 (normal form against the kernel basis), full solve for survivors.
-5. Rational reconstruction + exact re-solve for every numeric candidate with small residual.
+## 1. Exact results (mod p, two to five primes agree; p in {536870909, 536870879, 536870869, 2^31-1, 2147483629})
 
-## Results so far (updated 2026-11-01 19:44)
-
-### Fixed facts (wave 1 + wave 2 so far)
-* E1 kernel K_d^pm (mod J): d<=6: 0 (both parities, rigorous mod p); d=7: 1 (even), 1 (odd); d=8 even: 6. [wave 1, two primes]
-* **D7** (the even d=7 kernel element, rational, 168 terms): irreducible; depends on Y only through M = Y0+3Y1+5Y2; M-degrees 0,2,4; min X-degree 3.
-  So V(D7) is a cone with vertex the line {X0=X1=X2=M=0}. Full fixed-D solve (remote, engine v2, p=2^31-1): **inconsistent** (rank 4035, nullity 462 of 26532 x 4497);
-  served space = J_6^- only (dim 18): D7 alone serves no primitive target.
-* Structural fact (wave 2): 2F_{X0}-F_{X1}, 3F_{X0}-F_{X2}, 3F_{Y0}-F_{Y1}, 5F_{Y0}-F_{Y2} cancel the coupling, so mod J(F):
-  X1^5 = 2 X0^5, X2^5 = 3 X0^5, Y1^5 = 3 Y0^5, Y2^5 = 5 Y0^5, and X0^5 = -H(L,M)/6, Y0^5 = -G(L,M)/6 with H = d_L C, G = d_M C,
-  C = c((L+M)^6+(L-M)^6).  Consequently many "binary/ternary" forms lie in J_d (e.g. X0^7 - 2 X0^5 X1^2 in J_7, verified).
-* Gauge invariance (proved in wave 2, used to shrink all searches): if (D, N, Q) is a certificate with N(F) = A D then
-  (D + hF, N + hA E/6, Q + h div N - N(h) + h^2 A) is a certificate for every h in S_{d-6}.  So denominators are searched modulo F S_{d-6}.
-* E2-mod-J relaxation (exact, correct form A*Phi in J_{2d}; gauge-fixed; msolve chart + Singular, p = 2^31-1):
-  d=6 even (17 vars, 599 quadrics): no projective solutions (msolve [-1]; Singular dim 0, vdim 1216).
-  d=6 odd (18 vars, 601 quadrics): no projective solutions (msolve [-1]; Singular dim 0, vdim 540).
-  => no certificate with deg D = 6 of pure parity (reconfirms wave 1 with the corrected relaxation).
-* Structured-family screen at d=7 even (152 subring families = monomials in 2..5 of {X0,X1,X2,Y0,Y1,Y2,L,M}; exact mod two primes):
-  the only families meeting K_7 + J_7 outside J_7 are the ones spanning <X0,X1,X2,M> (they contain D7); all other families meet only J_7.
-
-
-### d = 7 structure (wave 2, exact)
-* K_7^+ = <D7> mod J_7, D7 in C[X0,X1,X2,M] = P7(X) + P5(X) M^2 + P3(X) M^4 (cone, vertex line {X=0, M=0}); rational, 4-prime numerators.
-* K_7^- = <D7'> mod J_7, D7' in C[Y0,Y1,Y2,L] = Q7(Y) + Q5(Y) L^2 + Q3(Y) L^4 + Q1(Y) L^6 (cone, vertex line {Y=0, L=0}); rational (3 primes, 93-bit modulus),
-  canonical cone representative in D7odd_cone.json (42 coefficients, denominators ~1e8).  Note the asymmetry (M-degree <= 4 vs L-degree <= 6).
-* The exact subring-family screen shows no other cone/plane/point-vertex family meets K_7 + J_7 outside J_7 (both parities).
-* Kernel numerators: even one reconstructed with 4 primes; odd NF representative's numerators have heights > 124 bits (not needed:
-  the relaxation computes numerators mod p and the varpro uses float least-squares numerators, which is exact-equivalent since
-  Koszul corrections span the particular-solution ambiguity).
-
-### d = 8 structure (wave 2, exact mod p = 536870909, 536870879)
-* K_8^- mod J_8 = 6 = S_1 * K_7 (Y_i D7, X_i D7'): nothing new in odd degree 8.
-* K_8^+ mod J_8 = 6; the six products X_i D7, Y_i D7' span only 4 dimensions mod J_8 (two linear relations between
-  the X-cone and Y-cone multiples modulo J), and there are 2 NEW even kernel elements at d=8 which lie in no subring
-  family (all 2..5-subsets of {X0,X1,X2,Y0,Y1,Y2,L,M}).
-* Named candidates: all 2x2 minors of Hess(F) (99 even, 72 odd) fail E1; E_X(F), E_Y(F) times quadrics are in J_8.
-* The two relations are exactly L*D7 in J_8 and M*D7' in J_8: the degree-7 cones are residuals of reducible polar divisors
-  (w(F) = L*D7, w'(F) = M*D7' for cubic vector fields w, w').  The two new even d=8 elements are sums P(X,M) + Q(Y,L) of a cone
-  over {X=M=0} and a cone over {Y=L=0} (verified: K_8^+ ⊂ NF(C[X,M]_8) + NF(C[Y,L]_8) mod J_8), neither summand admissible alone.
-* Polar residuals (exact mod p): for a linear form l let PR_l(d) = (J_{d+1} ∩ l S_d)/l mod J_d.  At d=7 (even): PR_L = 3-dim and contains
-  K_7^+ = <D7> (so D7 is THE E1-admissible residual of a polar divisor through {L=0}); PR_M (even) = 3-dim with PR_M ∩ K_7^+ = 0;
-  PR_{X_i} = PR_{Y_i} = 0.  (The odd mirror: D7' ∈ PR_M(7)^-.)
-* K_8^+ ⊂ C[X,M]_8 + C[Y,L]_8 entirely (composite family screen: kernel part rank 6 of 6).
-
-### E1-kernel dimensions in all degrees (Gorenstein duality, exact given the d <= 8 computations)
-The E1 kernel is the annihilator ideal Ann_R(A) of the Jacobian ring R (Gorenstein, socle degree 24, A Y-odd):
+### 1.1 E1-admissible spaces K_d = Ann_R(A)_d (E1 kernel modulo J(F)_d)
+The E1 kernel in all degrees is the annihilator ideal Ann_R(A) of the Gorenstein Jacobian ring R (socle degree 24; A odd), so
 dim Ann_d^+ = dim R_d^+ - (dim R_{18-d}^- - dim Ann_{18-d}^-), dim Ann_d^- = dim R_d^- - (dim R_{18-d}^+ - dim Ann_{18-d}^+).
 
-| d | dim R_d (+,-) | dim J_d (+,-) | dim Ann_d (+,-) mod J | source |
+| d | dim R_d (+,-) | dim J_d (+,-) | dim K_d mod J (+,-) | how |
 |---|---|---|---|---|
-| 1..6 | ... | ... | (0,0) | direct (wave 1, two primes) |
-| 7 | (333,333) | (63,63) | (1,1) | direct; D7 in C[X,M], D7' in C[Y,L] |
-| 8 | (483,468) | (168,168) | (6,6) | direct; odd = S_1 K_7; even = 4 + 2 new |
-| 9 | (623,623) | (378,378) | ? (self-dual degree; direct computation running) | |
+| 1..6 | ..,(218,208) | ..,(18,18) | (0,0) | direct, wave 1 (two primes) |
+| 7 | (333,333) | (63,63) | (1,1) | direct; D7 ∈ C[X0,X1,X2,M], D7' ∈ C[Y0,Y1,Y2,L] |
+| 8 | (483,468) | (168,168) | (6,6) | direct, 5 primes; odd = S_1·K_7; even = 4 + 2 new (sums of two cones) |
+| 9 | (623,623) | (378,378) | (18, running) | direct, 4 primes (even); self-dual degree |
 | 10 | (762,744) | (750,747) | (300,267) | duality from d=8 |
 | 11 | (843,843) | (1341,1341) | (511,511) | duality from d=7 |
 | 12 | (885,866) | (2223,2214) | (677,648) | duality from d=6 |
-So at d >= 10 the E1-admissible family is enormous (most of R_d), and E1 stops being a useful filter: the only
-degrees where E1 + the quadratic relaxation can classify are d <= 9.
-* K_8^+ rational description (5 primes, two-cone coordinates, K8even_twocone_reps.json): three reps are pure Y-cones Q(Y,L) with
-  L-degrees {0,2,4}; three are genuine sums P(X,M) + Q(Y,L) with M-degrees {0,2,4} and L-degrees {0,2} (+L^8, which lies in both cones).
-* Ann_R(l)_d survey (mod p; "annl" log line): Ann(L)_d^+ = 1, 3, 11, 22, 48 for d = 6,7,8,9,10 (Ann(M) similar: 1,3,11,25,48);
-  Ann(X0)_d^+ = 0,0,1,1,7 and Ann(Y0)_d^+ = 0,0,1,3,7 for d = 6..10; odd parity: Ann(X0)_9^- = 3, Ann(Y0)_9^- = 1, Ann(L)_8^- = 9.
-  Since X0 D in J => A D in J, these give explicit E1-admissible sub-families with explicit numerators N = (A/X0) w.
-* d = 9: dim K_9^+ = 18 (mod J; two primes agree); the odd kernel and the structure analysis are running.
 
-### Numerical landscape (reduced varpro, d = 7 even, 6 restarts, 2 procs, local)
-* Every restart converges to the same basin: f/scale0 = 3.2e-6 (f = 1.1e-3), ~100 L-BFGS iterations, 10-15 min per restart under load 60-100.
-* The basin is the Fermat certificate X0*E_Y(F) (D ~ 6 X0 (Y0^6+Y1^6+Y2^6)): evaluating the functional directly gives f/scale0 = 2.6e-6 at
-  w = X0 E_Y and 1.2e-5 at w = X0 E_X.  Explanation: at c = 0 (Fermat) the pure-Jacobian relaxation A*Phi(w) in J has the 15-dimensional
-  (even, gauge-fixed) solution family w_j = z_j q_j (Phi = 30 sum z_j^6 q_j^2 = 0 in the Fermat ring), i.e. D = sum_j q_j z_j^6, many of which
-  are genuine Fermat certificates; the coupling c = 5/7^7 destroys them only at relative size ~c, so the numerical functional has deep
-  (but nonzero) minima there.  Hence numerical residuals ~1e-6 are expected and meaningless; only the exact confirmation step counts.
-  Deflation (multiplying f by prod (1 + eps/|a - a_k|^2)) was added so that batches explore other basins (to be run on the remote).
-* Exact relaxation Gröbner bases at d = 7 (61 variables after gauge; 734 even / 725 odd quadrics): running for > 40 CPU-minutes each
-  (msolve F4, 7-11 GB), i.e. the F4 degree-3 Macaulay matrix did not certify emptiness; the degree-4 step (635k columns) is in progress.
-  At d = 8 (162 variables, 468 equations) this formulation is out of reach (quadratic monomials 13203 >> 468 equations).
+So E1 is a strong filter only for d <= 9; at d >= 10 most of R_d is annihilated by A.
 
-### Tooling validated (wave 2)
-* w2lib.JRef / e1_kernel: reproduces wave-1 ranks (J_10^- = 747, kernel 0 at d=4).
-* w2_varpro (reduced variable projection: unknowns = Koszul corrections c_ij (deg d-4) + Q; rows = degree-2d monomials):
-  quadratic term, Koszul block and Q block checked against direct float polynomial arithmetic (errors 1e-13..1e-17);
-  gradient checked by finite differences (ratio 1.000000); Fermat control (D = X0^6+X1^6+X2^6 serves X0^3Y0^3) gives f = 1e-34.
-* Landscape note: residual f/scale0 at random points is ~1; local minima at d=6 have f/scale0 ~ 0.95 (no basin of a zero; consistent with the exact exclusion).
+### 1.2 Structure of the kernel elements (all exact)
+* D7 (168 terms, rational, heights 27/21 bits): irreducible, depends on Y only through M = Y0+3Y1+5Y2, M-degrees {0,2,4}:
+  a cone with vertex the line {X=0, M=0} (the intersection of Λ with the Fermat coordinate plane z_4 z_5 z_6).
+  Full fixed-D solve (remote, engine v2): inconsistent (rank 4035, nullity 462); served space = J_6^- only.
+* D7' (odd): in C[Y0,Y1,Y2,L], L-degrees {0,2,4,6}: cone with vertex the line {Y=0, L=0}; canonical cone representative in
+  D7odd_cone.json (42 coefficients); rational NF representative in kernel_d7_p1.json (3 primes).
+* Jacobian structure: 2F_X0 - F_X1, 3F_X0 - F_X2, 3F_Y0 - F_Y1, 5F_Y0 - F_Y2 cancel the coupling, so in R:
+  X1^5 = 2X0^5, X2^5 = 3X0^5, Y1^5 = 3Y0^5, Y2^5 = 5Y0^5, X0^5 = -H(L,M)/6, Y0^5 = -G(L,M)/6 (H = d_L C, G = d_M C,
+  C = c((L+M)^6+(L-M)^6)); equivalently the eight fifth powers l_k^5 span the 2-dim space <alpha, beta> of R_5.
+* Polar residuals: L·D7 ∈ J_8 and M·D7' ∈ J_8 (these are exactly the two relations among the six products X_i D7, Y_j D7' mod J_8),
+  i.e. D7 = w(F)/L, D7' = w'(F)/M are residual components of reducible polar divisors.  Likewise Ann_R(L)_6^+ = <E6> with E6 a
+  degree-6 cone over {X=M=0} (E6.json) and Ann_R(L)_7^+ = span(X_i E6 [2-dim], D7).
+* d = 8: K_8^- = S_1 K_7 exactly.  K_8^+ ⊂ C[X,M]_8 + C[Y,L]_8: four directions from S_1 K_7 and two NEW elements which are genuine
+  sums P(X,M) + Q(Y,L) (rational, 5 primes, K8even_twocone_reps.json).  Trivial but useful: Ann_R(X0) + Ann_R(Y0) ⊂ Ann_R(A);
+  dim Ann_R(X0)_8^+ = dim Ann_R(Y0)_8^+ = 1 (the Lefschetz maps by the coordinate forms fail to be injective at d = 8).
+* Annihilator surveys (mod p): Ann(L)_d^+ = 1,3,11,22,48,71 (d=6..11), Ann(M)_d^+ = 1,3,11,25,48,77; Ann(X0)_d^+ = 0,0,1,1,7,7;
+  Ann(Y0)_d^+ = 0,0,1,3,7,13; odd: Ann(X0)_9^- = 3, Ann(Y0)_9^- = 1, Ann(L)_8^- = 9, Ann(L)_10^- = 42, Ann(X0)_10^- = 3, Ann(X0)_11^- = 13.
+* Monomial annihilators (w2_annpow.py, mod p): D7 ∈ Ann_R(X0^3) (X0^3 D7 ∈ J_10) and D7' ∈ Ann_R(Y0^3) — the degree-7 cones are
+  killed by a single cube.  At d = 8 (even): Ann(X0^k)_8 = k, Ann(Y0^k)_8 = k (k=1,2,3), Ann(X0^a Y0^b)_8 = a+b-? (table in the log:
+  X0Y0:2, X0Y0^2:3, X0Y0^3:4, X0^2Y0^2:4, X0^2Y0^3:5, X0^3Y0^2:5, X0^3Y0^3 = K_8^+:6); odd d = 8: Ann(X0^a Y0^b)_8^- = 3 for every
+  multiplier with a = 3 or b = 3.  So K_8^+ = Ann(X0^3)_8 + Ann(Y0^3)_8 (4-dim) + two elements needing both cubes.
+* Named candidates: all 2x2 minors of Hess(F) (99 even, 72 odd at d=8) fail E1; E_X(F), E_Y(F) times forms lie in J.
 
-### Remote status
-* Job search-spp-j1 (done): odd d=7 kernel vector found mod 2 primes but rational reconstruction failed (height); D7 tests as above; e1vec 8 0 running/finished.
-* Jobs search-spp-kA (kernels d=7,8 both parities, 3 primes, numerators) and search-spp-kBC (d=9, d=10) are queued with --wait: the remote has been
-  refusing submissions (load 300-550 on 128 cores, 40-74 jobs from other agents) since 00:20.
-* Local fallback (brunos, 1-2 threads): d=7 even relaxation over D7 + J_7 running; d=7 odd kernel (2 primes) running.
+### 1.3 Gauge invariance (proved, used everywhere)
+If (D, N, Q) is a certificate normalized by N(F) = A D (always possible), then for every h ∈ S_{d-6}
+(D + hF, N + hA E/6, Q + h div N - N(h) + h^2 A) is a certificate.  Hence denominators are searched modulo F S_{d-6}
+("gauge-fixed": the coordinates (Y2-component, h·Y2) of the Jacobian field are removed).
+
+### 1.4 E2-mod-J relaxation (exact necessary condition): for D = sum a_k G_k with particular numerators P_k (P_k(F) = A G_k),
+B(a) = sum_{k,l} a_k a_l (G_k div P_l - P_l(G_k)) must lie in J_{2d}; Koszul corrections and Q drop out mod J.
+* d = 6 (pure Jacobian family, 17/18 gauge-fixed variables, ~600 quadrics): no projective solutions (msolve [-1]; Singular dim 0,
+  vdim 1216 / 540) for both parities  =>  no certificate with deg D = 6 of pure parity (and none of mixed parity <= 3).
+* d = 7 (64 generators = D7 + J_7, 61 variables after gauge, 734 even / 725 odd quadrics): the full Gröbner bases
+  (msolve F4 on a random affine chart; Singular std; msolve leading ideal) have been running for > 1 h CPU each with 7–11 GB:
+  the degree-3 Macaulay step did not certify emptiness, degree 4 (635k columns) is in progress.  Partial exact results:
+  - D7 alone fails (696/734 equations nonzero); the pencils span(D7, w(F)) for the polar-residual fields w(F) = L E6 (even) and
+    w(F) = M E6M (odd) contain no solutions;
+  - Fermat subfamily Λ = {w_j = z_j q_j} + <D7> (16 variables; the family that solves the relaxation identically at c = 0):
+    only the origin (Singular dim 0, vdim 194 / 191; msolve chart [-1]) for both parities;
+  - all subring subfamilies (monomials in 2..5 of the forms X0,X1,X2,Y0,Y1,Y2,L,M, and the two-cone family) ∩ (K_7+J_7):
+    running (w2_subfam.py).
+* d = 8 (174 generators, 162 variables, 468/483 equations): the quadratic relaxation is hopeless as a full GB (13203 quadratic
+  monomials vs ~470 equations), but the equations are being built so that structured subfamilies can be tested exactly.
+
+## 2. Structured families screened exactly against E1 (w2_families.py, w2_cands.py)
+152 (even) / 134 (odd) subring families at d = 7, 45+ at d = 8 (deduplicated by span), plus the two-cone family and the named
+candidates.  At d = 7 the only families meeting K_7 + J_7 outside J_7 are <X0,X1,X2,M> (even, D7) and <Y0,Y1,Y2,L> (odd, D7').
+At d = 8: <X0,X1,X2,M> and <Y0,Y1,Y2,L> contain only the products X_i D7 / Y_i D7'; the composite family C[X,M]+C[Y,L] contains all of
+K_8^+.  Many families meet J_d nontrivially (binomial relations above) — those are Jacobian-type and covered by the w-space.
+
+## 3. Numerical joint search (reduced variable projection, w2_varpro.py)
+Formulation: unknowns for fixed a are only the Koszul coefficients c_ij (degree d-4) and Q; rows = degree-2d monomials; each
+evaluation is a 5796 x 1056 least-squares at d = 7 (vs 26532 x 4497 in the engine's VarProFamily).  Validated against direct
+polynomial arithmetic (1e-13), finite-difference gradient (ratio 1.000000) and the Fermat control certificate.
+* d = 7 even, 6 restarts (2 procs, maxiter 300): every restart converges to the SAME basin f/scale0 ≈ 3.2e-6 (f ≈ 1.1e-3), ~100
+  iterations, 10–15 min per restart at load 60–100.  The basin is the Fermat certificate X_i E_Y(F) (direct evaluation: f/scale0 =
+  2.0e-6..2.6e-6 at w = X_i E_Y, 0.9e-5..1.2e-5 at X_i E_X; D7 alone: 4e-4).  Explanation: at c = 0 the family w_j = z_j q_j solves
+  the relaxation identically and contains genuine Fermat certificates; the coupling c = 5/7^7 breaks them only at relative size ~c.
+  Hence residuals ~1e-6 are expected artefacts; no candidate reached the confirmation threshold (1e-9) and none was rationally
+  reconstructed.  Deflation was added for the remote batches (queued).
+
+## 4. What is excluded, what is open
+* Rigorous (mod p, several primes): no certificate with deg D <= 6 of pure Y-parity; deg D <= 3 mixed.  deg D = 7: E1 forces
+  D ∈ <D7> + J_7 (even) or <D7'> + J_7 (odd); D7, D7' alone and the Fermat/polar-residual subfamilies are excluded; the full
+  61-variable relaxation is undecided (GB running).
+* Open: the full d = 7 families, d = 8 (162-dim families), mixed parity at d = 7 (122 variables; build running), d >= 9.

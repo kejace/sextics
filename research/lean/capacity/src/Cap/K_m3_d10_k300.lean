@@ -2,10 +2,7 @@ import Reflect.Kron
 
 set_option maxHeartbeats 2000000
 set_option maxRecDepth 4000
-set_option linter.unusedTactic false
-set_option linter.unusedSimpArgs false
-set_option linter.unnecessarySeqFocus false
-set_option linter.unreachableTactic false
+set_option linter.all false
 
 namespace HodgeComputer.Cap.K_m3_d10_k300
 

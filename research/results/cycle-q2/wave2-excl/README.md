@@ -36,3 +36,7 @@ python3 -c "import sys; sys.path.insert(0,'wave2-excl'); import w2lib; from hodg
 ```
 Log of every experiment: `/tmp/hodge/results/cycle-q2/wave2-excl.log.jsonl` (lines with `"engine": 2`); remote jobs append to
 `wave2-excl.remote.log.jsonl` on the compute box, merged by `merge.py`.
+
+Note on certificate files: `certs/<tag>.json` stores the full rational vector `y` unless its text exceeds the storage cap (raised to 60 MB on
+2026-11-01 22:20; a few early degree-6/7 certificates were stored with `y = null` and `y_omitted_size`); such a certificate is regenerated
+deterministically by `w2lib.farkas(F, A, q, D, p, G, save=path)` with the stored `D` and prime, and all stored vectors replay with `cert_from_file`.

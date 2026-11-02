@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T20:21:35. 29 search restarts collected over 2 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. 
+STATUS: NO WITNESS. Updated 2026-11-01T20:30:23. 70 search restarts collected over 3 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. 
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -71,8 +71,9 @@ rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q;
 
 | batch | family | d | par | params (free) | rows | c+Q unknowns (Koszul-block rank) | restarts | best rel | 10% | median | worst | best r_part | <1e-6 | <1e-10 | s/restart | nfev | recon |
 |---|---|---:|:-:|---|---:|---|---:|---|---|---|---|---|---:|---:|---:|---:|---:|
-| local-search-d6-p0 (running) | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 162+226 (144-144) | 13 | 0.17 | 0.222 | 0.592 | 0.813 | - | 0 | 0 | 25.2 | 78.8 | 0 |
-| local-stage1-d7-p0 (stage 1 only) (running) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 16 | 0.00441 | 0.00503 | 0.0148 | 0.0185 | 0.00441 | 0 | 0 | 17.1 | 98.9 | 0 |
+| local-search-d6-p0 (running) | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 162+226 (144-144) | 30 | 0.17 | 0.222 | 0.679 | 0.963 | - | 0 | 0 | 28.4 | 80.4 | 0 |
+| local-stage1-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00441 | 0.00503 | 0.0124 | 0.0185 | 0.00441 | 0 | 0 | 19.9 | 102.8 | 0 |
+| local-stage1-d7-p1 | jacobian-d7-p1 | | | | | | 0 (started) | | | | | | | | | | |
 
 ## 4. Structured families at d = 10 intersected with the admissible space (mod p)
 

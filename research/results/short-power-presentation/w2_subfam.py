@@ -121,7 +121,7 @@ def main():
         rng = random.Random(1)
         chart = list(sub_eqs) + [{(): p - 1, **{(i,): rng.randrange(1, p) for i in range(rk)}}]
         write_msolve(base + '_chart.ms', chart, rk, p)
-        r1 = run_msolve(base + '_chart.ms', base + '_chart.msout', 2)
+        r1 = run_msolve(base + '_chart.ms', base + '_chart.msout', 2, timeout=a.singular_timeout)
         head = r1.get('out_head', '').strip()[:60]
         r2 = run_singular(base + '.sing', a.singular_timeout)
         so = r2.get('stdout', '') if isinstance(r2.get('stdout'), str) else ''

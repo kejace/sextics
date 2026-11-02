@@ -345,3 +345,5 @@ RECEIPT {"exp": "structured-E1-screen", "d": 11, "prime": 2147483587, "shape": "
 RECEIPT {"exp": "structured-E1-screen", "d": 11, "prime": 2147483587, "shape": "in-(X0,X1,Y0,Y1)^4", "per_char": {"(0, 0)": {"dimU": 1218, "e1_adm": 1020, "e1_adm_mod_J": 302}, "(0, 1)": {"dimU": 1178, "e1_adm": 965, "e1_adm_mod_J": 263}, "(1, 0)": {"dimU": 838, "e1_adm": 718, "e1_adm_mod_J": 243}, "(1, 1)": {"dimU": 798, "e1_adm": 663, "e1_adm_mod_J": 203}}, "e1_adm_total": 3366, "nonJ_total": 1011, "good_reduction": true, "seconds": 19.1, "ts": "2026-11-02T01:24:27", "job": "structscreen"}
 [reducer n=18 chi=(0, 1) p=2147483587] dim S=9306 gens=14112 rank J=9180 nul=126 fermat=126 good_reduction=True (319.1s)
 [reducer n=12 chi=(0, 0) p=2147483587] dim S=1848 gens=1408 rank J=1319 nul=529 fermat=529 good_reduction=True (3.0s)
+[reducer n=18 chi=(0, 0) p=2147483587] dim S=9526 gens=14280 rank J=9382 nul=144 fermat=144 good_reduction=True (559.4s)
+[reducer n=12 chi=(0, 1) p=2147483587] dim S=1764 gens=1368 rank J=1272 nul=492 fermat=492 good_reduction=True (4.6s)

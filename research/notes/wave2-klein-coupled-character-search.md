@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 20:28:25 from 68 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 20:35:31 from 75 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -32,7 +32,7 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
 | d | parity | nD per k=0..6 | J_d per k | kernel mod J per k (nontrivial) | rational reps (max height) | lifts failed |
 |---|---|---|---|---|---|---|
 | 9 | even | -,156,156,139,-,139,139 | -,63,63,52,-,52,52 | -,3,3,2,-,1,3 | -,-,-,49994,-,31345,272340 | 0 |
-| 9 | odd | -,139,-,-,-,136,- | -,49,-,-,-,46,- | -,5,-,-,-,6,- | -,2420,-,-,-,3625,- | 0 |
+| 9 | odd | -,139,-,-,-,136,136 | -,49,-,-,-,46,46 | -,5,-,-,-,6,4 | -,2420,-,-,-,3625,3500 | 0 |
 
 ## (2) Mod-J relaxation per sector (real zeros numerically; Singular exact dimension mod 32003)
 
@@ -91,18 +91,24 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 6 | even | 0 | J | 12 | 11 | 368x30 | 6 | 3.96e-01 | 3.96e-01 | 1.00e+00 | 0 | 0 | lm | 0 |
 | 6 | even | 3 | J | 1 | 1 | 365x70 | 2 | 9.56e-01 | 9.56e-01 | 9.56e-01 | 0 | 0 | lm | 0 |
+| 9 | even | 1 | K | 3 | 3 | 1933x272 | 5 | 1.26e+00 | 1.26e+00 | 1.26e+00 | 0 | 0 | lm | 0 |
+| 9 | even | 2 | K | 3 | 3 | 1918x240 | 5 | 1.42e+00 | 1.42e+00 | 1.42e+00 | 0 | 0 | lm | 0 |
 | 9 | even | 3 | K | 2 | 2 | 1969x240 | 4 | 3.41e-02 | 3.41e-02 | 3.41e-02 | 0 | 0 | lm | 0 |
+| 9 | even | 6 | K | 3 | 3 | 1966x272 | 6 | 1.69e-01 | 8.54e-01 | 8.54e-01 | 0 | 0 | lm | 0 |
+| 9 | odd | 1 | K | 5 | 5 | 1947x264 | 5 | 8.90e-01 | 8.90e-01 | 8.90e-01 | 0 | 0 | lm | 0 |
+| 9 | odd | 5 | K | 6 | 6 | 1929x264 | 5 | 7.55e-01 | 7.55e-01 | 7.55e-01 | 0 | 0 | lm | 0 |
+| 9 | odd | 6 | K | 4 | 4 | 1939x264 | 5 | 1.26e+00 | 1.26e+00 | 1.26e+00 | 0 | 0 | lm | 0 |
 
 ## Remote job queue (tail)
 ```
-20:02:01 gate closed for w2-control: REMOTE BUSY: load 1093 (max 150), available memory 76 GB (min 60), 89 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:03:34 gate closed for w2-control: REMOTE BUSY: load 1118 (max 150), available memory 71 GB (min 60), 92 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:05:07 gate closed for w2-control: REMOTE BUSY: load 1158 (max 150), available memory 54 GB (min 60), 91 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:20:49 gate closed for w2-control: 00), available memory 237 GB (min 90), 63 jobs running with 124 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:22:22 gate closed for w2-control: 00), available memory 235 GB (min 90), 67 jobs running with 152 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:23:54 gate closed for w2-control: 00), available memory 229 GB (min 90), 67 jobs running with 148 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:25:27 gate closed for w2-control: 00), available memory 190 GB (min 90), 66 jobs running with 146 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:26:59 gate closed for w2-control: 00), available memory 212 GB (min 90), 67 jobs running with 148 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:28:32 gate closed for w2-control: 00), available memory 194 GB (min 90), 67 jobs running with 155 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:30:05 gate closed for w2-control: 00), available memory 204 GB (min 90), 71 jobs running with 190 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:31:39 gate closed for w2-control: 00), available memory 185 GB (min 90), 70 jobs running with 189 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:33:12 gate closed for w2-control: 00), available memory 177 GB (min 90), 70 jobs running with 227 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:34:45 gate closed for w2-control: 00), available memory 180 GB (min 90), 70 jobs running with 227 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation

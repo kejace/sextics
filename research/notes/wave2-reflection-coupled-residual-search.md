@@ -55,7 +55,8 @@ Hessian-relaxation tensors + LM search, msolve export, sector-restricted VarPro,
 (dim R_{10}: 460/426/318/302; dim R_{11}: 505/480/363/338; dim R_12^{(0,1)} = 492, consistent with the dossier.)
 | 7 | 45 = J (R_7 = 213) | 40 = J (R_7 = 198) | 23 = J (R_7 = 135) | 18 = J (R_7 = 120) | 0 — **E1 forces D ∈ J_7 in every sector** |
 | 8 | 113 = J(112) + 1 (K8), R_8 = 301 | 104 = J (R_8 = 274) | 64 = J (R_8 = 194) | 56 = J (R_8 = 182) | **1 in all sectors: K8** (sector 00) |
-d = 9..12: remote jobs `search-rcr-e1lo` / `search-rcr-e1hi` (queued; remote at capacity).
+| 9 | 263 = J(242) + **21** (R_9 = 381 → R_15 = 360: exactly the forced minimum) | (running) | (running) | (running) | 21 Y-even classes in sector 00 so far (dense, 361 terms each) |
+d = 10..12: remote job `search-rcr-e1hi` (queued; remote at capacity).
 
 ### R2. Hessian relaxation at d = 5, 6 — EXACT (msolve, mod p, random affine chart), spurious directions killed
 Family D = Σ g_i F_i (the whole E1-admissible space at these degrees). Quadrics = coordinates of [A gᵀHg] in R_{2d}^{(0,1)} (+ R_{2d}^{(1,0)} for mixed).
@@ -76,7 +77,7 @@ E1 forces D ∈ J_7 in every sector (R1), so these families are everything at de
 | 10 | 23 | 22 | 182 | 12 | 1.048 | 1.717 |
 | 11 | 18 | 18 | 178 | 12 | 1.564 | 1.81 |
 | e (00⊕11) | 63 | 60 | 420 | 4 | 0.970 | 1.19 |
-(mixed o: running). No descent below 0.1: the full-E2 landscape at degree 7 has no zero in reach of 12 restarts per
+| o (01⊕10) | 63 | 60 | 420 | 4 | 0.633 | 0.95 | No descent below 0.1: the full-E2 landscape at degree 7 has no zero in reach of 12 restarts per
 sector, consistent with the exact relaxation emptiness in sectors 10/11 (R2).
 
 ### R2b. Whole degree-8 Y-even E1 family K8 ⊕ J_8^{(0,0)} (K = 113, spurious 10, search dim 103, 274 obstruction coordinates)

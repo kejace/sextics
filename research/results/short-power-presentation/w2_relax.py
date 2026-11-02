@@ -29,9 +29,12 @@ def gauge_indices(fam):
                 idx.append(pos[key])
     return sorted(set(idx))
 
-def run_msolve(path, out, threads):
+def run_msolve(path, out, threads, timeout=None):
     t0 = time.time()
-    r = subprocess.run(['msolve', '-t', str(threads), '-v', '1', '-f', path, '-o', out], capture_output=True, text=True)
+    try:
+        r = subprocess.run(['msolve', '-t', str(threads), '-v', '1', '-f', path, '-o', out], capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return {'rc': 'timeout', 'seconds': round(time.time() - t0, 1), 'out_head': 'TIMEOUT', 'stderr': '', 'stdout': '', 'out_len': 0}
     res = open(out).read() if os.path.exists(out) else ''
     return {'rc': r.returncode, 'stderr': r.stderr[-3000:], 'stdout': r.stdout[-3000:], 'out_head': res[:600],
             'out_len': len(res), 'seconds': round(time.time() - t0, 1)}

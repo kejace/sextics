@@ -10,7 +10,7 @@ if os.path.exists(LOG):
     have = set(l.strip() for l in open(LOG) if l.strip())
 added = 0
 with open(LOG, 'a') as out:
-    for path in sorted(glob.glob(f'{MIR}/w2_*.jsonl')):
+    for path in sorted(glob.glob(f'{MIR}/w2_*.jsonl')) + sorted(glob.glob(f'/tmp/hodge/results/{LANE}/w2_*.jsonl')):
         for line in open(path):
             line = line.strip()
             if not line:

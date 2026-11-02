@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+Ann(X0)_8^+ : dim 1, reconstruction ok with 2 primes
+  NF rep: terms 190, X-degrees [(4, 75), (6, 90), (8, 25)], Y-degrees [(0, 25), (2, 90), (4, 75)], min exp of X0: 0
+  Y only via M: True  X only via L: False
+Ann(Y0)_8^+ : dim 1, reconstruction ok with 4 primes
+  NF rep: terms 427, X-degrees [(0, 15), (2, 60), (4, 195), (6, 132), (8, 25)], Y-degrees [(0, 25), (2, 132), (4, 195), (6, 60), (8, 15)], min exp of Y0: 0
+  Y only via M: False  X only via L: False
+Ann(X1)_8^+ : dim 1, reconstruction ok with 2 primes
+  NF rep: terms 190, X-degrees [(4, 75), (6, 90), (8, 25)], Y-degrees [(0, 25), (2, 90), (4, 75)], min exp of X1: 0
+  Y only via M: True  X only via L: False
+Ann(Y1)_8^+ : dim 1, reconstruction ok with 5 primes
+  NF rep: terms 460, X-degrees [(0, 15), (2, 78), (4, 210), (6, 132), (8, 25)], Y-degrees [(0, 25), (2, 132), (4, 210), (6, 78), (8, 15)], min exp of Y1: 0
+  Y only via M: False  X only via L: False
+saved Ann8_reps.json

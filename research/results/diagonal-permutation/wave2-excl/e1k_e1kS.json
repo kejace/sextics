@@ -303,5 +303,21 @@
   "koszul_d6": 333,
   "good_reduction": null,
   "seconds": 163.2
+ },
+ "d12_p1000000007_par0_sig1": {
+  "d": 12,
+  "p": 1000000007,
+  "par": 0,
+  "sigma": 1,
+  "ring_dim": 461,
+  "target_dim": 100,
+  "rank": 100,
+  "kernel_dim": 361,
+  "jac_dim_d": 1135,
+  "jac_dim_d6": 8216,
+  "koszul_d": 885,
+  "koszul_d6": 208,
+  "good_reduction": null,
+  "seconds": 346.3
  }
 }

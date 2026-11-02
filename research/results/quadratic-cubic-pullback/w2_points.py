@@ -21,6 +21,7 @@ ap.add_argument('--nprimes', type=int, default=12, help='primes for the char-0 r
 ap.add_argument('--threads', type=int, default=4); ap.add_argument('--timeout', type=int, default=3600)
 ap.add_argument('--instance', default=LANE); ap.add_argument('--fermat', action='store_true')
 ap.add_argument('--out', default=None); ap.add_argument('--no-dehom', action='store_true')
+ap.add_argument('--homog', action='store_true', help='homogeneous system, msolve -g 2, check pure powers of every variable among leading terms')
 a = ap.parse_args()
 d, parD = a.d, a.parity
 F, A, q, _ = core.load_instance(a.instance)
@@ -127,31 +128,59 @@ for fr in forms:
         mon = f'{names[x]}^2' if x == y else f'{names[x]}*{names[y]}'
         terms.append(f'{cstr(c)}*{mon}')
     polys.append('+'.join(terms).replace('+-', '-'))
+if a.homog:
+    a.no_dehom = True
 if not a.no_dehom:
     rng = random.Random(1234)
     lin = '+'.join(f'{rng.randint(1, 97)}*{nm}' for nm in names) + '-1'
     polys.append(lin)
-out = a.out or f'/tmp/hodge/results/{LANE}/w2_points_d{d}_p{parD}_c{char}.ms'
+out = a.out or f'/tmp/hodge/results/{LANE}/w2_points_d{d}_p{parD}_c{char}{"_homog" if a.homog else ""}.ms'
 with open(out, 'w') as f:
     f.write('\n'.join(lines) + '\n' + ',\n'.join(polys) + '\n')
 print(f'[points] wrote {out}', flush=True)
 res_path = out.replace('.ms', '.out')
 cmd = ['msolve', '-t', str(a.threads), '-v', '1', '-f', out, '-o', res_path]
-if char == 0:
+if a.homog:
+    cmd += ['-g', '2']
+elif char == 0:
     cmd += ['-P', '1']
 t1 = time.time()
+verdict = None
 try:
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=a.timeout)
     print(f'[points] msolve exit {r.returncode} in {time.time()-t1:.1f}s', flush=True)
-    print(r.stderr[-3000:], flush=True)
-    print(r.stdout[-2000:], flush=True)
+    print(r.stderr[-1500:], flush=True)
+    print(r.stdout[-1500:], flush=True)
 except subprocess.TimeoutExpired:
     print(f'[points] msolve TIMEOUT after {a.timeout}s', flush=True)
+    verdict = 'timeout'
 if os.path.exists(res_path):
     txt = open(res_path).read()
-    print(f'[points] output {res_path}: {len(txt)} chars; head: {txt[:1500]}', flush=True)
+    print(f'[points] output {res_path}: {len(txt)} chars; head: {txt[:600]}', flush=True)
+    if a.homog:
+        # parse reduced GB: leading monomial = first monomial of each polynomial (msolve prints DRL-descending)
+        import re
+        body = txt.strip()
+        body = body[body.index('[') + 1:body.rindex(']')] if '[' in body else body
+        polys_out = [s.strip() for s in body.split(',\n') if s.strip()]
+        if len(polys_out) == 1 and polys_out[0].strip() in ('1', '-1'):
+            verdict = 'unit ideal (homogeneous!?)'
+        lead = []
+        for ptxt in polys_out:
+            ptxt = ptxt.strip().rstrip(',')
+            first = re.split(r'(?<!\^)[+-]', ptxt, maxsplit=1)[0] if not ptxt.startswith('-') else re.split(r'(?<!\^)[+-]', ptxt[1:], maxsplit=1)[0]
+            vars_ = re.findall(r'v(\d+)(?:\^(\d+))?', first)
+            lead.append({int(v): int(e) if e else 1 for v, e in vars_})
+        pure = {}
+        for lm in lead:
+            if len(lm) == 1:
+                (v, e), = lm.items()
+                pure[v] = min(e, pure.get(v, 10**9))
+        missing = [i for i in range(nq) if i not in pure]
+        verdict = 'EMPTY projective zero set (pure power of every variable in the leading ideal)' if not missing else f'NOT closed: variables without pure power: {missing[:20]} (GB size {len(polys_out)})'
+        print(f'[points] GB size {len(polys_out)}; pure powers for {len(pure)}/{nq} variables; max pure exponent {max(pure.values()) if pure else None}; verdict: {verdict}', flush=True)
 rec = {'lane': LANE, 'item': 'points', 'd': d, 'parity': parD, 'char': char, 'n_forms': len(forms), 'nq': nq,
-       'msolve_seconds': round(time.time() - t1, 1), 'out': res_path, 'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
+       'msolve_seconds': round(time.time() - t1, 1), 'out': res_path, 'homog': bool(a.homog), 'verdict': verdict, 'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
 if os.path.exists(res_path):
     rec['out_head'] = open(res_path).read()[:400]
 with open(f'/tmp/hodge/results/{LANE}/w2_points.jsonl', 'a') as f:

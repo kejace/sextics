@@ -41,7 +41,7 @@ def hilbert_verdict(sysd, base, p, threads):
             break
         tmax = t
     h = R.hilbert_from_leading(mons, nu, tmax)[0] if tmax >= 1 else None
-    sg = R.run_singular(base + '.sing', base + '.sing.out', nu)
+    sg = R.run_singular(base + '.sing', base + '.sing.out', nu) if nu <= 40 else {}
     empty = (h is not None and 0 in h[1:]) or str(sg.get('dim', '')) == '0'
     return bool(empty), {'msolve_hilbert': h, 'msolve_seconds': ms['seconds'], 'singular_dim': sg.get('dim'),
                          'singular_vdim': sg.get('vdim'), 'singular_hilbert': sg.get('hilbert_function'),
@@ -82,15 +82,26 @@ def main():
                 Na, _ = W.membership_mod_p(Fp, mul(Ap, Da, p), p)
                 kern.append((Da, Na))
     print(f'kernel elements: {len(kern)} (exact available: {exact_ok}) [{time.time()-t00:.0f}s]', flush=True)
-    # ---- full pair table in normal-form coordinates ----------------------------------------------------------
-    full = W.build_relaxation(F, A, d, kern, pars, p, slice_euler=True, verbose=False)
-    unk = full['unknowns']
+    # ---- full pair table in normal-form coordinates (cached) ----------------------------------------------------
+    cache = os.path.join(W.RES, f'excl_blocks_d{d}{parsarg}_p{pidx}.pairs.json')
+    if os.path.exists(cache):
+        C = json.load(open(cache))
+        unk = [tuple(u) if u[0] == 'lam' else (u[0], u[1], tuple(u[2])) for u in C['unknowns']]
+        neq = C['neq']
+        pairvec = {(int(k.split(',')[0]), int(k.split(',')[1])): {int(c): v for c, v in vec.items()} for k, vec in C['pairvec'].items()}
+        print(f'pair table loaded from cache {cache}', flush=True)
+    else:
+        full = W.build_relaxation(F, A, d, kern, pars, p, slice_euler=True, verbose=False)
+        unk = full['unknowns']
+        neq = len(full['eqs'])
+        pairvec = {}
+        for e_idx, eq in enumerate(full['eqs']):
+            for k, v in eq.items():
+                pairvec.setdefault(k, {})[e_idx] = v
+        with open(cache, 'w') as f:
+            json.dump({'unknowns': [list(u) if u[0] == 'lam' else [u[0], u[1], list(u[2])] for u in unk], 'neq': neq,
+                       'pairvec': {f'{k[0]},{k[1]}': vec for k, vec in pairvec.items()}}, f)
     nu = len(unk)
-    neq = len(full['eqs'])
-    pairvec = {}
-    for e_idx, eq in enumerate(full['eqs']):
-        for k, v in eq.items():
-            pairvec.setdefault(k, {})[e_idx] = v
     print(f'unknowns {nu}, pairs {len(pairvec)}, equation coordinates {neq} [{time.time()-t00:.0f}s]', flush=True)
 
     def blockname(u):
@@ -113,10 +124,21 @@ def main():
     print('blocks:', {b: len(v) for b, v in blocks.items()}, 'order', order, flush=True)
     alive = set(range(nu))
     steps = []
-    for b in order:
+    maxpass = int(sys.argv[sys.argv.index('--passes') + 1]) if '--passes' in sys.argv else 4
+    sched = []
+    for ps in range(maxpass):
+        sched += [(ps, b) for b in order]
+    done_blocks = set()
+    last_progress_pass = 0
+    for ps, b in sched:
+        if ps > last_progress_pass + 1:
+            break
+        if b in done_blocks:
+            continue
         t0 = time.time()
         B = [i for i in blocks[b] if i in alive]
         if not B:
+            done_blocks.add(b)
             continue
         Bset = set(B)
         inB = [k for k in pairvec if k[0] in Bset and k[1] in Bset]
@@ -169,10 +191,14 @@ def main():
         info.update(hinfo)
         info['proj_empty_in_visible'] = empty
         info['seconds'] = round(time.time() - t0, 1)
+        info['pass'] = ps
         if empty:
             for i in visible:
                 alive.discard(i)
             info['eliminated'] = len(visible)
+            last_progress_pass = ps
+            if not invisible:
+                done_blocks.add(b)
         steps.append(info)
         print(f'[block {b}] size {len(B)} | pairs in block {len(inB)} (span {rB}) | others span {rO} | functionals {npsi} | '
               f'quadrics {rq} in {len(visible)} visible unknowns | m-primary: {empty} | invisible {len(invisible)} [{time.time()-t0:.0f}s]', flush=True)
@@ -207,7 +233,7 @@ def main():
                     eq[(min(a, bb), max(a, bb))] = v
             eqs.append(eq)
         sysd = {'unknowns': [None] * len(rem), 'eqs': eqs}
-        if len(rem) <= 40:
+        if len(rem) <= 40 or ('--residual-gb' in sys.argv and len(rem) <= 70):
             empty, hinfo = hilbert_verdict(sysd, base + '.residual', p, threads)
             res_info.update(hinfo)
             verdict = 'proj-empty' if empty else 'residual-not-empty'

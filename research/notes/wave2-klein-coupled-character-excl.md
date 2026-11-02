@@ -37,6 +37,10 @@ quadratic system in the coefficients of w (gauge w -> w + l z removed). Projecti
   (exact GB size 94 each, every generator of I_L has a power in the exact ideal); odd k=0 (24 vars) running.
   Once exact: lifted points are l.D_lambda with lambda in C, excluded by the NZD lemma + sum principle + the d=6 result
   => no sigma-eigen denominator of degree 7 of pure Y-parity.
+* METHOD (Hilbert-function sandwich, w2_hfsandwich.py): containment V(I_Q) = L (lifted family) follows rigorously
+  from a mod-p Groebner basis when the Hilbert series of S/in(I_p) and of the exact ideal I(L) differ by a polynomial;
+  cross-checked against the characteristic-0 Groebner bases on the d=7 even sectors k=1,2,4 (all agree: dim 2, degree 8).
+  This replaces the (slower) characteristic-0 replays for the remaining sectors.
 * LEMMA (rigorous, local_nzd/nzd_yquadrics.out): every Y-quadric q(Y) satisfies (J:q)_6 ∩ (Y-odd, char 3) = J_6^-[3]
   (needed for the degree-8 lifts q(Y).D_lambda in the even character-0 sector).
 * Validation: the Koszul-form solver underlying the constant-dual proof reproduces 7 accepted witnesses (incl. two of
@@ -45,7 +49,10 @@ quadratic system in the coefficients of w (gauge w -> w + l z removed). Projecti
 
 ## Re-verification of wave 1 (so far)
 * Hilbert function of S/J in every (parity, character) sector equals the complete-intersection value mod 1000003
-  for d = 5, 6 (flatness), kernel of [A] zero in all sectors for d = 5, 6 (agrees with 32003 / 2^31-1 results).
+  for d = 5..10 (flatness); kernel of [A] zero in all sectors for d <= 8; at d = 9: even [2,3,3,2,10,1,3],
+  odd [0,5,0,0,9,6,4]; d = 10 even [24,46,39,39,54,46,46] — all agree with wave 1 (32003 and 2^31-1); NEW: d = 10 odd
+  kernel [36,39,39,36,39,36,36] (total 261). Full fixed-D tests of the d = 9 kernel representatives and random
+  combinations at p = 1000003 are running (jobC_local, 132 systems).
 * The wave-1 "served-targets" entries are mislabeled (character 4, trivial elements X2 F_j); to be redone (job D).
 * The wave-1 "scan-1param consistent" hit is the degenerate point 6F.
 

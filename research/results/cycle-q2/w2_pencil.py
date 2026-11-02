@@ -21,17 +21,49 @@ def sector_system_modp(F, A, q, D, p):
     return S
 
 
+def _compress_blocks(S_, row_codes, mats, p, m, seed=7):
+    """random (m x rows) compression applied to sparse int64 matrices given as (r_idx, c_idx, v, ncols) over row_codes"""
+    import scipy.sparse as sp
+    rng = np.random.default_rng(seed)
+    R = rng.integers(0, p, size=(m, len(row_codes)), dtype=np.int64)
+    r0 = R & 0xFFFF; r1 = R >> 16
+    outs = []
+    for (ri, ci, v, ncols) in mats:
+        M = sp.csr_matrix((v, (ri, ci)), shape=(len(row_codes), ncols), dtype=np.int64)
+        MT = M.T.tocsr()
+        a = (MT @ r0.T) % p
+        b = (MT @ r1.T) % p
+        outs.append(np.ascontiguousarray(((a + (b * (1 << 16)) % p) % p).T))   # m x ncols
+    return outs
+
+
 def pencil_scan(F, A, q, D1, D2, p, verbose=False):
+    """all F_p-rational t with D1 + t D2 consistent (plus t = inf), via interpolation of a maximal minor polynomial.
+    M(t) = [MN1 + t MN2 | MQ],  b(t) = b11 + t b12 + t^2 b22  (all systems share the sector of kappa, since D1, D2 are
+    G-semi-invariant with the same character)."""
+    import os
     t0 = time.time()
-    # generic rank from a random t
+    D1p, D2p = core.reduce_mod(D1, p), core.reduce_mod(D2, p)
+    S1 = eq.EqSystem(F, A, q, D1p, p=p)
+    S2 = eq.EqSystem(F, A, q, D2p, p=p)
+    assert S1.ncols == S2.ncols and S1.col_meta == S2.col_meta, 'column sets differ (sector mismatch)'
+    ncols, nN, nQ = S1.ncols, S1.nN, S1.nQ
+    Ap = core.reduce_mod(A, p)
+    b12 = core.scale(core.mul(Ap, core.mul(D1p, D2p, p), p), (p - 2) % p, p)   # -2 A D1 D2
+    codes12 = np.array([eq.enc(e) for e in b12], dtype=np.int64)
+    row_codes = np.unique(np.concatenate([S1.row_codes, S2.row_codes, codes12]))
+    def remap(S_):
+        pos = np.searchsorted(row_codes, S_.row_codes)
+        return pos[S_.r_idx]
+    r1 = remap(S1); r2 = remap(S2)
+    selN1 = S1.c_idx < nN; selQ1 = (S1.c_idx >= nN) & (S1.c_idx < ncols); selb1 = S1.c_idx == ncols
+    selN2 = S2.c_idx < nN; selb2 = S2.c_idx == ncols
+    # generic rank / augmented rank at a random t
     rng = np.random.default_rng(1)
-    tr = int(rng.integers(1, p - 1))
-    Dt = core.add(core.reduce_mod(D1, p), core.scale(core.reduce_mod(D2, p), tr, p), p)
-    S0 = eq.EqSystem(F, A, q, Dt, p=p)
-    res0 = S0.solve()
-    r = res0['rank'] if not res0['consistent'] else res0['rank']
-    # augmented rank
-    Mc = S0.compressed(k_extra=40, seed=3)
+    tr = int(rng.integers(2, p - 1))
+    Dt = core.add(D1p, core.scale(D2p, tr, p), p)
+    St = eq.EqSystem(F, A, q, Dt, p=p)
+    Mc = St.compressed(k_extra=40, seed=3)
     k, C1 = Mc.shape
     Mn = nmod_mat(k, C1, Mc.ravel().tolist(), p)
     Mr, rank_aug = Mn.rref()
@@ -41,95 +73,84 @@ def pencil_scan(F, A, q, D1, D2, p, verbose=False):
         while j < C1 and int(Mr[i, j]) == 0:
             j += 1
         piv.append(j)
-    cols = S0.ncols
-    generic_consistent = not (piv and piv[-1] == cols)
-    info = {'rank': res0['rank'], 'rank_aug': rank_aug, 'cols': cols, 'rows': S0.nrows, 'generic_consistent': generic_consistent}
+    generic_consistent = not (piv and piv[-1] == ncols)
+    info = {'rank_aug_generic': rank_aug, 'rank_generic': rank_aug - (0 if generic_consistent else 1), 'cols': ncols, 'rows': len(row_codes),
+            'generic_consistent': generic_consistent}
     if generic_consistent:
         info['result'] = 'GENERICALLY CONSISTENT pencil (!)'
+        info['seconds'] = round(time.time() - t0, 1)
         return info
-    m = rank_aug  # = r + 1
-    # fixed compression S (m x rows) and column set piv (includes b column)
-    rng2 = np.random.default_rng(7)
-    Srows = rng2.integers(0, p, size=(m, S0.nrows), dtype=np.int64)
-    # the row index set must be consistent across t: EqSystem builds rows from the union of supports, which may vary with t
-    # (zero coefficients at special t drop rows).  Use the monomial codes of degree 2d+12 in the sector as a fixed row basis.
-    row_codes0 = S0.row_codes
+    m = rank_aug
+    piv = np.array(piv)
+    # compressed blocks
+    mats = [(r1[selN1], S1.c_idx[selN1], S1.v[selN1], nN), (r2[selN2], S2.c_idx[selN2], S2.v[selN2], nN),
+            (r1[selQ1], S1.c_idx[selQ1] - nN, S1.v[selQ1], nQ),
+            (r1[selb1], np.zeros(int(selb1.sum()), dtype=np.int64), S1.v[selb1], 1),
+            (np.searchsorted(row_codes, codes12), np.zeros(len(codes12), dtype=np.int64), np.array([b12[e] for e in b12], dtype=np.int64) if b12 else np.zeros(0, dtype=np.int64), 1),
+            (r2[selb2], np.zeros(int(selb2.sum()), dtype=np.int64), S2.v[selb2], 1)]
+    CN1, CN2, CQ, c11, c12, c22 = _compress_blocks(S1, row_codes, mats, p, m)
+    pivN = piv[piv < nN]; pivQ = piv[(piv >= nN) & (piv < ncols)] - nN
+    has_b = bool(np.any(piv == ncols))
+    assert has_b, 'b column not a pivot although inconsistent?'
+    CN1p, CN2p, CQp = CN1[:, pivN], CN2[:, pivN], CQ[:, pivQ]
 
     def g_at(t):
-        Dt = core.add(core.reduce_mod(D1, p), core.scale(core.reduce_mod(D2, p), t % p, p), p)
-        St = eq.EqSystem(F, A, q, Dt, p=p)
-        # map St rows into the fixed row set
-        pos = np.searchsorted(row_codes0, St.row_codes)
-        ok = (pos < len(row_codes0)) & (row_codes0[np.minimum(pos, len(row_codes0) - 1)] == St.row_codes)
-        if not np.all(ok):
-            # new rows appeared (should not happen: supports shrink or stay)
-            return None
-        import scipy.sparse as sp
-        M = sp.csr_matrix((St.v, (pos[St.r_idx], St.c_idx)), shape=(len(row_codes0), St.ncols + 1), dtype=np.int64)
-        sub = M[:, piv]
-        r0 = Srows & 0xFFFF; r1 = Srows >> 16
-        subT = sub.T.tocsr()
-        a = (subT @ r0.T) % p
-        b = (subT @ r1.T) % p
-        comp = ((a + (b * (1 << 16)) % p) % p).T   # m x m
-        Mm = nmod_mat(m, m, np.ascontiguousarray(comp).ravel().tolist(), p)
-        return int(Mm.det())
-    deg = m + 2
-    ts = []
-    vals = []
-    t = 2
-    while len(ts) < deg + 1:
-        v = g_at(t)
-        if v is not None:
-            ts.append(t); vals.append(v)
-        t += 1
-    # Newton interpolation mod p
+        t %= p
+        MN = (CN1p + (t * CN2p) % p) % p
+        bb = (c11[:, 0] + (t * c12[:, 0]) % p + (((t * t) % p) * c22[:, 0]) % p) % p
+        Mt = np.hstack([MN, CQp, bb[:, None]])
+        assert Mt.shape == (m, m), Mt.shape
+        return int(nmod_mat(m, m, Mt.ravel().tolist(), p).det())
+    deg = m + 1
+    if os.environ.get('W2_PENCIL_TEST'):
+        deg = 4
+    ts = list(range(2, 2 + deg + 1))
+    vals = [g_at(t) for t in ts]
     n = len(ts)
     coef = list(vals)
     for j in range(1, n):
         for i in range(n - 1, j - 1, -1):
             coef[i] = (coef[i] - coef[i - 1]) * pow((ts[i] - ts[i - j]) % p, -1, p) % p
-    # convert Newton form to monomial coefficients
-    poly = [0] * n
     poly_newton = [coef[n - 1]]
     for i in range(n - 2, -1, -1):
-        # poly = poly * (x - ts[i]) + coef[i]
         new = [0] * (len(poly_newton) + 1)
         for k2, c in enumerate(poly_newton):
             new[k2 + 1] = (new[k2 + 1] + c) % p
             new[k2] = (new[k2] - c * ts[i]) % p
         new[0] = (new[0] + coef[i]) % p
         poly_newton = new
+    while len(poly_newton) > 1 and poly_newton[-1] == 0:
+        poly_newton.pop()
     g = nmod_poly(poly_newton, p)
-    # trim
-    while g.degree() >= 0 and int(g[g.degree()]) == 0:
-        g = nmod_poly(list(g.coeffs())[:-1], p)
-    if g.degree() < 0:
-        info['result'] = 'g identically zero (compression degenerate); retry with another seed'
+    if g.degree() <= 0 and int(g[0]) == 0:
+        info['result'] = 'g identically zero (degenerate compression)'
+        info['seconds'] = round(time.time() - t0, 1)
         return info
     info['deg_g'] = g.degree()
-    fac = g.factor()
-    unit, factors = fac
+    # sanity: g at a fresh random point equals the direct evaluation
+    tchk = int(rng.integers(2, p - 1))
+    info['interp_check_ok'] = (int(g(nmod(tchk, p))) == g_at(tchk))
+    unit, factors = g.factor()
     fdegs = sorted([f.degree() for f, e in factors])
-    info['factor_degrees'] = fdegs
+    info['factor_degrees'] = fdegs[:40]
+    info['n_factors'] = len(fdegs)
     roots = [(-int(f[0]) * pow(int(f[1]), -1, p)) % p for f, e in factors if f.degree() == 1]
     info['n_roots'] = len(roots)
     consistent_roots = []
     for rt in roots:
-        Dt = core.add(core.reduce_mod(D1, p), core.scale(core.reduce_mod(D2, p), rt, p), p)
-        St = eq.EqSystem(F, A, q, Dt, p=p)
-        rs = St.solve()
-        rec = {'t': rt, 'consistent': rs['consistent'], 'rank': rs['rank'], 'ratrecon': str(core.ratrecon(rt, p))}
+        Dt = core.add(D1p, core.scale(D2p, rt, p), p)
+        Sx = eq.EqSystem(F, A, q, Dt, p=p)
+        rs = Sx.solve()
+        rec = {'t': rt, 'consistent': rs['consistent'], 'rank_aug': rs['rank'], 'ratrecon': str(core.ratrecon(rt, p))}
         if rs['consistent']:
             consistent_roots.append(rec)
+    info['roots_checked'] = len(roots)
     info['consistent_roots'] = consistent_roots
-    # t = infinity: D2 alone
-    S2 = eq.EqSystem(F, A, q, core.reduce_mod(D2, p), p=p)
-    r2 = S2.solve()
-    info['t_inf_consistent'] = r2['consistent']
+    r2s = S2.solve()
+    info['t_inf_consistent'] = r2s['consistent']
     info['seconds'] = round(time.time() - t0, 1)
-    info['result'] = ('CONSISTENT POINT(S) FOUND' if consistent_roots or r2['consistent'] else
-                      f'no F_p-rational consistent point in the pencil (g has {len(roots)} roots, factor degrees {fdegs[:12]}{"..." if len(fdegs) > 12 else ""})')
+    info['result'] = ('CONSISTENT POINT(S) FOUND' if consistent_roots or r2s['consistent'] else
+                      f'no F_p-rational consistent point in the pencil (g degree {g.degree()}, {len(roots)} roots, irreducible factor degrees {fdegs[:12]})')
     return info
 
 

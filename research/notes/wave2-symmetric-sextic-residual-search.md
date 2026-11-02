@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 20:21 EST from 345 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 20:33 EST from 388 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -52,8 +52,10 @@ For the S3 action on three variables every sign-semi-invariant polynomial is `Δ
 counts confirm it: the sgnsgn family at (d,pD) = (10,1) has `nD = 12` = number of invariant Y-even quartic
 orbits). With the sum principle `served(D₁D₂) = served(D₁) + served(D₂)` (coprime factors) and the fact that
 the reflection `s = (X0 X1)` fixes the section `X ∩ {X0 = X1}` pointwise — so every class supported on it is
-`s`-invariant, i.e. `served(X_i − X_j) ⊂ U = Σ_s H⁴(X)^s`, and `U` meets the (sgn,sgn) isotypic component
-trivially — one gets, for the target sector,
+`s`-invariant (geometric action), i.e. `served(X_i − X_j) ⊂ U = Σ_s H⁴(X)^s`; the residue class of an *invariant*
+Y-odd sextic `A'` transforms geometrically by `det(s) = −1` (the residue map twists the polynomial action by det), so
+`U` meets the sector of `[A]` — residues of the 17-dimensional space of invariant Y-odd sextics mod J, Hodge
+numbers (17,52,17); the dossier's label "(sgn,sgn,+) = (1,10,1)" mixed up the two actions — trivially. One gets, for the target sector,
 
 > `[A] ∈ served(Δ_X^a Δ_Y^b S)  ⇔  [A] ∈ served(S)`.
 
@@ -128,6 +130,7 @@ Per sector: admissible dimension `dimP` (= dimK − F-multiples), total restarts
 | triv d=7 pD=0 | 37 | 8 (8+0) | 7 | 1268×279 | 10 | 4.34e-04 | 4.3e-04 | 0 | 0 | 0.000434: 10 | local2 |
 | triv d=7 pD=1 | 37 | 8 (8+0) | 7 | 1268×279 | 12 | 1.54e-04 | 1.5e-04 | 0 | 0 | 0.000154: 12 | local2,local3 |
 | triv d=8 pD=0 | 64 | 22 (20+2) | 18 | 1858×421 | 60 | 6.39e-04 | 6.4e-04 | 0 | 0 | 0.000639: 18, 0.000641: 28, 0.0032: 8, 0.00328: 6 | vp1b |
+| triv d=8 pD=1 | 46 | 14 (14+0) | 13 | 1858×457 | 60 | 1.00e-04 | 1.0e-04 | 0 | 0 | 0.0001: 60 | vp1b |
 | sgnX d=7 pD=0 | 12 | 3 (2+1) | 3 | 1268×279 | 12 | 1.57e-02 | 1.6e-02 | 0 | 0 | 0.0157: 9, 0.357: 3 | local1 |
 | sgnY d=7 pD=1 | 12 | 3 (2+1) | 3 | 1268×279 | 12 | 1.82e-02 | 6.1e-02 | 0 | 0 | 0.0182: 5, 0.0615: 7 | local1 |
 
@@ -137,19 +140,20 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| triv d=8 pD=1 | vp1b | 18 | 1.00e-04 | 1.0e-04 | 0 | 0 | 0.0001: 18 |
+| jac d=6 pD=0 | jac1 | 20 | 1.80e-01 | 2.1e-01 | 0 | 0 | 0.18: 2, 0.191: 2, 0.205: 4, 0.207: 5, 0.213: 5 |
 
 ## 8. Single-denominator exact solves (character-reduced systems mod p, CRT lift on consistency)
 
 | family | E1 pass & consistent | E1 pass & inconsistent | E1 fails | errors |
 |---|---:|---:|---:|---:|
-| kernel-class | 0 | 31 | 0 | 0 |
-| structured-single | 0 | 7 | 5 | 0 |
+| kernel-class | 0 | 69 | 0 | 0 |
+| kernel-random-combo | 0 | 3 | 0 | 0 |
+| structured-single | 0 | 8 | 5 | 0 |
 
-Structured candidates: `DX^2*DY^2` d=12 triv: E1 fails; `EXF*EYF` d=12 triv: inconsistent (rank 1729, null 315, 6713×2044); `HXX` d=12 triv: E1 fails; `HXX+HYY` d=12 triv: E1 fails; `HXX-HYY` d=12 triv: E1 fails; `HYY` d=12 triv: E1 fails; `EXF*D7Y` d=13 sgnY: inconsistent (rank 2010, null 899, 8834×2909); `EYF*D7` d=13 sgnX: inconsistent (rank 2010, null 899, 8834×2909); `D7*D7Y` d=14 sgnsgn: inconsistent (rank 2415, null 1627, 11459×4042); `D7*T8` d=15 triv: inconsistent (rank 4434, null 944, 14672×5378); `D7*T8Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*D7Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378)
+Structured candidates: `DX^2*DY^2` d=12 triv: E1 fails; `EXF*EYF` d=12 triv: inconsistent (rank 1729, null 315, 6713×2044); `HXX` d=12 triv: E1 fails; `HXX+HYY` d=12 triv: E1 fails; `HXX-HYY` d=12 triv: E1 fails; `HYY` d=12 triv: E1 fails; `EXF*D7Y` d=13 sgnY: inconsistent (rank 2010, null 899, 8834×2909); `EYF*D7` d=13 sgnX: inconsistent (rank 2010, null 899, 8834×2909); `D7*D7Y` d=14 sgnsgn: inconsistent (rank 2415, null 1627, 11459×4042); `D7*T8` d=15 triv: inconsistent (rank 4434, null 944, 14672×5378); `D7*T8Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*D7Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*T8Y` d=16 sgnsgn: inconsistent (rank 4691, null 2376, 18564×7067)
 
-Kernel classes / combos per sector (tested, consistent, errors): triv d=12 pD=0: 31/0/0
+Kernel classes / combos per sector (tested, consistent, errors): triv d=12 pD=0: 53/0/0; triv d=12 pD=1: 19/0/0
 
 ## 10. Batches logged per job
 
-`kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `single`: 43 records, 2.0 h, `vp1b`: 1 records, 0.1 h
+`kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `single`: 85 records, 3.9 h, `vp1b`: 2 records, 0.3 h

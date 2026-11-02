@@ -1,6 +1,15 @@
-[w2_search] kernel d=6: 72 sectors, 100 restarts each, 16 procs
-  key 177: K=0 best_rel=None restarts=None NonexNone Nones  
+[w2_search] kernel d=6: 72 sectors, 40 restarts each, 32 procs
+  key 546: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 306: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 417: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 441: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 456: K=0 best_rel=None restarts=None NonexNone Nones  
   key 276: K=0 best_rel=None restarts=None NonexNone Nones  
   key 81: K=0 best_rel=None restarts=None NonexNone Nones  
   key 291: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 306: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 177: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 627: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 642: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 651: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 666: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 696: K=0 best_rel=None restarts=None NonexNone Nones  

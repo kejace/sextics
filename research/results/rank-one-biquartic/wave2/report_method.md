@@ -38,3 +38,10 @@
   denominator in that family passes E2.  For d <= 6 the family is the complete set of E1-admissible Y-even
   denominators (proved over C in the dossier), so a full-rank result there is an unconditional exclusion of that
   degree.  Numerical search results are evidence only; a failed multistart search excludes nothing.
+
+**Invariance lemma (used for the exact exclusions).**  For `D' = D + F G` (G in S_{d-6}) with lift `N' = N0 + A G Z/6`
+one has `B_{D'}(N') - B_D(N0) = 6 A G D ... in J(F)` exactly (the cross terms are `A G D(a)`, `F G div N0 - G A D(a) - F N0(G)`
+and `A F G^2`, all in J), so the Jacobian-quotient relaxation is a condition on `P(V / F S_{d-6})`: the spurious
+F-multiples form the vertex of a cone and can be sliced away (one triangular coordinate per spurious direction set to 0,
+`slice_ms.py`, invariance verified numerically: 0 violations for the 82 (d=6) and 432x3 (d=7) checks).  Emptiness of the
+sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by the Macaulay-rank semicontinuity.

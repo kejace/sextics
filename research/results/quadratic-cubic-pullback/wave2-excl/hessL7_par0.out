@@ -1,0 +1,43 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"exp": "hessrelax", "d": 7, "parity": "0", "prime": 268435399, "nw": 63, "nW": 2016, "cols": 5796, "rowsJ": 6006, "rankJ": 5052, "hilbJ": 5052, "J_rank_certified": true, "rank_stack": 5535, "dim_KH_modp": 1533, "job": "hessL7", "seconds_rank": 444.1, "rigorous_upper_bound": true}
+  KH basis: 449 terms, maxabs 133995674
+  KH basis: 450 terms, maxabs 134190405
+  KH basis: 455 terms, maxabs 134180312
+  KH basis: 449 terms, maxabs 134095869
+  KH basis: 450 terms, maxabs 134051076
+  KH basis: 449 terms, maxabs 134014065
+  KH basis: 448 terms, maxabs 134104907
+  KH basis: 448 terms, maxabs 134077086
+  KH basis: 448 terms, maxabs 133504671
+  KH basis: 448 terms, maxabs 133788127
+  KH basis: 448 terms, maxabs 133684520
+  KH basis: 448 terms, maxabs 133770464
+  KH basis: 461 terms, maxabs 134170765
+  KH basis: 455 terms, maxabs 134180341
+  KH basis: 456 terms, maxabs 134036517
+  KH basis: 456 terms, maxabs 134012587
+  KH basis: 461 terms, maxabs 133427013
+  KH basis: 452 terms, maxabs 133859327
+  KH basis: 448 terms, maxabs 133934417
+  KH basis: 448 terms, maxabs 134122429
+  KH basis: 448 terms, maxabs 134163577
+  KH basis: 448 terms, maxabs 133845714
+  KH basis: 448 terms, maxabs 133588023
+  KH basis: 448 terms, maxabs 134106774
+  KH basis: 466 terms, maxabs 133987282
+  KH basis: 461 terms, maxabs 134049895
+  KH basis: 467 terms, maxabs 133783794
+  KH basis: 467 terms, maxabs 134041206
+  KH basis: 466 terms, maxabs 134156125
+  KH basis: 452 terms, maxabs 133486424
+  KH basis: 448 terms, maxabs 133991247
+  KH basis: 448 terms, maxabs 133968605
+  KH basis: 448 terms, maxabs 133883903
+  KH basis: 448 terms, maxabs 134059453
+  KH basis: 448 terms, maxabs 134025575
+  KH basis: 448 terms, maxabs 134015888
+  KH basis: 448 terms, maxabs 134209338
+  KH basis: 448 terms, maxabs 134145534
+  KH basis: 448 terms, maxabs 133977887
+  KH basis: 448 terms, maxabs 134066292
+{"exp": "hessrelax", "d": 7, "parity": "0", "prime": 268435399, "nw": 63, "nW": 2016, "cols": 5796, "rowsJ": 6006, "rankJ": 5052, "hilbJ": 5052, "J_rank_certified": true, "rank_stack": 5535, "dim_KH_modp": 1533, "job": "hessL7", "seconds_rank": 444.1, "rigorous_upper_bound": true, "dim_KH_basis": 1533, "KH_max_abs_coeff": 134216590, "n_quadrics": 483, "seconds": 877.8}

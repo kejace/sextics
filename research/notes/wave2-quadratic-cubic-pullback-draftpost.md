@@ -34,16 +34,19 @@ so `K_H(Q)` is known exactly, and Singular over `Q` gives the locus `{w : w w^T 
 Y-odd sector (`dim K_H = 18`): only `w = 0`.  Y-even sector (`dim K_H = 36`): exactly the Euler line `w = lambda z`,
 i.e. `D = 6 lambda F`, not coprime to `F`.  [[mixed-parity sector: joint kernel of dimension ... ; locus ...]]
 **Hence no denominator of degree 6 with pure Y-parity exists[[, and none of mixed parity]]; every certificate has `deg D >= 7`[[pending mixed]].**
-*Degree 7:* [[K_H dims 1533 (even) / ... ; candidate locus mod p ...; exact lift not completed]].
+*Degree 7:* the same Hessian relaxation has a 1533-dimensional kernel for Y-even polars (63 quadratic coordinates,
+2016 unknowns; certified upper bound) with large coefficients; the resulting cone (483 quadrics in 63 variables) was not
+decided within the local budget. Status: open.
+*Degree 5 alternative proof:* `K_H = 0` in every sector (3 s, Hilbert-certified), independently of the exact full relaxation.
 
-**3. Structured Jacobian-type denominators of degree 6-10 (certified fixed-D tests).**  [[table: block Euler fields
+**3. Structured Jacobian-type denominators of degree 6-10 (certified fixed-D tests).**  [[REMOTE JOB NOT YET RUN (the shared box was saturated, load > 1000); table: block Euler fields
 E_X F (the deformation of the Fermat join E_X F_0/6 = X0^6+X1^6+X2^6, which serves 100 classes at the Fermat point),
 weighted Euler, shape-symmetry fields rho/sigma, grad Q_k . grad F, grad(Q_kQ_l) . grad F, sum Q_i^2 F_i, |grad F|^2,
 grad delta . grad F ... : served dimension modulo J, rank-certified]].  A fixed-D verdict is reported as rigorous only
 when the modular nullity equals the explicit rational kernel `(G z, 0) + (g F, D div g - g.grad D)` (dimension
 `129` at d=5, `244` at d=6, ...).
 
-**4. Degree 10 (screened + structured).**  [[intersections of K_10 with: quintics in Q (252-dim), delta x quartics,
+**4. Degree 10 (screened + structured).**  [[REMOTE JOB NOT YET RUN; planned: intersections of K_10 with: quintics in Q (252-dim), delta x quartics,
 (Q_S)^2 cap (Q_S')^2, plane-order windows; dims; candidates tested; random kernel elements mod p]].
 
 **5. Re-verification of earlier claims.**  h^{3,1}(X)^+ = 208, [A] and [delta] independent mod J_6, diagonal symmetry

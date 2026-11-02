@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:26 from 115 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:35 from 177 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -200,6 +200,85 @@ The nonzero intersections are exactly the (U,V)-bidegree pieces of J(F)_d (J(F) 
   |u − u*| ≈ 1e−16 in 13–18 iterations (quadratic tail).  So a residual plateau at 1e−3…1e−1 in the real search is
   evidence against solutions in the searched family, not an optimizer artefact.
 
+
+## 6b. Structured candidates: exact E1 over Q (tensor frame: NF of A·D in R_f ⊗ R_f), all 60 candidates in 12 s
+
+| family | label | d | parity | E1 (exact, Q) |
+|---|---|---|---|---|
+| control-product | Q2(U;V) (U.V) + swap | 8 | 0 | fail (678 NF terms) |
+| control-product | g * (U.V)  [g = f(U)-f(V)] | 8 | 1 | PASS (Jacobian-type) |
+| control-spurious | g*(U0^2-V0^2) = 4 g X0Y0 (F-reduced version of the wave-1 control) | 8 | 0 | PASS (Jacobian-type) |
+| control-spurious | g*(U0V0+U1V1) (Y-odd sector spurious point) | 8 | 1 | PASS (Jacobian-type) |
+| control-wave1 | fU*U0^2 + fV*V0^2 (wave-1: inconsistent rank 6632 nullity 865) | 8 | 0 | PASS (Jacobian-type) |
+| fermat | sum U^8 + sum V^8 | 8 | 0 | fail (72 NF terms) |
+| fermat | sum U^8 - sum V^8 | 8 | 1 | fail (72 NF terms) |
+| hess-cofactor | cof00(U)+cof00(V) | 8 | 0 | fail (72 NF terms) |
+| hess-cofactor | cof00(U)-cof00(V) | 8 | 1 | fail (72 NF terms) |
+| hess-cofactor | cof11(U)+cof11(V) | 8 | 0 | fail (72 NF terms) |
+| hess-cofactor | cof11(U)-cof11(V) | 8 | 1 | fail (72 NF terms) |
+| hess-cofactor | cof22(U)+cof22(V) | 8 | 0 | fail (72 NF terms) |
+| hess-cofactor | cof22(U)-cof22(V) | 8 | 1 | fail (72 NF terms) |
+| hess-cofactor | cof01(U)+cof01(V) | 8 | 0 | fail (72 NF terms) |
+| hess-cofactor | cof01(U)-cof01(V) | 8 | 1 | fail (72 NF terms) |
+| hess-cofactor | cof02(U)+cof02(V) | 8 | 0 | fail (72 NF terms) |
+| hess-cofactor | cof02(U)-cof02(V) | 8 | 1 | fail (72 NF terms) |
+| hess-cofactor | cof12(U)+cof12(V) | 8 | 0 | fail (72 NF terms) |
+| hess-cofactor | cof12(U)-cof12(V) | 8 | 1 | fail (72 NF terms) |
+| hess-cofactor | trace-cof(U)+(V) | 8 | 0 | fail (72 NF terms) |
+| hess-cofactor | trace-cof(U)-(V) | 8 | 1 | fail (72 NF terms) |
+| hess-pairing | sum_ij f_ij(U) f_ij(V) | 8 | 0 | fail (690 NF terms) |
+| hess-pairing | lap(U) lap(V) | 8 | 0 | fail (624 NF terms) |
+| hess-pairing | lap(U)^2 + lap(V)^2 | 8 | 0 | fail (72 NF terms) |
+| hess-pairing | lap(U)^2 - lap(V)^2 | 8 | 1 | fail (72 NF terms) |
+| hess-pairing | sum_i f_ii(U) f_ii(V) | 8 | 0 | fail (624 NF terms) |
+| pluecker | sum w_k^4 | 8 | 0 | fail (666 NF terms) |
+| pluecker | sum_k w_k^2 w_{k+1}^2 | 8 | 0 | fail (700 NF terms) |
+| pluecker | HP-like: sum_k w_k^2 * lap(U)lap(V)^0 .. (sum w_k^2)*(sum_i f_ii(U)+f_ii(V)) | 8 | 0 | fail (762 NF terms) |
+| polar | sum_i f_i(U) V_i^3 + swap | 8 | 0 | PASS (Jacobian-type) |
+| polar | sum_i f_i(U) V_i^3 - swap | 8 | 1 | PASS (Jacobian-type) |
+| polar | sum_i f_i(U) U_i^3 + swap | 8 | 0 | PASS (Jacobian-type) |
+| polar | sum_i f_i(U) U_i^3 - swap | 8 | 1 | PASS (Jacobian-type) |
+| polar | sum_i f_i(U) U_i^2 V_i + swap | 8 | 0 | PASS (Jacobian-type) |
+| polar | sum_i f_i(U) U_i^2 V_i - swap | 8 | 1 | PASS (Jacobian-type) |
+| polar | sum_i f_i(U) V_i^2 U_i + swap | 8 | 0 | PASS (Jacobian-type) |
+| polar | sum_i f_i(U) V_i^2 U_i - swap | 8 | 1 | PASS (Jacobian-type) |
+| third-polar | sum_ij P_ij(U;V) P_ij(V;U) | 8 | 0 | fail (750 NF terms) |
+| third-polar | sum_ij P_ij(U;V) f_ij(V) + swap | 8 | 0 | fail (674 NF terms) |
+| third-polar | sum_ij P_ij(U;V) f_ij(V) - swap | 8 | 1 | fail (685 NF terms) |
+| third-polar | sum_ij P_ij(U;V)^2 + swap | 8 | 0 | fail (762 NF terms) |
+| third-polar | sum_ij P_ij(U;V)^2 - swap | 8 | 1 | fail (762 NF terms) |
+| polar-d9 | sum_i f_i(U) V_i^4 + swap | 9 | 0 | PASS (Jacobian-type) |
+| polar-d9 | sum_i f_i(U) V_i^4 - swap | 9 | 1 | PASS (Jacobian-type) |
+| polar-d9 | sum_i f_i(U) U_i^4 + swap | 9 | 0 | PASS (Jacobian-type) |
+| polar-d9 | sum_i f_i(U) U_i^4 - swap | 9 | 1 | PASS (Jacobian-type) |
+| polar-d9 | sum_i f_i(U) U_i^3 V_i + swap | 9 | 0 | PASS (Jacobian-type) |
+| polar-d9 | sum_i f_i(U) U_i^3 V_i - swap | 9 | 1 | PASS (Jacobian-type) |
+| control-product-d10 | HP * (U.V) | 10 | 0 | fail (456 NF terms) |
+| polar-pairing-d10 | sum_i f_i(U) f_i(V) | 10 | 0 | PASS (Jacobian-type) |
+| polar-pairing-d10 | sum_i f_i(U) f_{i+1}(V) + swap | 10 | 0 | PASS (Jacobian-type) |
+| polar-pairing-d10 | sum_i f_i(U) f_{i+1}(V) - swap | 10 | 1 | PASS (Jacobian-type) |
+| det-d11 | det[grad f(U), grad f(V), U] + swap | 11 | 0 | PASS (Jacobian-type) |
+| det-d11 | det[grad f(U), grad f(V), U] - swap | 11 | 1 | PASS (Jacobian-type) |
+| hess-det-d12 | det Hess f(U) + det Hess f(V) | 12 | 0 | fail (2 NF terms) |
+| hess-det-d12 | det Hess f(U) - det Hess f(V) | 12 | 1 | fail (2 NF terms) |
+| hess-det-d12 | det[Hess f(U) + Hess f(V)] | 12 | 0 | fail (218 NF terms) |
+| hess-det-d12 | det[Hess f(U) - Hess f(V)] | 12 | 1 | fail (218 NF terms) |
+| hess-det-d12 | det P(U;V) + swap | 12 | 0 | fail (198 NF terms) |
+| hess-det-d12 | det P(U;V) - swap | 12 | 1 | fail (208 NF terms) |
+
+Every non-Jacobian-type guess (Hessian cofactors/pairings, third polars, Fermat, Plücker, Hessian determinants at d = 12) fails E1 exactly over Q and is excluded; the polar families Σ f_i(U)·(cubic/quartic) ± swap, the polar pairings Σ f_i(U) f_σ(i)(V) and det[∇f(U), ∇f(V), U] ± swap are Jacobian-type (E1 automatic) and go to the exact E2 decision.
+
+### 6c. Exact reduced-E2 decisions (mod p) computed locally
+
+- control-wave1 | fU*U0^2 + fV*V0^2 (wave-1: inconsistent rank 6632 nullity 865): consistent=False rank=2216 nullity=229 (10152×2445, 73.4 s) — inconsistent, rank 6632, nullity 865 (= 636 G-directions + reduced nullity)
+- control-spurious | g*(U0V0+U1V1) (Y-odd sector spurious point): consistent=False rank=2216 nullity=211 (10152×2427, 65.5 s) — inconsistent expected (sum principle); Y-odd code path validation
+
+## Remote capacity note
+
+The remote box has been saturated by other agents since ~19:30 (load 300–1150 on 128 cores, 45–90 jobs); the runner refuses new submissions above load 150, so the heavy jobs below were queued with `--wait` and started only when capacity allowed. Latest runner messages:
+- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 1024 (max 150), available memory 177 GB (min 60), 70 jobs running; waiting 60 s
+- `submit-hess-d8.out`: REMOTE BUSY: load 1024 (max 150), available memory 177 GB (min 60), 70 jobs running; waiting 60 s
+- `submit-sweep-a.out`: REMOTE BUSY: load 1024 (max 150), available memory 177 GB (min 60), 70 jobs running; waiting 60 s
 
 ## Jobs / reproduction
 

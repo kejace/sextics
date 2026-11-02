@@ -115,20 +115,38 @@ info = {'batch': 'relax', 'd': d, 'pD': pD, 'p': p, 'family_J': nJ, 'family_kern
 print(json.dumps(info), flush=True)
 log_line(f'{OUT}/{args.tag}.jsonl', info)
 if args.msolve_out:
-    # quadrics: for each standard monomial row (after transposing), the quadric sum_{pairs} NF[pair, row] a_m a_n
-    # write only a basis of the row space (rank many) to keep the file small
+    # quadrics: a basis (rank many) of the row space of NF^T; the relaxation is invariant under the spurious
+    # F-multiples F*S_{d-6} (verified in slice_ms.py), so we also write the SLICED system (one triangular
+    # coordinate per spurious vector set to 0) which is the system on P(family / spurious).
     NFt = NF.transpose()               # ring_dim x npairs
     Rr, rk = NFt.rref()
     names = [f'a{m}' for m in range(Kf)]
+    index = {(fam[k][1], fam[k][2]): k for k in range(nJ)}
+    drop = []
+    for gmon in (monomials(d - 6, (pD - core.parity_of(F)) % 2) if d >= 6 else []):
+        mm = list(gmon); mm[0] += 1
+        drop.append(index[(0, tuple(mm))])
+    dropset = set(drop)
+    keep = [k for k in range(Kf) if k not in dropset]
+    newname = {k: f'b{t}' for t, k in enumerate(keep)}
+    polys_full, polys_slice = [], []
+    for i in range(rk):
+        terms, terms_s = [], []
+        for t_, (m, n) in enumerate(pairs):
+            v = int(Rr[i, t_])
+            if v:
+                terms.append(f'{v}*{names[m]}*{names[n]}' if m != n else f'{v}*{names[m]}^2')
+                if m not in dropset and n not in dropset:
+                    terms_s.append(f'{v}*{newname[m]}*{newname[n]}' if m != n else f'{v}*{newname[m]}^2')
+        polys_full.append('+'.join(terms))
+        if terms_s:
+            polys_slice.append('+'.join(terms_s))
+    full_path = args.msolve_out.replace('.ms', '.full.ms')
+    with open(full_path, 'w') as fh:
+        fh.write(','.join(names) + '\n' + f'{p}\n' + ',\n'.join(polys_full) + '\n')
     with open(args.msolve_out, 'w') as fh:
-        fh.write(','.join(names) + '\n' + f'{p}\n')
-        polys = []
-        for i in range(rk):
-            terms = []
-            for t_, (m, n) in enumerate(pairs):
-                v = int(Rr[i, t_])
-                if v:
-                    terms.append(f'{v}*{names[m]}*{names[n]}' if m != n else f'{v}*{names[m]}^2')
-            polys.append('+'.join(terms))
-        fh.write(',\n'.join(polys) + '\n')
-    print(f'[relax] wrote {rk} quadrics in {Kf} variables to {args.msolve_out}', file=sys.stderr)
+        fh.write(','.join(newname[k] for k in keep) + '\n' + f'{p}\n' + ',\n'.join(polys_slice) + '\n')
+    print(f'[relax] wrote {rk} quadrics in {Kf} variables to {full_path}; sliced system ({len(polys_slice)} quadrics, '
+          f'{len(keep)} variables, dropped {drop}) to {args.msolve_out}', file=sys.stderr)
+    info['msolve_slice'] = {'dropped': drop, 'vars': len(keep), 'quadrics': len(polys_slice)}
+    log_line(f'{OUT}/{args.tag}.jsonl', dict(info, batch='relax-slice-export'))

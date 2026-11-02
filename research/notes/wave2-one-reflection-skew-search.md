@@ -98,6 +98,7 @@ at high degree (at d = 12 only 3 conditions remain in the main sector).
 | 9 | (0,1) | Aplus | 126 | 28 | 407 | 128.1 |
 | 9 | (1,0) | A | 141 | 79 | 997 | 78.9 |
 | 9 | (1,1) | A | 146 | 79 | 1130 | 99.9 |
+| 10 | (0,0) | A | 250 | 122 | 1526 | 412.5 |
 <!-- /AUTO-KERNELS -->
 
 Symmetry breaking measured on the E1 kernel (sector (0,0), 5 variables, mod p): the undeformed
@@ -124,10 +125,11 @@ and why a fixed-D test of a *numerically* admissible D can be misleading (E1 mus
 * With the full kernel (K = 32): **4/8 LM restarts converge to the needle** (rel 2e-13 … 6e-8,
   |cos(u,u*)| = 1.0000); the other restarts end at the usual local minima. So random-restart LM has a
   ~50% per-restart hit rate on a 32-dimensional family with an 8-term solution in that small local sample.
-  Remote calibration `calib-hesse-d6` (same family, LM vs L-BFGS alternating; partial, 54 restarts): LM 4/28
-  below 1e-8 (95 % Wilson 0.06–0.31), 5/28 below 1e-6; L-BFGS 1/26 below 1e-8 (0.01–0.19), 5/26 below 1e-6;
-  LM is ~2.3× faster per restart (11 s vs 26 s under load). Every hit snapped to the accepted 8-term D
-  (τ = 1e-4 … 1e-2) and was confirmed exactly. Working estimate: ≈ 0.15–0.2 per LM restart at K = 32, so
+  Remote calibration `calib-hesse-d6` (same family, LM vs L-BFGS alternating; partial, 101 restarts): LM 7/51
+  below 1e-8 (≈ 0.14), 8/51 below 1e-6; L-BFGS 1/50 below 1e-8 but 8/50 below 1e-6 (it approaches the zero and
+  stops short of polishing — the snap step's LM refit then finishes the job, so the effective hit rate of both
+  methods is ≈ 0.16 at K = 32, with LM ~2.3× faster per restart, 11 s vs 26 s under load). Every hit snapped to
+  the accepted 8-term D (τ = 1e-4 … 1e-2) and was confirmed exactly. Working estimate: ≈ 0.15–0.2 per restart, so
   N = 100 restarts miss a comparable needle with probability ≈ 1e-7 … 1e-9.
 
 ## 3. Search batches (filled from the log; remote chain `w2-chain1b`, 4 processes, box load ~900–1100)
@@ -171,8 +173,8 @@ L-BFGS ≈ 5–10 % (final numbers in the table).
 | jac-d6-r1s0 | one-reflection-skew | 6 | (1,0) | jacobian | A | 6 | ?×? | both | 160 | 2.93e-01 | 3.85e-01 | 0 / 0 / 0 | 191.7 s |
 | jac-d6-r1s1 | one-reflection-skew | 6 | (1,1) | jacobian | A | 6 | ?×? | both | 160 | 3.09e-01 | 3.17e-01 | 0 / 0 / 0 | 212.8 s |
 | cone-X0X1Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X0,X1,Y0,Y1 | A | 6 | ?×? | lm | 120 | 1.04e-01 | 1.49e-01 | 0 / 0 / 0 | 667.6 s |
-| cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 48 (running) | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 480.9 s |
-| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 64 (running) | 4.83e-13 | 1.17e-02 | 4 / 5 / 1 | 1038.2 s |
+| cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 80 (running) | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 816.0 s |
+| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 96 (running) | 2.99e-13 | 2.28e-02 | 4 / 7 / 1 | 1510.2 s |
 | cone-X0X1X2-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
@@ -185,7 +187,7 @@ L-BFGS ≈ 5–10 % (final numbers in the table).
 | cone-X1Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X1,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 
-Total restarts on the skew lane so far: 1688.
+Total restarts on the skew lane so far: 1720.
 <!-- /AUTO-SEARCH -->
 
 Kernel families (task 3) at d = 7 … 12 and the half-target/cone/structured runs: queued in the chains; the
@@ -210,8 +212,12 @@ the exclusion lane.
 ## 4. Structured families (task 4)
 
 * Coordinate cones `D ∈ C[subset of variables] ∩ E1-kernel` (vertex a line or a plane; 13 subsets × degrees
-  6–12, `w2-chain2`): at `d = 6` every cone family is empty (`K = 0`) except `C[X0,X1,Y0,Y1]` (`K = 3`), as
-  expected since the degree-6 kernel is `J_6`. Higher degrees pending.
+  6–12, `w2-chain2`): at `d = 6` every cone family is empty (`K = 0`) except `C[X0,X1,Y0,Y1]` (`K = 3`,
+  global minimum rel 0.188 reached by 120/120 restarts) and `C[X1,X2,Y0,Y1]` (`K = 1`, rel 0.631); at `d = 7`
+  the non-empty cones are again `C[X0,X1,Y0,Y1]` (`K = 6`, 9 distinct minima, lowest 0.104 reached 23/120)
+  and `C[X1,X2,Y0,Y1]` (`K = 4`, lowest 0.445 reached 63/67) — both landscapes fully covered, no zero. The
+  3-variable cones (vertex a line) are empty up to d = 7: no cone over a plane curve is E1-admissible there.
+  Higher degrees pending.
 ### Structured fixed-D summary (auto-generated)
 
 <!-- AUTO-STRUCT -->
@@ -231,7 +237,11 @@ No structured candidate serves any target beyond the trivially served Jacobian p
   of `P(U) = G0 U³ + cp U² + skew U + Y6` (degree 12), 3×3 Hessian minors (degree 12), 2×2 minors × invariants,
   block radial derivatives × invariants, products of the skew-adapted invariants at degrees 9–12, norm-type
   cones `f·q + λ g²`, Fermat/twisted 3-variable cones, random generic controls. First results: `f_c`, `f_c + skew`
-  and all degree-6 Fermat cones fail E1 (`A D ∉ J_f`).
+  and all degree-6 Fermat cones fail E1 (`A D ∉ J_f`). Local exact E1 screen of the 37 degree ≤ 8 companion /
+  radial / Hessian-product candidates: the 32 block-radial-derivative products pass (they lie in `J_f`, hence
+  inside the Jacobian-type part of the kernel families already searched), while the five irreducible-type
+  companion pieces (`h`, `h ± skew·e`, `f_c`, `f_c + skew`) fail E1 exactly — the `one-reflection` companion
+  denominators do not even satisfy the necessary condition on the skew sextic.
 
 ## 5. Rational reconstruction attempts (task 5)
 
