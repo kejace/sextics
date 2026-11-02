@@ -3,3 +3,4 @@
 [exact basis colon d=8 c=(3, 0)] rank 89 with 1 primes (verified)
 [sector varpro] d=8 c=(3, 0) K=89 rank=89 gauge=5 dimP=84 rows=13730 N=2098 Q=537 nnz(TN)=4104120 built in 7.5s
 [2026-11-02T10:36:12] family built: K=89 rank=89 gauge=5 dimP=84 rows=13730 N=2098 Q=537 build 7.5s
+gradient check: analytic -1.333220e-01 fd -1.333220e-01

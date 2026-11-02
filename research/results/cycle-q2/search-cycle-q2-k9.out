@@ -1,3 +1,6 @@
 [w2_search] kernel d=9: 72 sectors, 3 restarts each, 48 procs
   key 108: K=31 best_rel=0.0002535800340483763 restarts=3 1678x981 6487.8s  
   key 699: K=28 best_rel=0.0027863825733861966 restarts=3 1678x1010 11077.3s  
+  key 258: K=26 best_rel=0.0032098767787253806 restarts=3 1678x1002 11479.9s  
+  key 309: K=25 best_rel=0.009959241753606822 restarts=3 1678x1017 11580.0s  
+  key 645: K=28 best_rel=0.0027988271328559812 restarts=3 1678x1005 11864.9s  
