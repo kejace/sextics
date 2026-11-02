@@ -1,0 +1,44 @@
+# Part 6 — Infinitesimal variation of the sector over the G-symmetric family: how many 2-forms a support must carry
+
+Receipts: /tmp/hodge/results/cyclic-triple-residual/wave2-construct/c5_sector_vhs.{py,json}, c5b_K2.{py,out,json}
+(ranks mod p = 1000003 and 998244353 with python-flint; all conclusions below use only the rigorous directions
+rank_p ≤ rank_Q, dim ker_p ≥ dim ker_Q, after checking that the sector Jacobian-ring dimensions mod p equal the
+complete-intersection values (41, 119, 26)).
+
+## 6.1 Set-up
+𝓜 = the G-symmetric family F + Σ u_k m_k (the 49 G-invariant sextic monomials; 41 effective directions: R_6^G has
+dimension 41).  The exact G-sector 𝕊 = S_A of H^4 is a sub-local system over 𝓜 (G acts fibrewise), with Hodge
+numbers (0, 41, 119, 26, 0).  Griffiths' Higgs field in the direction m ∈ Def_G is multiplication by m in the Jacobian
+ring: θ_m: R_6^χ → R_12^χ → R_18^χ (χ = polynomial character of A; book §4.4).  Let W ⊂ 𝕊_C be the smallest flat
+sub-VHS over a neighbourhood of F with ξ ∈ W_F; at the very general point of 𝓜 the smallest sub-Hodge structure
+containing the class is W.  Polarisation Q pairs S_A^{p,q} with S̄_A^{q,p}.
+
+## 6.2 Computed quantities (both primes agree)
+(a) dim Def_G·ξ = 41 inside R_12^χ (119): the (2,2)-part of W contains a 41-dimensional space (the map m ↦ A·m is
+    injective on R_6^G).
+(b) dim Def_G^2·ξ = 26 = all of R_18^χ: W^{1,3} = S_A^{1,3}.
+(c) K = {v ∈ R_6^χ : m·v ∈ J for all m ∈ Def_G} = 0: no flat (3,1)-classes in the sector.
+(d) K_2 = {u ∈ R_12^χ : m·u ∈ J_18 for all m ∈ Def_G}: see 6.4.
+
+## 6.3 Consequence (duality argument)
+W' := W^⊥ ∩ S̄_A is a flat sub-VHS; (W')^{3,1} = ann(W^{1,3}) = 0 by (b); its conjugate conj(W') ⊂ S_A is flat with no
+(1,3)-part, so Griffiths transversality forces conj(W')^{2,2} ⊂ K_2 and θ_m(conj(W')^{3,1}) ⊂ K_2 for all m.
+If K_2 = 0 then conj(W')^{2,2} = 0, conj(W')^{3,1} ⊂ K = 0, W' = 0, hence W = S_A: the smallest sub-VHS containing ξ
+is the whole sector, and over Q the smallest sub-Hodge structure containing ξ at the very general member is
+S_A ⊕ S̄_A with h^{3,1} = 41 + 26 = 67.  Since the Gysin image of a support T̃ is a sub-Hodge structure whose
+(3,1)-part is the image of H^{2,0}(T̃): EVERY divisor supporting ξ on a very general member of the G-family has
+Σ h^{2,0}(Ẽ_i) ≥ 67 (41 twisted forms in the ζ3-sector of S_A and 26 in the conjugate sector).  This is dossier item
+E4 in computable form.  For the lane's F (t = 5/7) the statement holds unless F lies on a Noether–Lefschetz-type locus
+of the sector (a countable union of proper subvarieties of 𝓜) — not excluded, but there is no mechanism in sight that
+would place it there.
+If K_2 ≠ 0 the bound weakens to h^{3,1}(W) ≥ 41 − dim{v ∈ R_6^χ : Def_G·v ⊂ K_2 + J}.
+
+## 6.4 Result for K_2
+(filled from c5b_K2.out)
+
+## 6.5 Reading for the construction lens
+Part 4's mechanism yields ≤ 10 twisted forms per triple-point curve of genus 10 (plane sextic), so at least 5 curves of
+type (A) and 3 of type (B)-or-conjugate would be needed, which by the counting of §4.2 forces deg D ≳ 12 and a
+parametric (not random-member) search; equivalently, in Part 5's language, a surface of lines with twisted irregularity
+≥ 41.  Together with Parts 1–3 this explains quantitatively why the lane resists: the sector is (generically) simple and
+large, and the only character-compatible geometry is elliptic, not rational.

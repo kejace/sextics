@@ -37,7 +37,7 @@ evidence or not replayed; UNSUPPORTED = no receipt / claim not established.
 | 23 | Koszul-builder validation on 7 accepted witnesses | PLAUSIBLE | code validation of the lens's builder; not replayed (the referee used an independent builder instead) |
 | 24 | re-verification of wave-1 kernel tables and the served-targets mislabel | VERIFIED | #2; verify row 12 |
 
-Counts: 20 VERIFIED (1-17, 20a, 24 counting 16/17 separately), 4 PLAUSIBLE (18, 19, 21, 23), 2 UNSUPPORTED (20b, 22).
+Counts: 19 VERIFIED (rows 1-17, 20a, 24), 4 PLAUSIBLE (18, 19, 21, 23), 2 UNSUPPORTED (20b, 22).
 
 ## Soundness of the transfer and support arguments (checked by the referee)
 

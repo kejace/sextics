@@ -5,7 +5,8 @@ Variants: 'X' (the fourfold), 'S' (surface fibre S_Y: x,y,z,lam with Y=(t0,r0,s0
 Optional extra equations: F=0 (triple-point locus on the variety) or 1-u*F (points off the variety).
 """
 import sympy as sp, sys, os, itertools
-PR = 1000003
+import os
+PR = int(os.environ.get('W2C_PR','1000003'))
 def polys_for(kind, Yvals=(1,2,3), ab=(1,2)):
     if kind=='X':
         x,y,z,t,r,s = V = sp.symbols('x y z t r s')
@@ -39,7 +40,7 @@ def msolve_file(kind, chart, extra, path, Yvals=(1,2,3), ab=(1,2)):
         P = sp.Poly(e, *vars_)
         terms = []
         for mon, c in P.terms():
-            c = int(c) % PR
+            c = int(c) % PR if PR else int(c)
             if c==0: continue
             mstr = '*'.join('%s^%d'%(str(v),k) if k>1 else str(v) for v,k in zip(vars_, mon) if k>0)
             terms.append(str(c) + ('*'+mstr if mstr else ''))
