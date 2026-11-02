@@ -254,5 +254,21 @@
   "rankJ_ok": true,
   "seconds": 195.1,
   "note": "mult_kernel (hodge.jacobian) at a new prime; rankJ_ok=True means the J block has the regular-sequence rank so dim_p kernel >= dim_Q kernel"
+ },
+ "9,0": {
+  "exp": "reverify-e1-kernel",
+  "d": 9,
+  "parity": 0,
+  "prime": 1000000007,
+  "kernel_mod_J": 27,
+  "kernel_dim": 405,
+  "J_d": 378,
+  "ring_d": 623,
+  "J_d_expected": 378,
+  "rankJ_target": 7129,
+  "rankJ_target_expected": 7129,
+  "rankJ_ok": true,
+  "seconds": 492.9,
+  "note": "mult_kernel (hodge.jacobian) at a new prime; rankJ_ok=True means the J block has the regular-sequence rank so dim_p kernel >= dim_Q kernel"
  }
 }

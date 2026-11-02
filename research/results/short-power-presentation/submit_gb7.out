@@ -109,3 +109,8 @@ REMOTE BUSY: load 581 (max 700), available memory 155 GB (min 90), 63 jobs runni
 REMOTE BUSY: load 581 (max 700), available memory 152 GB (min 90), 62 jobs running with 332 cpus allocated (max 220); waiting 60 s
 REMOTE BUSY: load 587 (max 700), available memory 147 GB (min 90), 62 jobs running with 332 cpus allocated (max 220); waiting 60 s
 REMOTE BUSY: load 585 (max 700), available memory 149 GB (min 90), 62 jobs running with 332 cpus allocated (max 220); waiting 60 s
+REMOTE BUSY: load 589 (max 700), available memory 143 GB (min 90), 62 jobs running with 332 cpus allocated (max 220); waiting 60 s
+REMOTE BUSY: load 594 (max 700), available memory 146 GB (min 90), 61 jobs running with 328 cpus allocated (max 220); waiting 60 s
+REMOTE BUSY: load 593 (max 700), available memory 127 GB (min 90), 61 jobs running with 329 cpus allocated (max 220); waiting 60 s
+REMOTE BUSY: load 588 (max 700), available memory 125 GB (min 90), 61 jobs running with 329 cpus allocated (max 220); waiting 60 s
+REMOTE BUSY: load 580 (max 700), available memory 116 GB (min 90), 62 jobs running with 337 cpus allocated (max 220); waiting 60 s

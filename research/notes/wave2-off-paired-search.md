@@ -129,6 +129,13 @@ type: -0.587 X0^5Y1^4 + 0.464 X0^3Y1^6 + 0.304 X0^7Y1^2 - 0.293 X0Y1^8 plus chai
 (cones over plane curves in P^2_{X0X1Y0}, 89 % in J). The best attainable residual decreases with degree (1.3e-2 -> 3.9e-3) as the
 family grows, without approaching zero. At t = 1/10 (F = Fermat + Qx/10) the d = 8 (0,0) search gives best 3.0e-3 (80 restarts), also
 no zero (job t01d8): no degree-8 denominator for small deformations of the Fermat either.
+d = 10, (0,0) (K = 95, dimP = 85, float basis): best 1.649e-3 (17 restarts, 12 min each under load). d = 11, (0,0) (K = 142, dimP = 127):
+best 5.08e-4 (8 restarts so far) -- again the (X0, Y1)-binary-form attractor (0.548 X0^5Y1^6 - 0.446 X0^7Y1^4 - 0.419 X0^3Y1^8 +
+0.255 X0^9Y1^2 + 0.225 X0 Y1^10 + chain corrections), sigma2-even and now 100 % Jacobian-type. The best-minimum sequence
+1.32e-2, 3.89e-3, 1.65e-3, 5.1e-4 (d = 8, 9, 10, 11) decreases geometrically, about 3x per degree: this is the signature of
+polynomial approximation of a non-algebraic object (pencil of hyperplanes X0 = c Y1 through {X0 = Y1 = 0}, each cutting X in a
+smooth sextic threefold that serves nothing), not of an exact certificate at a nearby degree. Other sectors at d = 9: (1,0) 6.85e-3
+(120 restarts), (2,0) 1.005e-2 (49), (3,0) 5.2e-3 (interim); d = 10 (1,0) 2.76e-3 (interim).
 Consequence: genuine structured solutions, if any, have
 small basins, and the search is a search for geometric mechanisms, not for accidental zeros (the fixed-D systems are overdetermined by
 a factor ~50: e.g. d = 8 (0,0): 2494 rows, generic rank 488 of 567 columns, 28 D-parameters).

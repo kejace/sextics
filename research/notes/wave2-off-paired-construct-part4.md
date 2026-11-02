@@ -11,9 +11,24 @@
 | Reid–Tai check (python) | pseudo-reflections in G; det weights | none; det ∈ {±1} |
 | c5_served.py (remote job construct-off-paired-served) | served-space scan (mod 2^31−1, all 18 Y-odd sectors) of the structurally motivated denominators: X2^6−2Y2^6; X2^6+2X2^3Y2^3−3Y2^6; C^2−(X0^2+Y1^2)^4; C^2−(X0Y1+X1Y0)^4; C^2−X0^8; H^2−(X0^2+Y1^2)^6; (X2^3+Y2^3)(X2^3−Y2^3)H; [--heavy: 3-torsion product psi_3·tau^*psi_3 (deg 16), (C^2−mu^4)(X2^6−Y2^6)] | see §I (prediction: all trivial) |
 
-## I. Served-space scan result
-(filled in when the remote job returns; the remote was at 320/200 allocated cores for the whole session — see submit-served.out)
-
+## I. Served-space scan result (remote job construct-off-paired-served, engine v3, p = 2^31−1, all 18 Y-odd sectors)
+| D | deg | char | E1 (A·D ∈ J) | nontrivial served classes (sum over sectors) | s |
+|---|---|---|---|---|---|
+| X2^6 − 2Y2^6 (pullback of a rational 3-section of Σ) | 6 | (0,0) | yes | 0 | 27 |
+| X2^6 + 2X2^3Y2^3 − 3Y2^6 | 6 | mixed parity | — | rejected by the engine (mixed Y-parity); its τ-orbit product has degree 12 (not run) | — |
+| C^2 − (X0^2+Y1^2)^4 (Λ_mu ∪ gΛ_mu, √kappa on Λ) | 8 | (0,0) | yes | 0 | 230 |
+| C^2 − (X0Y1+X1Y0)^4 | 8 | (0,0) | pending | pending | |
+| C^2 − X0^8 | 8 | (0,0) | pending | pending | |
+| H^2 − (X0^2+Y1^2)^6 (cube root of kappa on Λ) | 12 | (0,0) | pending | pending | |
+| (X2^3+Y2^3)(X2^3−Y2^3)·H (2-torsion of Y_± × the kappa=∞ fibre) | 12 | (0,0) | pending | pending | |
+Interpretation: exactly as predicted in part 2 §C — the block multisection pullback (H1) and the vertical √kappa-twist with
+linearly equivalent conjugate components (V1) serve only the Jacobian part.  Note that C^2 − mu^4 DOES pass the colon
+condition E1, so it is a genuine candidate support that the geometry (not E1) kills.
+Mordell–Weil screen (job construct-off-paired-mw + local primes): the Weierstrass fibrations Y_∓ : t^2 = ±2m^3 − Cm − H over
+P^3 have NO polynomial section (m quadric, t cubic): msolve returns the empty variety mod 1073741827 (both signs),
+2147483647 and 1000003 (eps = −1; eps = +1 pending locally) — 30 unknowns, 84 cubic equations.  [SCREEN: affine system,
+no properness; sections with denominators (m = M/d^2, t = T/d^3, deg d ≥ 1) not searched.]  Consequently the simplest
+realisation of part 3 §E (reflection through a Mordell–Weil section) has no candidate; lead K.2(c) is weakened.
 ## J. Verdict for the five requested mechanisms
 (i)  covers/exchange: FAILS by the no-hub theorem (part 3 §F); the descent-through-reflection lemma (part 3 §E) is the
      replacement criterion; its only known realisation (phi an automorphism of W) is reducible or has p_g ≥ 1.

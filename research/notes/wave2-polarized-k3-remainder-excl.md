@@ -140,7 +140,7 @@ D = f(U)h are all reducible, so they are excluded by this argument without any f
 7. Non-Jacobian K3 kernel at degree 8 completely described: K4⊗K4 (81, char 4; K4 = ker(η|R_{f,4}), dim 9, exact LLL basis) ⊕
    {ℓ(U)ℓ'(V)((U0U1U2)²+(V0V1V2)²)} (9, char 1, reducible). Eight elements of K4⊗K4 fail E2 for A_K3 (μ6-restricted 13572×2430, rank 2206,
    mod 2^31-1) and the K4 pairing serves no K3-block class; [char-1 random tests pending].
-8. Exact structured screens: 6 random homogeneous members of J_7 and 5 of J_8 (chars 0,1,2,3,5; 22 runs) fail for both targets with rank gap 1; degree 9: first run (char 0, K3) exact-inconsistent 1488/1489, continuing.
+8. Exact structured screens: 6 random homogeneous members of J_7 and 5 of J_8 (chars 0,1,2,3,5; 22 runs) fail for both targets with rank gap 1; degree 9: char-0 member exact-inconsistent for both targets (gaps 1), continuing.
    μ6-homogeneous octic sectors: char 0 done (cones); [chars 1,2,3,5 and K3 sectors pending].
 9. Compute: the 128-core remote was saturated all night (load 580-1800, often < 60 GB free); rjob refused every submission; all results
    above were computed locally (one nice'd process at a time where possible); 7 remote jobs remain queued (sweeps of the 26 wave-1

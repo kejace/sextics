@@ -11,3 +11,69 @@
 === done 12s ===
 [setup] F parsed: 54 terms, degree 6; A = X0^3 Y0^3; q = 1
 === referee_replay.py start 2026-11-01 22:39:59 parts=['d6'] ===
+[d6] my basis 36, true quadratic columns 666, Y-odd J_12 generators 2376 (packet: 2376)
+[d6] form1_11: verified=True support=2184 height_digits=345 form_terms=30
+[d6] form1_26: verified=True support=2021 height_digits=341 form_terms=26
+[d6] form1_29: verified=True support=2322 height_digits=396 form_terms=35
+[d6] form1_35: verified=True support=2253 height_digits=394 form_terms=28
+[d6] form1_43: verified=True support=2224 height_digits=389 form_terms=4
+[d6] form1_46: verified=True support=2224 height_digits=386 form_terms=4
+[d6] form1_58: verified=True support=2196 height_digits=344 form_terms=42
+[d6] form1_68: verified=True support=2023 height_digits=342 form_terms=34
+[d6] form1_70: verified=True support=2328 height_digits=396 form_terms=53
+[d6] form1_74: verified=True support=2256 height_digits=394 form_terms=38
+[d6] form1_78: verified=True support=2224 height_digits=388 form_terms=4
+[d6] form1_87: verified=True support=2196 height_digits=343 form_terms=36
+[d6] form1_92: verified=True support=2023 height_digits=342 form_terms=30
+[d6] form1_93: verified=True support=2328 height_digits=395 form_terms=44
+[d6] form1_95: verified=True support=2256 height_digits=394 form_terms=33
+[d6] form1_99: verified=True support=1791 height_digits=284 form_terms=18
+[d6] form1_100: verified=True support=1764 height_digits=272 form_terms=2
+[d6] form1_101: verified=True support=1791 height_digits=286 form_terms=19
+[d6] form1_102: verified=True support=1791 height_digits=286 form_terms=18
+[d6] form1_103: verified=True support=1791 height_digits=287 form_terms=20
+[d6] form1_104: verified=True support=1766 height_digits=277 form_terms=5
+[d6] form1_105: verified=True support=1791 height_digits=285 form_terms=20
+[d6] form1_106: verified=True support=1791 height_digits=290 form_terms=20
+[d6] form1_107: verified=True support=1764 height_digits=274 form_terms=2
+[d6] form1_108: verified=True support=1791 height_digits=284 form_terms=19
+[d6] form1_109: verified=True support=1791 height_digits=289 form_terms=20
+[d6] form1_110: verified=True support=1764 height_digits=276 form_terms=2
+[d6] form1_111: verified=True support=1791 height_digits=284 form_terms=19
+[d6] form1_112: verified=True support=1791 height_digits=286 form_terms=18
+[d6] form1_113: verified=True support=1791 height_digits=286 form_terms=18
+[d6] form1_133: verified=True support=1765 height_digits=274 form_terms=2
+[d6] form1_134: verified=True support=1765 height_digits=276 form_terms=2
+[d6] form1_135: verified=True support=1766 height_digits=276 form_terms=2
+[d6] sq:a0: verified=True support=1696 height_digits=238 form_terms=1
+[d6] sq:a1: verified=True support=1540 height_digits=235 form_terms=1
+[d6] sq:a2: verified=True support=1756 height_digits=243 form_terms=1
+[d6] sq:a3: verified=True support=2224 height_digits=380 form_terms=1
+[d6] sq:a4: verified=True support=2224 height_digits=384 form_terms=1
+[d6] sq:a6: verified=True support=1668 height_digits=237 form_terms=1
+[d6] sq:a7: verified=True support=1421 height_digits=227 form_terms=1
+[d6] sq:a8: verified=True support=1704 height_digits=237 form_terms=1
+[d6] sq:a9: verified=True support=2224 height_digits=380 form_terms=1
+[d6] sq:a11: verified=True support=2224 height_digits=388 form_terms=1
+[d6] sq:a12: verified=True support=1696 height_digits=239 form_terms=1
+[d6] sq:a13: verified=True support=1539 height_digits=237 form_terms=1
+[d6] sq:a14: verified=True support=1754 height_digits=244 form_terms=1
+[d6] sq:a16: verified=True support=2224 height_digits=383 form_terms=1
+[d6] sq:a17: verified=True support=1236 height_digits=220 form_terms=1
+[d6] sq:a21: verified=True support=1544 height_digits=236 form_terms=1
+[d6] sq:a22: verified=True support=552 height_digits=156 form_terms=1
+[d6] sq:a23: verified=True support=1691 height_digits=239 form_terms=1
+[d6] sq:a24: verified=True support=1764 height_digits=273 form_terms=1
+[d6] sq:a27: verified=True support=1493 height_digits=229 form_terms=1
+[d6] sq:a28: verified=True support=400 height_digits=148 form_terms=1
+[d6] sq:a29: verified=True support=1542 height_digits=237 form_terms=1
+[d6] sq:a33: verified=True support=1537 height_digits=236 form_terms=1
+[d6] sq:a34: verified=True support=500 height_digits=154 form_terms=1
+[d6] sq:a35: verified=True support=1616 height_digits=239 form_terms=1
+[d6] VERIFIED: 58/58 exact certificates (lambda kills J_12^- and reproduces the quadratic form on the TRUE E2 columns) (36.2s)
+=== done 37s ===
+[setup] F parsed: 54 terms, degree 6; A = X0^3 Y0^3; q = 1
+=== referee_replay.py start 2026-11-01 22:40:38 parts=['e1', 'k7'] ===
+[e1] d=4 p=1000000009: rank J_10 = 1497 (regular-sequence value 1497, ok=True); dim V_d mod p = 0, dim J_d = 0, kernel mod J = 0 (15.8s)
+[e1] d=5 p=1000000009: rank J_11 = 2682 (regular-sequence value 2682, ok=True); dim V_d mod p = 6, dim J_d = 6, kernel mod J = 0 (54.8s)
+[e1] d=6 p=1000000009: rank J_12 = 4437 (regular-sequence value 4437, ok=True); dim V_d mod p = 36, dim J_d = 36, kernel mod J = 0 (152.2s)

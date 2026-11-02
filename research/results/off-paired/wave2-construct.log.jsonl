@@ -8,3 +8,8 @@
 {"ts":"2026-11-01T22:29:41-05:00","lane":"off-paired","step":"part4-written","note":"computation table, verdicts, next steps (Mordell-Weil translations of Y_- as candidate phi)"}
 {"ts":"2026-11-01T22:32:24-05:00","lane":"off-paired","step":"index-written","note":"STATUS no witness / no new mechanism; parts 1-4"}
 {"ts":"2026-11-01T22:34:54-05:00","lane":"off-paired","step":"c7: W = X/sigma2 equation s^2(s^2-3m)^2 = -(H+Cm-2m^3) exact; branch (X2-Y2)^2 = s^2-4m exact; B_pm quasi-smoothness see output"}
+{"ts":"2026-11-01T22:40:45-05:00","lane":"off-paired","step":"served-scan-interim","done":["X2^6-2Y2^6: trivial","C^2-(X0^2+Y1^2)^4: E1 yes, trivial (230s)"],"pending":["C^2-(X0Y1+X1Y0)^4","C^2-X0^8","H^2-nu^6","mirror3xH"]}
+{"ts":"2026-11-01T22:41:17-05:00","lane":"off-paired","step":"served-scan-interim-2","done":["C^2-(X0Y1+X1Y0)^4: E1 yes, trivial (227s)"]}
+{"ts":"2026-11-01T22:41:34-05:00","lane":"off-paired","step":"mw-sections","result":"no polynomial section (m quadric, t cubic) of the Weierstrass fibrations Y_- (t^2=2m^3-Cm-H) and Y_+ (t^2=-2m^3-Cm-H) over P^3: msolve [-1] (empty) mod 1073741827, 2147483647, 1000003; 30 unknowns, 84 cubic equations","label":"SCREEN (three primes; affine system, no properness)"}
+{"ts":"2026-11-01T22:43:57-05:00","lane":"off-paired","step":"mw-sections-primes","result":"eps=-1 (Y_-): empty mod 1073741827, 2147483647, 1000003; eps=+1 (Y_+): empty mod 1073741827 (remote); local runs for the other two primes timed out at 100 s (loaded box)"}
+{"ts":"2026-11-01T22:44:22-05:00","lane":"off-paired","step":"part2-appendix-B2","note":"Hodge-bundle table n<=12 appended"}

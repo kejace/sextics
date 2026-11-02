@@ -9,3 +9,6 @@
 [subfam] Y1+Y2: vars 4, eqs 459, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 10'] (3285s)
 [subfam] X0+X1+X2: vars 20, eqs 459, msolve chart 'TIMEOUT', singular [] (4492s)
 [subfam] X0+X1+Y0: vars 6, eqs 459, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (4609s)
+[subfam] X0+X1+Y1: vars 6, eqs 459, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (4723s)
+[subfam] X0+X1+Y2: vars 6, eqs 459, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (4835s)
+[subfam] X0+X1+M: vars 6, eqs 459, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (4954s)

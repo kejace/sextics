@@ -1,0 +1,5 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+best stored: 4100012 0.0001606898027561437 status 3
+continuation: nfev 19 status 3 r_part_rel 0.00016068980275614023 time 3.0
+trajectory (||r||): [0.000161, 0.000161, 0.000161, 0.000161, 0.000161, 0.000161]
+|grad| / |r| = 2.2636881351420425e-08

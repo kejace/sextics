@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-01 22:37:16.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-01 22:42:20.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -108,11 +108,11 @@ Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-typ
 Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02; d=7 odd (K=63): 16 restarts, best rel 1.440e-02
 
 ### Residual landscape (per-restart files)
-* `d7e_b0`: n=53, min 6.287e-03, 10% 1.563e-02, median 3.531e-02, 90% 5.306e-02, max 1.228e-01
+* `d7e_b0`: n=65, min 6.287e-03, 10% 1.563e-02, median 3.772e-02, 90% 5.373e-02, max 1.281e-01
 * `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
 * `d7o_a`: n=16, min 1.440e-02, 10% 1.822e-02, median 4.123e-02, 90% 7.103e-02, max 8.815e-02
-* `d8e_b0`: n=3, min 3.038e-03, 10% 3.038e-03, median 4.052e-03, 90% 5.693e-03, max 5.693e-03
-* `d8k_a`: n=20, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
+* `d8e_b0`: n=8, min 2.383e-03, 10% 2.383e-03, median 5.977e-03, 90% 8.786e-03, max 8.786e-03
+* `d8k_a`: n=31, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
 
 ## 4. Structured families vs the E1-admissible space (exact mod p)
 dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not already in J_d.
@@ -614,7 +614,7 @@ None so far: no restart reached rel < 1e-8 on this instance (see landscape above
 * planted witness search (solved instance coupled-pair-rational-d4-strict, d=4, K=5): 9/12 random restarts converged to rel<4e-11; rational reconstruction gave D = X0^4 - X0^2 Y0^2 + Y0^4; exact fixed-D solve + verify_witness succeeded (strict, Q=0). End-to-end pipeline (search -> reconstruct -> exact confirm) validated; 3/12 restarts stuck at a local minimum rel=0.35
 
 ## 7. Jobs
-* `chainA.log`: chainA start Mon Nov  2 00:47:55 UTC 2026 / relax 5,6 done Mon Nov  2 00:48:43 UTC 2026 / e1spaces 4-10 done Mon Nov  2 01:58:14 UTC 2026 / relax 5-7 done Mon Nov  2 02:02:24 UTC 2026 / d5,d6 searches done Mon Nov  2 02:02:27 UTC 2026 / structured 6-10 done Mon Nov  2 02:32:57 UTC 2026
+* `chainA.log`: chainA start Mon Nov  2 00:47:55 UTC 2026 / relax 5,6 done Mon Nov  2 00:48:43 UTC 2026 / e1spaces 4-10 done Mon Nov  2 01:58:14 UTC 2026 / relax 5-7 done Mon Nov  2 02:02:24 UTC 2026 / d5,d6 searches done Mon Nov  2 02:02:27 UTC 2026 / structured 6-10 done Mon Nov  2 02:32:57 UTC 2026 / msolve d6 exit 0
 * `chainB.log`: chainB start Mon Nov  2 00:47:54 UTC 2026
 * `chainC.log`: chainC start Mon Nov  2 00:47:55 UTC 2026
 * `chainD.log`: chainD start Mon Nov  2 00:47:58 UTC 2026

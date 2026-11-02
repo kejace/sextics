@@ -1,0 +1,474 @@
+{
+ "d6": {
+  "result": "VERIFIED: 58/58 exact certificates (lambda kills J_12^- and reproduces the quadratic form on the TRUE E2 columns)",
+  "n_verified": 58,
+  "n_total": 58,
+  "certs": {
+   "form1_11": {
+    "verified": true,
+    "support": 2184,
+    "height_digits": 345,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 30
+   },
+   "form1_26": {
+    "verified": true,
+    "support": 2021,
+    "height_digits": 341,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 26
+   },
+   "form1_29": {
+    "verified": true,
+    "support": 2322,
+    "height_digits": 396,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 35
+   },
+   "form1_35": {
+    "verified": true,
+    "support": 2253,
+    "height_digits": 394,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 28
+   },
+   "form1_43": {
+    "verified": true,
+    "support": 2224,
+    "height_digits": 389,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 4
+   },
+   "form1_46": {
+    "verified": true,
+    "support": 2224,
+    "height_digits": 386,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 4
+   },
+   "form1_58": {
+    "verified": true,
+    "support": 2196,
+    "height_digits": 344,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 42
+   },
+   "form1_68": {
+    "verified": true,
+    "support": 2023,
+    "height_digits": 342,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 34
+   },
+   "form1_70": {
+    "verified": true,
+    "support": 2328,
+    "height_digits": 396,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 53
+   },
+   "form1_74": {
+    "verified": true,
+    "support": 2256,
+    "height_digits": 394,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 38
+   },
+   "form1_78": {
+    "verified": true,
+    "support": 2224,
+    "height_digits": 388,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 4
+   },
+   "form1_87": {
+    "verified": true,
+    "support": 2196,
+    "height_digits": 343,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 36
+   },
+   "form1_92": {
+    "verified": true,
+    "support": 2023,
+    "height_digits": 342,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 30
+   },
+   "form1_93": {
+    "verified": true,
+    "support": 2328,
+    "height_digits": 395,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 44
+   },
+   "form1_95": {
+    "verified": true,
+    "support": 2256,
+    "height_digits": 394,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 33
+   },
+   "form1_99": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 284,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 18
+   },
+   "form1_100": {
+    "verified": true,
+    "support": 1764,
+    "height_digits": 272,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 2
+   },
+   "form1_101": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 286,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 19
+   },
+   "form1_102": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 286,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 18
+   },
+   "form1_103": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 287,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 20
+   },
+   "form1_104": {
+    "verified": true,
+    "support": 1766,
+    "height_digits": 277,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 5
+   },
+   "form1_105": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 285,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 20
+   },
+   "form1_106": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 290,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 20
+   },
+   "form1_107": {
+    "verified": true,
+    "support": 1764,
+    "height_digits": 274,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 2
+   },
+   "form1_108": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 284,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 19
+   },
+   "form1_109": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 289,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 20
+   },
+   "form1_110": {
+    "verified": true,
+    "support": 1764,
+    "height_digits": 276,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 2
+   },
+   "form1_111": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 284,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 19
+   },
+   "form1_112": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 286,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 18
+   },
+   "form1_113": {
+    "verified": true,
+    "support": 1791,
+    "height_digits": 286,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 18
+   },
+   "form1_133": {
+    "verified": true,
+    "support": 1765,
+    "height_digits": 274,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 2
+   },
+   "form1_134": {
+    "verified": true,
+    "support": 1765,
+    "height_digits": 276,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 2
+   },
+   "form1_135": {
+    "verified": true,
+    "support": 1766,
+    "height_digits": 276,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 2
+   },
+   "sq:a0": {
+    "verified": true,
+    "support": 1696,
+    "height_digits": 238,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a1": {
+    "verified": true,
+    "support": 1540,
+    "height_digits": 235,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a2": {
+    "verified": true,
+    "support": 1756,
+    "height_digits": 243,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a3": {
+    "verified": true,
+    "support": 2224,
+    "height_digits": 380,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a4": {
+    "verified": true,
+    "support": 2224,
+    "height_digits": 384,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a6": {
+    "verified": true,
+    "support": 1668,
+    "height_digits": 237,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a7": {
+    "verified": true,
+    "support": 1421,
+    "height_digits": 227,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a8": {
+    "verified": true,
+    "support": 1704,
+    "height_digits": 237,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a9": {
+    "verified": true,
+    "support": 2224,
+    "height_digits": 380,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a11": {
+    "verified": true,
+    "support": 2224,
+    "height_digits": 388,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a12": {
+    "verified": true,
+    "support": 1696,
+    "height_digits": 239,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a13": {
+    "verified": true,
+    "support": 1539,
+    "height_digits": 237,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a14": {
+    "verified": true,
+    "support": 1754,
+    "height_digits": 244,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a16": {
+    "verified": true,
+    "support": 2224,
+    "height_digits": 383,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a17": {
+    "verified": true,
+    "support": 1236,
+    "height_digits": 220,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a21": {
+    "verified": true,
+    "support": 1544,
+    "height_digits": 236,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a22": {
+    "verified": true,
+    "support": 552,
+    "height_digits": 156,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a23": {
+    "verified": true,
+    "support": 1691,
+    "height_digits": 239,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a24": {
+    "verified": true,
+    "support": 1764,
+    "height_digits": 273,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a27": {
+    "verified": true,
+    "support": 1493,
+    "height_digits": 229,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a28": {
+    "verified": true,
+    "support": 400,
+    "height_digits": 148,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a29": {
+    "verified": true,
+    "support": 1542,
+    "height_digits": 237,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a33": {
+    "verified": true,
+    "support": 1537,
+    "height_digits": 236,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a34": {
+    "verified": true,
+    "support": 500,
+    "height_digits": 154,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   },
+   "sq:a35": {
+    "verified": true,
+    "support": 1616,
+    "height_digits": 239,
+    "bad_J": 0,
+    "bad_cols": 0,
+    "form_terms": 1
+   }
+  },
+  "seconds": 36.2
+ }
+}

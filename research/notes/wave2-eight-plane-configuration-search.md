@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T22:36:03. 252 search restarts collected over 8 batches; 2 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1900 on 128 cores); the runner's capacity gate has refused all submissions so far; results below are exact local computations plus bounded local numerical batches; remote queues (w2_queue1.sh, w2_queue2.sh) submit automatically when capacity appears.
+STATUS: NO WITNESS. Updated 2026-11-01T22:41:01. 256 search restarts collected over 9 batches; 2 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1900 on 128 cores); the runner's capacity gate has refused all submissions so far; results below are exact local computations plus bounded local numerical batches; remote queues (w2_queue1.sh, w2_queue2.sh) submit automatically when capacity appears.
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -85,10 +85,11 @@ rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q;
 | local-search-d6-p0 | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 162+226 (144-144) | 57 | 0.17 | 0.222 | 0.592 | 0.963 | - | 0 | 0 | 25.8 | 81.2 | 0 |
 | local-search-d6-p1 | jacobian-d6-p1 | 6 | 1 | 18 (18) | 3080 | 153+226 (136-136) | 60 | 0.682 | 0.704 | 0.731 | 0.985 | - | 0 | 0 | 17.8 | 67.4 | 0 |
 | local-search-d7-p0 | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (360-360) | 16 | 0.111 | 0.113 | 0.289 | 0.459 | 0.0143 | 0 | 0 | 187.3 | 95.3 | 0 |
-| local-search-d7-p1 (running) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (360-360) | 10 | 0.23 | 0.335 | 0.335 | 0.38 | 0.0514 | 0 | 0 | 203.3 | 96.0 | 0 |
+| local-search-d7-p1 (running) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (360-360) | 11 | 0.23 | 0.335 | 0.335 | 0.38 | 0.0514 | 0 | 0 | 206.8 | 98.5 | 0 |
 | local-stage1-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00441 | 0.00503 | 0.0124 | 0.0185 | 0.00441 | 0 | 0 | 19.9 | 102.8 | 0 |
 | local-stage1-d7-p1 (stage 1 only) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00387 | 0.0039 | 0.004 | 0.0151 | 0.00387 | 0 | 0 | 19.8 | 120.0 | 0 |
-| local-stage1-d8-p0 (stage 1 only) (running) | jacobian-d8-p0 | 8 | 0 | 168 (156) | 10152 | 954+1491 (None-None) | 17 | 0.000161 | 0.000268 | 0.000584 | 0.00116 | 0.000161 | 0 | 0 | 107.8 | 168.4 | 0 |
+| local-stage1-d8-p0 (stage 1 only) | jacobian-d8-p0 | 8 | 0 | 168 (156) | 10152 | 954+1491 (None-None) | 20 | 0.000161 | 0.00029 | 0.000642 | 0.00116 | 0.000161 | 0 | 0 | 107.5 | 172.7 | 0 |
+| local-stage1-d8-p1 | jacobian-d8-p1 | | | | | | 0 (started) | | | | | | | | | | |
 | local-stage1b-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 12 | 0.00239 | 0.00241 | 0.00987 | 0.0185 | 0.00239 | 0 | 0 | 16.8 | 112.4 | 0 |
 
 ## 4. Structured families at d = 10 intersected with the admissible space (mod p)

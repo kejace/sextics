@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 22:38:37 from 934 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 22:43:52 from 1008 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -31,6 +31,16 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
 
 | d | parity | nD per k=0..6 | J_d per k | kernel mod J per k (nontrivial) | rational reps (max height) | lifts failed |
 |---|---|---|---|---|---|---|
+| 4 | even | 18,8,8,8,8,8,8 | 0,0,0,0,0,0,0 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 4 | odd | 3,13,13,6,13,6,6 | 0,0,0,0,0,0,0 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 5 | even | 9,24,24,15,24,15,15 | 0,0,0,1,0,1,1 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 5 | odd | 30,16,16,16,16,16,16 | 3,0,0,0,0,0,0 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 6 | even | 50,31,31,31,31,31,31 | 12,1,1,1,1,1,1 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 6 | odd | 19,40,40,29,40,29,29 | 0,3,3,3,3,3,3 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 7 | even | 39,66,66,53,66,53,53 | 3,12,12,8,12,8,8 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 7 | odd | 78,53,53,53,53,53,53 | 27,6,6,6,6,6,6 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 8 | even | 120,89,89,88,89,88,88 | 51,20,20,19,20,19,19 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
+| 8 | odd | 69,102,102,87,102,87,87 | 12,30,30,22,30,22,22 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
 | 9 | even | -,156,156,139,156,139,139 | -,63,63,52,63,52,52 | -,3,3,2,10,1,3 | -,-,-,49994,-,31345,272340 | 0 |
 | 9 | odd | -,139,-,-,139,136,136 | -,49,-,-,49,46,46 | -,5,-,-,9,6,4 | -,2420,-,-,-,3625,3500 | 0 |
 
@@ -101,8 +111,11 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 | 9 | even | 5 | KJ | 53 | 51 | 1953x272 | 3 | 1.22e-02 | 4.54e-02 | 7.85e-02 | 0 | 0 | lm | 0 |
 | 9 | even | 6 | K | 3 | 3 | 1966x272 | 6 | 1.69e-01 | 8.54e-01 | 8.54e-01 | 0 | 0 | lm | 0 |
 | 9 | even | 6 | KJ | 55 | 53 | 1966x272 | 3 | 5.04e-02 | 5.37e-02 | 5.70e-02 | 0 | 0 | lm | 0 |
+| 9 | odd | 0 | J | 93 | 83 | 1954x294 | 5 | 6.27e-03 | 1.36e-02 | 3.76e-02 | 0 | 0 | lm | 0 |
 | 9 | odd | 1 | K | 5 | 5 | 1947x264 | 5 | 8.90e-01 | 8.90e-01 | 8.90e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 1 | KJ | 54 | 51 | 1947x264 | 3 | 7.73e-02 | 1.18e-01 | 1.58e-01 | 0 | 0 | lm | 0 |
+| 9 | odd | 2 | J | 49 | 46 | 1915x294 | 2 | 2.55e-01 | 2.55e-01 | 2.55e-01 | 0 | 0 | lm | 0 |
+| 9 | odd | 3 | J | 46 | 43 | 1933x294 | 2 | 3.77e-01 | 3.77e-01 | 3.77e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 4 | K | 9 | 9 | 1973x216 | 6 | 8.66e-01 | 8.66e-01 | 8.66e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 4 | KJ | 58 | 55 | 1973x216 | 3 | 1.28e-01 | 2.51e-01 | 3.75e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 5 | K | 6 | 6 | 1929x264 | 5 | 7.55e-01 | 7.55e-01 | 7.55e-01 | 0 | 0 | lm | 0 |
@@ -311,14 +324,14 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 
 ## Remote job queue (tail)
 ```
-22:27:29 gate closed for w2-control: 0), available memory 163 GB (min 110), 61 jobs running with 320 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:29:04 gate closed for w2-control: 0), available memory 134 GB (min 110), 62 jobs running with 328 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:30:38 gate closed for w2-control: 0), available memory 161 GB (min 110), 62 jobs running with 328 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:32:13 gate closed for w2-control: 0), available memory 159 GB (min 110), 61 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:33:47 gate closed for w2-control: 0), available memory 168 GB (min 110), 62 jobs running with 329 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:35:21 gate closed for w2-control: 0), available memory 155 GB (min 110), 63 jobs running with 333 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:36:55 gate closed for w2-control: 0), available memory 154 GB (min 110), 62 jobs running with 332 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:38:29 gate closed for w2-control: 0), available memory 145 GB (min 110), 62 jobs running with 332 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:40:03 gate closed for w2-control: 0), available memory 144 GB (min 110), 62 jobs running with 332 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:41:37 gate closed for w2-control: 0), available memory 144 GB (min 110), 61 jobs running with 328 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:43:11 gate closed for w2-control: 0), available memory 122 GB (min 110), 61 jobs running with 329 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation
@@ -403,4 +416,9 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 * Control, seed 202: hit on the 3rd restart (rel 1.5e-24); the rem_F-chart reconstruction returned a rational point of the
   1-dimensional solution set different from D*, and the exact re-solve produced a verified certificate for it
   (confirm_exact -> solved, verify_witness True).  Running tally: 3 hits in 41 random restarts (~7%) on the 18-dim control.
+* Degree-9 full sector families (kernel + J, or J alone where the kernel is zero), local LM samples of 2-4 restarts per
+  sector (43-55 s per restart for K = 50-93): best rel (9,e,0) 0.16, (9,e,1) 0.054, (9,e,2) 0.042, (9,e,3) 0.018,
+  (9,e,4) 0.56, (9,e,5) 0.012, (9,e,6) 0.050, (9,o,0) 6.3e-3 (J only, 93-dim), (9,o,1) 0.077, (9,o,2) 0.25, (9,o,3) 0.38,
+  (9,o,4) 0.13, (9,o,5) 0.48, (9,o,6) 0.054 -- a landscape survey only (a few restarts per 50-90-dim family); the
+  thousands-of-restarts runs are queued as remote jobs `w2-vp9`, `w2-vp9sparse`.
 

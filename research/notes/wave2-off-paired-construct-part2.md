@@ -65,3 +65,21 @@ variation alone.  Base changes kappa = rho^n (double-plane models v^2 = (rho^b +
    resolution: P_2(X/K) ≥ 1, kappa(X/K) ≥ 0.  The same holds for (X × Y)/K whenever Y carries a K-invariant bicanonical form
    (elliptic curves, abelian/K3/Enriques carriers).  Only p_g = q = 0 surface fibrations of X/K remain; fqlx excluded all
    monomial ones.  For K containing a reflection the target is not K-invariant.  (Replaces "not known uniruled" by "not uniruled".)
+
+## B'. Hodge-bundle prediction for all base changes kappa = rho^n (formula of §B; verified n ≤ 6 by double planes)
+| n | deg f_*omega(Σ̃_n) | p_g(Σ̃_n) | new (2,0) in characters of exact order n |
+|---|---|---|---|
+| 1 | 2 | 0 | 0 |
+| 2 | 2 | 0 | 0 |
+| 3 | 2 | 0 | 0 |
+| 4 | 3 | 1 | 1 |
+| 5 | 4 | 2 | 2 |
+| 6 | 3 | 1 | 1 |
+| 7 | 5 | 3 | 3 |
+| 8 | 5 | 3 | 2 |
+| 9 | 5 | 3 | 3 |
+| 10 | 6 | 4 | 2 |
+| 11 | 7 | 5 | 5 |
+| 12 | 6 | 4 | 2 |
+Reading: a vertical divisor on which kappa acquires an n-th root can only carry twisted (2,0)-classes for n ∈ {4,5,6,7,8,...}
+(never n = 2, 3), and even then only if the conjugate fibre components are non-homologous on S̃_kappa (part 2 §C).
