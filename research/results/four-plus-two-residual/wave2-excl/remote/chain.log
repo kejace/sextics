@@ -5,3 +5,5 @@
 [chain] 22:46:46 start 3600 w2_struct.py excl-struct-local 1
 [chain] 23:46:46 exit 0 w2_struct.py
 [chain] 23:46:46 start 10800 w2_symsweep.py excl-symsweep-local-k9-12 1 9 12 2500
+[chain] 02:46:46 exit 0 w2_symsweep.py
+[chain] all done 02:46:46
