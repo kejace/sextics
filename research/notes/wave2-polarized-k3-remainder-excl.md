@@ -1,6 +1,14 @@
 # Wave 2 — `polarized-k3-remainder` — lens EXCLUSION / RIGOR
 
-STATUS: in progress (no witness; this lens only produces exclusions / re-verifications)
+STATUS: in progress — no witness (exclusion lens). Running summary (02:00 EST):
+* Best rigorous bound for A (full target): deg D >= 8 (thread, degrees <= 6 now independently REPLICATED exactly; degree 7 replication running).
+* NEW exact theorem: the K3-sector target A_K3 has no denominator of degree <= 6 (E1 injective through 7; degree 5 killed; degree 6
+  reduces to D ~ f(U) which fails exactly); f(U), U0, V0 have zero K3-class projection of their full served space (exact over Q).
+* Consequence (needs End_Hdg(T)=Q [thread] and eta not in NS_prim⊗C, automatic if rho=1): no product of denominators of degree <= 6 serves A;
+  once degree 7 is done, a legal octic must have X ∩ V(D) irreducible and reduced (so the thread's spurious relaxation points f(U)h are all dead).
+* Degree-8 fixed-D exact re-verification: f(U)U0^2 inconsistent in all 3 blocks (756/757 = thread, 828/829, 516/517), also for A_K3.
+* Non-Jacobian K3 kernel at d=8: 51+39 dims; structured pairing over ker(eta|R_4) inconsistent (mod p, mu6-restricted 13572x2430).
+* Remote saturated all night (load 700-1700 on 128 cores): everything above was computed locally; remote queue pending.
 
 Started 2026-11-01 ~23:59 EST. Lane dir `/tmp/hodge/results/polarized-k3-remainder/`, packet dir `wave2-excl/`,
 log `wave2-excl.log.jsonl` (one JSON line per experiment).
@@ -99,3 +107,14 @@ very large height (≈70-digit integers even after LLL on the rref-derived integ
 natural element: the non-Jacobian K3 kernel K4⊗K4 (81 dims, character 4) is a "generic" subspace, like the full-target
 E1 kernel at d = 10 observed in wave 1.  The UV-frame tests (k3kernel_uv.py: pairings Σ g_k(U)g_k(V), random symmetric
 tensors, random character components of the full kernel) are running locally with the engine's μ6-restricted solver.
+First result (02:05): D = Σ_k g_k(U) g_k(V) over the exact K4 basis (153 terms, character 4, D ∉ J, E1 for A_K3 holds):
+μ6-restricted full E2 system 13572 × 2430 (of 7518), rank 2206, nullity 224 — INCONSISTENT mod 2^31−1.  So the most
+natural non-Jacobian K3-kernel element does not serve the K3 class (modular statement).  Further elements running.
+
+### Consequence for degree 8 (to be finalized once the K3 degree-7 relaxation is analysed)
+If no denominator of degree ≤ 7 serves A_K3 (degrees ≤ 6 proven exactly; 7 pending), then under η ∉ NS_prim⊗C (the
+equivalence-theorem hypothesis, automatic for ρ = 1) a legal octic D must satisfy: X ∩ V(D) is irreducible and reduced
+(every component Y_j = X ∩ V(D_j) has Σ deg D_j ≤ 8, so a proper decomposition only has factors of degree ≤ 7, whose
+served K3-projections lie in ω⊗NS_prim), hence D is irreducible over C and not a power; by Lefschetz X ∩ V(D) is singular,
+and by Ch. 3 §3.1 it has a non-normal or non-rational-singular component.  The thread's degree-8 relaxation points
+D = f(U)h are all reducible, so they are excluded by this argument without any further computation.

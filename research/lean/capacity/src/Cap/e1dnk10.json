@@ -1,0 +1,1 @@
+{"F": 236, "A": 444, "D": 10, "N": [20, 19, 10, 18, 20, 10], "Q": 0, "q": 1, "e1_raw": 16662, "e1_lhs_raw": 12222, "e1_rhs_raw": 4440, "e1_collected": 2080, "e2_raw": 993, "e2_lhs_raw": 993, "e2_rhs_raw": 0, "e2_collected": 0, "defs_terms": 787, "Fsrc": "dense", "d": 4, "kD": 10, "denseD": false, "kH": 1, "kT": 0, "seed": 0, "parts": ["e1"], "bytes": 169473, "name": "e1dnk10"}

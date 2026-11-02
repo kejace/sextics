@@ -12,8 +12,10 @@
   latter T-base-type per wave 1); its relaxation has 432 independent quadrics (rank Phi = 432 of 2211 pairs, 744
   available), which is far above the 63 unknowns of the sliced system, so emptiness is expected; msolve reached F4
   degree 3 in minutes, the degree-4 round decides (queued).  The numerical full-E2 search on the 66-dim family and on
-  the 3-dim pure-kernel subfamily finds no residual below 1e-3 so far (see section 3); the degree-7 landscape has a
-  floor around 5e-3 .. 1e-1, i.e. no near-solutions.
+  the 3-dim pure-kernel subfamily finds no residual below 1e-2 in the corrected metric (absolute residual
+  0.011-0.021 at |u| = 1 over all restarts of both local methods); the degree-7 landscape has a floor around
+  2e-2 .. 1e-1 with no near-solutions.  (Early LM runs reported rel 2e-6, an artifact of the first metric: the
+  optimizer inflated the spurious F-multiple component to |s| = 89; see the metric note in section 0.)
 * **Degree 8, 9, 10** are the "prime candidate" degrees of the task statement (non-Jacobian kernel elements 9 / 27 /
   >= 294).  The relaxation can no longer exclude by rank or Groebner (468 quadrics in 177 unknowns at d=8 has
   regularity far beyond reach; at d=9 the relaxation is underdetermined, 208 equations in 405 unknowns).  Only the

@@ -5,6 +5,11 @@ cd /tmp/hodge/results/rank-one-biquartic
 export PYTHONPATH=/home/kejace/devel/sextics-work
 O=wave2/out
 echo "chainE start $(date)"
+# 0. decisive exact step first: msolve on the SLICED degree-7 Y-even relaxation (432 quadrics, 63 vars), 8 threads
+if [ -s $O/relax_d7_p0_q_slice.ms ] && [ ! -s $O/relax_d7_p0_q_slice.msout ]; then
+  timeout 14400 msolve -t 8 -v 2 -g 2 -f $O/relax_d7_p0_q_slice.ms -o $O/relax_d7_p0_q_slice.msout > $O/msolve_d7_slice_E.out 2>&1
+  echo "msolve d7 slice (chain E) exit $? $(date)"
+fi
 python3 wave2/relaxsearch.py --d 7 --pD 0 --restarts 400 --seed 0 --workers 8 --tag r7e_a > $O/r7e_a.out 2> $O/r7e_a.err
 echo "r7e_a done $(date)"
 python3 wave2/relaxsearch.py --d 8 --pD 0 --family kernel --restarts 200 --seed 0 --workers 8 --tag r8k_a > $O/r8k_a.out 2> $O/r8k_a.err

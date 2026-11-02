@@ -69,3 +69,31 @@ Y2*F_X2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over 
 X0^2X1^2X2^2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 519 (M) / 520 (aug) of 736 cols certified 26.4
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 190 candidates, 118 to do
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+190 candidates, 66 to do
+cone3-X0X1Y0^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X1Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X1Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X2Y0^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X2Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0X2Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0Y0Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0Y0Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X0Y1Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1X2Y0^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1X2Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1X2Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1Y0Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1Y0Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X1Y1Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X2Y0Y1^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X2Y0Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+cone3-X2Y1Y2^2 6 ERROR ValueError('D has mixed Y-parity; choose a pure parity denominator') None None 0.0
+F_X0 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 442 (M) / 443 (aug) of 540 cols certified 6.3
+F_Y1 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 430 (M) / 431 (aug) of 514 cols certified 4.6
+F_X1 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 427 (M) / 428 (aug) of 521 cols certified 11.2
+F_X2 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 427 (M) / 428 (aug) of 505 cols certified 12.1
+F_Y0 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 433 (M) / 434 (aug) of 521 cols certified 12.6
+F_Y2 5 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 441 (M) / 442 (aug) of 528 cols certified 6.8
+cone4-X2Y0Y1Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 615 (M) / 616 (aug) of 736 cols certified 22.8
+cone4-X1Y0Y1Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 613 (M) / 614 (aug) of 736 cols certified 35.7

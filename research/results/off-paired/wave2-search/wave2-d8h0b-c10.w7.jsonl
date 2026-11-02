@@ -1,3 +1,11 @@
 {"seed": 107, "f": 0.019205463349238814, "bnorm2": 2.1958768834925704, "relres": 0.0935208404941539, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 64.99, "init": "gauss"}
 {"seed": 115, "f": 0.018713695429166382, "bnorm2": 1.874294471449757, "relres": 0.09992194208027101, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 58.95, "init": "gauss"}
 {"seed": 123, "f": 0.016214828604902407, "bnorm2": 2.5690397005791787, "relres": 0.07944576903649186, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 66.41, "init": "gauss"}
+{"seed": 131, "f": 0.01452263742763153, "bnorm2": 1.8530363998783816, "relres": 0.08852802433318642, "iters": 68, "njac": 68, "nres": 118, "status": "stalled", "time": 67.82, "init": "gauss"}
+{"seed": 139, "f": 0.015664433953055355, "bnorm2": 2.4438281882696566, "relres": 0.08006118576402582, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 65.21, "init": "gauss"}
+{"seed": 147, "f": 0.015790989055321763, "bnorm2": 2.5824860259451605, "relres": 0.07819620494161332, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 66.21, "init": "gauss"}
+{"seed": 155, "f": 0.024901208890919443, "bnorm2": 2.526409295466154, "relres": 0.0992792209267133, "iters": 94, "njac": 94, "nres": 146, "status": "stalled", "time": 71.62, "init": "gauss"}
+{"seed": 163, "f": 0.016504693397715604, "bnorm2": 2.4111661047538275, "relres": 0.08273517037331476, "iters": 88, "njac": 88, "nres": 138, "status": "stalled", "time": 88.5, "init": "gauss"}
+{"seed": 171, "f": 0.017459876563430288, "bnorm2": 2.4290327874094144, "relres": 0.08478204659682811, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 90.03, "init": "gauss"}
+{"seed": 179, "f": 0.010688686046312566, "bnorm2": 1.963499869212459, "relres": 0.07378137119256113, "iters": 53, "njac": 53, "nres": 101, "status": "stalled", "time": 75.79, "init": "gauss"}
+{"seed": 187, "f": 0.018317280038980803, "bnorm2": 2.66549897169158, "relres": 0.08289746172122427, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 69.66, "init": "gauss"}

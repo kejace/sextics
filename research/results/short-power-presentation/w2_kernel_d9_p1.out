@@ -6,3 +6,12 @@
 [JRef] e=9 par=1 p=536870879: gens=378 mons=1001 rank=378 dimR=623 (build 0s, rref 0s)
 [e1_kernel] d=9 par=1 p=536870879: kernel incl J = 396, J_d = 378, mod J = 18 (311s)
 [kernel] reconstruction with 2 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (1, 1, 4, 0, 3, 0)', 'modulus_bits': 58}
+[JRef] e=15 par=0 p=536870869: gens=9009 mons=7752 rank=7129 dimR=623 (build 55s, rref 178s)
+[JRef] e=9 par=1 p=536870869: gens=378 mons=1001 rank=378 dimR=623 (build 1s, rref 0s)
+[e1_kernel] d=9 par=1 p=536870869: kernel incl J = 396, J_d = 378, mod J = 18 (276s)
+[kernel] reconstruction with 3 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (3, 0, 1, 4, 0, 1)', 'modulus_bits': 87}
+[JRef] e=15 par=0 p=2147483647: gens=9009 mons=7752 rank=7129 dimR=623 (build 55s, rref 223s)
+[JRef] e=9 par=1 p=2147483647: gens=378 mons=1001 rank=378 dimR=623 (build 1s, rref 0s)
+[e1_kernel] d=9 par=1 p=2147483647: kernel incl J = 396, J_d = 378, mod J = 18 (325s)
+[kernel] reconstruction with 4 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (1, 1, 4, 0, 3, 0)', 'modulus_bits': 118}
+{"kind": "e1-kernel", "d": 9, "parity": 1, "kernel_mod_J": 18, "kernel_dim_incl_J": 396, "dim_J_d": 378, "dim_R_d": 623, "dim_R_d6": 623, "primes": [536870909, 536870879, 536870869, 2147483647], "rational": false, "reconstruction": {"reason": "ratrecon failed at vector 0 monomial (1, 1, 4, 0, 3, 0)", "modulus_bits": 118}, "seconds": 1246.4, "tag": "chain9"}

@@ -18,8 +18,10 @@ leading ideal, or Singular dim 0 — which transfers to C by properness of Proj 
 * **Degree 7.** The 120-unknown family (D = C(F), C in S_2^6, Euler gauge removed) has exactly 950 independent quadrics
   (= dim R_8 - 1, via C^T Hess(F) C in (J:A)_8 = J_8 + <D8*>). Beyond fqlx's 8 pure parity classes, every subfamily in which
   two of the three involution characters (sigma0, sigma2, tau_Y) are fixed and everything else (incl. all six h1 characters)
-  mixes is excluded: 12 subfamilies of 24-32 unknowns. So a degree-7 denominator would have to mix both eigenvalues of at
-  least two of sigma0, sigma2, tau_Y simultaneously. [Single-involution subfamilies (60 unknowns): RUNNING.]
+  mixes is excluded: 12 subfamilies of 24-32 unknowns. In cube language (the 8 parity classes (b0,b2,y) as vertices of a
+  3-cube) these are the 12 edges; the 12 face diagonals and the 4 space diagonals are excluded as well (28-32 unknowns each).
+  So a degree-7 denominator must have character support on at least three of the eight parity classes. [The six half-cubes
+  (one involution character fixed, 60 unknowns) and the 56 triples (~45 unknowns) are the next rungs; half-cubes: RUNNING.]
   The fully mixed system is out of Groebner reach: the Froeberg count for 950 quadrics in 120 unknowns gives a Hilbert series
   1, 120, 6310, 181240, ~2.9e6, <0, so a Nullstellensatz certificate needs degree >= 5 (Macaulay matrices ~3e8 x 2e8).
 * **Degree 9.** The four pure sectors with enough quadrics, (0,0,3,*) and (1,1,3,*), are excluded; in the other 20 sectors
@@ -37,6 +39,13 @@ S0, delta = X0^2 - Y0^2, S1, S2, S0 +- S2, S0 + S1, X0^2 + X2^2, X0^2 - X1^2, X1
 Q1, Q2, X0^4 + Y0^4, S0^2 + 2P0^2, X1^4 + Y1^4, the six polars dF/dZ_i, [f0 = S0^3 + 2 S0 P0^2, rad_i, X1^6+Y1^6, X2^6+Y2^6: pending]
 served(D) = J_6^odd (dimension 18, the trivially served targets). Hence no product of any of these blocks, of any degree, serves
 any nontrivial target, in particular not X0^3 Y0^3.
+
+### Replication of the geometric/Hodge-theoretic inputs
+* fqlx's weighted-K3 Gauss–Manin obstruction (§4): replayed exactly over Q with Singular (weights (1,1,2,2), t = (2,3)):
+  Hilbert function 1,2,5,8,12,14,16,14,12,8,5,2,1,0 and A·∂F_sub/∂t_i ∉ J_12(F_sub) for i = 1,2 — agrees.
+* The ε-sector dimensions of the dossier (25/3/22 in degree 6, 191/140/51 in degree 12) agree.
+* One correction to the dossier: "(J:A)_d = S_d for d ≥ 13 since R_19 = 0" is not right (dim R_19 = 246); by Gorenstein duality
+  ×A: R_13 → R_19 is dual to the injective ×A: R_5 → R_11, so dim (J:A)_13 = 8568 − 246 = 8322, and (J:A)_d = S_d only from d = 19.
 
 ### Independent checks
 * All new exclusions were recomputed from scratch at a second prime (1000000007): identical ranks and identical leading-ideal

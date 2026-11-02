@@ -70,8 +70,11 @@ independent — also confirmed computationally.)
 * λ: the λ^2 coefficient B_{D7}(N7) survives all functionals → **λ = 0: no degree-7 Y-even denominator involves D7^+
   (every solution of the relaxation is a pure Jacobian denominator w(F))** (mod p; exact certificate pending).
 * X-component blocks w0, w1, w2: 29 quadrics in 9 visible unknowns each, NOT m-primary in pass 1.
-* Residual: 42 unknowns, 231 independent quadrics → iterated passes + msolve on the residual running (local), remote job
-  exclB-spp-blocks will repeat with exact certificates.
+* Residual: 42 unknowns, 231 independent quadrics. A second pass and the single-unknown scheme ('fine') eliminate exactly
+  the same set: the 18 Y-coefficients w_{k, X_i Y_j} (j ≠ k) and λ; the 9 "diagonal-type" Y-coefficients w_{k, X_i Y_k}
+  and all 33 X-coefficients resist (their pair polynomials modulo J lie in the span of the other pairs). msolve on the
+  42-unknown residual is running locally (3 threads); the remote job exclB-spp-blocks repeats everything with exact
+  certificates once the exact D7^± are available.
 
 ## 2. Wave-1 claims: re-verification status
 1. E1 kernel dims (p = 2^31−1): d ≤ 3 confirmed with p = 1073741789; d = 4..10 queued (job excl-spp-e1k).

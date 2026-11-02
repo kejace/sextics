@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T20:41:37. 131 search restarts collected over 3 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1200 on 128 cores, memory at the gate floor); the runner's capacity gate has refused all submissions, so the queued remote jobs (hessA/prepk/d6d7/hessB, then queue 2) have not started; results below are from exact local computations and small bounded local numerical batches.
+STATUS: NO WITNESS. Updated 2026-11-01T20:52:08. 150 search restarts collected over 5 batches; 2 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1200 on 128 cores); the runner's capacity gate has refused all submissions so far; results below are exact local computations plus bounded local numerical batches.
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -47,6 +47,8 @@ Assembled residual equals the exact Fraction computation (max diff 2e-11 at scal
 | 12 | 0 | 3108 | 2223 | 885 | 208 | 677 | 2900 |
 | 12 | 1 | 3080 | 2214 | 866 | 218 | 648 | 2862 |
 Exact confirmation for d = 11, 12 is queued on the remote (`w2_kernel.py`); the d = 10 line reproduces the computed 294 / 261.
+- d = 7 numerical Hessian relaxation (local, LM on the R-part residual with the spurious plane projected out, 60 free parameters per parity): odd parity 40 restarts, minima cluster at r_part_rel = 0.00387 (reached 3 times; median 0.0040), continuation with a 600-evaluation budget stays at 0.003871 with |grad|/|r| = 3e-8 — a genuine positive local minimum; even parity 52 restarts, best 0.00239 (stationary, |grad|/|r| = 5e-9), median ~0.012. No restart came within 10^-5 of zero: numerically, the degree-7 Hessian variety contains nothing beyond the spurious plane in either pure parity (mixed parity still to run). Combined with the dimension count (483 quadrics on P^59) this makes a genuine degree-7 Jacobian denominator very unlikely; an exact certificate is out of reach (degree-4 Macaulay matrix ~10^6 x 6*10^5, dense).
+- d = 6 full-E2 variable projection (local, even parity, 57 restarts): best rel 0.170 (reached twice), median 0.59 — consistent with the exact exclusion.
 
 
 ## 1. E1-admissible denominator spaces per degree (mod p = 2147483629)
@@ -63,7 +65,10 @@ Exact confirmation for d = 11, 12 is queued on the remote (`w2_kernel.py`); the 
 
 ## 2. Hessian relaxation (necessary condition A*Hess_F(w,w) in J(F)_{2d}), exact mod p
 
-(pending)
+| d | parity | dim W | #pairs | dim R_2d^- | rank of quadrics | Macaulay ranks (deg: rank/cols) | projective variety | msolve |
+|---:|:-:|---:|---:|---:|---:|---|---|---|
+| 6 | 0 | 18 | 171 | 866 | 135 | 2: 135/171; 3: 1136/1140 | undecided | - |
+| 6 | 1 | 18 | 171 | 866 | 153 | 2: 153/171; 3: 1138/1140 | undecided | - |
 
 ## 3. Full-E2 variable-projection searches (residual landscape)
 
@@ -72,8 +77,10 @@ rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q;
 | batch | family | d | par | params (free) | rows | c+Q unknowns (Koszul-block rank) | restarts | best rel | 10% | median | worst | best r_part | <1e-6 | <1e-10 | s/restart | nfev | recon |
 |---|---|---:|:-:|---|---:|---|---:|---|---|---|---|---|---:|---:|---:|---:|---:|
 | local-search-d6-p0 | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 162+226 (144-144) | 57 | 0.17 | 0.222 | 0.592 | 0.963 | - | 0 | 0 | 25.8 | 81.2 | 0 |
+| local-search-d6-p1 (running) | jacobian-d6-p1 | 6 | 1 | 18 (18) | 3080 | 153+226 (136-136) | 1 | 0.746 | 0.746 | 0.746 | 0.746 | - | 0 | 0 | 18.0 | 69.0 | 0 |
 | local-stage1-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00441 | 0.00503 | 0.0124 | 0.0185 | 0.00441 | 0 | 0 | 19.9 | 102.8 | 0 |
-| local-stage1-d7-p1 (stage 1 only) (running) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (None-None) | 34 | 0.00387 | 0.0039 | 0.004 | 0.0151 | 0.00387 | 0 | 0 | 20.0 | 119.5 | 0 |
+| local-stage1-d7-p1 (stage 1 only) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00387 | 0.0039 | 0.004 | 0.0151 | 0.00387 | 0 | 0 | 19.8 | 120.0 | 0 |
+| local-stage1b-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 12 | 0.00239 | 0.00241 | 0.00987 | 0.0185 | 0.00239 | 0 | 0 | 16.8 | 112.4 | 0 |
 
 ## 4. Structured families at d = 10 intersected with the admissible space (mod p)
 

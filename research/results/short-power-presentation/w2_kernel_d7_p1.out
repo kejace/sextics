@@ -1,17 +1,11 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
-[JRef] e=13 par=0 p=2147483647: gens=3861 mons=4284 rank=3441 dimR=843 (build 7s, rref 30s)
-[JRef] e=7 par=1 p=2147483647: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
-[e1_kernel] d=7 par=1 p=2147483647: kernel incl J = 64, J_d = 63, mod J = 1 (39s)
-[JRef] e=13 par=0 p=2147483629: gens=3861 mons=4284 rank=3441 dimR=843 (build 6s, rref 24s)
-[JRef] e=7 par=1 p=2147483629: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
-[e1_kernel] d=7 par=1 p=2147483629: kernel incl J = 64, J_d = 63, mod J = 1 (32s)
-[kernel] reconstruction with 2 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (4, 0, 0, 0, 1, 2)', 'modulus_bits': 62}
-[JRef] e=13 par=0 p=2147483587: gens=3861 mons=4284 rank=3441 dimR=843 (build 9s, rref 84s)
-[JRef] e=7 par=1 p=2147483587: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
-[e1_kernel] d=7 par=1 p=2147483587: kernel incl J = 64, J_d = 63, mod J = 1 (98s)
-[kernel] reconstruction with 3 primes: ok {'modulus_bits': 93}
-[numerators] d=7 p=2147483647: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (58s)
-[numerators] d=7 p=2147483629: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (43s)
-[numerators] d=7 p=2147483587: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (41s)
-[numerators] d=7 p=2147483579: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (39s)
-{"kind": "e1-kernel", "d": 7, "parity": 1, "kernel_mod_J": 1, "kernel_dim_incl_J": 64, "dim_J_d": 63, "dim_R_d": 333, "dim_R_d6": 843, "primes": [2147483647, 2147483629, 2147483587], "rational": true, "reconstruction": {"modulus_bits": 93}, "seconds": 168.9, "tag": "local", "numerators": false}
+[kernel] resumed 3 primes from /tmp/hodge/results/short-power-presentation/kernel_d7_p1.json
+[JRef] e=13 par=0 p=536870909: gens=3861 mons=4284 rank=3441 dimR=843 (build 9s, rref 7s)
+[JRef] e=7 par=1 p=536870909: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
+[e1_kernel] d=7 par=1 p=536870909: kernel incl J = 64, J_d = 63, mod J = 1 (17s)
+[kernel] reconstruction with 4 primes: ok {'modulus_bits': 122}
+[numerators] d=7 p=2147483647: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (12s)
+[numerators] d=7 p=2147483629: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (13s)
+[numerators] d=7 p=2147483587: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (16s)
+[numerators] d=7 p=2147483579: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (17s)
+{"kind": "e1-kernel", "d": 7, "parity": 1, "kernel_mod_J": 1, "kernel_dim_incl_J": 64, "dim_J_d": 63, "dim_R_d": 333, "dim_R_d6": 843, "primes": [2147483647, 2147483629, 2147483587, 536870909], "rational": true, "reconstruction": {"modulus_bits": 122}, "seconds": 17.3, "tag": "kA", "numerators": false}

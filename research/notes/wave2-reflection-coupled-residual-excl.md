@@ -150,12 +150,14 @@ results for the coupled F are not artefacts of the pipeline (`wave2-excl/control
 * The three rationally reconstructed representatives of the 21-dimensional non-Jacobian E1 kernel of character (0,0) at
   degree 9: restricted systems 32214 × 6804, all **inconsistent mod p and certified over ℚ** (rank 6006, nullity 798 = a-priori
   kernel rank), second prime agrees (822/299/249 s on the saturated box). The other 18 need more primes to reconstruct
-  (`e1recon.py`, queued); random combinations are being tested in the same job.
+  (`e1recon.py`, queued); two random integer combinations of the three: also certified inconsistent (5/5 negative).
 * Structured screen at degree 11: **cones with a line vertex become E1-admissible for the first time** — polynomials in
   (X0,X1,X2,Y2) (vertex the line Y0Y1): a 46-dimensional E1-admissible space with 45 classes outside J_11; polynomials in
   (X0,X1,X2,Y0): 5. These are the book's natural (3,1)-support candidates (cone over a degree-11 surface with p_g > 0).
   The mod-J relaxation is useless here ((S/J)_22^{(0,1)} has dimension 6), so only fixed-D tests (screens) apply;
-  restricted systems at degree 11 have ≈ 14 000 unknowns.
+  restricted systems at degree 11 have ≈ 14 000 unknowns (local screen `chain3_cones.sh` queued behind the GB runs).
+* Degree 12: cones with a line vertex exist for all 15 vertex lines (61 classes for X–X and X–Y0/Y1 lines, 185 for lines
+  containing Y2, 255 for the (Y0,Y1) line; Klein-invariant: 14 / 105 / 126) — dimension-forced, screens only.
 
 ### Jobs submitted (remote)
 * `excl-rcr-e1char`: E1 kernels by Klein character, d = 1..10, p = 2147483587 (+ 2147483579 for reconstruction).

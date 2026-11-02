@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-01 20:42:59.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-01 20:53:52.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -48,6 +48,15 @@ and `A F G^2`, all in J), so the Jacobian-quotient relaxation is a condition on 
 F-multiples form the vertex of a cone and can be sliced away (one triangular coordinate per spurious direction set to 0,
 `slice_ms.py`, invariance verified numerically: 0 violations for the 82 (d=6) and 432x3 (d=7) checks).  Emptiness of the
 sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by the Macaulay-rank semicontinuity.
+* Metric correction (20:50 EST): the first `rel` definition divided by the pieces-norm of the full `D = u-part + s`,
+  which grows like |s|^2 while the residual grows at most linearly in the spurious component s, so an optimizer
+  that wanders to large |s| produced spuriously small `rel` (e.g. 2e-6 with |s| = 89 and absolute residual 0.018).
+  From that point on `rel = |r| / scale0` with `scale0` the pieces-norm of the u-part alone (|u| = 1, s = 0), the
+  spurious component is bounded (|s| <= 5), and the per-restart records carry `resnorm`, `scale`, `scale0`, `s_norm`.
+  Records written before the fix (tags d7e_b0, d7k_a, lmtest_*) used the old metric; their `resnorm` values
+  (0.011-0.013 at d=7) are directly comparable.  Local optimizer: Levenberg-Marquardt with the Kaufman
+  variable-projection Jacobian (`--method lm`, default from 20:50) which converges in tens of iterations; the
+  earlier L-BFGS restarts (tags *_b0, d7k_a) all stopped at the 400-iteration cap.
 
 ## 1. E1-admissible denominator spaces (exact mod p = 2^31-1)
 | d | parity | dim S_d | dim J_d | ring dim (S/J)_d | dim {D: AD in J} | kernel mod J | matrix | time s |
@@ -118,8 +127,10 @@ None so far: no restart reached rel < 1e-8 on this instance (see landscape above
   latter T-base-type per wave 1); its relaxation has 432 independent quadrics (rank Phi = 432 of 2211 pairs, 744
   available), which is far above the 63 unknowns of the sliced system, so emptiness is expected; msolve reached F4
   degree 3 in minutes, the degree-4 round decides (queued).  The numerical full-E2 search on the 66-dim family and on
-  the 3-dim pure-kernel subfamily finds no residual below 1e-3 so far (see section 3); the degree-7 landscape has a
-  floor around 5e-3 .. 1e-1, i.e. no near-solutions.
+  the 3-dim pure-kernel subfamily finds no residual below 1e-2 in the corrected metric (absolute residual
+  0.011-0.021 at |u| = 1 over all restarts of both local methods); the degree-7 landscape has a floor around
+  2e-2 .. 1e-1 with no near-solutions.  (Early LM runs reported rel 2e-6, an artifact of the first metric: the
+  optimizer inflated the spurious F-multiple component to |s| = 89; see the metric note in section 0.)
 * **Degree 8, 9, 10** are the "prime candidate" degrees of the task statement (non-Jacobian kernel elements 9 / 27 /
   >= 294).  The relaxation can no longer exclude by rank or Groebner (468 quadrics in 177 unknowns at d=8 has
   regularity far beyond reach; at d=9 the relaxation is underdetermined, 208 equations in 405 unknowns).  Only the

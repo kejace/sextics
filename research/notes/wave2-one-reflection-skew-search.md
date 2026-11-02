@@ -125,14 +125,15 @@ and why a fixed-D test of a *numerically* admissible D can be misleading (E1 mus
 * With the full kernel (K = 32): **4/8 LM restarts converge to the needle** (rel 2e-13 … 6e-8,
   |cos(u,u*)| = 1.0000); the other restarts end at the usual local minima. So random-restart LM has a
   ~50% per-restart hit rate on a 32-dimensional family with an 8-term solution in that small local sample.
-  Remote calibration `calib-hesse-d6` (same family, LM vs L-BFGS alternating; partial, 101 restarts): LM 7/51
-  below 1e-8 (≈ 0.14), 8/51 below 1e-6; L-BFGS 1/50 below 1e-8 but 8/50 below 1e-6 (it approaches the zero and
-  stops short of polishing — the snap step's LM refit then finishes the job, so the effective hit rate of both
-  methods is ≈ 0.16 at K = 32, with LM ~2.3× faster per restart, 11 s vs 26 s under load). Every hit snapped to
-  the accepted 8-term D (τ = 1e-4 … 1e-2) and was confirmed exactly. Working estimate: ≈ 0.15–0.2 per restart, so
+  Remote calibration `calib-hesse-d6` (same family, LM vs L-BFGS alternating; 209 restarts at the time of
+  writing): LM 15/105 below 1e-8 (0.143, 95 % Wilson 0.09–0.22), 17/105 below 1e-6; L-BFGS 3/104 below 1e-8
+  (0.029) but 16/104 below 1e-6 and 19/104 below 1e-4 — it approaches the zero and stops short of polishing,
+  which the snap step's LM refit then finishes, so the effective hit rate of both methods is ≈ 0.16 per restart
+  at K = 32, with LM ~2× faster (11 s vs 21 s per restart under load). Every confirmed hit snapped to the
+  accepted 8-term D (τ = 1e-4 … 1e-2) and verified exactly. Working estimate: ≈ 0.15 per restart, so
   N = 100 restarts miss a comparable needle with probability ≈ 1e-7 … 1e-9.
 
-## 3. Search batches (filled from the log; remote chain `w2-chain1b`, 4 processes, box load ~900–1100)
+## 3. Search batches (filled from the log; remote chains `w2-chain1b` (4 proc), `w2-chain2` (4 proc, cones/structured), `w2-chain3` (8 proc, kernels d = 9–12, started 01:54 UTC); box load 900–1700 throughout)
 
 Jacobian-type degrees (task 2; 5-variable `d = 5, 6`, i.e. 6-variable denominators `(w·∇f)²` of degree 10, 12,
 never excluded before): full-E2 variable projection over the complete `w`-space, 160 restarts per sector
@@ -176,7 +177,7 @@ L-BFGS ≈ 5–10 % (final numbers in the table).
 | cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 120 | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 1400.9 s |
 | cone-X0X1X2-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2 | A | 1 | 3718×890 | lm | 120 | 6.14e-01 | 6.14e-01 | 0 / 0 / 0 | 154.5 s |
 | cone-X0Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,Y0,Y1 | A | 1 | 3718×890 | lm | 120 | 5.96e-01 | 5.96e-01 | 0 / 0 / 0 | 169.9 s |
-| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 192 (running) | 2.99e-13 | 2.25e-02 | 6 / 15 / 3 | 2426.6 s |
+| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 240 (running) | 2.99e-13 | 2.25e-02 | 9 / 20 / 3 | 2814.3 s |
 | cone-X0X1X2-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |

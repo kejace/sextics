@@ -12,6 +12,10 @@ from hodge.core import monomials, NV, pderiv, shift, mul
 LANE = os.path.dirname(os.path.abspath(__file__))
 d = int(sys.argv[1]); pD = int(sys.argv[2]) if len(sys.argv) > 2 else 0
 F, A, q, rec = core.load_instance('diagonal-permutation')
+APRIME = sys.argv[3] if len(sys.argv) > 3 else ''
+if APRIME:
+    A = core.parse(json.load(open(os.path.join(LANE, APRIME)))['A'])
+    print(f'[kerfam] target overridden by {APRIME}', flush=True)
 t0 = time.time()
 PAR = [0, 0, 0, 1, 1, 1]
 Dmons = monomials(d, pD); nD = len(Dmons)
@@ -79,9 +83,9 @@ for k in range(min(3, rk)):
     err = max(abs(lhs.get(e, 0) - rhs.get(e, 0)) for e in set(lhs) | set(rhs))
     res.append(err)
 print(f'[d={d}] E1 residuals of first members: {res}', flush=True)
-np.savez_compressed(os.path.join(LANE, f'w2-kerfam-d{d}-p{pD}.npz'), Dmons=np.array(Dmons), Dvecs=Dk, Ncols_i=np.array([c[0] for c in Ncols]),
+np.savez_compressed(os.path.join(LANE, f'w2-kerfam-d{d}-p{pD}' + (('-' + APRIME.replace('.json','')) if APRIME else '') + '.npz'), Dmons=np.array(Dmons), Dvecs=Dk, Ncols_i=np.array([c[0] for c in Ncols]),
                     Ncols_m=np.array([c[1] for c in Ncols]), Nvecs=Nk, sv_gap=np.array(gap), adm_dim=ra, ker_dim=rk)
-rec = {'exp': 'kerfam-float', 'd': d, 'pD': pD, 'rows': R, 'cols': C, 'rank': rank, 'nullity': nullity, 'gap': [float(g) for g in gap],
+rec = {'exp': 'kerfam-float', 'd': d, 'pD': pD, 'Aprime': APRIME, 'rows': R, 'cols': C, 'rank': rank, 'nullity': nullity, 'gap': [float(g) for g in gap],
        'admissible_dim': int(ra), 'kernel_mod_J_dim': int(rk), 'e1_res': [float(x) for x in res], 'seconds': round(time.time() - t0, 1)}
 with open(os.path.join(LANE, 'w2-kerfam.jsonl'), 'a') as fh: fh.write(json.dumps(rec) + '\n')
 print(json.dumps(rec), flush=True)

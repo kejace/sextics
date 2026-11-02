@@ -85,3 +85,17 @@ element 69 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[
 element 71 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 334.3s
 element 72 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 334.0s
 element 73 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 467.2s
+element 75 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.0s
+element 74 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.4s
+element 76 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.1s
+element 77 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.7s
+element 79 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.4s
+element 78 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 549.2s
+element 80 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 650.7s
+element 81 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 659.0s
+element 82 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 721.5s
+element 86 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 737.5s
+element 84 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 740.2s
+element 85 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 741.8s
+element 87 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 751.0s
+element 88 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 751.3s

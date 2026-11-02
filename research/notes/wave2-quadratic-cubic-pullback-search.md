@@ -128,6 +128,25 @@ Conclusions so far (rigorous): d = 5 (both parities, rank-2 certificate) and d =
 whose leading ideal contains v_i^2 for every variable) admit NO certificate for A.  With K_d = J_d for d <= 9 this proves:
 every certificate for this target has deg D >= 7 (both parities).  d = 7, 8 msolve/Macaulay running (job closure678).
 
+### Batch 5 (item 4, extended families at d = 10; job struct1112): unions and shape-symmetry-invariant subspaces
+"generic" = dim W + 1044 - 1512 = the intersection dimension of a random subspace of that dimension with K_10.
+
+| family W | dim W | dim W cap K_10 | dim mod J | generic |
+|---|---|---|---|---|
+| UNION C[Q]_k + delta*S + A*S + F_iF_j*S | 384 | 33 | 0 | 0 |
+| UNION C[Q]_k + bihomogeneous + all C[Q_S]_k | 252 | 21 | 0 | 0 |
+| UNION all cones with vertex a line | 1056 | 588 | 294 | 588 |
+| UNION cones vertex a plane + extreme bidegrees | 672 | 204 | 204 | 204 |
+| rho-invariant (cyclic shift of both blocks) Y-even polynomials | 504 | 36 | 36 | 36 |
+| sigma-invariant (X_i <-> Y_i) Y-even polynomials | 756 | 288 | 279 | 288 |
+| (rho,sigma)-invariant Y-even polynomials | 252 | 0 | 0 | 0 |
+| S3 x (X<->Y) shape-symmetric Y-even polynomials | 140 | 0 | 0 | 0 |
+
+Every intersection has exactly the generic dimension, so E1 does not single out any of these subspaces; but the
+rho-invariant (cyclic shift of both blocks) and sigma-invariant (X_i <-> Y_i) subfamilies of K_10 are small explicit
+non-Jacobian E1-admissible families (36 and 288 dimensional), used as cheap stage-2 targets at d = 10 (Batch 6).
+The fully shape-symmetric subspaces ((rho,sigma)- and S3 x (X<->Y)-invariant) meet K_10 only in 0.
+
 ### Batch 4 (item 2/3, numerical joint search, remote jobs jvp-d678 / d10; running): residual landscape so far
 rel = ||residual||^2 / ||B_D(N0)||^2 at the converged point (0 would be a certificate).  Spurious directions (F-multiples,
 Koszul gauge) are projected out; |u| = 1.  The remote box is shared with ~40 other jobs (load 300-670 on 128 cores), so

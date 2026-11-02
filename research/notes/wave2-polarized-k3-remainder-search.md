@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:47 from 186 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:57 from 212 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -19,6 +19,29 @@ prescribed-support theorem). Validated exactly at d = 6 (identity E = F·B_D(N) 
 *Hessian relaxation* = the same system modulo J(F): A·Hess_F(a,a) ∈ J(F)_{2d} (necessary), solved numerically with
 deflation against the known spurious family D = g·h (g = f(U)−f(V) ∈ J(F)_6, h a quadric), and exactly (Singular,
 mod p) as a system of quadrics with saturation by the spurious component.
+
+
+## 0. Summary so far
+
+* **No witness.** Every exact decision is negative; every numerical landscape is bounded away from zero except on the
+  predicted relaxation component (which the exact E2 rejects).
+* **Exact (mod p = 2^31−1 unless stated), this wave:**
+  - E1-admissible spaces per degree and parity (table 1): at d ≤ 9 exactly J(F)_d; kernel appears at d = 10 (294/261).
+  - All coordinate cones (vertex a plane or a line in the (X,Y) or (U,V) frames) and all pure (X,Y)-bidegree octics/nonics
+    contain **no** E1-admissible denominator (table 7); the only structured linear families meeting J(F)_d are the
+    (U,V)-bidegree pieces of J(F)_d itself.
+  - 60 structured candidates (Hessian cofactors/pairings, third polars, Fermat, Plücker, polar families, polar pairings,
+    determinantal, Hessian determinants) tested for E1 exactly over Q (table 6b): only the Jacobian-type polar families
+    pass; 11 of those (all d = 8 polar octics and three controls) are **E2-inconsistent** by the exact reduced system
+    (table 6c); the wave-1 engine result for the control octic is reproduced exactly (nullity 865 = 636 + 229).
+  - Hessian relaxation at d = 8 (both sectors share one system): 468 quadrics on 147 parameters; restricted to the
+    pure-block piece P_8 it is the 6 conditions H ∈ J(f)_{10}; the other bidegree pieces are over-determined
+    (90/234/114 quadrics on 54/54/30 parameters).
+* **Numerical:** LM/variable-projection search validated (quadratic convergence to an exact zero on a synthetic consistent
+  system); relaxation restarts at d = 8 converge only into the P_8 component; deflated restarts find nothing else.
+* **Pending on the saturated remote box:** full reduced-E2 variable-projection search over the 156/159-dimensional Jacobian
+  families at d = 8 (both parities) and d = 9, the P_8/P_7/P_6/P_5 piece searches, the non-Jacobian d = 10 family, the
+  Singular saturation of the d = 8 relaxation variety, and the remaining structured candidates at d = 9, 10, 11.
 
 
 ## 1. E1-admissible denominator spaces (engine `mult_kernel`, p = 2^31−1), both parities
@@ -53,10 +76,15 @@ Cofactor cubics c_i(U,V) (K = 168 at d = 8) modulo the 21 Euler directions c_i �
 |---|---|---|---|---|---|---|
 | 8 | False | 10 | 8 | 6 | 2 | 1.3e-29 / 1.7e-29 / 1.2e-28 / 1.2e-08 / 1.2e-07 |
 | 8 | True | 6 | 0 | 0 | 0 | 4.4e-09 / 4.9e-08 / 6.5e-07 / 5.2e-05 / 7.9e-05 |
+| 8 | True | 3 | 0 | 0 | 0 | 5.6e-13 / 8.9e-13 / 2.2e-12 / 5.1e-11 / 6.3e-11 |
+| 8 | True | 4 | 0 | 0 | 0 | 1.3e-08 / 4.5e-08 / 4.5e-03 / 4.9e-02 / 6.6e-02 |
+| 8 | False | 11 | 8 | 6 | 2 | 6.2e-29 / 8.8e-29 / 5.2e-28 / 3.8e-15 / 7.1e-12 |
 
-Zero-residual points classified off P8 (distance > 1e−6; check whether they are still converging towards P8):
+Zero-residual points classified off P8 by the 1e−6 distance threshold (all of them have cofactor energy ≥ 1 − 1e−7 in the V-degree-0 piece, non-vanishing gradients and f decreasing along the iterations: they are LM runs still converging into P_8 along the flat (4th-order) V-degree-1 directions, not separate components):
 - seed 1 restart 2: f=1.1e-19, grad 4.0e-11, dist to P8 3.2e-04, profile {'0': 1.0, '1': 1.02e-07, '2': 9.18e-14, '3': 6.31e-19}, tangent nullity 16
 - seed 1 restart 4: f=2.3e-23, grad 5.2e-11, dist to P8 4.9e-05, profile {'0': 1.0, '1': 2.41e-09, '2': 3.76e-16, '3': 1.58e-22}, tangent nullity 21
+- seed 5 restart 3: f=1.4e-26, grad 8.7e-13, dist to P8 2.2e-06, profile {'0': 1.0, '1': 4.63e-12, '2': 6.86e-23, '3': 6.81e-32}, tangent nullity 27
+- seed 5 restart 9: f=3.6e-20, grad 1.4e-10, dist to P8 1.6e-04, profile {'0': 1.0, '1': 2.51e-08, '2': 2.57e-14, '3': 1.69e-19}, tangent nullity 15
 
 ### 2c. Exact relaxation variety (tensor frame, Singular mod p)
 
@@ -79,6 +107,8 @@ d = 8: number of independent relaxation quadrics when the cofactors are restrict
 | (1, 3) | 84 | 234 |
 | (2, 3) | 84 | 398 |
 | (0, 1, 2, 3) | 168 | 468 |
+
+(Exact mod-32003 ranks agree: {'(0,)': 6, '(1,)': 90, '(2,)': 234, '(3,)': 114, '(0, 1)': 126, '(0, 3)': 300, '(0, 1, 2, 3)': 468}.)
 
 Only the pure-block piece P_8 (V-degree 0) is under-determined (6 quadrics = dim R_{f,10}, as predicted); every other piece and every pair of pieces has more quadrics than parameters, so relaxation solutions off P_8 can only come from special loci, not from dimension counting.
 
@@ -285,9 +315,9 @@ Every non-Jacobian-type guess (Hessian cofactors/pairings, third polars, Fermat,
 ## Remote capacity note
 
 The remote box has been saturated by other agents since ~19:30 (load 300–1150 on 128 cores, 45–90 jobs); the runner refuses new submissions above load 150, so the heavy jobs below were queued with `--wait` and started only when capacity allowed. Latest runner messages:
-- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 1719 (max 150), available memory 120 GB (min 60), 75 jobs running; waiting 60 s
-- `submit-hess-d8.out`: REMOTE BUSY: load 1719 (max 150), available memory 122 GB (min 60), 75 jobs running; waiting 60 s
-- `submit-sweep-a.out`: REMOTE BUSY: load 1719 (max 150), available memory 119 GB (min 60), 75 jobs running; waiting 60 s
+- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 1735 (max 150), available memory 100 GB (min 60), 76 jobs running; waiting 60 s
+- `submit-hess-d8.out`: REMOTE BUSY: load 1725 (max 150), available memory 100 GB (min 60), 76 jobs running; waiting 60 s
+- `submit-sweep-a.out`: REMOTE BUSY: load 1725 (max 150), available memory 101 GB (min 60), 76 jobs running; waiting 60 s
 
 ## Jobs / reproduction
 

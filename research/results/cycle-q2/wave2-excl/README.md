@@ -19,8 +19,12 @@ independent re-implementations and are not described here.
 3. **Degree 6, single character.** `hess6.py --deg 6` → `hess6_p1000000007.receipt.json` (dim K_6 = 62, 36 in J, 46 sectors) and the 426 quadrics
    (`.quadrics.json`, `.ms`, `.sing`). `sectors.py --deg 6` → log records `sector-d6`, `sector-d6-element`, Singular scripts `sectors/d6_*.sing`:
    every nontrivial sector with `dim K ≥ 2` has empty projective relaxation variety; every 1-dimensional sector element has a Farkas certificate.
-   Trivial character: relaxation surface `V₀` (three explicit quadrics), reduced Koszul system (`redsys.py`, `redsys_lift.py`): degree-1 polynomial
-   Farkas vectors cut `V₀` to the Euler point `D = 6F` (itself inconsistent since `A ∉ J`). Receipts in `polyfarkas/`.
+   Exact (reduction-free) confirmation of the ten nontrivial sectors with dim K ≥ 2: `sector_exact.py --sector k1,k2,k3` (E1 kernel, Koszul-unique
+   E1 solutions, normal forms modulo J_18, quadrics — all over ℚ; Singular dim 0). Trivial character: relaxation surface `V₀` (three explicit
+   quadrics), reduced Koszul system (`redsys.py`, mod p; `redsys_lift.py`, exact): 60 exact rational degree-1 polynomial Farkas vectors whose cubic
+   forms have the Euler point `D = 6F` as their only common zero in P⁵ (`polyfarkas/red_trivial6_exact.receipt.json`, `..._Q.sing`); `D = F` is
+   inconsistent (`certs/D_equals_F.json`) and illegal. Mixed characters: `subsets6.py --size s` restricts the 426 quadrics to unions of s sectors
+   (s = 2, 3 done: all unions of nontrivial sectors empty, unions with the trivial sector contained in V₀; receipts `sectors/subsets_d6_size*.json`).
 4. Degrees 7+: `sectors.py --deg 7`, `cones.py --deg 7..9` (sector kernels, relaxation dimensions, element certificates) — see the log.
 
 ## Replay

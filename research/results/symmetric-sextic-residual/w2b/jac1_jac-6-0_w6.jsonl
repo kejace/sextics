@@ -27,3 +27,17 @@
 {"seed": 3214, "rel": 0.19199365514142686, "iters": 44, "nfev": 59, "spurious": false, "div_rel": 0.8538637554336475, "sparse_init": false}
 {"seed": 3222, "rel": 0.20654296395822472, "iters": 36, "nfev": 85, "spurious": false, "div_rel": 0.8642865612604547, "sparse_init": true}
 {"seed": 3230, "rel": 0.1804755742124167, "iters": 27, "nfev": 35, "spurious": false, "div_rel": 0.7638912573293799, "sparse_init": true}
+{"seed": 3238, "rel": 0.2049864326669635, "iters": 38, "nfev": 60, "spurious": false, "div_rel": 0.9642548526224706, "sparse_init": false}
+{"seed": 3246, "rel": 0.20549699689052228, "iters": 71, "nfev": 103, "spurious": false, "div_rel": 0.7892141598527356, "sparse_init": true}
+{"seed": 3254, "rel": 0.21287997068669848, "iters": 42, "nfev": 59, "spurious": false, "div_rel": 0.9633369387071107, "sparse_init": false}
+{"seed": 3262, "rel": 0.21287997140235904, "iters": 36, "nfev": 38, "spurious": false, "div_rel": 0.9633369389650811, "sparse_init": true}
+{"seed": 3270, "rel": 0.20498643342492875, "iters": 35, "nfev": 37, "spurious": false, "div_rel": 0.9642548526389771, "sparse_init": false}
+{"seed": 3278, "rel": 0.1919936557970624, "iters": 49, "nfev": 62, "spurious": false, "div_rel": 0.8538637555609073, "sparse_init": false}
+{"seed": 3286, "rel": 0.20498643381409187, "iters": 42, "nfev": 59, "spurious": false, "div_rel": 0.9642548525841433, "sparse_init": false}
+{"seed": 3294, "rel": 0.36144195573629145, "iters": 23, "nfev": 77, "spurious": false, "div_rel": 0.6926530785241363, "sparse_init": true}
+{"seed": 3302, "rel": 0.20498643343076858, "iters": 37, "nfev": 105, "spurious": false, "div_rel": 0.9642548526787605, "sparse_init": false}
+{"seed": 3310, "rel": 0.20498643228273453, "iters": 40, "nfev": 70, "spurious": false, "div_rel": 0.9642548522185077, "sparse_init": false}
+{"seed": 3318, "rel": 0.20654296371200717, "iters": 39, "nfev": 84, "spurious": false, "div_rel": 0.864286560809191, "sparse_init": false}
+{"seed": 3326, "rel": 0.180475574202, "iters": 28, "nfev": 56, "spurious": false, "div_rel": 0.7638912573555902, "sparse_init": true}
+{"seed": 3334, "rel": 0.20498643293593052, "iters": 37, "nfev": 53, "spurious": false, "div_rel": 0.9642548517937087, "sparse_init": false}
+{"seed": 3342, "rel": 0.280158341038347, "iters": 28, "nfev": 82, "spurious": false, "div_rel": 0.6738365878087692, "sparse_init": true}

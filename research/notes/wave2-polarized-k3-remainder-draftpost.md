@@ -33,8 +33,11 @@ Consequence, conditional on ρ(S_2) = 1 (via the dichotomy: End_Hdg(T) = Q makes
 carries no K3 (3,1)-class or all of them): no denominator whose divisor X ∩ V(D) has only components of degree <= 6·[7]
 can serve A; at degree 8 only irreducible supports remain. [adjust once degree 7 is done]
 
-**3. Screens (mod p only, no exclusion claimed):** [structured octics / decics sweep, non-Jacobian E1-kernel elements of
-A_K3 at degree 8 — pending remote capacity].
+**3. Screens (mod p only, no exclusion claimed).** For the K3-sector target the E1 kernel is NOT Jacobian from degree 8 on:
+[A_K3] has a 51 (Y-even) + 39 (Y-odd) dimensional kernel modulo J at degree 8 (η = [z0²z1²z2²] kills a 9-dimensional
+subspace K4 of R_{f,4}, so K4⊗K4 ⊂ R_4⊗R_4 is E1-admissible). The structured element Σ_k g_k(U)g_k(V) (exact K4 basis,
+character 4) fails the full E2 system for A_K3 (μ6-restricted system 13572×2430, rank 2206, mod 2^31−1). [more elements /
+structured octic sweep for A pending compute].
 
 Credits: the degree bound, normalization and packet are `1337isnot1337`'s; the sector decomposition is the book's
 (Ch. 3A); the sum principle is the prescribed-support theorem (Ch. 1) plus additivity of Gysin images over components.

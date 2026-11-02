@@ -223,3 +223,15 @@ the loophole `E^⊥ ≠ 0`.)
 2. (withdrawn) irregular surfaces in the fibres cannot help (§4).
 3. A slice `S` of the conic family on `W` with `H⁰(S, Ω¹_S ⊗ λ) ≠ 0` and nonzero Gysin image would give
    generic existence on the one-reflection locus (§3), not yet a certificate at this `F`.
+
+## 8. Ten-line summary (kept current)
+1. No witness; no mechanism in the book or the shared Lean library reaches the residual `(r,ρ) = (−,−)` sector of this `F`; each fails at a named hypothesis (ledger §0).
+2. Coordinate pencils: fibres of `Y0 = λY1` are separately even in `T` and `Y2` (inherited `ρ|, r|`), quotient Fano in `P(1,1,1,2,2)`; no new exchange on any of the six coordinate pencils (§2.1).
+3. The Galois closure of `X → P⁴_x` is the hyperoctahedral `B₃ × Z/2`; the target is the reflection representation `V ⊗ sgn_ρ`; every intermediate quotient reaching it (`X/τ`, a `(4,6)`-CI mod involution, a degree-8 hypersurface mod involution) is non-uniruled (§2.2).
+4. Klein quotients: only `W` and `X/⟨r,ρ⟩` are Fano (wrong character); the surface fibrations of `X/τ` have `p_g = 3` fibres (§2.3); q-raising needs an `r`-odd deformation that leaves the one-reflection locus (§2.4); only one polynomial Piola map exists (M8).
+5. Twisted slices of the companion's curve family are the only mechanism on this variety that can produce `(−,−)` classes: `H^{2,0}(Ẽ)^− ↪ H⁰(S, Ω¹_S ⊗ λ_hyp)` with hyperelliptic lifts of genus `e − 1`; termwise (`PolynomialCurves`) integration is obstructed by `H³(S, R¹p_*L)`, which is exactly the period obstruction of discussion #154 (§3).
+6. New description: the residual sector is `H¹(P¹, j_*V₁₁)` for the `(−,−)` variation of the Klein pencil, rank 186, Hodge numbers `(3,90,90,3)`; companion sector = `H³` of the Fano fibres (rank 82, level one) (§4).
+7. Proposition: every sub-variation containing the `(3,0)`-forms contains all nodal `(−,−)` vanishing classes (period `∼ X_i(p_s)(λ−s)`), so `V₁₁` has no level-one sub-variation seen by nodal fibres: Abel–Jacobi/irregular-surface supports are impossible; supports must be horizontal divisors with `(−,−)` `(2,0)`-forms (§4).
+8. Remote experiments (scripts in `construct/`): hidden-reflection search on `X` and on the six pencils' generic fibres (0-dim msolve system, verified decoder); Gauss–Manin rank of the `(3,0)`-span (predicted 186); Fermat-pencil continuation at degree 6; critical-point classification of the pencil — queued behind the saturated remote.
+9. Sibling lenses: `deg D ≥ 7` rigorous, `K8` excluded; any construction must yield degree ≥ 8.
+10. Recommended next step for the lane: a Hodge-theoretic existence argument for M5 (twisted slice with nonzero Gysin image) at the generic point of the one-reflection locus, then an explicit transport at this `F`; and the two queued computations.

@@ -184,9 +184,23 @@ Hilbert); all 261 lifted vectors (entries in {0,+-1,+-2}) verified exactly in bo
 through 0; minAssGTZ crashed with an internal hilb overflow).  Chart L1 = sum r_a w_a = 1 (random r in [1,50]):
 zero-dimensional of length 923 whose RADICAL is a single rational point, w5 = w10 = w15 = w20 = w25 = w30 = 1/85,
 all other 30 coordinates 0 — exactly the Euler point z/6 (scaled).  HYPERPLANE1: dim(I + (L1)) = 0 (Singular over Q), so no line of the cone lies in {L1 = 0}: the Euler line is the ONLY line.
-(Confirmation with a second random chart L2: again length 923 with radical a single point.)
+(Confirmation with a second random chart L2: again length 923, radical a single point, and dim(I + (L2)) = 0.)
 **Conclusion: no degree-6 denominator of any parity is coprime to F.  Together with R1 and K_d = J_d (d <= 6): deg D >= 7 for every certificate.**
 Chart argument (exact): the cone C = {w : w w^T in K_H(Q)} is a closed cone of affine dimension 1, hence a finite
 union of lines through 0.  A line meets the affine chart {L1 = 1} unless it lies in the hyperplane {L1 = 0}; the chart
 contains exactly one point (radical of length-1), the Euler point; and dim(I + (L1)) = 0 would show C ∩ {L1 = 0} = {0},
 i.e. no line is hidden.  Together: C = the Euler line = {w = lambda z}, D = 6 lambda F.
+
+### Remote queue status (2026-11-01 20:51 EST)
+The detached submission queue (/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/submit_queue.sh, log
+submit_queue.log; waits up to 4 h for capacity) has not been able to submit excl-qcp-kernelA, excl-qcp-relaxC and
+excl-qcp-polarB (remote load 300-1600 all session).  If it succeeds later, outputs appear on the remote in
+/tmp/hodge/results/quadratic-cubic-pullback/ as wave2-excl.kernelA.jsonl, wave2-excl-K_d*_par*_p*.json,
+wave2-excl.polarB.jsonl, wave2-excl.relaxC*.jsonl; pull with `python3 -m hodge.rjob pull --lane quadratic-cubic-pullback`
+and merge into wave2-excl.log.jsonl.  The K_10 analysis (wave2_excl_k10.py) is to be run after kernelA.
+Last queue line: REMOTE BUSY: load 1616 (max 150), available memory 120 GB (min 60), 78 jobs running; waiting 60 s
+
+### Follow-up instruction (degree-8 Hessian tests)
+`wave2_excl_hesstest.py 8` appends its receipts to wave2-excl.hesstest.jsonl (a detached copy was started at the end of the session: output wave2-excl/hesstest8_detached.out; it runs finalize_d8.py itself when done).  If the
+"Degree 8 (Hessian test ...)" line is absent above, run `python3 wave2-excl/finalize_d8.py` once the run has finished
+(it merges the receipts into wave2-excl.log.jsonl and fills the degree-8 line in this report, the draft post and the README).

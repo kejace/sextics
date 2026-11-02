@@ -97,7 +97,8 @@ local box. Hundreds of restarts queued remotely (`job_kvp_lo.sh`, 8 seeds × 80 
 | 01 | J | 104 | 98 | 522 | 3 | 0.158 | 0.189 |
 | 10 | J | 64 | 61 | 414 | 3 | 0.228 | 0.250 |
 | 11 | J | 56 | 54 | 416 | 3 | 0.338 | 0.439 |
-(00 JK with L-BFGS: running; no sector shows any descent below 0.1)
+| 00 | K8 ⊕ J | 113 | 103 | 538 | 2 (L-BFGS, 500 it.) | 0.104 | 0.139 |
+No degree-8 sector shows any descent below rel 0.1 (earlier dense-metric and LM runs on 00 JK: 0.08–1.07).
 
 ### R3. K8 (unique non-Jacobian degree-8 Y-even E1 class, Klein-invariant): full fixed-D test — remote job `search-rcr-k8full`
 E1 confirmed (rank 5052 = rank_aug). Sector-restricted compressed system 22016 × 4256 (of 7497 unrestricted): **inconsistent** (rank 3781, nullity 475, 36 s).

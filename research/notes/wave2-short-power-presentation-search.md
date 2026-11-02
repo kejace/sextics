@@ -23,7 +23,7 @@ dim Ann_d^+ = dim R_d^+ - (dim R_{18-d}^- - dim Ann_{18-d}^-), dim Ann_d^- = dim
 | 1..6 | ..,(218,208) | ..,(18,18) | (0,0) | direct, wave 1 (two primes) |
 | 7 | (333,333) | (63,63) | (1,1) | direct; D7 ∈ C[X0,X1,X2,M], D7' ∈ C[Y0,Y1,Y2,L] |
 | 8 | (483,468) | (168,168) | (6,6) | direct, 5 primes; odd = S_1·K_7; even = 4 + 2 new (sums of two cones) |
-| 9 | (623,623) | (378,378) | (18, running) | direct, 4 primes (even); self-dual degree |
+| 9 | (623,623) | (378,378) | (18,18) | direct, 4 primes each; K_9 = S_1·K_8 exactly (no new elements) |
 | 10 | (762,744) | (750,747) | (300,267) | duality from d=8 |
 | 11 | (843,843) | (1341,1341) | (511,511) | duality from d=7 |
 | 12 | (885,866) | (2223,2214) | (677,648) | duality from d=6 |
@@ -69,10 +69,15 @@ B(a) = sum_{k,l} a_k a_l (G_k div P_l - P_l(G_k)) must lie in J_{2d}; Koszul cor
     w(F) = M E6M (odd) contain no solutions;
   - Fermat subfamily Λ = {w_j = z_j q_j} + <D7> (16 variables; the family that solves the relaxation identically at c = 0):
     only the origin (Singular dim 0, vdim 194 / 191; msolve chart [-1]) for both parities;
-  - all subring subfamilies (monomials in 2..5 of the forms X0,X1,X2,Y0,Y1,Y2,L,M, and the two-cone family) ∩ (K_7+J_7):
-    running (w2_subfam.py).
-* d = 8 (174 generators, 162 variables, 468/483 equations): the quadratic relaxation is hopeless as a full GB (13203 quadratic
-  monomials vs ~470 equations), but the equations are being built so that structured subfamilies can be tested exactly.
+  - subring subfamilies ∩ (K_7+J_7) (w2_subfam.py; 2..5 forms, two-cone family): 80 (even) / 81 (odd) families done, every one
+    with msolve chart "[-1]" (no projective solutions), including the full cone families <X0,X1,X2,M> (22 vars, contains D7) and
+    <Y0,Y1,Y2,L> (22 vars, contains D7') and the 24–27-variable 5-form families; the remaining larger families are running
+    (restarted with a 20 s Singular cap since msolve's answer is decisive).
+  - the full 61-variable GB: the local msolve runs exceed the memory available on brunos at the F4 degree-4 step (the even run died
+    with the job timeout/OOM; the odd run is at ~70 CPU-min, 7 GB); a 16-thread remote job (search-spp-gb7) is queued.
+* d = 8 (174 generators, 162 variables, 468/483 equations): the full GB is hopeless (13203 quadratic monomials vs ~470 equations);
+  the equations are being built (both parities; reducers at degree 16 done) and a watcher then runs the subfamily restrictions.
+* d = 7 mixed parity (128 generators, 122 variables, 1475 equations): built; subfamily restrictions running (w2_subfam2.py).
 
 ## 2. Structured families screened exactly against E1 (w2_families.py, w2_cands.py)
 152 (even) / 134 (odd) subring families at d = 7, 45+ at d = 8 (deduplicated by span), plus the two-cone family and the named

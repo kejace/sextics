@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 20:44 EST from 428 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 20:55 EST from 472 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -140,21 +140,21 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=6 pD=0 | jac1 | 103 | 1.80e-01 | 2.0e-01 | 0 | 0 | 0.18: 10, 0.187: 2, 0.191: 4, 0.192: 10, 0.205: 26 |
-| triv d=9 pD=0 | vp1b | 5 | 3.84e-05 | 3.8e-05 | 0 | 0 | 3.84e-05: 4, 5.76e-05: 1 |
+| jac d=6 pD=0 | jac1 | 212 | 1.80e-01 | 2.1e-01 | 0 | 0 | 0.18: 12, 0.187: 5, 0.191: 5, 0.192: 21, 0.2: 1 |
+| triv d=9 pD=0 | vp1b | 10 | 3.84e-05 | 3.8e-05 | 0 | 0 | 3.84e-05: 7, 5.76e-05: 2, 0.00017: 1 |
 
 ## 8. Single-denominator exact solves (character-reduced systems mod p, CRT lift on consistency)
 
 | family | E1 pass & consistent | E1 pass & inconsistent | E1 fails | errors |
 |---|---:|---:|---:|---:|
-| kernel-class | 0 | 103 | 0 | 0 |
-| kernel-random-combo | 0 | 9 | 0 | 0 |
+| kernel-class | 0 | 138 | 0 | 0 |
+| kernel-random-combo | 0 | 18 | 0 | 0 |
 | structured-single | 0 | 8 | 5 | 0 |
 
 Structured candidates: `DX^2*DY^2` d=12 triv: E1 fails; `EXF*EYF` d=12 triv: inconsistent (rank 1729, null 315, 6713×2044); `HXX` d=12 triv: E1 fails; `HXX+HYY` d=12 triv: E1 fails; `HXX-HYY` d=12 triv: E1 fails; `HYY` d=12 triv: E1 fails; `EXF*D7Y` d=13 sgnY: inconsistent (rank 2010, null 899, 8834×2909); `EYF*D7` d=13 sgnX: inconsistent (rank 2010, null 899, 8834×2909); `D7*D7Y` d=14 sgnsgn: inconsistent (rank 2415, null 1627, 11459×4042); `D7*T8` d=15 triv: inconsistent (rank 4434, null 944, 14672×5378); `D7*T8Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*D7Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*T8Y` d=16 sgnsgn: inconsistent (rank 4691, null 2376, 18564×7067)
 
-Kernel classes / combos per sector (tested, consistent, errors): sgnX d=12 pD=0: 16/0/0; sgnX d=12 pD=1: 14/0/0; triv d=12 pD=0: 53/0/0; triv d=12 pD=1: 29/0/0
+Kernel classes / combos per sector (tested, consistent, errors): sgnX d=12 pD=0: 16/0/0; sgnX d=12 pD=1: 21/0/0; sgnY d=12 pD=0: 16/0/0; sgnY d=12 pD=1: 21/0/0; triv d=12 pD=0: 53/0/0; triv d=12 pD=1: 29/0/0
 
 ## 10. Batches logged per job
 
-`kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `single`: 125 records, 5.3 h, `vp1b`: 2 records, 0.3 h
+`kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `single`: 169 records, 6.7 h, `vp1b`: 2 records, 0.3 h

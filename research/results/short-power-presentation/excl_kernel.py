@@ -49,7 +49,7 @@ for par in [0, 1]:
     assert D7 is not None, 'rational reconstruction of D7 failed'
     # exact membership certificate for A*D7
     AD = mul(A, D7)
-    N7, minfo = W.exact_membership(F, AD, primes=W.PRIMES31, max_primes=5)
+    N7, minfo = W.exact_membership(F, AD, primes=W.PRIMES31 + W.PRIMES30 + W.PRIMES29, max_primes=18)
     assert N7 is not None, ('exact membership failed', minfo)
     # structural check: Y-dependence only via M (even) / X-dependence only via L (odd)
     if par == 0:

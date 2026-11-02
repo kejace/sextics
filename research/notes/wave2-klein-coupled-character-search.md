@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 20:47:01 from 81 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 20:56:16 from 178 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -101,16 +101,28 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 | 9 | odd | 5 | K | 6 | 6 | 1929x264 | 5 | 7.55e-01 | 7.55e-01 | 7.55e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 6 | K | 4 | 4 | 1939x264 | 5 | 1.26e+00 | 1.26e+00 | 1.26e+00 | 0 | 0 | lm | 0 |
 
+## (4) Structured families (E1-admissible dimension per sector; varpro where nonzero)
+
+97 (family, d, parity, k) cells tested; 5 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
+
+| family | d | parity | k | dim V | dim E1 | nontrivial mod J | dimP | restarts | best rel | exact tests |
+|---|---|---|---|---|---|---|---|---|---|---|
+| no_x | 6 | 0 | 0 | 35 | 2 | 0 | 2 | 6 | 7.76e-01 | inconsistent,inconsistent |
+| no_x | 6 | 0 | 0 | 35 | 2 | 0 | 2 | 6 | 7.76e-01 | inconsistent,inconsistent |
+| vars_xyzr | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 20 | 1.00e+00 | inconsistent |
+| vars_xyzs | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 20 | 1.00e+00 | inconsistent |
+| vars_xyzt | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 20 | 5.85e+00 | inconsistent |
+
 ## Remote job queue (tail)
 ```
-20:34:45 gate closed for w2-control: 00), available memory 180 GB (min 90), 70 jobs running with 227 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:36:19 gate closed for w2-control: 00), available memory 189 GB (min 90), 76 jobs running with 233 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:37:53 gate closed for w2-control: 00), available memory 191 GB (min 90), 76 jobs running with 240 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:39:26 gate closed for w2-control: 00), available memory 158 GB (min 90), 76 jobs running with 240 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:41:00 gate closed for w2-control: 00), available memory 156 GB (min 90), 75 jobs running with 239 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:42:33 gate closed for w2-control: 00), available memory 170 GB (min 90), 77 jobs running with 267 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:44:07 gate closed for w2-control: 00), available memory 155 GB (min 90), 78 jobs running with 299 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:45:40 gate closed for w2-control: 00), available memory 126 GB (min 90), 77 jobs running with 298 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:47:13 gate closed for w2-control: 00), available memory 126 GB (min 90), 75 jobs running with 296 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:48:47 gate closed for w2-control: 00), available memory 104 GB (min 90), 74 jobs running with 292 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:50:20 gate closed for w2-control: 00), available memory 121 GB (min 90), 73 jobs running with 288 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:51:53 gate closed for w2-control: 00), available memory 109 GB (min 90), 77 jobs running with 297 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:53:54 gate closed for w2-control: 00), available memory 103 GB (min 90), 73 jobs running with 293 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:55:28 gate closed for w2-control: 00), available memory 109 GB (min 90), 77 jobs running with 303 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation

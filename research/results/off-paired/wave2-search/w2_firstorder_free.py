@@ -22,7 +22,8 @@ c = (0, 0); cA = (3, 0)
 m = {tuple([d - 6, 0, 0, 0, 0, 0]): Fraction(1)}
 Tm = w2lib.monos_char(6, cA)
 out = []
-for S in [(0, 1, 2)]:   # the X-cone f6 (others are symmetric variants)
+CONES = {'f6': (0, 1, 2), 'g6': (3, 4, 5), 'X0X1Y1': (0, 1, 4), 'X0X2Y2': (0, 2, 5)}
+for S in [CONES[sys.argv[3]] if len(sys.argv) > 3 else (0, 1, 2)]:
     fS = {tuple(6 if t == i else 0 for t in range(NV)): Fraction(1) for i in S}
     D0 = mul(fS, m)
     t0 = time.time()

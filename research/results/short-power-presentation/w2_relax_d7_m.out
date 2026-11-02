@@ -3,3 +3,10 @@
 [numerators] d=7 p=536870909: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (46s)
 [relaxation_terms] K=128: 8256 nonzero symmetrized terms (109s)
 [JRef] e=14 par=1 p=536870909: gens=6006 mons=5796 rank=5052 dimR=744 (build 29s, rref 83s)
+[reduce_terms] par=1: 4160 terms -> 734 equations (dim R_14^1 = 744)
+[JRef] e=14 par=0 p=536870909: gens=6006 mons=5832 rank=5070 dimR=762 (build 30s, rref 72s)
+[reduce_terms] par=0: 4096 terms -> 741 equations (dim R_14^0 = 762)
+[reduce_terms] total 1475 equations (662s)
+{"kind": "relaxation", "d": 7, "parspec": "m", "p": 536870909, "K_total": 128, "n_kernel": 2, "gauge_removed": 6, "n_vars": 122, "n_equations": 1475, "kernel_sources": {"0": "rational", "1": "rational"}, "t_build": 910.8, "tag": "w2"}
+[singular hom] {"rc": "timeout", "seconds": 60.3}
+{"kind": "relaxation", "d": 7, "parspec": "m", "p": 536870909, "K_total": 128, "n_kernel": 2, "gauge_removed": 6, "n_vars": 122, "n_equations": 1475, "kernel_sources": {"0": "rational", "1": "rational"}, "t_build": 910.8, "tag": "w2", "singular_hom": {"rc": "timeout", "seconds": 60.3}, "seconds": 971.1}

@@ -7,3 +7,4 @@
 [rvp] seed=1000 restart 1: rel=3.222e-06 f=1.139e-03 iters=108 (658s)
 [rvp] seed=0 restart 2: rel=3.618e-06 f=1.280e-03 iters=100 (745s)
 [rvp] seed=1000 restart 2: rel=3.168e-06 f=1.121e-03 iters=102 (736s)
+{"kind": "varpro-reduced", "d": 7, "parity": 0, "family": "K_d + J(F)_d (gauge-fixed)", "restarts": 6, "procs": 2, "seed": 0, "maxiter": 300, "best_rel": 3.161520080221352e-06, "median_rel": 3.1722415074564506e-06, "hist_log10": {"-6": 6}, "out": "/tmp/hodge/results/short-power-presentation/rvp_d7_p0_s0_probe.json", "tag": "probe", "seconds": 2415.4, "confirm": []}

@@ -121,6 +121,8 @@ def sub_w_matrix(F, d, wbasis_index, Dstrs):
 def worker(args, wid, conn):
     try:
         F, A, q, rec = core.load_instance(IID)
+        if args.Aprime:
+            A = core.parse(json.load(open(os.path.join(LANE, args.Aprime)))['A'])
         d = args.d
         args_d[0] = d; args_pD[0] = args.pD
         extra = load_extra(F, A, args.extra.split(',')) if args.extra else None
@@ -244,7 +246,7 @@ def worker(args, wid, conn):
         ref = float(np.median(refs))
         setup = time.time() - t0
         out_path = os.path.join(LANE, f'w2-pt-d{d}-{args.tag}.jsonl')
-        label = fam.label + ('|joint' if args.joint else '') + (f'|pD{args.pD}' if args.pD else '') + (f'|vanish:{args.vanish}' if args.vanish else '') + (f'|vanishL:{args.vanishL}' if args.vanishL else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
+        label = fam.label + (f'|Aprime:{args.Aprime}' if args.Aprime else '') + ('|joint' if args.joint else '') + (f'|pD{args.pD}' if args.pD else '') + (f'|vanish:{args.vanish}' if args.vanish else '') + (f'|vanishL:{args.vanishL}' if args.vanishL else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
         conn.send({'type': 'setup', 'wid': wid, 'r': r, 'K': fam.K, 'nK': kb.nK, 'dimP': vp.dimP, 'nspur': vp.nspur,
                    'setup_s': round(setup, 1), 'Fres': pts.Fres, 'label': label, 'nKsector': int(vp.nKc), 'ref_B0norm2': ref})
         rels = []
@@ -256,6 +258,10 @@ def worker(args, wid, conn):
                     'iters': c['iters'], 'iters_polish': c.get('iters_polish'), 'f_joint': c.get('f_joint'), 'seconds': c['seconds'], 'amax': float(np.max(np.abs(c['a']))),
                     'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
             with open(out_path, 'a') as fh: fh.write(json.dumps(line) + '\n')
+            if min(c['rel'], c['rel_abs']) < args.near:
+                with open(os.path.join(LANE, f'w2-near-d{d}-{args.tag}.jsonl'), 'a') as fh:
+                    fh.write(json.dumps({'d': d, 'tag': args.tag, 'wid': wid, 'restart': c['restart'], 'rel': c['rel'], 'rel_abs': c['rel_abs'],
+                                         'f': c['f'], 'iters': c['iters'], 'a': [float(x) for x in c['a']]}) + '\n')
             if min(c['rel'], c['rel_abs']) < args.hit:
                 try:
                     handle_hit(args, wid, F, A, q, fam, kb, pts, vp, c, label)
@@ -359,6 +365,8 @@ def main():
     ap.add_argument('--maxiter', type=int, default=400)
     ap.add_argument('--margin', type=int, default=100, help='extra complex points beyond (dim a + dim c)/2')
     ap.add_argument('--hit', type=float, default=1e-9)
+    ap.add_argument('--near', type=float, default=1e-2, help='save the parameter vector of restarts with residual below this')
+    ap.add_argument('--Aprime', default='', help='calibration: json file with an alternative target polynomial A (string)')
     ap.add_argument('--polish', type=int, default=60, help='variable-projection iterations after the joint warm-up (--joint)')
     ap.add_argument('--joint', action='store_true', help='joint L-BFGS over (a,c) with cheap evaluations; exact varpro value at the end of each restart')
     ap.add_argument('--vanishL', default='', help='linear forms and order, e.g. "X0-X1,Y0-Y1,X2:3" (D vanishes to order 3 along their common zero set)')
@@ -389,7 +397,7 @@ def main():
     tot = sum(m.get('n', 0) for m in summary)
     best = min([m['best'] for m in summary if m.get('best') is not None], default=None)
     hist = [sum(m.get('hist_log10', [0]*11)[i] for m in summary) for i in range(11)]
-    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'vanish': args.vanish, 'vanishL': args.vanishL, 'joint': args.joint, 'workers': args.workers,
+    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'vanish': args.vanish, 'vanishL': args.vanishL, 'joint': args.joint, 'Aprime': args.Aprime, 'workers': args.workers,
            'restarts_total': tot, 'best_rel': best, 'hist_log10_bins': '[<-14,-12,-10,-8,-6,-4,-3,-2,-1,0,>0]', 'hist': hist,
            'maxiter': args.maxiter, 'seconds': round(time.time() - t0, 1), 'seed': args.seed, 'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
     with open(os.path.join(LANE, 'w2-pt-summary.jsonl'), 'a') as fh: fh.write(json.dumps(out) + '\n')

@@ -68,3 +68,9 @@ The verifier regenerates `HodgeWitness.lean` from `witness.json`; a submission m
 | 300 | 19.8 s / 25 s / 3.5 GB | 103 s (norm_num 41 s + ring 4 s + …) |
 | 3000 | 125 s / 195 s / 4.9 GB (profile: elaborating the translator-shaped term 37 s, `rfl` 37 s elab + 14 s kernel, linting 48 s → disable linters) | not run (extrapolated > 15 min) |
 Consequence: witness size is itself budget-relevant: compiling the protected `HodgeWitness.lean` costs ≈12 s per 1000 terms, the binding ≈17 s per 1000 terms. A 60k-term witness (D of 3000 terms + six 10k-term numerators) would spend ≈30 min on these linear steps alone, so the witness itself should stay below ~30k terms (≈16 MiB source limit is not the binding constraint; time is).
+
+### Rational `F`/`A` and the certificate glue (implemented in `kron_gen.py`/`kron_submit.py`)
+The kernel works over ℤ.  The witness (D, N, Q) is scaled to integers (D, N by s, Q by s²: the identities are homogeneous of degree 2 in (D,N,Q)); the instance's F and A are written as `C (1/s') * toC tF'`, `C (1/s') * toC tA'` with integral trees, and the kernel checks `q·Σ∂ᵢF'·Nᵢ = A'·D` and `s'^q·(D·divN − Σ∂ᵢD·Nᵢ) = F'^q·Q`; the ℂ-identities follow by multiplying with `C (1/s'^q)` (`linear_combination`).  Dense-rational F (236 terms, s' = 9973) with d = 4, |D| = 10: whole module (e1 16.7k raw products + e2 + homogeneity) compiles in 16 s locally (template S_dense_d2_n21 with 14.8k raw products: 328 s).
+
+### Complete proposal prototype (`gen/kron_submit.py`)
+Generates the five proposal files for an instance from a witness dict (Kron.lean as flat helper, Witness.lean with the Kronecker identities + template legality machinery on the unfolded trees, Solution.lean binding `HodgeWitness.*` by `rfl` + `matchW_sound`, balanced witness strings).  Run on the accepted m3-coupled witness (scaled by 6): module sizes Kron 31 KB, Witness 43 KB, Solution 73 KB; local verifier replica (`hodge.leancheck`) result: see below.

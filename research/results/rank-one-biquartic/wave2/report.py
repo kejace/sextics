@@ -65,7 +65,7 @@ else:
 out.append('\n### Residual landscape (per-restart files)\n')
 for path in sorted(glob.glob(f'{MIR}/*.restarts.jsonl')):
     tag = os.path.basename(path).replace('.restarts.jsonl', '')
-    if tag.startswith('smoke') or tag.startswith('planted'): continue
+    if tag.startswith(('smoke', 'planted', 'lmtest', 'rtest')): continue
     rels = []
     for l in open(path):
         try: rels.append(json.loads(l)['rel'])
@@ -97,7 +97,7 @@ out.append('\n## 5. Candidates with residual < 1e-8 and exact confirmation attem
 conf = [r for r in recs if r.get('batch') == 'confirm' or 'max_den' in r]
 cands = []
 for path in sorted(glob.glob(f'{MIR}/*.confirm.jsonl')):
-    if 'planted' in path: continue
+    if any(t in path for t in ('planted', 'lmtest', 'rtest', 'smoke')): continue
     for l in open(path):
         try: cands.append(json.loads(l))
         except Exception: pass

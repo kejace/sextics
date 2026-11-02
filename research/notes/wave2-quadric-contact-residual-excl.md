@@ -1,7 +1,9 @@
 # Wave 2 — quadric-contact-residual — lens EXCLUSION / RIGOR
 
 STATUS: no witness. Best rigorous bound: every certificate denominator has deg D >= 7 (fqlx; d <= 6 independently replayed here at
-two new primes). NEW rigorous exclusions inside degrees 7, 8, 9 (items 3-5, 7-8, 12 below) and a structured-support theorem (item 9).
+two new primes). NEW rigorous exclusions inside degrees 7, 8, 9 (items 3-4, 7-8, 12 below: at degree 7 every pair of the eight
+(sigma0, sigma2, tau_Y)-parity classes is excluded, so a degree-7 denominator must spread over >= 3 parity classes; at degree 8 the
+Gamma-invariant family and 20 of 24 pure G_aff sectors; at degree 9 the 4 closable sectors) and a structured-support theorem (item 9).
 Full mixing of all G_aff sectors at degree 7 is provably out of reach of the mod-J (Hessian) relaxation by Groebner methods (item 5).
 Remote jobs still running at the time of writing: excl-sub7 (degree-7 single-involution subfamilies, 60 unknowns), excl-d8large
 (the 4 large degree-8 sectors), excl-misc (engine cross-check, served spaces of the degree-6/8 blocks, degree-10 extras screen);
@@ -38,7 +40,12 @@ Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (one JSON 
    denominator must mix both eigenvalues of at least two of sigma0, sigma2, tau_Y.  [exp sub-closure-msolve, tags d7_*, d7p3_*]
    Pending (remote excl-sub7): the 6 subfamilies with ONE involution character fixed (60 unknowns, 477 quadrics, Froeberg
    regularity 4; msolve -g 1 with block-Macaulay k=4 fallback).
-4. [replayed, agrees] fqlx's 8 pure parity classes at d = 7 are contained in item 3.
+4. [NEW, rigorous] d = 7, the parity-class cube: the 8 classes (b0,b2,y) in (Z/2)^3 are the vertices of a cube; item 3 covers
+   the 12 edges (pairs differing in one coordinate; fqlx's single vertices are contained).  The 12 face diagonals and the 4 space
+   diagonals (pairs differing in two or three coordinates; 28-32 unknowns, 227-246 quadrics) are also EXCLUDED (msolve -g 1,
+   max pure power 3-4).  Hence: a degree-7 denominator must have G_aff-character support on at least THREE of the eight parity
+   classes.  [exp sub-closure-msolve, tags d7_fd_*, d7_sd_*]  Next rung (56 triples, ~45 unknowns, Froeberg regularity 4):
+   triples7.sh prepared; quadruples (60 unknowns) and quintuples (75) are still regularity 4; sextuples (90) hit regularity 5.
 5. [computed, two primes] the full d = 7 system (120 unknowns): 950 independent quadrics, mean 58 terms (max 298), no square
    c_a^2 in I_2, only 8 product monomials c_a c_b in I_2 (the same 8 at both primes); branch-and-kill on I_2 does not cascade
    (one kill per node).  Froeberg count for 950 quadrics in 120 unknowns: HS = 1, 120, 6310, 181240, 2632405, <0 => a

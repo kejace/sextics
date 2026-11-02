@@ -23,8 +23,8 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
 * **Exact served-space scan (step 4).** 3922 structured denominators (all forms of degree 4-6 in every 3-, 4-, 5-variable coordinate
   subset and every character, Fermat-type cones, H, C, D0, X2^6 +- Y2^6, Qx, R, random colon elements) serve ONLY the Jacobian part
   of the (3,0) sector; 1386 of them re-tested in all 18 Y-odd target sectors: nothing served anywhere (exact mod p).
-* **First-order deformation theory (new, exact).** Along F_t = Fermat + t*Qx every Fermat cone certificate (six cones x d = 6..10)
-  is obstructed at first order, and every join class served by any cone dies at first order (only the Jacobian part survives).
+* **First-order deformation theory (new, exact).** Along F_t = Fermat + t*Qx every Fermat cone certificate (six cones x d = 6..11)
+  is obstructed at first order (6 cones x d = 6..11, two primes), and every join class served by any cone dies at first order (only the Jacobian part survives).
   Direction dependence: each chain link alone obstructs; the extra monomial X0^2X1X2Y0Y2 alone does not (all cones deform to first
   order along it). The cone mechanism is killed by the holdout chain, the holdout cover by the extra term: two independent
   obstructions must be overcome simultaneously.
@@ -104,10 +104,13 @@ f6+g6, 60 Hessian 2x2 minors and random colon elements at d = 7, 8.)
 
 Cone certificates D0 = (X0^6 + Z_a^6 + Z_b^6) X0^(d-6), {Z_a, Z_b} subset {X1, X2, Y1, Y2}: t = 0 certificate solved exactly; the
 t-derivative of the cleared identity is never in the image of the linearisation (dD free in the sector, dN, dQ free): rank_aug =
-rank_L + 1 for all 6 cones x d = 6, 7, 8, 9 (and d = 10 for the cases finished so far). Served-space version: f6 serves 14 sector
+rank_L + 1 for all 6 cones x d = 6, 7, 8, 9, 10, 11 (36 cases, two primes each). Served-space version: f6 serves 14 sector
 monomials at t = 0 (12 join classes + 2 Jacobian-part); along Qx and along the chain only the Jacobian-part direction X0^5 Y1 survives
 to first order (d = 6, 7); g6 likewise; mixed cones X0^6+X1^6+Y1^6, X0^6+X2^6+Y2^6 (6 served each): none survives. Along the extra
-monomial alone the target direction X0^3 Y0^3 (and X0^3 Y1^3) survives and all six cones are first-order deformable.
+monomial alone the target direction X0^3 Y0^3 (and X0^3 Y1^3) survives and all six cones are first-order deformable -- but not to
+all orders: on Fermat + X0^2X1X2Y0Y2/3 the (0,0) colon space at d = 6 has dimension 7 (vs 19 on the Fermat) and 60 LM restarts on
+its 6-dimensional gauge-free sphere find no certificate (best relres 6.2e-2; job fe6). The extra term alone already destroys the
+degree-6 cone certificates, at second or higher order.
 
 ## 9. Structural remarks
 

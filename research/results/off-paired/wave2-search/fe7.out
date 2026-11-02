@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[2026-11-02T01:55:45] job fe7: d=7 c=(0, 0) kind=colon F=X0**6+X1**6+X2**6+Y0**6+Y1**6+Y2**6+X0**2*X1*X2*Y0*Y2/3 restarts=60 workers=4
+[exact basis colon d=7 c=(0, 0)] rank 15 with 1 primes (verified)
+[sector varpro] d=7 c=(0, 0) K=15 rank=15 gauge=1 dimP=14 rows=1676 N=300 Q=58 nnz(TN)=73929 built in 0.5s
+[2026-11-02T01:55:46] family built: K=15 rank=15 gauge=1 dimP=14 rows=1676 N=300 Q=58 build 0.5s
+gradient check: analytic -3.563676e-01 fd -3.563676e-01

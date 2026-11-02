@@ -127,3 +127,7 @@
 {"exp": "core-kernel-dim", "d": 15, "parity": 0, "prime": 998244353, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 89.36, "job": "excl-kernels", "ts": "2026-11-02T01:45:48"}
 {"exp": "core-kernel-dim", "d": 15, "parity": 1, "prime": 2147483647, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 119.14, "job": "excl-kernels", "ts": "2026-11-02T01:47:47"}
 {"exp": "core-kernel-dim", "d": 15, "parity": 1, "prime": 1000000007, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 101.97, "job": "excl-kernels", "ts": "2026-11-02T01:49:29"}
+{"exp": "core-kernel-dim", "d": 15, "parity": 1, "prime": 998244353, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 78.93, "job": "excl-kernels", "ts": "2026-11-02T01:50:48"}
+{"exp": "core-kernel-dim", "d": 16, "parity": 0, "prime": 2147483647, "n_mons": 489, "dim_full": 489, "dim_J": 488, "dim_modJ": 1, "seconds": 179.68, "job": "excl-kernels", "ts": "2026-11-02T01:53:48"}
+{"exp": "core-kernel-dim", "d": 16, "parity": 0, "prime": 1000000007, "n_mons": 489, "dim_full": 489, "dim_J": 488, "dim_modJ": 1, "seconds": 131.87, "job": "excl-kernels", "ts": "2026-11-02T01:56:00"}
+{"exp": "core-kernel-dim", "d": 16, "parity": 0, "prime": 998244353, "n_mons": 489, "dim_full": 489, "dim_J": 488, "dim_modJ": 1, "seconds": 132.18, "job": "excl-kernels", "ts": "2026-11-02T01:58:12"}

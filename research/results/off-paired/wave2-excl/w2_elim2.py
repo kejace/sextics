@@ -17,7 +17,7 @@ from w2lib import char_of, cadd, monos_char
 from hodge import core
 from hodge.core import NV, shift, reduce_mod, add, scale
 from fractions import Fraction
-from flint import fmpq_mat, fmpq, nmod_mat
+from flint import fmpq_mat, fmpq, nmod_mat, fmpz_mat, fmpz
 
 def frac_str(v):
     return f'({v.numerator}/{v.denominator})' if v.denominator != 1 else f'({v.numerator})'
@@ -114,26 +114,27 @@ def main():
                 addeq(red.coords(EB.B(aa, 's', k)), (aa, nt + k))
         eqs = [e for e in eqs.values() if any(e.values())]
         neq = len(eqs)
-        # degree-2 relaxation over Q: left kernel of C_y (neq x nt*ns) computed EXACTLY with fmpq_mat (rref of C_y^T)
+        # degree-2 relaxation over Q: left kernel of C_y (neq x nt*ns), EXACT: integer matrix (denominators cleared per column),
+        # integer nullspace (fmpz_mat), LLL-reduced to keep coefficients small.
         R, C = nt * ns, neq
         lams = []
         if R:
-            Mq = fmpq_mat(R, C)
+            from math import lcm
+            dens = [1] * C
+            for r, e in enumerate(eqs):
+                for (i, j), v in e.items():
+                    if j >= nt: dens[r] = lcm(dens[r], v.denominator)
+            Mz = fmpz_mat(R, C)
             for r, e in enumerate(eqs):
                 for (i, j), v in e.items():
                     if j >= nt:
-                        Mq[i * ns + (j - nt), r] = fmpq(v.numerator, v.denominator)
-            Mr, rank = Mq.rref()
-            piv = []
-            for i in range(rank):
-                j = 0
-                while j < C and Mr[i, j] == 0: j += 1
-                piv.append(j)
-            free = [j for j in range(C) if j not in set(piv)]
-            for f in free:
-                lam = [Fraction(0)] * C; lam[f] = Fraction(1)
-                for i, j in enumerate(piv):
-                    if Mr[i, f] != 0: lam[j] = -Fraction(int(Mr[i, f].p), int(Mr[i, f].q))
+                        Mz[i * ns + (j - nt), r] = fmpz(int(v * dens[r]))
+            X, nul = Mz.nullspace()          # columns of X (first nul) span the kernel over Q, integer entries
+            K = fmpz_mat(nul, C, [int(X[r, k]) for k in range(nul) for r in range(C)])
+            if nul:
+                K = K.lll()
+            for k in range(nul):
+                lam = [Fraction(int(K[k, r])) * dens[r] for r in range(C)]   # lambda_r (true coefficient on eq_r) = K * dens
                 lams.append(lam)
         else:
             lams = [[Fraction(1 if r == k else 0) for r in range(C)] for k in range(C)]
@@ -206,7 +207,7 @@ quit;
         if not m:
             emit(dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), result='singular-failed', stderr=out[-300:])); continue
         dm = int(m.group(1))
-        rec = dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), dim_J2=dm)
+        rec = dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), dim_J2=dm, lambda_basis='lll-integer-kernel')
         if dm <= 0:
             emit(dict(rec, result='PROVEN-no-denominator-in-sector(exact: degree-2 relaxation ideal over Q is m-primary)')); continue
         comps = parse_components(out)
@@ -215,29 +216,32 @@ quit;
         all_ok = True
         for ci, polys in enumerate(comps):
             basis = linear_component_basis(polys, nt)
-            if basis is None:
-                # nonlinear component: eliminate s from I + P over Q (restricted bilinear system on the component)
-                tt = [f't{i}' for i in range(nt)]; ss = [f's{k}' for k in range(ns)]
-                def vn(i): return f't{i}' if i < nt else f's{i - nt}'
-                polys_I = ['+'.join(f'{frac_str(v)}*{vn(i)}*{vn(j)}' for (i, j), v in e.items() if v) for e in eqs]
-                sing3 = f'''ring r = 0, ({",".join(tt + ss)}), dp;
-ideal I = {",\n".join(polys_I)};
-ideal P = {",\n".join(polys)};
-ideal IP = I + P;
-poly ps = {"*".join(ss) if ss else "1"};
-ideal E = eliminate(IP, ps);
-ideal G = std(E);
-print("DIME " + string(dim(G)));
+            if basis is None or len(basis) >= 2:
+                # localized relaxation on the linear span L of the component (= the component itself if linear)
+                import w2_local
+                lin = [P_ for P_ in polys if re.fullmatch(r'[\s+\-*/0-9t^]+', P_) and '^' not in P_ and all(('*' not in term or term.count('t') <= 1) for term in re.findall(r'[+-]?[^+-]+', P_.replace(' ', ''))) and P_.count('t') == len(re.findall(r'[+-]?[^+-]+', P_.replace(' ', '')))]
+                span = basis if basis is not None else (linear_component_basis(lin, nt) if lin else [[Fraction(1 if i == j else 0) for i in range(nt)] for j in range(nt)])
+                w = len(span)
+                restricted = w2_local.restrict(eqs, nt, ns, span)
+                degs = (2, 3) if w > 8 else (2, 3, 4)
+                cons = w2_local.consequences(restricted, w, ns, degrees=degs)
+                allc = [g for k in cons for g in cons[k]['consequences']]
+                xs = [f'x{i}' for i in range(w)]
+                def mstr(m): return '*'.join(f'x{i}^{e}' if e > 1 else f'x{i}' for i, e in enumerate(m) if e) or '1'
+                cstr = ['+'.join(f'{frac_str(v)}*{mstr(m)}' for m, v in g.items()) for g in allc]
+                sing4 = f'''ring r = 0, ({",".join(xs)}), dp;
+ideal C = {",\n".join(cstr) if cstr else "0"};
+ideal G = std(C);
+print("DIMC " + string(dim(G)));
 quit;
 '''
-                spath3 = f'{outdir}/d{a.d}_c{c[0]}{c[1]}_comp{ci}_nonlin.sing'; open(spath3, 'w').write(sing3)
-                out3, err3 = run_singular(spath3, a.timeout)
-                if out3 is None:
-                    comp_results.append({'comp': ci, 'linear': False, 'elim': 'timeout', 'gens_deg': [len(g) for g in polys[:3]]}); all_ok = False; continue
-                m3 = re.search(r'DIME (-?\d+)', out3)
-                dme = int(m3.group(1)) if m3 else None
-                okc = (dme is not None and dme - ns <= 0)
-                comp_results.append({'comp': ci, 'linear': False, 'elim_dim_t': (dme - ns) if dme is not None else None, 'proven': okc, 'n_gens_P': len(polys)})
+                spath4 = f'{outdir}/d{a.d}_c{c[0]}{c[1]}_comp{ci}_local.sing'; open(spath4, 'w').write(sing4)
+                out4, err4 = run_singular(spath4, a.timeout)
+                m4 = re.search(r'DIMC (-?\d+)', out4) if out4 else None
+                dmc = int(m4.group(1)) if m4 else None
+                okc = (dmc is not None and dmc <= 0)
+                comp_results.append({'comp': ci, 'linear': basis is not None, 'span_dim': w, 'relax': {k: {kk: vv for kk, vv in cons[k].items() if kk != 'consequences'} | {'n': len(cons[k]['consequences'])} for k in cons},
+                                     'local_dim': dmc, 'proven': okc})
                 if not okc: all_ok = False
                 continue
             w = len(basis)
@@ -251,43 +255,6 @@ quit;
                 w2lib.log(dict(r1, job=a.job))
                 comp_results.append({'comp': ci, 'linear': True, 'dim': 1, 'fixedD': r1['result'], 'rank_M': r1['rank_M'], 'rank_aug': r1['rank_aug'], 'nullity': r1['nullity'], 'explicit_kernel': r1['explicit_kernel']})
                 if not str(r1['result']).startswith('PROVEN'): all_ok = False
-            else:
-                # restricted system in (x_1..x_w, s): t = sum x_i v_i
-                xs = [f'x{i}' for i in range(w)]; ss = [f's{k}' for k in range(ns)]
-                polys_r = []
-                for e in eqs:
-                    terms = {}
-                    for (i, j), v in e.items():
-                        if j < nt:
-                            for ii in range(w):
-                                for jj in range(w):
-                                    coef = v * basis[ii][i] * basis[jj][j]
-                                    if coef: 
-                                        key = (f'x{min(ii,jj)}', f'x{max(ii,jj)}'); terms[key] = terms.get(key, 0) + coef
-                        else:
-                            for ii in range(w):
-                                coef = v * basis[ii][i]
-                                if coef:
-                                    key = (f'x{ii}', f's{j - nt}'); terms[key] = terms.get(key, 0) + coef
-                    terms = {k: v for k, v in terms.items() if v}
-                    if terms: polys_r.append('+'.join(f'{frac_str(v)}*{k[0]}*{k[1]}' for k, v in terms.items()))
-                sing2 = f'''ring r = 0, ({",".join(xs + ss)}), dp;
-ideal I = {",\n".join(polys_r)};
-poly ps = {"*".join(ss) if ss else "1"};
-ideal E = eliminate(I, ps);
-ideal G = std(E);
-print("DIME " + string(dim(G)));
-quit;
-'''
-                spath2 = f'{outdir}/d{a.d}_c{c[0]}{c[1]}_comp{ci}.sing'; open(spath2, 'w').write(sing2)
-                out2, err2 = run_singular(spath2, a.timeout)
-                if out2 is None:
-                    comp_results.append({'comp': ci, 'linear': True, 'dim': w, 'elim': 'timeout'}); all_ok = False; continue
-                m2 = re.search(r'DIME (-?\d+)', out2)
-                dme = int(m2.group(1)) if m2 else None
-                okc = (dme is not None and dme - ns <= 0)
-                comp_results.append({'comp': ci, 'linear': True, 'dim': w, 'elim_dim_x': (dme - ns) if dme is not None else None, 'proven': okc})
-                if not okc: all_ok = False
         rec['component_results'] = comp_results
         rec['result'] = 'PROVEN-no-denominator-in-sector(exact: relaxation components each excluded over Q)' if all_ok else 'residual components not all excluded (see component_results)'
         emit(rec)
