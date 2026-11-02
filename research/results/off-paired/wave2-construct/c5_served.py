@@ -12,7 +12,7 @@ F, A, q = w2lib.load()
 heavy = '--heavy' in sys.argv
 m = 'X2*Y2'; C = '(X1**3*Y1/2 + X0**2*X1*Y0/3)'; H = '(X0**6+X1**6+Y0**6+Y1**6+X0**3*X1*Y0*Y1/2)'
 psi_m = f'(3*({m})**4 - 3*{C}*({m})**2 - 6*{H}*({m}) - {C}**2/4)'      # 3-torsion of t^2 = 2m^3 - C m - H
-psi_t = f'(3*({m})**4 - 3*{C}*({m})**2 + 6*{H}*({m}) - {C}**2/4)'      # tau-image
+psi_t = f'(3*({m})**4 + 3*{C}*({m})**2 + 6*{H}*({m}) - {C}**2/4)'      # tau-image (m,C -> -m,-C)
 cands = {
  'block-generic-c6=2':        'X2**6 - 2*Y2**6',                       # pullback of a rational 3-section s=const of Sigma
  'block-section-mixed':       'X2**6 + 2*X2**3*Y2**3 - 3*Y2**6',        # another curve in Sigma (v linear in H+Cm, m^3)

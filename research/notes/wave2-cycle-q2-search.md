@@ -88,6 +88,11 @@ sub-family views (`KoszulVarPro.subfamily`).  Second, decisive correction (21:30
 `OPENBLAS_NUM_THREADS=<cpus>` and `w2_search.py` imported numpy before the thread cap), i.e. ~1000 runnable threads for my
 four chains alone (load 1800, 11 % CPU per worker, no finished batch in an hour).  All scripts now force single-threaded
 BLAS before importing numpy (see `/tmp/hodge/notes/engine-bugs.md`), and the chains were resubmitted as A4/B4/D3/E3.
+Third correction (22:45): with ~80 agent sessions the box stays at load ~600 and each of my workers gets ~6 % of a
+core (a 10-restart batch at d = 7 takes 52 minutes of wall time), so chain A was reduced once more (A5: d = 7 with 10
+restarts per sector, skipping the 33 sectors already sampled; d = 8 with 5; d = 9 with 3; 48 workers).  Coverage at
+d >= 7 is therefore a sample (10-15 % hit probability per restart for an isolated zero in the Fermat calibration), not
+an exhaustive search; the per-sector best residuals are still informative about the landscape.
 Final job set:
 
 * chain A3 `search-cycle-q2-chainA3`: kernel d = 6 (40 LM restarts per sector, 72 sectors) -> trivial sector d = 6 (the

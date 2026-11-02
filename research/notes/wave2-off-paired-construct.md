@@ -1,4 +1,4 @@
-STATUS: NO WITNESS, NO NEW SERVING MECHANISM FOUND (2026-11-02 ~03:30 local). Rigorous negatives + one new sufficient criterion + sharpened structure; served-space scan of the structurally motivated denominators running on the remote (job construct-off-paired-served; results appended to part 4 §I when pulled).
+STATUS: NO WITNESS, NO NEW SERVING MECHANISM FOUND (2026-11-02 ~04:00 local). Rigorous negatives (Reid–Tai, no-hub, Galois closure), one new sufficient criterion (descent through a reflection), sharpened structure (Klein cover, Fano elliptic fibrations, rational genus-2 surface, p_g of base changes); served-space scan: 4/7 structurally motivated denominators done, all trivial as predicted (two pass E1); degree-12 ones running in sector (3,0) (jobs construct-off-paired-served, -served30); Mordell–Weil screen: no polynomial section of Y± (3 primes / 1 prime).
 
 # Wave 2 — off-paired — CONSTRUCTION lens (index)
 
@@ -25,8 +25,8 @@ Scripts/outputs: /tmp/hodge/results/off-paired/wave2-construct/ ; log: /tmp/hodg
 13. Galois closure X → X/D6: the det character is served only by rotation quotients, all with p_g = 1. Item (iii) fails; the cubic cover is book §4.7.2.
 14. Deformation/q-raising: no certificate on the chain sub-family to continue; nothing new. Item (iv) fails; (v) N/A.
 15. NEW criterion (part 3 §E): a cover Z → X with deck e and involution sigma such that sigma e sigma lifts a reflection, plus Z/<sigma,R> supported ⇒ target supported; no supported quotient of X needed.
-16. Realisation Z = X ×_W X^phi (W = X/sigma2 Fano) or over P(1,1,1,1,2); automorphism phi's are reducible or give p_g ≥ 1; a birational phi is required; natural candidates: reflections through Mordell–Weil sections of Y_- (not found/tested).
-17. Served-space scan (remote) of the structurally motivated denominators: predicted trivial everywhere; see part 4 §I.
+16. Realisation Z = X ×_W X^phi (W = X/sigma2 Fano) or over P(1,1,1,1,2); automorphism phi's are reducible or give p_g ≥ 1; a birational phi is required; the natural candidates (reflections through Mordell–Weil sections of Y_±) have no polynomial instance: msolve finds no section (m quadric, t cubic) mod three primes (Y_-) / one prime (Y_+) [SCREEN].
+17. Served-space scan (remote): X2^6−2Y2^6, C^2−(X0^2+Y1^2)^4, C^2−(X0Y1+X1Y0)^4 serve only the Jacobian part in all 18 Y-odd sectors (the two vertical ones pass E1) — as predicted; degree-12 candidates pending (part 4 §I). Hodge-bundle table for base changes n ≤ 12 in part 2 §B'.
 18. No finite-field incidence seed: no auxiliary variety with the required support exists yet.
 19. Decisive next steps: Picard number/monodromy of the pencil S̃_kappa (van Luijk at a few kappa); dossier E5; search for birational involutions of W or Y_- (Mordell–Weil).
 20. All exact checks reproducible with the scripts listed in part 4 §H (sympy + Singular, seconds each).
