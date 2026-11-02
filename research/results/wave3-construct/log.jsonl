@@ -12,3 +12,5 @@
 {"ts":"2026-11-02T04:21:54Z","step":"write","part":"5-rewrite","content":"section 4 ranking rewritten: fp2, cycle-q2, off-paired, skew, polarized"}
 {"ts":"2026-11-02T04:26:10Z","step":"write","part":6,"content":"WO-1 four-plus-two"}
 {"ts":"2026-11-02T04:27:40Z","step":"write","part":7,"content":"WO-2 cycle-q2, WO-3 off-paired"}
+{"ts":"2026-11-02T04:28:12Z","step":"write","part":8,"content":"appendix 6.1-6.4; report complete"}
+{"ts":"2026-11-02T04:28:32Z","step":"done","file":"/tmp/hodge/notes/wave3-construction-ranking.md","bytes":86601,"top3":["four-plus-two-residual: core-side support via exact 5-variable reduction (L-A)","cycle-q2: twisted Gauss-Manin decision of [sigma]=0, q=2 witness via adapter (L-A)","off-paired: descent-through-reflection via birational involution of W (L-B)"],"demoted":"one-reflection-skew (base cover general type by Hurwitz count)"}

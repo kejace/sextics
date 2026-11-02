@@ -719,8 +719,8 @@ the lemma of part 3 §E with proof, the no-hub theorem, the Hodge-bundle table),
 `/tmp/hodge/results/off-paired/wave2-construct/` (`c1_identities.py`, Singular files `c2*`, `c4_Skappa.sing`, `c6*`; `run_mw.sh` and
 `mw_sections_eps±1.ms` for the Mordell–Weil systems; `c5_served.py` for served-space scans with `oplib.served_targets`),
 `/tmp/hodge/results/off-paired/wave2-search/oplib.py`, `w2lib.py`. Geometry: `W = {H + Cm + s⁶ − 6s⁴m + 9s²m² − 2m³ = 0} ⊂
-P(1,1,1,1,1,2)` (`s = X2 + Y2` weight 1, `m = X2Y2` weight 2; smooth: the ambient singular point `[0:…:0:1]` is not on `W` since the
-`m³`-coefficient is `−2`; `−K_W = O(1)`), `Y_∓ = {t² = ±2m³ − Cm − H} ⊂ P(1,1,1,1,2,3)` (Fano Weierstrass fibrations over `P³_x`,
+P(1,1,1,1,1,2)` (`s = X2 + Y2` weight 1, `m = X2Y2` weight 2; the ambient singular point `[0:…:0:1]` is not on `W` since the
+`m³`-coefficient is `−2`, so `W` is smooth iff quasi-smooth — check with Singular (minutes) before Step 2; `−K_W = O(1)`), `Y_∓ = {t² = ±2m³ − Cm − H} ⊂ P(1,1,1,1,2,3)` (Fano Weierstrass fibrations over `P³_x`,
 `j` a function of `κ = C³/H²`), `W → Y_−` of degree 3 (`t = i·s(s² − 3m)`), fibres of `W → P³_x` genus 4 (`Aut = {1, s ↦ −s}`
 generically).
 
@@ -758,3 +758,49 @@ correction, integration, trace; Lean = `PolynomialCurves.square_system_generic_l
 Jacobian and the source identity verified (then a holdout-style PR is in reach), or (ii) a proof that `rank MW(Y_∓) = 0`
 and `Bir(W) = Aut(W)` (post to thread #57: the descent-through-reflection lemma, the Klein-cover structure, the rational
 genus-2 surface, the `p_g` table of base changes, and the closure of the realisation).
+
+## 6. Appendix
+
+### 6.1 What this synthesis adds to the record (new, verifiable)
+
+1. **one-reflection-skew, E4 closed (sympy exact, `/tmp/hodge/results/wave3-construct/skew_branch.py`):**
+   `disc_β(R) = −6912·a⁴·δ²`, `N_{B/K}(M) = Res_β(R, b − 3aβ) = −9·a²·(3ac − b²)²`, total degrees in `(r,w,t)`:
+   `a: 6, b: 5, c: 4, d: 6, 3ac − b²: 10, δ = disc_U(P): 24`. Hence the branch locus of the quartic cover is `{δ = 0} ∪ {a = 0}`,
+   of the `√M` twist `{3ac − b² = 0} ∪ {a = 0}`, of `a^{1/3}` `{a = 0}`, and any Galois cover `B'' → P³` trivialising the CM local
+   system has `K_{B''} ≥ π^*O(17)`: general type. The covering-curve route on `B̄''` is closed; fqlx's companion route can only
+   survive on a smaller carrier.
+2. **Mechanism map across all 16 lanes** (§3) with every exclusion tied to a receipt, and the honest statement that the
+   book recipe fails at *dominance* everywhere except polarized-k3's `W_{23,f}` (verified seed) and, conditionally,
+   off-paired's `Z/⟨σ,r⟩`.
+3. **The literature status of algebraic Kuga–Satake for degree-2 K3 surfaces** (F8): nothing covers `ρ ≤ 3`,
+   `End_Hdg(T) = Q`; `polarized-k3-remainder`'s K3 part remains an open GHC case.
+4. The `construct-off-paired-mw` job result (no polynomial Mordell–Weil section of `Y_∓` for either sign at the further primes)
+   is now recorded (§3.8) — the fibrewise-translation realisation of the descent lemma has no polynomial instance.
+
+### 6.2 Pending jobs that would refine this ranking (collect with `rjob pull --lane <lane>`)
+
+| job | lane | what it decides | effect on ranking |
+|---|---|---|---|
+| `construct-dp-j1j2` (RUNNING), `construct-dp-fibre` (resubmit `w2c_fibre.sh`) | diagonal-permutation | hidden/created second reflection on `P⁵` / `(01)`-pencil fibres | positive ⇒ §4.6 descent, jumps to #1 |
+| `construct-rcr-all` (RUNNING) | reflection-coupled-residual | non-coordinate fibre reflections (Exp B), `gm_rank` (E = V₁₁?), Fermat-pencil continuation, critical points | positive Exp B ⇒ jumps to #1; `rank < 186` ⇒ a level-one sub-variation exists (revives Abel–Jacobi supports) |
+| `construct-off-paired-served30` (RUNNING) | off-paired | degree-12 vertical/mirror denominators in sector (3,0) | nontrivial served class ⇒ reopens type-V1 supports |
+| `construct-epc-fanoplanes` (never ran) | eight-plane | Fano scheme of planes = 8 planes ⇒ `Aut(X) = ⟨τ⟩` unconditional | none (closure only) |
+| `construct-spp-vert`, `construct-spp-k7var` (never ran; `w2c_pending_jobs.sh`) | short-power | E1 of vertical families d = 7..10; generic degree-7 kernel | survivor ⇒ one fixed-`D` solve |
+| `construct-ctr-ztsmooth` (never ran) | cyclic-triple | smoothness of `Z̃`, `Y`, `B` for the klt/BDPP step | none (rigor only) |
+| `construct-kcc-sigmaXQ` (char-0 rerun) | klein | `Σ` on `X` over `Q̄` (currently mod p) | none (rigor only) |
+| `construct-V3`, `construct-dense-rational-cones`, `-univ12` | dense-rational | linear reflections coordinate-free; cone E1 k = 9..12; `R'` E1 | none (closure only) |
+| `construct-polarized-k3-remainder-w23seed` | polarized-k3 | extra `F_5` and random `F_11/F_13` seeds for `W_{23,f}` | strengthens the Part B deliverable |
+
+### 6.3 Probability bookkeeping (for the aggregator)
+
+Sum over lanes of P(solve) by the best route ≈ 0.30 for one wave; the three work orders carry ≈ 0.11 of it. No lane has a
+route above 0.04. The dominant failure mode of the programme is structural (F2/F3/F6), not computational; the two routes
+with explicit-witness payoff (WO-1, WO-2) are preferred precisely because they do not need an auxiliary uniruled variety.
+
+### 6.4 Reproduction
+
+* This file: `/tmp/hodge/notes/wave3-construction-ranking.md`; log `/tmp/hodge/results/wave3-construct/log.jsonl`
+  (steps: start, read, read-complete, write parts 1–7, new-result, patch).
+* The one computation of this synthesis: `python3 -I /tmp/hodge/results/wave3-construct/skew_branch.py` (sympy 1.12, < 1 min).
+* Every other number is quoted from the lane reports and receipts named in §3; the referee reports under
+  `/tmp/hodge/posts/<lane>/referee-report.md` give the VERIFIED/PLAUSIBLE status of the exclusion-side claims reused here.
