@@ -3,3 +3,5 @@
 {"seed": 5022, "rel": 0.17739760736362925, "iters": 30, "spurious": false}
 {"seed": 5030, "rel": 0.22544603553636522, "iters": 31, "spurious": false}
 {"seed": 5038, "rel": 0.15243762888838128, "iters": 29, "spurious": false}
+{"seed": 5046, "rel": 0.03253981114596332, "iters": 39, "spurious": false}
+{"seed": 5054, "rel": 0.17739760736368068, "iters": 26, "spurious": false}

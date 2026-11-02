@@ -12,3 +12,7 @@ stage-1 colon family of F0: K=46 dimP=44
   t=0 solution 8 at seed 77
   t=0 solution 9 at seed 80
   t=0 solution 10 at seed 88
+  t=0 solution 11 at seed 92
+  t=0 solution 12 at seed 96
+t=0: found 12 solutions in 97 restarts
+t=0.02: relres after LM over 12 tracked solutions: min 7.540e-04 median 8.676e-04
