@@ -27,8 +27,8 @@ V3 = ∅ would add: no linear reflection (F even in no linear form), closing the
 | 9 | Y | 15 / even | 7752 | 9009 | 7129 | 7129 | 55 | 0 | yes | (local) |
 | 10 | X | 16 / odd | 10152 | 13104 | 9684 | 9684 | 66 | 0 | yes | (local) |
 | 10 | Y | 16 / odd | 10152 | 13104 | 9684 | 9684 | 66 | 0 | yes | (local) |
-| 11, 12 | X, Y | | | | | | | remote job construct-dense-rational-k1012-univ (queued; remote at capacity) | | pending |
+| 11, 12 | X, Y | | | | | | | NOT RUN: three remote submissions refused over 90 min (load 540-650, 349-377 cpus allocated, < 110 GB free); k <= 10 covers the Jacobian-type range and the first non-Jacobian degree | | — |
 (k <= 6: cones are in J_k ∩ C[X]_k = 0 by (J:A)_k = J_k and the plane-sextic Jacobian ring; F60, F06 ∉ J_6 is referee claim 23.)
 
-## 3.3 Universal degree-12 denominators (R' and the products of the pieces)  — remote job construct-dense-rational-univ12
-pending.
+## 3.3 Universal degree-12 denominators (R' and the products of the pieces)
+Remote refused; running locally (wave2_construct_univ.py, two ranks in S_18^- with 16.8k columns, ~2 h, nice 19). Result appended below when done.

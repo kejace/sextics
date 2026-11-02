@@ -157,7 +157,8 @@ def reduce_class(Pser, k):
             for j, v in cser[n].items():
                 if k <= KMAX:
                     key = bidx[(k, j)]
-                    out.setdefault(key, [0] * (K + 1))[n] = (out[key][n] + v) % p
+                    lst = out.setdefault(key, [0] * (K + 1))
+                    lst[n] = (lst[n] + v) % p
                 else:
                     raise RuntimeError('normal form at pole order > KMAX')
         if k == 1:

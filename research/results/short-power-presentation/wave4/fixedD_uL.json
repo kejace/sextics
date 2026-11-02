@@ -1,0 +1,1 @@
+{"consistent": false, "rank": 4021, "nullity": 476, "rows": 26532, "cols": 4497, "d": 7, "solver": "sparse", "sparse_stats": "{'status_sparse': 1, 'npiv_sparse': 3706, 'active_rows': 22766, 'active_cols': 400, 'active_nnz': 8435585, 'fill_events': 50464781, 't_sparse': 890.92, 't_dense': 17.62, 't_total': 908.55}"}

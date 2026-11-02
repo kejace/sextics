@@ -2,3 +2,7 @@
 tag uM deg D 7 parity 1 terms 360 engine 3
 E1(p3) True F|D False
 [system] d=7 q=1 rows=26532 cols=4497 (N 3861, Q 636) nnz=14817009 built in 58.8s
+[sparse] 26532x4498 nnz=14822055: status=1 pivots=3715 active 22797x400 nnz=8553158 fill=52320115 (915.5s)
+[dense_finish] 22797x401 -> k=22797 compressed=False rank=306 consistent=False (compress 0.3s, rref 10.0s)
+[sparse p=2147483647] consistent=False rank=4021 nullity=476 (sparse 915.53s, dense 15.62s, total 931.15s)
+DONE {"what": "fixedD-u*w", "tag": "uM", "w": "M", "d": 7, "parD": 1, "prime": null, "engine": 3, "consistent": false, "rank": 4021, "nullity": 476, "rows": 26532, "cols": 4497, "solver": "sparse", "exact": false, "seconds": 1015.1, "file": "fixedD_uM.json", "result": "inconsistent"}

@@ -1,2 +1,7 @@
 fibre mu 7/3 p 2147483647 minors 55
 p {"plain": "empty", "seconds": 0.1, "u_tests": {"q": ["empty", 0.3], "a": ["empty", 0.2], "b": ["empty", 0.2], "t": ["empty", 0.1]}, "only_coordinate_point": true}
+q {"plain": "empty", "seconds": 0.1, "u_tests": {"p": ["empty", 0.3], "a": ["empty", 0.2], "b": ["empty", 0.2], "t": ["empty", 0.1]}, "only_coordinate_point": true}
+a {"plain": "unknown", "seconds": 1.5, "u_tests": {"p": ["empty", 0.2], "q": ["empty", 0.2], "b": ["empty", 0.3], "t": ["empty", 0.1]}, "only_coordinate_point": true}
+b {"plain": "unknown", "seconds": 2.0, "u_tests": {"p": ["empty", 0.2], "q": ["empty", 0.5], "a": ["empty", 0.3], "t": ["empty", 0.1]}, "only_coordinate_point": true}
+t {"plain": "empty", "seconds": 0.1, "u_tests": {"p": ["empty", 0.1], "q": ["empty", 0.1], "a": ["empty", 0.1], "b": ["empty", 0.1]}, "only_coordinate_point": true}
+ALL CHARTS: rank-1 locus = coordinate points only: False

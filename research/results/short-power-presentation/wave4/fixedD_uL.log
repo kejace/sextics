@@ -2,3 +2,7 @@
 tag uL deg D 7 parity 0 terms 312 engine 3
 E1(p3) True F|D False
 [system] d=7 q=1 rows=26532 cols=4497 (N 3861, Q 636) nnz=14309673 built in 57.4s
+[sparse] 26532x4498 nnz=14313849: status=1 pivots=3706 active 22766x400 nnz=8435585 fill=50464781 (890.9s)
+[dense_finish] 22766x401 -> k=22766 compressed=False rank=315 consistent=False (compress 0.2s, rref 10.5s)
+[sparse p=2147483647] consistent=False rank=4021 nullity=476 (sparse 890.92s, dense 17.62s, total 908.55s)
+DONE {"what": "fixedD-u*w", "tag": "uL", "w": "L", "d": 7, "parD": 0, "prime": null, "engine": 3, "consistent": false, "rank": 4021, "nullity": 476, "rows": 26532, "cols": 4497, "solver": "sparse", "exact": false, "seconds": 990.6, "file": "fixedD_uL.json", "result": "inconsistent"}

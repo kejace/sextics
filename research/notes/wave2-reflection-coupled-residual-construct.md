@@ -17,7 +17,7 @@ Conventions as in the dossier (`/tmp/hodge/notes/dossier-reflection-coupled-resi
 
 | # | mechanism (task item) | hypothesis needed | status for this `(F, A)` |
 |---|---|---|---|
-| M1 | §4.6 deck+exchange cover, `g = r`, `X/g = W` Fano | a cover `Z → X` with an involution `σ` **not** lifting an automorphism of `X`; coordinate pencils: fibre separately even in two *new* linear forms | **fails for all 6 coordinate pencils** (proved by inspection of the fibre equations, §2.1); non-coordinate fibre reflections: search queued (job `construct-rcr-all`, Exp B) |
+| M1 | §4.6 deck+exchange cover, `g = r`, `X/g = W` Fano | a cover `Z → X` with an involution `σ` **not** lifting an automorphism of `X`; coordinate pencils: fibre separately even in two *new* linear forms | **fails for all 6 coordinate pencils** (proved by inspection of the fibre equations, §2.1); non-coordinate fibre reflections: search running in lean form (job `construct-rcr-all2`, Exp B; the full 3-chart system was too slow on the loaded box) |
 | M2 | Galois closure of `X → P⁴_x` (item iii) | an intermediate quotient `Z̃/K` that is uniruled and has `(V ⊗ sgn_ρ)^K ≠ 0` | **fails**: Galois group is the full hyperoctahedral `B₃ × Z/2` [computed]; the target lives in the reflection representation `V ⊗ sgn_ρ`; the three maximal `K` reaching it give `X/τ` (κ = 0), a `(4,6)`-CI in `P(1⁶,2)` mod an involution with ≥ 9 invariant canonical forms, a degree-8 hypersurface in `P⁵` mod an involution with ≥ 9 invariant canonical forms; none uniruled (§2.2) |
 | M3 | Fano / surface-fibration companions of Klein quotients (item ii) | uniruled quotient, or fibration over a surface with `p_g = q = 0` fibres | **fails**: only `W = X/r` and `X/⟨r,ρ⟩` are Fano (target not invariant); `X/ρ`, `X/τ` have `K ≡ 0`; the natural surface fibrations of `X/τ` over `P²_Y`, `P²_X` have fibres of weighted degree 6 in `P(1,1,1,2)` with `p_g = 3` (§2.3) |
 | M4 | q-raising / Gauss–Manin from the companion (item iv) | a *family* `F + tC` on which the companion's certificate deforms, with `C` `r`-odd (to flip the character) | **fails**: `C` `r`-odd leaves the one-reflection locus, where nothing is supported; `C` `r`-even preserves the character (§2.4) |
@@ -217,8 +217,11 @@ the loophole `E^⊥ ≠ 0`.)
 * **C (job `construct-rcr-all`, done for base X)**: formal continuation of the strict Fermat certificate
   `D₀ = X0⁶+X1⁶+X2⁶`, `N₀ = A·X_i/6` along `F_c`, degree 6, Klein `(+,+)` sector, orders 1–5 mod `2³¹−1`
   (also the `Y`-block base `D₀ = Y0⁶+Y1⁶+Y2⁶`).
-* **G (same job, after B)**: `gm_rank.py` — Griffiths–Dwork over `F_p[ε]/ε^71`, `p = 2²⁶ − 5`, rank of the `∇`-span of the
-  `(3,0)`-forms in `V₁₁` (predicted 186 by §4; any smaller value would exhibit a sub-variation unseen by the nodal fibres).
+* **G (job `construct-rcr-gm2`, running)**: `gm_rank.py` — Griffiths–Dwork over `F_p[ε]/ε^71`, `p = 2²⁶ − 5`, rank of the
+  `∇`-span of the `(3,0)`-forms in `V₁₁` (186 would close the `E^⊥` loophole of §4). Setup verified at this second
+  prime and a second random `λ₀`: `dim R_d^{even,even} = 3, 90, 90, 3, 0` in degrees `1, 7, 13, 19, 25` (the degree-25
+  Jacobian decomposition, a `6825 × 14718` system, took 29 min on the loaded box); a first run crashed in the reduction
+  bookkeeping and was resubmitted.
 * **F**: `critpts.py` — the 3750 critical points of `Y0/Y1` on `X`: msolve segfaults on the degree-3750 system (rc −11 after 52 s, also with a 120 GB cap); replaced by the Singular script `critpts3.sing` (job `construct-rcr-critpts3`): `vdim` of the critical scheme in a random chart, of its `Y2 = 0` part, and the local multiplicities `m`, `m'` at the Klein-fixed point (local ring, `ds` ordering) — exactly the unknowns of the bookkeeping in §4.
 
 ## 6b. Cross-references to the sibling lenses (same lane, same session)

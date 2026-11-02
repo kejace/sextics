@@ -17,3 +17,4 @@ DONE vert 14 1 fam 18 kernel 11 11 J-part 11 interesting 0 0 hilbert True True F
 DONE vert 15 0 fam 24 kernel 16 16 J-part 16 interesting 0 0 hilbert True True Fdiv [] 192s
 DONE vert 15 1 fam 24 kernel 16 16 J-part 16 interesting 0 0 hilbert True True Fdiv [] 168s
 DONE vert 16 0 fam 30 kernel 21 21 J-part 21 interesting 0 0 hilbert True True Fdiv [] 225s
+DONE vert 16 1 fam 24 kernel 16 16 J-part 16 interesting 0 0 hilbert True True Fdiv [] 224s

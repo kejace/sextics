@@ -49,11 +49,13 @@ def rank_of(polys):
         for e, cf in poly.items(): M[r, cidx[e]] = cf
     return M.rank()
 rJ = rank_of(rows); t1 = time.time()
-rR = rank_of(rows + extra[:1]); t2 = time.time()
-rAll = rank_of(rows + extra[1:]); t3 = time.time()
+rAllX = rank_of(rows + extra); t2 = time.time()   # J + A*D_R' + A*(10 products)
+rR = rank_of(rows + extra[:1]) if rAllX - rJ < len(extra) else rJ + 1   # only needed when some combination passes
+t3 = time.time()
+rAll = rAllX if rAllX - rJ == len(extra) else rank_of(rows + extra[1:])
 res = {'exp': 'universal-deg12-E1-test', 'prime': p, 'm': m, 'parity': par, 'cols': len(cols), 'gens_J': nJ, 'rank_J': rJ,
        'cap_J': cap, 'cap_attained': rJ == cap, 'rank_with_A_DRprime': rR, 'DRprime_E1': (rR == rJ),
-       'n_products': len(prods), 'rank_with_A_products': rAll, 'dim_E1_admissible_products': len(prods) - (rAll - rJ),
+       'n_products': len(prods), 'rank_with_A_products': rAll, 'dim_E1_admissible_products': len(prods) - (rAll - rJ), 'rank_with_all_11': rAllX, 'dim_E1_admissible_all_11': len(extra) - (rAllX - rJ),
        'DRprime_formula': '(c+d)^2 + 4 a d, a=F60 b=F42 c=F24 d=F06', 'seconds': [round(t1-t0,1), round(t2-t1,1), round(t3-t2,1)],
        'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
 print(json.dumps(res), flush=True)
