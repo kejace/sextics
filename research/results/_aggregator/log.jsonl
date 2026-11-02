@@ -28,3 +28,14 @@
 {"ts":"2026-11-02T01:12:23Z","step":"timefix","note":"corrected mislabeled UTC version times in wave2-status.md, hessrelax6 note and engine-bugs.md (true times from log.jsonl)"}
 {"ts":"2026-11-02T01:15:15Z","step":"hessrelax6-klein","note":"klein mixed d6 relaxation NOT m-primary (c3_3,c4_4 free) = lens curve C in weighted-Euler family; agrees structurally; lens closes it by exact Koszul duals"}
 {"ts":"2026-11-02T01:16:28Z","step":"hessrelax6-f","note":"cyclic-triple mixed d6 m-primary (agrees); one-reflection NOT m-primary (c4_4 free) consistent with lens 5 diagonal survivors; short-power output empty - investigating"}
+{"ts":"2026-11-02T01:26:30Z","step":"hessrelax6-g","note":"controls: symmetric, quadric-contact, reflection-coupled m-primary (agree); polarized-k3 NOT m-primary (c5_2 free) - plain relaxation weaker than the thread L-relaxation, consistent; short-power v2 running"}
+{"ts":"2026-11-02T01:26:32Z","step":"status-v7","note":"v7: hessrelax6 all 12 lanes summarized (9 m-primary, 3 not: klein/ors/pk3 consistent with lens second stages); lens news folded (4+2 eigenvector d6, klein d7 sectors, rcr construct ledger + R6/R8, cycle-q2 semi-invariant d6, off-paired 3922 scan, dense verify refutations, theory-deformation)"}
+{"ts":"2026-11-02T01:27:57Z","step":"status-v7.1","note":"R8 smoothness confirmed (vdim 3125 x6); diag construct geometric d6 divisors; 4+2 excl; qcp excl status; log 318/160/0"}
+{"ts":"2026-11-02T01:28:49Z","step":"hessrelax6-spp","note":"short-power mixed d6 relaxation m-primary (7109 leading monomials) => deg D >= 7 arbitrary D (with the eight-forms degree-5 argument); 10 of 12 applicable lanes m-primary"}
+{"ts":"2026-11-02T01:30:17Z","step":"status-v7.3","note":"quadric-contact items 9-13 folded (served-space structured-support theorem, d9 sector structure); NZD spot-check logged; waiting for lens changes"}
+{"ts":"2026-11-02T01:31:47Z","step":"timefix-2","note":"corrected v7/v7.2 and hessrelax6 note timestamps to the log clock"}
+{"ts":"2026-11-02T01:32:46Z","step":"status-v7.4","note":"small folds: short-power K8 structure, klein d10 odd, qcp search certificates; waiting on lens changes (remote 71 jobs, batch 2 stalled)"}
+{"ts":"2026-11-02T01:38:54Z","step":"spot-checks-x1-qcr9","note":"diag construct X1 kernels and quadric-contact item-9 served spaces recomputed locally"}
+{"ts":"2026-11-02T01:39:13Z","step":"status-v7.5","note":"X1 and item-9 confirmations folded; log 322/163/0"}
+{"ts":"2026-11-02T01:40:21Z","step":"status-v7.6","note":"added §6 next-wave agenda per lane; diagonal construct 13 divisors"}
+{"ts":"2026-11-02T01:41:01Z","step":"draft-audit","note":"draft-post audit added to §3 (symmetric (1,10,1) error; eight-plane WLOG; placeholders)"}

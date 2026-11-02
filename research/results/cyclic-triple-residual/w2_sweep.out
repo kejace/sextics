@@ -70,3 +70,4 @@ d= 9 e1=False cons=False rank=None/None 566.9s pieces-9               Z'^3
 d= 9 e1=False cons=False rank=None/None 584.6s pieces-9               C^2*Z'  
 d= 9 e1=False cons=False rank=None/None 582.0s pieces-9               C*Z'^2  
 d=10 e1=True cons=False rank=1738/1739 3468.4s polar-products         F_X2*F_X2  
+d=10 e1=True cons=False rank=2587/2588 4027.7s polar-products         F_X0*F_Y0  

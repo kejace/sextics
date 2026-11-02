@@ -1,5 +1,12 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
-LOG {"exp": "kernel-exact-D7", "d": 7, "parD": 0, "prime": [1073741789, 1073741783, 1073741741, 1073741723, 1073741719, 1073741717], "result": "exact: A*D7 in J(F) LOG {"exp": "kernel-exact-D7", "d": 7, "parD": 0, "prime": [1073741789, 1073741783], "result": "exact: A*D7 in J(F) over Q (certificate N7 verified with Fractions)", "rank": 3441, "seconds": 425.2, "job": "exclB-spp-kernel", "note": "dim_Q K_7/J = 1 exactly (modular bound 1 with 3 good primes + exact element); D7^+ depends on Y only through M=Y0+3Y1+5Y2: True; D7 has 168 terms", "ts": "2026-11-02T01:36:16", "lens": "excl"}
-exact D7 parity 0 done 425 s
-  parity 1: kernel basis mod 1073741789 done (513s)
-  parity 1: kernel basis mod 1073741783 done (604s)
+LOG {"exp": "kernel-exact-D7", "d": 7, "parD": 0, "prime": [1073741789, 1073741783, 1073741741, 1073741723, 1073741719, 1073741717], "result": "exact: A*D7 in J(F) LOG {"exp": "kernel-exact-D7", "d": 7, "parD": 0, "prime": [1073741789, 1073741783], "result": "exact: A*D7 in J(F) over Q (certificate N7 verified with Fractions)", "rank": 3441, "seconds": 425.2, "job": "exclB-spp-kernel", "note": "dim_Q K_7/J = 1 exactly (modular bound 1 with 3 good primes + exact element); D7^+ depends on Y only throuTraceback (most recent call last):
+  File "/tmp/hodge/results/short-power-presentation/excl_kernel.py", line 45, in <module>
+    print(f'  parity {par}: lift with {len(reps)} primes verified mod {pchk}: {same}', flush=True)
+^^^^^^^^^^^^^
+AssertionError: ('exact membership failed', {'inconsistent_mod': 2147483647, 'rank': 3441, 'rank_aug': 3442, 'consistent': False, 'cols': 3861, 'rows': 4284})
+ lift with 4 primes verified mod 2147483647: True
+Traceback (most recent call last):
+  File "/tmp/hodge/results/short-power-presentation/excl_kernel.py", line 53, in <module>
+    assert N7 is not None, ('exact membership failed', minfo)
+           ^^^^^^^^^^^^^^
+AssertionError: ('exact membership failed', {'lift_failed': True})

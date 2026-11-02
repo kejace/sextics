@@ -24,3 +24,12 @@
 [op5 one-reflection-skew] d=7 sector=(0,0) rows=2640 cols=615 nD=90 nnz=434591 build 0.5s
 [op5 one-reflection-skew] d=7 sector=(0,0) rows=2640 cols=615 nD=90 nnz=434591 build 0.4s
 [op5 one-reflection-skew] d=7 sector=(0,0) rows=2640 cols=615 nD=90 nnz=434591 build 0.3s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.6s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.6s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.6s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.6s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.6s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.6s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.7s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.7s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.7s

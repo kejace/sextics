@@ -55,7 +55,7 @@ Hessian-relaxation tensors + LM search, msolve export, sector-restricted VarPro,
 (dim R_{10}: 460/426/318/302; dim R_{11}: 505/480/363/338; dim R_12^{(0,1)} = 492, consistent with the dossier.)
 | 7 | 45 = J (R_7 = 213) | 40 = J (R_7 = 198) | 23 = J (R_7 = 135) | 18 = J (R_7 = 120) | 0 — **E1 forces D ∈ J_7 in every sector** |
 | 8 | 113 = J(112) + 1 (K8), R_8 = 301 | 104 = J (R_8 = 274) | 64 = J (R_8 = 194) | 56 = J (R_8 = 182) | **1 in all sectors: K8** (sector 00) |
-| 9 | 263 = J(242) + **21** (R_9 = 381 → R_15 = 360: exactly the forced minimum) | (running) | (running) | (running) | 21 Y-even classes in sector 00 so far (dense, 361 terms each) |
+| 9 | 263 = J(242) + **21** (R_9 = 381 → R_15 = 360: exactly the forced minimum) | 228 = J (R_9 = 360) | 171 = J(150) + **21** (R_9 = 263) | 136 = J (R_9 = 242) | **42**: 21 in sector 00 (Y-even) + 21 in sector 10 (Y-odd); both exactly the forced minimum dim R_9 − dim R_15; dense representatives (361 terms) |
 d = 10..12: remote job `search-rcr-e1hi` (queued; remote at capacity).
 
 ### R2. Hessian relaxation at d = 5, 6 — EXACT (msolve, mod p, random affine chart), spurious directions killed
@@ -90,6 +90,14 @@ queued in `search-rcr-relaxlo`.
 K = 113, search dim 103, Koszul unknowns n_a = 538, quotient rows 4808 (+ compression to 598): first restarts give
 rel ≈ 0.08–0.12 (f ≈ 0.01) after 400 L-BFGS iterations, no descent towards zero; one evaluation ≈ 0.3 s on the loaded
 local box. Hundreds of restarts queued remotely (`job_kvp_lo.sh`, 8 seeds × 80 restarts).
+
+### R2d. Full E2 (Koszul varpro, L-BFGS, sparse metric) over the degree-8 Jacobian families in the other sectors — local batch C
+| sector | family | K | search dim | n_a | restarts | best rel | median rel |
+|---|---|---|---|---|---|---|---|
+| 01 | J | 104 | 98 | 522 | 3 | 0.158 | 0.189 |
+| 10 | J | 64 | 61 | 414 | 3 | 0.228 | 0.250 |
+| 11 | J | 56 | 54 | 416 | 3 | 0.338 | 0.439 |
+(00 JK with L-BFGS: running; no sector shows any descent below 0.1)
 
 ### R3. K8 (unique non-Jacobian degree-8 Y-even E1 class, Klein-invariant): full fixed-D test — remote job `search-rcr-k8full`
 E1 confirmed (rank 5052 = rank_aug). Sector-restricted compressed system 22016 × 4256 (of 7497 unrestricted): **inconsistent** (rank 3781, nullity 475, 36 s).

@@ -1,3 +1,5 @@
 [20:15:31] START timeout 1800 python3 hess_pipeline.py 6 3 --sparse --tag hpipe_d6
 [20:22:16] END rc=0 timeout 1800 python3 hess_pipeline.py 6 3 --sparse --tag hpipe_d6
 [20:22:16] START timeout 3600 python3 k7exact.py 7
+[20:39:04] END rc=0 timeout 3600 python3 k7exact.py 7
+[20:39:04] START timeout 10800 python3 hess_pipeline.py 7 3 --sparse --nonj nonj_d7.json --tag hpipe_d7

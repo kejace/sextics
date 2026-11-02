@@ -173,21 +173,29 @@ L-BFGS ≈ 5–10 % (final numbers in the table).
 | jac-d6-r1s0 | one-reflection-skew | 6 | (1,0) | jacobian | A | 6 | ?×? | both | 160 | 2.93e-01 | 3.85e-01 | 0 / 0 / 0 | 191.7 s |
 | jac-d6-r1s1 | one-reflection-skew | 6 | (1,1) | jacobian | A | 6 | ?×? | both | 160 | 3.09e-01 | 3.17e-01 | 0 / 0 / 0 | 212.8 s |
 | cone-X0X1Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X0,X1,Y0,Y1 | A | 6 | ?×? | lm | 120 | 1.04e-01 | 1.49e-01 | 0 / 0 / 0 | 667.6 s |
-| cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 80 (running) | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 816.0 s |
-| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 96 (running) | 2.99e-13 | 2.28e-02 | 4 / 7 / 1 | 1510.2 s |
+| cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 120 | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 1400.9 s |
+| cone-X0X1X2-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2 | A | 1 | 3718×890 | lm | 120 | 6.14e-01 | 6.14e-01 | 0 / 0 / 0 | 154.5 s |
+| cone-X0Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,Y0,Y1 | A | 1 | 3718×890 | lm | 120 | 5.96e-01 | 5.96e-01 | 0 / 0 / 0 | 169.9 s |
+| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 192 (running) | 2.99e-13 | 2.25e-02 | 6 / 15 / 3 | 2426.6 s |
 | cone-X0X1X2-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,Y0 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X1Y0-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X2Y0-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X2Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X1X2Y0-d8 | one-reflection-skew | 8 | (0,0) | cone:X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X1Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X1,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X1Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X1,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X2Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 
-Total restarts on the skew lane so far: 1720.
+Total restarts on the skew lane so far: 2000.
 <!-- /AUTO-SEARCH -->
 
 Kernel families (task 3) at d = 7 … 12 and the half-target/cone/structured runs: queued in the chains; the
@@ -217,7 +225,9 @@ the exclusion lane.
   the non-empty cones are again `C[X0,X1,Y0,Y1]` (`K = 6`, 9 distinct minima, lowest 0.104 reached 23/120)
   and `C[X1,X2,Y0,Y1]` (`K = 4`, lowest 0.445 reached 63/67) — both landscapes fully covered, no zero. The
   3-variable cones (vertex a line) are empty up to d = 7: no cone over a plane curve is E1-admissible there.
-  Higher degrees pending.
+  At d = 8 the first admissible 3-variable cone appears: `C[X0,X1,X2] ∩ kernel` is 1-dimensional (a single cone
+  over a plane octic with vertex the line {X = 0}); its fixed-D residual is 0.614 — far from a solution.
+  Remaining degrees 8–12 pending.
 ### Structured fixed-D summary (auto-generated)
 
 <!-- AUTO-STRUCT -->

@@ -119,3 +119,11 @@
 {"exp": "core-kernel-dim", "d": 14, "parity": 0, "prime": 2147483647, "n_mons": 344, "dim_full": 344, "dim_J": 338, "dim_modJ": 6, "seconds": 38.55, "job": "excl-kernels", "ts": "2026-11-02T01:38:43"}
 {"exp": "core-kernel-dim", "d": 14, "parity": 0, "prime": 1000000007, "n_mons": 344, "dim_full": 344, "dim_J": 338, "dim_modJ": 6, "seconds": 36.59, "job": "excl-kernels", "ts": "2026-11-02T01:39:19"}
 {"exp": "core-kernel-dim", "d": 14, "parity": 0, "prime": 998244353, "n_mons": 344, "dim_full": 344, "dim_J": 338, "dim_modJ": 6, "seconds": 37.42, "job": "excl-kernels", "ts": "2026-11-02T01:39:57"}
+{"exp": "core-kernel-dim", "d": 14, "parity": 1, "prime": 2147483647, "n_mons": 336, "dim_full": 336, "dim_J": 332, "dim_modJ": 4, "seconds": 42.68, "job": "excl-kernels", "ts": "2026-11-02T01:40:39"}
+{"exp": "core-kernel-dim", "d": 14, "parity": 1, "prime": 1000000007, "n_mons": 336, "dim_full": 336, "dim_J": 332, "dim_modJ": 4, "seconds": 34.86, "job": "excl-kernels", "ts": "2026-11-02T01:41:14"}
+{"exp": "core-kernel-dim", "d": 14, "parity": 1, "prime": 998244353, "n_mons": 336, "dim_full": 336, "dim_J": 332, "dim_modJ": 4, "seconds": 34.96, "job": "excl-kernels", "ts": "2026-11-02T01:41:49"}
+{"exp": "core-kernel-dim", "d": 15, "parity": 0, "prime": 2147483647, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 78.8, "job": "excl-kernels", "ts": "2026-11-02T01:43:08"}
+{"exp": "core-kernel-dim", "d": 15, "parity": 0, "prime": 1000000007, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 70.68, "job": "excl-kernels", "ts": "2026-11-02T01:44:19"}
+{"exp": "core-kernel-dim", "d": 15, "parity": 0, "prime": 998244353, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 89.36, "job": "excl-kernels", "ts": "2026-11-02T01:45:48"}
+{"exp": "core-kernel-dim", "d": 15, "parity": 1, "prime": 2147483647, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 119.14, "job": "excl-kernels", "ts": "2026-11-02T01:47:47"}
+{"exp": "core-kernel-dim", "d": 15, "parity": 1, "prime": 1000000007, "n_mons": 408, "dim_full": 408, "dim_J": 406, "dim_modJ": 2, "seconds": 101.97, "job": "excl-kernels", "ts": "2026-11-02T01:49:29"}

@@ -35,6 +35,9 @@ ap.add_argument('--confirm-rel', type=float, default=1e-8)
 ap.add_argument('--batch-note', default='')
 ap.add_argument('--report-every', type=int, default=25)
 ap.add_argument('--instance', default=None, help='override instance id (validation runs)')
+ap.add_argument('--method', default='lm', choices=['lm', 'lbfgs'], help='local optimizer: lm = Levenberg-Marquardt with the variable-projection (Kaufman) Jacobian; lbfgs = L-BFGS-B on f')
+ap.add_argument('--lm-iters', type=int, default=60)
+ap.add_argument('--smax', type=float, default=5.0, help='bound on the spurious (F-multiple) component |s| in the chart |u|=1')
 args = ap.parse_args()
 # cooperative skip: a file out/STOP_<tag> makes this invocation exit immediately (used to drop steps from running chains)
 if os.path.exists(f'{OUT}/STOP_{args.tag}'):
@@ -152,6 +155,10 @@ del Mr0
 def unpack(z):
     u = z[:n_u]; s = z[n_u:]
     nu = np.linalg.norm(u)
+    if n_sp:
+        ns = np.linalg.norm(s)
+        if ns > args.smax:
+            s = s * (args.smax / ns); z[n_u:] = s
     a = Pc @ (u / nu) + (Sq @ s if n_sp else 0.0)
     return a, u, nu
 
@@ -182,6 +189,11 @@ def evaluate(a):
     r = Br + Mr @ c
     scale = prob.Bpieces_norm(Dv, Nv)
     return float(np.linalg.norm(r)), float(np.linalg.norm(Br)), float(np.linalg.norm(B)), c, Dv, scale
+
+def scale0_of(u):
+    """cancellation-free scale of the u-part alone (s = 0): immune to inflation by spurious components."""
+    a0 = Pc @ (u / np.linalg.norm(u))
+    return prob.Bpieces_norm(Dbasis.T @ a0, Nbasis.T @ a0)
 
 def spurious_rel(Dv):
     """relative residual of least-squares division of D by F."""
@@ -242,6 +254,67 @@ def reconstruct_and_confirm(Dv, tag):
             out.append(rec)
     return out, False
 
+def residual_and_jacobian(z):
+    """Reduced residual r(z) and its Kaufman Jacobian wrt z = (u, s) (holding the optimal c fixed)."""
+    a, u, nu = unpack(z)
+    uh = u / nu
+    Dv = Dbasis.T @ a; Nv = Nbasis.T @ a
+    B = prob.Bvec(Dv, Nv); M = prob.koszul_matrix(Dv)
+    Br = prob.reduce(B); Mr = prob.reduce(M)
+    c, *_ = sla.lstsq(Mr, -Br, cond=args.cond, lapack_driver='gelsd', check_finite=False)
+    r = Br + Mr @ c
+    Ntot = Nv + prob.Kmap @ c
+    Ja = np.empty((prob.n_red, K))
+    for m in range(K):
+        col = prob.Bvec(Dbasis[m], Ntot) + prob.Bvec(Dv, Nbasis[m])
+        Ja[:, m] = prob.reduce(col)
+    # chain rule: da/du = Pc (I - uh uh^T)/nu ; da/ds = Sq
+    Ju = (Ja @ Pc - np.outer(Ja @ (Pc @ uh), uh)) / nu
+    Jz = np.hstack([Ju, Ja @ Sq]) if n_sp else Ju
+    return r, Jz, c
+
+def lm_minimize(z0, iters, verbose=False):
+    z = z0.copy()
+    r, J, c = residual_and_jacobian(z)
+    f = float(r @ r)
+    lam = 1e-3
+    nfev = 1
+    for it in range(iters):
+        JtJ = J.T @ J; g = J.T @ r
+        if np.linalg.norm(g) < 1e-14:
+            break
+        dscale = np.sqrt(np.maximum(np.diag(JtJ), 1e-12))
+        improved = False
+        for _ in range(12):
+            try:
+                step = -np.linalg.solve(JtJ + lam * np.diag(dscale ** 2), g)
+            except np.linalg.LinAlgError:
+                lam *= 10; continue
+            z_new = z + step
+            a_new, u_new, nu_new = unpack(z_new)
+            Dv = Dbasis.T @ a_new; Nv = Nbasis.T @ a_new
+            B = prob.Bvec(Dv, Nv); M = prob.koszul_matrix(Dv)
+            Br = prob.reduce(B); Mr = prob.reduce(M)
+            c_new, *_ = sla.lstsq(Mr, -Br, cond=args.cond, lapack_driver='gelsd', check_finite=False)
+            r_new = Br + Mr @ c_new
+            f_new = float(r_new @ r_new)
+            nfev += 1
+            if f_new < f:
+                # renormalize the u-part to keep the chart well conditioned
+                u_new = z_new[:n_u]; z_new[:n_u] = u_new / np.linalg.norm(u_new)
+                z, f = z_new, f_new
+                lam = max(lam / 3.0, 1e-12)
+                improved = True
+                break
+            lam *= 4.0
+        if not improved:
+            break
+        r, J, c = residual_and_jacobian(z)
+        nfev += 1
+        if f < 1e-28:
+            break
+    return z, f, it + 1, nfev
+
 def run_restarts(worker_id, seeds):
     rng = np.random.default_rng(seeds[0] * 7919 + worker_id)
     recs = []
@@ -255,15 +328,21 @@ def run_restarts(worker_id, seeds):
         u0 = rng.standard_normal(n_u); u0 /= np.linalg.norm(u0)
         z0 = np.concatenate([u0, np.zeros(n_sp)])
         t1 = time.time()
-        res = minimize(value_and_grad, z0, jac=True, method='L-BFGS-B',
-                       options={'maxiter': args.maxiter, 'gtol': 1e-12, 'ftol': 1e-18, 'maxcor': 20})
+        if args.method == 'lm':
+            zf, ff, nit, nfev = lm_minimize(z0, args.lm_iters)
+            class _R: pass
+            res = _R(); res.x = zf; res.fun = ff; res.nit = nit; res.nfev = nfev; res.status = 0
+        else:
+            res = minimize(value_and_grad, z0, jac=True, method='L-BFGS-B',
+                           options={'maxiter': args.maxiter, 'gtol': 1e-12, 'ftol': 1e-18, 'maxcor': 20})
         a, u, nu = unpack(res.x)
         rn, brn, bn, c, Dv, scale = evaluate(a)
-        rel = rn / max(scale, 1e-300)
+        scale0 = scale0_of(u)
+        rel = rn / max(scale0, 1e-300)
         sp_rel = spurious_rel(Dv)
-        rec = {'tag': args.tag, 'd': d, 'pD': pD, 'seed': int(sd), 'f': float(res.fun), 'rel': rel, 'rel_B': rn / max(brn, 1e-300), 'scale': scale,
+        rec = {'tag': args.tag, 'd': d, 'pD': pD, 'seed': int(sd), 'f': float(res.fun), 'rel': rel, 'rel_scaled': rn / max(scale, 1e-300), 'rel_B': rn / max(brn, 1e-300), 'scale': scale, 'scale0': scale0,
                'resnorm': rn, 'Bred_norm': brn, 'iters': int(res.nit), 'nfev': int(res.nfev), 'status': int(res.status),
-               's_norm': float(np.linalg.norm(res.x[n_u:])) if n_sp else 0.0, 'spurious_rel': sp_rel,
+               's_norm': float(np.linalg.norm(res.x[n_u:])) if n_sp else 0.0, 'spurious_rel': sp_rel, 'method': args.method,
                'time': round(time.time() - t1, 1)}
         log_line(path, rec)
         if rel < args.cand_rel:
@@ -292,7 +371,7 @@ if __name__ == '__main__':
     rels = sorted(r['rel'] for r in recs)
     summary = {'batch': 'e2search', 'tag': args.tag, 'family': args.family, 'd': d, 'pD': pD, 'K': K, 'n_spurious': n_sp,
                'n_c': prob.n_c, 'n_C': prob.SC.n, 'rows': prob.Srow.n, 'rows_red': prob.n_red, 'nN': prob.nN,
-               'restarts': len(recs), 'seed0': args.seed, 'maxiter': args.maxiter,
+               'restarts': len(recs), 'seed0': args.seed, 'maxiter': args.maxiter, 'method': args.method,
                'best_rel': rels[0] if rels else None, 'median_rel': rels[len(rels)//2] if rels else None,
                'worst_rel': rels[-1] if rels else None,
                'n_rel_lt_1e-3': sum(1 for r in rels if r < 1e-3), 'n_rel_lt_1e-6': sum(1 for r in rels if r < 1e-6),

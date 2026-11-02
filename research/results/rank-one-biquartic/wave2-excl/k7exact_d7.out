@@ -1,2 +1,12 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 d=7: base-type subspace dim 73
+   exact solve 3441x3441 with 73 rhs: 738s
+J_13^- rank 3441 of 3861 gens, rows 4284; Phi built (998s)
+W = ker Phi: dim 27 (Phi rank 46); 999s
+   exact solve 63x63 with 73 rhs: 0s
+dim W/(W cap J_7) = 3 (W dim 27); 999s
+chosen generators (independent of J and known): [8, 9, 10]
+  generator W[8]: E1 exact verified=True; terms 64; height digits 22
+  generator W[9]: E1 exact verified=True; terms 64; height digits 24
+  generator W[10]: E1 exact verified=True; terms 64; height digits 24
+wrote /tmp/hodge/results/rank-one-biquartic/wave2-excl/nonj_d7.json 3 generators; 1006 s

@@ -24,5 +24,17 @@
   "good_reduction": true,
   "exact_u8": false,
   "seconds": 389.6
+ },
+ "reducedE2_p1000000007": {
+  "consistent": false,
+  "rank": 2286,
+  "rank_aug": 2287,
+  "nullity": 159,
+  "rows": 10152,
+  "cols": 2445,
+  "k": 2486,
+  "p": 1000000007,
+  "seconds": 905.2,
+  "full_nullity": 159
  }
 }

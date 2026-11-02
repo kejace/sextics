@@ -1,0 +1,31 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+1000/15180 done [16s]
+2000/15180 done [20s]
+3000/15180 done [24s]
+4000/15180 done [27s]
+5000/15180 done [31s]
+6000/15180 done [34s]
+7000/15180 done [38s]
+8000/15180 done [41s]
+9000/15180 done [45s]
+10000/15180 done [48s]
+11000/15180 done [52s]
+12000/15180 done [55s]
+13000/15180 done [59s]
+14000/15180 done [62s]
+15000/15180 done [66s]
+15180/15180 done [66s]
+{
+ "prime": 1000000007,
+ "size": 3,
+ "n": 15180,
+ "dims": {
+  "3": 990,
+  "0": 14190
+ },
+ "nontrivial_sets_with_nonempty_variety": [],
+ "trivial_containing_sets_with_points_off_V0": [],
+ "n_nontriv_bad": 0,
+ "n_triv_bad": 0,
+ "seconds": 66.1
+}

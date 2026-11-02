@@ -77,6 +77,16 @@ Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (one JSON 
 14. [second method] Singular dim 0 (vdim 209) on the msolve-closed d7_b01b21 system; Singular times out (80 s) on the
     17-unknown Gamma-invariant system where msolve's F4 needs 3 s.
 
+15. [replayed exactly over Q] fqlx's weighted-K3 Gauss-Manin obstruction: with Singular in characteristic 0, weights (1,1,2,2),
+    t = (2,3): Hilbert function of R(F_sub) = 1,2,5,8,12,14,16,14,12,8,5,2,1,0 and A*dF_sub/dt1, A*dF_sub/dt2 are NOT in
+    J_12(F_sub) (the socle pairings are nonzero) — agrees with fqlx §4.  [/tmp/mstest/k3.sing]
+16. [replayed, agrees] dossier's epsilon-sector dimensions (G_aff character of A, s0- and r1-invariant): degree 6: 25/3/22,
+    degree 12: 191/140/51 (S/J/R).  [exp epsilon-sector-dims]
+17. [replayed / corrected] dim (J:A)_10 = 2053 (556 non-Jacobian directions; dim R_16 = 951, i.e. xA: R_10 -> R_16 has corank 1)
+    agrees with the dossier.  The dossier's remark "(J:A)_d = S_d for d >= 13 since R_19 = 0" is wrong as stated: R_19 has
+    dimension 246, and by Gorenstein duality xA: R_13 -> R_19 is dual to xA: R_5 -> R_11, which is injective (item 1), so
+    dim (J:A)_13 = 8568 - 246 = 8322 (checked numerically, exp E1-colon d=13).  Correct statement: (J:A)_d = S_d only for d >= 19.
+
 ## What remains open / recommended next steps
 * Degree 7: the six single-involution subfamilies (running); the fully mixed 120-unknown problem needs a new idea — more
   quadratic consequences of E2 than the 950 mod-J ones (the Koszul image B_D(Kos) + F S_8 has dimension <= 2127 << 7062 = dim J_14,

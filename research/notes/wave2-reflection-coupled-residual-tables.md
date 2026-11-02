@@ -1,4 +1,4 @@
-events: {'coker': 21, 'e1space': 21, 'relax': 3, 'relax-reconstruct': 1, 'confirm': 1, 'msolve-export': 18, 'msolve': 11, 'k8-e1': 1, 'k8-fixedD-symmetric': 1, 'wave2-search-start': 1, 'k8-fixedD-full': 1, 'famrelax': 2, 'msolve-family-export': 2, 'msolve-family': 2, 'kvp': 8}
+events: {'coker': 25, 'e1space': 25, 'relax': 3, 'relax-reconstruct': 1, 'confirm': 1, 'msolve-export': 18, 'msolve': 11, 'k8-e1': 1, 'k8-fixedD-symmetric': 1, 'wave2-search-start': 1, 'k8-fixedD-full': 1, 'famrelax': 2, 'msolve-family-export': 2, 'msolve-family': 2, 'kvp': 11, 'served': 2}
 
 ### E1 spaces (exact mod p)
 | d | sec | dim S | dim J | dim R | E1-admissible | non-J |
@@ -22,6 +22,10 @@ events: {'coker': 21, 'e1space': 21, 'relax': 3, 'relax-reconstruct': 1, 'confir
 | 8 | 01 | 378 | 104 | 274 | 104 | 0 |
 | 8 | 10 | 258 | 64 | 194 | 64 | 0 |
 | 8 | 11 | 238 | 56 | 182 | 56 | 0 |
+| 9 | 00 | 623 | 242 | 381 | 263 | 21 |
+| 9 | 01 | 588 | 228 | 360 | 228 | 0 |
+| 9 | 10 | 413 | 150 | 263 | 171 | 21 |
+| 9 | 11 | 378 | 136 | 242 | 136 | 0 |
 
 ### Hessian relaxation, exact (msolve)
 | d | sectors | family | K | polys | empty |
@@ -57,10 +61,15 @@ events: {'coker': 21, 'e1space': 21, 'relax': 3, 'relax-reconstruct': 1, 'confir
 | 7 | 11 | J | 18 | 18 | 3276 | 178 | 12 | 1.56e+00 | 1.81e+00 | 68.9s |
 | 8 | 00 | JK | 113 | 103 | 5676 | 538 | 1 | 1.07e+00 | 1.07e+00 | 241.9s |
 | 7 | e | J | 63 | 60 | 5796 | 420 | 4 | 9.70e-01 | 1.19e+00 | 210.9s |
+| 7 | o | J | 63 | 60 | 5796 | 420 | 4 | 6.33e-01 | 9.54e-01 | 187.8s |
+| 8 | 01 | J | 104 | 98 | 5676 | 522 | 3 | 1.58e-01 | 1.89e-01 | 239.2s |
+| 8 | 10 | J | 64 | 61 | 5676 | 414 | 3 | 2.28e-01 | 2.50e-01 | 101.9s |
 
 ### Exact confirmations
 - d=6 spurious (F | D) rank=None nullity=None note=relax d=6 secs=00 rel=1.49e-15 D=6*X0**6 + 30*X0**3*X1*Y0*Y1/7 + 30*X0*X1*Y0**3*Y1/7 + 30*X0*X1*Y0**2*Y
 - k8-e1: {"e1": true, "info": {"rank": 5052, "rank_aug": 5052, "rows": 5793, "cols": 6006}, "seconds": 82.5}
 - k8-fixedD-symmetric: {"status": "inconsistent", "seconds": 36.1, "prime": 2147483647, "rank": 3781, "nullity": 475, "rows": 22016, "cols": 4256, "full_cols": 7497, "subgroup_size": 4, "group_size": 4, "d": 8}
 - k8-fixedD-full: {"seconds": 195.3, "consistent": false, "rank": 6703, "nullity": 794, "rows": 40301, "cols": 7497, "d": 8}
+- served: {"tag": "test-d4-X0Y0", "d": 4, "rows": 3646, "cols": 991, "k": 1051, "nullity": 82, "served_raw": 18, "served_modJ": 0, "by_sector": {"00": 0, "01": 0, "10": 0, "11": 0}, "A_served": false, "seconds": 1.6}
+- served: {"tag": "test-d4-Y2cone", "d": 4, "rows": 5278, "cols": 991, "k": 1051, "nullity": 79, "served_raw": 18, "served_modJ": 0, "by_sector": {"00": 0, "01": 0, "10": 0, "11": 0}, "A_served": false, "seconds": 1.9}
 - relax-reconstruct: {"d": 6, "rel": 1.4934890565976107e-15, "exact_relaxation": true, "g": {"0:(1, 0, 0, 0, 0, 0)": "1", "1:(0, 1, 0, 0, 0, 0)": "1", "2:(0, 0, 1, 0, 0, 0)": "1", "3:(0, 0, 0, 1, 0, 0)": "1", "4:(0, 0, 0, 0, 1, 0)": "1", "5:(0, 0, 0, 0, 0, 1)": "1"}}

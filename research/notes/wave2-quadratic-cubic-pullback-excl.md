@@ -1,6 +1,6 @@
 # Wave 2 — lane `quadratic-cubic-pullback` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness.  RIGOROUS (exact, Hilbert-certified): every certificate has deg D >= 6; no Y-pure (even or odd) denominator of degree 6 exists [E1 kernel K_6 = J_6 at two primes + exact Hessian relaxation + Singular over Q]; mixed-parity degree 6 and degree 7 in progress.  Remote jobs still queued (remote saturated).
+STATUS: no witness.  BEST RIGOROUS BOUND (exact, Hilbert-certified): every certificate for (F, 1, X0^3 Y0^3) has deg D >= 7 (K_d = J_d for d <= 6 in both parities; the complete polar families of degree 5 and 6 — all parity mixtures — are excluded exactly: degree 5 by pi_W(ker) = 0 / K_H = 0, degree 6 by the exact Hessian relaxation whose candidate cone is exactly the Euler line D ~ F).  17 structured degree-7 Jacobian-type candidates excluded rigorously.  Remote jobs never ran (box saturated, load 300-1600).
 
 Started 2026-11-01 (wave 2).  Log: `/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl.log.jsonl`.
 Packet: `/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/`.
@@ -134,8 +134,9 @@ rank computation, independently of the exact full relaxation of R1.
 running (receipt wave2-excl.hessX6.jsonl when done).
 
 ### Degree 7 (Y-even polars): dim K_H = 1533 of 2016 (certified upper bound), basis coefficients large (~1e8 mod p), so
-the exact lift is not cheap; the cone {w : A d_w^2 F in J} is cut by 483 dense quadrics in 63 variables; Singular std and
-msolve (two charts) over F_p both exceeded 100 s locally.  Status: inconclusive (neither excluded nor screened).
+the exact lift is not cheap; the cone {w : A d_w^2 F in J} is cut by 483 dense quadrics in 63 variables; Singular std (stopped after ~30 min) and
+msolve (two charts) over F_p did not finish locally.  Status: inconclusive (neither excluded nor screened); the exact
+lift is out of reach locally (basis coefficients ~1e8 mod p).
 
 ## Summary of the lens (to be finalized)
 1. Best rigorous bound: deg D >= 6 for every certificate (E1 kernels + exact relaxation / Hessian relaxation at d = 5);
@@ -149,3 +150,43 @@ msolve (two charts) over F_p both exceeded 100 s locally.  Status: inconclusive 
    candidates (incl. K3-surface double windows); all scripts are in the packet and queued (submit_queue.sh).
 5. msolve pitfalls documented (c*c parsed as c; primes near 2^31 silently wrong); Singular over Q used for all
    candidate-locus statements.
+
+## Ten-line summary (draft; final numbers filled in after the last local runs)
+1. Best rigorous bound: every certificate for (F, 1, X0^3Y0^3) has deg D >= 7 (exact; all-parity degree-6 cone = Euler line only);
+   deg D >= 6 is fully settled (exact), and no Y-pure degree-6 denominator coprime to F exists (exact).
+2. Degree-6 proof: K_6 = J_6 (both parities, two primes, Hilbert-certified) + Hessian relaxation A d_w^2 F in J_12
+   (kernels 18 / 36 / 261 for odd / even / mixed, exact lifts verified) + Singular over Q (cone = {0} / Euler line).
+3. Degree-5 proof: exact integer nullspace of the full relaxation (pi_W(ker) = 0), and independently K_H = 0.
+4. All wave-1 rigorous claims re-verified at a second prime or exactly; three wave-1 polar verdicts upgraded to rigorous
+   via the explicit fixed-D kernel; dossier error corrected (E_I F in J for all I; E_X F tested: excluded).
+5. Degree-7 Y-even polars: K_H has dim 1533 (certified); cone of 483 quadrics in 63 variables undecided locally;
+   all 17 structured degree-7 polars excluded rigorously (A d_w D not in J_14, Hilbert-certified); degree 8: see hesstest8.
+6. Not executed (remote saturated all session, load 300-1060): new-prime E1 kernels d = 7(odd)..12, 74 certified fixed-D
+   tests of structured polars (d = 6..10), K_10/J_10 bases and structured intersections (quintics in Q, delta windows,
+   K3-curve/K3-surface double windows, plane windows); scripts in the packet, submission queue still waiting.
+7. Tool pitfalls documented: engine nullity off-by-one for inconsistent systems; msolve parses c*c as c and silently
+   miscomputes for primes near 2^31; Singular minAssGTZ hilb overflow on the 36-variable cone (chart method instead).
+8. Packet: /tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/ (README with exact statements, scripts, receipts).
+9. Draft post: /tmp/hodge/notes/wave2-quadratic-cubic-pullback-draftpost.md.
+10. No witness; no claim of nonexistence beyond the stated degree bounds.
+
+### Result R3 (rigorous): 17 structured degree-7 Jacobian-type candidates excluded by the Hessian condition
+Script wave2_excl_hesstest.py, p = 2147483629, degree-14 Y-odd Jacobian block rank 5052 = Hilbert (certified):
+A d_w(D) not in J_14 for every w in {grad(X0 Q0), grad(X0 Q3), grad(X1 Q0), grad(Y0 Q0) [odd], grad(X0^3), grad(X0 Y0 Y1),
+(Q0,Q1,Q2,0,0,0), (0,0,0,Q3,Q4,Q5) [odd], (Q1,Q2,Q0,0,0,0), (Q3,Q4,Q5,0,0,0), (0,0,0,Q0,Q1,Q2) [odd], Q_k e_k (k=0..5)}.
+Hence none of D = w.grad F admits a certificate (rigorous; a failure of the necessary condition T5).  At degree 6 the
+same test excludes E_X F and grad Q_k . grad F (k = 0..5) independently of R2.  Degree 8 running.
+
+### Result R2' (exact): mixed-parity degree 6 — the whole 36-coordinate polar family
+Joint Hessian relaxation (all parities): dim K_H = 261 (certified upper bound, p = 268435399; J_12 blocks 2223/2214 =
+Hilbert); all 261 lifted vectors (entries in {0,+-1,+-2}) verified exactly in both parity blocks (exact solves,
+224 s); exact annihilator: 405 quadrics in 36 variables; Singular over Q: dim(std(I)) = 1 (a finite union of lines
+through 0; minAssGTZ crashed with an internal hilb overflow).  Chart L1 = sum r_a w_a = 1 (random r in [1,50]):
+zero-dimensional of length 923 whose RADICAL is a single rational point, w5 = w10 = w15 = w20 = w25 = w30 = 1/85,
+all other 30 coordinates 0 — exactly the Euler point z/6 (scaled).  HYPERPLANE1: dim(I + (L1)) = 0 (Singular over Q), so no line of the cone lies in {L1 = 0}: the Euler line is the ONLY line.
+(Confirmation with a second random chart L2: again length 923 with radical a single point.)
+**Conclusion: no degree-6 denominator of any parity is coprime to F.  Together with R1 and K_d = J_d (d <= 6): deg D >= 7 for every certificate.**
+Chart argument (exact): the cone C = {w : w w^T in K_H(Q)} is a closed cone of affine dimension 1, hence a finite
+union of lines through 0.  A line meets the affine chart {L1 = 1} unless it lies in the hyperplane {L1 = 0}; the chart
+contains exactly one point (radical of length-1), the Euler point; and dim(I + (L1)) = 0 would show C ∩ {L1 = 0} = {0},
+i.e. no line is hidden.  Together: C = the Euler line = {w = lambda z}, D = 6 lambda F.

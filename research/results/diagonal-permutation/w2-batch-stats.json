@@ -24,5 +24,31 @@
    557,
    0
   ]
+ },
+ {
+  "file": "w2-pt-d9-j9op.jsonl",
+  "d": 9,
+  "tag": "j9op",
+  "family": "jac-d9-odd+21extra|pD1|sector+1",
+  "restarts": 2,
+  "best_rel": 0.001940912547418051,
+  "median_rel": 0.002359596683123145,
+  "best_rel_abs": 1.4477024025638216e-05,
+  "iters_median": 300.0,
+  "iters_max": 300,
+  "sec_per_restart": 966.9,
+  "hist_log10": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0
+  ]
  }
 ]

@@ -1,68 +1,40 @@
-# Wave 2 — off-paired — SEARCH lens
+# Wave 2 — off-paired — SEARCH lens (joint denominator search)
 
-STATUS: IN PROGRESS (2026-11-01 20:35 local). No witness; no nontrivially served class found.
-Remote (128 cores) at load ~1000-1300 from ~50 agents (10x oversubscribed): throughput ~1/10 nominal; my jobs go through a local
-queue runner (op_s2_queue.py, <= 4 running, job prefix search-off-paired-s2-).
-DONE: (1) E1 dimension table d=4..12, all 36 characters; Fermat calibration d=6 (16/96 exact hits), d=7 (10/96); (2) exact
-served-space scan of 3922 structured denominators (all 3/4/5-variable-subset forms of degree 4-6 in every character, Fermat
-cones, named blocks, random colon elements): 0 nontrivially served (3,0)-classes; (3) exact first-order deformation theory
-along F_t = Fermat + t*Qx: every Fermat cone certificate (6 cones x d = 6..9) is obstructed at first order, every join class
-served by the X-cone dies at first order (along Qx and along the chain; the extra monomial alone is harmless); (4) d=8 (0,0)
-colon search: 84 restarts so far (two solver variants), best relres 1.3173e-2 = a hyperplane-arrangement attractor (not a
-solution type), 25+ distinct local minima; d=8 (1,0): 25 restarts, best 7.3e-2.
-RUNNING: Fermat d=8 calibration, servedscan-all (18 target sectors), d8c00b (500 restarts), d8h0b ((3,0),(1,0),(2,0),(4,0),(5,0)).
-QUEUED: firstorder d=10,11; fe-control (Fermat+extra term alone, d=6,7); d9h0; hess (Hessian relaxation d=8..12); struct-hess3;
-homotopy (+ exact served tracking, multi-start); d10h0; d11; ft-d9h0 (free target); d8hmix; d12; d9h0more; struct-cones; d8gmix;
-d10rest; ft-d8h0; struct-hess4; d7tau (parity-only d=7); d10h0more.
-Sector VarPro library validated on the Fermat positive control (exact f6 recovered to 7e-14, confirmed exactly).
-Remote jobs queued (remote at load ~250/128, waiting for capacity): Fermat success-rate calibration, d=8 (0,0) colon search.
-NOTE: a second agent (lens `excl`) works on this lane in wave2-excl/ and runs the Delta_t full solve and the two-prime
-receipts for wave-1/dossier block products and 2x2 Hessian minors; those are NOT repeated here. My files live in
-/tmp/hodge/results/off-paired/wave2-search/ (job names search-off-paired-s2-*).
+STATUS: NO WITNESS FOUND (as of 2026-11-01 20:45 local; jobs still running, see §10). No nontrivially served class found either.
+Everything below is a negative or structural result. Target: q = 1, A = X0^3 Y0^3, F = Fermat + X0^3X1Y0Y1/2 + X1^3X2Y1Y2/2 + X0^2X1X2Y0Y2/3.
+Diagonal group G = Z/6 x Z/6 (g = (0,2,0,1,3,3), h = (0,0,1,0,0,5)), characters (g,h); A has character (3,0); residue G-invariant, sigma2-anti-invariant.
 
-Lane dir: /tmp/hodge/results/off-paired/wave2-search/ (w2lib.py = sector VarPro + exact bases; w2_dims.py; w2_varpro.py = LM
-random-restart driver; w2_batch_sectors.py; w2_hess.py = Hessian relaxation; w2_homotopy.py; w2_structured.py; w2_control.py).
-Batch log: /tmp/hodge/results/off-paired/wave2-search.log.jsonl (one JSON line per batch; remote jobs write
-wave2-<job>.jsonl + wave2-search.remote.log.jsonl, merged here after each pull).
+Files: scripts and raw outputs in /tmp/hodge/results/off-paired/wave2-search/ (remote mirror /tmp/hodge/remote/off-paired/wave2-search/);
+batch log /tmp/hodge/results/off-paired/wave2-search.log.jsonl (one JSON line per experiment/batch; remote batch lines merged by w2_report.py).
+A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (two-prime receipts for the wave-1/dossier block products,
+2x2 Hessian minors, and the Delta_t full solve); none of that is repeated here.
 
-## Plan
-1. E1-admissible denominator spaces (J:A)_{d,chi} for d = 4..12, all 36 diagonal characters (exact rational bases,
-   gauge F*R_{d-6} removed), Jacobian part J_{d,chi} and the non-Jacobian quotient.
-2. Jacobian-type (w-space) search: Hessian relaxation (N_i = A w_i, Q free) then full E2 varpro on J_{d,chi}.
-3. Full colon-family varpro per (d, chi), d = 8..12 (d = 8 only the six open (a,0) sectors), thousands of restarts.
-4. Structured families (sub-linear-families and fixed candidates) via varpro / sweep; pending wave-1 Delta_t solve.
-5. Rational reconstruction + exact re-solve for every candidate with relres < 1e-10.
+## 1. Summary of findings
 
+* **E1-admissible spaces (step 1).** (J:A)_(d,chi) for d = 4..12 and all 36 characters (mod 2^31-1; totals match the dossier's exact
+  colon dimensions 1, 11, 54, 177, 457, 1014, 2173, 3753, 5780). The non-Jacobian part (kernel of multiplication by [A] on R/J) is
+  nonzero from d = 4 on (D0) in every degree, so this lane has no "Jacobian-type" degree: the colon family J + lifts is the search
+  space everywhere. All 36 characters are populated from d = 8; at d = 8 only the six h-invariant sectors (a,0) are open after the
+  thread's exclusions. The sectors are almost entirely sigma2-even (d = 8 (0,0): 28 even + 2 odd; d = 9: 50 + 5).
+* **Joint search (steps 2-3).** Sector-restricted variable projection over exact/float bases of the colon families, Levenberg-Marquardt
+  with the Kaufman Jacobian, random restarts (calibrated on the Fermat: 16/96 and 10/96 restarts hit the exact solution at d = 6, 7).
+  On off-paired no restart has come below relres 1e-2 (see table, §3); the dominant attractors are hyperplane arrangements through
+  the P^3 {X0 = Y1 = 0} (binary forms in X0, Y1), which cannot support (3,1)-classes.
+* **Exact served-space scan (step 4).** 3922 structured denominators (all forms of degree 4-6 in every 3-, 4-, 5-variable coordinate
+  subset and every character, Fermat-type cones, H, C, D0, X2^6 +- Y2^6, Qx, R, random colon elements) serve ONLY the Jacobian part
+  of the (3,0) sector; 1386 of them re-tested in all 18 Y-odd target sectors: nothing served anywhere (exact mod p).
+* **First-order deformation theory (new, exact).** Along F_t = Fermat + t*Qx every Fermat cone certificate (six cones x d = 6..10)
+  is obstructed at first order, and every join class served by any cone dies at first order (only the Jacobian part survives).
+  Direction dependence: each chain link alone obstructs; the extra monomial X0^2X1X2Y0Y2 alone does not (all cones deform to first
+  order along it). The cone mechanism is killed by the holdout chain, the holdout cover by the extra term: two independent
+  obstructions must be overcome simultaneously.
+* **Structural remark.** For sigma2-eigen D the threefold X cap V(D) is sigma2-stable and only sigma2-anti-invariant (2,0)-forms of its
+  resolution can serve the (G-invariant, sigma2-anti-invariant) target sector; cones over surfaces in the base P^3_(X0X1Y0Y1) only
+  carry sigma2-invariant pulled-back forms, hence serve nothing -- consistent with the scan and with the thread's genus-2-VHS picture.
 
-## Methods (implemented in /tmp/hodge/results/off-paired/wave2-search/w2lib.py)
+## 2. E1-admissible denominator spaces (step 1; mod p = 2^31-1; dims.json / dims.md)
 
-* **Exact bases.** (J:A)_{d,chi} and J_{d,chi} are computed as canonical rref bases over Q (modular rref with 2^31-sized primes,
-  CRT, rational reconstruction, verification at a further prime); the Euler gauge F*R_{d-6} is removed by an orthogonal slice.
-* **Sector VarPro.** For D(a) in the family, the fixed-D system (all six numerators of degree d+1 and Q of degree 2d-6, restricted
-  to the characters forced by chi_D, which is lossless) is assembled matrix-free from a precomputed sparse tensor; the Q-block is
-  projected out once (QR); f(a) = min_x ||M(a)x - b(a)||^2 with b = -A D(a)^2, on the unit sphere of the gauge complement
-  (so D is never an F-multiple). Optimizer: Levenberg-Marquardt with the Kaufman variable-projection Jacobian (checked
-  against finite differences); L-BFGS was 0/8 on the control, LM 1/12.
-* **Free-target variant.** Parameters (D, A') with A' in the 24-dim target sector modulo its 2-dim Jacobian part (22 free
-  directions): a zero means D serves SOME nontrivial G-invariant (3,1)-class. By the sum principle served(D1 D2) =
-  served(D1) + served(D2), several such D could be multiplied to serve A. Exact confirmation of a hit: round D, compute
-  served(D_r) exactly (sector target_image mod p), round-and-project if trivial. On the Fermat control the hits lie on a
-  curved positive-dimensional variety and rounding leaves it (served = J only); a hit on off-paired would need structural
-  analysis before exact confirmation.
-* **Hessian relaxation (w2_hess.py).** D = sum w_i F_i, N_i = A w_i (exact E1), residual = distance of
-  D*div(A w) - A*w.grad(D) to F*R_{2d-6}; LM over the w-sphere modulo Koszul/gauge directions. Sufficient only.
-* **Homotopy (w2_homotopy.py).** F_t = Fermat + t*Qx tracked from the Fermat solution f6*X0^{d-6} in the full sector family.
-* **Structured candidates (w2_structured.py).** 3x3 / 4x4 Hessian minors (degrees 12, 16; not in wave 1 or the excl lens
-  which does 2x2), mixed Fermat-type cones times blocks (degrees 8-12). Full sector-reduced fixed-D solve after E1.
-
-## Job queue (remote, prefix search-off-paired-s2-; local runner w2_queue.py keeps <= 4 running)
-control (Fermat calibration d=6,7,8), d8c00 (800 restarts), d8h0 (sectors (a,0), a=1..5, 600 each), d9all (36 sectors x 300),
-ft-d9 (free-target, 36 sectors x 200), hess (d=8..12, six h-invariant sectors, 600 each), struct-hess3, homotopy (d=8,9,10),
-struct-cones, struct-hess4; then d10all / d11h0 / d12h0 sized from the calibration.
-
-## Step 1 — E1-admissible denominator spaces (mod p = 2^31-1; verified against the dossier's exact colon dims 1,11,54,177,457,1014,2173,3753,5780)
-
-| d | total colon | J part | non-J (ker mult-[A]) | gauge | eff (colon-gauge) | (0,0): colon/J/nonJ/gauge/eff | largest sectors (eff/nonJ) |
+| d | total colon | J part | non-J (ker mult-[A] on R/J) | gauge | eff (colon-gauge) | (0,0): colon/J/nonJ/gauge/eff | largest sectors eff/nonJ |
 |---|---|---|---|---|---|---|---|
 | 4 | 1 | 0 | 1 | 0 | 1 | 1/0/1/0/1 | (0,0):1/1 |
 | 5 | 11 | 6 | 5 | 0 | 11 | 1/1/0/0/1 | (3,0):2/1 (0,0):1/0 (0,1):1/1 (0,5):1/0 (1,0):1/1 (2,0):1/1 |
@@ -74,73 +46,88 @@ struct-cones, struct-hess4; then d10all / d11h0 / d12h0 sized from the calibrati
 | 11 | 3753 | 2682 | 1071 | 252 | 3501 | 142/116/26/15/127 | (3,0):128/27 (0,0):127/26 (2,0):120/24 (1,0):119/23 (4,0):119/26 (5,0):118/25 |
 | 12 | 5780 | 4437 | 1343 | 462 | 5318 | 211/177/34/26/185 | (0,0):185/34 (3,0):183/31 (4,0):175/31 (2,0):174/30 (5,0):173/31 (1,0):172/30 |
 
-All 36 characters have eff > 0 from d = 8 on (at d = 8 only the six h-invariant sectors (a,0) are still open after deanodotdotdot's exclusions).
-The non-Jacobian part (kernel of multiplication by [A] on R/J) is nonzero in EVERY degree from d = 4 (D0) on, so this lane has no
-'Jacobian-type' degree: the colon family (J:A)_{d,chi} = J_{d,chi} + (non-J lifts) is the right search space everywhere.
-Full table: /tmp/hodge/results/off-paired/wave2-search/dims.md (and dims.json).
+## 3. Search inventory (auto-generated by w2_final_table.py from all raw restart records)
 
-## Optimizer calibration (local, Fermat F0 = f6+g6, d = 6, sector (0,0), K = 19, gauge 1, dimP = 18)
+| job | step | d | sector | grp | family | dimP | restarts | best relres | median | hits<1e-9 | distinct minima | s/restart | status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| d8c00 | varpro | 8 | [0, 0] | G | colon | ? | 85 | 1.317e-02 | 5.83e-02 | 0 | 31 | 292.3 | partial |
+| d8c00b | varpro | 8 | [0, 0] | G | colon | ? | 59 | 1.317e-02 | 5.83e-02 | 0 | 32 | 139.5 | partial |
+| d8h0-c10 | varpro | 8 | [1, 0] | G | colon | 23 | 25 | 7.325e-02 | 8.23e-02 | 0 | 19 | 290.9 | yes |
+| d8h0-c20 | varpro | 8 | [2, 0] | G | colon | ? | 9 | 6.951e-02 | 8.16e-02 | 0 | 8 | 208.7 | partial |
+| d8h0b-c30 | varpro | 8 | [3, 0] | G | colon | ? | 173 | 2.053e-02 | 8.10e-02 | 0 | 58 | 20.8 | partial |
 
-* objective at the true solution f6 (gauge-fixed): relres 3e-16; analytic gradient = finite differences.
-* L-BFGS-B from 8 random starts: 0 successes (local minima at relres 0.0155 (x4), 0.125, 0.129, 0.185).
-* Levenberg-Marquardt (Kaufman VarPro Jacobian) from 12 random starts: 1 success (seed 6: relres 7e-14 in 22 iterations, exact f6 reconstructed and re-solved),
-  11 stalls at the same local minima. LM is the production optimizer; the landscape needs many restarts per family.
+Total restarts 351 over 5 jobs; numerical hits (relres < 1e-9): 0.
 
-## Landscape note (d = 8, sector (0,0), colon family, K = 30, gauge 2, dimP = 28)
+Reading the table: 'best relres' = min over restarts of ||residual||/||A D^2|| for the complete fixed-D system (six numerators of
+degree d+1 and Q of degree 2d-6, character-restricted) at the LM endpoint; a certificate gives ~1e-13 (Fermat controls: 3e-14).
+'distinct minima' = distinct values at 3 significant digits.
 
-The best local minimum found so far (relres 1.3173e-2, reached by several independent restarts; reproduced locally from seed 0)
-is essentially a binary octic in (X0, Y1), even in both variables:
-D ~ -0.654 X0^4 Y1^4 + 0.489 X0^2 Y1^6 + 0.381 X0^6 Y1^2 - 0.259 Y1^8 - 0.169 X0^8 + small corrections
-(sigma2-even, 74 % of its norm in J_8). Geometrically this is a union of eight hyperplanes X0 = c_i Y1 through the P^3
-{X0 = Y1 = 0}; such unions cannot support (3,1)-classes (book ch. 3), so the dominant attractor of the landscape is a known
-non-solution type that merely minimizes the defect (20 % of the residual sits on five degree-22 monomials
-X0^2 X1 Y0^4 Y1^9 * {Y0^6, Y1^4, Y2^6, X2^6, X1^6}). Consequence: genuine structured solutions, if any, have small basins;
-restart counts must be large, and the free-target variant (any served class) is the more sensitive probe.
+## 4. Methods (w2lib.py)
 
-## Exact served-space scan (step 4, exact mod p, sector-reduced; job servedscan, 3 min)
+* Exact bases: canonical rref of (J:A)_(d,chi) and J_(d,chi) over Q (modular rref, CRT, rational reconstruction, verification at a
+  further prime); from d = 10 the heights are too large and an SVD float basis is used (dimension cross-checked mod p); the Euler gauge
+  F*R_(d-6) is removed by an orthogonal slice, so D is never an F-multiple.
+* Sector VarPro: fixed-D system assembled matrix-free from a sparse tensor (N-block) + constant Q-block (projected out once);
+  f(a) = min_x ||M(a)x - b(a)||^2, b = -A D(a)^2, on the unit sphere of the gauge complement. Optimizer: LM with Kaufman's VarPro
+  Jacobian (gradient checked against finite differences), ridge normal equations for the search phase, exact SVD polish below 1e-5.
+* Free-target variant (D, A') with A' in the 22-dimensional complement of the Jacobian part of the target sector (any served class);
+  exact confirmation by served_targets of the rounded D (round-and-project).
+* Hessian relaxation (N_i = A w_i, D = sum w_i F_i; sufficient only), homotopy along F_t (single path and multi-start), exact first-order
+  deformation tests (w2_firstorder.py, w2_firstorder_free.py), exact served-space scan (w2_served_scan.py), structured fixed
+  candidates (3x3/4x4 Hessian minors, mixed cones x blocks; w2_structured.py), witness -> Lean packaging (w2_make_lean.py).
 
-3922 structured denominators, each tested for the space of degree-6 targets of character (3,0) it serves (modulo the
-2-dimensional Jacobian part): all forms of degree 4, 5, 6 in every 3-, 4- and 5-variable coordinate subset, in every
-G-character (3 random integer members per family), the Fermat-type cones X_a^6+X_b^6+X_c^6 for all mixed triples, the named
-blocks f6, g6, H, C, D0, X2^6 +- Y2^6, Qx, R, and random elements of (J:A)_{9,(0,0)}, (J:A)_{9,(3,0)}.
-Result: 0 nontrivially served classes (every served space equals the Jacobian part). The same scan over all 18 Y-odd target sectors (1386 denominators, 1 member per family) also found 0 nontrivially
-served classes: these structured supports serve nothing at all on off-paired, in any sector (exact mod p).
+## 5. Calibration (Fermat F0 = f6 + g6, sector (0,0), remote job control)
 
-Structural remark (why base cones cannot help). For a sigma2-eigen denominator D the threefold Z = X cap V(D) is sigma2-stable,
-and the Gysin map H^2(Z~) -> H^4(X) is equivariant; since the whole G-invariant H^4_prim is sigma2-ANTI-invariant (dossier 1.4),
-only sigma2-anti-invariant (2,0)-forms of a resolution of Z can serve A. For a cone over a surface S in the base
-P^3_{X0,X1,Y0,Y1} the pulled-back forms pi^* H^{2,0}(S) are sigma2-invariant, so they map to zero: cones over base surfaces of any
-degree can serve the (3,0) sector only through fibre-direction (hyperelliptic-anti-invariant) forms, i.e. through the genus-2 VHS
-of the thread. This matches the scan (H, C, all base quartics/quintics/sextics serve nothing) and explains why the search
-landscape's attractors are sigma2-even hyperplane arrangements.
+d = 6: K = 19, dimP = 18, 96 restarts, 16 exact hits (relres < 1e-13), median 1.55e-2, 3.5 s/restart. d = 7: K = 29, dimP = 28, 96 restarts,
+10 exact hits, median 1.5e-2, 12 s/restart. (d = 8 stage still running.) Locally: L-BFGS 0/8; LM 1/12; basin hopping and deflation
+did not improve on plain restarts; sparse initialisation was worse. Rational reconstruction + exact sector-reduced re-solve of a hit
+(f6) works end-to-end.
 
-The E1-admissible sectors themselves are almost entirely sigma2-even: (J:A)_{8,(0,0)} = 28 even + 2 odd (gauge even 2),
-(J:A)_{9,(0,0)} = 50 + 5; the odd parts are tiny.
+## 6. Landscape of the off-paired searches
 
-## Exact first-order deformation test (w2_firstorder.py, local, seconds; mod p = 2^31-1)
+d = 8, (0,0) (K = 30, gauge 2, dimP = 28): best relres 1.3173e-2 (reproduced by >= 10 restarts with two solver variants), median 5.8e-2,
+> 25 distinct minima. The best minimum is essentially a binary octic in (X0, Y1), even in both variables
+(-0.654 X0^4Y1^4 + 0.489 X0^2Y1^6 + 0.381 X0^6Y1^2 - 0.259 Y1^8 - 0.169 X0^8 + small corrections; sigma2-even, 74 % in J_8): a union of
+eight hyperplanes through the P^3 {X0 = Y1 = 0} -- a known non-solution type (hyperplane unions through a P^3 carry no (3,1)-class).
+d = 8, (3,0) (K = 31, gauge 3, dimP = 28): best 2.053e-2 (hit repeatedly), again a binary form in (X0, Y1) (0.64 X0^5Y1^3 - 0.58 X0^3Y1^5
++ 0.35 X0Y1^7 - 0.27 X0^7Y1, 99.8 % in J_8). d = 8, (1,0): best 7.3e-2. Consequence: genuine structured solutions, if any, have
+small basins, and the search is a search for geometric mechanisms, not for accidental zeros (the fixed-D systems are overdetermined by
+a factor ~50: e.g. d = 8 (0,0): 2494 rows, generic rank 488 of 567 columns, 28 D-parameters).
 
-On the Fermat F0 the cone D0 = (X0^6 + Z_a^6 + Z_b^6) * X0^(d-6) over a Fermat plane curve through X0 (six choices of
-{Z_a, Z_b} in {X1, X2, Y1, Y2}, complements are gauge-equivalent) serves A = X0^3 Y0^3 at every degree d >= 6. Along
-F_t = F0 + t*Qx the certificate (D0, N0, Q0) (solved exactly at t = 0) must satisfy, to first order in t,
-L(dD, dN, dQ) = -dE/dt with L the linearization of the cleared identity and dD free in the whole degree-d sector.
-Result: for all 24 cases (6 cones x d = 6, 7, 8, 9) the augmented rank exceeds the rank of L by one: NO cone solution deforms
-even to first order. This sharpens attack-1's observation (served(f6) drops from 118 to 18 at t = 1): the join classes die at
-first order in the mixed term, at every degree up to 9, for every cone. (A numerical multi-start version of this test over all
-t = 0 solutions found by LM is queued: hom8m/hom9m/hom10m.)
+## 7. Exact served-space scan (w2_served_scan.py)
 
-Direction dependence (d = 6, 7; two primes): along the full mixed part Qx, along the two-link chain, and along a single link
-X0^3 X1 Y0 Y1/2 every cone is obstructed at first order; along the EXTRA monomial X0^2 X1 X2 Y0 Y2/3 alone all six cones are
-first-order deformable (rank_aug = rank_L). So the extra term, which breaks the holdout's cover/quotient mechanisms, is harmless
-to the cone mechanism at first order; it is the chain that kills the cones (as it must, since the holdout needed a different
-mechanism). Two independent obstructions therefore have to be overcome simultaneously on off-paired.
+3922 denominators (see §1) tested in sector (3,0): 0 nontrivial (every served space = the 2-dim Jacobian part); 1386 denominators
+tested in all 18 Y-odd sectors: 0 nontrivial. Random colon elements at d = 9 included. (Wave 1 had found the same for f6, g6,
+f6+g6, 60 Hessian 2x2 minors and random colon elements at d = 7, 8.)
 
-Served-space version (w2_firstorder_free.py, d = 6, D0 = f6): at t = 0 the X-cone serves 14 of the 24 sector monomials
-(12 join classes + 2 Jacobian-part directions). Along Qx and along the chain only the Jacobian-part direction X0^5 Y1 survives to
-first order (with dD free in the sector): every join class dies at first order. Along the extra monomial alone X0^3 Y0^3 and
-X0^3 Y1^3 survive. Same for the Y-cone g6 (14 served, only the J-part direction survives) and for the mixed cones X0^6+X1^6+Y1^6, X0^6+X2^6+Y2^6
-(6 served each, none survives). So no Fermat cone can be "corrected" perturbatively on off-paired in any target direction.
+## 8. Exact first-order deformation theory along F_t = Fermat + t*Qx (two primes)
 
-Sector (3,0), d = 8 (Y-odd D, K = 31, gauge 3, dimP = 28; job d8h0b-c30): after 70 restarts the best minimum (relres 2.053e-2, hit twice)
-is again a binary form in (X0, Y1): 0.64 X0^5 Y1^3 - 0.58 X0^3 Y1^5 + 0.35 X0 Y1^7 - 0.27 X0^7 Y1 + small corrections, sigma2-even and
-99.8 % inside J_8 -- the same hyperplane-arrangement attractor type (eight hyperplanes through {X0 = Y1 = 0}, here including X0 = 0
-and Y1 = 0). Median restart 8.3e-2.
+Cone certificates D0 = (X0^6 + Z_a^6 + Z_b^6) X0^(d-6), {Z_a, Z_b} subset {X1, X2, Y1, Y2}: t = 0 certificate solved exactly; the
+t-derivative of the cleared identity is never in the image of the linearisation (dD free in the sector, dN, dQ free): rank_aug =
+rank_L + 1 for all 6 cones x d = 6, 7, 8, 9 (and d = 10 for the cases finished so far). Served-space version: f6 serves 14 sector
+monomials at t = 0 (12 join classes + 2 Jacobian-part); along Qx and along the chain only the Jacobian-part direction X0^5 Y1 survives
+to first order (d = 6, 7); g6 likewise; mixed cones X0^6+X1^6+Y1^6, X0^6+X2^6+Y2^6 (6 served each): none survives. Along the extra
+monomial alone the target direction X0^3 Y0^3 (and X0^3 Y1^3) survives and all six cones are first-order deformable.
+
+## 9. Structural remarks
+
+(i) sigma2-stability of V(D) for eigen-D forces anti-invariant forms (see §1). (ii) The E1-admissible sectors are almost entirely
+sigma2-even; the odd part is 2/28 (d = 8) and 5/50 (d = 9). (iii) The attractors of the nonconvex landscape are hyperplane arrangements
+through {X0 = Y1 = 0}; X0 and Y1 are the variables shared by the two chain links / the first link and the extra term.
+
+## 10. Jobs (remote hodge-sextics, prefix search-off-paired-s2-; queue in wave2-search/queue.txt, runner op_s2_queue.py)
+
+Done: dims, control (d = 6, 7), servedscan, servedscan-all, d8c00 (partial, old solver), d8h0-c10. Running/queued at the time of
+writing: control d = 8, d8c00b, d8h0b, firstorder (d = 10, 11), fe-control (Fermat + extra term alone, d = 6, 7), smallt (t = 1/10,
+d = 7, 8), d9h0, hess (Hessian relaxation d = 8..12), struct-hess3, homotopy (+ exact served tracking along F_t, multi-start), d10h0,
+d11 (0,0)/(3,0), ft-d9h0 (free target), d8hmix (h-only sectors), d12, d9h0more, struct-cones, d8gmix, d10rest, ft-d8h0, struct-hess4,
+d7tau (parity-only d = 7), d10h0more. The remote is 8-10x oversubscribed by ~50 agents (load 750-1300 on 128 cores), so throughput is
+~10 % of nominal; all jobs checkpoint per restart (per-worker JSONL) and can be resumed with new seeds.
+
+## 11. Next steps
+
+Finish the queue (d = 9..12 h-invariant sectors, free-target and subgroup-sector searches, homotopy/multi-start, Hessian relaxation,
+3x3/4x4 minors); if any relres < 1e-9 appears: rational reconstruction + exact sector re-solve (automatic in the driver), then
+w2_make_lean.py -> leancheck. Mathematically: the first-order theory suggests computing the full obstruction space of the cone
+mechanism (which deformations of F0 keep a degree-6 cone certificate) and comparing with the holdout's chain; and the sigma2 remark
+suggests restricting constructions to supports with anti-invariant (2,0)-forms (fibre-direction forms of the genus-2 VHS).

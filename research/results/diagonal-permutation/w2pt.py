@@ -294,6 +294,85 @@ class VarPro:
         g_full = (g - float(g @ a) * a) / na
         return f, self.P.T @ g_full
 
+    # --- joint (non-projected) formulation: optimize (a, c) together; cheap evaluations (no least squares) ----------
+    def _apply_M(self, D, Di, c):
+        """M(a) c and the per-pair vectors, without forming M."""
+        kb = self.kb
+        uvec = np.zeros(self.r, dtype=complex); Gs = []; vs = []
+        Mc = np.zeros(self.r, dtype=complex)
+        for t, ((i, j), Cv, Am) in enumerate(zip(kb.pairs, kb.Cval, kb.Amat)):
+            cc = c[kb.offsets[t]:kb.offsets[t + 1]]
+            u = Am @ cc; v = Cv @ cc
+            g = Di[i] * kb.Fval[j] - Di[j] * kb.Fval[i]
+            uvec += u; Gs.append(g); vs.append(v)
+            Mc += D * u - g * v
+        return Mc, uvec, Gs, vs
+
+    def value_and_grad_joint(self, x):
+        """x = (u, c') with a = P u / |P u| and c = csector c' (or c' itself).  Returns f and gradient wrt (u, c')."""
+        fam, kb = self.fam, self.kb
+        nu = self.dimP
+        u = x[:nu]; cp = x[nu:]
+        c = cp if self.csector is None else self.csector @ cp
+        a_full = self.P @ u; na = np.linalg.norm(a_full); a = a_full / na
+        D = a @ fam.Dval
+        Di = np.einsum('k,kir->ir', a, fam.Dder)
+        divN = a @ fam.divN
+        Ni = np.einsum('k,kir->ir', a, fam.Nval)
+        B0 = D * divN - np.sum(Ni * Di, axis=0)
+        Mc, uvec, Gs, vs = self._apply_M(D, Di, c)
+        rho = Mc + B0
+        f = float(np.vdot(rho, rho).real)
+        # gradient wrt c: 2 Re(M^H rho)
+        gc = np.zeros(kb.nK)
+        Dr = np.conj(D) * rho
+        for t, ((i, j), Cv, Am) in enumerate(zip(kb.pairs, kb.Cval, kb.Amat)):
+            gr = np.conj(Gs[t]) * rho
+            gc[kb.offsets[t]:kb.offsets[t + 1]] = 2.0 * ((Am.conj().T @ Dr) - (Cv.conj().T @ gr)).real
+        if self.csector is not None:
+            gc = self.csector.T @ gc
+        # gradient wrt a (c fixed): same formula as the varpro gradient
+        drho = fam.Dval * uvec[None, :]
+        for t, (i, j) in enumerate(kb.pairs):
+            drho -= (fam.Dder[:, i, :] * kb.Fval[j][None, :] - fam.Dder[:, j, :] * kb.Fval[i][None, :]) * vs[t][None, :]
+        drho += fam.Dval * divN[None, :] + D[None, :] * fam.divN
+        drho -= np.einsum('kir,ir->kr', fam.Nval, Di) + np.einsum('ir,kir->kr', Ni, fam.Dder)
+        g = 2.0 * (drho @ np.conj(rho)).real
+        g_full = (g - float(g @ a) * a) / na
+        self._nfev_joint = getattr(self, '_nfev_joint', 0) + 1
+        return f, np.concatenate([self.P.T @ g_full, gc])
+
+    def search_joint(self, n_restarts, seed, maxiter=3000, gtol=1e-12, callback=None, polish=60):
+        """Hybrid: joint L-BFGS over (a, c) with cheap evaluations (warm-up), then `polish` variable-projection L-BFGS
+        iterations from the resulting a, then the exact projected value."""
+        from scipy.optimize import minimize
+        rng = np.random.default_rng(seed)
+        out = []
+        for it in range(n_restarts):
+            t0 = time.time()
+            u0 = rng.standard_normal(self.dimP); u0 /= np.linalg.norm(u0)
+            a0 = self.P @ u0; a0 /= np.linalg.norm(a0)
+            c0, rho0, _ = self.solve(a0)
+            cp0 = c0 if self.csector is None else np.linalg.lstsq(self.csector, c0, rcond=None)[0]
+            x0 = np.concatenate([u0, cp0])
+            res = minimize(self.value_and_grad_joint, x0, jac=True, method='L-BFGS-B',
+                           options={'maxiter': maxiter, 'gtol': gtol, 'ftol': 1e-18, 'maxcor': 30})
+            u1 = res.x[:self.dimP]
+            nit2 = 0
+            if polish:
+                res2 = minimize(self.value_and_grad, u1 / np.linalg.norm(u1), jac=True, method='L-BFGS-B',
+                                options={'maxiter': polish, 'gtol': gtol, 'ftol': 1e-18, 'maxcor': 30})
+                u1 = res2.x; nit2 = int(res2.nit)
+            a = self.P @ u1; a /= np.linalg.norm(a)
+            f, rel, c, rho = self.value(a)          # exact projected value at the final a
+            cand = {'f': f, 'rel': rel, 'a': a, 'c': c, 'iters': int(res.nit), 'iters_polish': nit2, 'restart': it,
+                    'seconds': round(time.time() - t0, 2), 'f_joint': float(res.fun)}
+            out.append(cand)
+            if callback:
+                callback(cand)
+        out.sort(key=lambda z: z['rel'])
+        return out
+
     def bnorm2(self, a):
         a = np.asarray(a, float); a = a / np.linalg.norm(a)
         _, B0, *_ = self.assemble(a)

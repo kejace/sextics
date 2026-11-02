@@ -1,6 +1,6 @@
 # Wave 2 — short-power-presentation — CONSTRUCTION lens
 
-STATUS: no witness (in progress, 2026-11-01 ~20:10 local). Two remote jobs queued behind a saturated remote (load ~1000/128): `construct-spp-vert` (restricted E1 kernels on geometric denominator families, d=7..10) and `construct-spp-k7var` (degree-7 kernel for other targets / other coupling constants / the pencil F_s). Results will be appended below as they arrive.
+STATUS: no witness. Theory complete (facts 1–9, routes (i)–(v), candidate model §3). Two remote jobs (`construct-spp-vert`, `construct-spp-k7var`) were queued from ~19:45 local but NEVER STARTED before this session ended (remote at load 800–1200 vs. rjob threshold 150, 70–90 jobs running throughout). Resubmit with /tmp/hodge/results/short-power-presentation/w2c_pending_jobs.sh (see §4); the job scripts append their own results (construct-spp-*.out.jsonl on the remote lane dir).
 
 Log: /tmp/hodge/results/short-power-presentation/wave2-construct.log.jsonl (scripts w2c_lib.py, w2c_vert.py, w2c_k7var.py in the lane dir; remote outputs construct-spp-*.out.jsonl / .log).
 
@@ -43,6 +43,7 @@ So within the book's toolkit no mechanism applies; what the eight-power structur
 - Failure point: a transfer of the §3.2 support from W to X̄ needs a covering family of rational curves of W meeting X̄ in one point (so that the curves minus X̄ are A¹'s and the trace argument applies to H⁵(W∖X̄) ↠ H⁴_prim(X)(−1)); since K_W + X̄ = O(0) the log Kodaira dimension of W∖X̄ is 0, so W∖X̄ is not A¹-uniruled; curves of weighted degree e meet X̄ in 2e points and only reproduce the tautological identity m·ξ + T·ξ ∈ N¹. The same holds after blowing up the pencil's base locus (K + fibre ∼ 0·E).
 
 ## 4. Experiments (job names) — results
+- If the two remote jobs below were never started (remote saturated), resubmit them with `/tmp/hodge/results/short-power-presentation/w2c_pending_jobs.sh` (then `w2c_vert_hi.sh` for degrees 11–12 and `w2c_vert2.py` for any E1-passing vertical candidate).
 - identity checks (local sympy): all identities in §1 verified exactly.
 - lines (local numeric): fact 7.
 - `construct-spp-vert` (remote, queued behind load ~1000): restricted E1 kernels of [A] on C[X0,X1,X2,M]_d (cones with vertex the line {X=M=0}), C[L,Y0,Y1,Y2]_d (vertex {Y=L=0}), their sum U_d (independent basis), and the vertical ring C[e(X),e(Y),L,M]_d, for d = 7..10, both parities, p = 2^31−1 (script w2c_vert.py; local sanity check at d = 3, 5: kernels 0 resp. = J_5 as expected). Question answered: are all E1-admissible denominators through degree 10 sums of two such cones (as the search lens found at d = 7, 8), and does the distinguished D_res (d = 10, vert) pass E1?

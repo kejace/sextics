@@ -1,0 +1,7 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[refine] r=684 K=399 dimP=201 nK=1890 nKc=950
+[refine] start: f=1.7647e+05 rel=1.5490e-01
+{"stage": "varpro", "iter": 25, "f": 105829.64936565407, "gnorm": 246205.63786718994, "elapsed": 16.5, "ts": "2026-11-02T01:42:53"}
+{"stage": "varpro", "iter": 650, "f": 152.91405209592304, "gnorm": 216.6901096118666, "elapsed": 160.8, "ts": "2026-11-02T01:45:17"}
+{"stage": "varpro", "iter": 1275, "f": 92.38340464169461, "gnorm": 121.02272825826296, "elapsed": 305.9, "ts": "2026-11-02T01:47:42"}

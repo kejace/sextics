@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T20:30:23. 70 search restarts collected over 3 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. 
+STATUS: NO WITNESS. Updated 2026-11-01T20:41:37. 131 search restarts collected over 3 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1200 on 128 cores, memory at the gate floor); the runner's capacity gate has refused all submissions, so the queued remote jobs (hessA/prepk/d6d7/hessB, then queue 2) have not started; results below are from exact local computations and small bounded local numerical batches.
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -71,9 +71,9 @@ rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q;
 
 | batch | family | d | par | params (free) | rows | c+Q unknowns (Koszul-block rank) | restarts | best rel | 10% | median | worst | best r_part | <1e-6 | <1e-10 | s/restart | nfev | recon |
 |---|---|---:|:-:|---|---:|---|---:|---|---|---|---|---|---:|---:|---:|---:|---:|
-| local-search-d6-p0 (running) | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 162+226 (144-144) | 30 | 0.17 | 0.222 | 0.679 | 0.963 | - | 0 | 0 | 28.4 | 80.4 | 0 |
+| local-search-d6-p0 | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 162+226 (144-144) | 57 | 0.17 | 0.222 | 0.592 | 0.963 | - | 0 | 0 | 25.8 | 81.2 | 0 |
 | local-stage1-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00441 | 0.00503 | 0.0124 | 0.0185 | 0.00441 | 0 | 0 | 19.9 | 102.8 | 0 |
-| local-stage1-d7-p1 | jacobian-d7-p1 | | | | | | 0 (started) | | | | | | | | | | |
+| local-stage1-d7-p1 (stage 1 only) (running) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (None-None) | 34 | 0.00387 | 0.0039 | 0.004 | 0.0151 | 0.00387 | 0 | 0 | 20.0 | 119.5 | 0 |
 
 ## 4. Structured families at d = 10 intersected with the admissible space (mod p)
 

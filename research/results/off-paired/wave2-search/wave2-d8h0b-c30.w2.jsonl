@@ -34,3 +34,5 @@
 {"seed": 366, "f": 0.014629927035342124, "bnorm2": 2.056889914575914, "relres": 0.08433649651575736, "iters": 56, "njac": 56, "nres": 104, "status": "stalled", "time": 13.41, "init": "gauss"}
 {"seed": 374, "f": 0.014077664372808085, "bnorm2": 2.3098446479014205, "relres": 0.07806815533672103, "iters": 50, "njac": 50, "nres": 101, "status": "stalled", "time": 14.74, "init": "gauss"}
 {"seed": 382, "f": 0.012787783089578965, "bnorm2": 2.1424127859108375, "relres": 0.07725846136552156, "iters": 80, "njac": 80, "nres": 128, "status": "stalled", "time": 15.78, "init": "gauss"}
+{"seed": 390, "f": 0.019464988535075445, "bnorm2": 2.1755647800715545, "relres": 0.0945890941519126, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 16.0, "init": "gauss"}
+{"seed": 398, "f": 0.01431446484657593, "bnorm2": 2.2765492823393547, "relres": 0.07929558912353775, "iters": 76, "njac": 76, "nres": 126, "status": "stalled", "time": 15.7, "init": "gauss"}

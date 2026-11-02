@@ -70,3 +70,12 @@ independently; verify with `rjob status`.
 - `jacobian.mult_kernel` works on Y-parity only; Klein-character sectors need the lane-local `rcr2.e1_space` (same algorithm with sector filters); results agree with the dossier/wave-1 numbers (K8 at d=8).
 - zsh pitfall for agents: `set -- $spec` does not word-split in zsh; use `bash -c` for such loops.
 - `hodge.rjob submit` exports OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=FLINT_NUM_THREADS=<cpus> for the job. With numpy/scipy dense linear algebra inside multiprocessing workers on the oversubscribed remote this is catastrophic: a 1002x130 lstsq took 0.3-0.4 s with 8 (or 40) BLAS threads vs 12 ms single-threaded (measured 2026-11-01, local and remote). Search scripts must set os.environ['OPENBLAS_NUM_THREADS']='1' (hard, not setdefault) BEFORE importing numpy; `hodge/__init__` only uses setdefault, so the rjob export wins. (quadric-contact-residual wave-2 agent; cost us ~1 h of remote search time.)
+
+## 2026-11-01 (wave2 excl, quadratic-cubic-pullback) — external tool pitfalls (not engine bugs)
+* msolve: input `c*c` is parsed as `c` (write `c^2`); primes >= ~2^31 are rejected ("Prime ... too large") on small
+  inputs but silently produce wrong Groebner bases on larger ones — use p < 2^28 (268435399 worked).  Positive-dimensional
+  homogeneous systems: msolve's "degree 2" / "No solution" outputs were unreliable here; Singular over Q (std/dim,
+  radical, finduni) was used for all decisive statements.
+* Singular primdec.lib minAssGTZ: "overflow at t^21" (hilb) on a 36-variable ideal of 405 quadrics; dim(std(I)) is
+  fine; identify components by affine charts + radical/finduni instead.
+* python-flint 0.9: fmpz_mat.solve(B) returns an fmpq_mat (not (X, den)); fmpz_mat.nullspace() is exact.

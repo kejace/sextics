@@ -319,5 +319,37 @@
   "koszul_d6": 208,
   "good_reduction": null,
   "seconds": 346.3
+ },
+ "d12_p1000000007_par0_sig-1": {
+  "d": 12,
+  "p": 1000000007,
+  "par": 0,
+  "sigma": -1,
+  "ring_dim": 424,
+  "target_dim": 108,
+  "rank": 108,
+  "kernel_dim": 316,
+  "jac_dim_d": 1088,
+  "jac_dim_d6": 8373,
+  "koszul_d": 885,
+  "koszul_d6": 208,
+  "good_reduction": null,
+  "seconds": 370.9
+ },
+ "d12_p1000000007_par1_sig1": {
+  "d": 12,
+  "p": 1000000007,
+  "par": 1,
+  "sigma": 1,
+  "ring_dim": 442,
+  "target_dim": 100,
+  "rank": 100,
+  "kernel_dim": 342,
+  "jac_dim_d": 1126,
+  "jac_dim_d6": 8216,
+  "koszul_d": 866,
+  "koszul_d6": 218,
+  "good_reduction": null,
+  "seconds": 360.6
  }
 }

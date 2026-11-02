@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:35 from 177 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:47 from 186 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -272,13 +272,22 @@ Every non-Jacobian-type guess (Hessian cofactors/pairings, third polars, Fermat,
 
 - control-wave1 | fU*U0^2 + fV*V0^2 (wave-1: inconsistent rank 6632 nullity 865): consistent=False rank=2216 nullity=229 (10152×2445, 73.4 s) — inconsistent, rank 6632, nullity 865 (= 636 G-directions + reduced nullity)
 - control-spurious | g*(U0V0+U1V1) (Y-odd sector spurious point): consistent=False rank=2216 nullity=211 (10152×2427, 65.5 s) — inconsistent expected (sum principle); Y-odd code path validation
+- polar | sum_i f_i(U) U_i^3 + swap: consistent=False rank=2287 nullity=158 (10152×2445, 66.6 s) 
+- polar | sum_i f_i(U) U_i^3 - swap: consistent=False rank=2272 nullity=155 (10152×2427, 73.1 s) 
+- polar | sum_i f_i(U) V_i^3 + swap: consistent=False rank=2287 nullity=158 (10152×2445, 67.5 s) 
+- polar | sum_i f_i(U) V_i^3 - swap: consistent=False rank=2272 nullity=155 (10152×2427, 66.1 s) 
+- polar | sum_i f_i(U) U_i^2 V_i + swap: consistent=False rank=2287 nullity=158 (10152×2445, 70.0 s) 
+- polar | sum_i f_i(U) U_i^2 V_i - swap: consistent=False rank=2272 nullity=155 (10152×2427, 70.6 s) 
+- polar | sum_i f_i(U) V_i^2 U_i + swap: consistent=False rank=2287 nullity=158 (10152×2445, 63.9 s) 
+- polar | sum_i f_i(U) V_i^2 U_i - swap: consistent=False rank=2272 nullity=155 (10152×2427, 64.8 s) 
+- control-product | g * (U.V)  [g = f(U)-f(V)]: consistent=False rank=2216 nullity=211 (10152×2427, 70.2 s) 
 
 ## Remote capacity note
 
 The remote box has been saturated by other agents since ~19:30 (load 300–1150 on 128 cores, 45–90 jobs); the runner refuses new submissions above load 150, so the heavy jobs below were queued with `--wait` and started only when capacity allowed. Latest runner messages:
-- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 1024 (max 150), available memory 177 GB (min 60), 70 jobs running; waiting 60 s
-- `submit-hess-d8.out`: REMOTE BUSY: load 1024 (max 150), available memory 177 GB (min 60), 70 jobs running; waiting 60 s
-- `submit-sweep-a.out`: REMOTE BUSY: load 1024 (max 150), available memory 177 GB (min 60), 70 jobs running; waiting 60 s
+- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 1719 (max 150), available memory 120 GB (min 60), 75 jobs running; waiting 60 s
+- `submit-hess-d8.out`: REMOTE BUSY: load 1719 (max 150), available memory 122 GB (min 60), 75 jobs running; waiting 60 s
+- `submit-sweep-a.out`: REMOTE BUSY: load 1719 (max 150), available memory 119 GB (min 60), 75 jobs running; waiting 60 s
 
 ## Jobs / reproduction
 

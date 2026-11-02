@@ -91,3 +91,11 @@ rank-1 members g(U)g'(V) are already excluded by R2 (both factors have degree 4 
 For hyperplanes ℓ = λ·U + μ·V with λ, μ ≠ 0 the tensor structure R_F = R_f ⊗ R_f gives A'·ℓ ∉ J for every nonzero
 K3-block class A' (the components B'⊗(μ·V), (λ·U)⊗B'' of the product vanish only if B' = B'' = 0), so E1 already
 forbids any K3 class; only hyperplanes through one of the two planes {U=0}, {V=0} need the full system.
+
+### R7. Structure of the non-Jacobian K3 kernel at degree 8   [02:00]
+K4 := ker(η: R_{f,4} → R_{f,10}) has dimension exactly 9 (η: R_4 (15) → R_10 (6) is onto), verified exactly over Q
+(`k4_lll.py`, membership of η·g in J(f)_10 checked exactly for each basis element).  The exact kernel vectors have
+very large height (≈70-digit integers even after LLL on the rref-derived integer basis), i.e. there is no small-height
+natural element: the non-Jacobian K3 kernel K4⊗K4 (81 dims, character 4) is a "generic" subspace, like the full-target
+E1 kernel at d = 10 observed in wave 1.  The UV-frame tests (k3kernel_uv.py: pairings Σ g_k(U)g_k(V), random symmetric
+tensors, random character components of the full kernel) are running locally with the engine's μ6-restricted solver.

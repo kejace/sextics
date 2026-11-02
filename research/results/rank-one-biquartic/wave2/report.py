@@ -34,7 +34,7 @@ if e1:
 else:
     out.append('(pending)\n')
 # 2. relaxation
-rel = sorted([r for r in recs if r.get('batch') == 'relax'], key=lambda r: (r['d'], r['pD']))
+rel = sorted([r for r in recs if r.get('batch') == 'relax' and 'family_J' in r], key=lambda r: (r['d'], r['pD']))
 out.append('\n## 2. Jacobian-quotient ("Hessian") relaxation ranks (exact mod p)\n')
 out.append('Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-type generators m F_i with lifts A m e_i, plus kernel reps with their lifts). rank Phi = #pairs means no nonzero solution over F_p-bar, hence over C.\n\n')
 if rel:

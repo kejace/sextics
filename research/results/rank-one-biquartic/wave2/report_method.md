@@ -45,3 +45,12 @@ and `A F G^2`, all in J), so the Jacobian-quotient relaxation is a condition on 
 F-multiples form the vertex of a cone and can be sliced away (one triangular coordinate per spurious direction set to 0,
 `slice_ms.py`, invariance verified numerically: 0 violations for the 82 (d=6) and 432x3 (d=7) checks).  Emptiness of the
 sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by the Macaulay-rank semicontinuity.
+* Metric correction (20:50 EST): the first `rel` definition divided by the pieces-norm of the full `D = u-part + s`,
+  which grows like |s|^2 while the residual grows at most linearly in the spurious component s, so an optimizer
+  that wanders to large |s| produced spuriously small `rel` (e.g. 2e-6 with |s| = 89 and absolute residual 0.018).
+  From that point on `rel = |r| / scale0` with `scale0` the pieces-norm of the u-part alone (|u| = 1, s = 0), the
+  spurious component is bounded (|s| <= 5), and the per-restart records carry `resnorm`, `scale`, `scale0`, `s_norm`.
+  Records written before the fix (tags d7e_b0, d7k_a, lmtest_*) used the old metric; their `resnorm` values
+  (0.011-0.013 at d=7) are directly comparable.  Local optimizer: Levenberg-Marquardt with the Kaufman
+  variable-projection Jacobian (`--method lm`, default from 20:50) which converges in tens of iterations; the
+  earlier L-BFGS restarts (tags *_b0, d7k_a) all stopped at the 400-iteration cap.

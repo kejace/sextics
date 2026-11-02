@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 20:35:31 from 75 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 20:47:01 from 81 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -31,8 +31,8 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
 
 | d | parity | nD per k=0..6 | J_d per k | kernel mod J per k (nontrivial) | rational reps (max height) | lifts failed |
 |---|---|---|---|---|---|---|
-| 9 | even | -,156,156,139,-,139,139 | -,63,63,52,-,52,52 | -,3,3,2,-,1,3 | -,-,-,49994,-,31345,272340 | 0 |
-| 9 | odd | -,139,-,-,-,136,136 | -,49,-,-,-,46,46 | -,5,-,-,-,6,4 | -,2420,-,-,-,3625,3500 | 0 |
+| 9 | even | -,156,156,139,156,139,139 | -,63,63,52,63,52,52 | -,3,3,2,10,1,3 | -,-,-,49994,-,31345,272340 | 0 |
+| 9 | odd | -,139,-,-,139,136,136 | -,49,-,-,49,46,46 | -,5,-,-,9,6,4 | -,2420,-,-,-,3625,3500 | 0 |
 
 ## (2) Mod-J relaxation per sector (real zeros numerically; Singular exact dimension mod 32003)
 
@@ -94,21 +94,23 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 | 9 | even | 1 | K | 3 | 3 | 1933x272 | 5 | 1.26e+00 | 1.26e+00 | 1.26e+00 | 0 | 0 | lm | 0 |
 | 9 | even | 2 | K | 3 | 3 | 1918x240 | 5 | 1.42e+00 | 1.42e+00 | 1.42e+00 | 0 | 0 | lm | 0 |
 | 9 | even | 3 | K | 2 | 2 | 1969x240 | 4 | 3.41e-02 | 3.41e-02 | 3.41e-02 | 0 | 0 | lm | 0 |
+| 9 | even | 4 | K | 10 | 10 | 1932x354 | 6 | 7.51e-01 | 7.51e-01 | 7.51e-01 | 0 | 0 | lm | 0 |
 | 9 | even | 6 | K | 3 | 3 | 1966x272 | 6 | 1.69e-01 | 8.54e-01 | 8.54e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 1 | K | 5 | 5 | 1947x264 | 5 | 8.90e-01 | 8.90e-01 | 8.90e-01 | 0 | 0 | lm | 0 |
+| 9 | odd | 4 | K | 9 | 9 | 1973x216 | 6 | 8.66e-01 | 8.66e-01 | 8.66e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 5 | K | 6 | 6 | 1929x264 | 5 | 7.55e-01 | 7.55e-01 | 7.55e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 6 | K | 4 | 4 | 1939x264 | 5 | 1.26e+00 | 1.26e+00 | 1.26e+00 | 0 | 0 | lm | 0 |
 
 ## Remote job queue (tail)
 ```
-20:23:54 gate closed for w2-control: 00), available memory 229 GB (min 90), 67 jobs running with 148 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:25:27 gate closed for w2-control: 00), available memory 190 GB (min 90), 66 jobs running with 146 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:26:59 gate closed for w2-control: 00), available memory 212 GB (min 90), 67 jobs running with 148 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:28:32 gate closed for w2-control: 00), available memory 194 GB (min 90), 67 jobs running with 155 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:30:05 gate closed for w2-control: 00), available memory 204 GB (min 90), 71 jobs running with 190 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:31:39 gate closed for w2-control: 00), available memory 185 GB (min 90), 70 jobs running with 189 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:33:12 gate closed for w2-control: 00), available memory 177 GB (min 90), 70 jobs running with 227 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 20:34:45 gate closed for w2-control: 00), available memory 180 GB (min 90), 70 jobs running with 227 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:36:19 gate closed for w2-control: 00), available memory 189 GB (min 90), 76 jobs running with 233 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:37:53 gate closed for w2-control: 00), available memory 191 GB (min 90), 76 jobs running with 240 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:39:26 gate closed for w2-control: 00), available memory 158 GB (min 90), 76 jobs running with 240 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:41:00 gate closed for w2-control: 00), available memory 156 GB (min 90), 75 jobs running with 239 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:42:33 gate closed for w2-control: 00), available memory 170 GB (min 90), 77 jobs running with 267 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:44:07 gate closed for w2-control: 00), available memory 155 GB (min 90), 78 jobs running with 299 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:45:40 gate closed for w2-control: 00), available memory 126 GB (min 90), 77 jobs running with 298 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation
@@ -145,4 +147,9 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
   representative of height below ~1e21 (LLL on the mod-m kernel lattice, m = product of 4 primes, finds exactly the 63
   short J-vectors and nothing else), while (9,even,0/3/5/6) have representatives of height 6e3..3e5.  For the large-height
   sectors the joint search uses an orthonormal floating-point kernel basis (`float_kernel_reps`, lifts to 4e-15).
+* Degree-9 kernel-only families (the non-Jacobian E1 directions, 1-10 dimensional per sector; rational reps where the
+  height is small, orthonormal float reps otherwise), full-E2 LM, local runs (3-6 restarts each, all converging to the
+  same minima across seeds): best rel (9,e,3) 3.4e-2, (9,e,6) 0.17, (9,e,4) 0.75, (9,o,5) 0.75, (9,o,4) 0.87, (9,o,1) 0.89,
+  (9,e,1) 1.26, (9,o,6) 1.26, (9,e,2) 1.42; (9,e,0) 1.03 and (9,e,5) is a single direction (fixed-D, inconsistent in wave 1).
+  No zeros: no certificate denominator in the span of the non-Jacobian kernel directions alone.
 

@@ -1,0 +1,1 @@
+{"exp": "subsets6-size3", "d": 6, "prime": 1000000007, "result": "all 15180 unions of 3 sectors: nontrivial unions have empty relaxation variety; unions containing the trivial sector have no points outside V0 (saturation empty)", "rank": {"3": 990, "0": 14190}, "seconds": 66.1, "job": "excl-cycle-q2-gb", "ts": "2026-11-02T01:42:08", "engine": 2, "lens": "excl"}

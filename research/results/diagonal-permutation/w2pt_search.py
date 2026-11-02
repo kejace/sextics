@@ -244,7 +244,7 @@ def worker(args, wid, conn):
         ref = float(np.median(refs))
         setup = time.time() - t0
         out_path = os.path.join(LANE, f'w2-pt-d{d}-{args.tag}.jsonl')
-        label = fam.label + (f'|pD{args.pD}' if args.pD else '') + (f'|vanish:{args.vanish}' if args.vanish else '') + (f'|vanishL:{args.vanishL}' if args.vanishL else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
+        label = fam.label + ('|joint' if args.joint else '') + (f'|pD{args.pD}' if args.pD else '') + (f'|vanish:{args.vanish}' if args.vanish else '') + (f'|vanishL:{args.vanishL}' if args.vanishL else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
         conn.send({'type': 'setup', 'wid': wid, 'r': r, 'K': fam.K, 'nK': kb.nK, 'dimP': vp.dimP, 'nspur': vp.nspur,
                    'setup_s': round(setup, 1), 'Fres': pts.Fres, 'label': label, 'nKsector': int(vp.nKc), 'ref_B0norm2': ref})
         rels = []
@@ -253,7 +253,7 @@ def worker(args, wid, conn):
             rels.append(c['rel'])
             c['rel_abs'] = c['f'] / ref
             line = {'d': d, 'family': label, 'tag': args.tag, 'wid': wid, 'restart': c['restart'], 'rel': c['rel'], 'f': c['f'], 'rel_abs': c['rel_abs'],
-                    'iters': c['iters'], 'seconds': c['seconds'], 'amax': float(np.max(np.abs(c['a']))),
+                    'iters': c['iters'], 'iters_polish': c.get('iters_polish'), 'f_joint': c.get('f_joint'), 'seconds': c['seconds'], 'amax': float(np.max(np.abs(c['a']))),
                     'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
             with open(out_path, 'a') as fh: fh.write(json.dumps(line) + '\n')
             if min(c['rel'], c['rel_abs']) < args.hit:
@@ -267,7 +267,10 @@ def worker(args, wid, conn):
             if len(rels) % 25 == 0:
                 conn.send({'type': 'progress', 'wid': wid, 'n': len(rels), 'best': min(rels), 'median': float(np.median(rels)),
                            'elapsed': round(time.time() - t0, 1)})
-        vp.search(args.restarts, seed=rng_seed, maxiter=args.maxiter, callback=cb)
+        if args.joint:
+            vp.search_joint(args.restarts, seed=rng_seed, maxiter=args.maxiter, callback=cb, polish=args.polish)
+        else:
+            vp.search(args.restarts, seed=rng_seed, maxiter=args.maxiter, callback=cb)
         hist = np.histogram(np.log10(np.maximum(rels, 1e-300)), bins=[-300, -14, -12, -10, -8, -6, -4, -3, -2, -1, 0, 10])[0].tolist()
         conn.send({'type': 'done', 'wid': wid, 'n': len(rels), 'best': min(rels) if rels else None,
                    'median': float(np.median(rels)) if rels else None, 'hist_log10': hist, 'elapsed': round(time.time() - t0, 1)})
@@ -356,6 +359,8 @@ def main():
     ap.add_argument('--maxiter', type=int, default=400)
     ap.add_argument('--margin', type=int, default=100, help='extra complex points beyond (dim a + dim c)/2')
     ap.add_argument('--hit', type=float, default=1e-9)
+    ap.add_argument('--polish', type=int, default=60, help='variable-projection iterations after the joint warm-up (--joint)')
+    ap.add_argument('--joint', action='store_true', help='joint L-BFGS over (a,c) with cheap evaluations; exact varpro value at the end of each restart')
     ap.add_argument('--vanishL', default='', help='linear forms and order, e.g. "X0-X1,Y0-Y1,X2:3" (D vanishes to order 3 along their common zero set)')
     ap.add_argument('--vanish', default='', help='restrict D(a) to an ideal power: X3, X4, Y3, Y4, L01x4, P0x2 ...')
     ap.add_argument('--pD', type=int, default=0, help='Y-parity of D (0 even, 1 odd)')
@@ -384,7 +389,7 @@ def main():
     tot = sum(m.get('n', 0) for m in summary)
     best = min([m['best'] for m in summary if m.get('best') is not None], default=None)
     hist = [sum(m.get('hist_log10', [0]*11)[i] for m in summary) for i in range(11)]
-    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'vanish': args.vanish, 'vanishL': args.vanishL, 'workers': args.workers,
+    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'vanish': args.vanish, 'vanishL': args.vanishL, 'joint': args.joint, 'workers': args.workers,
            'restarts_total': tot, 'best_rel': best, 'hist_log10_bins': '[<-14,-12,-10,-8,-6,-4,-3,-2,-1,0,>0]', 'hist': hist,
            'maxiter': args.maxiter, 'seconds': round(time.time() - t0, 1), 'seed': args.seed, 'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
     with open(os.path.join(LANE, 'w2-pt-summary.jsonl'), 'a') as fh: fh.write(json.dumps(out) + '\n')

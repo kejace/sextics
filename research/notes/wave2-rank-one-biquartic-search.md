@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-01 20:32:52.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-01 20:42:59.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -64,13 +64,14 @@ sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by th
 | 8 | odd | 636 | 168 | 468 | 177 | **9** | 5832x6642 | 107 |
 | 9 | even | 1001 | 378 | 623 | 405 | **27** | 7752x10010 | 270 |
 | 9 | odd | 1001 | 378 | 623 | 405 | **27** | 7752x10010 | 277 |
+| 10 | even | 1512 | 750 | 762 | 1053 | **303** | 10152x14616 | 459 |
 
 ## 2. Jacobian-quotient ("Hessian") relaxation ranks (exact mod p)
 Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-type generators m F_i with lifts A m e_i, plus kernel reps with their lifts). rank Phi = #pairs means no nonzero solution over F_p-bar, hence over C.
 
 | d | parity | family (J + kernel) | #pairs | dim (S/J)_{2d} | rank Phi | excluded? |
 |---|---|---|---|---|---|---|
-| 5 | even | ? + ? = 3 | 6 | 744 | 6 | **YES (proved, mod p -> C)** |
+| 5 | even | 3 + 0 = 3 | 6 | 744 | 6 | **YES (proved, mod p -> C)** |
 | 5 | odd | 3 + 0 = 3 | 6 | 744 | 6 | **YES (proved, mod p -> C)** |
 | 6 | even | 18 + 0 = 18 | 171 | 866 | 82 | no (rank-deficient by count) |
 | 6 | odd | 18 + 0 = 18 | 171 | 866 | 108 | no (rank-deficient by count) |
@@ -84,7 +85,7 @@ Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-typ
 Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02
 
 ### Residual landscape (per-restart files)
-* `d7e_b0`: n=20, min 6.392e-03, 10% 1.652e-02, median 3.772e-02, 90% 5.418e-02, max 1.228e-01
+* `d7e_b0`: n=24, min 6.392e-03, 10% 1.652e-02, median 3.772e-02, 90% 5.306e-02, max 1.228e-01
 * `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
 
 ## 4. Structured families vs the E1-admissible space (exact mod p)

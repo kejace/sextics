@@ -1,1 +1,3 @@
 [01:30:00] start d8h0b-c30 (eff 28) elapsed 0s
+   -> best 2.053e-02 median 8.100e-02 restarts 300 dimP 28 t/restart 19.32 witness False
+[01:45:44] start d8h0b-c10 (eff 23) elapsed 944s

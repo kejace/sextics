@@ -1,6 +1,6 @@
 # Draft discussion comment (lane quadratic-cubic-pullback, #175) — EXCLUSION / RIGOR lens, wave 2
 
-<!-- STATUS: DRAFT, to be completed when remote jobs finish; placeholders in [[...]] -->
+<!-- STATUS: DRAFT (remote jobs for items 3-4 never ran: shared box saturated); placeholders in [[...]] mark the pending parts -->
 
 ### Degree bounds and certified exclusions for the residual target `X0^3 Y0^3` (q = 1)
 
@@ -10,14 +10,12 @@ characteristic-zero validity is certified (modular rank <= rational rank; equali
 explicit rational kernel).  "Screened" means: a modular computation at one prime without such a certificate.
 
 **1. E1 kernels (rigorous).**  Let `K_d = {D in S_d : A D in J(F)}` (the necessary condition obtained by reducing the
-certificate identity modulo `F`).  Then `K_d = J(F)_d` for all `d <= [[9]]` in both Y-parity sectors (primes
-2147483647 [wave 1, even d<=8 / odd d<=6] and 2147483629 [all d<=[[9]]]; the degree-(d+6) Jacobian blocks have their
+certificate identity modulo `F`).  Then `K_d = J(F)_d` for all `d <= 6` in both Y-parity sectors, and for Y-even `d <= 8` (primes 2147483647 [wave 1] and 2147483629 [wave 2, d = 3, 5, 6]; the degree-(d+6) Jacobian blocks have their
 Hilbert ranks, so the modular kernel dimension is an upper bound for the rational one and it equals `dim J_d`).
-Consequence: every certificate has `deg D >= 10`, or `D = w . grad F` is of Jacobian ("polar") type.
-Every D of degree <= 9 not in J(F) — in particular delta, all cubics in the Q_i except F, all joins, all quadric
+Consequence: every denominator of degree `<= 6` (and every Y-even one of degree `<= 8`) is of Jacobian ("polar") type `D = w . grad F`.
+Every D of degree <= 6 (Y-even: <= 8) not in J(F) — in particular delta, all cubics in the Q_i except F, all joins, all quadric
 sections, the coordinate-plane cones — is excluded at every pole order (prescribed-support theorem at q = 1).
-At d = 10 the kernel modulo J has dimension [[294 (even) / 261 (odd)]], equal to the Gorenstein lower bound
-`dim R_10 - dim R_16 = 555`, hence exact over Q.
+[[The d = 7(odd)..12 kernels at new primes are queued; at d = 10 the Gorenstein lower bound is 294 (even) + 261 (odd) = 555.]]
 
 **2. The polar family (new reduction).**  For `D = w . grad F` write `N = A w + H z/6 + c . grad F` (complete by the
 Koszul syzygies).  All `H`-terms cancel identically and the certificate condition becomes
@@ -32,14 +30,14 @@ unknowns gives a linear system whose kernel projects onto the `W`-coordinates; a
 The mod-p bases have entries in `{0, +-1, +-2}`; their lifts are verified exactly to lie in `J(F)` (exact rational solve),
 so `K_H(Q)` is known exactly, and Singular over `Q` gives the locus `{w : w w^T in K_H}`:
 Y-odd sector (`dim K_H = 18`): only `w = 0`.  Y-even sector (`dim K_H = 36`): exactly the Euler line `w = lambda z`,
-i.e. `D = 6 lambda F`, not coprime to `F`.  [[mixed-parity sector: joint kernel of dimension ... ; locus ...]]
-**Hence no denominator of degree 6 with pure Y-parity exists[[, and none of mixed parity]]; every certificate has `deg D >= 7`[[pending mixed]].**
+i.e. `D = 6 lambda F`, not coprime to `F`.  Mixed parity (all 36 linear coordinates of `w`, 666 relaxation unknowns): `dim K_H = 261`, all lifts verified exactly, 405 exact quadrics; Singular over `Q`: the cone has dimension 1, a random affine chart meets it in a zero-dimensional scheme of length 923 whose radical is the single rational point `w = z/85` (the Euler point), and the cone meets the parallel hyperplane through 0 only in 0 — so the cone is exactly the Euler line.
+**Hence no denominator of degree 6 of any Y-parity is coprime to `F`; every certificate has `deg D >= 7`.**
 *Degree 7:* the same Hessian relaxation has a 1533-dimensional kernel for Y-even polars (63 quadratic coordinates,
 2016 unknowns; certified upper bound) with large coefficients; the resulting cone (483 quadrics in 63 variables) was not
 decided within the local budget. Status: open.
 *Degree 5 alternative proof:* `K_H = 0` in every sector (3 s, Hilbert-certified), independently of the exact full relaxation.
 
-**3. Structured Jacobian-type denominators of degree 6-10 (certified fixed-D tests).**  [[REMOTE JOB NOT YET RUN (the shared box was saturated, load > 1000); table: block Euler fields
+**3. Structured Jacobian-type denominators.**  Degree 6: all are covered by item 2 (and, independently, E_X F and grad Q_k . grad F fail the rigorous necessary condition `A d_w(D) in J_12`).  Degree 7: all 17 structured Jacobian-type candidates (`grad(X_i Q_k).grad F`, `grad(X0^3).grad F`, `grad(X0Y0Y1).grad F`, `sum_{i<3} Q_i F_i` and its shifts/crosses, their Y-odd analogues, `Q_k F_k`) fail the rigorous necessary condition `A d_w(D) in J_14` (Jacobian block at Hilbert rank 5052): excluded.  Degree 8: [[hesstest d=8 results]].  Degrees 8-10 full fixed-D tests and the degree-10 kernel analysis: REMOTE JOB NOT YET RUN (the shared box was saturated, load > 1000); table: block Euler fields
 E_X F (the deformation of the Fermat join E_X F_0/6 = X0^6+X1^6+X2^6, which serves 100 classes at the Fermat point),
 weighted Euler, shape-symmetry fields rho/sigma, grad Q_k . grad F, grad(Q_kQ_l) . grad F, sum Q_i^2 F_i, |grad F|^2,
 grad delta . grad F ... : served dimension modulo J, rank-certified]].  A fixed-D verdict is reported as rigorous only
