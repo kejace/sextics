@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-02 03:42:47.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-02 04:12:50.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -116,10 +116,10 @@ Totals per family: d=7 even (K=66): 240 restarts, best rel 6.270e-03; d=7 odd (K
 
 ### Residual landscape (per-restart files)
 * `d7e_b0`: n=200, min 6.270e-03, 10% 1.645e-02, median 3.842e-02, 90% 7.439e-02, max 2.901e-01
-* `d7e_b1`: n=16, min 2.015e-02, 10% 2.589e-02, median 4.511e-02, 90% 1.047e-01, max 1.119e-01
+* `d7e_b1`: n=32, min 2.015e-02, 10% 2.589e-02, median 4.557e-02, 90% 6.761e-02, max 2.036e+00
 * `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
 * `d7o_a`: n=16, min 1.440e-02, 10% 1.822e-02, median 4.123e-02, 90% 7.103e-02, max 8.815e-02
-* `d8e_b0`: n=24, min 1.819e-03, 10% 2.158e-03, median 5.785e-03, 90% 8.561e-03, max 1.866e-02
+* `d8e_b0`: n=26, min 1.819e-03, 10% 2.158e-03, median 5.693e-03, 90% 8.561e-03, max 1.866e-02
 * `d8k_a`: n=40, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
 * `d9m_a`: n=8, min 1.344e-03, 10% 1.344e-03, median 2.496e-03, 90% 1.070e-02, max 1.070e-02
 
