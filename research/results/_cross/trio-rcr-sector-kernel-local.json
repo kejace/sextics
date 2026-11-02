@@ -1,0 +1,23 @@
+{
+ "lane": "reflection-coupled-residual",
+ "n_Def": 158,
+ "chiA": [
+  0,
+  3
+ ],
+ "1000003": {
+  "p": 1000003,
+  "dims": {
+   "R6_diag_sector": 126,
+   "R12_diag_sector": 492
+  },
+  "dim_eps_S6": 138,
+  "dim_eps_R6": 126,
+  "dim_Def_xi_in_R12": 144,
+  "dim_Def2_xi_in_R18": null,
+  "dim_ker_in_eps_S6": 12,
+  "dim_K_annihilated_by_Def_in_R6eps": 0,
+  "dim_Def_R6eps_in_R12": 492,
+  "seconds": 128.9
+ }
+}

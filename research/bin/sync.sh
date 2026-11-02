@@ -10,6 +10,7 @@ rsync -a --delete --exclude __pycache__ --exclude venv "$HOME/devel/sextics-work
 [ -d /tmp/hodge/notes ] && rsync -a /tmp/hodge/notes/ $R/notes/
 [ -d /tmp/hodge/results ] && rsync -a --exclude '*.npz' --exclude '*.olean' --exclude '*.zip' --max-size=20m /tmp/hodge/results/ $R/results/
 [ -d /tmp/hodge/discussions ] && rsync -a /tmp/hodge/discussions/ $R/discussions/
+[ -d /tmp/hodge/posts ] && mkdir -p $R/posts && rsync -a /tmp/hodge/posts/ $R/posts/
 [ -d /tmp/hodge/lean ] && rsync -a --exclude '*.olean' --max-size=20m /tmp/hodge/lean/ $R/lean/
 for p in "$HOME"/.claude/projects/*sextics*/workflows/scripts; do [ -d "$p" ] && rsync -a "$p/" $R/workflows/; done
 for m in "$HOME"/.claude/projects/*sextics*/memory; do [ -d "$m" ] && rsync -a "$m/" $R/claude-memory/; done
