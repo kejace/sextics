@@ -71,3 +71,4 @@
 {"what": "E1-kernel-vert", "d": 17, "parD": 0, "prime": [2147483647, 2147483629], "result": "fam 30 | kernel 27/27 | J-part 21/21 | interesting 6/6 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T05:23:48Z"}
 {"what": "E1-kernel-vert", "d": 17, "parD": 1, "prime": [2147483647, 2147483629], "result": "fam 30 | kernel 27/27 | J-part 21/21 | interesting 6/6 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T05:38:24Z"}
 {"what": "E1-kernel-vert", "d": 18, "parD": 0, "prime": [2147483647, 2147483629], "result": "fam 40 | kernel 40/40 | J-part 30/30 | interesting 10/10 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T06:17:25Z"}
+{"what": "E1-kernel-vert", "d": 18, "parD": 1, "prime": [2147483647, 2147483629], "result": "fam 30 | kernel 29/29 | J-part 21/21 | interesting 8/8 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T06:45:14Z"}

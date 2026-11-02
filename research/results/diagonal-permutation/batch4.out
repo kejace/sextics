@@ -3,3 +3,4 @@ D8 = unique non-Jacobian E1-kernel element (deg 8) -> d 8 e1 True cons False ran
    target_image dim = 18 (baseline 18)  [1537s]
 (Y)^4∩J_8 S3-invariant random combo #1 -> d 8 e1 True cons False rank 6702 null 795 2471.49 s
    target_image dim = 18 (baseline 18)  [1053s]
+(Y)^4∩J_8 S3-invariant random combo #2 -> d 8 e1 True cons False rank 6702 null 795 2002.7 s

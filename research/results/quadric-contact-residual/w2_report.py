@@ -74,9 +74,11 @@ if cone_recs:
     bc = min((r['best_rel'] for r in cone_recs if r.get('best_rel') is not None), default=None)
     L.append(f'* cone / coordinate-subspace / reflection-adapted families: {len(cone_recs)} batches, best rel {fmt(bc)} (no witness).')
 for r in hs:
+    if r.get('tag') == 'smoke':
+        continue
     L.append(f'* Hessian relaxation d={r["d"]} ({r["chi"]}, {r.get("n_members")} members, {r.get("dimP")} free parameters, {r.get("restarts_done")} restarts): best |T|^2/scale {fmt(r.get("best_frel"))}; '
              + ('no zero of the necessary quadratic condition found' if (r.get('n_frel_lt_1e-12') or 0) == 0 else f'{r.get("n_frel_lt_1e-12")} near-zeros, polished: {[fmt(p.get("full_rel")) for p in r.get("polished", [])]}') + '.')
-gb = [r for r in recs if r.get('task') == 'hess-gb']
+gb = [r for r in recs if r.get('task') == 'hess-gb' and r.get('status') != 'singular-unparsed']
 for r in gb:
     L.append(f'* EXACT Hessian-congruence closure d={r["d"]} ({r["chi"]}, {r.get("unknowns")} unknowns, {r.get("n_quadrics")} quadrics mod p): {r.get("status")}.')
 st_e1 = [r for r in st if r['task'] == 'struct']
