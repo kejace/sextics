@@ -37,3 +37,17 @@ largest families were tested with the sector solver mod p.  See §4.4 for the ou
 
 ## 4.4 Outcome
 (filled below after the run)
+Degree 9, μ3-invariant sectors c00–c05 (E1-admissible dims 96, 82, 82, 95, 83, 83): 120 (plane, sector) pairs admit
+order ≥ 3 (every pair), with family dimensions 29–66 (order ≥ 4: 10–43) — far larger than the naive count because the
+bulk is J-type (D = G(F), tangency divisors of vector fields, 62–77 per sector) and because sector constraints already
+kill most low-normal-degree monomials.  For the planes inside the branch locus {X2 = 0} the random members have a
+genuine j = 0 leading cubic (both the X2^3-coefficient and c_3(n1,n2) nonzero).  Mod-p sector tests (two primes,
+systems 3383–3539 × 1763–1865) of random small-integer members:
+  {X0,X1,X2} sector 03 (family dim 62): rank 1796 / aug 1797 — inconsistent;
+  {X2,Y0,Y1} sector 00 (dim 56): 1792 / 1793 — inconsistent;
+  {X0,X1,X2} sector 01 (dim 55): 1702 / 1703 — inconsistent;
+  {X1,X2,Y0} sector 03 (dim 54): 1796 / 1797 — inconsistent.
+(All four: the augmented rank exceeds the rank by exactly one at both primes, the same signature as every degree-8
+member; receipts in the log, step C4-test.)  Consistent with Part 6: a degree-9 divisor with one triple-point curve
+carries ≤ 10 twisted forms against the 67 required generically, so random members cannot work and a parametric search
+in these families is not worth running before the Hodge-theoretic bound is circumvented.

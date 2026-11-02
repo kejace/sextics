@@ -43,6 +43,23 @@ G4. `subsets6.py` and `pair_exact.py` saturate by the PRODUCT of the nontrivial 
 G5. The reduction argument T2 transfers EMPTINESS of a mod-p relaxation variety to Q-bar, so unions of nontrivial sectors are rigorously
     excluded.  For unions containing the trivial sector the mod-p variety is not empty (it is V0 mod p) and T2 does not exclude a
     denominator whose nontrivial components are p-adically small: those cases are rigorous only when computed exactly over Q (step 6
-    does this for all 45 pairs; triples and quadruples remain mod-p screened).
+    does this for 27 pairs incl. all four order-2 characters; for the other pairs the kappa-kappa part of [H(D_a + D_c)] has its own
+    character (2*kappa != 0) so the single-sector exact results already force D_c = 0; triples and quadruples remain mod-p screened).
 G6. 18 ledger rows of `reverify.results.jsonl` are `ERROR ... mixed Y-parity` (the squared mixed-parity cubic 3-cones were never
     tested); the local packet has 101 named, 35 cone, 48 degree-6 and 263 degree-7 certificate files (the remote had 608 at hand-off).
+
+## Referee artefact notes (added after the replays)
+* `../referee/singletons_hessian.results.jsonl`: all nine singleton sectors have exact Q-kernel dimension 1 and a NONZERO exact Hessian class
+  in `R_18` (`referee_singletons_hessian.py`, ~8 s per sector) — this alone excludes them over C.  `referee_singletons.py` additionally
+  produces exact Farkas certificates for the true kernel elements (`../referee/certs_regen/exactQ_d6_k*.json`; entries of 10^4–10^5 bits,
+  ~1–10 min per sector); `exactQ_d6_k013.json` (34 MB) exceeds the research-branch per-file cap and is mirrored as `.json.gz`.
+* `../referee/pair_exact.results.jsonl`, `pair_exact_order2.results.jsonl`, `pair_exact_k302_pervar.sing`: exact over Q, union variety of
+  {trivial + one nontrivial sector} equals V0 (ideal saturation) for 27 sectors including all four order-2 characters (0,0,3), (3,0,0),
+  (3,0,3), (3,3,3); for a character kappa with 2*kappa != 0 the kappa-kappa part of [H(D_a + D_c)] has character chi_A + 2*kappa, distinct
+  from chi_A and chi_A + kappa, so the single-sector exact result already forces D_c = 0 — the pair computation is only needed for order-2
+  characters.
+* `../referee/unions_size{2,3,4}_p*.json`: corrected (ideal-saturation) union test; sizes 2, 3 at both primes, size 4 at 10^9+7.
+* `../referee/packet_shadow/polyfarkas/`: sampled regeneration (3 of 60) of the trivial-sector exact Farkas vectors; the regenerated cubic
+  forms coincide bitwise with the stored cubics #0, #20, #40 of `polyfarkas/red_trivial6_exact.cubics_Q.txt`.
+* `../referee/referee_farkas.results.jsonl`: 71 engine-free exact certificate checks (69 verified; 2 files without stored vector).
+* Tools actually used: python 3.12.3, python-flint 0.9.0, Singular 4.3.2; primes 10^9+7, 998244353, 999999937 (msolve not needed).

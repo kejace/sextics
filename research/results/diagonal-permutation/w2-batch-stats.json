@@ -78,6 +78,32 @@
   ]
  },
  {
+  "file": "w2-pt-d9-j9eps.jsonl",
+  "d": 9,
+  "tag": "j9eps",
+  "family": "jac-d9+21extra|sector+1",
+  "restarts": 3,
+  "best_rel": 0.008900539457173454,
+  "median_rel": 0.011176656921772513,
+  "best_rel_abs": 7.907335821567717e-05,
+  "iters_median": 368,
+  "iters_max": 400,
+  "sec_per_restart": 3053.8,
+  "hist_log10": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   2,
+   0,
+   0
+  ]
+ },
+ {
   "file": "w2-pt-d9-j9op.jsonl",
   "d": 9,
   "tag": "j9op",
@@ -134,13 +160,13 @@
   "d": 9,
   "tag": "j9y4s",
   "family": "jac-d9+21extra|vanish:Y4|sector+1",
-  "restarts": 15,
+  "restarts": 19,
   "best_rel": 0.0045611117595764404,
-  "median_rel": 0.17454758870947273,
+  "median_rel": 0.175086079035892,
   "best_rel_abs": 0.005978835563667786,
   "iters_median": 74,
   "iters_max": 115,
-  "sec_per_restart": 1177.5,
+  "sec_per_restart": 1195.6,
   "hist_log10": [
    0,
    0,
@@ -151,7 +177,7 @@
    0,
    1,
    0,
-   14,
+   18,
    0
   ]
  }

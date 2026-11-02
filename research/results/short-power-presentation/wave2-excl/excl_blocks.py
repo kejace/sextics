@@ -131,6 +131,8 @@ def main():
     order = sorted(blocks, key=lambda b: (b == 'lam', b))   # lam last
     if scheme == 'fine':
         order = sorted(blocks, key=lambda b: (b == 'lam', unk[blocks[b][0]][1] < 3, b))   # Y-components first, then X, lam last
+    if '--lam-first' in sys.argv:
+        order = sorted(blocks, key=lambda b: (b != 'lam', b))
     print('blocks:', {b: len(v) for b, v in blocks.items()}, 'order', order, flush=True)
     alive = set(range(nu))
     steps = []

@@ -44,7 +44,8 @@ def msolve_file(kind, chart, extra, path, Yvals=(1,2,3), ab=(1,2)):
             if c==0: continue
             mstr = '*'.join('%s^%d'%(str(v),k) if k>1 else str(v) for v,k in zip(vars_, mon) if k>0)
             terms.append(str(c) + ('*'+mstr if mstr else ''))
-        return '+'.join(terms) if terms else '0'
+        s_ = '+'.join(terms) if terms else '0'
+        return s_.replace('+-','-')
     eqs = [e for e in eqs if e!=0]
     with open(path,'w') as f:
         f.write(','.join(str(v) for v in vars_)+'\n%d\n'%PR)

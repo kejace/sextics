@@ -82,8 +82,9 @@ independent — also confirmed computationally.)
   degree 5 (959426 × 685669, in progress). The local attempt was OOM-killed (brunos has no free memory). Singular `std`
   on the same residual runs on the remote as a backup. The remote job exclB-spp-blocks repeated the d = 7 even chain (same
   block steps) but its residual msolve died under memory pressure; the standalone 16-thread msolve on the residual is
-  the live attempt. Exact certificates for the eliminating steps (λ, w3, w4, w5) are being produced by the replay job
-  exclB-spp-certify7e (`excl_certify.py`: dim_Q span(other pairs mod J_14) = dim_p, rational dependency certificates).
+  the live attempt. Processing λ first (others = all w-pairs, span 304) also eliminates it, so its certificate only needs
+  dependencies among the w-pair polynomials (moderate height). Exact certificates for the eliminating steps (λ, w3, w4,
+  w5) are being produced by the replay job exclB-spp-certify7e (λ first, up to 12 primes for the lifts) (`excl_certify.py`: dim_Q span(other pairs mod J_14) = dim_p, rational dependency certificates).
 
 ## 2. Wave-1 claims: re-verification status
 1. E1 kernel dims (p = 2^31−1): d ≤ 3 confirmed with p = 1073741789; d = 4..10 queued (job excl-spp-e1k).

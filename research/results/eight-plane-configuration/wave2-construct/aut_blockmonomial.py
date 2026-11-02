@@ -81,7 +81,7 @@ for sigma,bits,pi in perms:
         if lam is None: lam=l
         elif l!=lam: ok=False; break
     results.append({'sigma':sigma,'bits':bits,'ok':ok,'d_ratios':[str(r) for r in ratios] if ok else None,'lambda':str(lam) if ok else None})
-out['automorphisms']=[r for r in results if r['ok']]
+out['automorphisms']=[r for r in results if r['ok']]; out['all']=results
 out['n_candidates']=len(results); out['n_ok']=len(out['automorphisms'])
 print(json.dumps({'n_monomials_uv':out['n_monomials_uv'],'n_ok':out['n_ok'],'ok':[(r['sigma'],r['bits'],r['d_ratios'],r['lambda']) for r in out['automorphisms']]}))
 json.dump(out,open('/tmp/hodge/results/eight-plane-configuration/wave2-construct/aut_blockmonomial.json','w'))

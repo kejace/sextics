@@ -1,0 +1,29 @@
+{
+ "exp": "redsys-polyfarkas-deg1-EXACT",
+ "family": "D(a) = sum_k a_k z_k F_k (trivial sector, deg 6)",
+ "tag": "referee_red_trivial6",
+ "d": 6,
+ "prime": 1000000007,
+ "rows": 467,
+ "cols": 278,
+ "equations": 5733,
+ "unknowns": 2802,
+ "rank_mod_p": 2647,
+ "nullity_mod_p": 155,
+ "vectors_lifted_verified": 3,
+ "maxbits": 620,
+ "sha256_vectors": [
+  "49463edf2e3d10a944a4f060559ea192d507479619aa4a82b2ad31b2ef43472e",
+  "d5d06f8b7cf0fc76789239c2d756ba919d6c706e8ec467c881eccb47b8720789",
+  "bd31702eebe9e5622d9e275574fd5912fab2c2240a5672d731130060d8d0c9b2"
+ ],
+ "dimW_affine_Q": 2,
+ "vdimW_Q": null,
+ "dimW_minus_Euler_affine_Q": 2,
+ "vdimW_minus_Euler_Q": null,
+ "dim_cubics_only_Q": 4,
+ "dim_cubics_only_minus_Euler_Q": 4,
+ "seconds": 353.3,
+ "job": "redsys_lift",
+ "result": "EXACT degree-1 polynomial Farkas on the reduced system: 3 verified rational vectors; over Q: W = V0 cap V(phi) affine dim 2, minus Euler point 2; V(phi) alone: dim 4, minus Euler 4"
+}
