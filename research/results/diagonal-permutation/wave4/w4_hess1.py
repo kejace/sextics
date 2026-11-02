@@ -1,7 +1,7 @@
 """Rank-1 Hessian locus (2x2 minors) of F on P^5 or of the fibre F_mu on P^4, over F_p, all affine charts.
 For chart z_i = 1 we run (a) the plain minor system and (b) for each other variable z_j the system
 {minors, u*z_j - 1}; (b) all empty  <=>  the only F_p-bar point in the chart is the coordinate point e_i.
-Usage: python3 w4_hess1.py P5|fibre <mu> <prime> [nthreads]"""
+Usage: python3 w4_hess1.py P5|fibre <mu> <prime> [nthreads] [chart1,chart2,...]"""
 import sys, itertools, json, time
 import sympy as sp
 import w4lib as L
@@ -22,7 +22,9 @@ for rows in itertools.combinations(range(n),2):
 print(target, 'mu', mu, 'p', p, 'minors', len(minors), flush=True)
 u = sp.Symbol('u')
 summary = {}
+only = sys.argv[5].split(',') if len(sys.argv)>5 else None
 for i in range(n):
+    if only and str(V[i]) not in only: continue
     sub = {V[i]: 1}
     eqs_i = [m.subs(sub) for m in minors]
     others = [V[j] for j in range(n) if j != i]

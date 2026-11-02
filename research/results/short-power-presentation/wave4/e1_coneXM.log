@@ -8,3 +8,6 @@ DONE coneXM 10 0 fam 161 kernel 105 105 J-part 99 interesting 6 6 hilbert True T
 DONE coneXM 10 1 fam 125 kernel 70 70 J-part 66 interesting 4 4 hilbert True True Fdiv [False, False, False, False] 36s
 DONE coneXM 11 0 fam 203 kernel 147 147 J-part 141 interesting 6 6 hilbert True True Fdiv [False, False, False, False, False, False] 62s
 DONE coneXM 11 1 fam 161 kernel 105 105 J-part 99 interesting 6 6 hilbert True True Fdiv [False, False, False, False, False, False] 59s
+DONE coneXM 12 0 fam 252 kernel 196 196 J-part 189 interesting 7 7 hilbert True True Fdiv [False, False, False, False, False, False, False] 105s
+DONE coneXM 12 1 fam 203 kernel 147 147 J-part 141 interesting 6 6 hilbert True True Fdiv [False, False, False, False, False, False] 91s
+ALL DONE

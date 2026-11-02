@@ -42,6 +42,11 @@ Applied to the target sector (ζ^1 for ctr, the sign −1 for rcr/qcr):
   X ∩ {X0 = Y0}).  Numerically the eigen-dimensions are those of the equivariant Jacobian ring (dossiers): the full
   χ-eigenspaces are (1; 107+τ-odd part; …) for ctr, (1, 126+126, …) for rcr (the r-odd part is the (−,−) ⊕ (−,+) Klein
   sectors), (1, 22+…, …) for qcr (the s0-odd part contains the ε-sector (0,22,51,22,0) and other Γ-characters).
+  [computed, trio_eigendims.py, p = 1000003, sector totals equal the CI values so exact over Q] Dimensions of the twisted
+  groups via the equivariant Jacobian ring (residue character of X^e Ω/F^{k+1} is ζ^{e2+1}, resp. (−1)^{e5+1}):
+    ctr: h^{3,1}_ζ = h^1(W, Ω^3_W(log B)(−1)) = 220, h^{3,1}_{ζ²} = h^1(W, Ω^3_W(log B)(−2)) = 136, h^{3,1}(W) = 70 (sum 426);
+         (2,2)-parts 685 / 685 / 381.  τ-anti-invariant pieces 113 / 67 / 38 (sum 218 ✓ book (208, 218)).
+    rcr: h^{3,1}_{r=−} = h^1(W, Ω^3_W(log B)(−1)) = 270 = 126 (−,−) + 144 (−,+), h^{3,1}(W) = 156 = 82 + 74; (2,2): 730 / 1021.
   The lane targets lie in the subsectors cut out by the remaining symmetries (τ, ρ; r1, G_diag), which commute with G and
   act on the right-hand sides: the target sectors are the corresponding isotypic parts of H^1(W, Ω^3_W(log B)(−1)).
 

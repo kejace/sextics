@@ -16,12 +16,12 @@ def f_of(Z):
     return out
 fU=f_of(U); fV=f_of(V)
 assert core.sub(core.scale(core.add(fU,fV),0.5) if False else core.add(fU,fV), core.scale(F,2))=={}, 'F != (f(U)+f(V))/2'
-cands={'f(V)':fV,'f(U)':fU,'f(U)-f(V)':core.sub(fU,fV)}
+cands={'f(U)-f(V)':core.sub(fU,fV)}
 # control: joining-sector target U0^3 V0^3 with D = f(V) (wave-2 B2 says strict certificate exists)
 ctrl=core.mul(core.power(U[0],3),core.power(V[0],3))
 for nm,D in cands.items():
     for tn,Tg in [('A_mix',Amix),('control U0^3V0^3',ctrl)]:
-        if tn.startswith('control') and nm!='f(V)': continue
+        pass
         t0=time.time()
         r=fixed_d.solve_fixed_D_fast(F,Tg,1,D,want_exact=True,verbose=False)
         info={k:(v if k not in ('N','Q','D') else '...') for k,v in (r.items() if isinstance(r,dict) else [('raw',str(r)[:200])])}

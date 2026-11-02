@@ -1,0 +1,6 @@
+{"case": "diag", "j": 0, "class": "unknown", "seconds": 1.4, "n_eqs": 141, "raw": ""}
+{"case": "diag", "j": 1, "class": "empty", "seconds": 0.0, "n_eqs": 142}
+{"case": "diag", "j": 2, "class": "empty", "seconds": 0.0, "n_eqs": 142}
+{"case": "diag", "j": 3, "class": "empty", "seconds": 0.0, "n_eqs": 142}
+{"case": "diag", "j": 4, "class": "empty", "seconds": 0.0, "n_eqs": 142}
+{"case": "diag", "j": 5, "class": "empty", "seconds": 0.1, "n_eqs": 142}
