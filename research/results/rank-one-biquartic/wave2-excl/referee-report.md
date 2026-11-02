@@ -37,7 +37,7 @@ PLAUSIBLE = modular evidence only (or not replayed); UNSUPPORTED = not establish
 | 9 | mixed-parity degree-6 Hessian relaxation has m-primary leading ideal mod 10^9+7 (419 quadrics, 35 vars) | aggregator hessrelax6 | PLAUSIBLE (modular) | replayed with msolve; the transfer to Q is valid in principle (full-rank Macaulay matrix in degree 71; standard monomials of `(S/J)_6` mod p form a p-integral Q-basis), so this is an independent second route, but the proof of record is 5–7 |
 | 10 | `V_7 = J_7 (+) K_7` over Q with `dim K_7 = 3` (Y-even, base-type, exact generators with exact E1 lifts); `V_7^- = J_7^-` | k7exact, verify_e1kernel | VERIFIED | exact lifts and independence mod `J_7` replayed at 10^9+9; upper bound 129 at 10^9+9 and 10^9+7 |
 | 11 | degree 7 excluded or "screened" | (none; draft template) | UNSUPPORTED | `hpipe_d7`: 0 of 123 coordinate squares in the row space mod p; Singular mod p timed out (3600 s). Degree 7 is open |
-| 12 | `dim V_d/J_d = 9+9 (d=8), 27+27 (d=9)` | wave 1, verify_e1kernel | PLAUSIBLE (modular) | 10^9+7 (d = 8), 10007 (d = 8, 9); no exact generators computed |
+| 12 | `dim V_d/J_d = 9+9 (d=8), 27+27 (d=9)`; `K_9 = K_7 S_2 + K_8 S_1 mod J` | wave 1, verify_e1kernel | PLAUSIBLE (modular) | 10^9+7 (d = 8, 9, both parities, rankJ_ok; generation check true) and 10007; no exact generators computed beyond degree 7 |
 | 13 | `(J:A)` minimal generators 6/3/3/456 in degrees 5/7/8/10; HF of `S/(J:A)` | quotJA_p65521, dossier 4.6 | PLAUSIBLE (modular) | two primes agree (65521, 10007); the 32003 run never executed — do not cite it |
 | 14 | `L, M, f, g, L^2 M, f-g, A, A L, A M, A L^2, A M^2, A L M notin J`; `fg, f L^2M, g L^2M, (L^2M)^2, f^2, g^2 notin J` | dossier 4.2/4.6, excl ledger | VERIFIED | non-membership mod p with J at regular-sequence rank is rigorous; replayed at 10^9+9 |
 | 15 | `Delta' = 4 t^3 L^6 M^3 + 27 f^2 g in J` | dossier 4.6, quotJA | PLAUSIBLE (modular) | membership mod 65521 and 10007 transfers nothing to Q |
@@ -81,3 +81,5 @@ exact-certificate route rather than only by the modular m-primary route.
 `DMAX_PROVED = 6`; there is **no** screened degree beyond 6 (degree 7 is not even excluded mod p); the prime 32003 was
 not used; the exclusion report's "exact step still running" for degree 6 is superseded by `hpipe_d6` step D; cite the
 aggregator's m-primary result only as independent agreement; never claim nonexistence of a certificate.
+
+Packet snapshot (pinned): https://github.com/kejace/sextics/tree/a6a4f461b3245f146a6eec3ed1387195b03d4f05/research/results/rank-one-biquartic/wave2-excl

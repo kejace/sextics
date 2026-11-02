@@ -1,2 +1,4 @@
 system 32214 x 6804 (d=9, chi_D=(0, 0)) built in 52.9s
 a-priori vectors 816 (zG 588), all in kernel mod p: True, rank mod p = 798  => rank_Q(M) <= 6006
+row subset 8400/32214: rank_p(M_sub) = 6006, rank_p([M|b]_sub) = 6007  (361.4s)
+{"exp": "ref-fixedD", "tag": "d9-chi00-basis0", "d": 9, "chi_D": [0, 0], "p": 1000000021, "rows": 32214, "cols": 6804, "apriori_vectors": 816, "apriori_in_kernel": true, "apriori_rank_p": 798, "subset_rows": 8400, "rank_p_subset": 6006, "rank_p_aug_subset": 6007, "inconsistent_modp": true, "certifie

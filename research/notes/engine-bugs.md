@@ -90,3 +90,17 @@ numpy).  Suggested engine fix: have `rjob.submit` export `OPENBLAS_NUM_THREADS=1
 make `hodge/__init__.py` override rather than setdefault when running under rjob.
 
 **Aggregator confirmation (02:29 UTC) of the BLAS oversubscription entry above:** `hodge/rjob.py` line 96 exports `OMP_NUM_THREADS=OPENBLAS_NUM_THREADS=FLINT_NUM_THREADS=<cpus>` for the job shell, and `hodge/__init__.py` lines 5–6 only `os.environ.setdefault(..., '1')`, so inside an rjob job every worker process inherits `<cpus>` BLAS threads: N workers × N threads. Jobs that fork N workers under `--cpus N` should set the three variables to 1 at the top of the script (before numpy/flint are imported); the aggregator's `verify.py` workers were submitted with 3 workers at `--cpus 6`, i.e. ≤ 18 threads, and are unaffected in practice. Suggested fix stands: have `rjob.submit` export 1 for the BLAS variables and pass the CPU budget separately (`HODGE_JOB_CPUS` already exists).
+
+## Reported by the symmetric-sextic-residual search lens (2026-11-01, 23:15 EST)
+
+* `hodge.rjob submit`: the ssh that launches the detached job frequently does not return (the job itself starts
+  within seconds and its pid file is written); a local `submit` process then hangs indefinitely and the registry line
+  is never written. Workaround used: run `submit` in its own process group with a timeout, then check the remote pid
+  file (`w2b/scheduler.py` in the lane dir).
+* `hodge.rjob submit --cpus N` exports `OMP/OPENBLAS/FLINT_NUM_THREADS=N`; `hodge/__init__.py` only `setdefault`s
+  them to 1, so a job that parallelises with N forked worker processes runs N×N BLAS threads (observed: 8 workers ×
+  15 threads each at ~33 % CPU on the oversubscribed box, zero progress for 25 minutes). Workaround: the lane library
+  forces the thread variables to 1 before importing numpy; parallelism = processes.
+* `hodge.varpro.VarProFamily` (unreduced dense least squares) is impractical for the symmetric lanes (16811 × 2607 at
+  d = 6 for this F); the lane's `w2b/w2lib.py` has a character-reduced version (36× smaller) and a Jacobian-type
+  w-space version (explicit E1 lift + Koszul corrections) with the same interface, validated on the Fermat sextic.
