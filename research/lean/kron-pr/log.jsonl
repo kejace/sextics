@@ -7,3 +7,4 @@
 {"ts":"2026-11-01T23:20:23-05:00","step":"build-3-ok","msg":"lake build --wfail passed: Kronecker 21s, test module ok, axioms = propext/Classical.choice/Quot.sound for soundN,sound4,matchW_sound,small,e1,e2; peak RSS 10.9GB (40 threads)"}
 {"ts":"2026-11-01T23:23:29-05:00","step":"test-async-off","msg":"lean -j 2 compile of KroneckerTest: 95s wall, 86s user, 10.9GB peak; added set_option Elab.async false to bound peak to one declaration"}
 {"ts":"2026-11-01T23:26:29-05:00","step":"timings","msg":"leanchecker replay of test module, lean -j 2 compile of both modules (sequential)"}
+{"ts":"2026-11-01T23:30:26-05:00","step":"timings-done","msg":"leanchecker KroneckerTest 97s wall/83s user/8.2GB; lean -j2 Kronecker 32s/42s user/3.6GB; lean -j2 KroneckerTest 97s/88s user/8.5GB; content checks exit 0"}

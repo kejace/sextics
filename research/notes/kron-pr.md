@@ -17,8 +17,17 @@ Status: IN PROGRESS (started 2026-11-01). Log: /tmp/hodge/lean/kron-pr/log.jsonl
 - Test module keeps linters on; `#print axioms` lines live in the test module only.
 
 ## Progress
-- [x] worktree created, .lake copied (in background)
-- [x] Kronecker.lean written
-- [ ] README.md, KroneckerTest.lean, formal/README.md paragraph
-- [ ] lake build (-j 4) + fix warnings; lake env lean; leanchecker replay; axioms
-- [ ] timings table, PR.md, commit
+- [x] worktree created, .lake copied
+- [x] Kronecker.lean written; 5 lint warnings fixed (2x eval_C, map_C, Finsupp.single_apply unused simp args; unused hyp hQ' dropped from abs_coeff_mul_le + 2 call sites); six 268-char simp lines wrapped
+- [x] README.md (Reflection/), KroneckerTest.lean (small identity + m3-coupled e1/e2 via soundN + homogeneity + ne_zero + #print axioms), formal/README.md paragraph
+- [x] lake build --wfail passes for both modules (Lake 5 has no -j; used taskset -c 0-3). Kronecker 21 s; KroneckerTest 93-97 s
+- [x] axioms (all six #print axioms): [propext, Classical.choice, Quot.sound]
+- [x] lean -j 2 -M 14336 KroneckerTest: 95 s wall / 86 s user / 10.9 GB with async elaboration; added `set_option Elab.async false` -> lake build 97 s / 8.6 GB
+- [x] leanchecker replay Kronecker: 18.5 s wall / 10.6 s user / 2.9 GB
+- [ ] leanchecker replay KroneckerTest, lean -j 2 of both (running)
+- [ ] content checks (build-content/validate-records/check-content) running in background
+- [ ] PR.md, commit, then scripts/check-library.py --base origin/main as CI replica
+
+## Findings worth keeping
+- Memory for d=10 identities is dominated by full-span Kronecker numbers per tree occurrence (m^5*W bits, ~31 MB at m=21,W=61), ~independent of term count: e2 of m3-coupled (13 tree occurrences) = 8.6 GB alone. d<=8 is ~4x smaller.
+- Lake 5.0 (Lean 4.33 toolchain) has no `-j`; limit CPU with taskset; `lake build --wfail` is the warnings-as-errors switch.

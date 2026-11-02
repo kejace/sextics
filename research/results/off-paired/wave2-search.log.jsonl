@@ -117,3 +117,7 @@
 {"ts": "2026-11-01T23:11:35", "step": "hess", "d": 12, "sectors": ["00"], "best_relres": {"00": 0.0602}, "restarts": [37], "dimP": 151}
 {"ts": "2026-11-01T23:21:05", "step": "varpro", "job": "d9h0-c40 (final)", "d": 9, "sector": [4, 0], "dimP": 44, "restarts": 61, "best_relres": 0.01671, "median_relres": 0.035, "hits": 0}
 {"ts": "2026-11-01T23:21:05", "step": "hess", "d": 12, "sectors": ["20", "30"], "best_relres": {"20": 0.0303, "30": 0.0484}, "restarts": [52, 41]}
+{"ts": "2026-11-01T23:30:38", "step": "varpro", "job": "d10h0-c20 (final)", "d": 10, "sector": [2, 0], "dimP": 77, "restarts": 24, "best_relres": 0.002945, "median_relres": 0.012, "hits": 0}
+{"ts": "2026-11-01T23:30:38", "step": "varpro", "job": "d9h0-c50 (interim)", "d": 9, "sector": [5, 0], "dimP": 44, "restarts": 18, "best_relres": 0.01124, "hits": 0}
+{"ts": "2026-11-01T23:30:38", "step": "varpro", "job": "d11a-c30 (interim)", "d": 11, "sector": [3, 0], "dimP": 128, "restarts": 8, "best_relres": 0.0005998, "hits": 0}
+{"ts": "2026-11-01T23:30:38", "step": "hess", "d": 12, "sectors": ["40"], "best_relres": {"40": 0.0569}, "restarts": [43]}
