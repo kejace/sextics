@@ -1,0 +1,102 @@
+{
+ "exp": "hessian-relaxation",
+ "kind": "full",
+ "d": 6,
+ "par": "mixed",
+ "chi": null,
+ "prime": 2147483629,
+ "job": "full_all_d6_parmixed_p2147483629",
+ "family": [
+  {
+   "pD": 0,
+   "rows": 3080,
+   "nA": 236,
+   "nJ": 2376,
+   "dimK": 18,
+   "dimJd": 18,
+   "ci_dimJd": 18,
+   "ker_R": 0,
+   "rankJtop_modp": 2214,
+   "rankJtop_CI": 2214,
+   "radial": 1,
+   "complement": 17
+  },
+  {
+   "pD": 1,
+   "rows": 3108,
+   "nA": 226,
+   "nJ": 2376,
+   "dimK": 18,
+   "dimJd": 18,
+   "ci_dimJd": 18,
+   "ker_R": 0,
+   "rankJtop_modp": 2223,
+   "rankJtop_CI": 2223,
+   "radial": 0,
+   "complement": 18
+  }
+ ],
+ "n_unknowns": 35,
+ "reducers": {
+  "0": {
+   "rank_modp": 2223,
+   "rank_CI": 2223,
+   "ring_dim": 885
+  },
+  "1": {
+   "rank_modp": 2214,
+   "rank_CI": 2214,
+   "ring_dim": 866
+  }
+ },
+ "n_quadrics": 1605,
+ "files": {
+  "msolve": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_full_all_d6_parmixed_p2147483629.ms",
+  "singular": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_full_all_d6_parmixed_p2147483629.sing"
+ },
+ "result": {
+  "msolve_rc": 0,
+  "msolve_seconds": 30.9,
+  "pure_powers": {
+   "a1": 2,
+   "a2": 1,
+   "a3": 1,
+   "a4": 1,
+   "a5": 1,
+   "a6": 1,
+   "a7": 1,
+   "a8": 1,
+   "a9": 1,
+   "a10": 1,
+   "a11": 1,
+   "a12": 1,
+   "a13": 1,
+   "a14": 1,
+   "a15": 1,
+   "a16": 1,
+   "a17": 1,
+   "a18": 1,
+   "a19": 1,
+   "a20": 1,
+   "a21": 1,
+   "a22": 1,
+   "a23": 1,
+   "a24": 1,
+   "a25": 1,
+   "a26": 1,
+   "a27": 1,
+   "a28": 1,
+   "a29": 1,
+   "a30": 1,
+   "a31": 1,
+   "a32": 1,
+   "a33": 1,
+   "a34": 1,
+   "a35": 1
+  },
+  "missing_pure_power": [],
+  "verdict": "V={0} (only trivial solution)",
+  "max_pure_power": 2
+ },
+ "seconds": 123.8
+}
