@@ -1,11 +1,12 @@
 # Wave 2 — lane `reflection-coupled-residual` — lens CONSTRUCTION
 
-STATUS: no witness (in progress). New structural results on *where* a certificate for the residual
-(r,ρ) = (−,−) sector can come from; every published mechanism is shown to fail at a precise hypothesis;
-the remote experiments are merged into one 6-cpu job `construct-rcr-all` (`construct/chain_all.sh`: Fermat-pencil
-continuation, critical-point classification, hidden-reflection search, Gauss–Manin rank), queued behind the saturated
-remote (load 600–1900 on 128 cores, 60–100 jobs, 250–330 cpus allocated against a 200-cpu gate) since 19:40 local;
-a retry loop resubmits every 75 s; results are pulled with `construct/finalize_pull.py`.
+STATUS: no witness. Structural results: every published mechanism fails at a named hypothesis for the residual
+`(r,ρ) = (−,−)` sector; the sector is `H¹(P¹, j_*V₁₁)` for the Klein pencil with `V₁₁` of rank 186, Hodge numbers
+`(3,90,90,3)`, and the `∇`-span of its `(3,0)`-forms is all of `V₁₁` (computed, rank 186) — so no level-one
+(Abel–Jacobi) support exists and any support must be a horizontal divisor with `(−,−)` `(2,0)`-forms (the twisted-slice
+mechanism M5, whose explicit integration is period-obstructed). Fermat-pencil continuation fails at first order. The
+hidden-reflection search (`X` and the six pencils' generic fibres) is formulated, validated on a toy, and still running
+on the remote at session end (job `construct-rcr-all3`; pull with `construct/finalize_pull.py`).
 
 Log (one JSON line per experiment): `/tmp/hodge/results/reflection-coupled-residual/wave2-construct.log.jsonl`
 Scripts/outputs: `/tmp/hodge/results/reflection-coupled-residual/construct/`
@@ -17,7 +18,7 @@ Conventions as in the dossier (`/tmp/hodge/notes/dossier-reflection-coupled-resi
 
 | # | mechanism (task item) | hypothesis needed | status for this `(F, A)` |
 |---|---|---|---|
-| M1 | §4.6 deck+exchange cover, `g = r`, `X/g = W` Fano | a cover `Z → X` with an involution `σ` **not** lifting an automorphism of `X`; coordinate pencils: fibre separately even in two *new* linear forms | **fails for all 6 coordinate pencils** (proved by inspection of the fibre equations, §2.1); non-coordinate fibre reflections: search running in lean form (job `construct-rcr-all2`, Exp B; the full 3-chart system was too slow on the loaded box) |
+| M1 | §4.6 deck+exchange cover, `g = r`, `X/g = W` Fano | a cover `Z → X` with an involution `σ` **not** lifting an automorphism of `X`; coordinate pencils: fibre separately even in two *new* linear forms | **fails for all 6 coordinate pencils** (proved by inspection of the fibre equations, §2.1); non-coordinate fibre reflections: search running in λ-eliminated form (job `construct-rcr-all3`, Exp B; two heavier formulations stalled on the loaded box; no fibre case had finished at session end) |
 | M2 | Galois closure of `X → P⁴_x` (item iii) | an intermediate quotient `Z̃/K` that is uniruled and has `(V ⊗ sgn_ρ)^K ≠ 0` | **fails**: Galois group is the full hyperoctahedral `B₃ × Z/2` [computed]; the target lives in the reflection representation `V ⊗ sgn_ρ`; the three maximal `K` reaching it give `X/τ` (κ = 0), a `(4,6)`-CI in `P(1⁶,2)` mod an involution with ≥ 9 invariant canonical forms, a degree-8 hypersurface in `P⁵` mod an involution with ≥ 9 invariant canonical forms; none uniruled (§2.2) |
 | M3 | Fano / surface-fibration companions of Klein quotients (item ii) | uniruled quotient, or fibration over a surface with `p_g = q = 0` fibres | **fails**: only `W = X/r` and `X/⟨r,ρ⟩` are Fano (target not invariant); `X/ρ`, `X/τ` have `K ≡ 0`; the natural surface fibrations of `X/τ` over `P²_Y`, `P²_X` have fibres of weighted degree 6 in `P(1,1,1,2)` with `p_g = 3` (§2.3) |
 | M4 | q-raising / Gauss–Manin from the companion (item iv) | a *family* `F + tC` on which the companion's certificate deforms, with `C` `r`-odd (to flip the character) | **fails**: `C` `r`-odd leaves the one-reflection locus, where nothing is supported; `C` `r`-even preserves the character (§2.4) |
@@ -208,7 +209,7 @@ The computation `gm_rank.py` returned rank 186, closing the loophole `E^⊥ ≠ 
 
 * **E (local, done)**: Galois group / irreducibility checks of §1; `p_g` counts of §2.2.
 * **D (local, done)**: character-wise Hodge numbers of the pencil fibre (§4 table).
-* **B (job `construct-rcr-all`, queued)**: all reflections of `X` and of generic fibres of the six
+* **B (job `construct-rcr-all3`, running at session end)**: all reflections of `X` and of generic fibres of the six
   coordinate pencils over `F_p`, `p = 2³¹ − 1`, via the 0-dimensional system
   `{λ_i = ∂_iΦ(v); D_vΦ, D_v³Φ vanish on ker(Σλ_iz_i)}` in three charts (solved with msolve; decoder
   verifies each solution exactly and maps eigenvectors back). Control: Fermat in 5 variables must give
@@ -232,6 +233,18 @@ The computation `gm_rank.py` returned rank 186, closing the loophole `E^⊥ ≠ 
   one-reflection instance needed degree 60).
 * search lens (`wave2-reflection-coupled-residual-search.md`): E1-kernels at `d = 9, 10` are dimension-forced
   (`21/0/21/0`, `186/126/136/108` by character); Koszul-reduced full-E2 variable projection finds no zero at `d = 7, 8`.
+
+## 6c. State of the remote work at session end (02:40 local / 06:40 UTC)
+* `construct-rcr-all3` (6 cpus) is running `refl_all.sh` in λ-eliminated form: `fib_Y0Y1` (112 equations of degree 26 in
+  4 unknowns; msolve 22 min so far), then `fib_Y0Y2, fib_Y1Y2, fib_X0X1, fib_X0X2, fib_X1X2, full_X`, each followed by
+  `decode.py` (exact verification of every solution, eigenvectors mapped back to the original coordinates), then
+  `fermat_cont.py` with the `Y`-block base. Outputs: `construct/<case>.json` (`decode.genuine` = number of genuine
+  reflections; the inherited ones are `r|` and `ρ|` for the `Y0/Y1` pencil, `r|` for the others), `fermatcont_Y.json`.
+* To collect: `cd /tmp/hodge/results/reflection-coupled-residual/construct && python3 finalize_pull.py` (runs
+  `rjob pull` and appends one log line per finished case to `wave2-construct.log.jsonl`). Expected outcome: only the
+  inherited reflections (a hidden reflection would be a new Fano quotient of a fibre and would reopen M1).
+* Finished on the remote: `fermatcont_X.json` (order-1 inconsistent), `critpts3.out`/`critpts4.out` (counts and local
+  multiplicities), `gmrank_sep2.json` (rank 186).
 
 ## 7. Open questions recorded for the lane
 1. (done) `∇`-span of the `(3,0)`-forms = `V₁₁` (rank 186); critical scheme: 3750 = 4·732 + 2·366 + 6·15.
