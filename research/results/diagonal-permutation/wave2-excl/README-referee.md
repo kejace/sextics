@@ -109,3 +109,10 @@ up to the Koszul `dim J_{d+6}` (e.g. d = 10, odd target: 4788 + 4926 = 9714 = 10
 * Reduced E2' inconsistency of D8 (three primes, no rank certificate).  Screened.
 * Degree 7 (all sectors) and the degree-8 family `λ D8 + w(F)`: **open** (no Gröbner basis obtained).
 * Structured families d = 8..12 (`w2_families.py`) and individual degree-9 kernel elements (`w2_d9.py`): not run.
+
+## 6. Referee D8 replay (added after the run)
+
+`ref_d8_p999999937.json`: for the wave-1 rational `D8` reduced mod 999999937, `A·D8 ∈ J_14` (rank of `J_14^-` = 5052 =
+Koszul, E1 nullity 954 = Koszul), a solution `u` of `u(F) = A·D8` was recomputed from scratch, and
+`Ψ(D8;u) = D8·div u − u(D8)` (degree 16, Y-odd, 10067 terms) is **not** in `J_16` (rank of `J_16^-` = 9684 = Koszul, so good
+reduction holds).  Third prime for this exclusion, independent code; scope as in §4.

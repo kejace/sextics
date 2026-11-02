@@ -1,6 +1,6 @@
 # Wave 2 search report: quadratic-cubic-pullback
 
-STATUS: NO WITNESS FOUND.  (Report regenerated 2026-11-01 22:02 EST by w2_report.py from wave2-search.log.jsonl; 1648 records.)
+STATUS: NO WITNESS FOUND.  (Report regenerated 2026-11-01 22:24 EST by w2_report.py from wave2-search.log.jsonl; 1660 records.)
 
 Lane: F = sum_{i=0}^5 Q_i^3 (six Y-even quadrics), q = 1, A = X0^3 Y0^3.  Diagonal symmetry group of F: only Z/2 = {1, tau}
 (Y-parity), so the only character sectors are the two Y-parities of D (a mixed-parity D can be replaced by D*tau(D)).
@@ -22,10 +22,15 @@ Certificate convention: A D^2 - D N(F) + F (D div N - N(D)) = F^2 Q, deg N = d+1
    rho-/sigma-invariant subspaces): the only elements of K_10 they contain are F-multiples, except the generic-dimensional
    intersections with the big unions and the rho-/sigma-invariant subspaces (36 / 288 dimensional non-J subfamilies).
 5. Numerical joint searches (stage 1 = Hessian relaxation with Levenberg-Marquardt, stage 2 = full E2 with the Koszul
-   corrections T_D(c) and quotient Q eliminated by variable projection): d = 6 landscape minimum rel 1.9e-2 (361 restarts,
-   23 distinct minima), stage 2 minimum 1.6e-2 (compressed; scaled by k/nout ~ 0.12); d = 7, 8, 9, 10 searches were
-   starved by the shared box (load 300-1750 on 128 cores) -- counts in the landscape table.  No candidate reached 1e-10,
-   so no rational reconstruction was attempted.
+   corrections T_D(c) and the quotient Q eliminated by variable projection; Fermat control gives residual 1e-33):
+   d = 6: landscape minimum rel 1.9e-2 (361 restarts, 23 distinct minima), stage-2 minimum 1.6e-2 compressed (x ~8 unscaled).
+   d = 7: every stage-1 restart converges to ONE minimizer (rank-1 set of all best points) at rel 1.32e-4, with
+   w_0 ~ 0.46 X0^2 + 0.53 X1 X2 + 0.52 Y0 Y1 dominant (D ~ Q_0-like quadric times d_{X0}F, leading terms X0 Q_0^3); its full
+   E2 (stage-2) residual is 3.7e-3 compressed (~3.5e-2 unscaled) and random stage-2 restarts give 2.6e-3 -- no certificate.
+   d = 8, 9, 10: the stage-2 machinery was built (d = 10: K = 1050 parameters, 978 after gauge removal, 26532 rows,
+   3480 Koszul + 5796 quotient columns) but the shared box ran at load 300-1750 on 128 cores and the d = 10 job was killed
+   before completing a restart; d = 8/9 counts are in the landscape table.  No candidate reached 1e-10, so no rational
+   reconstruction was attempted.
 
 ## Batch 1 (item 1): exact E1-admissible spaces K_d (job search-quadratic-cubic-pullback-kernels, mod p = 2^31-1)
 Nullspace of [A*m | J(F)_{d+6} generators]; d <= 8 Y-even and d <= 6 Y-odd were closed in wave 1 (K_d = J_d).
@@ -194,15 +199,23 @@ d = 10 real kernel (job d10): dim K = 1044, dim J = 750, non-J part 294; singula
 |---|---|---|---|---|---|
 | 6 | even | stage 1 (Hessian relaxation, LM) | n=361 min=1.890e-02 q10=2.303e-02 median=3.463e-02 max=4.660e-02 | 23 | 27 s |
 | 7 | even | stage 1 (Hessian relaxation, LM) | n=80 min=1.318e-04 q10=1.318e-04 median=1.318e-04 max=1.843e-04 | 2 | 316 s |
+| 8 | odd | stage 1 (Hessian relaxation, LM) | n=2 min=1.611e-06 q10=1.611e-06 median=1.994e-06 max=1.994e-06 | 1 | 667 s |
 | 6 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=34 min=1.635e-02 q10=1.972e-02 median=2.418e-02 max=3.052e-02 | 27 | 303 s |
-| 7 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=2 min=2.412e-03 q10=2.412e-03 median=3.623e-03 max=3.623e-03 | 2 | 2936 s |
+| 7 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=12 min=2.412e-03 q10=2.626e-03 median=3.435e-03 max=3.987e-03 | 10 | 2495 s |
 
 ## What remains open after wave 2
 * Degree 7 (both parities): stage 1 is 483 quadrics in 60 variables; the degree-3 Macaulay matrix cannot be full (28980 < 37820
   columns) and the degree-4 one (884k x 596k) exceeds dense exact linear algebra; msolve F4 on it is the pending exact route.
 * Degrees 8, 9 (Jacobian-type, both parities) and 10 (K_10 = J_10 + 294 non-J): only numerical evidence; the stage-2 systems are
   overdetermined by factors 10-30, and the remote box was saturated, so restart counts stayed far below the planned thousands.
-* Structured non-J subfamilies at d = 10 worth finishing first: rho-invariant (36-dim) and sigma-invariant (288-dim) parts of K_10.
+* Structured non-J subfamilies at d = 10 worth finishing first: rho-invariant (36-dim) and sigma-invariant (288-dim) parts of K_10
+  (w2_jvp.py --restrict rho|sigma with the real kernel npz; built but not run).
+* At d = 12 the E1 condition has codimension 208 only, so every family tested meets K_12 in its generic dimension (C[Q]_6: 254,
+  of which 198 non-J; cones with vertex a coordinate line: 23-44 each); E1 stops being a useful filter there and the stage-2
+  system (59332 rows) needs sparse exact/iterative linear algebra.
+* Wave-1 fixed-D rank/nullity statistics for reference (engine 2, compressed systems): degree-6 E1-failing denominators rank 2214 /
+  nullity 162; joins with target delta (consistent) 2358 / 244; delta itself 2223 / 153; Fermat control 2322 / 280; degree-5 polars
+  1318 / 128; degree-6 polars served space 18 (nothing).  Exact E1 stacks: see the rank column of the kernel table.
 * d = 11, 12 kernels are available (w2_kernel_<d>_<par>.json on the remote mirror); the full E2 systems there (40k-59k rows)
   need a sparse/iterative solver before any joint search is realistic.
 

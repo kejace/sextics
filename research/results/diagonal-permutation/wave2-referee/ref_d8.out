@@ -1,3 +1,7 @@
 {"rows": 5796, "unknowns": 6006, "rank_J14_odd": 5052, "koszul_J14_odd": 5052, "good_reduction_14": true, "A_D8_in_J_mod_p": true, "expected_nullity_koszul": 954, "seconds": 100.2}
 {"u_F_equals_A_D8": true, "nonzero_u_components": 6}
 {"degree": 16, "terms": 10067, "Y_odd": true}
+{"rows": 10152, "generators": 13104, "rank_J16_odd": 9684, "koszul_J16_odd": 9684, "good_reduction_16": true, "Psi_in_J_mod_p": false, "seconds": 657.2}
+Psi(D8;u) NOT in J mod p (good reduction): no certificate for any p-integral E1-admissible lift of D8 mod p, up to F-multiples
+DONE
+exit 0

@@ -36,3 +36,5 @@ float lift rel 5.646667731152934e-15 13.9s
 [cutoff1e-9-red] varpro-LM from perturbation 1.0: rel=7.76e-03 nfev=79 status=2
 [cutoff1e-9-red] lm: hits 1/3 best 1.48e-24 median 3.91e-03 time 7.8s nfev/restart 51
 [cutoff1e-9-red] lm: reconstruction candidates 1 match rem_F(D*): False; soldim 1
+[cutoff1e-9-red] lm: confirm_exact -> solved rank=349 verify=True
+== done 22:24:16

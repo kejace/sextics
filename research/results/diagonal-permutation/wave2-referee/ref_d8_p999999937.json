@@ -19,8 +19,19 @@
    "degree": 16,
    "terms": 10067,
    "Y_odd": true
+  },
+  "relax": {
+   "rows": 10152,
+   "generators": 13104,
+   "rank_J16_odd": 9684,
+   "koszul_J16_odd": 9684,
+   "good_reduction_16": true,
+   "Psi_in_J_mod_p": false,
+   "seconds": 657.2
   }
  },
  "D8_terms_mod_p": 414,
- "D8_degree": 8
+ "D8_degree": 8,
+ "verdict": "Psi(D8;u) NOT in J mod p (good reduction): no certificate for any p-integral E1-admissible lift of D8 mod p, up to F-multiples",
+ "seconds": 819.3
 }
