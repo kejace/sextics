@@ -1384,3 +1384,4 @@
 {"name": "f*h3", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5644, "rank_aug": 5645, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 6249.12}
 {"name": "v*r2*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5590, "rank_aug": 5591, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 5894.28}
 {"name": "c1*c1*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5293, "rank_aug": 5294, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 5723.87}
+{"name": "m*r2*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5605, "rank_aug": 5606, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 7121.07}
