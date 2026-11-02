@@ -97,4 +97,4 @@ recs = [json.loads(l) for l in open(OUT)]
 summ = {'ts': w2lib.now(), 'step': 'served-scan', 'job': args.job, 'n': len(recs), 'nontrivial': sum(1 for r in recs if r.get('status') == 'NONTRIVIAL'),
         'by_status': {s: sum(1 for r in recs if r.get('status') == s) for s in set(r.get('status') for r in recs)},
         'sectors': [f'{a}{b}' for a, b in sectors], 'wall': round(time.time() - T0, 1)}
-w2lib.append_json('wave2-search.remote.log.jsonl', summ); print(json.dumps(summ), flush=True)
+w2lib.append_json(w2lib.REMOTE_LOG, summ); print(json.dumps(summ), flush=True)

@@ -1,1 +1,2 @@
 {"seed": 1001, "rel": 5.7649697894014764e-05, "iters": 92, "nfev": 150, "spurious": false, "div_rel": 0.9996899453503311, "sparse_init": false}
+{"seed": 1009, "rel": 3.838312928650711e-05, "iters": 110, "nfev": 151, "spurious": false, "div_rel": 0.9906942362819051, "sparse_init": true}

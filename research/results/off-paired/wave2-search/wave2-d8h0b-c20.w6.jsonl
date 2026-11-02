@@ -1,0 +1,11 @@
+{"seed": 106, "f": 0.01101184516177909, "bnorm2": 1.8610932242748308, "relres": 0.07692118818504946, "iters": 84, "njac": 84, "nres": 134, "status": "stalled", "time": 22.94, "init": "gauss"}
+{"seed": 114, "f": 0.011427199699981674, "bnorm2": 1.8468096420252371, "relres": 0.07866088746933353, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 13.22, "init": "gauss"}
+{"seed": 122, "f": 0.012208721349665868, "bnorm2": 1.8354044041909938, "relres": 0.08155849554427329, "iters": 61, "njac": 61, "nres": 111, "status": "stalled", "time": 10.52, "init": "gauss"}
+{"seed": 130, "f": 0.0109628799455294, "bnorm2": 1.9023886818886395, "relres": 0.07591239655936971, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 14.15, "init": "gauss"}
+{"seed": 138, "f": 0.010644218505923364, "bnorm2": 2.0608843921336994, "relres": 0.07186709256652743, "iters": 100, "njac": 101, "nres": 114, "status": "maxiter", "time": 16.3, "init": "gauss"}
+{"seed": 146, "f": 0.01116966051852399, "bnorm2": 1.910138634207203, "relres": 0.07646937533656337, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 15.71, "init": "gauss"}
+{"seed": 154, "f": 0.016079367730259586, "bnorm2": 2.1272604897832603, "relres": 0.0869409030373578, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 15.59, "init": "gauss"}
+{"seed": 162, "f": 0.008298263506466952, "bnorm2": 1.7176750458250263, "relres": 0.06950612988461838, "iters": 73, "njac": 73, "nres": 124, "status": "stalled", "time": 30.38, "init": "gauss"}
+{"seed": 170, "f": 0.012077886938026122, "bnorm2": 1.9019262710159626, "relres": 0.07968904849004349, "iters": 98, "njac": 99, "nres": 137, "status": "flat", "time": 84.99, "init": "gauss"}
+{"seed": 178, "f": 0.01040985662944655, "bnorm2": 1.8170589232323393, "relres": 0.07568988906653863, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 78.06, "init": "gauss"}
+{"seed": 186, "f": 0.010644218505923366, "bnorm2": 2.060884390513554, "relres": 0.07186709259477625, "iters": 97, "njac": 98, "nres": 136, "status": "flat", "time": 84.02, "init": "gauss"}

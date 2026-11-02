@@ -149,7 +149,8 @@ transvection in it). Every sub-variation `V'' ⊂ V₁₁` containing the three 
 contains `E`. Consequently a level-one sub-variation `V'` (type `(0,a,a,0)`) of `V₁₁` is contained in
 `E^⊥`, the part of `V₁₁` with trivial local monodromy at every nodal fibre (nontrivial monodromy only at the
 six degenerate fibres `λ⁶ = −1`, whose singular point `(0:0:0:1:ζ:0)` has local equation
-`X1·(λ²X0 + X2) + (sextic in X0, Y2) + …`, Milnor number 25). If `E = V₁₁` (expected; equivalent to
+`cλ·X1·(λ²X0 + X2) + 3cλ·X0⁴ + 2X0⁶ + Y2⁶ + …` (Morse in `(X1, λ²X0+X2)`, semi-quasihomogeneous principal part
+`X0⁴ + Y2⁶` in the other two variables): corank 2, Milnor number `3·5 = 15`). If `E = V₁₁` (expected; equivalent to
 `rank` of the `∇`-span of the `(3,0)`-forms being 186, the quantity computed by `gm_rank.py`), then `V₁₁`
 has no level-one sub-variation at all.
 *Proof.* `V''` is stable under the transvection `T_s(x) = x + c⟨x,δ_s⟩δ_s`, so either `δ_s ∈ V''` or

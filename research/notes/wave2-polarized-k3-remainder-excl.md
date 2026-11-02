@@ -118,3 +118,25 @@ equivalence-theorem hypothesis, automatic for ρ = 1) a legal octic D must satis
 served K3-projections lie in ω⊗NS_prim), hence D is irreducible over C and not a power; by Lefschetz X ∩ V(D) is singular,
 and by Ch. 3 §3.1 it has a non-normal or non-rational-singular component.  The thread's degree-8 relaxation points
 D = f(U)h are all reducible, so they are excluded by this argument without any further computation.
+
+## DRAFT FINAL SUMMARY (to be finalized; numbers in [] pending)
+1. Best rigorous bound for the instance target A: deg D >= 8 (thread); degrees <= 6 independently replicated exactly
+   (p = 65521 and Q), degree 7 replicated [modular blocks + emptiness pending], degree-8 point f(U)U0^2 exact (3 blocks).
+2. NEW: the K3-sector class A_K3 = P_0(A) has no denominator of degree <= 6 — exact theorem (E1 injective through 7;
+   degree 5 killed; degree 6 ↦ D ~ f(U), which fails exactly 136/137). Degree 7: [relaxation survivors = f(U)·ℓ family
+   (reducible) + ?; exact Q run queued].
+3. The served space of f(U), U0, V0 has zero K3-class projection (exact over Q) — the join of the two copies of C
+   carries no K3 class, as Ch. 3A predicts.
+4. Logic repaired: additivity of served spaces over components means products can serve A even when no factor does; with
+   the dichotomy (End_Hdg(T) = Q) and η ∉ NS_prim⊗C, items 2–3 exclude every product of degree-<=6 supports, and after
+   degree 7: a legal octic must have X ∩ V(D) irreducible, reduced, singular, non-rational/non-normal.
+5. Thread's degree-8 spurious family f(U)h: confirmed to lie in the relaxation (mod p) for both targets; all its members
+   are reducible supports hence dead by item 4 (and f(U)U0^2 exact).
+6. Non-Jacobian K3 kernel at d = 8: 51 + 39 dims (K4 = ker(η|R_4) has dim 9, large height); structured pairing
+   Σ g_k(U)g_k(V) inconsistent (mod p, μ6-restricted 13572×2430); [more elements pending].
+7. μ6-homogeneous octics (characters 0,1,2,3,5; <= 108 params): relaxation components = [pending] (goal: all reducible
+   => no μ6-homogeneous legal octic, rigorous).
+8. E1 tables re-verified at a second prime [pending chain3]; sum principle restated with its exact hypotheses.
+9. Compute: remote saturated all night (load 700–1750 / 128 cores); all results above local; 4 remote jobs queued.
+10. Packet: /tmp/hodge/results/polarized-k3-remainder/wave2-excl/ (README, 9 scripts, JSON receipts); draft post:
+    /tmp/hodge/notes/wave2-polarized-k3-remainder-draftpost.md.

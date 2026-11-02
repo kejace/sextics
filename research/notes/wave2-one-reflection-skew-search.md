@@ -99,6 +99,7 @@ at high degree (at d = 12 only 3 conditions remain in the main sector).
 | 9 | (1,0) | A | 141 | 79 | 997 | 78.9 |
 | 9 | (1,1) | A | 146 | 79 | 1130 | 99.9 |
 | 10 | (0,0) | A | 250 | 122 | 1526 | 412.5 |
+| 10 | (0,0) | Aplus | 237 | 79 | 1110 | 2274.3 |
 <!-- /AUTO-KERNELS -->
 
 Symmetry breaking measured on the E1 kernel (sector (0,0), 5 variables, mod p): the undeformed
@@ -125,12 +126,14 @@ and why a fixed-D test of a *numerically* admissible D can be misleading (E1 mus
 * With the full kernel (K = 32): **4/8 LM restarts converge to the needle** (rel 2e-13 … 6e-8,
   |cos(u,u*)| = 1.0000); the other restarts end at the usual local minima. So random-restart LM has a
   ~50% per-restart hit rate on a 32-dimensional family with an 8-term solution in that small local sample.
-  Remote calibration `calib-hesse-d6` (same family, LM vs L-BFGS alternating; 209 restarts at the time of
-  writing): LM 15/105 below 1e-8 (0.143, 95 % Wilson 0.09–0.22), 17/105 below 1e-6; L-BFGS 3/104 below 1e-8
-  (0.029) but 16/104 below 1e-6 and 19/104 below 1e-4 — it approaches the zero and stops short of polishing,
-  which the snap step's LM refit then finishes, so the effective hit rate of both methods is ≈ 0.16 per restart
-  at K = 32, with LM ~2× faster (11 s vs 21 s per restart under load). Every confirmed hit snapped to the
-  accepted 8-term D (τ = 1e-4 … 1e-2) and verified exactly. Working estimate: ≈ 0.15 per restart, so
+  Remote calibration `calib-hesse-d6` (same family, LM vs L-BFGS alternating, **400 restarts, final**):
+  lm: n=200  <1e-08: 24 (0.120 [0.08,0.17])  <1e-06: 30 (0.150 [0.11,0.21])  <0.0001: 30 (0.150 [0.11,0.21])  median s/restart 14.2; lbfgs: n=200  <1e-08: 5 (0.025 [0.01,0.06])  <1e-06: 32 (0.160 [0.12,0.22])  <0.0001: 35 (0.175 [0.13,0.23])  median s/restart 23.6. L-BFGS approaches the zero and stops short of polishing, which the snap step's LM refit then
+  finishes, so the effective hit rate of both methods is ≈ 0.15–0.19 per restart at K = 32, with LM ~2× faster.
+  Every confirmed hit (22 confirmations, all from τ-sparsified refits) is the accepted 8-term D, verified exactly.
+  Working estimate: ≈ 0.15 per restart, so
+  (Caveat on `calib-xtype-d6`: that job was configured in sector (0,1) but the accepted xtype-strict-rational-113
+  denominator lies in sector (0,0), so its needle is not in the searched family; its result is not a calibration
+  datum. A correctly configured rerun `calib-xtype-d6-r0s0` is queued in chain 5.)
   N = 100 restarts miss a comparable needle with probability ≈ 1e-7 … 1e-9.
 
 ## 3. Search batches (filled from the log; remote chains `w2-chain1b` (4 proc), `w2-chain2` (4 proc, cones/structured), `w2-chain3` (8 proc, kernels d = 9–12, started 01:54 UTC); box load 900–1700 throughout)
@@ -158,6 +161,11 @@ d = 10 ≈ 5 min; d = 12 ≈ 20 min (11594×2975). On the shared remote (load 90
 were 2–4× longer. Calibration hit rate at K = 32 (family-hesse-web needle): LM ≈ 15–50 % per restart,
 L-BFGS ≈ 5–10 % (final numbers in the table).
 
+Early observation at d = 9 (`ker-d9-r0s0`, K = 161, 8 processes): the first 16 LM restarts end at rel
+1.9e-3 … 1.7e-2 with a recurring attractor at rel ≈ 2.4e-3 (6/16) — an order of magnitude below the best
+minima at d ≤ 8 (6.5e-2 … 0.6), as expected from the larger family, but still seven orders of magnitude
+away from a zero; ~40 % of the restarts hit the 150-evaluation cap (≈ 2 min per restart under load).
+
 ### Full table of searches (auto-generated from `wave2-search.log.jsonl`)
 
 <!-- AUTO-SEARCH -->
@@ -176,8 +184,11 @@ L-BFGS ≈ 5–10 % (final numbers in the table).
 | cone-X0X1Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X0,X1,Y0,Y1 | A | 6 | ?×? | lm | 120 | 1.04e-01 | 1.49e-01 | 0 / 0 / 0 | 667.6 s |
 | cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 120 | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 1400.9 s |
 | cone-X0X1X2-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2 | A | 1 | 3718×890 | lm | 120 | 6.14e-01 | 6.14e-01 | 0 / 0 / 0 | 154.5 s |
+| cone-X0X1X2Y0-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2,Y0 | A | 11 | 3718×890 | lm | 16 (running) | 2.47e-01 | 2.53e-01 | 0 / 0 / 0 | 605.9 s |
 | cone-X0Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,Y0,Y1 | A | 1 | 3718×890 | lm | 120 | 5.96e-01 | 5.96e-01 | 0 / 0 / 0 | 169.9 s |
-| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 240 (running) | 2.99e-13 | 2.25e-02 | 9 / 20 / 3 | 2814.3 s |
+| ker-d9-r0s0 | one-reflection-skew | 9 | (0,0) | kernel | A | 161 | 5096×1246 | lm | 32 (running) | 1.86e-03 | 2.44e-03 | 0 / 0 / 0 | 663.6 s |
+| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 400 | 2.51e-14 | 2.25e-02 | 12 / 33 / 3 | 3454.7 s |
+| calib-xtype-d6 | xtype-strict-rational-113 | 6 | (0,1) | kernel | A | 28 | 1815×410 | lm | 32 (running) | 4.30e-03 | 6.63e-03 | 0 / 0 / 0 | 202.9 s |
 | cone-X0X1X2-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
@@ -196,7 +207,7 @@ L-BFGS ≈ 5–10 % (final numbers in the table).
 | cone-X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X2Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 
-Total restarts on the skew lane so far: 2000.
+Total restarts on the skew lane so far: 2048.
 <!-- /AUTO-SEARCH -->
 
 Kernel families (task 3) at d = 7 … 12 and the half-target/cone/structured runs: queued in the chains; the

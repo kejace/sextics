@@ -1,6 +1,6 @@
 # Wave 2 — lane `off-paired` — lens EXCLUSION / RIGOR
 
-STATUS: no witness; last update 2026-11-01 20:21; 1683 logged experiments.
+STATUS: no witness; last update 2026-11-01 21:04; 1754 logged experiments.
 
 Packet: `/tmp/hodge/results/off-paired/wave2-excl/` (README.md there explains every receipt and how to replay). Log: `/tmp/hodge/results/off-paired/wave2-excl.log.jsonl`. Wave-2 primes 2147483629 / 2147483587 (fixed-D), 2147483647 (msolve).
 
@@ -14,15 +14,15 @@ Packet: `/tmp/hodge/results/off-paired/wave2-excl/` (README.md there explains ev
 
 | family | exp | results |
 |---|---|---|
-| block-product | e1 | PROVEN-E1-fail: 130, e1-pass-modp: 270 |
-| block-product | fixedD | PROVEN-inconsistent: 534, inconsistent-modp(kernel-lift-incomplete): 6 |
+| block-product | e1 | PROVEN-E1-fail: 132, e1-pass-modp: 274 |
+| block-product | fixedD | PROVEN-inconsistent: 542, inconsistent-modp(kernel-lift-incomplete): 6 |
 | colon-quartic | e1 | e1-pass-modp: 2 |
 | colon-quartic | fixedD | PROVEN-inconsistent: 4 |
 | fermat-cone | e1 | PROVEN-E1-fail: 4 |
 | partial*monomial | e1 | e1-pass-modp: 2 |
 | partial*monomial | fixedD | PROVEN-inconsistent: 2, inconsistent-modp(nullity>explicit): 2 |
 
-Distinct denominators tested: 338; PROVEN excluded (rational rank sandwich): 335; excluded modulo p only: 3; solvable mod p: []
+Distinct denominators tested: 343; PROVEN excluded (rational rank sandwich): 340; excluded modulo p only: 3; solvable mod p: []
 
 ## Bilinear sector systems (D free in a character sector; msolve on charts)
 

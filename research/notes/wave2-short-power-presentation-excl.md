@@ -1,8 +1,9 @@
 # Wave 2 — `short-power-presentation` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness. Rigorous so far (this session, independent prime 1073741789, two Gröbner engines):
-**no denominator of degree ≤ 5 of any parity; no Y-pure denominator of degree 6 (other than multiples of F).**
-Mixed parity d = 6: excluded mod p by the annihilator-functional argument (§0 R4); exact certificate queued (remote).
+STATUS: in progress — no witness. **RIGOROUS: every certificate denominator has degree ≥ 7 (any Y-parity).**
+(E1 kernels zero through degree 6 with four primes + Hilbert check; E2 relaxations m-primary for d ≤ 6 pure; mixed d = 6
+by annihilator functionals with 114 + 114 exact rational dependency certificates; prime 1073741789, msolve + Singular.)
+Degree 7, Y-even: λ = 0 (no D7^+ component) and the Y-coefficient blocks vanish; a 42-unknown residual is under Gröbner.
 
 Lane: `short-power-presentation` (q=1, A = X0^3 Y0^3, F = eX + eY + c((L+M)^6+(L-M)^6), c = 5/7^7,
 L = X0+2X1+3X2, M = Y0+3Y1+5Y2). Log: `/tmp/hodge/results/short-power-presentation/wave2-excl.log.jsonl`.
@@ -51,7 +52,8 @@ Packet: `/tmp/hodge/results/short-power-presentation/wave2-excl/` (assembled at 
 | relaxation | 6 | even | 17 | 39 | msolve + Singular agree | h = [1,17,114,358,501,225,0]: proj-empty (Singular vdim 1216) | **rigorous** |
 | relaxation | 6 | odd | 18 | — | Singular (msolve count stopped at t=5) | dim 0, vdim 540 (wave 1: 540 with p=536870909), h(6)=0 | **rigorous** |
 | relaxation | 6 | mixed | 35 | 132 | msolve: >100 s locally; slices P^k, k ≤ 26, all empty | full 35-variable GB not finished | screened |
-| (R4) mixed d=6, y-side | 6 | mixed | 18 (all y visible) | 36 | msolve + Singular: dim 0, vdim 4096 | y = 0 for every mixed solution ⇒ x = 0 by pure even | **mod p; exact certificate (114 dependencies) queued** |
+| (R4) mixed d=6, y-side | 6 | mixed | 18 (all y visible) | 36 | msolve + Singular: dim 0, vdim 4096 | y = 0 for every mixed solution ⇒ x = 0 by pure even | **rigorous: 114/114 exact dependencies verified (dim_Q L^+ = 39), remote job exclB-spp-relax-mixed** |
+| (R4) mixed d=6, x-side | 6 | mixed | 12 of 17 visible | 18 | dim 0, vdim 729 | exactness: 114/114 dependencies (dim_Q L^- = 57) | rigorous (redundant with the y-side) |
 | (R4) mixed d=6, x-side | 6 | mixed | 12 of 17 visible | 18 | dim 0, vdim 729 | x ∈ Π_x = span of the 5 diagonal fields Z_i∂_i; restricted system on Π_x: h=[1,5,0] | consistent |
 | L^+ ∩ L^- | 6 | mixed | dim L^+ = 39, dim L^- = 57, intersection 21 (mod p) | | | naive span argument insufficient | info |
 | bilinear block | 6 | mixed | 17×18 | rank 57/306 | — | cross-term shortcut fails (Hessian of 8 sixth powers has rank ≤ 8) | info |
@@ -72,9 +74,11 @@ independent — also confirmed computationally.)
 * X-component blocks w0, w1, w2: 29 quadrics in 9 visible unknowns each, NOT m-primary in pass 1.
 * Residual: 42 unknowns, 231 independent quadrics. A second pass and the single-unknown scheme ('fine') eliminate exactly
   the same set: the 18 Y-coefficients w_{k, X_i Y_j} (j ≠ k) and λ; the 9 "diagonal-type" Y-coefficients w_{k, X_i Y_k}
-  and all 33 X-coefficients resist (their pair polynomials modulo J lie in the span of the other pairs). msolve on the
-  42-unknown residual is running locally (3 threads); the remote job exclB-spp-blocks repeats everything with exact
-  certificates once the exact D7^± are available.
+  and all 33 X-coefficients resist (their pair polynomials modulo J lie in the span of the other pairs). Random linear
+  slices of the residual up to codimension 11 (P^30 ⊂ P^41) are all empty (exploratory, not a proof); msolve's F4 on the
+  full residual reaches degree 4 with 7581 new basis elements (139915 × 116404 matrix) and needs degree ≥ 5 — running
+  locally in the background (3 threads); the remote job exclB-spp-blocks repeats everything with exact certificates once
+  the exact D7^± are available.
 
 ## 2. Wave-1 claims: re-verification status
 1. E1 kernel dims (p = 2^31−1): d ≤ 3 confirmed with p = 1073741789; d = 4..10 queued (job excl-spp-e1k).
@@ -107,3 +111,19 @@ independent — also confirmed computationally.)
 * The remote is saturated (load ≈ 800 on 128 cores, ≈ 90 jobs); submissions wait for admission.
 * d=8 pure: ~162 unknowns / 468 quadrics — semi-regular estimate puts the Gröbner regularity near 10 (infeasible);
   will be attempted only if the d=7 systems turn out much easier than generic.
+
+
+## 4. Summary for the orchestrator (updated as results arrive)
+1. Best rigorous bound: **deg D ≥ 7 for every certificate denominator, any Y-parity** (E1 kernels zero through d = 6
+   with four primes + Hilbert check; E2 relaxations m-primary for d ≤ 6 Y-pure; mixed d = 6 by exact-certified
+   annihilator functionals).
+2. Degree 7, Y-even: λ = 0 (no D7^+ component) and 18 Y-coefficients vanish (mod 1073741789); residual 42 unknowns /
+   231 quadrics under Gröbner (local msolve; remote exclB-spp-blocks with exact certificates).
+3. E1 kernel: dim K_7^±/J = 1 exactly (exact rational D7^± with exact numerator certificates — even done, odd running);
+   D7^+ ∈ Q[X0,X1,X2,M] (cone over the line {X = M = 0} = pullback from the base of the plane-sextic fibration),
+   D7^- ∈ Q[Y0,Y1,Y2,L]; K_8^- = S_1·K_7, K_8^+ = 6 with L·D7^+ ∈ J_8, M·D7^- ∈ J_8 (search lens).
+4. Methods: (R1) Hilbert-series prime check, (R2) modular rank inequality, (R3) E2 relaxation with the Euler slice,
+   (R4) parity annihilator functionals, (R5) block elimination exploiting rank(Hess F) ≤ 8, exact dependency
+   certificates with fmpq_mpoly; msolve `u*u` parsing pitfall avoided (`u^2`).
+5. Obstacles: d = 8 pure needs ≈160 unknowns; the relaxation systems are far from semi-regular (regularity ≥ 5–6),
+   so only block/functional reductions make degree ≥ 7 feasible.

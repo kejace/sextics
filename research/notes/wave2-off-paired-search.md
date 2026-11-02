@@ -17,7 +17,7 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
   space everywhere. All 36 characters are populated from d = 8; at d = 8 only the six h-invariant sectors (a,0) are open after the
   thread's exclusions. The sectors are almost entirely sigma2-even (d = 8 (0,0): 28 even + 2 odd; d = 9: 50 + 5).
 * **Joint search (steps 2-3).** Sector-restricted variable projection over exact/float bases of the colon families, Levenberg-Marquardt
-  with the Kaufman Jacobian, random restarts (calibrated on the Fermat: 16/96 and 10/96 restarts hit the exact solution at d = 6, 7).
+  with the Kaufman Jacobian, random restarts (calibrated on the Fermat: 16/96, 10/96 and 11/96 restarts hit the exact solution at d = 6, 7, 8, i.e. up to dimP = 44).
   On off-paired no restart has come below relres 1e-2 (see table, §3); the dominant attractors are hyperplane arrangements through
   the P^3 {X0 = Y1 = 0} (binary forms in X0, Y1), which cannot support (3,1)-classes.
 * **Exact served-space scan (step 4).** 3922 structured denominators (all forms of degree 4-6 in every 3-, 4-, 5-variable coordinate
@@ -50,13 +50,18 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
 
 | job | step | d | sector | grp | family | dimP | restarts | best relres | median | hits<1e-9 | distinct minima | s/restart | status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| d8c00 | varpro | 8 | [0, 0] | G | colon | ? | 85 | 1.317e-02 | 5.83e-02 | 0 | 31 | 292.3 | partial |
-| d8c00b | varpro | 8 | [0, 0] | G | colon | ? | 59 | 1.317e-02 | 5.83e-02 | 0 | 32 | 139.5 | partial |
+| fe6 | varpro | 6 | [0, 0] | G | colon | 6 | 60 | 6.229e-02 | 1.77e-01 | 0 | 8 | 4.6 | yes |
+| fe7 | varpro | 7 | [0, 0] | G | colon | 14 | 60 | 5.137e-02 | 1.04e-01 | 0 | 15 | 30.5 | yes |
+| t01d8 | varpro | 8 | None | G | ? | ? | 73 | 3.022e-03 | 1.37e-02 | 0 | 25 | 20.1 | partial |
+| d8c00 | varpro | 8 | [0, 0] | G | colon | 28 | 86 | 1.317e-02 | 5.83e-02 | 0 | 31 | 291.6 | yes |
+| d8c00b | varpro | 8 | [0, 0] | G | colon | ? | 191 | 1.317e-02 | 5.83e-02 | 0 | 50 | 110.4 | partial |
 | d8h0-c10 | varpro | 8 | [1, 0] | G | colon | 23 | 25 | 7.325e-02 | 8.23e-02 | 0 | 19 | 290.9 | yes |
+| d8h0b-c10 | varpro | 8 | [1, 0] | G | colon | 23 | 199 | 7.325e-02 | 8.27e-02 | 0 | 72 | 38.1 | yes |
 | d8h0-c20 | varpro | 8 | [2, 0] | G | colon | ? | 9 | 6.951e-02 | 8.16e-02 | 0 | 8 | 208.7 | partial |
-| d8h0b-c30 | varpro | 8 | [3, 0] | G | colon | ? | 173 | 2.053e-02 | 8.10e-02 | 0 | 58 | 20.8 | partial |
+| d8h0b-c20 | varpro | 8 | [2, 0] | G | colon | ? | 7 | 7.187e-02 | 7.87e-02 | 0 | 7 | 30.1 | partial |
+| d8h0b-c30 | varpro | 8 | [3, 0] | G | colon | 28 | 300 | 2.053e-02 | 8.10e-02 | 0 | 70 | 19.3 | yes |
 
-Total restarts 351 over 5 jobs; numerical hits (relres < 1e-9): 0.
+Total restarts 1010 over 10 jobs; numerical hits (relres < 1e-9): 0.
 
 Reading the table: 'best relres' = min over restarts of ||residual||/||A D^2|| for the complete fixed-D system (six numerators of
 degree d+1 and Q of degree 2d-6, character-restricted) at the LM endpoint; a certificate gives ~1e-13 (Fermat controls: 3e-14).
@@ -79,7 +84,9 @@ degree d+1 and Q of degree 2d-6, character-restricted) at the LM endpoint; a cer
 ## 5. Calibration (Fermat F0 = f6 + g6, sector (0,0), remote job control)
 
 d = 6: K = 19, dimP = 18, 96 restarts, 16 exact hits (relres < 1e-13), median 1.55e-2, 3.5 s/restart. d = 7: K = 29, dimP = 28, 96 restarts,
-10 exact hits, median 1.5e-2, 12 s/restart. (d = 8 stage still running.) Locally: L-BFGS 0/8; LM 1/12; basin hopping and deflation
+10 exact hits, median 1.5e-2, 12 s/restart. d = 8: K = 46, dimP = 44, 96 restarts, 11 exact hits (best 7.6e-15), median 2.3e-3,
+160 s/restart under load. The success rate stays near 11 % up to dimP = 44, so 100-300 restarts per sector detect a Fermat-like
+isolated solution with high probability. Locally: L-BFGS 0/8; LM 1/12; basin hopping and deflation
 did not improve on plain restarts; sparse initialisation was worse. Rational reconstruction + exact sector-reduced re-solve of a hit
 (f6) works end-to-end.
 
@@ -110,7 +117,7 @@ to first order (d = 6, 7); g6 likewise; mixed cones X0^6+X1^6+Y1^6, X0^6+X2^6+Y2
 monomial alone the target direction X0^3 Y0^3 (and X0^3 Y1^3) survives and all six cones are first-order deformable -- but not to
 all orders: on Fermat + X0^2X1X2Y0Y2/3 the (0,0) colon space at d = 6 has dimension 7 (vs 19 on the Fermat) and 60 LM restarts on
 its 6-dimensional gauge-free sphere find no certificate (best relres 6.2e-2; job fe6). The extra term alone already destroys the
-degree-6 cone certificates, at second or higher order.
+degree-6 cone certificates, at second or higher order; at d = 7 (K = 15, dimP = 14) 60 restarts also find nothing (best 5.1e-2, job fe7).
 
 ## 9. Structural remarks
 

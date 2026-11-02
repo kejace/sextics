@@ -604,10 +604,10 @@ def exact_confirm(D, note='', symmetric=True, verbose=True):
         ok2, info2 = core.verify_witness(F, A, q, D, N, Q)
         rec['verified'] = bool(ok2)
         if ok2:
-            w = {'instance': LANE, 'd': core.degree(D), 'D': core.to_str(D), 'N': [core.to_str(n) for n in N],
+            w = {'instance': INST_ID, 'd': core.degree(D), 'D': core.to_str(D), 'N': [core.to_str(n) for n in N],
                  'Q': core.to_str(Q), 'note': note}
             h = hashlib.sha1(w['D'].encode()).hexdigest()[:10]
-            path = os.path.join(HERE, f'witness-candidate-{h}.json')
+            path = os.path.join(HERE, (f'witness-candidate-{h}.json' if INST_ID == LANE else f'control-witness-{CACHE_PREFIX}{h}.json'))
             json.dump(w, open(path, 'w'), indent=1)
             if INST_ID == LANE:
                 json.dump(w, open(os.path.join(HERE, 'witness-candidate.json'), 'w'), indent=1)

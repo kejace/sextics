@@ -112,9 +112,9 @@ with open(f'{name}.ms', 'w') as f:
 t1 = time.time()
 if shutil.which('msolve') is None:
     print(f'[{name}] msolve not found; wrote {name}.ms only'); sys.exit(0)
-cmd = ['msolve', '-v', '1', '-t', os.environ.get('MSOLVE_THREADS', '8'), '-f', f'{name}.ms', '-o', f'{name}.msout']
+cmd = ['msolve', '-v', '1', '-t', os.environ.get('MSOLVE_THREADS', '8'), '-P', '1', '-f', f'{name}.ms', '-o', f'{name}.param']
 r = subprocess.run(cmd, capture_output=True, text=True)
-out = open(f'{name}.msout').read() if r.returncode == 0 else ''
+out = open(f'{name}.param').read() if r.returncode == 0 else ''
 print(f'[{name}] msolve rc={r.returncode} in {time.time()-t1:.1f}s; stderr tail: {r.stderr[-400:]}', flush=True)
 # parse: msolve prints [dim, [deg, nvars, ... ]] for 0-dim; dimension -1 means empty
 summary = {'name': name, 'p': p, 'seed': seed, 'n': n, 'vars': VARS, 'subst': sub_info, 'G': G,
@@ -125,12 +125,9 @@ m = re.match(r'\s*\[\s*(-?\d+)\s*,', out)
 if m:
     summary['dim'] = int(m.group(1))
     if summary['dim'] == 0:
-        m2 = re.match(r'\s*\[\s*0\s*,\s*\[\s*(\d+)\s*,\s*(\d+)\s*,', out)
+        m2 = re.match(r'\s*\[\s*0\s*,\s*\[\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,', out)
         if m2:
-            summary['degree'] = int(m2.group(1))
-# For the solutions: we want them explicitly. Use the parametrization: ask msolve for -P 1 output.
-cmd2 = ['msolve', '-v', '0', '-P', '1', '-t', os.environ.get('MSOLVE_THREADS', '8'), '-f', f'{name}.ms', '-o', f'{name}.param']
-r2 = subprocess.run(cmd2, capture_output=True, text=True)
-summary['param_rc'] = r2.returncode
+            summary['degree'] = int(m2.group(3))
+summary['param_rc'] = r.returncode
 print(json.dumps(summary), flush=True)
 json.dump(summary, open(f'{name}.json', 'w'))

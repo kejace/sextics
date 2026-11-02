@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:57 from 212 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 21:09 from 249 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -63,28 +63,41 @@ mod p) as a system of quadrics with saturation by the spurious component.
 | 10 | even | 1512 | 750 | 762 | 1044 | 294 | 703.6 |
 | 10 | odd | 1491 | 747 | 744 | 1008 | 261 | 743.2 |
 | 11 | even | 2184 | 1341 | 843 | 1851 | 510 | 1726.4 |
+| 11 | odd | 2184 | 1341 | 843 | 1851 | 510 | 2058.4 |
 
 For d ≤ 9 the admissible space is exactly J(F)_d (Jacobian type); the extra kernel appears at d = 10.
 
 ## 2b. Hessian relaxation in the exact (U,V)-tensor frame (`w2tensor.py`): one system for both parity sectors
 
+Mixed-parity (parity-free) variant: independent cofactors for f_i(U) and f_i(V) (K = 336, 42 Euler directions, 294 parameters, 951 quadrics); the two pure sectors embed as ct = ±swap(c) (checked). Its pure-block component {c_i ∈ C[U], ct_i ∈ C[V]} (12 quadrics on 60 → 48 quotient coordinates) is the analogue of P_8.
 Cofactor cubics c_i(U,V) (K = 168 at d = 8) modulo the 21 Euler directions c_i → c_i + U_i h (which are exactly the F-multiples and the spurious g·h family of the two sectors combined; the relaxation is invariant under them: verified to 1e−11). Quotient: 147 parameters, 468 independent quadrics (the swap-symmetric part of A·Hess vanishes identically, checked to 1e−13). Theoretical check: on the pure-U piece P_8 the residual span has rank exactly 6 = dim R_{f,10}.
 
 - setup d=8: K=168, dimP=147, coords=468, Euler dirs=21, P8 quotient dim=24, pieces by cofactor V-degree {'0': 30, '1': 54, '2': 54, '3': 30}, build 8.1 s, mean f on the sphere 5.079e+05
 
-| d | deflated vs P8 | restarts | f = 0 hits | inside P8 | off P8 | f quantiles (min/10/50/90/max) |
-|---|---|---|---|---|---|---|
-| 8 | False | 10 | 8 | 6 | 2 | 1.3e-29 / 1.7e-29 / 1.2e-28 / 1.2e-08 / 1.2e-07 |
-| 8 | True | 6 | 0 | 0 | 0 | 4.4e-09 / 4.9e-08 / 6.5e-07 / 5.2e-05 / 7.9e-05 |
-| 8 | True | 3 | 0 | 0 | 0 | 5.6e-13 / 8.9e-13 / 2.2e-12 / 5.1e-11 / 6.3e-11 |
-| 8 | True | 4 | 0 | 0 | 0 | 1.3e-08 / 4.5e-08 / 4.5e-03 / 4.9e-02 / 6.6e-02 |
-| 8 | False | 11 | 8 | 6 | 2 | 6.2e-29 / 8.8e-29 / 5.2e-28 / 3.8e-15 / 7.1e-12 |
+| d | sectors | deflated vs pure-block comp. | restarts | f = 0 hits | inside (dist<1e−6) | threshold-off | f quantiles (min/10/50/90/max) |
+|---|---|---|---|---|---|---|---|
+| 8 | pure parity (147 params) | False | 10 | 8 | 6 | 2 | 1.3e-29 / 1.7e-29 / 1.2e-28 / 1.2e-08 / 1.2e-07 |
+| 8 | pure parity (147 params) | True | 6 | 0 | 0 | 0 | 4.4e-09 / 4.9e-08 / 6.5e-07 / 5.2e-05 / 7.9e-05 |
+| 8 | pure parity (147 params) | True | 3 | 0 | 0 | 0 | 5.6e-13 / 8.9e-13 / 2.2e-12 / 5.1e-11 / 6.3e-11 |
+| 8 | pure parity (147 params) | True | 4 | 0 | 0 | 0 | 1.3e-08 / 4.5e-08 / 4.5e-03 / 4.9e-02 / 6.6e-02 |
+| 8 | pure parity (147 params) | False | 11 | 8 | 6 | 2 | 6.2e-29 / 8.8e-29 / 5.2e-28 / 3.8e-15 / 7.1e-12 |
+| 8 | pure parity (147 params) | False | 8 | 6 | 3 | 3 | 1.1e-29 / 1.2e-28 / 1.6e-23 / 8.7e-07 / 2.9e-06 |
+| 8 | pure parity (147 params) | True | 5 | 0 | 0 | 0 | 4.0e-07 / 4.8e-06 / 2.8e-05 / 1.5e-02 / 2.4e-02 |
+| 8 | pure parity (147 params) | False | 10 | 9 | 7 | 2 | 7.2e-29 / 8.5e-29 / 9.9e-29 / 4.8e-15 / 4.8e-14 |
+| 8 | mixed parity (294 params) | False | 2 | 1 | 0 | 1 | 3.5e-27 / 4.4e-18 / 2.2e-17 / 4.0e-17 / 4.4e-17 |
+| 8 | mixed parity (294 params) | True | 1 | 0 | 0 | 0 | 1.3e-03 / 1.3e-03 / 1.3e-03 / 1.3e-03 / 1.3e-03 |
 
 Zero-residual points classified off P8 by the 1e−6 distance threshold (all of them have cofactor energy ≥ 1 − 1e−7 in the V-degree-0 piece, non-vanishing gradients and f decreasing along the iterations: they are LM runs still converging into P_8 along the flat (4th-order) V-degree-1 directions, not separate components):
 - seed 1 restart 2: f=1.1e-19, grad 4.0e-11, dist to P8 3.2e-04, profile {'0': 1.0, '1': 1.02e-07, '2': 9.18e-14, '3': 6.31e-19}, tangent nullity 16
 - seed 1 restart 4: f=2.3e-23, grad 5.2e-11, dist to P8 4.9e-05, profile {'0': 1.0, '1': 2.41e-09, '2': 3.76e-16, '3': 1.58e-22}, tangent nullity 21
 - seed 5 restart 3: f=1.4e-26, grad 8.7e-13, dist to P8 2.2e-06, profile {'0': 1.0, '1': 4.63e-12, '2': 6.86e-23, '3': 6.81e-32}, tangent nullity 27
 - seed 5 restart 9: f=3.6e-20, grad 1.4e-10, dist to P8 1.6e-04, profile {'0': 1.0, '1': 2.51e-08, '2': 2.57e-14, '3': 1.69e-19}, tangent nullity 15
+- seed 6 restart 0: f=1.6e-25, grad 1.4e-13, dist to P8 2.3e-06, profile {'0': 1.0, '1': 5.25e-12, '2': 1.14e-23, '3': 2.15e-33}, tangent nullity 26
+- seed 6 restart 2: f=3.3e-19, grad 2.6e-10, dist to P8 2.6e-04, profile {'0': 1.0, '1': 6.82e-08, '2': 2.19e-13, '3': 2.12e-18}, tangent nullity 15
+- seed 6 restart 6: f=3.3e-23, grad 3.6e-13, dist to P8 1.3e-05, profile {'0': 1.0, '1': 1.58e-10, '2': 5.18e-19, '3': 1.23e-25}, tangent nullity 21
+- seed 8 restart 3: f=2.7e-24, grad 9.0e-12, dist to P8 2.7e-05, profile {'0': 1.0, '1': 7.35e-10, '2': 3.91e-17, '3': 4.5e-25}, tangent nullity 21
+- seed 8 restart 5: f=7.0e-25, grad 4.3e-13, dist to P8 4.3e-06, profile {'0': 1.0, '1': 1.88e-11, '2': 7.26e-22, '3': 1.83e-31}, tangent nullity 28
+- seed 11 restart 0: f=3.5e-27, grad 2.1e-16, dist to P8 1.2e-06, profile {'0': 1.0, '1': 1.47e-12, '2': 1.28e-17, '3': 4.19e-20}, tangent nullity 55
 
 ### 2c. Exact relaxation variety (tensor frame, Singular mod p)
 
@@ -315,9 +328,9 @@ Every non-Jacobian-type guess (Hessian cofactors/pairings, third polars, Fermat,
 ## Remote capacity note
 
 The remote box has been saturated by other agents since ~19:30 (load 300–1150 on 128 cores, 45–90 jobs); the runner refuses new submissions above load 150, so the heavy jobs below were queued with `--wait` and started only when capacity allowed. Latest runner messages:
-- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 1735 (max 150), available memory 100 GB (min 60), 76 jobs running; waiting 60 s
-- `submit-hess-d8.out`: REMOTE BUSY: load 1725 (max 150), available memory 100 GB (min 60), 76 jobs running; waiting 60 s
-- `submit-sweep-a.out`: REMOTE BUSY: load 1725 (max 150), available memory 101 GB (min 60), 76 jobs running; waiting 60 s
+- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 1803 (max 150), available memory 55 GB (min 60), 71 jobs running; waiting 60 s
+- `submit-hess-d8.out`: REMOTE BUSY: load 1803 (max 150), available memory 55 GB (min 60), 71 jobs running; waiting 60 s
+- `submit-sweep-a.out`: REMOTE BUSY: load 1803 (max 150), available memory 55 GB (min 60), 71 jobs running; waiting 60 s
 
 ## Jobs / reproduction
 

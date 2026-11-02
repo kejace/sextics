@@ -9,3 +9,5 @@
 [hessrelax hr7o] 600 restarts best f 8.424e-04 (seed 416) median 8.972e-04 (1458s)
 [hessrelax hr7o] 700 restarts best f 8.424e-04 (seed 416) median 8.982e-04 (1678s)
 [hessrelax hr7o] 800 restarts best f 8.424e-04 (seed 416) median 8.983e-04 (1876s)
+[hessrelax hr7o] 900 restarts best f 8.424e-04 (seed 416) median 8.988e-04 (2078s)
+[hessrelax hr7o] 1000 restarts best f 8.424e-04 (seed 416) median 8.988e-04 (2305s)

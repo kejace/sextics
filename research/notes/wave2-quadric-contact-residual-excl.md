@@ -44,8 +44,8 @@ Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (one JSON 
    the 12 edges (pairs differing in one coordinate; fqlx's single vertices are contained).  The 12 face diagonals and the 4 space
    diagonals (pairs differing in two or three coordinates; 28-32 unknowns, 227-246 quadrics) are also EXCLUDED (msolve -g 1,
    max pure power 3-4).  Hence: a degree-7 denominator must have G_aff-character support on at least THREE of the eight parity
-   classes.  [exp sub-closure-msolve, tags d7_fd_*, d7_sd_*]  Next rung (56 triples, ~45 unknowns, Froeberg regularity 4):
-   triples7.sh prepared; quadruples (60 unknowns) and quintuples (75) are still regularity 4; sextuples (90) hit regularity 5.
+   classes.  [exp sub-closure-msolve, tags d7_fd_*, d7_sd_*]  Larger supports: see item 18 (bilinear lemma); the brute-force
+   rungs (56 triples ~45 unknowns, 70 quadruples ~60, 56 quintuples ~75) are Froeberg regularity 4, sextuples (90) regularity 5.
 5. [computed, two primes] the full d = 7 system (120 unknowns): 950 independent quadrics, mean 58 terms (max 298), no square
    c_a^2 in I_2, only 8 product monomials c_a c_b in I_2 (the same 8 at both primes); branch-and-kill on I_2 does not cascade
    (one kill per node).  Froeberg count for 950 quadrics in 120 unknowns: HS = 1, 120, 6310, 181240, 2632405, <0 => a
@@ -64,9 +64,10 @@ Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (one JSON 
    Froeberg regularity 6-7).  [exp closure-pure-sector, d=8]
 9. [NEW] served-target spaces (sum principle: served(D1 D2) = served(D1) + served(D2), served(D^k) = served(D)): for the 6
    coordinate hyperplanes, 11 quadrics (S0, delta = X0^2-Y0^2, S1, S2, S0+-S2, S0+S1, X0^2+X2^2, X0^2-X1^2, X1^2-Y1^2, X2^2-Y2^2),
-   7 quartics (G_S, G_P, Q1, Q2, X0^4+Y0^4, S0^2+2P0^2, X1^4+Y1^4), the six polars dF/dZ_i and f0 = S0^3 + 2 S0 P0^2:
+   7 quartics (G_S, G_P, Q1, Q2, X0^4+Y0^4, S0^2+2P0^2, X1^4+Y1^4), the six polars dF/dZ_i, f0 = S0^3 + 2 S0 P0^2, the three
+   Euler-type sextics rad_i = X_i F_Xi + Y_i F_Yi and the Fermat blocks X1^6+Y1^6, X2^6+Y2^6 (remote, P2):
    served(D) = J_6^odd (dim 18, the trivially served targets).  Their total span is J_6^odd and A is not in it => NO product of
-   these blocks, of any degree, serves A (or any nontrivial target).  Pending (remote excl-misc): rad_i, X1^6+Y1^6, X2^6+Y2^6, D8*.
+   these blocks, of any degree, serves A (or any nontrivial target).  Pending (remote excl-misc): D8* (degree 8).
    [exp served, served-span; served_local.json]
 10. [replayed at P2, agrees] sector-restricted full fixed-D solves (own implementation) of D8* (rank 718, nullity 109) and
     X1 D8*, Y1 D8* (rank 926), X2 D8*, Y2 D8*, X0 D8*, Y0 D8* (rank 1098): all inconsistent, identical ranks to wave 1.  With the
@@ -92,7 +93,20 @@ Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (one JSON 
 17. [replayed / corrected] dim (J:A)_10 = 2053 (556 non-Jacobian directions; dim R_16 = 951, i.e. xA: R_10 -> R_16 has corank 1)
     agrees with the dossier.  The dossier's remark "(J:A)_d = S_d for d >= 13 since R_19 = 0" is wrong as stated: R_19 has
     dimension 246, and by Gorenstein duality xA: R_13 -> R_19 is dual to xA: R_5 -> R_11, which is injective (item 1), so
-    dim (J:A)_13 = 8568 - 246 = 8322 (checked numerically, exp E1-colon d=13).  Correct statement: (J:A)_d = S_d only for d >= 19.
+    dim (J:A)_13 = 8568 - 246 = 8322 — CONFIRMED numerically at P2 (1440 non-Jacobian directions; exp E1-colon d=13, 471 s).
+    Correct statement: (J:A)_d = S_d only for d >= 19.
+
+18. [lemma + computation in progress] Difference-multiplicity lemma for the degree-7 cube.  Write c = sum_s c_s over the parity
+    classes s in (Z/2)^3 and let S = {s : c_s != 0}.  The relaxation splits by (Z/2)^3-character: for u != 0,
+    E_u : sum_{ {a,b} subset S, a+b = u } H(c_a, c_b) = 0, and E_0 : sum_s H(c_s, c_s) = 0.  If a pair {a,b} subset S is the
+    only pair in S with difference a+b, then H(c_a, c_b) = 0 on its own.  This happens for every pair when |S| = 3, for all
+    six pairs when |S| = 4 and S is not an affine plane (56 of the 70 four-sets), and for the four "spoke" pairs when |S| = 5
+    (every 5-set contains exactly one affine plane).  Hence, if for every pair of classes (s,t) the bilinear variety
+    {H(c_s,c_t) = 0} subset P(V_s) x P(V_t) is empty (tested by the bidegree-(2,2) Macaulay rank per h1-block,
+    bilinear_pairs.py, running), then every solution support has |S| in {4 (affine plane), 6, 7, 8}: the 14 affine planes are
+    60-unknown Groebner problems (6 half-cubes in excl-sub7, 8 diagonal planes in planes7.sh), while 6-, 7-, 8-sets have every
+    difference realised at least twice and need the regularity-5 Groebner computations that are out of reach.
+    Best achievable statement by this route: a degree-7 denominator must have character support on >= 6 parity classes.
 
 ## What remains open / recommended next steps
 * Degree 7: the six single-involution subfamilies (running); the fully mixed 120-unknown problem needs a new idea — more

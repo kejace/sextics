@@ -130,4 +130,4 @@ summ = {'ts': w2lib.now(), 'step': 'structured', 'job': args.job, 'set': args.se
         'e1_pass': sum(1 for r in recs if r.get('e1')), 'consistent': sum(1 for r in recs if r.get('consistent')),
         'by_status': {s: sum(1 for r in recs if r.get('status') == s) for s in set(r.get('status') for r in recs)},
         'degrees': sorted({r['d'] for r in recs}), 'wall': round(time.time() - T0, 1)}
-w2lib.append_json('wave2-search.remote.log.jsonl', summ); print(json.dumps(summ), flush=True)
+w2lib.append_json(w2lib.REMOTE_LOG, summ); print(json.dumps(summ), flush=True)

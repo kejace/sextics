@@ -43,3 +43,21 @@ python3 w2_bilinear.py --d 8 --chars 00 --mode sector --charts all --threads 8 -
 python3 w2_deltat.py Z
 python3 w2_kernels.py 4 12
 ```
+
+## Exact (theorem-level) sector exclusions: `w2_elim2.py` (+ `w2_local.py`, `w2_elim.py`)
+Statement proved for a sector (d, c) when the receipt says `PROVEN-no-denominator-in-sector(exact: ...)`:
+*no legal denominator of degree d that is a (g,h)-eigenvector of character c exists.*  Proof structure (all over Q):
+1. D_a = rational basis of (J:A)_{d,c} modulo the Euler gauge F·S_{d-6} (reconstructed from a modular basis and VERIFIED: N_a(F) = A·D_a
+   exactly; independence modulo p implies independence over Q; the modular colon dimension bounds the rational one, so the D_a span).
+   S_k = rational Koszul kernel basis (verified S_k(F) = 0).  B-products and normal forms modulo F·S_{2d-6}[sector] computed exactly
+   (fmpq_mpoly, rational rref), giving the exact bilinear equations eq_r(t, s) of the Euler-normalized certificate problem.
+2. Degree-2 relaxation: every lambda in the left kernel of the s-coefficient blocks (exact integer kernel, LLL-reduced) gives a pure-t
+   quadric lambda^T q(t) satisfied by every certificate.  Singular over Q: if the ideal J2 of these quadrics has `dim(std(J2)) = 0`
+   (affine cone = {0}) the sector is excluded.
+3. Otherwise `minAssGTZ(J2)` over Q gives the components; each component lies in its linear span L (basis from the linear generators of
+   its prime).  On L, exact relaxations of degree 2, 3, 4 (`w2_local.py`: cofactors mu_r(x) of degree k-2 whose combination has no
+   s-terms) give pure-x consequences; Singular over Q checks that they generate an m-primary ideal in Q[x].  A component of span
+   dimension 1 is a single rational D and is excluded by the fixed-D rank-sandwich receipt instead.
+4. Empty colon sectors (`PROVEN-empty-sector`) are excluded because the modular colon dimension (0) bounds the rational one.
+No modular computation enters the conclusion; modular arithmetic is only used to FIND the rational bases and the candidate structure.
+Receipts: `receipts_excl-off-paired-elim2Q-d7.jsonl`, `receipts_excl-off-paired-chain-rigor-d{7,8}.jsonl`; Singular scripts in `elim2_*/`.

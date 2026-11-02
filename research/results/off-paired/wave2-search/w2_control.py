@@ -28,4 +28,4 @@ for d in (6, 7, 8):
            'mean_time': round(float(np.mean([x[4] for x in res])), 2), 'wall': round(time.time() - t0, 1),
            'minima': sorted({f'{x:.3e}' for x in rels})[:10]}
     print(json.dumps(rec), flush=True)
-    w2lib.append_json('wave2-search.remote.log.jsonl', rec)
+    w2lib.append_json(w2lib.REMOTE_LOG, rec)

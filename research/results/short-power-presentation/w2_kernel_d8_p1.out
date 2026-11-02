@@ -6,3 +6,6 @@
 [kernel] reconstruction with 6 primes: ok {'modulus_bits': 180}
 [numerators] d=8 p=2147483647: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (41s)
 [numerators] d=8 p=2147483629: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (47s)
+[numerators] d=8 p=2147483587: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (42s)
+[numerators] d=8 p=2147483579: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (40s)
+{"kind": "e1-kernel", "d": 8, "parity": 1, "kernel_mod_J": 6, "kernel_dim_incl_J": 174, "dim_J_d": 168, "dim_R_d": 468, "dim_R_d6": 762, "primes": [536870909, 536870879, 536870869, 2147483647, 2147483629, 2147483587], "rational": true, "reconstruction": {"modulus_bits": 180}, "seconds": 37.3, "tag": "kA", "numerators": false}

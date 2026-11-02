@@ -92,5 +92,5 @@ for d in DEGS:
                'first_order_deformable': bool(any(ra == r0 for _, r0, ra in ranks)), 'T_terms': len(T), 'time': round(time.time() - t0, 1)}
         out.append(rec); print(json.dumps(rec), flush=True)
 json.dump(out, open(f'wave2-firstorder-{DIR}-{"_".join(map(str, DEGS))}.json', 'w'), indent=1)
-w2lib.append_json('wave2-search.remote.log.jsonl',
+w2lib.append_json(w2lib.REMOTE_LOG,
                   {'ts': w2lib.now(), 'step': 'first-order-deformation', 'dir': DIR, 'results': [(r['d'], ''.join(r['S']), r.get('first_order_deformable')) for r in out]})

@@ -68,7 +68,7 @@ if args.multi:
     surv.sort(key=lambda x: x[0])
     rels = [s_[0] for s_ in surv]
     print(f't={args.t1}: relres after LM over {len(surv)} tracked solutions: min {rels[0]:.3e} median {rels[len(rels)//2]:.3e}', flush=True)
-    w2lib.append_json('wave2-search.remote.log.jsonl', {'ts': w2lib.now(), 'step': 'homotopy-multi', 'job': args.job, 'd': args.d, 'sector': list(c),
+    w2lib.append_json(w2lib.REMOTE_LOG, {'ts': w2lib.now(), 'step': 'homotopy-multi', 'job': args.job, 'd': args.d, 'sector': list(c),
                       'n_t0_solutions': len(sols), 't1': args.t1, 'relres_t1_min': rels[0], 'relres_t1_median': rels[len(rels)//2],
                       'relres_t1_all': [float(f'{x:.3e}') for x in rels]})
     # continue the best 2 paths to t = tmax
@@ -81,7 +81,7 @@ if args.multi:
             r = famt.lm_from(0, maxiter=args.maxiter, init=u0); Dc = r['Dc']
             path.append((float(t), float(r['relres'])))
             w2lib.append_json(out, {'stage': 'multi-path', 'sol': i, 't': float(t), 'relres': float(r['relres']), 'iters': r['iters']})
-        w2lib.append_json('wave2-search.remote.log.jsonl', {'ts': w2lib.now(), 'step': 'homotopy-multi-path', 'job': args.job, 'd': args.d, 'sol': i,
+        w2lib.append_json(w2lib.REMOTE_LOG, {'ts': w2lib.now(), 'step': 'homotopy-multi-path', 'job': args.job, 'd': args.d, 'sol': i,
                           'relres_path': [(round(t_, 4), float(f'{x:.3e}')) for t_, x in path]})
         print(f'path from solution {i}: ' + ' '.join(f'{t_:.2f}:{x:.1e}' for t_, x in path), flush=True)
     sys.exit(0)
@@ -102,5 +102,5 @@ for t in ts:
            'top_terms': [x[1] for x in top]}
     hist.append(rec); w2lib.append_json(out, rec)
     print(json.dumps(rec), flush=True)
-w2lib.append_json('wave2-search.remote.log.jsonl', {'ts': w2lib.now(), 'step': 'homotopy', 'job': args.job, 'd': args.d, 'sector': list(c),
+w2lib.append_json(w2lib.REMOTE_LOG, {'ts': w2lib.now(), 'step': 'homotopy', 'job': args.job, 'd': args.d, 'sector': list(c),
                   'start': args.start, 'steps': args.steps, 'relres_path': [(round(h['t'], 4), float(f"{h['relres']:.3e}")) for h in hist]})

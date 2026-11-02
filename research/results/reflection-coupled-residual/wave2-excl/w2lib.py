@@ -19,18 +19,23 @@ IID = 'reflection-coupled-residual'
 WORK = f'/tmp/hodge/results/{IID}'
 OUT = f'{WORK}/wave2-excl'
 F, A, q, rec = core.load_instance(IID)
-if os.environ.get('W2LIB_F'):          # positive-control override (e.g. the Fermat sextic); A, q unchanged
-    F = core.parse(os.environ['W2LIB_F'])
+if os.environ.get('W2LIB_F') or os.environ.get('W2LIB_A'):   # control overrides (Fermat F; companion target A)
+    if os.environ.get('W2LIB_F'):
+        F = core.parse(os.environ['W2LIB_F'])
+    if os.environ.get('W2LIB_A'):
+        A = core.parse(os.environ['W2LIB_A'])
     OUT = f'{WORK}/wave2-excl/control-' + os.environ.get('W2LIB_TAG', 'alt')
     os.makedirs(OUT, exist_ok=True)
 PRIMES = core.PRIMES
 CHARS = [(0, 0), (0, 1), (1, 0), (1, 1)]
 CHI_Z = [(0, 0), (0, 0), (0, 0), (0, 1), (0, 1), (1, 0)]
-CHI_A = (0, 1)
 
 
 def chi(m):
     return (m[5] & 1, (m[3] + m[4]) & 1)
+
+
+CHI_A = chi(next(iter(A)))          # (0,1) for X0^3 Y0^3; (1,0) for the companion X0^3 Y2^3
 
 
 def cadd(a, b):

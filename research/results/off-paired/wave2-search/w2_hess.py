@@ -90,7 +90,7 @@ else:
     P = np.eye(K)
 dimP = P.shape[1]
 print(f'[hess] d={d} c={c} K={K} dimP={dimP} rows={R} nQ={len(Qm)} nnz(TE)={TE.nnz} build {time.time()-T0:.1f}s', flush=True)
-w2lib.append_json('wave2-search.remote.log.jsonl', {'ts': w2lib.now(), 'step': 'hess-build', 'job': args.job, 'd': d, 'sector': list(c),
+w2lib.append_json(w2lib.REMOTE_LOG, {'ts': w2lib.now(), 'step': 'hess-build', 'job': args.job, 'd': d, 'sector': list(c),
                   'K_w': K, 'dimP': dimP, 'rows': R, 'nQ': len(Qm)})
 
 def resid(u):
@@ -172,5 +172,5 @@ if cands:
             print('!!!!!!!! WITNESS FOUND (exact, verified) !!!!!!!!', flush=True); summary['witness'] = True; break
     summary['confirm_attempts'] = atts
 json.dump(summary, open(f'wave2-{args.job}.summary.json', 'w'), indent=1)
-w2lib.append_json('wave2-search.remote.log.jsonl', {k: v for k, v in summary.items() if k != 'confirm_attempts'})
+w2lib.append_json(w2lib.REMOTE_LOG, {k: v for k, v in summary.items() if k != 'confirm_attempts'})
 print(json.dumps({k: v for k, v in summary.items() if k != 'confirm_attempts'}), flush=True)

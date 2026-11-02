@@ -33,7 +33,10 @@ def rational_data(F, A, q, Ds, Ns, syz, p):
     Dq = []; Nq = []; Sq = []
     for D, N in zip(Ds, Ns):
         d_ = rat_poly(D, p); n_ = [rat_poly(N[i], p) for i in range(NV)]
-        if d_ is None or any(x is None for x in n_): raise ValueError('lift reconstruction failed')
+        if d_ is None: raise ValueError('D reconstruction failed')
+        if any(x is None for x in n_):
+            n_ = exact_lift(F, A, q, d_)          # solve N(F) = A D over Q directly
+            if n_ is None: raise ValueError('exact lift failed')
         lhs = {}
         for i in range(NV): lhs = add(lhs, mul(n_[i], Fi[i]))
         if lhs != mul(A, d_): raise ValueError('lift verification failed')
@@ -46,6 +49,40 @@ def rational_data(F, A, q, Ds, Ns, syz, p):
         if lhs: raise ValueError('syzygy verification failed')
         Sq.append(s_)
     return Dq, Nq, Sq
+
+def exact_lift(F, A, q, Dq):
+    """Exact rational solution N of N(F) = A D in the character sector of D (fmpq_mat rref)."""
+    cD = char_of(Dq); cA = char_of(A)
+    if cD is None: return None
+    d = core.degree(Dq); degN = d + 6 * q - 5
+    Fi = [pderiv(F, i) for i in range(NV)]
+    cols = []; kinds = []
+    for i in range(NV):
+        for m in monos_char(degN, cadd(cadd(cD, VARCHAR[i]), cA)):
+            cols.append(shift(Fi[i], m, q)); kinds.append((i, m))
+    rhs = {e: Fraction(v) for e, v in core.mul(A, Dq).items()}
+    rows = {}
+    for col in cols:
+        for e in col: rows.setdefault(e, len(rows))
+    for e in rhs: rows.setdefault(e, len(rows))
+    R, C = len(rows), len(cols)
+    M = fmpq_mat(R, C + 1)
+    for j, col in enumerate(cols):
+        for e, v in col.items(): v = Fraction(v); M[rows[e], j] = fmpq(v.numerator, v.denominator)
+    for e, v in rhs.items(): M[rows[e], C] = fmpq(v.numerator, v.denominator)
+    Mr, rank = M.rref()
+    piv = []
+    for i in range(rank):
+        j = 0
+        while j <= C and Mr[i, j] == 0: j += 1
+        piv.append(j)
+    if piv and piv[-1] == C: return None
+    N = [{} for _ in range(NV)]
+    for i, j in enumerate(piv):
+        v = Mr[i, C]
+        if v != 0:
+            ii, m = kinds[j]; N[ii][m] = Fraction(int(v.p), int(v.q))
+    return N
 
 class ExactB:
     """Exact rational B_{D_a}(N_b), B_{D_a}(S_k) as dict polys (via fmpq_mpoly), cached."""

@@ -1,6 +1,6 @@
 # Wave 2 — `reflection-coupled-residual` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness; RIGOROUS: deg D ≥ 7 for every denominator (d ≤ 4: E1; d = 5, 6: E1 + Hessian relaxation; E1 re-verified at a third prime in all four characters); degree 7 excluded for three of the four pure Klein characters so far; K8 (the unique non-Jacobian degree-8 E1 class) certified not a denominator
+STATUS: no witness. RIGOROUS (over ℂ): every certificate denominator has degree ≥ 7 (d ≤ 4 by E1 in all four Klein characters; d = 5, 6 by E1 ⇒ D ∈ J_d plus the zero-dimensional Hessian relaxation on W = V/T, mixed parity included; E1 re-verified at a third prime); degree 7 is impossible for single-character denominators in characters (0,1), (1,0), (1,1) and for the mixed pair (1,0)+(1,1); the unique non-Jacobian degree-8 E1 class K8 is certified not a denominator; 7/7 tested degree-9 kernel members certified negative. OPEN: degree-7 character (0,0) block (8-hour GB run in progress) and the other mixed pairs/triples; degree-8 families (remote hess8); screens continue (hand-off section).
 
 Started 2026-11-01 ~19:15 local. Work dir `/tmp/hodge/results/reflection-coupled-residual/wave2-excl/`,
 log `/tmp/hodge/results/reflection-coupled-residual/wave2-excl.log.jsonl` (one JSON line per experiment).
@@ -59,7 +59,7 @@ D ∈ J_7 (E1) of a single character χ ⇒ g ∈ V_χ, W_χ = V_χ/T_χ; the qu
 | (1,1) | 18 | 0 | 18 | 117 | 135 | 0 | 85 | 1,18,54,12,0 | V = {0} |
 | (1,0) | 23 | 1 | 22 | 132 | 301 | 0 | 239 | 1,22,121,83,12,0 | V = {0} |
 | (0,1) | 40 | 2 | 38 | 281 | 2987 | 0 | 1109 | 1,38,460,556,54,0 | V = {0} |
-| (0,0) | 45 | 3 | 42 | 274 | (running) | | | | |
+| (0,0) | 45 | 3 | 42 | 274 | — | — | — | — | msolve did not finish in 850 s / 3900 s (4 threads); 8-hour run started 21:02 |
 Hence (modulo the (0,0) block) **no degree-7 denominator with a single Klein character**. Mixed-character degree-7
 denominators: joint systems on ⊕W_χ — pairs (10,11): 40 unknowns/300 independent quadrics, (01,11): 56/470, (01,10): 60/479,
 (00,11): 60/468, (00,10): 64/463, (00,01): 80/…; triples 78–102 unknowns; full 120 — exported and run by msolve with bounded
@@ -76,6 +76,8 @@ caps (`wave2-excl/chain2.sh`; receipts `gbcheck.jsonl`). **Pair (1,0)+(1,1): dim
   (zG, 0) and (F m e_i, D ∂_i m − m ∂_i D) have rank 476 = nullity, hence rank_ℚ M = rank_p M and the inconsistency holds
   over ℚ (and ℂ). Second prime agrees; the full unrestricted system (40301 × 7497) is also inconsistent mod p (rank 6703).
   **K8 itself is not a certificate denominator.** (427 s.) The affine family K8 + J_8 is treated in R6.
+* Geometry of Z = X ∩ V(K8): the Jacobian ideal (F, K8, 2×2 minors) was not finished by Singular (30 min) nor msolve (50 min);
+  whether Z is smooth remains open (not needed for the exclusion).
 
 ### R5. E1 by Klein character, independent re-verification (remote job excl-rcr-e1char, p = 2147483587; reps lifted with 2147483579)
 Kernel of [A]: (S/J)_d^χ → (S/J)_{d+6}^{χ+(0,1)}; "ker" = dim{D ∈ S_d^χ : AD ∈ J}, "mod J" = its dimension modulo J_d^χ.
@@ -150,7 +152,7 @@ results for the coupled F are not artefacts of the pipeline (`wave2-excl/control
 * The three rationally reconstructed representatives of the 21-dimensional non-Jacobian E1 kernel of character (0,0) at
   degree 9: restricted systems 32214 × 6804, all **inconsistent mod p and certified over ℚ** (rank 6006, nullity 798 = a-priori
   kernel rank), second prime agrees (822/299/249 s on the saturated box). The other 18 need more primes to reconstruct
-  (`e1recon.py`, queued); two random integer combinations of the three: also certified inconsistent (5/5 negative).
+  (`e1recon.py`, queued); four random integer combinations of the three: also certified inconsistent (**7/7 negative**).
 * Structured screen at degree 11: **cones with a line vertex become E1-admissible for the first time** — polynomials in
   (X0,X1,X2,Y2) (vertex the line Y0Y1): a 46-dimensional E1-admissible space with 45 classes outside J_11; polynomials in
   (X0,X1,X2,Y0): 5. These are the book's natural (3,1)-support candidates (cone over a degree-11 surface with p_g > 0).
@@ -164,8 +166,8 @@ results for the coupled F are not artefacts of the pipeline (`wave2-excl/control
 * `excl-rcr-hess`: Φ-kernel at d = 6 (two primes); Macaulay-3 rank of the quadratic system per character at d = 7;
   msolve exports of the pair/full systems at d = 7.
 * `excl-rcr-k8job`: DONE (R4, R6).
-* `excl-rcr-struct`: structured-family E1 screen d = 7..12 (R7, running).
-* (queued, needs a free slot) `job_companion.sh`: control on the same F with the served companion target X0³Y2³: E1 kernels by character d = 1..9 (where do non-Jacobian classes first appear for a target that is known to be served?).
+* `excl-rcr-struct`: DONE — structured-family E1 screen d = 7..12 (R7, R8, R11; 348 receipts in `structscreen.jsonl`).
+* `excl-rcr-misc` (submission was still rsyncing at hand-off — verify with `python3 -m hodge.rjob status`; resubmit `bash wave2-excl/job_misc.sh` if absent): control on the same F with the served companion target X0³Y2³ (E1 kernels d = 1..9, receipts `control-companion/`), then 8-prime rational reconstruction of the degree-9 kernels (0,0) and (1,0) (`e1recon.r4.jsonl`, `e1reps_d9_chi*_Qk.json`).
 * `excl-rcr-hess8`: degree-8 pure-character Jacobian families (χ = 11, 10, 01) and the K8 family (1 + 102 unknowns): msolve GB checks (running).
 * `excl-rcr-ker9`: degree-9 E1-kernel representatives (21 in (0,0), plus (1,0)) fixed-D tests + random combinations; rerun of the lost degree-9 receipts.
 
@@ -183,3 +185,16 @@ results for the coupled F are not artefacts of the pipeline (`wave2-excl/control
 5. **Reductions.** Sum principle (book ch. 3 §1.1) + smoothness of X ∩ {z_i = 0} (checked mod p) ⇒ served(z_iG) = served(G);
    odd-Y2-parity characters are Y2-multiples.
 6. **Controls.** Fermat sextic (certificates exist): the pipeline returns a 19-dimensional solution cone at degree 6.
+
+## State at hand-off (21:10 local) — where later results land
+Local (brunos), still running, receipts appended automatically:
+* `wave2-excl/gbcheck.jsonl`: the degree-7 character-(0,0) block (8-hour msolve run, 6 threads, started 21:02); then chain4
+  (`chain4.sh`): exports of the (00,01,10) triple and the full 120-unknown system, the degree-8 K8-family export
+  (`hessK_d8_chi00_p*.ms`, 1 + 102 unknowns) and its 30-minute GB run (`gbcheck_d8K.out`), two 20-minute pair runs.
+* `wave2-excl/conescreen.jsonl` + `rigorfix.jsonl`: degree-11 Klein-invariant cone families (`chain3_cones.sh`).
+Remote (hodge-sextics, heavily loaded): `excl-rcr-hess8` (degree-8 pure sectors (1,1), (1,0), (0,1) and the K8 family; receipts
+`gbcheck.r3.jsonl`, `hess.r3.jsonl`), `excl-rcr-ker9` (degree-9 kernel tests; `rigorfix.r2.jsonl`), `excl-rcr-misc`
+(companion control; degree-9 reconstructions). Pull with `python3 -m hodge.rjob pull --lane reflection-coupled-residual`
+and merge with `wave2-excl/merge_remote.py` (union of JSONL lines; never lets a local copy clobber remote receipts).
+Interpretation rules: a `gb-hilbert` receipt with `dim: 0` closes its block rigorously (see Methods); `msolve TIMEOUT`
+means undecided; a `rigorfix` receipt with `certified: true` is a rigorous exclusion of that single denominator.

@@ -99,6 +99,12 @@ sub-family views (`KoszulVarPro.subfamily`).  Final job set:
   (d = 12), block-q2 cubics in each pair, pair-Fermat products, F_i F_j; then an exact scan of the nine 2-dimensional
   E1-kernel sectors at d = 6 (all F_p-rational points of each pencil through a maximal-minor polynomial, `w2_pencil.py`).
 * chain E `search-cycle-q2-chainE`: q = 1 sibling (F, B = X0 X1^2 Y0 Y1^2) kernel search at d = 8..12 (systems
-  ~300 x 75 at d = 8); its d = 8 run was killed by mistake at 20:38 and must be repeated.
+  ~300 x 75 at d = 8).  Its first results (d = 9, 21:00) were 512 "zeros" with rel ~ 1e-30 in 8 sectors, all of which turned
+  out to be the trivial q = 1 solutions D = F G (N = 0, Q = B G^2; F S_3 lies in every sector kernel): the numerical
+  certificate is exact (full identity residual 6e-14) but D is divisible by F to 1e-7 and every rational reconstruction is
+  inconsistent.  At q = 1 this linear subspace of spurious solutions attracts every restart, so the sibling search was
+  restarted (chain E2) with a deflated residual r / dist(a, L)^2, L = {a : F | D(a)}, which removes the attractor without
+  discarding any legal denominator (projecting the family onto a complement of L would).  At q = 2 F-multiples are not
+  automatically consistent (D = F G needs [A][G] = 0 in R, i.e. E1 for G), and no such attractor was observed.
 
 Results: pending.

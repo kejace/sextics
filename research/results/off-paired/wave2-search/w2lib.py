@@ -55,6 +55,8 @@ def set_group(name):
     GROUP = name
     return f
 P0 = core.PRIMES[0]
+# batch-log file name: remote jobs append to the .remote file; local runs must never create it (rsync would overwrite the remote one)
+REMOTE_LOG = 'wave2-search.remote.log.jsonl' if os.uname().nodename.startswith('hodge') else 'wave2-search.local.log.jsonl'
 BK = 64
 POW = np.array([BK ** i for i in range(6)], dtype=np.int64)
 

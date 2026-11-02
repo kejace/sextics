@@ -1,2 +1,9 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 [relax] d=7 pD=0 family: 63 J-type + 3 kernel = 66; rank of D-span = 66
+[relax] J_14^1: gens 6006 rank 5052 ring_dim 744 (110s)
+  pair 0/2211 (0s)
+  pair 500/2211 (1s)
+  pair 1000/2211 (2s)
+  pair 1500/2211 (3s)
+  pair 2000/2211 (5s)
+[relax] wrote 432 quadrics in 66 variables to wave2/out/relax_d7_p0.full.ms; sliced system (432 quadrics, 63 variables, dropped [9, 10, 11]) to wave2/out/relax_d7_p0.ms

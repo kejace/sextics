@@ -24,13 +24,15 @@ $\chi(m)=(\deg_{Y_2}m \bmod 2,\ (\deg_{Y_0}m+\deg_{Y_1}m)\bmod 2)$ of the two si
      $1,35,285,477,225,36,1,0$). Since $\mathrm{HF}_{\mathbb Q}\le\mathrm{HF}_p$, the rational ideal contains all forms of degree 7, so
      $V(\mathrm{ob})=T$ over $\mathbb C$.
    * $d=7$, single character: the same computation on $W_\chi$ (dims 42/38/22/18, 274/281/132/117 independent quadrics) gives
-     zero-dimensional ideals for $\chi=(0,1),(1,0),(1,1)$ [and $(0,0)$: PENDING].
-   **Consequence: every certificate denominator has degree $\ge 7$; a degree-7 denominator must have components in at least two
-   Klein characters [or lie in character $(0,0)$: PENDING].**
+     zero-dimensional ideals for $\chi=(0,1),(1,0),(1,1)$ (Hilbert functions $1,38,460,556,54,0$; $1,22,121,83,12,0$; $1,18,54,12,0$),
+     and also for the mixed pair $(1,0)\oplus(1,1)$ (40 unknowns: $1,40,520,1543,1695,567,33,0$). The block $\chi=(0,0)$ (42 unknowns,
+     274 quadrics) did not finish in 65 minutes of msolve; an 8-hour run is in progress.
+   **Consequence: every certificate denominator has degree $\ge 7$; a degree-7 denominator must either be Klein-invariant
+   (character $(0,0)$, block still running) or have components in at least two characters including one of $(0,0),(0,1)$.**
 3. *The class $K_8$.* Fixed-$D$ test on the Klein-invariant sector (22016 equations, 4256 unknowns): inconsistent mod $p$, and the
    modular rank equals the rational rank because 476 explicit rational kernel vectors $(zG,0)$, $(F m e_i,\ D\partial_im-m\partial_iD)$
    match the modular nullity. So $K_8$ is not a certificate denominator (over $\mathbb C$). Second prime and the full 40301×7497
-   system agree. [Singular locus of $X\cap V(K_8)$: PENDING.]
+   system agree. (Whether $X\cap V(K_8)$ is smooth was not settled: the Jacobian ideal computation did not finish.)
 4. *Reductions.* All six coordinate sections $X\cap\{z_i=0\}$ are smooth sextic threefolds, so (sum principle, Ch. 3 §1.1)
    $\mathrm{served}(z_iG)=\mathrm{served}(G)$. Monomials of character $(1,\cdot)$ have odd $Y_2$-exponent, so every pure-character
    denominator of character $(1,0)$ or $(1,1)$ is $Y_2\cdot G$ and reduces to an even-$Y_2$-parity denominator of lower degree
@@ -40,12 +42,16 @@ $\chi(m)=(\deg_{Y_2}m \bmod 2,\ (\deg_{Y_0}m+\deg_{Y_1}m)\bmod 2)$ of the two si
 
 **Screened only (no claim of nonexistence).** (a) The affine family $K_8+J_8$: $\mathrm{ob}(K_8)\neq0$ and the linearised
 E2-mod-$J$ system over the 168-parameter $Y$-even family has rank 156 (kernel = the 12 trivial directions) with
-$\mathrm{ob}(K_8)\notin\mathrm{im}$, so no first-order correction exists; the full quadratic system (103 unknowns, 274 quadrics) [PENDING].
+$\mathrm{ob}(K_8)\notin\mathrm{im}$, so no first-order correction exists; the full quadratic system (103 unknowns, 274 quadrics) is exported and a bounded GB run is queued.
 (b) Structured shapes (cones with a line or plane vertex, coordinate multiples, binary/ternary forms, polynomials in squares,
 $u=Y_2^2$-polynomials, bounded $X$/$Y$-degree, the Klein-invariant subring, …), intersected with the E1-admissible space by
 character for $7\le d\le 10$: nothing outside $J$ for $d\le 8$; at $d=9,10$ the survivors are coordinate multiples (reducible
-by the lemma), bounded-degree and even-exponent families — no fixed-$D$ certificate found among the tested representatives [PENDING].
-(c) Mixed-character degree-7 denominators: joint quadratic systems for pairs/triples of characters [PENDING].
+by the lemma), bounded-degree and even-exponent families; at degree 11 two 5-dimensional families of Klein-invariant cones with a line vertex (polynomials in
+$(X_0,X_1,X_2,Y_2)$ resp. $(X_0,X_1,X_2,Y_0)$) pass E1 for the first time (screens in progress). Degree 9, character $(0,0)$:
+5 of 5 tested members of the 21-dimensional non-Jacobian kernel (3 reconstructed basis classes, 2 random combinations) are
+certified non-denominators; degrees 9–10 kernels are dimension-forced ($21/0/21/0$, $186/126/136/108$).
+(c) Mixed-character degree-7 denominators: the joint systems for the other pairs (56–80 unknowns), triples and the full
+120-unknown system are exported; the pair $(0,1)\oplus(1,1)$ did not finish in 20 minutes; runs continue.
 
 **Reproduction.** Scripts and JSON receipts (primes, ranks, Hilbert functions) in the wave-2 packet
 `wave2-excl/` (README with replay commands). Engine: exact polynomial arithmetic + python-flint; msolve 0.6, Singular.

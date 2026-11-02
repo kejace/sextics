@@ -99,3 +99,12 @@ element 84 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[
 element 85 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 741.8s
 element 87 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 751.0s
 element 88 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 751.3s
+element 89 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 803.2s
+element 92 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 796.8s
+element 95 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 796.3s
+element 94 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 796.7s
+element 91 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 798.6s
+element 93 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 797.9s
+element 90 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 801.4s
+element 96 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 813.7s
+element 97 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 832.7s

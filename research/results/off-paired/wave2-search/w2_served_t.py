@@ -27,5 +27,5 @@ for name, D in cands.items():
             rec = {'D': name, 't': str(t), 'error': str(ex)[:200]}
         print(json.dumps(rec), flush=True); out.append(rec)
         w2lib.append_json('wave2-served_t.jsonl', rec)
-w2lib.append_json('wave2-search.remote.log.jsonl', {'ts': w2lib.now(), 'step': 'served-deformation', 'job': 'servedt',
+w2lib.append_json(w2lib.REMOTE_LOG, {'ts': w2lib.now(), 'step': 'served-deformation', 'job': 'servedt',
                   'results': [(r['D'], r['t'], r.get('dim_nontrivial')) for r in out]})

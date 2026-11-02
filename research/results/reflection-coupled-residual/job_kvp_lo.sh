@@ -1,8 +1,9 @@
 #!/bin/bash
 # Koszul-reduced full-E2 variable projection over the complete E1-admissible families at d = 7, 8; 8 parallel seeds per family
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
-run8 () {  # run8 <d> <sec> <family> <restarts-per-seed> <seedbase>
-  for k in 0 1 2 3 4 5 6 7; do python3 kvp.py --d $1 --sec $2 --family $3 --restarts $4 --seed $(($5 + k)) --tag lo > kvp_d$1_$2_$3_s$(($5 + k)).out 2>&1 & done; wait
+run8 () {  # run8 <d> <sec> <family> <restarts-per-seed> <seedbase>: seeds 0-3 joint LM, seeds 4-7 L-BFGS variable projection
+  for k in 0 1 2 3; do python3 kvp.py --d $1 --sec $2 --family $3 --restarts $4 --seed $(($5 + k)) --opt lm --tag lo > kvp_d$1_$2_$3_s$(($5 + k)).out 2>&1 & done
+  for k in 4 5 6 7; do python3 kvp.py --d $1 --sec $2 --family $3 --restarts $4 --seed $(($5 + k)) --opt lbfgs --maxiter 800 --tag lo > kvp_d$1_$2_$3_s$(($5 + k)).out 2>&1 & done; wait
 }
 for s in 00 01 10 11; do run8 7 $s J 50 100; done
 for s in e o; do run8 7 $s J 30 200; done

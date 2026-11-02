@@ -22,3 +22,11 @@
 20:56:53 submit call timed out (ssh hang); verifying via pid file
 20:57:14 fe-control confirmed submitted
 20:57:48 submitting smallt (cpus 4); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-fe-control']
+21:00:18 submit call timed out (ssh hang); verifying via pid file
+21:00:39 smallt confirmed submitted
+21:01:12 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-fe-control', 'search-off-paired-s2-smallt']; waiting
+21:03:46 submitting d9h0 (cpus 8); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-smallt']
+21:06:16 submit call timed out (ssh hang); verifying via pid file
+21:06:37 d9h0 confirmed submitted
+21:07:09 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-smallt']; waiting
+21:09:43 submitting hess (cpus 4); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0']

@@ -100,6 +100,13 @@ local box. Hundreds of restarts queued remotely (`job_kvp_lo.sh`, 8 seeds × 80 
 | 00 | K8 ⊕ J | 113 | 103 | 538 | 2 (L-BFGS, 500 it.) | 0.104 | 0.139 |
 No degree-8 sector shows any descent below rel 0.1 (earlier dense-metric and LM runs on 00 JK: 0.08–1.07).
 
+### R2e. Full E2 (Koszul varpro) over the degree-9 E1 families (21 non-Jacobian classes ⊕ J_9 per sector) — local batch D
+| sector | family | K | search dim | rows | n_a | nQ | restarts | best rel | median rel | note |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | 0.0180 | 0.0180 | L-BFGS 300 it., ~8 min per restart locally |
+| 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | 0.0208 | 0.0208 | L-BFGS 300 it., seed 42 |
+(LM seed and sector 10 running)
+
 ### R3. K8 (unique non-Jacobian degree-8 Y-even E1 class, Klein-invariant): full fixed-D test — remote job `search-rcr-k8full`
 E1 confirmed (rank 5052 = rank_aug). Sector-restricted compressed system 22016 × 4256 (of 7497 unrestricted): **inconsistent** (rank 3781, nullity 475, 36 s).
 Unrestricted compressed system 40301 × 7497: **inconsistent** (rank 6703, nullity 794, 195 s). K8 alone is not a denominator; the affine family K8 + J_8 is attacked by the affine relaxation (queued).

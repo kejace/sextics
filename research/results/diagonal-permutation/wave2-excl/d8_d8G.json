@@ -36,5 +36,17 @@
   "p": 1000000007,
   "seconds": 905.2,
   "full_nullity": 159
+ },
+ "reducedE2_p998244353": {
+  "consistent": false,
+  "rank": 2286,
+  "rank_aug": 2287,
+  "nullity": 159,
+  "rows": 10152,
+  "cols": 2445,
+  "k": 2486,
+  "p": 998244353,
+  "seconds": 699.7,
+  "full_nullity": 159
  }
 }

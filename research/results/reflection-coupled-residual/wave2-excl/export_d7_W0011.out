@@ -2,3 +2,11 @@ nonzero Hessian pairs: 20 zero pairs: [(2, 5)]
 chi=(0, 0): dim V=45 dim T=3 dim W=42
 chi=(1, 1): dim V=18 dim T=0 dim W=18
 total W dim 60
+[reducer n=14 chi=(0, 1) p=2147483587] dim S=3276 gens=3388 rank J=2850 nul=426 fermat=426 good_reduction=True (63.6s)
+[reducer n=14 chi=(1, 0) p=2147483587] dim S=2520 gens=2618 rank J=2202 nul=318 fermat=318 good_reduction=True (16.4s)
+sanity B(T,.)=0 ok
+psi=(0, 1): pairs=1074 nul=426 good=True quadrics so far 426 (5s)
+psi=(1, 0): pairs=756 nul=318 good=True quadrics so far 741 (3s)
+quadrics: 741, independent: 468, in 60 variables
+RECEIPT {"exp": "export-msolve", "d": 7, "prime": 2147483587, "chis": [[0, 0], [1, 1]], "dim_W": 60, "n_quadrics": 741, "rank_quadrics": 468, "file": "/tmp/hodge/results/reflection-coupled-residual/wave2-excl/hess_d7_W0011_p2147483587.ms", "ts": "2026-11-01T20:07:56", "job": "hess"}
+HESS DONE

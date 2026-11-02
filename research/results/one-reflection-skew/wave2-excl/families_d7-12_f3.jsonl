@@ -1324,3 +1324,4 @@
 {"name": "Y0*t*f", "d": 9, "chi": [0, 3, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1846, "rank_aug": 1847, "nN": 1560, "nQ": 498, "rows": 3510, "seconds": 619.82}
 {"name": "Y0*u*f", "d": 9, "chi": [0, 3, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1861, "rank_aug": 1862, "nN": 1560, "nQ": 498, "rows": 3510, "seconds": 637.62}
 {"name": "Y0*v*f", "d": 9, "chi": [0, 3, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1861, "rank_aug": 1862, "nN": 1560, "nQ": 498, "rows": 3510, "seconds": 665.9}
+{"name": "r2*f", "d": 10, "chi": [0, 0, 4], "e1": true, "status": "EXCLUDED-exact", "rank": 2742, "rank_aug": 2743, "nN": 2118, "nQ": 879, "rows": 4980, "seconds": 1703.47}

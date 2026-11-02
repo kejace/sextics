@@ -54,7 +54,7 @@ basis, gauge, info = w2lib.build_family(F, A, q, args.d, c, args.kind, verbose=T
 if not basis or len(basis) <= len(gauge):
     rec = {'ts': w2lib.now(), 'job': args.job, 'step': 'varpro', 'F': args.F, 'd': args.d, 'sector': list(c), 'family': args.kind,
            'K': len(basis), 'gauge': len(gauge), 'note': 'empty family after gauge removal', 'restarts': 0}
-    w2lib.append_json('wave2-search.remote.log.jsonl', rec); print(rec, flush=True); sys.exit(0)
+    w2lib.append_json(w2lib.REMOTE_LOG, rec); print(rec, flush=True); sys.exit(0)
 fam = (w2lib.FreeTargetVarPro if args.free_target else w2lib.SectorVarPro)(F, A, q, basis, c, gauge=gauge, verbose=True, cond=args.cond)
 print(f'[{w2lib.now()}] family built: K={fam.K} rank={fam.rankB} gauge={fam.ng} dimP={fam.dimP} rows={fam.R} N={fam.nN} Q={fam.nQ} '
       f'build {fam.build_time:.1f}s', flush=True)
@@ -155,5 +155,5 @@ for r in cands[:20]:
 summary['confirm_attempts'] = attempts
 summary['witness'] = bool(witness)
 json.dump(summary, open(f'wave2-{args.job}.summary.json', 'w'), indent=1)
-w2lib.append_json('wave2-search.remote.log.jsonl', {k_: v for k_, v in summary.items() if k_ != 'confirm_attempts'})
+w2lib.append_json(w2lib.REMOTE_LOG, {k_: v for k_, v in summary.items() if k_ != 'confirm_attempts'})
 print(json.dumps({k_: v for k_, v in summary.items() if k_ not in ('confirm_attempts',)}, indent=1), flush=True)

@@ -24,6 +24,22 @@ S6. K8 (the unique non-Jacobian degree-8 E1 class, character (0,0)): A*K8 in J e
     kernel vectors; second prime and full 40301x7497 system agree).  K8 not in J (two primes).
 S7. Degree 8: the E1-admissible space is J_8 (+) C K8 in all characters (e1char.jsonl, d=8 rows); no structured shape of the
     48-shape list meets it outside J_8 (structscreen.jsonl).
+S8. Reduction lemma: all six sections X cap {z_i=0} are smooth (hypsmooth.jsonl, p=32003), so by the sum principle
+    served(z_i*G) = served(G) for every G (the (3,1)-served space of a smooth threefold hypersurface is 0).
+S9. Y2-parity reduction: monomials of Klein character (1,0),(1,1) have odd Y2-exponent, so pure-character denominators
+    of those characters are Y2*G and reduce (S8) to characters (0,0),(0,1) of lower degree.
+S10. Degrees 9, 10: non-Jacobian E1 kernels (0,0)/(0,1)/(1,0)/(1,1) = 21/0/21/0 (d=9) and 186/126/136/108 (d=10)
+    [e1char.jsonl, e1char.r2.jsonl]; the degree-9 (1,0) kernel reduces by S9 to the degree-8 (0,0) family.
+S11. Structured shapes (structscreen.jsonl): no cone (line/plane vertex), binary/ternary form, polynomial in squares or
+    u=Y2^2-polynomial is E1-admissible outside J for 7 <= d <= 10; survivors at d = 9, 10 are coordinate multiples
+    (reducible by S8), bounded-X/Y-degree families and even-exponent families (screened only).
+S12. Degree 7, mixed characters (1,0)+(1,1) jointly: zero-dimensional (HF 1,40,520,1543,1695,567,33,0; msolve 166 s) - no
+    degree-7 denominator with components only in those two characters (also implied by S9). The pair (0,1)+(1,1) (56 unknowns,
+    470 quadrics) did not finish within 20 min; larger pairs/triples/full: see gbcheck.jsonl (timeouts are recorded as such).
+S13. Degree 9, character (0,0): three rationally reconstructed kernel representatives certified not denominators
+    (rigorfix.r2.jsonl: restricted 32214x6804, rank 6006, nullity 798 = a-priori kernel rank, two primes).
+S14. Degree 11: two 5-dimensional families of Klein-invariant E1-admissible cones with a line vertex (polynomials in
+    (X0,X1,X2,Y2) resp. (X0,X1,X2,Y0)); fixed-D screens in conescreen.jsonl / rigorfix.jsonl (family tag cone-d11-*).
 (further statements appended as experiments finish)
 
 ## Why the modular computations are proofs

@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 20:56:16 from 178 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 21:09:31 from 562 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -103,26 +103,75 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 
 ## (4) Structured families (E1-admissible dimension per sector; varpro where nonzero)
 
-97 (family, d, parity, k) cells tested; 5 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
+Cells with zero E1-admissible part (excluded as supports), by family: G-multiples:1, K+G-multiples:1, K-multiples:1, M-multiples:1, Xdeg_0:2, Xdeg_1:6, Xdeg_2:12, Xdeg_3:14, Xdeg_4:14, Xdeg_5:14, Xdeg_6:14, Xdeg_7:7, Xdeg_le3:14, Ydeg_le3:4, no_r:23, no_s:23, no_t:23, no_x:11, no_y:11, no_z:11, pureX:14, pureY:2, vars_trsx:15, vars_trsy:15, vars_trsz:15, vars_xyzr:23, vars_xyzs:23, vars_xyzt:23
+
+389 (family, d, parity, k) cells tested; 52 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
 
 | family | d | parity | k | dim V | dim E1 | nontrivial mod J | dimP | restarts | best rel | exact tests |
 |---|---|---|---|---|---|---|---|---|---|---|
+| EX-multiples | 6 | 0 | 0 | 1 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| EY-multiples | 6 | 0 | 0 | 1 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| Ydeg_le3 | 6 | 0 | 0 | 22 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
+| no_r | 6 | 0 | 0 | 20 | 3 | 0 | 3 | 6 | 3.87e-01 | inconsistent,inconsistent,inconsistent |
+| no_s | 6 | 0 | 0 | 20 | 3 | 0 | 3 | 6 | 8.21e-01 | inconsistent,inconsistent,inconsistent |
+| no_t | 6 | 0 | 0 | 20 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
 | no_x | 6 | 0 | 0 | 35 | 2 | 0 | 2 | 6 | 7.76e-01 | inconsistent,inconsistent |
-| no_x | 6 | 0 | 0 | 35 | 2 | 0 | 2 | 6 | 7.76e-01 | inconsistent,inconsistent |
-| vars_xyzr | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 20 | 1.00e+00 | inconsistent |
-| vars_xyzs | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 20 | 1.00e+00 | inconsistent |
-| vars_xyzt | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 20 | 5.85e+00 | inconsistent |
+| vars_xyzr | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzs | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzt | 6 | 0 | 0 | 8 | 1 | 0 | 1 | 6 | 5.85e+00 | inconsistent |
+| Ydeg_le3 | 6 | 0 | 1 | 16 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| Ydeg_le3 | 6 | 0 | 2 | 16 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| Ydeg_le3 | 6 | 0 | 3 | 16 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| Ydeg_le3 | 6 | 0 | 4 | 16 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| Ydeg_le3 | 6 | 0 | 5 | 16 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| Ydeg_le3 | 6 | 0 | 6 | 16 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| Ydeg_le3 | 6 | 1 | 3 | 29 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 6 | 1 | 5 | 29 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 6 | 1 | 6 | 29 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
+| no_r | 7 | 0 | 1 | 26 | 3 | 0 | 3 | 6 | 3.71e-01 | inconsistent,inconsistent,inconsistent |
+| no_s | 7 | 0 | 1 | 26 | 3 | 0 | 3 | 6 | 2.86e-01 | inconsistent,inconsistent,inconsistent |
+| no_t | 7 | 0 | 1 | 26 | 3 | 0 | 3 | 6 | 4.22e-01 | inconsistent,inconsistent,inconsistent |
+| no_y | 7 | 0 | 1 | 35 | 2 | 0 | 2 | 6 | 7.70e-01 | inconsistent,inconsistent |
+| no_z | 7 | 0 | 1 | 35 | 2 | 0 | 2 | 6 | 8.09e-01 | inconsistent,inconsistent |
+| vars_xyzr | 7 | 0 | 1 | 10 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzs | 7 | 0 | 1 | 10 | 1 | 0 | 1 | 6 | 9.85e-01 | inconsistent |
+| vars_xyzt | 7 | 0 | 1 | 10 | 1 | 0 | 1 | 6 | 6.71e+00 | inconsistent |
+| no_r | 7 | 0 | 2 | 26 | 3 | 0 | 3 | 6 | 3.87e-01 | inconsistent,inconsistent,inconsistent |
+| no_s | 7 | 0 | 2 | 26 | 3 | 0 | 3 | 6 | 8.21e-01 | inconsistent,inconsistent,inconsistent |
+| no_t | 7 | 0 | 2 | 26 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
+| no_x | 7 | 0 | 2 | 35 | 2 | 0 | 2 | 6 | 7.76e-01 | inconsistent,inconsistent |
+| no_z | 7 | 0 | 2 | 35 | 2 | 0 | 2 | 6 | 8.29e-01 | inconsistent,inconsistent |
+| vars_xyzr | 7 | 0 | 2 | 10 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzs | 7 | 0 | 2 | 10 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzt | 7 | 0 | 2 | 10 | 1 | 0 | 1 | 6 | 5.85e+00 | inconsistent |
+| no_r | 7 | 0 | 4 | 26 | 3 | 0 | 3 | 6 | 5.20e-02 | inconsistent,inconsistent,inconsistent |
+| no_s | 7 | 0 | 4 | 26 | 3 | 0 | 3 | 6 | 8.15e-01 | inconsistent,inconsistent,inconsistent |
+| no_t | 7 | 0 | 4 | 26 | 3 | 0 | 3 | 6 | 1.01e-02 | inconsistent,inconsistent,inconsistent |
+| no_x | 7 | 0 | 4 | 35 | 2 | 0 | 2 | 6 | 2.51e-02 | inconsistent,inconsistent |
+| no_y | 7 | 0 | 4 | 35 | 2 | 0 | 2 | 6 | 2.06e-02 | inconsistent,inconsistent |
+| vars_xyzr | 7 | 0 | 4 | 10 | 1 | 0 | 1 | 6 | 9.52e-01 | inconsistent |
+| vars_xyzs | 7 | 0 | 4 | 10 | 1 | 0 | 1 | 6 | 5.61e-02 | inconsistent |
+| vars_xyzt | 7 | 0 | 4 | 10 | 1 | 0 | 1 | 6 | 5.85e+00 | inconsistent |
+| no_r | 7 | 1 | 0 | 28 | 6 | 0 | 6 | 6 | 3.83e-01 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
+| no_s | 7 | 1 | 0 | 28 | 6 | 0 | 6 | 6 | 7.96e-01 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
+| no_t | 7 | 1 | 0 | 28 | 6 | 0 | 6 | 6 | 7.04e-03 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
+| no_x | 7 | 1 | 0 | 49 | 6 | 0 | 6 | 6 | 4.69e-02 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
+| no_y | 7 | 1 | 0 | 49 | 6 | 0 | 6 | 6 | 2.78e-02 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
+| no_z | 7 | 1 | 0 | 49 | 6 | 0 | 6 | 6 | 2.37e-02 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
+| vars_xyzr | 7 | 1 | 0 | 8 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzs | 7 | 1 | 0 | 8 | 1 | 0 | 1 | 6 | 9.99e-01 | inconsistent |
+| vars_xyzt | 7 | 1 | 0 | 8 | 1 | 0 | 1 | 6 | 3.16e+01 | inconsistent |
 
 ## Remote job queue (tail)
 ```
-20:44:07 gate closed for w2-control: 00), available memory 155 GB (min 90), 78 jobs running with 299 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:45:40 gate closed for w2-control: 00), available memory 126 GB (min 90), 77 jobs running with 298 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:47:13 gate closed for w2-control: 00), available memory 126 GB (min 90), 75 jobs running with 296 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:48:47 gate closed for w2-control: 00), available memory 104 GB (min 90), 74 jobs running with 292 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:50:20 gate closed for w2-control: 00), available memory 121 GB (min 90), 73 jobs running with 288 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:51:53 gate closed for w2-control: 00), available memory 109 GB (min 90), 77 jobs running with 297 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:53:54 gate closed for w2-control: 00), available memory 103 GB (min 90), 73 jobs running with 293 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-20:55:28 gate closed for w2-control: 00), available memory 109 GB (min 90), 77 jobs running with 303 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+20:58:33 gate closed for w2-control: 700), available memory 90 GB (min 90), 76 jobs running with 305 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:00:06 gate closed for w2-control: 700), available memory 87 GB (min 90), 75 jobs running with 304 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:01:39 gate closed for w2-control: 700), available memory 86 GB (min 90), 73 jobs running with 302 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:03:12 gate closed for w2-control: 700), available memory 84 GB (min 90), 73 jobs running with 295 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:04:45 gate closed for w2-control: 700), available memory 71 GB (min 90), 73 jobs running with 299 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:06:18 gate closed for w2-control: 700), available memory 60 GB (min 90), 73 jobs running with 299 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:07:51 gate closed for w2-control: 700), available memory 64 GB (min 90), 71 jobs running with 294 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:09:23 gate closed for w2-control: 700), available memory 53 GB (min 90), 71 jobs running with 294 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation
@@ -164,4 +213,15 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
   same minima across seeds): best rel (9,e,3) 3.4e-2, (9,e,6) 0.17, (9,e,4) 0.75, (9,o,5) 0.75, (9,o,4) 0.87, (9,o,1) 0.89,
   (9,e,1) 1.26, (9,o,6) 1.26, (9,e,2) 1.42; (9,e,0) 1.03 and (9,e,5) is a single direction (fixed-D, inconsistent in wave 1).
   No zeros: no certificate denominator in the span of the non-Jacobian kernel directions alone.
+* Structured families (part 4, local runs at degrees 6-7, continued on the remote): pure-X cones (vertex P^2_Y) and
+  pure-Y cones (vertex P^2_X) have no E1-admissible member in any sector at d = 6, 7 (kernel zero mod p => excluded as
+  supports); line-vertex cones in (x,y,z,t), (x,y,z,r), (x,y,z,s) have a single E1-admissible direction each at (6,even,0)
+  (a J-element), exactly tested: inconsistent; point-vertex cones with x missing: 2 directions at (6,even,0), both
+  inconsistent.
+* Why random-restart joint search cannot be exhaustive for d >= 9: a certificate (if any) is an isolated point of an
+  overdetermined bilinear system (about 10x more equations than unknowns after eliminating Q); on the 18-dimensional
+  control family the LM basin covers about 1% of the sphere and for 70-250 dimensional sector families the fraction is
+  astronomically small.  The searches at d >= 9 are therefore landscape surveys plus exhaustive searches of the
+  low-dimensional kernel-only and structured subfamilies; the decisive statements are the relaxation/exact-E2 exclusions
+  at d <= 8 and the E1-kernel dimension table.
 

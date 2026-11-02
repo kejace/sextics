@@ -530,6 +530,25 @@ class KoszulVarPro:
                   f'nnz(T)={nnz} e1res={self.e1_residual:.1e} built {self.build_time:.1f}s', file=sys.stderr)
 
     # ------------------------------------------------------------------
+    def F_multiple_subspace(self):
+        """orthonormal basis (K x l, real) of the a-vectors with D(a) in F * S_{d-6} (spurious directions at q = 1)"""
+        if getattr(self, '_Lb', None) is not None and self._Lb_K == self.K:
+            return self._Lb
+        Fb = f_multiples_basis(self.S, self.d, self.kappa) if self.d >= 6 else []
+        if not Fb:
+            self._Lb = np.zeros((self.K, 0)); self._Lb_K = self.K
+            return self._Lb
+        V = vecs_from_dicts(self.Dm, Fb)                     # nD x nF
+        # a with Bmat a in col(V):  solve [Bmat, -V] [a; g] = 0
+        M = np.hstack([self.Bmat, -V])
+        U, sv, Vt = np.linalg.svd(M, full_matrices=True)
+        rk = int(np.sum(sv > 1e-9 * max(sv[0], 1.0)))
+        N = Vt[rk:, :].T
+        La = N[:self.K, :]
+        self._Lb = orth_basis(La) if La.size and La.shape[1] else np.zeros((self.K, 0))
+        self._Lb_K = self.K
+        return self._Lb
+
     def subfamily(self, C):
         """cheap view of the sub-family with basis Bmat @ C (C: K x k): lifts and W transform linearly"""
         import copy
@@ -540,6 +559,7 @@ class KoszulVarPro:
         sub.N0 = self.N0 @ C
         sub.W = np.einsum('rmk,kj->rmj', self.W, C)
         sub._nfev = 0
+        sub._Lb = None
         return sub
 
     # ------------------------------------------------------------------
@@ -812,14 +832,21 @@ def _kvp_residual_and_jac(kvp, a):
 
 
 def search_lm(kvp, n_restarts=10, seed=0, max_nfev=200, complex_mode=True, verbose=False, stop_rel=1e-13,
-              callback=None, time_budget=None, scale_pen=1.0, sparse_frac=0.3):
-    """random-restart Levenberg-Marquardt on the real-ified residual with sphere normalization."""
+              callback=None, time_budget=None, scale_pen=1.0, sparse_frac=0.3, deflate=None):
+    """random-restart Levenberg-Marquardt on the real-ified residual with sphere normalization.
+    deflate (default: q == 1): divide the residual by dist(a, L)^2 where L = {a : F | D(a)}; at q = 1 the F-multiples are
+    trivially consistent (N = 0, Q = A G^2) and otherwise attract every restart."""
     from scipy.optimize import least_squares
     rng = np.random.default_rng(seed)
     K = kvp.K
     dim = 2 * K if complex_mode else K
     out = []
     t0 = time.time()
+    if deflate is None:
+        deflate = (kvp.q == 1)
+    Lb = kvp.F_multiple_subspace() if deflate else np.zeros((K, 0))
+    if Lb.shape[1] == 0:
+        deflate = False
 
     def to_a(z):
         return (z[:K] + 1j * z[K:]) if complex_mode else z.astype(complex)
@@ -828,10 +855,21 @@ def search_lm(kvp, n_restarts=10, seed=0, max_nfev=200, complex_mode=True, verbo
         a_full = to_a(z); n = np.linalg.norm(a_full); a = a_full / n
         r, J, x = _kvp_residual_and_jac(kvp, a)
         kvp._nfev += 1
-        res = np.concatenate([r.real, r.imag, [scale_pen * (n - 1.0)]])
-        # Jacobian wrt z through normalization: da/da_full = (I - a a^H)/n  (complex-linear part) -- but normalization is
-        # not holomorphic; do it in real coordinates: a_real = z/|z| with z in R^{2K} (complex_mode) -> P = (I - zz^T/|z|^2)/|z|
-        Jr = np.vstack([np.hstack([J.real, -J.imag]), np.hstack([J.imag, J.real])])  # (2R) x (2K) wrt (re a, im a)
+        if deflate:
+            Pa = a - Lb @ (Lb.T @ a)                 # component of a orthogonal to L (complex)
+            sdef = float(np.vdot(Pa, Pa).real)       # dist^2 in [0, 1]
+            sdef = max(sdef, 1e-12)
+            ds = np.concatenate([2 * Pa.real, 2 * Pa.imag])   # d sdef / d(re a, im a)
+            r_def = r / sdef
+            J_def = J / sdef
+            Jr = np.vstack([np.hstack([J_def.real, -J_def.imag]), np.hstack([J_def.imag, J_def.real])])
+            rr = np.concatenate([r_def.real, r_def.imag])
+            Jr = Jr - np.outer(rr, ds) / sdef
+            r = r_def
+            res = np.concatenate([r.real, r.imag, [scale_pen * (n - 1.0)]])
+        else:
+            res = np.concatenate([r.real, r.imag, [scale_pen * (n - 1.0)]])
+            Jr = np.vstack([np.hstack([J.real, -J.imag]), np.hstack([J.imag, J.real])])  # (2R) x (2K) wrt (re a, im a)
         zr = np.concatenate([a.real, a.imag])
         P = (np.eye(2 * K) - np.outer(zr, zr)) / n
         Jz = Jr @ P
@@ -870,9 +908,12 @@ def search_lm(kvp, n_restarts=10, seed=0, max_nfev=200, complex_mode=True, verbo
         f, x, r, b = kvp.value(a)
         bn = float(np.linalg.norm(b))
         rel = f / max(bn * bn, 1e-300)
-        spur, srel = kvp.is_spurious(a)
+        spur, srel = kvp.is_spurious(a, tol=(1e-4 if kvp.q == 1 else 1e-8))
+        distL = float(np.linalg.norm(a - Lb @ (Lb.T @ a))) if Lb.shape[1] else 1.0
+        if kvp.q == 1 and Lb.shape[1] and distL < 0.05:
+            spur = True   # q = 1: within 5% of the trivially consistent F-multiple subspace
         cand = {'f': f, 'rel': rel, 'bnorm': bn, 'a': a, 'iters': int(res.nfev), 'restart': it, 'spurious': spur,
-                'div_rel': srel, 'nfev': int(res.nfev), 'method': 'lm'}
+                'div_rel': srel, 'nfev': int(res.nfev), 'method': 'lm', 'distL': distL}
         out.append(cand)
         if verbose:
             print(f'[lm] restart {it}: f={f:.3e} rel={rel:.3e} nfev={res.nfev} spur={spur} ({time.time()-t0:.1f}s)', file=sys.stderr)

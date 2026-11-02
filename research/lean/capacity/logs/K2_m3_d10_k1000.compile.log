@@ -1,0 +1,3 @@
+Cap/K2_m3_d10_k1000.lean:67:176: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) excessive memory consumption detected

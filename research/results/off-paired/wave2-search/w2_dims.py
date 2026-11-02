@@ -44,7 +44,7 @@ for k, v in out.items():
     if v['colon'] > v['gauge']:
         lines.append(f"| {v['d']} | ({v['c'][0]},{v['c'][1]}) | {v['nD']} | {v['colon']} | {v['jac']} | {v['nonjac']} | {v['gauge']} | {v['eff']} |")
 open('wave2-dims.md', 'w').write('\n'.join(lines) + '\n')
-w2lib.append_json('wave2-search.remote.log.jsonl', {'ts': w2lib.now(), 'step': 'dims', 'dmax': dmax, 'file': 'wave2-dims.json',
+w2lib.append_json(w2lib.REMOTE_LOG, {'ts': w2lib.now(), 'step': 'dims', 'dmax': dmax, 'file': 'wave2-dims.json',
                   'total_colon_by_d': {d: sum(v['colon'] for v in out.values() if v['d'] == d) for d in range(4, dmax + 1)},
                   'total_nonjac_by_d': {d: sum(v['nonjac'] for v in out.values() if v['d'] == d) for d in range(4, dmax + 1)},
                   'wall': round(time.time() - t0, 1)})

@@ -23,14 +23,24 @@ m-primary mod 1073741789 (Hilbert functions `[1,3,2,0]` for d = 5; `[1,17,114,35
 vanishing at t = 6 for d = 6 odd, Singular `vdim` 540; mixed d = 5: `[1,6,13,8,0]`), and since the Hilbert function
 of the mod-p ideal bounds the rational one from above, the only solutions over Q-bar are the Euler multiples, i.e.
 `D ∝ F`. Both msolve (F4, leading ideal) and Singular (`std`, `hilb`) were used and agree.
-[TODO: mixed parity d = 6 — 35 unknowns, 132 independent quadrics — pending; Y-pure d = 7 with the kernel class
-as an extra unknown — pending.]
+For mixed parity `D = D^+ + D^-` the odd part of the relaxed condition is `Ξ^+(w^+) + Ξ^-(w^-) ∈ J` with no cross
+terms; every linear functional vanishing on `J` and on the span of the coordinate polynomials of `Ξ^+` kills `Ξ^-(w^-)`,
+which gives 36 quadrics in the 18 odd coefficients forming an m-primary ideal (Singular `vdim` 4096); the functionals
+are reductions of rational ones (114 exact dependency certificates, verified with exact arithmetic), so `w^- = 0` and
+then `w^+ = 0` by the Y-even case. **Hence every certificate denominator has degree at least 7.**
 
-**3. What is screened only.** The full fixed-`D` system for `D7^+` is inconsistent mod p (search lens), but its
+**3. Degree 7, Y-even (partly proven).** Here `D = λ·D7^+ + w(F)`. Block elimination by the same functional trick
+(the Hessian of a sum of eight sixth powers has rank ≤ 8, so the six component blocks of `w` are coupled only through
+two small cross spans) shows mod 1073741789 that `λ = 0` — no degree-7 Y-even denominator involves the kernel class —
+and that the 18 coefficients `w_{k, X_i Y_j}` (`j ≠ k`) of the Y-components vanish; a residual quadratic system in the
+remaining 42 coefficients (231 independent quadrics; all random slices of codimension ≤ 11 empty) is under Gröbner
+computation. [TODO: final verdict, exact certificates, odd and mixed d = 7.]
+
+**4. What is screened only.** The full fixed-`D` system for `D7^+` is inconsistent mod p (search lens), but its
 homogeneous solution space is 6 larger than the explicitly known one, so this single test is modular evidence; the
 degree-7 relaxation covers `D7^+ + J_7` entirely once it finishes.
 
-**4. Obstacle at degree 8.** The relaxation at `d = 8` has ~160 unknowns and ~470 independent quadrics; the systems
+**5. Obstacle at degree 8.** The relaxation at `d = 8` has ~160 unknowns and ~470 independent quadrics; the systems
 here are far from semi-regular (at d = 6 the Hilbert function vanishes only in degree 6 where a generic system would
 vanish in degree 4), so Gröbner certification of emptiness at d = 8 is out of reach with this formulation.
 Reproduction: scripts and JSON receipts in the lane directory (`excl_*.py`, `wave2-excl/README.md`,

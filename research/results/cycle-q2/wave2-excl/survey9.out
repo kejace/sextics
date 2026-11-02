@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+skipping 0 sectors already logged
+d=9: 72 sectors, dimS_d=2002
+[0, 0, 3] dimS 30 K 29 J 12 | relaxation variety of affine dim 29 (not decided) | [] 172.3
+[0, 0, 5] dimS 29 K 29 J 12 | relaxation variety of affine dim 29 (not decided) | [] 177.2

@@ -1,0 +1,5 @@
+{"seed": 107, "f": 0.010653949378233309, "bnorm2": 2.076772007568058, "relres": 0.0716243846422731, "iters": 84, "njac": 84, "nres": 135, "status": "stalled", "time": 110.98, "init": "gauss"}
+{"seed": 115, "f": 0.009800424240557847, "bnorm2": 2.199883923808863, "relres": 0.06674558670086952, "iters": 50, "njac": 50, "nres": 100, "status": "stalled", "time": 76.74, "init": "gauss"}
+{"seed": 123, "f": 0.01892519190609744, "bnorm2": 2.0247471781579547, "relres": 0.09667957772494731, "iters": 46, "njac": 46, "nres": 97, "status": "stalled", "time": 35.22, "init": "gauss"}
+{"seed": 131, "f": 0.010207237846998745, "bnorm2": 1.9086475092336301, "relres": 0.07312927239765678, "iters": 73, "njac": 74, "nres": 123, "status": "stalled", "time": 81.04, "init": "gauss"}
+{"seed": 139, "f": 0.010579633336334932, "bnorm2": 2.0677539773845823, "relres": 0.07152961306485711, "iters": 100, "njac": 101, "nres": 113, "status": "maxiter", "time": 77.92, "init": "gauss"}
