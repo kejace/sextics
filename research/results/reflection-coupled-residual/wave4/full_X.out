@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/tmp/hodge/results/reflection-coupled-residual/wave4/reflsearch2.py", line 56, in <module>
+    for m, cf in qs.to_dict().items():
+                 ^^^^^^^^^^^^
+  File "flint/flint_base/flint_base.pyx", line 579, in flint.flint_base.flint_base.flint_mpoly.to_dict
+MemoryError

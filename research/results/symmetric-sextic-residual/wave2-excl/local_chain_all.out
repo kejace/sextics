@@ -132,3 +132,15 @@ products done 7.5s
 [FoldedReducer] deg=18 par=1 p=2147483647 orbits=838 gens=1206 rank=821 (CI 821) ring=17 (CI 17) 2.5s
 quadrics: 17 in 29 unknowns (12.8s)
 {"msolve_rc": 124, "msolve_seconds": 1803.6, "verdict": "msolve failed/timeout"}
+[SectorFamily] chi=triv d=9 pD=1 p=2147483647 rows=448 nN=489 nD=79 dimK=34 dimJd=33 ker=1 radial=5 0.7s
+[{"pD": 1, "rows": 448, "nN": 489, "nD": 79, "dimK": 34, "dimJd": 33, "ker_R": 1, "radial": 5, "complement": 29, "rankM": 447}]
+products done 5.9s
+[FoldedReducer] deg=18 par=1 p=2147483647 orbits=838 gens=1206 rank=821 (CI 821) ring=17 (CI 17) 2.3s
+quadrics: 17 in 29 unknowns (10.3s)
+{"msolve_rc": 124, "msolve_seconds": 1801.5, "verdict": "msolve failed/timeout"}
+{"exp": "e1-kernel-exactQ", "d": 1, "pD": 0, "prime": null, "rows": 396, "nJ": 63, "nA": 3, "rank_J_Q": 63, "rank_JA_Q": 66, "dimK_Q": 0, "ci_rank_J": 63, "result": "kernel zero over Q", "seconds": 0.0, "job": "exactQ"}
+{"exp": "e1-kernel-exactQ", "d": 1, "pD": 1, "prime": null, "rows": 396, "nJ": 63, "nA": 3, "rank_J_Q": 63, "rank_JA_Q": 66, "dimK_Q": 0, "ci_rank_J": 63, "result": "kernel zero over Q", "seconds": 0.0, "job": "exactQ"}
+{"exp": "e1-kernel-exactQ", "d": 2, "pD": 0, "prime": null, "rows": 636, "nJ": 168, "nA": 12, "rank_J_Q": 168, "rank_JA_Q": 180, "dimK_Q": 0, "ci_rank_J": 168, "result": "kernel zero over Q", "seconds": 0.1, "job": "exactQ"}
+{"exp": "e1-kernel-exactQ", "d": 2, "pD": 1, "prime": null, "rows": 651, "nJ": 168, "nA": 9, "rank_J_Q": 168, "rank_JA_Q": 177, "dimK_Q": 0, "ci_rank_J": 168, "result": "kernel zero over Q", "seconds": 0.1, "job": "exactQ"}
+{"exp": "e1-kernel-exactQ", "d": 3, "pD": 0, "prime": null, "rows": 1001, "nJ": 378, "nA": 28, "rank_J_Q": 378, "rank_JA_Q": 406, "dimK_Q": 0, "ci_rank_J": 378, "result": "kernel zero over Q", "seconds": 0.2, "job": "exactQ"}
+{"exp": "e1-kernel-exactQ", "d": 3, "pD": 1, "prime": null, "rows": 1001, "nJ": 378, "nA": 28, "rank_J_Q": 378, "rank_JA_Q": 406, "dimK_Q": 0, "ci_rank_J": 378, "result": "kernel zero over Q", "seconds": 0.2, "job": "exactQ"}
