@@ -11,3 +11,4 @@
 [stage2 d=8] start 3: rel=3.150e-05 (stage1 6.28e-05) nit=145 (16291s)
 [stage2 d=8] start 4: rel=4.289e-05 (stage1 1.72e-04) nit=212 (19757s)
 [stage2 d=8] start 5: rel=4.289e-05 (stage1 1.72e-04) nit=205 (23226s)
+[stage2 d=8] start 6: rel=3.958e-05 (stage1 1.29e-04) nit=266 (28903s)
