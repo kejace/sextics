@@ -1,0 +1,2 @@
+submit search-quadric-contact-residual-pipeA3: launch ssh timed out after 120 s (job may still have started; check status --name search-quadric-contact-residual-pipeA3)
+up: done ['quadric-contact-residual']

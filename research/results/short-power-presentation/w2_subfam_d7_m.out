@@ -84,3 +84,4 @@
 [subfam] X2+Y2+L+M: vars 20, eqs 1452, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 451'] (12310s)
 [subfam] Y0+Y1+Y2+L: vars 31, eqs 1305, msolve chart 'TIMEOUT', singular [] (13039s)
 [subfam] X0+X1+X2+Y0+Y1: vars 45, eqs 1454, msolve chart 'TIMEOUT', singular ['dim = 0', 'vdim = 911099'] (13699s)
+[subfam] X0+X1+X2+Y0+Y2: vars 45, eqs 1454, msolve chart 'TIMEOUT', singular [] (14378s)
