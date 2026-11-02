@@ -117,7 +117,7 @@ class Family:
         return D
 
 
-def jacobian_family(F, A, d, pts, extra=None):
+def jacobian_family(F, A, d, pts, extra=None, pD=0):
     """D = w(F), w a polynomial field of degree d-5 with Y-even D; N^k = A m d_i for D_k = m F_i.
     extra: list of (D poly, N list-of-6 polys) additional members (e.g. non-Jacobian kernel elements with E1 lifts)."""
     Fi = [pderiv(F, i) for i in range(NV)]
@@ -128,7 +128,7 @@ def jacobian_family(F, A, d, pts, extra=None):
     members = []
     wbasis = []
     for i in range(NV):
-        for m in monomials(d - 5, PAR[i]):
+        for m in monomials(d - 5, (pD + PAR[i]) % 2):
             wbasis.append((i, m))
             mp = {m: Fraction(1)}
             Dk = mul(mp, Fi[i])
@@ -144,7 +144,7 @@ def jacobian_family(F, A, d, pts, extra=None):
     idx = {wb: k for k, wb in enumerate(wbasis)}
     sp = []
     if d >= 6:
-        for l in monomials(d - 6, 0):
+        for l in monomials(d - 6, pD):
             v = np.zeros(K0)
             for i in range(NV):
                 e = list(l); e[i] += 1
@@ -157,7 +157,7 @@ def jacobian_family(F, A, d, pts, extra=None):
                 for c in monomials(d - 10, None):
                     cp = {c: Fraction(1)}
                     wi = mul(cp, Fi[j]); wj = scale(mul(cp, Fi[i]), -1)
-                    if core.parity_of(wi) != PAR[i] or core.parity_of(wj) != PAR[j]:
+                    if core.parity_of(wi) != (pD + PAR[i]) % 2 or core.parity_of(wj) != (pD + PAR[j]) % 2:
                         continue
                     v = np.zeros(K0)
                     for mm, cc in wi.items(): v[idx[(i, mm)]] += float(cc)
@@ -177,15 +177,15 @@ def jacobian_family(F, A, d, pts, extra=None):
     S = np.zeros((K, len(sp)))
     for j, v in enumerate(sp):
         S[:len(v), j] = v
-    return Family(d, members, S, f'jac-d{d}' + (f'+{len(extra)}extra' if extra else ''))
+    return Family(d, members, S, f'jac-d{d}' + ('-odd' if pD else '') + (f'+{len(extra)}extra' if extra else ''))
 
 
 # ----------------------------------------------------------------------------------------------------------------
 class KoszulBlock:
     """Koszul-correction columns T_D(c) evaluated at the points (everything independent of a precomputed)."""
-    def __init__(self, F, A, d, pts):
+    def __init__(self, F, A, d, pts, pD=0):
         self.d = d
-        pD = 0; pA = core.parity_of(A)
+        pA = core.parity_of(A)
         pars = [(pA - pD - PAR[i]) % 2 for i in range(NV)]       # parity of N_i
         Fi = [pderiv(F, i) for i in range(NV)]
         self.Fval = [pts.eval_poly(P) for P in Fi]

@@ -26,6 +26,16 @@ Target: F = Fermat sextic + (5/7)(six couplings), A = X0^3 Y0^3, q = 1.
 * Consequence (rigorous): no denominator of degree <= 4 exists; every denominator of degree 5, 6, 7 lies in J(F)
   (D = G(F) for a vector field G of degree d-5); every denominator of degree 8 is c*D8 + G(F).
 
+* Dimension-forced lower bounds (exact, from the G-graded Hilbert function of R = Fermat monomial count, local run,
+  wave2-excl/forced_dims.json): forced kernel dimensions 0, 116, 555, 1020, 1325 at d = 8, 9, 10, 11, 12 versus modular
+  kernel dimensions 1, 120, 556, 1020 (d = 8..11).  Sporadic (non-forced) annihilators: 1 at d = 8 (D8), 4 at d = 9
+  (sectors (0,0), (2,5), (4,1), (4,4)), 1 at d = 10 (sector (2,1)), none at d = 11.  AGREES with wave 1 (116 + 4 at d = 9).
+* Structure of the sporadic degree-9 annihilators (mod 1000003, local): X0*D8 and Y2*D8 lie in J(F); X2*D8 is the sporadic
+  element of sector (2,5); Y0*D8, Y1*D8 account for the sporadic direction of sector (0,0); X1*D8 is a non-forced-looking
+  but dimension-forced element of sector (0,3).  The sporadic elements of sectors (4,1) and (4,4) are NOT multiples of D8
+  (wrong characters): two genuinely new degree-9 annihilators (exact representatives in kernel_exact_d9.json, heights
+  ~1e14 and ~1e125).
+
 ### (b) Hessian relaxation (necessary condition A * G^T Hess(F) G in J(F)_{2d}, see wave2-excl/w2lib.py docstring)
 * d = 5: 6 unknowns, 50 quadrics (mod 1000003); reduced Groebner basis = all 21 quadratic monomials, i.e. the ideal is
   m-primary mod p. Since the ideal is homogeneous and the mod-p system is the reduction of the rational one (dim J_10 mod p =
@@ -40,6 +50,9 @@ Target: F = Fermat sextic + (5/7)(six couplings), A = X0^3 Y0^3, q = 1.
   (per-form Rabinowitsch tests, 35/35 empty) and the gauge-fixed ideal (35 unknowns) is m-primary (pure powers of all 35
   variables in the leading ideal; msolve -g 1, 4 s).  => NO DENOMINATOR OF DEGREE 6 (rigorous).  Receipts:
   wave2-excl/relax_d6_p1000003{,_g}*.json, *_gauge_lead.txt.
+* Control (W2_FERMAT=1, log entries with job 'excl-ctr-relax6_fermat'): on the Fermat sextic F0 = sum Z_i^6, where the
+  join-type sums X0^6+X1^6+X2^6 etc. are legal degree-6 denominators serving A, the same d = 6 pipeline gives only 52
+  quadrics and pure powers for 12/35 variables, i.e. NOT m-primary — the test does not trivially report exclusion.
 * d = 7, 8: running (job excl-ctr-relax78; d = 7: 126 unknowns, 1441 quadrics, msolve GB in progress since 00:36 UTC).
 * Diagnostic (wave2-excl/wspan.py, p = 1000003, random family members): the degree-0 Koszul relaxation (functionals killing
   F*S and every Koszul image D div(S.gradF) - (S.gradF)(D)) has 2543 functionals at d = 6 versus 1751 for the Hessian

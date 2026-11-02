@@ -3,3 +3,7 @@ kernel basis d=6 par=1 from /tmp/hodge/results/short-power-presentation/wave2-ex
 d=6 mode=m: 0 kernel reps, 36 field coordinates, 36 unknowns
 666 bilinear coefficient polynomials built (1s)
 parity 0: 885 coordinate equations (130s)
+parity 1: 866 coordinate equations (1068s)
+1197 equations, rank 132 (independent quadrics) (1110s)
+Euler invariance: 1 directions, violations = 0
+{"exp": "quad-relaxation", "d": 6, "mode": "m", "p": 2147483629, "n_kernel_reps": 0, "n_field_coords": 36, "unknowns_full": 36, "euler_directions": 1, "euler_invariance_violations": 0, "unknowns_restricted": 35, "equations_raw": 1197, "equations_independent": 132, "equations_restricted": 132, "J_checks": {"0": {"deg": 12, "dim S": 3108, "rank J (mod p)": 2223, "rank J (expected)": 2223}, "1": {"deg": 12, "dim S": 3080, "rank J (mod p)": 2214, "rank J (expected)": 2214}}, "build_seconds": 1110.1}

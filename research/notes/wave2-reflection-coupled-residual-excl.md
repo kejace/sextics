@@ -1,10 +1,15 @@
 # Wave 2 — `reflection-coupled-residual` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness; rigorous so far: deg D ≥ 7 for every denominator (d ≤ 4: E1; d = 5, 6: E1 + Hessian relaxation), pending the independent E1 re-check (job e1char)
+STATUS: in progress — no witness; RIGOROUS: deg D ≥ 7 for every denominator (d ≤ 4: E1; d = 5, 6: E1 + Hessian relaxation; E1 re-verified at a third prime in all four characters); degree 7 excluded for three of the four pure Klein characters so far; K8 (the unique non-Jacobian degree-8 E1 class) certified not a denominator
 
 Started 2026-11-01 ~19:15 local. Work dir `/tmp/hodge/results/reflection-coupled-residual/wave2-excl/`,
 log `/tmp/hodge/results/reflection-coupled-residual/wave2-excl.log.jsonl` (one JSON line per experiment).
 Remote jobs named `excl-reflection-coupled-residual-*`.
+
+## Operational note
+Remote receipts are merged with `wave2-excl/merge_remote.py` after every `rjob pull`; `rjob submit` rsyncs the local lane dir
+over the remote, which clobbered the remote `e1char.jsonl` once (degree-9 receipts for three characters lost; rerun queued with
+W2LIB_SUFFIX so remote and local receipt files never share a name again).
 
 ## Plan
 (a) re-verify wave-1/dossier rigorous claims with a different prime (p = 2147483587 / 2147483579; wave 1 used 2147483647, 2147483629; dossier used 32003), with explicit good-reduction (Hilbert function) checks;
@@ -59,6 +64,32 @@ denominators: the joint systems (pairs 40–80 unknowns, triples 78–102, full 
   (zG, 0) and (F m e_i, D ∂_i m − m ∂_i D) have rank 476 = nullity, hence rank_ℚ M = rank_p M and the inconsistency holds
   over ℚ (and ℂ). Second prime agrees; the full unrestricted system (40301 × 7497) is also inconsistent mod p (rank 6703).
   **K8 itself is not a certificate denominator.** (427 s.) The affine family K8 + J_8 is treated in R6.
+
+### R5. E1 by Klein character, independent re-verification (remote job excl-rcr-e1char, p = 2147483587; reps lifted with 2147483579)
+Kernel of [A]: (S/J)_d^χ → (S/J)_{d+6}^{χ+(0,1)}; "ker" = dim{D ∈ S_d^χ : AD ∈ J}, "mod J" = its dimension modulo J_d^χ.
+Good reduction (rank J_n^χ = dim S_n^χ − Fermat count) holds in every row, so each modular kernel dimension bounds the
+rational one from above and the zeros are theorems.
+| d | χ=(0,0): dim S, (S/J), ker, mod J | (0,1) | (1,0) | (1,1) |
+|---|---|---|---|---|
+| 1–4 | ker = 0 in all characters (dims 3/2/1/0, 10/6/3/2, 22/18/10/6, 48/38/22/18) | | | |
+| 5 | 88, 85, 3, **0** | 78, 76, 2, **0** | 48, 47, 1, **0** | 38, 38, 0, **0** |
+| 6 | 158, 144, 14, **0** | 138, 126, 12, **0** | 88, 82, 6, **0** | 78, 74, 4, **0** |
+| 7 | 258, 213, 45, **0** | 238, 198, 40, **0** | 158, 135, 23, **0** | 138, 120, 18, **0** |
+| 8 | 413, 301, 113, **1** (= K8, two primes, rational lift agrees with wave 1) | 378, 274, 104, **0** | 258, 194, 64, **0** | 238, 182, 56, **0** |
+| 9 | 623, 381, 263, **21** | (receipts lost to an rsync clobber; rerun queued; reps files show kernel 0 for (0,1),(1,1) and > 0 for (1,0)) | | |
+| 10 | —, 460, 650, **186** (dimension-forced: 460 → 274) | (running) | | |
+Agreement with wave 1 (Y-even sector, primes 2^31−1, 2^31−19) and the dossier (all characters mod 32003, d ≤ 6): complete.
+New: the Y-odd characters at d = 7, 8 have no non-Jacobian E1-admissible class either, so at degree 8 the whole
+E1-admissible space is J_8 ⊕ ℂ·K8 (mixed characters allowed).
+
+### R7. Structured-family E1 screen (remote job excl-rcr-struct, p = 2147483587, d = 7..12) — d = 7 done
+48 monomial-defined shapes (cones with a line or plane vertex, multiples of coordinates/squares, polynomials in squares,
+X-only/Y-only, bounded X/Y-degree, the Klein-invariant subring, (X0,Y0)-ideal powers, …), each intersected with the
+E1-admissible space by character. Degree 7: only `multiple-of-X0` (36), `multiple-of-X0^2` (6), `multiple-of-X1` (36),
+`multiple-of-X1^2` (6) contain E1-admissible elements, all inside J_7 (consistent with R5); no cone, binary/ternary form,
+polynomial in squares, u = Y2²-polynomial, … of degree 7 passes E1. Degree 8: only `cone-line: independent of X0,Y2` (1 element) and `multiple-of-X0` (126) meet the E1-admissible space, both
+inside J_8: **no structured shape contains a member of the K8 family** (extends wave-1's 55-shape test). Degrees 9–12: running
+(survivors outside J are saved as `struct_d<d>_<shape>_chi<ab>.json` for fixed-D tests).
 
 ### Jobs submitted (remote)
 * `excl-rcr-e1char`: E1 kernels by Klein character, d = 1..10, p = 2147483587 (+ 2147483579 for reconstruction).

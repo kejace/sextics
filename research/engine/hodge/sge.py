@@ -62,6 +62,7 @@ def _load():
         getattr(lib, name).restype = i64; getattr(lib, name).argtypes = [P]
     lib.sge_inconsistent.restype = ctypes.c_int; lib.sge_inconsistent.argtypes = [P]
     lib.sge_col_states.argtypes = [P, P, P]
+    lib.sge_exclude_cols.argtypes = [P, P, i32]
     lib.sge_export_active.argtypes = [P, P, P, P, P]
     lib.sge_backsub.argtypes = [P, P, ctypes.c_int]
     lib.sge_backsub_many.argtypes = [P, P, i32, ctypes.c_int]
@@ -118,6 +119,11 @@ class SparseElim:
     def fill_events(self): return self.lib.sge_fill_events(self.h)
     @property
     def inconsistent(self): return bool(self.lib.sge_inconsistent(self.h))
+
+    def exclude_cols(self, cols):
+        """Never pivot on these columns (they are kept in the rows and exported with the active remainder)."""
+        a = np.ascontiguousarray(np.asarray(cols, dtype=np.int32))
+        self.lib.sge_exclude_cols(self.h, _ptr(a), len(a))
 
     def col_states(self):
         """(states uint8[ncols]: 0 active, 1 pivot, 2 free, 3 rhs;  pivot columns in elimination order)"""
@@ -389,3 +395,70 @@ def solve_fixed_system(S, stop_cols=400, verbose=False, want_nullspace=False, se
         print(f'[sparse p={S.p}] consistent={r["consistent"]} rank={r["rank"]} nullity={r["nullity"]} '
               f'(sparse {r["t_sparse"]}s, dense {r.get("t_dense")}s, total {r["t_total"]}s)', file=sys.stderr)
     return r
+
+
+# ----------------------------------------------------------------------------
+# served space: eliminate the unknown columns, keep the target columns, read off the constraints on the target
+# ----------------------------------------------------------------------------
+
+def schur_constraints(M, p, keep_cols, max_nnz=None, cands=8, extra=40, seed=1, verbose=False):
+    """For a homogeneous system M [x; a] = 0 (columns split into unknowns x and kept columns a = keep_cols),
+    return a dense int64 matrix R (r x len(keep_cols)) of full row rank r such that
+        {a : exists x with M [x; a] = 0}  =  nullspace(R).
+    The unknown columns are eliminated sparsely (never pivoting on keep_cols); the remainder is finished densely
+    with the kept columns ordered last.  Also returns stats."""
+    from flint import nmod_mat
+    t0 = time.time()
+    M = sp.csr_matrix(M)
+    nr, nc = M.shape
+    keep = np.asarray(sorted(set(int(c) for c in keep_cols)), dtype=np.int64)
+    if max_nnz is None:
+        max_nnz = max(50 * M.nnz, 2 * 10**8)
+    E = SparseElim(M, p, rhs_col=-1)
+    E.exclude_cols(keep)
+    status = E.eliminate(stop_cols=0, max_nnz=max_nnz, cands=cands)
+    t1 = time.time()
+    st, piv = E.col_states()
+    Ma, rowids = E.export_active()
+    active = np.nonzero(st == 0)[0]          # unknown columns still active (only when the nnz limit stopped us)
+    amap = np.full(nc, -1, dtype=np.int64)
+    amap[active] = np.arange(len(active))
+    amap[keep] = len(active) + np.arange(len(keep))
+    Ma = Ma.tocoo()
+    cols_d = amap[Ma.col]
+    assert (cols_d >= 0).all(), 'exported entry in a retired/pivot column'
+    ncd = len(active) + len(keep)
+    Md = sp.csr_matrix((Ma.data, (Ma.row, cols_d)), shape=(Ma.shape[0], ncd))
+    Md.eliminate_zeros()
+    nrd = Md.shape[0]
+    stats = {'status_sparse': status, 'npiv_sparse': int(E.npiv), 'active_rows': nrd, 'active_unknown_cols': len(active),
+             'active_nnz': int(Md.nnz), 't_sparse': round(t1 - t0, 2), 'nnz0': int(M.nnz)}
+    if nrd == 0:
+        return np.zeros((0, len(keep)), dtype=np.int64), {**stats, 'rank_dense': 0, 't_total': round(time.time() - t0, 2)}
+    # dense finish: rref with unknown columns first; rows whose pivot lies in the kept block are the constraints
+    if nrd > ncd + extra and nrd * float(ncd) * ncd > 2e10:
+        _check_colweights(Md)
+        k = ncd + extra
+        Dm = compress_rows(Md, p, k, seed)
+    else:
+        k = nrd
+        Dm = Md.toarray().astype(np.int64) % p
+    Mn = nmod_mat(k, ncd, Dm.ravel().tolist(), p)
+    Mr, rank = Mn.rref()
+    rows_l = Mr.tolist()
+    na = len(active)
+    R = []
+    for i in range(rank):
+        row = rows_l[i]
+        j = 0
+        while j < ncd and int(row[j]) == 0:
+            j += 1
+        if j >= na:
+            R.append([int(v) for v in row[na:]])
+    R = np.array(R, dtype=np.int64).reshape(-1, len(keep))
+    stats.update({'rank_dense': rank, 'k_dense': k, 't_total': round(time.time() - t0, 2)})
+    if verbose:
+        print(f'[schur] {nr}x{nc} nnz={M.nnz}: sparse pivots {E.npiv} ({t1-t0:.1f}s); remainder {nrd}x{ncd} '
+              f'-> {R.shape[0]} constraints on {len(keep)} kept columns ({time.time()-t0:.1f}s)', file=sys.stderr)
+    del E
+    return R, stats

@@ -1,0 +1,8 @@
+E1 solve: rank 5052, consistent=True (106s)
+J_16^odd: 13104 rows x 10152 cols, dim R_16^odd = 468 (555s)
+ob(D0) zero? False
+L columns: 168 (14s)
+E2-mod-J system: 468 equations x 168 unknowns; rank L = 156; rank [L|ob] = 157; SOLVABLE = False; solution family dim = 12
+total 686s
+
+--- stderr ---

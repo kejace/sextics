@@ -1,6 +1,6 @@
 # Wave 2 — klein-coupled-character — SEARCH lens (joint denominator/numerator search)
 
-STATUS: NO WITNESS. 23 search batches, 12500 restarts total, best relative residual 9.595e-02; 0 exact-confirmation attempts. Updated 2026-11-02 00:49 UTC. Lane dir /tmp/hodge/results/klein-coupled-character (w2fast.py engine, w2_search.py driver, w2_dims.py, w2_validate.py; batch log wave2-search.log.jsonl; per-restart streams wave2-<tag>-d*p*c*-w*.jsonl).
+STATUS: NO WITNESS. 27 search batches, 14800 restarts total, best relative residual 9.595e-02; 0 exact-confirmation attempts. Updated 2026-11-02 01:00 UTC. Lane dir /tmp/hodge/results/klein-coupled-character (w2fast.py engine, w2_search.py driver, w2_dims.py, w2_validate.py; batch log wave2-search.log.jsonl; per-restart streams wave2-<tag>-d*p*c*-w*.jsonl).
 
 ## Method
 
@@ -94,8 +94,9 @@ Target q = 1, A = X0^3 Y0^3 (Y-odd, sigma-character 3; weights W = (1,2,4,0,0,0)
 | 9 | 1 | 4 | 139 | 49 | 58 | 9 | 3 | 1176 | 216 | 459 | 2435 |
 | 9 | 1 | 5 | 136 | 46 | 52 | 6 | 3 | 1310 | 264 | 436 | 2393 |
 | 9 | 1 | 6 | 136 | 46 | 50 | 4 | 3 | 1310 | 264 | 459 | 2435 |
+| 10 | 0 | 0 | 255 | 159 | 183 | 24 | 18 | 1890 | 532 | 824 | 3783 |
 
-Totals per (d, parity): d=4 par=0: J=0, (J:A)=0, kernel mod J=0; d=4 par=1: J=0, (J:A)=0, kernel mod J=0; d=5 par=0: J=3, (J:A)=3, kernel mod J=0; d=5 par=1: J=3, (J:A)=3, kernel mod J=0; d=6 par=0: J=18, (J:A)=18, kernel mod J=0; d=6 par=1: J=18, (J:A)=18, kernel mod J=0; d=7 par=0: J=63, (J:A)=63, kernel mod J=0; d=7 par=1: J=63, (J:A)=63, kernel mod J=0; d=8 par=0: J=168, (J:A)=168, kernel mod J=0; d=8 par=1: J=168, (J:A)=168, kernel mod J=0; d=9 par=0: J=378, (J:A)=402, kernel mod J=24; d=9 par=1: J=378, (J:A)=402, kernel mod J=24
+Totals per (d, parity): d=4 par=0: J=0, (J:A)=0, kernel mod J=0; d=4 par=1: J=0, (J:A)=0, kernel mod J=0; d=5 par=0: J=3, (J:A)=3, kernel mod J=0; d=5 par=1: J=3, (J:A)=3, kernel mod J=0; d=6 par=0: J=18, (J:A)=18, kernel mod J=0; d=6 par=1: J=18, (J:A)=18, kernel mod J=0; d=7 par=0: J=63, (J:A)=63, kernel mod J=0; d=7 par=1: J=63, (J:A)=63, kernel mod J=0; d=8 par=0: J=168, (J:A)=168, kernel mod J=0; d=8 par=1: J=168, (J:A)=168, kernel mod J=0; d=9 par=0: J=378, (J:A)=402, kernel mod J=24; d=9 par=1: J=378, (J:A)=402, kernel mod J=24; d=10 par=0: J=159, (J:A)=183, kernel mod J=24
 
 ## Search batches
 
@@ -124,9 +125,34 @@ Totals per (d, parity): d=4 par=0: J=0, (J:A)=0, kernel mod J=0; d=4 par=1: J=0,
 | hess | 6 | 1 | 4 | 3 (3) | 48/40/459 | 500 (0) | 9.825e-01 | <1:500 | 0.9825 | 0 (48) | 9.83e-01, 9.83e-01, 9.83e-01 | 0 |
 | hess | 6 | 1 | 5 | 3 (3) | 20/29/436 | 500 (0) | 9.628e-01 | <1:351 <10:149 | 0.9628, 0.9964, 1 | 0 (20) | 9.63e-01, 9.63e-01, 9.63e-01 | 0 |
 | hess | 6 | 1 | 6 | 3 (3) | 20/40/459 | 500 (0) | 9.509e-01 | <1:500 | 0.9509, 0.9572, 0.9573 | 0 (20) | 9.51e-01, 9.51e-01, 9.51e-01 | 0 |
+| full | 6 | 1 | 4 | 3 (3) | 48/40/459 | 600 (0) | 9.749e-01 | <1:600 | 0.9749, 0.9775 | 36 (12) | 9.75e-01, 9.75e-01, 9.75e-01 | 1 |
+| full | 6 | 1 | 5 | 3 (3) | 20/29/436 | 600 (0) | 9.627e-01 | <1:404 <10:196 | 0.9627, 0.9798, 1 | 19 (1) | 9.63e-01, 9.63e-01, 9.63e-01 | 1 |
+| hess | 7 | 0 | 0 | 3 (3) | 48/87/824 | 500 (0) | 9.343e-01 | <1:500 | 0.9343 | 0 (48) | 9.34e-01, 9.34e-01, 9.34e-01 | 0 |
+| full | 6 | 1 | 6 | 3 (3) | 20/40/459 | 600 (0) | 9.508e-01 | <1:600 | 0.9508, 0.9572, 0.9573 | 19 (1) | 9.51e-01, 9.51e-01, 9.51e-01 | 0 |
 
 Empty / trivial sectors: d=6 par=1 chi=0 (no E1-admissible D in sector); d=6 par=1 chi=0 (no E1-admissible D in sector)
 
+
+## Other batches (structured families / sweeps / notes)
+
+- {"lens": "structured", "d": 6, "parD": 0, "chi": 0, "K": 12, "n_candidates": 12, "e1_fail": 0, "F_multiples": 0, "n_in_family": 12, "best_rel": 0.6956689911877479, "median_rel": 0.975660744590755, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.2}
+- {"lens": "structured", "d": 6, "parD": 0, "chi": 1, "K": 1, "n_candidates": 1, "e1_fail": 0, "F_multiples": 0, "n_in_family": 1, "best_rel": 0.9573112110577245, "median_rel": 0.9573112110577245, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.1}
+- {"lens": "structured", "d": 6, "parD": 0, "chi": 2, "K": 1, "n_candidates": 1, "e1_fail": 0, "F_multiples": 0, "n_in_family": 1, "best_rel": 1.0, "median_rel": 1.0, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 12.7}
+- {"lens": "structured", "d": 6, "parD": 0, "chi": 3, "K": 1, "n_candidates": 1, "e1_fail": 0, "F_multiples": 0, "n_in_family": 1, "best_rel": 0.95614541696718, "median_rel": 0.95614541696718, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 6.0}
+- {"lens": "structured", "d": 6, "parD": 0, "chi": 4, "K": 1, "n_candidates": 1, "e1_fail": 0, "F_multiples": 0, "n_in_family": 1, "best_rel": 0.9777507455658452, "median_rel": 0.9777507455658452, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.5}
+- {"lens": "structured", "d": 6, "parD": 0, "chi": 5, "K": 1, "n_candidates": 1, "e1_fail": 0, "F_multiples": 0, "n_in_family": 1, "best_rel": 1.0, "median_rel": 1.0, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.1}
+- {"lens": "structured", "d": 6, "parD": 0, "chi": 6, "K": 1, "n_candidates": 1, "e1_fail": 0, "F_multiples": 0, "n_in_family": 1, "best_rel": 0.9251782211080002, "median_rel": 0.9251782211080002, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.5}
+- {"lens": "structured", "d": 6, "parD": 1, "chi": 1, "K": 3, "n_candidates": 3, "e1_fail": 0, "F_multiples": 0, "n_in_family": 3, "best_rel": 0.9067219028513659, "median_rel": 1.0, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.3}
+- {"lens": "structured", "d": 6, "parD": 1, "chi": 2, "K": 3, "n_candidates": 3, "e1_fail": 0, "F_multiples": 0, "n_in_family": 3, "best_rel": 0.9955669193391246, "median_rel": 1.0, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.3}
+- {"lens": "structured", "d": 6, "parD": 1, "chi": 3, "K": 3, "n_candidates": 3, "e1_fail": 0, "F_multiples": 0, "n_in_family": 3, "best_rel": 0.9540540147835398, "median_rel": 0.9691852825426057, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.2}
+- {"lens": "structured", "d": 6, "parD": 1, "chi": 4, "K": 3, "n_candidates": 3, "e1_fail": 0, "F_multiples": 0, "n_in_family": 3, "best_rel": 0.9749365077377793, "median_rel": 1.0, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.4}
+- {"lens": "structured", "d": 6, "parD": 1, "chi": 5, "K": 3, "n_candidates": 3, "e1_fail": 0, "F_multiples": 0, "n_in_family": 3, "best_rel": 0.9627367760499989, "median_rel": 0.9797512855702651, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.2}
+- {"lens": "structured", "d": 6, "parD": 1, "chi": 6, "K": 3, "n_candidates": 3, "e1_fail": 0, "F_multiples": 0, "n_in_family": 3, "best_rel": 0.9507700292485158, "median_rel": 0.9571691202201009, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 1.3}
+- {"lens": "structured", "d": 7, "parD": 0, "chi": 0, "K": 3, "n_candidates": 3, "e1_fail": 0, "F_multiples": 0, "n_in_family": 3, "best_rel": 0.7047010672589801, "median_rel": 0.9131922500944042, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 20.0}
+- {"lens": "structured", "d": 7, "parD": 0, "chi": 1, "K": 12, "n_candidates": 12, "e1_fail": 0, "F_multiples": 0, "n_in_family": 12, "best_rel": 0.682379205674801, "median_rel": 0.8994011128253099, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 50.9}
+- {"lens": "structured", "d": 7, "parD": 0, "chi": 2, "K": 12, "n_candidates": 12, "e1_fail": 0, "F_multiples": 0, "n_in_family": 12, "best_rel": 0.6918877961045277, "median_rel": 0.9721497149425821, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 0.5}
+- {"lens": "structured", "d": 7, "parD": 0, "chi": 3, "K": 8, "n_candidates": 8, "e1_fail": 0, "F_multiples": 0, "n_in_family": 8, "best_rel": 0.29762892976746713, "median_rel": 0.929548041096925, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 13.0}
+- {"lens": "structured", "d": 7, "parD": 0, "chi": 4, "K": 12, "n_candidates": 12, "e1_fail": 0, "F_multiples": 0, "n_in_family": 12, "best_rel": 0.6912431447210485, "median_rel": 0.922863401852494, "exact_tests": [], "families": ["polar-x-monomial"], "seconds": 18.2}
 
 ## Interpretation / caveats
 

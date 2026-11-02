@@ -7,3 +7,4 @@
 {"ts":"2026-11-02T00:30:46Z","step":"report-update","note":"appended sections E (community), F (cyclic covers/singular supports), G (joins, Voisin survey)"}
 {"ts":"2026-11-02T00:34:01Z","step":"search-batch-6","note":"Diamond Thm 3.16 = Fermat after linear change (Waring rank 3), 17 proj dims, Remark 3.14 strict-only; unpublished branches: deano off-paired-2026-10-28-2 (in thread), hodgepodge cycle-three-compaction (Lean 4x smaller via big-int kernel identity), rbajaj5 RowCertificate.lean; Hwang 2501.08633 symmetrizer group; Varesco 2304.02519; no 2025 Voisin-conj K3 results"}
 {"ts":"2026-11-02T00:38:30Z","step":"report-final-v1","note":"rewrote /tmp/hodge/notes/literature-scout.md with STATUS COMPLETE, ranked bottom line, per-lane index, sections A-I; pending: Moonen table confirmation"}
+{"ts":"2026-11-02T00:56:30Z","step":"done","note":"Moonen Table 1 confirmed (genus 4, m=3, N=6, (1^6)); report finalized with URL index; STATUS COMPLETE"}

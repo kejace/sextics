@@ -28,26 +28,30 @@ ap.add_argument('--tag', default='hgb')
 ap.add_argument('--no-run', action='store_true')
 a = ap.parse_args()
 d, par, p = a.d, a.parity, a.p
+MIXED = par < 0          # --parity -1: mixed Y-parity (both parity patterns, rows of both parities)
 t0 = time.time()
 Fp = reduce_mod(W.F, p); Ap = reduce_mod(W.A, p)
 Fip = [pderiv(Fp, i, p) for i in range(NV)]
 
 # members: Jacobian generators with parity pattern + extras (exact mod-p lifts via linear solve)
-parsN = [(1 - par - (0 if i < 3 else 1)) % 2 for i in range(NV)]   # parity of N_i = A C_i  -> parity of C_i = parsN_i - 1
 members = []
 for i in range(NV):
-    parC = (parsN[i] + 1) % 2
-    for m in monomials(d - 5, parC):
+    if MIXED:
+        ms = monomials(d - 5)
+    else:
+        parsN_i = (1 - par - (0 if i < 3 else 1)) % 2      # parity of N_i = A C_i
+        ms = monomials(d - 5, (parsN_i + 1) % 2)           # parity of C_i
+    for m in ms:
         Dk = shift(Fip[i], m, 1, p)
         Nk = [{} for _ in range(NV)]
         Nk[i] = shift(Ap, m, 1, p)
         members.append((Dk, Nk, ('J', i, m)))
 nJ = len(members)
 # extras: exact E1 kernel elements beyond J (from the exact Q computation), lifted mod p
-fam = W.e1_family(d, None, parity=par)
+fam = W.e1_family(d, None, parity=None if MIXED else par)
 extras = fam['extras']
 if extras:
-    gens6 = W.jgens(d + 6, None, (par + 1) % 2)
+    gens6 = W.jgens(d + 6, None, None if MIXED else (par + 1) % 2)
     gp = [shift(Fip[i], m, 1, p) for i, m in gens6]
     rows = {}
     for P in gp:
@@ -95,7 +99,7 @@ K = len(members)
 print(f'[hessgb] d={d} parity={par} members {K} (J {nJ}, extras {len(extras)})', flush=True)
 
 # reducer modulo J_{2d} on the parity of A D^2 (odd)
-red = jacobian._Reducer(Fp, 2 * d, p, 1)
+red = jacobian._Reducer(Fp, 2 * d, p, None if MIXED else 1)
 mons2 = red.mons; idx2 = red.idx
 pivots = red.pivots
 nonpiv = [j for j in range(len(mons2)) if j not in set(pivots)]
@@ -142,7 +146,7 @@ for j in nonpiv:
         quads.append(cf)
 # gauge fixing: unknowns (J, 0, X0*s) for s in S_1 of the right parity (C_0 has parity parsN[0]-1)
 gauge_idx = []
-gauge_s = monomials(d - 6, par) if d >= 6 else []     # D = F s with parity(s) = parity(D)
+gauge_s = (monomials(d - 6) if MIXED else monomials(d - 6, par)) if d >= 6 else []     # D = F s, parity(s) = parity(D)
 for s in gauge_s:
     m = tuple(s[i] + (1 if i == 0 else 0) for i in range(NV))   # the monomial s*X0 of C_0
     for k, (_, _, tag) in enumerate(members):
@@ -159,7 +163,7 @@ for cf in quads:
         lines.append('+'.join(f'{v}*a{i+1}*a{j+1}' for (i, j), v in pairs_kept))
         lines_s.append('+'.join(f'{v}*a({i+1})*a({j+1})' for (i, j), v in pairs_kept))
 nvar = len(keep)
-base = f'{W.RES}/hessgb-d{d}-par{par}'
+base = f'{W.RES}/hessgb-d{d}-' + ('mixed' if MIXED else f'par{par}')
 import re
 with open(base + '.ms', 'w') as f:
     f.write(','.join(f'a{i+1}' for i in range(nvar)) + '\n' + str(p) + '\n' + ',\n'.join(lines) + '\n')
@@ -180,7 +184,7 @@ for r, cf in enumerate(quads):
             flat[r * len(pairs) + pidx[(k, l)]] = v
 QM = nmod_mat(len(quads), len(pairs), flat, p)
 qrank = QM.rank()
-rec = {'task': 'hess-gb', 'd': d, 'chi': f'par{par}', 'tag': a.tag, 'p': p, 'members': K, 'nJ': nJ, 'n_extra': len(extras),
+rec = {'task': 'hess-gb', 'd': d, 'chi': 'mixed' if MIXED else f'par{par}', 'tag': a.tag, 'p': p, 'members': K, 'nJ': nJ, 'n_extra': len(extras),
        'unknowns': nvar, 'dimR_2d': dimR, 'n_quadrics': len(lines), 'n_pair_monomials': len(pairs), 'quadric_rank': qrank,
        'full_rank_degree2': qrank == len(pairs), 'seconds_build': round(time.time() - t0, 1)}
 print(json.dumps(rec), flush=True)

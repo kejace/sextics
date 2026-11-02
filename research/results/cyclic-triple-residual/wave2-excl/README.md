@@ -18,6 +18,9 @@ couplings), variables X0,X1,X2,Y0,Y1,Y2).  Engine: `/home/kejace/devel/sextics-w
 * `kernel_multi.py` — (c) exact E1-kernel elements at degree d in every sector + sealed fixed-D tests of each element.
 * `families.py`     — (c) sealed exclusion of structured denominators (D8 products, polar products, pieces of F, ...).
 * `sectors.sh`      — (c) chain of per-sector Koszul relaxations at degree d.
+* `sectors_hess.sh` — (b,c) chain of per-sector Hessian relaxations (SECTOR=c0,c1 env var of relax_run.py) at degree d.
+* `kernel_exact_run.py` — (c) exact degree-d kernel elements (fmpz nullspace + saturation/LLL) and sealed tests of each.
+* `bilin.py`        — (c) full parametric E2 system of a sector family (theta, Koszul s), GB + per-form tests (modular evidence).
 
 ## How to replay
 ```

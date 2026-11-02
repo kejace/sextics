@@ -12,7 +12,7 @@ Open lanes (16): cycle-q2, cyclic-triple-residual, dense-rational, diagonal-perm
 
 2. **Kuga-Satake algebraicity for a degree-2 K3 with rho <= 4 and End_Hdg(T) = Q is still open** (lane polarized-k3-remainder). The 2024-2026 progress (Markman arXiv:2509.23403: Weil classes algebraic on *all* abelian fourfolds of Weil type; Floccari arXiv:2501.02315; Floccari-Fu arXiv:2504.13607; Varesco arXiv:2304.02519 and Michigan Math. J. 2024; Poon, Math. Nachr. 2026 for rho = 14) all live at Picard rank >= 14-16 or at Kum_n-type hyper-Kählers. The only algebraicity theorem applying to a Picard-rank-2-to-4 double plane remains the non-symplectic-order-3 case (Bolognesi-Laterveer arXiv:2310.11981), already used in book Ch. 3a; the 2026-11-01 probe excluded order-2/3 automorphisms for this f. **No literature shortcut; the lane needs its own geometry.** Saller's Oct-2026 Zenodo notes (RM-by-Q(sqrt5) family, HC for X={F(x)+F(y)=0}) are the closest published computations on the same fourfold type but concern (2,2) classes and RM K3s.
 
-3. **Pryms with Z[zeta3]-action behave generically for the four-plus-two block.** Rains arXiv:2512.19597 (Dec 2025, geometric monodromy of cyclic Pryms is sandwiched between a unitary group and its derived group; j=0 elliptic surfaces = degree-6 cyclic covers), Zarhin arXiv:0809.4887 (absolutely simple Pryms of trigonal curves), Laga-Shnidman arXiv:2308.15297 (bielliptic Picard curves: Prym surfaces with QM by the discriminant-6 order), and Moonen's special families (Doc. Math. 2010; the genus-4 family y^3 = sextic is a Deligne-Mostow ball quotient, weights (1/3)^6) all say: the Prym of C_B -> E with Q(zeta3)-signature (2,1) is a point of a Picard modular surface, and only CM points have extra endomorphisms. This **confirms the probe's exclusion** (End^0 = Q(zeta3), absolutely simple) and shows no Prym-splitting route exists for the given B.
+3. **Pryms with Z[zeta3]-action behave generically for the four-plus-two block.** Rains arXiv:2512.19597 (Dec 2025, geometric monodromy of cyclic Pryms is sandwiched between a unitary group and its derived group; j=0 elliptic surfaces = degree-6 cyclic covers), Zarhin arXiv:0809.4887 (absolutely simple Pryms of trigonal curves), Laga-Shnidman arXiv:2308.15297 (bielliptic Picard curves: Prym surfaces with QM by the discriminant-6 order), and Moonen's special families (Doc. Math. 2010; the genus-4 family y^3 = sextic is a Deligne-Mostow ball quotient, weights (1/3)^6) all say: the Prym of C_B -> E with Q(zeta3)-signature (2,1) is a point of a Picard modular surface, and only CM points have extra endomorphisms. Moonen's Table 1 (confirmed from the paper) contains the genus-4 family y^3 = sextic (m=3, N=6, a=(1,...,1)) as a special subvariety, so the four-plus-two Prym lives on a Picard modular surface whose non-CM points have End^0 = Q(zeta3). This **confirms the probe's exclusion** (End^0 = Q(zeta3), absolutely simple, non-CM) and shows no Prym-splitting route exists for the given B.
 
 4. **Cyclic-cover eigen-sectors with singular branch loci now have an exact Hodge-filtration formula**: Hiatt arXiv:2608.25947 (Aug 2026, mixed Hodge modules): pi_* of the cover's Hodge module decomposes into eigen-pieces with Gr^F given by R phi_*(Omega^p(log E)(D_i^{>0})) (x) L^{-i} (Esnault-Viehweg sheaves), and Y is Du Bois iff lct(D) >= i/N for all i (rational iff >). **Usable now** for the residual lanes (cyclic-triple-residual, four-plus-two-residual, symmetric-sextic-residual, klein-coupled-character) to decide, without resolving, which holomorphic 2-forms survive in a given character on a singular cyclic-cover support, i.e. to prove "this support cannot carry the target's (3,1)-character" statements rigorously.
 
@@ -74,7 +74,7 @@ Open lanes (16): cycle-q2, cyclic-triple-residual, dense-rational, diagonal-perm
 ## C. Pryms and cyclic covers of curves (four-plus-two-residual, cyclic-triple-residual, symmetric-sextic-residual)
 
 - **C1. E. M. Rains, "The monodromy of cyclic Pryms", arXiv:2512.19597 (Dec 2025, 49 pp.)** https://arxiv.org/abs/2512.19597 : geometric monodromy on Tate modules of Pryms of cyclic covers in natural families (varying a tame ramification point) is sandwiched between a unitary group and its derived subgroup (few exceptions); applications to Selmer groups of j=0 (degree-6 cyclic) and j=1728 elliptic surfaces. Implication: a general member of a family of Z[zeta3]-Pryms has End^0 = Q(zeta3); extra endomorphisms occur only on proper special loci.
-- **C2. B. Moonen, "Special subvarieties arising from families of cyclic covers of the projective line", Doc. Math. 15 (2010) 793-819, arXiv:1006.3400** (pre-2015, listed for the classification): exactly twenty families of cyclic covers of P^1 give special subvarieties; the genus-4 family y^3 = (sextic) (m=3, N=6, Deligne-Mostow weights (1/3)^6) is a 3-dimensional ball quotient; its Pryms relative to an extra involution (our C_B -> E, signature (2,1)) are parametrized by a Picard modular surface. [Table entry to be confirmed - see note at end of this section.]
+- **C2. B. Moonen, "Special subvarieties arising from families of cyclic covers of the projective line", Doc. Math. 15 (2010) 793-819, arXiv:1006.3400** (pre-2015, listed for the classification; local text `/tmp/hodge/ext/litscout-dl/moonen-1006.3400.txt`): Theorem 3.6: Z(m,N,a) is special iff (m,N,a) is one of the twenty triples of Table 1. **Confirmed from Table 1:** the row (genus 4, m = 3, N = 6, a = (1,1,1,1,1,1)) is present (references: Shimura's example S(2), Mostow M23, de Jong-Noot (1.3.1)), i.e. the genus-4 family y^3 = (binary sextic) - exactly the four-plus-two block curve C_B: w^3 = B(X2,Y2) - is a 3-dimensional special subvariety (ball quotient, Deligne-Mostow weights (1/3)^6) of A_4 with Z[zeta3]-action. Other table rows with m = 6: (genus 2, m=6, N=4, a=(2,3,3,4)), (genus 3, m=6, N=4, (1,3,4,4)), (genus 4, m=6, N=4, (1,1,1,3)), (genus 4, m=6, N=4, (1,1,2,2)), (genus 4, m=6, N=5, (2,2,2,3,3)), (genus 6, m=10,...), none of which is the six-branch-point degree-6 cover u^6 = sextic (m=6, N=6, (1,...,1) is explicitly *not* special, Moonen 7.2.4). Consequence for four-plus-two-residual: the Prym of C_B -> E (Q(zeta3)-signature (2,1)) varies in a 2-dimensional special subfamily (a Picard modular surface); its generic member is absolutely simple with End^0 = Q(zeta3), extra endomorphisms occur exactly at the countably many CM points, and the probe (point counts, non-CM) shows the instance's B is not one of them.
 - **C3. Y. Zarhin, "Absolutely simple Prymians of trigonal curves", arXiv:0809.4887** (2008/9): Galois-theoretic construction of absolutely simple principally polarized Pryms not isomorphic to Jacobians. **C4. J. Laga, A. Shnidman, "The geometry and arithmetic of bielliptic Picard curves", arXiv:2308.15297 (v3 Dec 2024)**: for y^3 = x^4 + a x^2 + b the Prym surface has QM by the discriminant-6 order, Torelli theorem, rational torsion classified - the genus-3 analogue of the four-plus-two Prym (there the quotient is elliptic with j=0 and the Prym is 3-dimensional, so this result does not transfer, but the method - explicit QM from the two commuting automorphisms - is the pattern to check if a lane ever has a bielliptic cyclic cover). **C5. T. Alexandrou, arXiv:2110.02093 (2021)**: generic isogeny decomposition of Pryms of cyclic branched covers (eigen-decomposition). **C6. A. Shatsila, arXiv:2609.14135 (Sept 2026)**: Prym-Torelli for etale cyclic covers of odd prime degree of hyperelliptic curves (d=3 via trigonal pencils). **C7. Borowka-Naranjo-Ortega-Shatsila, arXiv:2510.01330 (2025)**: Prym map of etale cyclic covers of hyperelliptic curves injective for d >= 6 not an odd prime power; Naranjo-Ortega-Spelta, Forum Math. Sigma 2024: P_d generically injective for primes d >= 11 with (d-1)/2 prime.
 - Lane four-plus-two-residual: the probe (2026-11-01) found the Prym P of T_B -> E' absolutely simple with End^0 = Q(zeta3) and non-CM (point counts p <= 400). C1/C2 say this is the generic situation; an elliptic contraction would require B to be a CM point. The instance's B is fixed, so the route is closed; literature adds no alternative correspondence.
 
@@ -136,3 +136,45 @@ Open lanes (16): cycle-q2, cyclic-triple-residual, dense-rational, diagonal-perm
 ## I. Pre-2015 references surfaced that the lanes should cite when relevant
 
 Shioda-Katsura, Tohoku 31 (1979) (inductive structure); Schoen, Compositio 1988 (Hodge classes on self-products with an automorphism); Paranjape 1988 (KS for six-line double planes); Moonen, Doc. Math. 2010 (special cyclic-cover families); Zarhin arXiv:0809.4887; Arapura 2007 (F7) and 2014 (F2); Kollar-Larsen 2007 (book Ch. 3); Voisin [Voi96] block-sum hypersurfaces; Bostan-Lairez-Salvy 2013 (Griffiths-Dwork creative telescoping, the algorithmic ancestor of Diamond's Construction 3.9).
+
+## J. URL index (every arXiv id cited above)
+
+- arXiv:0706.2506 -> https://arxiv.org/abs/0706.2506
+- arXiv:0809.4887 -> https://arxiv.org/abs/0809.4887
+- arXiv:0905.2099 -> https://arxiv.org/abs/0905.2099
+- arXiv:1006.3400 -> https://arxiv.org/abs/1006.3400
+- arXiv:1201.6403 -> https://arxiv.org/abs/1201.6403
+- arXiv:1403.3904 -> https://arxiv.org/abs/1403.3904
+- arXiv:1807.01935 -> https://arxiv.org/abs/1807.01935
+- arXiv:2006.03953 -> https://arxiv.org/abs/2006.03953
+- arXiv:2009.07807 -> https://arxiv.org/abs/2009.07807
+- arXiv:2110.02093 -> https://arxiv.org/abs/2110.02093
+- arXiv:2203.09778 -> https://arxiv.org/abs/2203.09778
+- arXiv:2210.02948 -> https://arxiv.org/abs/2210.02948
+- arXiv:2303.09895 -> https://arxiv.org/abs/2303.09895
+- arXiv:2304.02519 -> https://arxiv.org/abs/2304.02519
+- arXiv:2308.15297 -> https://arxiv.org/abs/2308.15297
+- arXiv:2310.11981 -> https://arxiv.org/abs/2310.11981
+- arXiv:2312.12363 -> https://arxiv.org/abs/2312.12363
+- arXiv:2312.17222 -> https://arxiv.org/abs/2312.17222
+- arXiv:2401.00470 -> https://arxiv.org/abs/2401.00470
+- arXiv:2410.16289 -> https://arxiv.org/abs/2410.16289
+- arXiv:2501.02315 -> https://arxiv.org/abs/2501.02315
+- arXiv:2501.08633 -> https://arxiv.org/abs/2501.08633
+- arXiv:2502.03415 -> https://arxiv.org/abs/2502.03415
+- arXiv:2504.13607 -> https://arxiv.org/abs/2504.13607
+- arXiv:2506.04094 -> https://arxiv.org/abs/2506.04094
+- arXiv:2506.13220 -> https://arxiv.org/abs/2506.13220
+- arXiv:2509.23403 -> https://arxiv.org/abs/2509.23403
+- arXiv:2509.25273 -> https://arxiv.org/abs/2509.25273
+- arXiv:2510.01330 -> https://arxiv.org/abs/2510.01330
+- arXiv:2512.19597 -> https://arxiv.org/abs/2512.19597
+- arXiv:2603.29157 -> https://arxiv.org/abs/2603.29157
+- arXiv:2606.05530 -> https://arxiv.org/abs/2606.05530
+- arXiv:2607.25861 -> https://arxiv.org/abs/2607.25861
+- arXiv:2608.18134 -> https://arxiv.org/abs/2608.18134
+- arXiv:2608.25947 -> https://arxiv.org/abs/2608.25947
+- arXiv:2609.14135 -> https://arxiv.org/abs/2609.14135
+- Zenodo DOIs: https://doi.org/10.5281/zenodo.23267886 , https://doi.org/10.5281/zenodo.23309349 , https://doi.org/10.5281/zenodo.23325022 , https://doi.org/10.5281/zenodo.23606970 , https://doi.org/10.5281/zenodo.23710067 , https://doi.org/10.5281/zenodo.23571028 , https://doi.org/10.5281/zenodo.21670577
+- GitHub: https://github.com/hodge-computer/sextics , https://github.com/sallerk/HC-quintic-sextic , https://github.com/sallerk/HC-k3-rm5-fourfold , https://github.com/sallerk/HC-k3-rm5-maximal , https://github.com/rifmj/fermat-fourfolds-boundary , https://github.com/Rafaty/integral-hodge-fermat-sextic , https://github.com/hodgepodgeconjecture/sextics/tree/claude/sweet-maxwell-o1fed3/research/cycle-three-compaction , https://github.com/rbajaj5/sextics/blob/lean-row-certificates-20261017/formal/lean/HodgeTestbed/RowCertificate.lean , https://github.com/deanodotdotdot/sextics/tree/ee66155ed6b1ddb14b8edca5e5ebd7b21f2de802/research/off-paired-2026-10-28-2 , https://github.com/DiamondJM/hodgeHoldout
+- Other: https://benediamond.github.io/ , https://hodge.computer/ , https://webusers.imj-prg.fr/~claire.voisin/Articlesweb/JOMP_V01N01P02Paper.pdf , https://emis.univie.ac.at/journals/DMJDMV/vol-15/24.pdf (Moonen; 503 at fetch time, arXiv copy used)

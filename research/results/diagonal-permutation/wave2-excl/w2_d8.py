@@ -59,7 +59,8 @@ def e1_rref(D, p):
 
 
 sols = []; used = []; piv0 = None
-for p in primes[:6]:
+lifted = None; u8 = None
+for p in primes[:14]:
     cols, red, piv = e1_rref(D8, p)
     C = len(cols)
     assert piv[-1] != C, f'E1 inconsistent mod {p}?!'
@@ -85,31 +86,38 @@ for p in primes[:6]:
         if ok:
             break
         lifted = None
-assert lifted is not None, 'exact lift failed'
-maxh = max(max(abs(v.numerator), v.denominator) for u in u8 for v in u.values())
-res['u8'] = {'primes': used, 'terms': sum(len(u) for u in u8), 'max_height_bits': maxh.bit_length(), 'seconds': round(time.time() - t0, 1)}
-json.dump({'u8': [core.to_str(u) for u in u8]}, open(f'{W.PKT}/d8_u8_exact.json', 'w'))
-W.log('d8_e1_exact', D='D8', d=8, prime=used, result='A*D8 in J(F) over Q (exact u8 verified)', seconds=res['u8']['seconds'],
-      note=f'u8 terms {res["u8"]["terms"]}, height {maxh.bit_length()} bits; with ker_p = 1 this gives dim ker[A] on R_8^+ = 1 over Q')
+if lifted is not None:
+    maxh = max(max(abs(v.numerator), v.denominator) for u in u8 for v in u.values())
+    res['u8'] = {'primes': used, 'terms': sum(len(u) for u in u8), 'max_height_bits': maxh.bit_length(), 'seconds': round(time.time() - t0, 1)}
+    json.dump({'u8': [core.to_str(u) for u in u8]}, open(f'{W.PKT}/d8_u8_exact.json', 'w'))
+    W.log('d8_e1_exact', D='D8', d=8, prime=used, result='A*D8 in J(F) over Q (exact u8 verified)', seconds=res['u8']['seconds'],
+          note=f'u8 terms {res["u8"]["terms"]}, height {maxh.bit_length()} bits; with ker_p = 1 this gives dim ker[A] on R_8^+ = 1 over Q')
+else:
+    res['u8'] = {'primes': used, 'lift': 'failed', 'seconds': round(time.time() - t0, 1)}
+    W.log('d8_e1_exact', D='D8', d=8, prime=used, result='rational lift of u8 FAILED with %d primes (heights too large); continuing mod p' % len(used),
+          seconds=res['u8']['seconds'], note='E1 holds mod every prime tried (same pivot structure); exact statement pending')
 save()
 
 # ---------------------------------------------------------------- 2. relaxation Psi(D8;u8) in J_16 ?
-divu = {}
-for i in range(NV):
-    divu = add(divu, pderiv(u8[i], i))
-Psi_exact = sub(mul(D8, divu), W.exact_apply_field(u8, D8))
-assert core.parity_of(Psi_exact) == 1 and degree(Psi_exact) == 16
+def u8_mod(p):
+    if u8 is not None:
+        return [reduce_mod(u, p) for u in u8]
+    return W.solve_E1(D8, p)
+
 for p in (W.P1, W.P2):
     t0 = time.time()
     red16 = W.Red(16, p, 1, None, verbose=True)
     good = (red16.ring_dim == W.koszul_hilbert(16, 1))
-    Pp = reduce_mod(Psi_exact, p)
+    up = u8_mod(p)
+    Pp = W.psi(reduce_mod(D8, p), up, p)
+    assert core.parity_of(Pp) == 1 and degree(Pp) == 16
     inJ = red16.in_J(Pp)
     nfv = red16.nf(Pp)
     res[f'relax_p{p}'] = {'in_J': bool(inJ), 'nf_nonzero_coords': int(np.count_nonzero(nfv)), 'ring_dim_16_odd': red16.ring_dim,
-                          'good_reduction': good, 'seconds': round(time.time() - t0, 1)}
+                          'good_reduction': good, 'exact_u8': u8 is not None, 'seconds': round(time.time() - t0, 1)}
     W.log('d8_relax', D='D8', d=8, prime=p, result=('Psi in J' if inJ else 'Psi NOT in J (relaxation excludes D8)'),
-          rank=red16.rank, seconds=res[f'relax_p{p}']['seconds'], note=f'good reduction deg16 odd: {good}; nf nonzero coords {int(np.count_nonzero(nfv))}')
+          rank=red16.rank, seconds=res[f'relax_p{p}']['seconds'],
+          note=f'good reduction deg16 odd: {good}; nf nonzero coords {int(np.count_nonzero(nfv))}; u8 exact: {u8 is not None}')
     print('relaxation at', p, res[f'relax_p{p}'], flush=True)
     save()
 
@@ -117,7 +125,7 @@ for p in (W.P1, W.P2):
 null_bases = []; null_primes = []; free0 = None
 for p in (W.P1, W.P2, W.P3):
     t0 = time.time()
-    up = [reduce_mod(u, p) for u in u8]
+    up = u8_mod(p)
     S = W.ReducedE2(D8, p, u=up, verbose=True)
     r = S.solve(compressed=True, verbose=True)
     res[f'reducedE2_p{p}'] = r

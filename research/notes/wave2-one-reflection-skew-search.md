@@ -27,11 +27,30 @@ variable projection with Tikhonov normal equations, full Golub–Pereyra Jacobia
 LLL, exact modular confirm with CRT), `w2_search.py` (multiprocess restarts), `w2_dims.py`,
 `w2_struct.py`, `chains/chain{1,2,3,4}.sh`. Log: `wave2-search.log.jsonl` (one line per batch).
 
-## 1. E1-admissible denominator spaces (task 1)
+## 1. E1-admissible denominator spaces (task 1) — computed (`w2_dims.py`, remote, mod p = 2^31−1 and float SVD agree)
 
-(pending: `w2_dims.py` on the remote; wave-1 mod-p numbers for the 5-variable ρ-even sector:
-kernel = 3, 13, 47, 167, 307, 479, 677 at d = 5..11 with J_d = 3, 13, 39, 89, 178, 314, 506, i.e.
-non-Jacobian directions 0, 0, 8, 78, 129, 165, 171.)
+Five-variable problem, `D` in character sector `(ρ,σ)`: `kerD = dim{D : A D ∈ J_f}` / `dim J_f,d` / non-Jacobian
+directions (`ker mod J`) / `f·S_{d−6}` inside; `rk[A]` = rank of multiplication by `[A]: (S/J)_d^{(ρ,σ)} → (S/J)_{d+6}`.
+
+| d | nD (0,0) | (0,0) ker/J/extra/fmult | rk[A] | (0,1) ker/J/extra | (1,0) ker/J/extra | (1,1) ker/J/extra |
+|---|---|---|---|---|---|---|
+| 4 | 22 | 0/0/0/0 | 22 | 0/0/0 | 0/0/0 | 0/0/0 |
+| 5 | 36 | 2/2/0/0 | 34 | 1/1/0 | 1/1/0 | 1/1/0 |
+| 6 | 60 | 7/7/0/1 | 53 | 6/6/0 | 6/6/0 | 6/6/0 |
+| 7 | 90 | **28/21/7**/2 | 62 | 19/18/1 | 18/18/0 | 19/18/1 |
+| 8 | 135 | **91/46/45**/6 | 44 | 76/43/33 | 67/43/24 | 76/43/33 |
+| 9 | 190 | 161/92/69/11 | 29 | 146/86/60 | 141/86/55 | 146/86/60 |
+| 10 | 266 | 250/161/89/22 | 16 | 229/153/76 | 223/153/70 | 229/153/76 |
+| 11 | 357 | 349/259/90/36 | 8 | 328/247/81 | 325/247/78 | 328/247/81 |
+| 12 | 476 | 473/387/86/60 | 3 | 445/371/74 | 442/371/71 | 445/371/74 |
+
+Jacobian-type degrees (kernel = `J_d`): `d ≤ 6` in every sector and `d = 7` in `(1,0)`. The first non-Jacobian
+directions appear at `d = 7` (7 in the main sector `(0,0)`, 1 each in `(0,1)`, `(1,1)`). Consistency: sector sums
+reproduce wave-1's ρ-even/ρ-odd totals (47/37 at d=7, 167/143 at d=8, …). Six-variable cross-check with the
+engine's `jacobian.mult_kernel` (Y-even D): kernel 0, 3, 18, 71, 247 at d = 4..8 with J_d = 0, 3, 18, 63, 168
+(non-Jacobian 0, 0, 0, 8, 79), matching the dossier's totals (135 = 126 + 9 at d = 7 over both parities).
+Note: `(S/J_f)_{d+6}` has dimension 255, 185, 121, 70, 35, 15 for d = 7..12, so `E1` becomes almost vacuous
+at high degree (at d = 12 only 3 conditions remain in the main sector).
 
 ## 2. Optimizer calibration (needle = accepted degree-6 witness of family-hesse-web, same target A)
 

@@ -31,6 +31,16 @@ Scripts: /tmp/hodge/results/short-power-presentation/w2_*.py (remote jobs run th
 * Structured-family screen at d=7 even (152 subring families = monomials in 2..5 of {X0,X1,X2,Y0,Y1,Y2,L,M}; exact mod two primes):
   the only families meeting K_7 + J_7 outside J_7 are the ones spanning <X0,X1,X2,M> (they contain D7); all other families meet only J_7.
 
+
+### d = 7 structure (wave 2, exact)
+* K_7^+ = <D7> mod J_7, D7 in C[X0,X1,X2,M] = P7(X) + P5(X) M^2 + P3(X) M^4 (cone, vertex line {X=0, M=0}); rational, 4-prime numerators.
+* K_7^- = <D7'> mod J_7, D7' in C[Y0,Y1,Y2,L] = Q7(Y) + Q5(Y) L^2 + Q3(Y) L^4 + Q1(Y) L^6 (cone, vertex line {Y=0, L=0}); rational (3 primes, 93-bit modulus),
+  canonical cone representative in D7odd_cone.json (42 coefficients, denominators ~1e8).  Note the asymmetry (M-degree <= 4 vs L-degree <= 6).
+* The exact subring-family screen shows no other cone/plane/point-vertex family meets K_7 + J_7 outside J_7 (both parities).
+* Kernel numerators: even one reconstructed with 4 primes; odd NF representative's numerators have heights > 124 bits (not needed:
+  the relaxation computes numerators mod p and the varpro uses float least-squares numerators, which is exact-equivalent since
+  Koszul corrections span the particular-solution ambiguity).
+
 ### Tooling validated (wave 2)
 * w2lib.JRef / e1_kernel: reproduces wave-1 ranks (J_10^- = 747, kernel 0 at d=4).
 * w2_varpro (reduced variable projection: unknowns = Koszul corrections c_ij (deg d-4) + Q; rows = degree-2d monomials):

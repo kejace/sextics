@@ -17,6 +17,15 @@ Hessian-relaxation tensors + LM search, msolve export, sector-restricted VarPro,
   every candidate below 1e-9 is rationally reconstructed, checked exactly for the relaxation, then solved exactly
   (sector-restricted compressed fixed-D solver) and verified.
 
+* **Koszul-reduced full-E2 variable projection** (`kvp.py`): after solving E1 exactly, every E1 solution is N0 + K_a with
+  K_a,i = Σ_j a_ij F_j (a antisymmetric, a_ij ∈ S_{d−4}) and B_D(K_a) = Σ_{i<j}[D(F_j∂_i a_ij − F_i∂_j a_ij) − a_ij(F_jD_i − F_iD_j)];
+  the certificate exists iff B_D(N0) ∈ (F) + span(B_D(K_a)). Over a family D(c) = Σ c_k D_k this is
+  f(c) = min_a ‖Π_F(L(c)a − quad(c))‖², with ~6× fewer unknowns than the raw numerators and the (F)-part projected out
+  once; sparse index arrays make each evaluation + analytic gradient cheap (0.05–0.3 s at d = 8–9 in one sector).
+  Validated: assembly vs brute force (1e-13); finite-difference gradient (6e-10); **positive controls** — Fermat sextic with
+  A = X0³Y0³, d=6 J-family: residual 4e-22 → reconstruction → exact witness verified (D = X0⁶+X1⁶+X2⁶-type);
+  `fermat-pair-rational-d4-strict` (d=4 kernel family, 13 classes): zeros found, known witness recovered.
+
 ## Results so far
 
 ### R1. E1-admissible spaces (exact mod p = 2^31−1), Klein sectors of D = (Y2-parity, Y0+Y1-parity)

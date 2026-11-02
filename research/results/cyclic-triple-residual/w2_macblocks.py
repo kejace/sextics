@@ -76,38 +76,60 @@ nq = len(quad)
 Qm = nmod_mat(len(quad), len(pairs), [quad[s_].get(r_, 0) for s_ in quad for r_ in range(len(pairs))], p)
 quad_rank = Qm.rank() if nq else 0
 schar = {s: sect.cadd(S.chi(mons[s]), tuple((-x) % 6 for x in S.chiA)) for s in quad}   # w-character of q_s
-# degree-k Macaulay blocks
-def wchar_of(mon):   # mon: tuple of w indices (multiset)
+# degree-k Macaulay blocks (vectorized): rows m*q_s (deg m = k-2), columns = degree-k monomials in w, block-diagonal by w-character
+import numpy as np, random
+qs_list = list(quad.keys())
+Qmat = np.zeros((len(qs_list), len(pairs)), dtype=np.int64)
+for qi, s_ in enumerate(qs_list):
+    for r_, v in quad[s_].items():
+        Qmat[qi, r_] = v
+pair_index = {pr: r_ for r_, pr in enumerate(pairs)}
+def wchar_of(mon):
     c = (0,) * len(S.chiA)
     for j in mon: c = sect.cadd(c, wchar[j])
     return c
 kmons = list(itertools.combinations_with_replacement(range(nW), kdeg))
 kidx_by_char = {}
-for t_, mon in enumerate(kmons):
+for mon in kmons:
     kidx_by_char.setdefault(wchar_of(mon), []).append(mon)
 mult_mons = list(itertools.combinations_with_replacement(range(nW), kdeg - 2))
+qchar_groups = {}
+for qi, s_ in enumerate(qs_list):
+    qchar_groups.setdefault(schar[s_], []).append(qi)
 blocks = {}
+random.seed(1)
 for c, cols in kidx_by_char.items():
     colidx = {mon: t_ for t_, mon in enumerate(cols)}
-    rows = []
-    for s, terms in quad.items():
-        for mm in mult_mons:
-            if sect.cadd(schar[s], wchar_of(mm)) != c: continue
-            row = {}
-            for r_, v in terms.items():
-                j, k = pairs[r_]
-                mon = tuple(sorted(mm + (j, k)))
-                ci = colidx[mon]
-                row[ci] = (row.get(ci, 0) + v) % p
-            rows.append(row)
-    R_, C_ = len(rows), len(cols)
-    if R_ == 0:
+    C_ = len(cols)
+    row_blocks = []
+    for mm in mult_mons:
+        target = tuple((a - b) % 6 for a, b in zip(c, wchar_of(mm)))   # need schar(q) + wchar(mm) = c
+        qis = qchar_groups.get(target)
+        if not qis: continue
+        # column index for each pair under multiplication by mm (all pairs of the right character land in this block)
+        colmap = np.full(len(pairs), -1, dtype=np.int64)
+        for r_, (j, k) in enumerate(pairs):
+            mon = tuple(sorted(mm + (j, k)))
+            ci = colidx.get(mon)
+            if ci is not None: colmap[r_] = ci
+        sub = Qmat[qis][:, colmap >= 0]
+        cm = colmap[colmap >= 0]
+        blk = np.zeros((len(qis), C_), dtype=np.int64)
+        blk[:, cm] = sub      # injective for fixed mm
+        row_blocks.append(blk)
+    if not row_blocks:
         blocks[c] = {'rows': 0, 'cols': C_, 'rank': 0, 'HF': C_}; continue
-    flat = [0] * (R_ * C_)
-    for i, row in enumerate(rows):
-        for ci, v in row.items(): flat[i * C_ + ci] = v
-    rk = nmod_mat(R_, C_, flat, p).rank()
-    blocks[c] = {'rows': R_, 'cols': C_, 'rank': rk, 'HF': C_ - rk}
+    Mb = np.vstack(row_blocks) % p
+    R_ = Mb.shape[0]
+    sel = np.arange(R_)
+    if R_ > 4 * C_ + 50:
+        sel = np.array(sorted(random.sample(range(R_), 4 * C_ + 50)))
+    def rank_of(rows_sel):
+        return nmod_mat(len(rows_sel), C_, Mb[rows_sel].ravel().tolist(), p).rank()
+    rk = rank_of(sel)
+    if rk < C_ and len(sel) < R_:
+        rk = rank_of(np.arange(R_))
+    blocks[c] = {'rows': int(R_), 'cols': int(C_), 'rank': int(rk), 'HF': int(C_ - rk)}
 HFk = sum(b['HF'] for b in blocks.values())
 res = {'batch': 'macaulay-blocks', 'd': d, 'parity': par, 'k': kdeg, 'p': p, 'nW': nW, 'restricted_to_complement_of_spurious': restrict, 'n_dropped_coords': n_dropped, 'n_quadrics': nq, 'quadric_span_rank': quad_rank, 'n_pairs': len(pairs), 'dim_R2d_odd': C - rank,
        'blocks': {csec(c): b for c, b in sorted(blocks.items())}, 'HF_k_total': HFk, 'rigorous_exclusion': HFk == 0,

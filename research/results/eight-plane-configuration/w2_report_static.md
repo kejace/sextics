@@ -15,3 +15,9 @@ For d = 5, D = d_a F (a a constant vector, any parity) and the Hessian condition
 
 ## Self-tests (local, d = 6)
 Assembled residual equals the exact Fraction computation (max diff 2e-11 at scale 4e4); spurious subspace at d = 6 even is exactly the Euler direction; R-part projector (dim 866 = dim R_12^-) annihilates Koszul and F Q terms; Kaufman Jacobian matches a fixed-x finite difference to 5e-10; LM converges in 50-70 evaluations (local minima at rel ~0.3 for random starts).
+
+## Exact results obtained locally (wave 2, mod p = 2147483629; Singular for Hilbert data)
+- d = 6, odd parity: 18 w-variables, 153 independent quadrics; Hilbert function 1, 18, 18, 2, 0, ... — the ideal contains all quartics, the projective variety is EMPTY. Rigorous over Q (Macaulay rank can only grow in characteristic 0): **no odd degree-6 denominator exists**.
+- d = 6, even parity: 135 independent quadrics; projective dimension 0, degree 38; primary decomposition: a single component, the Euler point w = Euler (D = 6F, spurious), with multiplicity 38. Hence **no genuine even degree-6 Jacobian denominator** (mod p; every characteristic-0 point would have to reduce to the Euler point).
+- d = 6, mixed parity (36 variables): 405 independent quadrics; projective dimension 0, degree 923; the quadrics have no linear term in the odd directions at the Euler point (H(E, v) = 5 v(F) in J), so the Euler point is expected to carry all of the degree — radical computation pending (see log).
+- d = 5: excluded rigorously (Hessian condition forces a singular point), see above.

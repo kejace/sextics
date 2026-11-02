@@ -892,3 +892,88 @@ def build_jac_family(F, A, q, d, pD, with_kernel=True, verbose=False, exclude_F=
     info['dimF'] = nF; info['dimP'] = fam.dimP; info['build_s'] = round(time.time() - t0, 1)
     fam.info = info
     return fam, info
+
+
+# ---------------------------------------------------------------- Gauss-Newton polishing of a candidate (a, x)
+def polish(fam, a, iters=8, verbose=False):
+    """Joint Gauss-Newton on r(a,x) = M(a)x - b(a) with |a| = 1; returns (a, x, rel, history).  A true solution
+    reaches rel ~ 1e-28 (float64), far below what L-BFGS on the reduced functional delivers (~1e-12)."""
+    a = np.asarray(a, float); a = fam.P @ (fam.P.T @ a); a = a / np.linalg.norm(a)
+    rel, f, x = fam.rel(a)
+    hist = [rel]
+    K, R, nN = fam.K, fam.rows, fam.nN
+    for it in range(iters):
+        M, b = fam.assemble(a)
+        r = M @ x - b
+        xN = x[:nN]
+        # d r / d a_k = M_k xN - d b / d a_k
+        Ja = np.zeros((R, K))
+        Ms = fam.Mstack.tocsc()
+        for k in range(K):
+            col = Ms[:, k].toarray().ravel().reshape(R, nN)
+            Ja[:, k] = col @ xN
+        # db/da_k = sum_l a_l (v_kl + v_lk): Vstack columns k*K+l
+        Vd = fam.Vstack.toarray().reshape(R, K, K) if (R * K * K) < 4e7 else None
+        if Vd is not None:
+            db = np.einsum('rkl,l->rk', Vd, a) + np.einsum('rlk,l->rk', Vd, a)
+        else:
+            db = np.zeros((R, K))
+            for k in range(K):
+                ek = np.zeros(K); ek[k] = 1.0
+                db[:, k] = fam.Vstack @ (np.outer(ek, a) + np.outer(a, ek)).ravel()
+        Ja -= db
+        # restrict the a-step to the admissible subspace: da = P du  (never leave the E1 kernel / enter F-multiples)
+        Pm = fam.P; dimP = Pm.shape[1]
+        Jf = np.hstack([Ja @ Pm, M])
+        # constraint a . da = 0 (stay on the sphere to first order)
+        Jf = np.vstack([Jf, np.concatenate([a @ Pm, np.zeros(M.shape[1])])[None, :]])
+        rhs = np.concatenate([-r, [0.0]])
+        step, *_ = sla.lstsq(Jf, rhs, cond=1e-12, lapack_driver='gelsd', check_finite=False)
+        a_new = a + Pm @ step[:dimP]; a_new /= np.linalg.norm(a_new)
+        x_new = x + step[dimP:]
+        M2, b2 = fam.assemble(a_new)
+        r2 = M2 @ x_new - b2
+        rel2 = float(r2 @ r2) / max(float(b2 @ b2), 1e-300)
+        if rel2 < rel:
+            a, x, rel = a_new, x_new, rel2
+        else:
+            # fall back to re-solving x at a_new
+            rel3, f3, x3 = fam.rel(a_new)
+            if rel3 < rel:
+                a, x, rel = a_new, x3, rel3
+            else:
+                break
+        hist.append(rel)
+        if verbose:
+            print(f'[polish] it {it}: rel={rel:.3e}', file=sys.stderr)
+        if rel < 1e-30:
+            break
+    return a, x, rel, hist
+
+
+def try_confirm_polished(fam, cand, logrec, verbose=True):
+    """polish, then rational reconstruction with increasing denominators, then exact re-solve."""
+    a, x, rel, hist = polish(fam, cand['a'], verbose=verbose)
+    results = [{'polished_rel': rel, 'hist': [f'{h:.2e}' for h in hist]}]
+    dens = (12, 100, 1000, 10000, 100000, 1000000, 10**7, 10**8) if rel < 1e-18 else (12, 100, 1000, 10000, 100000)
+    for fr in fam.reconstruct(a, max_dens=dens):
+        status, data = fam.confirm(fr, verbose=verbose)
+        rec = {'status': status, 'den': max(f.denominator for f in fr), 'nz': sum(1 for f in fr if f)}
+        if status == 'solved':
+            D, N, Q = data['D'], data['N'], data['Q']
+            ok, info = core.verify_witness(fam.F, fam.A, fam.q, D, N, Q)
+            rec['verified'] = bool(ok)
+            if ok:
+                w = witness_json(D, N, Q)
+                w.update({'instance': LANE, 'family': fam.label, 'rel': cand['rel'], 'polished_rel': rel, 'engine': ENGINE})
+                path = f'{RES}/witness-candidate.json'
+                with open(path, 'w') as f:
+                    json.dump(w, f, indent=1)
+                wlog(dict(logrec, event='WITNESS', status='solved', D=w['D'][:2000], d=w['d'], path=path))
+                print('WITNESS FOUND', path, flush=True)
+                results.append(rec)
+                return True, results
+        results.append(rec)
+    return False, results
+
+try_confirm = try_confirm_polished

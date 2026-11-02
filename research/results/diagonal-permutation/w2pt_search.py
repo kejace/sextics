@@ -56,6 +56,7 @@ def e1_lift_float(F, A, D):
 
 
 args_d = [None]
+args_pD = [0]
 
 def load_extra(F, A, names):
     extra = []
@@ -66,7 +67,7 @@ def load_extra(F, A, names):
             print(f'[extra] D8 float E1 lift residual {rel:.2e}', flush=True)
             extra.append((D, N))
         elif nm.startswith('kerfam'):
-            fn = nm.split(':')[1] if ':' in nm else f'w2-kerfam-d{args_d[0]}.npz'
+            fn = nm.split(':')[1] if ':' in nm else f'w2-kerfam-d{args_d[0]}-p{args_pD[0]}.npz'
             z = np.load(os.path.join(LANE, fn))
             Dmons = [tuple(int(x) for x in e) for e in z['Dmons']]
             Ni = z['Ncols_i']; Nm = [tuple(int(x) for x in e) for e in z['Ncols_m']]
@@ -121,25 +122,25 @@ def worker(args, wid, conn):
     try:
         F, A, q, rec = core.load_instance(IID)
         d = args.d
-        args_d[0] = d
+        args_d[0] = d; args_pD[0] = args.pD
         extra = load_extra(F, A, args.extra.split(',')) if args.extra else None
         if extra and args.sector:
             extra = [symmetrize_pair(D, N, args.sector) for (D, N) in extra]
             extra = [(D, N) for (D, N) in extra if D]
         t0 = time.time()
         # provisional family to know K
-        K0 = sum(len(monomials(d - 5, PAR[i])) for i in range(NV))
+        K0 = sum(len(monomials(d - 5, (args.pD + PAR[i]) % 2)) for i in range(NV))
         Kx = len(extra) if extra else 0
         # Koszul count
         pA = core.parity_of(A)
         nK = 0
         for i in range(NV):
             for j in range(i + 1, NV):
-                nK += len(monomials(d - 4, ((pA - PAR[i]) % 2 - PAR[j]) % 2))
+                nK += len(monomials(d - 4, ((pA - args.pD - PAR[i]) % 2 - PAR[j]) % 2))
         r = K0 + Kx + nK + args.margin
         pts = Points(F, r, seed=args.seed * 7919 + wid)
-        fam = jacobian_family(F, A, d, pts, extra=extra)
-        kb = KoszulBlock(F, A, d, pts)
+        fam = jacobian_family(F, A, d, pts, extra=extra, pD=args.pD)
+        kb = KoszulBlock(F, A, d, pts, pD=args.pD)
         subspace = None
         if args.sub:
             fn, key = args.sub.split(':')
@@ -179,20 +180,28 @@ def worker(args, wid, conn):
             U, s, _ = np.linalg.svd(Wn, full_matrices=False)
             rk = int(np.sum(s > 1e-10 * max(1.0, s[0])))
             vp.P = U[:, :rk]; vp.dimP = rk
+        # reference scale of |B_D(N^0)|^2 on the sphere (median over random directions), for an absolute hit criterion
+        rng0 = np.random.default_rng(12345 + wid)
+        refs = []
+        for _ in range(12):
+            a0 = vp.P @ rng0.standard_normal(vp.dimP); a0 /= np.linalg.norm(a0)
+            refs.append(vp.bnorm2(a0))
+        ref = float(np.median(refs))
         setup = time.time() - t0
         out_path = os.path.join(LANE, f'w2-pt-d{d}-{args.tag}.jsonl')
-        label = fam.label + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
+        label = fam.label + (f'|pD{args.pD}' if args.pD else '') + (f'|sub:{args.sub}' if args.sub else '') + (f'|sector{args.sector:+d}' if args.sector else '')
         conn.send({'type': 'setup', 'wid': wid, 'r': r, 'K': fam.K, 'nK': kb.nK, 'dimP': vp.dimP, 'nspur': vp.nspur,
-                   'setup_s': round(setup, 1), 'Fres': pts.Fres, 'label': label, 'nKsector': int(vp.nKc)})
+                   'setup_s': round(setup, 1), 'Fres': pts.Fres, 'label': label, 'nKsector': int(vp.nKc), 'ref_B0norm2': ref})
         rels = []
         rng_seed = args.seed * 1000003 + wid * 101
         def cb(c):
             rels.append(c['rel'])
-            line = {'d': d, 'family': label, 'tag': args.tag, 'wid': wid, 'restart': c['restart'], 'rel': c['rel'], 'f': c['f'],
+            c['rel_abs'] = c['f'] / ref
+            line = {'d': d, 'family': label, 'tag': args.tag, 'wid': wid, 'restart': c['restart'], 'rel': c['rel'], 'f': c['f'], 'rel_abs': c['rel_abs'],
                     'iters': c['iters'], 'seconds': c['seconds'], 'amax': float(np.max(np.abs(c['a']))),
                     'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
             with open(out_path, 'a') as fh: fh.write(json.dumps(line) + '\n')
-            if c['rel'] < args.hit:
+            if min(c['rel'], c['rel_abs']) < args.hit:
                 try:
                     handle_hit(args, wid, F, A, q, fam, kb, pts, vp, c, label)
                 except Exception as ex:
@@ -223,9 +232,9 @@ def handle_hit(args, wid, F, A, q, fam, kb, pts, vp, c, label):
     # independent point set
     pts2 = Points(F, pts.r, seed=args.seed * 31 + 17 * wid + c['restart'] + 999)
     extra = [(m['D'], None) for m in fam.members if m['w'] is None]
-    fam2 = jacobian_family(F, A, d, pts2, extra=None) if not extra else None
+    fam2 = jacobian_family(F, A, d, pts2, extra=None, pD=args.pD) if not extra else None
     if fam2 is not None:
-        kb2 = KoszulBlock(F, A, d, pts2)
+        kb2 = KoszulBlock(F, A, d, pts2, pD=args.pD)
         vp2 = VarPro(fam2, kb2, pts2)
         f2, rel2, _, _ = vp2.value(a)
         rep['rel_independent_points'] = rel2
@@ -292,6 +301,7 @@ def main():
     ap.add_argument('--maxiter', type=int, default=400)
     ap.add_argument('--margin', type=int, default=60)
     ap.add_argument('--hit', type=float, default=1e-9)
+    ap.add_argument('--pD', type=int, default=0, help='Y-parity of D (0 even, 1 odd)')
     ap.add_argument('--sector', type=int, default=0, help='(01)-sector: +1 D invariant (N anti-equivariant), -1 D anti-invariant, 0 none')
     args = ap.parse_args()
     ctx = mp.get_context('fork')
@@ -317,7 +327,7 @@ def main():
     tot = sum(m.get('n', 0) for m in summary)
     best = min([m['best'] for m in summary if m.get('best') is not None], default=None)
     hist = [sum(m.get('hist_log10', [0]*11)[i] for m in summary) for i in range(11)]
-    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'workers': args.workers,
+    out = {'exp': 'w2pt-search', 'd': args.d, 'tag': args.tag, 'extra': args.extra, 'sub': args.sub, 'sector': args.sector, 'pD': args.pD, 'workers': args.workers,
            'restarts_total': tot, 'best_rel': best, 'hist_log10_bins': '[<-14,-12,-10,-8,-6,-4,-3,-2,-1,0,>0]', 'hist': hist,
            'maxiter': args.maxiter, 'seconds': round(time.time() - t0, 1), 'seed': args.seed, 'ts': time.strftime('%Y-%m-%dT%H:%M:%S')}
     with open(os.path.join(LANE, 'w2-pt-summary.jsonl'), 'a') as fh: fh.write(json.dumps(out) + '\n')

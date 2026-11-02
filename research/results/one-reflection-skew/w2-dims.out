@@ -39,3 +39,5 @@
 {"d": 6, "parity": 0, "kernel_dim": 18, "ker_mod_J": 0, "jacobian_dim": 18, "ring_dim": 218, "secs": 11.6}
 {"d": 7, "parity": 0, "kernel_dim": 71, "ker_mod_J": 8, "jacobian_dim": 63, "ring_dim": 333, "secs": 36.3}
 {"d": 8, "parity": 0, "kernel_dim": 247, "ker_mod_J": 79, "jacobian_dim": 168, "ring_dim": 483, "secs": 107.5}
+{"d": 9, "parity": 0, "kernel_dim": 572, "ker_mod_J": 194, "jacobian_dim": 378, "ring_dim": 623, "secs": 323.5}
+DONE

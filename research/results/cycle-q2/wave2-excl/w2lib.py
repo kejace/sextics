@@ -11,6 +11,8 @@ that no (N,Q) over any field of characteristic 0 solves the sector system, hence
 admits no certificate at all.
 """
 import sys, os, json, time, hashlib, math
+if hasattr(sys, 'set_int_max_str_digits'):
+    sys.set_int_max_str_digits(0)
 from fractions import Fraction
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 from hodge import core, symmetry, fixed_d, jacobian

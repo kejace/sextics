@@ -2,7 +2,7 @@
 [ A*m (m in S_d^+) | -F_i*m' (N-monomials) ] over the reals.  Output: w2-kerfam-d<d>.npz with
   Dmons (n x 6), Dvecs (K x n) float coefficient vectors spanning a complement of J_d^+ inside the admissible space,
   Nmons_i, Nvecs (K x nN) lifts with N(F) = A D (to float accuracy), gap info.
-usage: python3 w2_kerfam.py d
+usage: python3 w2_kerfam.py d [pD]
 """
 import sys, os, time, json
 import numpy as np, scipy.linalg as sla
@@ -10,15 +10,15 @@ sys.path.insert(0, '/home/kejace/devel/sextics-work')
 from hodge import core, fixed_d
 from hodge.core import monomials, NV, pderiv, shift, mul
 LANE = os.path.dirname(os.path.abspath(__file__))
-d = int(sys.argv[1])
+d = int(sys.argv[1]); pD = int(sys.argv[2]) if len(sys.argv) > 2 else 0
 F, A, q, rec = core.load_instance('diagonal-permutation')
 t0 = time.time()
 PAR = [0, 0, 0, 1, 1, 1]
-Dmons = monomials(d, 0); nD = len(Dmons)
+Dmons = monomials(d, pD); nD = len(Dmons)
 pars = fixed_d.numerator_parities({Dmons[0]: 1}, A)
 Ncols = [(i, m) for i in range(NV) for m in monomials(d + 1, pars[i])]
 nN = len(Ncols)
-rows = {e: j for j, e in enumerate(monomials(d + 6, 1))}
+rows = {e: j for j, e in enumerate(monomials(d + 6, (1 + pD) % 2))}
 R = len(rows); C = nD + nN
 M = np.zeros((R, C))
 for j, m in enumerate(Dmons):
@@ -51,7 +51,7 @@ assert np.allclose(Lift[:nD], Vadm, atol=1e-8)
 Didx = {m: j for j, m in enumerate(Dmons)}
 Jgens = []
 for i in range(NV):
-    for m in monomials(d - 5, PAR[i]):
+    for m in monomials(d - 5, (pD + PAR[i]) % 2):
         v = np.zeros(nD)
         for e, c in shift(Fi[i], m).items():
             v[Didx[e]] = float(c)
@@ -79,9 +79,9 @@ for k in range(min(3, rk)):
     err = max(abs(lhs.get(e, 0) - rhs.get(e, 0)) for e in set(lhs) | set(rhs))
     res.append(err)
 print(f'[d={d}] E1 residuals of first members: {res}', flush=True)
-np.savez_compressed(os.path.join(LANE, f'w2-kerfam-d{d}.npz'), Dmons=np.array(Dmons), Dvecs=Dk, Ncols_i=np.array([c[0] for c in Ncols]),
+np.savez_compressed(os.path.join(LANE, f'w2-kerfam-d{d}-p{pD}.npz'), Dmons=np.array(Dmons), Dvecs=Dk, Ncols_i=np.array([c[0] for c in Ncols]),
                     Ncols_m=np.array([c[1] for c in Ncols]), Nvecs=Nk, sv_gap=np.array(gap), adm_dim=ra, ker_dim=rk)
-rec = {'exp': 'kerfam-float', 'd': d, 'rows': R, 'cols': C, 'rank': rank, 'nullity': nullity, 'gap': [float(g) for g in gap],
+rec = {'exp': 'kerfam-float', 'd': d, 'pD': pD, 'rows': R, 'cols': C, 'rank': rank, 'nullity': nullity, 'gap': [float(g) for g in gap],
        'admissible_dim': int(ra), 'kernel_mod_J_dim': int(rk), 'e1_res': [float(x) for x in res], 'seconds': round(time.time() - t0, 1)}
 with open(os.path.join(LANE, 'w2-kerfam.jsonl'), 'a') as fh: fh.write(json.dumps(rec) + '\n')
 print(json.dumps(rec), flush=True)

@@ -205,13 +205,28 @@ if __name__ == '__main__':
         byk.setdefault(key_of(m, gens), []).append(m)
     sectors = sorted(byk.items())
     if a.max_sectors: sectors = sectors[:a.max_sectors]
+    done = set(); redo = set()
+    if os.path.exists(w2lib.LOG):
+        for line in open(w2lib.LOG):
+            try:
+                r = json.loads(line)
+                if r.get('exp') == f'sector-d{d}' and r.get('prime') == p: done.add(tuple(r['sector']))
+                if r.get('exp') == f'sector-d{d}-element' and ('ERROR' in r.get('result', '') or 'FAILED' in r.get('result', '')): redo.add(tuple(r['sector']))
+            except Exception: pass
+        done -= redo
+    sectors = [(kD, Dm) for kD, Dm in sectors if kD not in done]
+    print(f'skipping {len(done)} sectors already logged', flush=True)
     print(f'd={d}: {len(sectors)} sectors, dimS_d={len(monomials(d))}', flush=True)
     from concurrent.futures import ProcessPoolExecutor, as_completed
     allrec = []
     with ProcessPoolExecutor(max_workers=a.workers) as ex:
         futs = [ex.submit(analyze_sector, (kD, Dmons, d, p, not a.no_farkas, a.random)) for kD, Dmons in sectors]
         for f in as_completed(futs):
-            rec, elems = f.result(); allrec.append(rec)
+            try:
+                rec, elems = f.result()
+            except Exception as ex:
+                print('SECTOR FAILED', repr(ex)[:300], flush=True); continue
+            allrec.append(rec)
             print(rec['sector'], 'dimS', rec['dimS'], 'K', rec['dimK'], 'J', rec['dimJ'], '|', rec['result'], '|', [e['result'][:40] for e in elems], round(rec['seconds'], 1), flush=True)
     os.makedirs(f'{w2lib.PACKET}/sectors', exist_ok=True)
     json.dump(allrec, open(f'{w2lib.PACKET}/sectors/summary_d{d}_p{p}.json', 'w'), indent=1)

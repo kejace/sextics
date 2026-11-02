@@ -1,6 +1,11 @@
 # Wave 2 — off-paired — SEARCH lens
 
-STATUS: IN PROGRESS (2026-11-01 19:35 local). No witness. Step 1 (E1 dimension table d=4..12, all 36 characters) DONE.
+STATUS: IN PROGRESS (2026-11-01 19:58 local). No witness. Step 1 (E1 dimension table d=4..12, all 36 characters) DONE.
+Remote (128 cores) is at load 700-770 from ~50 agents, so my 4 jobs run at ~1/5 speed; jobs are force-submitted through a local
+queue runner (w2_queue.py, <= 4 running). Running: control (Fermat calibration), d8c00 (800 restarts), d8h0; queued: d9all, d10all,
+hess, struct-hess3, homotopy, d11h0, d8hmix, ft-d9, d12h0, struct-cones, d8gmix, struct-hess4, d7tau, d10h0more, d9h0more, ft-d8, ft-d10.
+Calibration so far (remote): Fermat d=6 16/96 restarts hit the exact solution (relres < 1e-13), d=7 10/96 (dimP 28, 12 s/restart).
+Interim off-paired d=8 (0,0): 22 restarts, best relres 1.3173e-2 (reproducible local minimum, hit 3x), median 0.058.
 Sector VarPro library validated on the Fermat positive control (exact f6 recovered to 7e-14, confirmed exactly).
 Remote jobs queued (remote at load ~250/128, waiting for capacity): Fermat success-rate calibration, d=8 (0,0) colon search.
 NOTE: a second agent (lens `excl`) works on this lane in wave2-excl/ and runs the Delta_t full solve and the two-prime

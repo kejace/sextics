@@ -7,6 +7,19 @@ Variables `X0,X1,X2,Y0,Y1,Y2`; `J = J(F)`; `R = S/J` (Koszul Hilbert function, F
 
 ## 0. Statements (what is proven, what is screened)
 
+**Theorem (proven here).** No certificate for `diagonal-permutation` has `deg D ≤ 6`, for any homogeneous `D`
+(Y-even, Y-odd or mixed).  Proof: (i) `d ≤ 4`: `ker([A]·: R_d → R_{d+6}) = 0` in both parities and `J_d = 0`
+(receipts `e1k_*.json`, primes 1000000007 and 998244353; a zero kernel mod p is a zero kernel over Q);
+(ii) `d = 5`: every E1-admissible `D` is `Σ c_i F_i`; the relaxation `[A]·[cᵀ Hess(F) c] = 0` in `R_10`, with
+`Ann(A)_4 = 0`, forces `cᵀ Hess(F) c = 0` as a quartic; the 21 coordinate equations are linearly independent quadratic
+forms in 6 unknowns (`relax_d5_mixed.ms`), so `c = 0`.  (Hand proof: `∂_c² F ≡ 0` makes `[c]` a point of
+multiplicity ≥ 5 on `X`.)  (iii) `d = 6`: every admissible `D` is `w(F)` with linear `w`; the three relaxation systems
+(Y-even 17 unknowns / 134 independent quadrics, Y-odd 18 / 153, mixed 35 / 404; Euler multiples removed) have
+zero-dimensional reduced Groebner bases over GF(1000000007) (msolve, confirmed by Singular), hence `V = {0}` over Q
+(§1.3), so the only degree-6 `w(F)` passing E2 mod J are multiples of `F`, which are not coprime to `F`.  ∎
+
+Everything about `d ≥ 7` is in the report with its status (proven / screened).
+
 See the report `/tmp/hodge/notes/wave2-diagonal-permutation-excl.md` (STATUS line first) and the log
 `../wave2-excl.log.jsonl` (one JSON line per experiment, fields exp/D or family/d/prime/result/rank/seconds/job/note).
 

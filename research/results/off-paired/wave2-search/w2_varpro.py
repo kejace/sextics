@@ -30,11 +30,12 @@ ap.add_argument('--time-limit', type=float, default=7000.0)
 ap.add_argument('--F', default='offpaired')
 ap.add_argument('--A', default=None)
 ap.add_argument('--opt', default='lm')
-ap.add_argument('--store-rel', type=float, default=1e-3)
+ap.add_argument('--store-rel', type=float, default=0.05)
 ap.add_argument('--confirm-rel', type=float, default=1e-9)
 ap.add_argument('--job', required=True)
 ap.add_argument('--cond', type=float, default=1e-9)
 ap.add_argument('--group', default='G')
+ap.add_argument('--init', default='gauss', help='gauss|sparse|mixed (odd seeds sparse)')
 ap.add_argument('--free-target', action='store_true', help='search (D, A\') jointly: any nontrivial class of the target sector')
 args = ap.parse_args()
 
@@ -78,7 +79,9 @@ def worker(k, seeds):
             break
         try:
             if args.opt == 'lm':
-                r = fam.lm_from(s, maxiter=args.maxiter)
+                mode = 'sparse' if (args.init == 'sparse' or (args.init == 'mixed' and s % 2 == 1)) else 'gauss'
+                r = fam.lm_from(s, maxiter=args.maxiter, **({} if args.free_target else {'init_mode': mode}))
+                r['init'] = mode
             else:
                 r = fam.minimize_from(s, maxiter=max(args.maxiter, 300))
         except Exception as ex:

@@ -1,7 +1,11 @@
 # Wave 2 search report: `cycle-q2` (q = 2, A = X0^2 X1^2 X2^3 Y0^2 Y1^2 Y2)
 
-STATUS: no witness found so far. Search infrastructure built and validated (2026-11-01 evening); remote jobs queued (the
-128-core box is at load > 200 from other lanes, submissions wait for capacity). This file is rewritten after every batch.
+STATUS: no witness found so far. New exact result: deg D >= 6 for every certificate (any D). Search infrastructure built
+and validated; four remote job chains running since 19:43-19:50 local (box at load 500-750 from ~60 agent jobs, so
+everything runs slowly). This file is rewritten after every batch. A parallel EXCLUSION agent (notes
+`wave2-cycle-q2-excl.md`) and a second SEARCH agent running on the VM itself (`w2s_*.py`) work on the same lane; the
+degree-5 theorem below was obtained independently by both of us; the d = 6 Groebner computation of the relaxation ideal
+is theirs (job `excl-cycle-q2-hess6`); my `w2_relax6.py` reproduces its input (62-dim kernel, 426 quadrics, Psi(F) = 0).
 
 Code (lane dir `/tmp/hodge/results/cycle-q2/`): `w2lib.py` (sector bookkeeping, E1-kernel per sector mod p and numeric,
 Koszul-reduced sector-restricted complex variable projection `KoszulVarPro` with L-BFGS and Levenberg-Marquardt drivers,
@@ -40,7 +44,37 @@ characteristic-zero value, so J_16 mod p has full rank and the independence tran
 w = 0, D = 0.  No symmetry or parity assumption on D is needed.  (Closes gap 3 of the dossier; the previous bound was
 deg D >= 5 with only semi-invariant degree-5 denominators excluded.)
 
-### Numerical joint search
+### Step 1: E1-admissible denominator spaces per degree (mod 2^31-1, all 72 character sectors; `w2_e1dims.py`)
 
-(pending; remote jobs queued: e1dims d=4..12; kernel d=6 (300 restarts/sector) and d=7 (150); kernel d=8 (60);
-structured cone4/mult4/cone3 families d=7..10; J-type relaxation d=6)
+K_d = {D in S_d : A D in J(F)} decomposes over the 72 characters of the projective diagonal group (parity included).
+
+| d | dim S_d | dim K_d | dim J_d | non-Jacobian (K mod J) | Y-even: S / K / J | sectors with K > J | max sector dim K |
+|---|---:|---:|---:|---:|---|---:|---:|
+| 4 | 126 | 0 | 0 | 0 | 66 / 0 / 0 | 0 / 69 | 0 |
+| 5 | 252 | 6 | 6 | 0 | 126 / 3 / 3 | 0 / 72 | 1 |
+| 6 | 462 | 62 | 36 | 26 | 236 / 36 / 18 | 19 / 72 | 6 (trivial sector = J) |
+| 7 | 792 | 546 | 126 | 420 | 396 / 273 / 63 | 72 / 72 | 12 |
+| 8 | 1287 | 1161 | 336 | 825 | 651 / 591 / 168 | 72 / 72 | 22 |
+| 9 | 2002 | 1946 | 756 | 1190 | 1001 / 973 / 378 | 72 / 72 | 32 |
+| 10 | 3003 | 2982 | 1497 | 1485 | 1512 / 1503 / 750 | 72 / 72 | 48 |
+| 11 | 4368 | 4362 | 2682 | 1680 | 2184 / 2181 / 1341 | 72 / 72 | 66 |
+| 12 | (running) | | | | | | |
+
+The non-Jacobian dimensions reproduce the annihilator dimensions of the dossier (26, 420, 825, 1190, 1485, 1680 =
+dim R_d - dim R_{d+12}, i.e. multiplication by [A] is surjective onto R_{d+12} for d >= 8).  From d = 8 on, E1 is almost
+vacuous (codimension 126, 56, 21, 6 in S_d), so the per-sector search spaces are 16-66 dimensional.
+
+### Steps 2-5: joint numerical search (remote jobs, running)
+
+* chain A `search-cycle-q2-chainA`: e1dims (done to d = 11) -> kernel d = 6, all sectors, 300 LM restarts each -> d = 7
+  (150) -> d = 8 (60).
+* chain B `search-cycle-q2-chainB`: J-type relaxation d = 6 (numeric, 400 restarts) -> cone4 (15 line vertices), mult4
+  (15 lines: multiplicity >= 4 at the six points of X ∩ line), cone3 (20 plane vertices) at d = 7, 8, 9, 10, 40/40/30
+  restarts per sector.
+* chain C `search-cycle-q2-chainC`: trivial sector at d = 6 (the 6-dim family D = sum a_i Z_i F_i whose Jacobian
+  relaxation is a degree-8 surface V0, see excl notes R6) with 3000 LM restarts in 8 parallel parts -> kernel d = 9 (30).
+* chain D `search-cycle-q2-chainD`: modular sector tests of 420 structured semi-invariant candidates (117 Hessian 2x2
+  minors d = 8, 210 Hessian 3x3 minors d = 12, 63 subset-Euler forms E_I(F) d = 6 and their squares d = 12, block-q2
+  cubics in each pair, pair-Fermat products, F_i F_j), two primes.
+
+Results: pending.

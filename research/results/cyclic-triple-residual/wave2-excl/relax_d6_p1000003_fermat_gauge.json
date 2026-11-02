@@ -1,0 +1,12 @@
+{
+ "d": 6,
+ "p": 1000003,
+ "n_vars_gauge": 35,
+ "n_removed": 1,
+ "n_quadrics": 52,
+ "lead_size": 52,
+ "pure_powers": 12,
+ "m_primary": false,
+ "seconds": 0.0,
+ "rc": 0
+}

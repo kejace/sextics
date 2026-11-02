@@ -228,6 +228,17 @@ int sge_eliminate(SGE *h, i32 max_pivots, i32 stop_cols, i64 max_cost, i64 max_n
     return 4;
 }
 
+/* mark columns as never-pivot (state 3): they stay in the rows, are not counted, and are exported with the
+ * active remainder.  Used for "served space" computations (eliminate N,Q unknowns, keep the target columns). */
+void sge_exclude_cols(SGE *h, const i32 *cols, i32 n) {
+    for (i32 t = 0; t < n; t++) {
+        i32 c = cols[t];
+        if (c < 0 || c >= h->ncols) continue;
+        if (h->cstate[c] == 0) { bucket_remove(h, c); h->active_cols--; }
+        if (h->cstate[c] != 1) h->cstate[c] = 3;
+    }
+}
+
 i32 sge_npiv(SGE *h) { return h->npiv; }
 i32 sge_active_rows(SGE *h) { return h->active_rows; }
 i32 sge_active_cols(SGE *h) { return h->active_cols; }

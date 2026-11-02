@@ -707,6 +707,15 @@
    "jacobian_dim": 168,
    "ring_dim": 483,
    "secs": 107.5
+  },
+  {
+   "d": 9,
+   "parity": 0,
+   "kernel_dim": 572,
+   "ker_mod_J": 194,
+   "jacobian_dim": 378,
+   "ring_dim": 623,
+   "secs": 323.5
   }
  ],
  "ts": "2026-11-02T00:43:15"

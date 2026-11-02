@@ -46,3 +46,5 @@
 {"check": "row27", "claim": "(2,2,4) net fibres, h20+ = 9, h20- = 10", "verdict": "CONFIRMED", "evidence": "logic", "ts": "2026-11-02T00:42:38", "agent": "verify"}
 {"check": "row28", "claim": "gcd(w(F),F)=1 iff w not in h*Euler (d<=9)", "verdict": "CONFIRMED", "evidence": "logic", "ts": "2026-11-02T00:42:38", "agent": "verify"}
 {"check": "row29", "claim": "geometric E1 sanity sweep all fail E1", "verdict": "CONFIRMED (redundant with E1-kernel theorem)", "evidence": "logic", "ts": "2026-11-02T00:42:38", "agent": "verify"}
+{"check": "msolve leading-ideal reading d=6 even", "n_leading": 135, "hilbert_S_mod_I": [1, 17, 18, 2, 0, 0], "verdict": "consistent with excl claim [1,17,18,2,0]", "method": "own count of standard monomials from the GB leading terms (msout, p=2147483587)", "ts": "2026-11-02T00:51:46", "agent": "verify"}
+{"check": "fixedD dF/dX0", "d": 5, "p": 4294967291, "rows": 10152, "cols": 1446, "nN": 1386, "nQ": 60, "rank": 1317, "rank_aug": 1318, "consistent_mod_p": false, "nullity": 129, "t_build": 514.4, "t_rank": 580.3, "method": "own code fixedD.py dense rank, no compression", "D": "dF/dX0", "ts": "2026-11-02T00:59:44", "agent": "verify"}

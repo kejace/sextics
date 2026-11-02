@@ -23,6 +23,7 @@ ap.add_argument('--family', default=None)
 ap.add_argument('--d', type=int, default=None)
 ap.add_argument('--parity', type=int, default=None)
 ap.add_argument('--prime-index', type=int, default=0)
+ap.add_argument('--prime', type=int, default=None)
 ap.add_argument('--tag', default='e2exact')
 ap.add_argument('--name', default='')
 ap.add_argument('--compress', action='store_true', help='random row compression to ncols+40 rows before rref')
@@ -31,7 +32,7 @@ ap.add_argument('--seed', type=int, default=0)
 args = ap.parse_args()
 
 F, A, q = load()
-p = core.PRIMES[args.prime_index]
+p = args.prime or core.PRIMES[args.prime_index]
 Fp = core.reduce_mod(F, p); Ap = core.reduce_mod(A, p)
 Fi = [pderiv(Fp, i, p) for i in range(NV)]
 pA = core.parity_of(A)

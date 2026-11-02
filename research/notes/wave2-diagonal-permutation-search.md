@@ -12,6 +12,9 @@ Scripts: `w2pt.py` (pointwise variable projection, see §2), `w2pt_search.py` (m
 | experiment | result |
 |---|---|
 | D8 (unique non-Jacobian E1-kernel element at d=8), full fixed-D system (40326 eq, 7497 unknowns), compressed, mod p=2147483647 and p=2147483629 | **inconsistent at both primes** (rank 6703, nullity 794 both) ⇒ the only non-Jacobian denominator of degree ≤ 8 is excluded; every degree-8 denominator is Jacobian-type `w(F)` (w cubic) |
+| D8 served-target space (compressed homogeneous system with 226 target columns) | served dim = 18 = `J_6^-` (only the zero class); A not served |
+| E1 kernel modulo `J(F)` at d=9, Y-even (`mult_kernel`, rows 7752, cols 10010) | **dim 21** (kernel 399 = 378 + 21): the first non-Jacobian denominators appear at **d = 9**, not 10 (duality ⇒ Y-odd kernel also 21) |
+| E1 kernel modulo `J(F)` at d=9, Y-odd | **dim 21** (computed; matches duality) |
 
 ## 2. Method for the joint search (reduced E2, pointwise)
 
@@ -26,4 +29,23 @@ relaxation `A·wᵀHess(F)w ∈ J(F)` (necessary; 208 quadrics in 63 unknowns at
 
 ## 3. Batches (filled as they finish)
 
-(none yet)
+| batch | family | d | sector | restarts | best rel. residual | median | status |
+|---|---|---|---|---|---|---|---|
+| j7a | Jacobian `w(F)`, w quadratic (63 params, 3 gauge removed; 420 Koszul unknowns; r = 543 points) | 7 | all | 368 / 3200 | 9.9e-2 | 0.22 | running |
+| j8a | Jacobian `w(F)` (w cubic, 168) ⊕ D8 (169 params, 12 gauge; 954 Koszul; r = 1183) | 8 | all | started | – | – | running |
+
+Relative residual = `min_c |ρ|² / |B_D(N^0)|²` at the normalized point; values ~0.1–0.3 are ordinary local minima of an
+infeasible system.  **Control** (`w2_control.py`, accepted witness `fermat-pair-rational-d4-strict`, d=4): with the exact E1
+lift the pointwise residual is `f = 3e-30` (here `B_D(u)` itself vanishes on `V(F)`, so the *relative* value is meaningless
+and an absolute criterion `f / median|B_0|²` was added to the driver); perturbing the lift by `(1/50)·monomial` or `D` by
+`(1/20)·monomial` gives relative residuals 0.90 / 0.92.
+
+## 4. Coordination (other agents on this lane, same remote lane dir)
+* `wave2-excl/` (exclusion/rigor agent): Hessian relaxation by msolve (d=5,6 all sectors: `V(I)={0}` rigorous mod p with
+  good reduction), E1 kernels at two primes (`e1kF`: d=8 odd kernel 0, d=9 even kernel 21 confirmed at p=1000000007),
+  D8 exact/rank-certified, structured families (`w2_families.py`), individual degree-9 kernel tests (`w2_d9.py`).
+* `w2search/` (second search agent): `fastvp.py` variable projection on Jacobian families from d=5 upward, structured
+  candidate E1 filter (`cands-structured.jsonl`).
+* `kern10/kern11/kern12` jobs: `w2_kernels.py` (E1 kernel bases d=10,11,12 mod p) launched by the search agent at 00:20 UTC;
+  my duplicate `k10` was killed.  My structured sweep (`w2_struct.py`) and Hessian numerics (`w2_hess.py`) are therefore
+  NOT run (covered by the other agents); this agent concentrates on the pointwise joint searches.

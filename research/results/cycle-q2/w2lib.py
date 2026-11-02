@@ -34,7 +34,11 @@ NV = 6
 BASE = eq.BASE
 POW = eq.POW
 LANE = '/tmp/hodge/results/cycle-q2'
-LOG = os.path.join(LANE, 'wave2-search.log.jsonl')
+import socket as _socket
+_HOST = _socket.gethostname()
+# remote jobs log to a host-specific file (never present locally, so rsync pushes cannot clobber it); merged on pull
+LOG = os.environ.get('HODGE_W2LOG') or (os.path.join(LANE, 'wave2-search.log.jsonl') if _HOST.startswith('brunos')
+                                        else os.path.join(LANE, f'wave2-search.{_HOST}.log.jsonl'))
 PRIME = eq.PRIME  # 2^31 - 1
 ENGINE = 2
 

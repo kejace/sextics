@@ -9,3 +9,4 @@
 {"ts":"2026-11-02T00:29:57Z","step":"spotcheck-launch","note":"launched spotcheck.py (3 workers, p=2147483563, ~100 (lane,d,parity) tasks) via nohup; rjob unusable on VM"}
 {"ts":"2026-11-02T00:30:05Z","step":"engine-bugs","note":"appended 2 confirmed entries to engine-bugs.md and 2 relays to engine-maintainer-inbox.md"}
 {"ts":"2026-11-02T00:40:19Z","step":"engine-bugs-2","note":"confirmed v2 augmented-rank convention (1318/128 vs v3 1317/129 on cyclic-triple dF/dX0) and engine clobbering by remote rsync; appended to engine-bugs.md"}
+{"ts":"2026-11-02T00:58:31Z","step":"status-v2","note":"wave2-status.md v2: verifier verdicts, verification batch (1e9+7), n_str certification lemma cross-lane, symmetric-sextic sector correction, polarized-k3 D6 symmetry, new rigorous bounds (cycle-q2>=6, eight-plane>=7, quadratic-cubic>=6, reflection-coupled>=6), D8/K8/D8* full tests rigorous"}

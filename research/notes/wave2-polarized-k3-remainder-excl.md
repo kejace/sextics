@@ -22,3 +22,31 @@ thread's DEGREE_SIX.md (p = 101): block L-ranks 603/558/396/260/396/558 (mod p =
 713/715/617/470/617/715, constraint rank 437; exact square elimination kills the 30 off-diagonal entries, then the 5
 diagonal ones (rank 15) => D = 0 or D = c*G. Degree-5 smoke test: all 6 parameters killed (rank 21). Receipts
 `wave2-excl/relax-full-d6-p65521-local.json`, `-exactQ.json`, `smoke-d5-p101.json`.
+
+### R2. NEW THEOREM (exact): the K3-sector target has no denominator of degree <= 6   [DONE 00:50]
+Target A_K3 := [(X0+Y0)^2(X1+Y1)^2(X2+Y2)^2 - (X0-Y0)^2(X1-Y1)^2(X2-Y2)^2]/64  (= 64^{-1}(B(U)-B(V)), the K3-sector
+projection of A; the book's P_0 A-hat).  Why it matters: served(D) depends only on Y = X ∩ V(D) and is additive over
+the components of Y (N_{Y1 ∪ Y2} = N_{Y1} + N_{Y2}); so a reducible denominator can serve A even if no factor does.
+The dossier's "sum principle => only irreducible octics remain" therefore needs: no low-degree support carries any
+K3-sector class.  By the dichotomy (End_Hdg(T) = Q, Λ²T irreducible) and if ρ = 1, that is equivalent to
+"no low-degree D serves A_K3".  Results (all exact over Q, p = 65521 cross-check):
+* E1 for A_K3: [A_K3] injective on (R/J)_d for d <= 7, both parities (mod 2^31-1 => over Q)  => E1-admissible D of degree <= 7 lie in J(F); degrees <= 4 impossible (J_d = 0).
+* d = 5: L-relaxation forces all 6 parameters to 0 (rank 17).  => excluded.
+* d = 6: L-relaxation forces 32/35 gauged parameters to 0; survivors a_i = c_i U_i (i<3); residual quadrics
+  (c0-c2)^2, (c0-c2)(c1-c2), (c1-c2)^2  => c0=c1=c2, i.e. D ~ f(U) modulo the gauge D ↦ D + tG.
+  Exact Koszul-normalized fixed-D test of D = f(U) for A_K3 (char-0 block 966 x 167): rank_Q 136, augmented 137 => inconsistent.
+  => no degree-6 D serves A_K3.   (Geometrically: X ∩ V(f(U)) = join of the two curves C_U, C_V supports the joining
+  sector Λ²H¹(C)(-1), not the K3 sector -- consistent with Ch. 3A.)
+* d = 7: relaxation queued on the remote (job excl-polarized-k3-remainder-relaxk3).
+Consequence (conditional on ρ(S_2) = 1, or on the 3-target-family version, see plan): no product of denominators of
+degree <= 6 can serve A; a legal octic would need X ∩ V(D) to have a component of degree >= 7·6 ... (completed once d=7 is done).
+
+### R3. Served-space K3-projection tool (unconditional vanishing statements)   [01:05]
+`wave2-excl/servedK3.py`: for a mu6-homogeneous D, the certificate system with a VARIABLE target in the K3 block
+(all 56 pure-U / pure-V sextic monomials) is character-graded; the projection of its nullspace to the target
+coordinates, reduced modulo J(f)(U) + J(f)(V), is the K3-class projection of served(D).  Because served_Q(D)
+reduces into served_p(D), a zero modular projection is a rigorous statement over Q (no dichotomy / ρ needed).
+Results: D = f(U): class dim 0 (served K3 monomials = 17 trivial J-classes).  D = U0, V0: class dim 0.
+This is the statement needed for the sum principle (N_{Y1∪Y2} = N_{Y1} + N_{Y2}): a product D1·D2 can only serve
+the K3 part of A if some factor has a NONZERO K3-projection; "A_K3 ∉ served(D_j)" alone is not enough.
+Controls: D = G (illegal, divisible by F) passes the exact Koszul checker for both targets.

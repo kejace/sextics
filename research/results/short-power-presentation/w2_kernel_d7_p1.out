@@ -6,3 +6,12 @@
 [JRef] e=7 par=1 p=2147483629: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
 [e1_kernel] d=7 par=1 p=2147483629: kernel incl J = 64, J_d = 63, mod J = 1 (32s)
 [kernel] reconstruction with 2 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (4, 0, 0, 0, 1, 2)', 'modulus_bits': 62}
+[JRef] e=13 par=0 p=2147483587: gens=3861 mons=4284 rank=3441 dimR=843 (build 9s, rref 84s)
+[JRef] e=7 par=1 p=2147483587: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
+[e1_kernel] d=7 par=1 p=2147483587: kernel incl J = 64, J_d = 63, mod J = 1 (98s)
+[kernel] reconstruction with 3 primes: ok {'modulus_bits': 93}
+[numerators] d=7 p=2147483647: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (58s)
+[numerators] d=7 p=2147483629: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (43s)
+[numerators] d=7 p=2147483587: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (41s)
+[numerators] d=7 p=2147483579: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (39s)
+{"kind": "e1-kernel", "d": 7, "parity": 1, "kernel_mod_J": 1, "kernel_dim_incl_J": 64, "dim_J_d": 63, "dim_R_d": 333, "dim_R_d6": 843, "primes": [2147483647, 2147483629, 2147483587], "rational": true, "reconstruction": {"modulus_bits": 93}, "seconds": 168.9, "tag": "local", "numerators": false}

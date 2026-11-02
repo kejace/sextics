@@ -373,12 +373,14 @@ class SectorVarPro:
             d = degs.pop()
             self.Dk = [dict(B) for B in basis]
             self.labels = [f'B{k}' for k in range(len(basis))]
+            self.exact_basis = all(isinstance(v, (Fraction, int)) for B in basis for v in B.values())
         else:
             assert wbasis, 'wspace mode needs a w-basis'
             d = core.degree(wbasis[0][1]) + 5
             self.wbasis = list(wbasis)
             self.Dk = [shift(I.Fi[i], m, 1) for (i, m) in wbasis]
             self.labels = [f'{core.to_str({m: Fraction(1)})}*F_{i}' for (i, m) in wbasis]
+            self.exact_basis = True
         self.d = d; self.K = len(self.Dk)
         pD = parity
         self.pars = fixed_d.numerator_parities({next(iter(self.Dk[0])): Fraction(1)}, A)
@@ -620,12 +622,29 @@ class SectorVarPro:
         return D
 
     def D_exact(self, frac):
+        if not self.exact_basis:
+            return None
         D = {}
         for k, B in enumerate(self.Dk):
             if frac[k] == 0:
                 continue
             D = add(D, scale(B, Fraction(frac[k])))
         return D
+
+    def D_exact_from_float(self, Df, max_den):
+        """Rational D from float monomial coefficients (normalised by the largest), via limit_denominator."""
+        if not Df:
+            return None, 1.0
+        emax = max(Df, key=lambda e: abs(Df[e]))
+        vmax = Df[emax]
+        D = {}; err = 0.0
+        for e, v in Df.items():
+            x = v / vmax
+            fr = Fraction(x).limit_denominator(max_den)
+            err = max(err, abs(float(fr) - x))
+            if fr != 0:
+                D[e] = fr
+        return D, err
 
     # ------------------------------------------------------------------
     def one_restart(self, rng, maxiter=300, gtol=1e-10, init=None, polish=True):
@@ -710,8 +729,11 @@ def handle_candidate(svp, cand, tag, job, extra=None, confirm=True):
         rec.update(extra)
     if confirm and not cand['spurious']:
         tried = set()
-        for fr, err in reconstruct_candidates(a):
-            D = svp.D_exact(fr)
+        if svp.exact_basis:
+            recon = [(svp.D_exact(fr), err) for fr, err in reconstruct_candidates(a)]
+        else:
+            recon = [svp.D_exact_from_float(Df, md) for md in (1, 2, 6, 12, 60, 120, 1000, 10**4, 10**5, 10**6, 10**8)]
+        for D, err in recon:
             Ds = core.to_str(D) if D else '0'
             if Ds in tried:
                 continue
@@ -837,6 +859,7 @@ class HessRelax(SectorVarPro):
         d = core.degree(wbasis[0][1]) + 5; self.d = d
         self.Dk = [shift(I.Fi[i], m, 1) for (i, m) in wbasis]
         self.labels = [f'{core.to_str({m: Fraction(1)})}*F_{i}' for (i, m) in wbasis]
+        self.exact_basis = True
         self.pars = fixed_d.numerator_parities({next(iter(self.Dk[0])): Fraction(1)}, I.A)
         Dki = [[pderiv(Dk, i) for i in range(NV)] for Dk in self.Dk]
         Am = [shift(I.A, m, 1) for (i, m) in wbasis]

@@ -31,12 +31,15 @@ def char_of(P):
     cs = {char(e) for e in P}
     return cs.pop() if len(cs) == 1 else None
 def cadd(*cs):
+    if any(c is None for c in cs): return None
     a = b = 0
     for c in cs: a += c[0]; b += c[1]
     return (a % 6, b % 6)
 VARCHAR = [char(tuple(1 if j == i else 0 for j in range(NV))) for i in range(NV)]
 def monos_char(deg, c):
-    return [m for m in monomials(deg) if char(m) == c] if deg >= 0 else []
+    if deg < 0: return []
+    if c is None: return list(monomials(deg))
+    return [m for m in monomials(deg) if char(m) == c]
 
 def log(rec):
     rec = dict(rec); rec.setdefault('engine', 2); rec.setdefault('lens', 'excl'); rec['time'] = time.strftime('%Y-%m-%d %H:%M:%S')
@@ -180,6 +183,106 @@ def inconsistency_certificate(colpolys, rhs, primes=PRIMES, max_primes=12, verbo
                     return {'ok': True, 'y': {core.to_str({inv[i]: 1}): str(v) for i, v in y.items()}, 'r': r, 'rank_aug': rkb,
                             'rows': R, 'cols': C, 'nrows_used': r+1, 'primes_used': used_primes, 'max_height': max(max(abs(v.numerator), v.denominator) for v in y.values())}
     return {'ok': False, 'reason': 'rational reconstruction failed within prime budget', 'r': r, 'rank_aug': rkb, 'primes_used': used_primes}
+
+def inconsistency_certificate_fast(colpolys, rhs, p=PRIMES[0], verbose=False):
+    """Exact inconsistency certificate via ONE modular rref (row/column selection) + ONE exact Dixon solve.
+    mod p: S = r independent rows of M (pivots of rref(M^T)); T = r independent columns of M_S; row i with
+    b_i != c_i.b_S where M_i = c_i^T M_S.  Exact: solve the square (r+1)x(r+1) system  [M_{S+i,T} | b_{S+i}]^T y = e_{r+1}
+    over Q (fmpz_mat.solve, p-adic), then verify y^T M = 0 (all columns) and y^T b = 1 EXACTLY over Q.
+    Returns dict(ok, y: {row-monomial-string: Fraction-string}, r, rank_aug, rows, cols, height_bits, seconds)."""
+    t0 = time.time()
+    rows = to_sparse(colpolys, rhs); R = len(rows); C = len(colpolys)
+    inv = {i: e for e, i in rows.items()}
+    Mb = dense_mod(colpolys, rhs, rows, p)
+    M = nmod_mat(R, C, [int(Mb[i, j]) for i in range(R) for j in range(C)], p)
+    r = M.rank(); rkb = Mb.rank()
+    if rkb != r + 1:
+        return {'ok': False, 'reason': f'rank M={r}, rank [M|b]={rkb} mod {p}', 'r': r, 'rank_aug': rkb, 'rows': R, 'cols': C}
+    # independent rows S of M and independent columns T of M_S
+    Tt, _ = M.transpose().rref()
+    S = []; k = 0
+    for j in range(R):
+        if k < r and int(Tt[k, j]) != 0: S.append(j); k += 1
+    MS = nmod_mat(r, C, [int(M[i, j]) for i in S for j in range(C)], p)
+    Rr, _ = MS.rref()
+    T = []; k = 0
+    for j in range(C):
+        if k < r and int(Rr[k, j]) != 0: T.append(j); k += 1
+    # coordinates c_i of every row of M in terms of rows S, using columns T only (M_S,T is invertible):
+    # c_i^T = M_{i,T} (M_{S,T})^{-1}
+    MST = nmod_mat(r, r, [int(M[i, j]) for i in S for j in T], p)
+    MSTinv = MST.inv()
+    Sset = set(S)
+    bvec = [int(Mb[i, C]) for i in range(R)]
+    bS = nmod_mat(r, 1, [bvec[i] for i in S], p)
+    extra = None
+    # predicted b_i = M_{i,T} MST^{-1} b_S ; compute w = MST^{-1} b_S once
+    w = MSTinv * bS
+    for i in range(R):
+        if i in Sset: continue
+        pred = sum(int(M[i, j]) * int(w[k, 0]) for k, j in enumerate(T)) % p
+        if pred != bvec[i]:
+            extra = i; break
+    if extra is None:
+        return {'ok': False, 'reason': 'no witness row found mod p (unexpected)', 'r': r, 'rank_aug': rkb}
+    used = S + [extra]
+    # exact square system: unknown y (r+1); equations: sum_i y_i M[i, j] = 0 for j in T; sum_i y_i b_i = 1
+    def fr(v): v = Fraction(v); return v
+    # build integer matrix after clearing denominators column-wise
+    from math import lcm
+    Aq = [[Fraction(0)]*(r+1) for _ in range(r+1)]   # rows: equations (T cols then b), cols: y index
+    colmap = {j: k for k, j in enumerate(T)}
+    for jj, col in enumerate(colpolys):
+        if jj not in colmap: continue
+        eq = colmap[jj]
+        for e, v in col.items():
+            i = rows[e]
+            if i in used: Aq[eq][used.index(i) if False else None] = None  # placeholder (replaced below)
+    # (rebuild efficiently with index dict)
+    uidx = {i: k for k, i in enumerate(used)}
+    Aq = [[Fraction(0)]*(r+1) for _ in range(r+1)]
+    for jj in T:
+        eq = colmap[jj]
+        for e, v in colpolys[jj].items():
+            i = rows[e]
+            if i in uidx: Aq[eq][uidx[i]] += Fraction(v)
+    for e, v in rhs.items():
+        i = rows[e]
+        if i in uidx: Aq[r][uidx[i]] += Fraction(v)
+    # clear denominators per equation (row scaling keeps the solution)
+    Z = []
+    for row in Aq:
+        L = 1
+        for v in row:
+            if v: L = lcm(L, v.denominator)
+        Z.append([int(v * L) for v in row])
+    rhsZ = [0]*r + [1]
+    # scale last eq consistently: Aq[r] was scaled by L_r, so rhs 1 -> L_r
+    Lr = 1
+    for v in Aq[r]:
+        if v: Lr = lcm(Lr, v.denominator)
+    rhsZ[r] = Lr
+    Amat = fmpz_mat(r+1, r+1, [x for row in Z for x in row])
+    bmat = fmpz_mat(r+1, 1, rhsZ)
+    try:
+        ysol = Amat.solve(bmat)
+    except Exception as ex:
+        return {'ok': False, 'reason': f'exact solve failed: {ex}', 'r': r, 'rank_aug': rkb}
+    y = {}
+    for k, i in enumerate(used):
+        v = ysol[k, 0]
+        fv = Fraction(int(v.p), int(v.q))
+        if fv: y[i] = fv
+    # exact verification over all columns
+    for col in colpolys:
+        if sum(y[rows[e]] * Fraction(v) for e, v in col.items() if rows[e] in y) != 0:
+            return {'ok': False, 'reason': 'exact verification failed (y^T M != 0)', 'r': r, 'rank_aug': rkb}
+    yb = sum(y[rows[e]] * Fraction(v) for e, v in rhs.items() if rows[e] in y)
+    if yb != 1:
+        return {'ok': False, 'reason': f'exact verification failed (y^T b = {yb})', 'r': r, 'rank_aug': rkb}
+    hb = max(max(abs(v.numerator), v.denominator).bit_length() for v in y.values())
+    return {'ok': True, 'y': {core.to_str({inv[i]: 1}): str(v) for i, v in y.items()}, 'r': r, 'rank_aug': rkb, 'rows': R, 'cols': C,
+            'nrows_used': r+1, 'prime_for_selection': p, 'height_bits': hb, 'seconds': round(time.time()-t0, 1)}
 
 def verify_certificate_exact(colpolys, rhs, ycert):
     """Re-verify a certificate dict (monomial-string -> Fraction-string) exactly over Q from scratch."""

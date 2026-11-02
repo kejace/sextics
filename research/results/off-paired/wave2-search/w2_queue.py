@@ -33,7 +33,7 @@ while True:
     name, cpus, cmd = q[0].split('|', 2)
     print(time.strftime('%H:%M:%S'), f'submitting {name} (cpus {cpus}); running now: {running}', flush=True)
     try:
-        out = rjob('submit', '--lane', 'off-paired', '--name', PREFIX + name, '--cpus', cpus, '--wait', '3600', '--', cmd, timeout=3900)
+        out = rjob('submit', '--lane', 'off-paired', '--name', PREFIX + name, '--cpus', cpus, '--force', '--', cmd, timeout=900)
     except Exception as ex:
         print('submit failed', ex, flush=True); time.sleep(120); continue
     print(out.strip()[-400:], flush=True)

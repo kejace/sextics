@@ -345,15 +345,18 @@ def e1_kernel(prob, d, pD, sD, p=PR[0], verbose=False, T=None):
         Kmat = Qperp.T @ MA
     else:
         Kmat = MA
-    ns = sla.null_space(Kmat, rcond=1e-9)
-    if ns.shape[1] != kerD_p:
-        # try a looser / tighter cutoff before giving up
-        for rc in (1e-7, 1e-11, 1e-6, 1e-12):
-            ns = sla.null_space(Kmat, rcond=rc)
-            if ns.shape[1] == kerD_p:
-                break
-    if ns.shape[1] != kerD_p:
-        raise RuntimeError(f'float kernel dim {ns.shape[1]} != mod-p kernel dim {kerD_p} at d={d} sector ({pD},{sD})')
+    # the kernel dimension is known exactly (mod p); take exactly kerD_p right singular vectors and record the gap
+    Uk, sk, Vk = np.linalg.svd(Kmat, full_matrices=True)
+    nD_ = Kmat.shape[1]
+    rank_k = nD_ - kerD_p
+    ns = Vk[rank_k:].T.copy()
+    s_small = float(sk[rank_k]) if rank_k < len(sk) else 0.0          # largest singular value treated as zero
+    s_keep = float(sk[rank_k - 1]) if rank_k >= 1 else float('inf')   # smallest singular value kept as nonzero
+    info['sv_gap'] = [s_keep, s_small]
+    ns_auto = sla.null_space(Kmat, rcond=1e-9)
+    info['float_kernel_dim_auto'] = int(ns_auto.shape[1])
+    if s_small > 1e-6 * s_keep and s_small > 1e-6:
+        raise RuntimeError(f'ambiguous kernel at d={d} sector ({pD},{sD}): mod-p dim {kerD_p}, singular values around the cut {s_keep:.2e} / {s_small:.2e}')
     info['seconds'] = round(time.time() - t0, 1)
     if verbose:
         print(f'[e1ker {prob.name}] {info}', file=sys.stderr)

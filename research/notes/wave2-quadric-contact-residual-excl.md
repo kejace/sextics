@@ -33,6 +33,14 @@ Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (+ per-job
    2.9e6, <0  => a Nullstellensatz certificate needs degree >= 5 (Macaulay matrices ~2.8e8 x 2.3e8): infeasible.
 6. [tooling check] target_image (served-target space, sum principle) validated on collision-h3 and hesse-triangle (A in served(D_witness)).
 
+7. [NEW, rigorous] d = 8, Gamma-invariant family (G_aff and s0, r1 invariant; contains D8* and the F*S_2^Gamma gauge):
+   20 parameters = 3 gauge + 16 Jacobian + 1 extra (D8*), 17 unknowns, 52 quadrics of rank 35 (wave-1 numbers reproduced at P2);
+   msolve -g 1: m-primary leading ideal (max pure power 5) => EXCLUDED over C.  This closes wave-1's pending Groebner item
+   (wave-1's own msolve runs were on misparsed input).
+8. [NEW, rigorous] d = 8, pure G_aff character sectors: 20 of the 24 sectors EXCLUDED (gauge-fixed full E1-admissible family,
+   4-17 unknowns, 37-52 quadrics, msolve -g 1 m-primary; log exp = closure-pure-sector).  Remaining: (0,0,0,0) [29 unknowns],
+   (0,0,0,1) [27], (1,1,0,0) [26], (1,1,0,1) [26] (52 quadrics each; Froeberg regularity ~5-6; queued for the remote).
+
 ## Running (remote)
 * excl-reverify: E1 colon dims d<=9, d=7 parity sectors, all 24 pure G_aff sectors at d=8 and d=9 (Singular verdicts).
 * excl-fixedD: sector re-solves of D8*, Z_i*D8* at P2; engine cross-check; served-target spaces of structured blocks (sum principle).

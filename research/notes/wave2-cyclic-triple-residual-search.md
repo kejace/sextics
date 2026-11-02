@@ -1,23 +1,30 @@
 # Wave 2 search report: `cyclic-triple-residual` (q = 1, A = X0^3 Y0^3)
 
-STATUS (2026-11-01 19:30 local): **no witness found so far**. Remote job `search-cyclic-triple-residual-aux` running (E1-admissible spaces d=4..10 done with exact bases; structured sweep in progress). Jobs `jac` (rigorous mod-J exclusion for d=5,6,7 via msolve + Fermat calibration + Jacobian-type joint searches), `sec8`, `sec9` (sector joint searches at d=8, 9) are queued behind the remote load cap (load ~300 on 128 cores from other agents; the runner now refuses submissions above load 150 and `--wait` polls for capacity).
+STATUS (2026-11-01 19:54 local): **No witness found so far.** Rigorous so far (this wave): no certificate with deg D <= 4 (no E1-admissible D); none with deg D = 5 (both parities, HF_3 = 0); none with deg D = 6 and Y-odd D (HF_4 = 0); for deg 6 Y-even the relaxation variety modulo the F-gauge is at most ONE projective point (HF_4 = 1), being identified (E_X(F) is NOT it: Bil(E_X F, A X) is not in J_12). Structured sweep: 61/102 candidates done, none consistent (all degree-6 structured candidates fail E1). Remote: job `aux` (sweep) running; `jac`, `sec8`, `sec9`, `served` queued behind the capacity gate (remote load ~700 on 128 cores from other agents).
 
-Code: `/tmp/hodge/results/cyclic-triple-residual/w2core.py` (exact E1-admissible spaces per G-sector via fmpz nullspace; Koszul-reduced, sector-restricted variable-projection search; mod-J relaxation; reconstruction + exact confirmation through the wave-1 sector solver `sect.py`), `w2run.py` (multiprocessing driver), job scripts `w2_e1space.py`, `w2_jac.py`, `w2_sector.py`, `w2_sweep.py`, `w2_macaulay.py` + `w2_hilb.py` (rigorous relaxation exclusion), `w2_report.py` (renders the tables below from the log). Canonical log: `/tmp/hodge/results/cyclic-triple-residual/wave2-search.log.jsonl` (merged from per-process `w2log-*.jsonl` files by `w2_pull.sh`).
+Code (all in `/tmp/hodge/results/cyclic-triple-residual/`): `w2core.py` (exact E1-admissible spaces per G-sector via fmpz nullspace; Koszul-reduced, sector-restricted variable-projection search; mod-J relaxation; reconstruction + exact confirmation through the wave-1 sector solver `sect.py`), `w2run.py` (multiprocessing driver), jobs `w2_e1space.py`, `w2_jac.py` (+ `w2_jacjob.sh`), `w2_sector.py`, `w2_sweep.py`, `w2_served.py` (served target spaces / sum principle), `w2_macblocks.py` (rigorous relaxation exclusion by G-graded block Macaulay ranks), `w2_macaulay.py` + `w2_hilb.py` (msolve cross-check), `w2_report.py`/`w2_mkreport.py` (this report). Canonical log: `/tmp/hodge/results/cyclic-triple-residual/wave2-search.log.jsonl` (merged from per-process `w2log-*.jsonl` files by `w2_pull.sh`; remote mirror `/tmp/hodge/remote/cyclic-triple-residual/`).
 
 ## Method
 Split form E1: q N(F) = A D, E2: D div N - N(D) = F Q. Every E1 lift is N0 + K(c), K(c) = sum_{i<j} c_ij (F_j e_i - F_i e_j), deg c_ij = d - 4 (book ch. 5.2).
 For a linear family D(a) = sum a_k D_k with exact lifts N0_k the E2 residual r = Bil(D(a), N0(a) + K(c)) - F Q is linear in (c, Q):
-f(a) = min_{c,Q} |r|^2 on the unit sphere in a (variable projection with the analytic Golub-Pereyra gradient; the subspace of F-multiples is projected out; L-BFGS-B random restarts; rel = f/|Bil(D, N0)|^2).
+f(a) = min_{c,Q} |r|^2 on the unit sphere in a (variable projection, analytic Golub-Pereyra gradient, L-BFGS-B random restarts; the subspace of F-multiples is projected out, which is lossless by the gauge (D, N) -> (D + lF, N + A l Z/6); rel = f/|Bil(D, N0)|^2).
 Mod-J ("Hessian") relaxation: f_J(a) = |P_perp^T Bil(D(a), N0(a))|^2 with P_perp an orthonormal basis of the complement of J(F)_{2d} in the E2 row space -- a necessary condition (im T_D and F S lie in J).
 Character sectors of the order-18 diagonal group G (generators mu3 = (0,0,2,0,0,0), s = (1,5,1,2,2,0); labels (m.mu3, m.s) mod 6; chi_A = (0,3); chi(N_i) = chi_A + c + chi(e_i), chi(Q) = chi_A + 2c).
-Rigorous exclusion at Jacobian-type degrees: for d <= 7 every E1-admissible D is w.grad F; the relaxation is a system of dim R_{2d}^- quadrics in the w-space; if msolve's leading ideal mod p shows the Hilbert function vanishing in some degree, the Macaulay matrix has full column rank mod p, hence over Q, so w = 0 is the only solution (no certificate of that degree/parity). Verified on d=5 (Y-even): the 6 quadratic monomials are all leading terms.
+Rigorous exclusion at Jacobian-type degrees (d <= 7, where Ann([A])_d = 0 so every E1-admissible D is w.grad F): the relaxation is a system of dim R_{2d}^- quadrics q_s(w) in the w-space; the degree-k Macaulay matrix is block-diagonal by the G-character of w; if every block has full column rank mod p (p good for J_{2d}: the mod-p rank of J_{2d}^- equals the Hilbert-series value), the ideal contains all degree-k forms over F_p, hence over Q, so w = 0 is the only solution. The spurious locus L = {l Z/6} (D = lF) consists of solutions; V(q) is invariant under translation by L (gauge), so restricting to a complement of L (dropping the coordinates (0, m) with X0 | m) is lossless. Macaulay's bound HF(k+1) <= HF(k)^<k> turns HF_k = 1 into "at most one projective point".
 
 Jacobian ring dimensions (Hilbert series (1+t+..+t^4)^6, Y-odd parts): R_10^- = 744, R_12^- = 866, R_14^- = 744, R_16^- = 468, R_18^- = 208, R_20^- = 60, R_22^- = 9, R_24^- = 0.
 
 ## Self-test (local)
-Vectorized residual vs direct evaluation: 1.3e-16. Gradient FD check: 8e-10 / 1.7e-8. Fermat control (F0 = Fermat sextic, d=6, sector (0,0), family dim 31): the known witness direction (X0^6+X1^6+X2^6, gauge-shifted by F0/2) has residual 0 in the family; 6 random restarts missed it (best rel 1e-2) -> hit-rate calibration with 400 restarts is part of the jac job.
+Vectorized residual vs direct evaluation: 1.3e-16. Gradient FD check: 8e-10 / 1.7e-8. Fermat control (F0 = Fermat sextic, d=6, sector (0,0), family dim 31): the known witness direction (X0^6+X1^6+X2^6, gauge-shifted by F0/2) has residual 0 in the family; 6 random restarts missed it (best rel 1e-2) -> hit-rate calibration with 400 restarts is the first batch of the jac job.
 
-## Results so far
+## Results
+### Rigorous consequences (this wave; all mod-p statements are of the "rank over F_p <= rank over Q" type, so they are theorems over Q/C)
+
+1. deg D <= 4: no E1-admissible denominator at all (Ann([A])_d = 0 and J_d = 0), confirmed by the exact E1-space computation.
+2. deg D = 5 (both Y-parities): every E1-admissible D is a polar combination a.grad F; the relaxation quadrics already span all quadratic forms in the 3 unknowns (HF_2 = 0 in each parity), so no certificate with deg D = 5 exists.
+3. deg D = 6, D Y-odd: E1-admissible D = w.grad F with w a Y-odd/even linear field (18 unknowns); the degree-4 Macaulay matrix of the 866 relaxation quadrics has full column rank mod p (HF_4 = 0): no Y-odd denominator of degree 6.
+4. deg D = 6, D Y-even: the solutions of the relaxation form, modulo the F-gauge line (D = cF), a scheme with Hilbert function HF_3 = 11, HF_4 = 1, hence (Macaulay bound) at most one projective point; E_X(F) = sum_{i<3} X_i dF/dX_i (gauge-equivalent to E_Y(F)) is not that point (Bil(E_X F, A X) is a 5-term polynomial -- A times the five mixed couplings -- not in J_12, exactly over Q). See the identification entry below for the status of this single candidate point.
+
 ### E1-admissible spaces by degree (G-sectors; dims mod p = rigorous upper bounds, bases exact over Q)
 
 | d | dim S_d | dim J_d | kerA in S_d | ker mod J | dimension-forced | sporadic | sectors with ker mod J > 0 | time |
@@ -29,6 +36,19 @@ Vectorized residual vs direct evaluation: 1.3e-16. Gradient FD check: 8e-10 / 1.
 | 8 | 1287 | 336 | 337 | 1 | 0 | 1 | 04:1 | 20.1s |
 | 9 | 2002 | 756 | 876 | 120 | 116 | 4 | 00:19, 01:20, 02:17, 03:19, 04:16, 05:19, 25:1, 40:3, 41:1, 42:3, 44:2 | 83.0s |
 | 10 | 3003 | 1497 | 2053 | 556 | 555 | 1 | 00:52, 01:50, 02:53, 03:51, 04:53, 05:52, 20:19, 21:19, 22:20, 23:17, 24:19, 25:16, 40:24, 41:18, 42:27, 43:21, 44:27, 45:18 | 210.9s |
+
+### Rigorous relaxation exclusions (block Macaulay ranks mod p; HF_k = 0 is rigorous over Q)
+
+| d | Y-parity | restricted to complement of F-gauge locus | #w vars | quadric span rank | k | HF_k | rigorous exclusion | time |
+|---|---|---|---|---|---|---|---|---|
+| 5 | 0 | False | 3 | - | 3 | 0 | YES | 2.4s |
+| 5 | 1 | False | 3 | - | 3 | 0 | YES | 2.5s |
+| 6 | 0 | False | 18 | - | 3 | 80 | no | 23.8s |
+| 6 | 1 | False | 18 | - | 3 | 2 | no | 23.1s |
+| 6 | 0 | False | 18 | 102 | 4 | 81 | no | 49.8s |
+| 6 | 1 | False | 18 | 134 | 4 | 0 | YES | 53.3s |
+| 6 | 0 | True | 17 | 102 | 3 | 11 | no | 18.2s |
+| 6 | 0 | True | 17 | 102 | 4 | 1 | no | 49.9s |
 
 ### Rational reconstructions tested exactly
 
@@ -112,3 +132,15 @@ Vectorized residual vs direct evaluation: 1.3e-16. Gradient FD check: 8e-10 / 1.
 - selftest w2core self-test: vectorized Koszul-varpro residual vs direct E2 evaluation rel err 1.3e-16; gradient FD check 8e-10 (full) / 1.7e-8 (relax); lane F d=6 sector (0,0): S=49 J=8 kerA=8 ker_mod_J=0, 3 restarts best rel 0.19 (full), 8.2e-4 (relax, dim R_12^(0,3)=119); Fermat control F0 d=6 sector (0,0): S=49 J=8 kerA=31 ker_mod_J=23; target direction X0^6+X1^6+X2^6-F0/2 has residual exactly 0 in the f
 - macaulay-prep 
 - macaulay HF(k)=0 for some k means the relaxation quadrics span all degree-k forms mod p, hence over Q: no E1-admissible D of this degree/parity satisfies E2
+- served 
+- served 
+- served 
+- served-span 
+- macaulay-blocks degree-3 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-3 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 5, Y-parity 0
+- macaulay-blocks degree-3 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-3 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 5, Y-parity 1
+- macaulay-blocks degree-3 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-3 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 0
+- macaulay-blocks degree-3 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-3 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 1
+- macaulay-blocks degree-4 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-4 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 0
+- macaulay-blocks degree-4 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-4 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 1
+- macaulay-blocks degree-3 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-3 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 0
+- macaulay-blocks degree-4 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-4 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 0

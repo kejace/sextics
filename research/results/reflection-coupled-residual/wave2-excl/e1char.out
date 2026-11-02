@@ -119,16 +119,3 @@ RECEIPT {"d": 8, "chi": [1, 1], "p": 2147483587, "dim_Sd": 238, "target_chi": [1
 [reducer n=9 chi=(0, 0) p=2147483587] dim S=623 gens=242 rank J=242 nul=381 fermat=381 good_reduction=True (0.3s)
 [e1 d=9 chi=(0, 0) p=2147483587] dim S_d^c=623 rankA=360 ker=263 ker mod J=21 good=(True,True) (2.7s)
 RECEIPT {"d": 9, "chi": [0, 0], "p": 2147483587, "dim_Sd": 623, "target_chi": [0, 1], "dim_S_target": 4356, "rankJ_target": 3996, "fermat_target": 360, "good_target": true, "dim_RJ_target": 360, "rank_A": 360, "e1_kernel_dim": 263, "rankJ_d": 242, "fermat_d": 381, "good_d": true, "dim_RJ_d": 381, "kernel_mod_J": 21, "seconds": 2.7, "exp": "e1-kernel-by-character", "ts": "2026-11-02T00:47:31", "job": "e1char"}
-[reducer n=15 chi=(0, 1) p=2147483579] dim S=4356 gens=5040 rank J=3996 nul=360 fermat=360 good_reduction=True (46.6s)
-[reducer n=9 chi=(0, 0) p=2147483579] dim S=623 gens=242 rank J=242 nul=381 fermat=381 good_reduction=True (0.3s)
-[e1 d=9 chi=(0, 0) p=2147483579] dim S_d^c=623 rankA=360 ker=263 ker mod J=21 good=(True,True) (2.9s)
-RECEIPT {"d": 9, "chi": [0, 0], "p": 2147483579, "dim_Sd": 623, "target_chi": [0, 1], "dim_S_target": 4356, "rankJ_target": 3996, "fermat_target": 360, "good_target": true, "dim_RJ_target": 360, "rank_A": 360, "e1_kernel_dim": 263, "rankJ_d": 242, "fermat_d": 381, "good_d": true, "dim_RJ_d": 381, "kernel_mod_J": 21, "seconds": 2.9, "exp": "e1-kernel-by-character-prime2", "ts": "2026-11-02T00:48:20", "job": "e1char"}
-RECEIPT {"exp": "e1-kernel-ratrecon", "d": 9, "chi": [0, 0], "primes": [2147483587, 2147483579], "n_classes": 21, "all_reconstructed": false, "note": "canonical normal forms w.r.t. rref of J_d^chi; CRT of two primes", "ts": "2026-11-02T00:48:21", "job": "e1char"}
-[reducer n=15 chi=(0, 0) p=2147483587] dim S=4476 gens=5131 rank J=4095 nul=381 fermat=381 good_reduction=True (53.9s)
-[reducer n=9 chi=(0, 1) p=2147483587] dim S=588 gens=228 rank J=228 nul=360 fermat=360 good_reduction=True (0.3s)
-[e1 d=9 chi=(0, 1) p=2147483587] dim S_d^c=588 rankA=360 ker=228 ker mod J=0 good=(True,True) (2.9s)
-RECEIPT {"d": 9, "chi": [0, 1], "p": 2147483587, "dim_Sd": 588, "target_chi": [0, 0], "dim_S_target": 4476, "rankJ_target": 4095, "fermat_target": 381, "good_target": true, "dim_RJ_target": 381, "rank_A": 360, "e1_kernel_dim": 228, "rankJ_d": 228, "fermat_d": 360, "good_d": true, "dim_RJ_d": 360, "kernel_mod_J": 0, "seconds": 2.9, "exp": "e1-kernel-by-character", "ts": "2026-11-02T00:49:17", "job": "e1char"}
-[reducer n=15 chi=(1, 1) p=2147483587] dim S=3276 gens=3878 rank J=3034 nul=242 fermat=242 good_reduction=True (25.8s)
-[reducer n=9 chi=(1, 0) p=2147483587] dim S=413 gens=150 rank J=150 nul=263 fermat=263 good_reduction=True (0.1s)
-[e1 d=9 chi=(1, 0) p=2147483587] dim S_d^c=413 rankA=242 ker=171 ker mod J=21 good=(True,True) (1.3s)
-RECEIPT {"d": 9, "chi": [1, 0], "p": 2147483587, "dim_Sd": 413, "target_chi": [1, 1], "dim_S_target": 3276, "rankJ_target": 3034, "fermat_target": 242, "good_target": true, "dim_RJ_target": 242, "rank_A": 242, "e1_kernel_dim": 171, "rankJ_d": 150, "fermat_d": 263, "good_d": true, "dim_RJ_d": 263, "kernel_mod_J": 21, "seconds": 1.3, "exp": "e1-kernel-by-character", "ts": "2026-11-02T00:49:45", "job": "e1char"}

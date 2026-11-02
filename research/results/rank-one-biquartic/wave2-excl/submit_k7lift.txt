@@ -1,1 +1,7 @@
 REMOTE BUSY: load 671 (max 150), available memory 121 GB (min 60), 78 jobs running; waiting 60 s
+REMOTE BUSY: load 676 (max 150), available memory 110 GB (min 60), 83 jobs running; waiting 60 s
+REMOTE BUSY: load 664 (max 150), available memory 98 GB (min 60), 84 jobs running; waiting 60 s
+REMOTE BUSY: load 688 (max 150), available memory 66 GB (min 60), 85 jobs running; waiting 60 s
+REMOTE BUSY: load 713 (max 150), available memory 18 GB (min 60), 88 jobs running; waiting 60 s
+REMOTE BUSY: load 766 (max 150), available memory 21 GB (min 60), 89 jobs running; waiting 60 s
+REMOTE BUSY: load 774 (max 150), available memory 48 GB (min 60), 91 jobs running; waiting 60 s

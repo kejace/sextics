@@ -51,6 +51,35 @@ def shift_index(deg_in, par_in, m, mo_idx):
     mi = monomials(deg_in, par_in)
     return np.array([mo_idx[mon_add(e, m)] for e in mi], dtype=np.int64)
 
+
+def float_numerators(F, A, G):
+    """Float particular numerators P with sum P_i F_i = A G (least squares, residual ~1e-12); any particular
+    solution is equivalent for the reduced functional since Koszul corrections are in the column space."""
+    d = core.degree(G)
+    pars = fixed_d.numerator_parities(G, A)
+    Fi = [pderiv(F, i) for i in range(NV)]
+    cols, meta = [], []
+    for i in range(NV):
+        for m in monomials(d + 1, pars[i]):
+            cols.append(shift(Fi[i], m, 1)); meta.append((i, m))
+    rhs = mul(A, G)
+    rows = {}
+    for c in cols:
+        for e in c: rows.setdefault(e, len(rows))
+    for e in rhs: rows.setdefault(e, len(rows))
+    Mx = np.zeros((len(rows), len(cols)))
+    for j, c in enumerate(cols):
+        for e, v in c.items(): Mx[rows[e], j] = float(v)
+    bv = np.zeros(len(rows))
+    for e, v in rhs.items(): bv[rows[e]] = float(v)
+    x, *_ = sla.lstsq(Mx, bv, cond=1e-12, lapack_driver='gelsd', check_finite=False)
+    res = np.linalg.norm(Mx @ x - bv) / max(np.linalg.norm(bv), 1e-300)
+    print(f'[float_numerators] d={d} rows={len(rows)} cols={len(cols)} rel residual {res:.2e}', file=sys.stderr, flush=True)
+    P = [{} for _ in range(NV)]
+    for (i, m), v in zip(meta, x):
+        if abs(v) > 1e-14: P[i][m] = float(v)
+    return P
+
 class ReducedVarPro:
     def __init__(self, F, A, d, parD, kernel_reps=(), kernel_nums=(), verbose=True, include_jacobian=True):
         t0 = time.time()
@@ -353,6 +382,12 @@ def worker(args):
         if J.get('basis_rational') and J.get('numerators_rational'):
             reps = [core.parse(s) for s in J['basis_rational']]
             nums = [[core.parse(c) for c in P] for P in J['numerators_rational']]
+    if not no_kernel and kfile and os.path.exists(kfile) and not reps:
+        J = json.load(open(kfile))
+        if J.get('basis_rational'):
+            reps = [core.parse(s) for s in J['basis_rational']]
+            nums = [float_numerators(F, A, G) for G in reps]
+            print(f'[rvp] using float least-squares numerators for {len(reps)} kernel reps', file=sys.stderr, flush=True)
     rvp = ReducedVarPro(F, A, d, par, reps, nums, verbose=(seed % 1000 == 0))
     res = rvp.search(n_restarts, seed, maxiter=maxiter, verbose=True)
     return res
@@ -394,8 +429,8 @@ def main():
     # exact confirmation of the best few
     F, A, q, rec = load()
     J = json.load(open(kfile)) if os.path.exists(kfile) and not a.no_kernel else {}
-    reps = [core.parse(s) for s in J['basis_rational']] if J.get('basis_rational') and J.get('numerators_rational') else []
-    nums = [[core.parse(c) for c in P] for P in J['numerators_rational']] if reps else []
+    reps = [core.parse(s) for s in J['basis_rational']] if J.get('basis_rational') else []
+    nums = [[core.parse(c) for c in P] for P in J['numerators_rational']] if (reps and J.get('numerators_rational')) else [float_numerators(F, A, G) for G in reps]
     rvp = ReducedVarPro(F, A, a.d, a.par, reps, nums, verbose=False)
     confirmed = []
     for c in cands[:a.confirm_top]:

@@ -15,9 +15,13 @@ print('group order', I.n, 'elements', len(I.elements), 'gens', I.gens, 'separate
 
 def do(task):
     d, key = task
-    kd = L.load_kernel(I, d, key, parity=0, verbose=False)
-    wb = L.wspace_basis(I, d, key)
-    return {k: kd[k] for k in ('d', 'key', 'nmons', 'kernel_dim', 'jac_dim', 'nonjac_dim', 'ring_dim', 'primes', 'shape', 'seconds') if k in kd} | {'wdim': len(wb)}
+    try:
+        kd = L.load_kernel(I, d, key, parity=0, verbose=False)
+        wb = L.wspace_basis(I, d, key)
+        return {k: kd[k] for k in ('d', 'key', 'nmons', 'kernel_dim', 'jac_dim', 'nonjac_dim', 'ring_dim', 'primes', 'shape', 'seconds', 'exact', 'agree', 'warning') if k in kd} | {'wdim': len(wb)}
+    except Exception as ex:
+        import traceback
+        return {'d': d, 'key': list(key), 'error': repr(ex)[:300], 'trace': traceback.format_exc()[-800:]}
 
 tasks = [(d, key) for d in range(args.dmin, args.dmax + 1) for key in I.keys_of_degree(d, 0)]
 print(len(tasks), 'tasks', flush=True)

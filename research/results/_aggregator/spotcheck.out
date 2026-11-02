@@ -9,3 +9,9 @@
 {"lane": "rank-one-biquartic", "d": 6, "parity": 0, "ann_mod_J": 0, "expected": "0", "seconds": 168.4, "error": null}
 {"lane": "rank-one-biquartic", "d": 6, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 355.2, "error": null}
 {"lane": "rank-one-biquartic", "d": 7, "parity": 0, "ann_mod_J": 3, "expected": "3", "seconds": 413.0, "error": null}
+{"lane": "short-power-presentation", "d": 7, "parity": 1, "ann_mod_J": 1, "expected": "1 (wave-1)", "seconds": 947.4, "error": null}
+{"lane": "one-reflection-skew", "d": 6, "parity": 0, "ann_mod_J": 0, "expected": "0", "seconds": 474.8, "error": null}
+{"lane": "rank-one-biquartic", "d": 7, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 641.4, "error": null}
+{"lane": "one-reflection-skew", "d": 6, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 459.6, "error": null}
+{"lane": "off-paired", "d": 4, "parity": 0, "ann_mod_J": 1, "expected": "1 (D0)", "seconds": 1.2, "error": null}
+{"lane": "off-paired", "d": 4, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 75.7, "error": null}

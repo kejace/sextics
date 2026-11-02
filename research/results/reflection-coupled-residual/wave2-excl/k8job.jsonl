@@ -3,3 +3,4 @@
 {"exp": "K8-E1-modp", "prime": 2147483587, "rows": 3276, "cols": 3388, "rank": 2850, "consistent": true, "ts": "2026-11-02T00:45:01", "job": "k8job"}
 {"exp": "K8-E1-modp", "prime": 2147483579, "rows": 3276, "cols": 3388, "rank": 2850, "consistent": true, "ts": "2026-11-02T00:45:27", "job": "k8job"}
 {"exp": "K8-E1-lift", "primes_used": 9, "modulus_bits": 62, "exact_identity": true, "n_terms": [28, 65, 42, 56, 23, 0], "max_den_bits": 18, "ts": "2026-11-02T00:45:27", "job": "k8job"}
+{"exp": "e2lin-d8-family", "seconds": 687.1, "result": {"d": 8, "dimR2d_odd": 468, "ng": 168, "rankL": 156, "rank_aug": 157, "solvable": false, "ob0_zero": false}, "ts": "2026-11-02T00:56:54", "job": "k8job"}

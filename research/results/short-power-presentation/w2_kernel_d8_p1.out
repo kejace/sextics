@@ -1,0 +1,4 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[JRef] e=14 par=0 p=536870909: gens=6006 mons=5832 rank=5070 dimR=762 (build 23s, rref 64s)
+[JRef] e=8 par=1 p=536870909: gens=168 mons=636 rank=168 dimR=468 (build 0s, rref 0s)
+[e1_kernel] d=8 par=1 p=536870909: kernel incl J = 174, J_d = 168, mod J = 6 (94s)

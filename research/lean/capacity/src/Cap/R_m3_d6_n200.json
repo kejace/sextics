@@ -1,0 +1,33 @@
+{
+ "F": 22,
+ "A": 18,
+ "q": 1,
+ "D": 200,
+ "N": [
+  200,
+  200,
+  0,
+  200,
+  200,
+  0
+ ],
+ "Q": 0,
+ "d": 6,
+ "e1_pairs": 9200,
+ "e1_monos": 2798,
+ "e2_pairs": 123400,
+ "e2_monos": 0,
+ "e1_ok": true,
+ "e2_ok": true,
+ "pairs_total": 132600,
+ "monos_total": 2798,
+ "label": "R_m3_d6_n200",
+ "Fid": "m3-coupled",
+ "which": [
+  "e1",
+  "e2"
+ ],
+ "seed": 0,
+ "route": "reflect",
+ "bytes": 35643
+}

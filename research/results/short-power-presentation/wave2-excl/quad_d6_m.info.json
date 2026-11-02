@@ -1,0 +1,30 @@
+{
+ "exp": "quad-relaxation",
+ "d": 6,
+ "mode": "m",
+ "p": 2147483629,
+ "n_kernel_reps": 0,
+ "n_field_coords": 36,
+ "unknowns_full": 36,
+ "euler_directions": 1,
+ "euler_invariance_violations": 0,
+ "unknowns_restricted": 35,
+ "equations_raw": 1197,
+ "equations_independent": 132,
+ "equations_restricted": 132,
+ "J_checks": {
+  "0": {
+   "deg": 12,
+   "dim S": 3108,
+   "rank J (mod p)": 2223,
+   "rank J (expected)": 2223
+  },
+  "1": {
+   "deg": 12,
+   "dim S": 3080,
+   "rank J (mod p)": 2214,
+   "rank J (expected)": 2214
+  }
+ },
+ "build_seconds": 1110.1
+}

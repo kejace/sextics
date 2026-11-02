@@ -97,3 +97,7 @@
 {"exp": "core-kernel-dim", "d": 11, "parity": 0, "prime": 2147483647, "n_mons": 182, "dim_full": 182, "dim_J": 156, "dim_modJ": 26, "seconds": 4.96, "job": "excl-kernels", "ts": "2026-11-02T00:49:27"}
 {"exp": "core-kernel-dim", "d": 11, "parity": 0, "prime": 1000000007, "n_mons": 182, "dim_full": 182, "dim_J": 156, "dim_modJ": 26, "seconds": 4.91, "job": "excl-kernels", "ts": "2026-11-02T00:49:32"}
 {"exp": "core-kernel-dim", "d": 11, "parity": 0, "prime": 998244353, "n_mons": 182, "dim_full": 182, "dim_J": 156, "dim_modJ": 26, "seconds": 5.21, "job": "excl-kernels", "ts": "2026-11-02T00:49:37"}
+{"exp": "core-kernel-exact", "d": 11, "parity": 0, "prime": null, "n_mons": 182, "dim_full": 182, "dim_J": 156, "dim_modJ": 26, "n_reps": 26, "reps_independent_modJ": true, "reps_in_kernel": true, "max_abs_coeff": 1, "seconds": 592.2, "note": "EXACT over Q (fmpz nullspace, LLL-reduced representatives modulo J(H)_k)", "job": "excl-kernels", "ts": "2026-11-02T00:59:30"}
+{"exp": "core-kernel-dim", "d": 11, "parity": 1, "prime": 2147483647, "n_mons": 182, "dim_full": 182, "dim_J": 156, "dim_modJ": 26, "seconds": 5.27, "job": "excl-kernels", "ts": "2026-11-02T00:59:35"}
+{"exp": "core-kernel-dim", "d": 11, "parity": 1, "prime": 1000000007, "n_mons": 182, "dim_full": 182, "dim_J": 156, "dim_modJ": 26, "seconds": 5.21, "job": "excl-kernels", "ts": "2026-11-02T00:59:40"}
+{"exp": "core-kernel-dim", "d": 11, "parity": 1, "prime": 998244353, "n_mons": 182, "dim_full": 182, "dim_J": 156, "dim_modJ": 26, "seconds": 5.19, "job": "excl-kernels", "ts": "2026-11-02T00:59:45"}

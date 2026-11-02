@@ -21,6 +21,19 @@ if e1:
         secs = ', '.join(f"{k}:{v['ker_mod_J']}" for k, v in sorted(r['sectors'].items()) if v.get('ker_mod_J'))
         print(f"| {r['d']} | {t['dim_S']} | {t['dim_J']} | {t['kerA_in_S']} | {t['ker_mod_J']} | {t['forced']} | {t['sporadic']} | {secs or '-'} | {r['seconds']}s |")
     print()
+
+mb = [r for r in rows if r.get('batch') == 'macaulay-blocks']
+if mb:
+    print('### Rigorous relaxation exclusions (block Macaulay ranks mod p; HF_k = 0 is rigorous over Q)\n')
+    print('| d | Y-parity | restricted to complement of F-gauge locus | #w vars | quadric span rank | k | HF_k | rigorous exclusion | time |')
+    print('|---|---|---|---|---|---|---|---|---|')
+    for r in mb:
+        print(f"| {r['d']} | {r['parity']} | {r.get('restricted_to_complement_of_spurious', False)} | {r['nW']} | {r.get('quadric_span_rank', '-')} | {r['k']} | {r['HF_k_total']} | {'YES' if r['rigorous_exclusion'] else 'no'} | {r['seconds']}s |")
+    print()
+rp = [r for r in rows if r.get('batch') in ('relaxation-point-d6', 'relax-d6-even-local')]
+for r in rp:
+    print('- ' + r.get('batch') + ': ' + json.dumps({k: v for k, v in r.items() if k not in ('best_a', 'best_D_float', 'ts', 'engine', 'lane', 'batch', 'rels_sorted')}, default=str)[:900])
+if rp: print()
 # searches
 sb = [r for r in rows if r.get('batch') == 'search']
 if sb:

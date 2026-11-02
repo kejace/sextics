@@ -27,12 +27,16 @@ Psi(D) := D div u - u(D)  lies in J(F) (independent of the choice of u modulo J)
   (pure power of every variable among leading terms; receipts relax_d6{e,o,m}.{ms,gb,json}, p = 1000000007, good reduction in
   degree 12 checked).  Hence V = {0} over Q as well (Hilbert-function argument) and the only degree-6 w(F) passing E2 mod J
   are multiples of F.  => no certificate with deg D = 6.
+  Cross-check: Singular 4.3.2 (std, option(redSB)) on the same three .ms systems gives reduced bases of the same sizes
+  (139 / 153 / 437) with pure powers of all 17 / 18 / 35 variables among the leading terms (singular_d6.out).
 * Note on wave 1: its status line "no certificate with deg D <= 7" was not proven there (only individual vector fields at d=5,6
   were tested); the gap is closed here for d <= 6 and d = 7 is running (relax7F job).
 
 ### R1b. Re-verification of the wave-1 E1-kernel table at the fresh prime P1 = 1000000007 (job e1kF, in progress)
-* d = 1..7, both parities: kernel 0 (agrees with wave 1 at 2147483647); good reduction in degrees d and d+6 confirmed
-  (dim R_n mod P1 = Koszul value).  d = 8 even: kernel 1 (agrees); a canonical representative mod P1 is in e1k_e1kF.json.
+* d = 1..7, both parities: kernel 0 at P1 = 1000000007 AND at P2 = 998244353 (agrees with wave 1 at 2147483647); good
+  reduction in degrees d and d+6 confirmed at both primes (dim R_n mod p = Koszul value).  d = 8: kernel 1 (even), 0 (odd)
+  at both P1 and P2 (agrees); d = 9 even at P1: kernel 21 (agrees with the sibling value at 2147483647).
+  A canonical representative of the d=8 line mod P1 is in e1k_e1kF.json.
 
 ### R1c. Representation theory re-verified (w2_reptheory.py, independent code, P1)
 S3-characters on Jacobian-ring pieces (trace of the transposition / 3-cycle on standard-monomial bases mod P1):
@@ -50,9 +54,25 @@ Signed-permutation symmetries of F: 12 projective elements (S3 x <tau>) [re-veri
 | E1 kernel 0 for d <= 7 (both parities) at 2147483647 | re-verified at P1 (and P2 pending): agrees |
 | E1 kernel at d = 8: 1 (even), 0 (odd) | re-verified at P1 (even); odd pending |
 | D8: A*D8 in J over Q | pending exact (d8F) |
-| served(F_Xi) etc. = zero class (served_dim 18) | superseded by the rigorous d=5 relaxation (no degree-5 D at all) |
+| served(F_Xi) etc. = zero class (served_dim 18) | re-verified by a different method: Ann_6([H(w,w)]) = 0 for w = d_i, Euler_X, pair-radial, ... (relaxation: served(w(F))/J_6 inside Ann_6([H(w,w)]) ); also superseded by the rigorous d=5 result |
 | "no certificate with deg D <= 7" (wave-1 status line) | NOT established by wave 1 (only individual D tested); now proven for d <= 6, d = 7 pending |
 | duality k_10^+ = 294, k_10^- = 262, k_11 = 510, k_12 = 677/648 | follows from k_8 and k_d (d<=7) by Gorenstein duality (argument checked); direct sector computation pending |
+
+### R1d. Sum-principle catalogue (w2_ann.py, local, P1; in progress)
+For every structured non-Jacobian factor tested so far (quadrics, cubics, quartics, Vandermonde squares, ...: 36 so far),
+Ann_6(D) = {A' in R_6^- : A' D in J} = 0 (rank 208 = dim R_6^-).  Since served(D)/J_6 is inside Ann_6(D) and
+served(D1 D2) = served(D1) + served(D2), every product of catalogued factors serves only the zero class, in every degree.
+
+### R1e. Equivariant Hilbert series and the structure of the degree-9 kernel (exact, by hand + script)
+Graded characters chi_g(t) = det(1 - t^5 g)/det(1 - t g) for g in {1, tau, (01), (01)tau} give dim R_n^{parity,(01)-sign}
+(table in the log / w2-excl notes).  Multiplication by A (Y-odd, (01)-anti-invariant) maps the sector (par, sigma) to
+(1-par, -sigma).  Forced kernels (source - target when positive):
+  d <= 8: none in any sector;  d = 9: (even,+): 322 -> 301 forces >= 21; (even,-): 301 -> 322 forces 0; same for odd.
+  d = 10: (even,+) >= 170, (even,-) >= 124 [sum 294 = k_10^+], (odd,+) >= 152, (odd,-) >= 109 [sum 261 = k_10^- - 1].
+  d = 11: >= 275 / 235 per parity; d = 12: (even) >= 361 + 316, (odd) >= 342 + 306.
+Consequence: the 21-dimensional degree-9 kernel (both parities) is exactly the forced one and lies entirely in the
+(01)-INVARIANT sector provided the anti-invariant sector kernel is 0 (e1kF sector run, pending).  Every non-Jacobian
+E1-admissible denominator of degree 9 is then (01)-invariant modulo J, so the (01)-equivariant reduced E2' system applies.
 
 ### R2. Sibling-lens data on this lane seen on the remote (search lens, not mine; to be re-verified)
 * d = 9 E1 kernel (Y-even) primitive dimension 21 (p = 2147483647), hence 21 odd as well by duality (e1kernel_d9.out).

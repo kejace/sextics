@@ -9,3 +9,6 @@
 [   64.7s] rel random: 0.942719926992853
 [svp] restart 0: f=2.017e-03 rel=6.218e-01 iters=60 (287.8s)
 [svp] restart 1: f=2.017e-03 rel=6.218e-01 iters=62 (500.8s)
+[svp] restart 2: f=2.132e-03 rel=7.481e-01 iters=48 (1133.1s)
+[ 1197.9s] search 3 restarts; best rel 0.6218079937010568 nfev 198
+[svp] d=8 c=(0, 4) K=40 (rank 40) relax=True n1=874 n2=1483 nN=939 nQ=249 rank1=777 dimK=0 e1_resid=3.2e-15 excludedF=4 dimP=36 built 86.9s

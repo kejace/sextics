@@ -1,0 +1,13 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[JRef] e=13 par=1 p=536870909: gens=3861 mons=4284 rank=3441 dimR=843 (build 26s, rref 43s)
+[JRef] e=7 par=0 p=536870909: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
+[e1_kernel] d=7 par=0 p=536870909: kernel incl J = 64, J_d = 63, mod J = 1 (70s)
+[JRef] e=13 par=1 p=536870879: gens=3861 mons=4284 rank=3441 dimR=843 (build 16s, rref 25s)
+[JRef] e=7 par=0 p=536870879: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
+[e1_kernel] d=7 par=0 p=536870879: kernel incl J = 64, J_d = 63, mod J = 1 (42s)
+[kernel] reconstruction with 2 primes: ok {'modulus_bits': 58}
+[numerators] d=7 p=2147483647: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (44s)
+[numerators] d=7 p=2147483629: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (37s)
+[numerators] d=7 p=2147483587: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (38s)
+[numerators] d=7 p=2147483579: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (32s)
+{"kind": "e1-kernel", "d": 7, "parity": 0, "kernel_mod_J": 1, "kernel_dim_incl_J": 64, "dim_J_d": 63, "dim_R_d": 333, "dim_R_d6": 843, "primes": [536870909, 536870879], "rational": true, "reconstruction": {"modulus_bits": 58}, "seconds": 112.6, "tag": "local", "numerators": true}

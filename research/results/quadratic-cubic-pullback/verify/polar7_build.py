@@ -1,6 +1,6 @@
 """Degree-7 Y-even polar relaxation: w_i quadratic (par 0 for i<3, 1 for i>=3), gauge l in S_1^even (3 dims), phi(w) in J_8^even
 (valid since K_8 = J_8 both parities => A. injective on R_8). Writes Singular and msolve inputs; runs Singular (timeout from argv)."""
-import sys, subprocess, time
+import sys, subprocess, time, re
 sys.path.insert(0, '/tmp/hodge/results/quadratic-cubic-pullback/verify')
 import vpoly as V
 from vlog import log
@@ -51,7 +51,7 @@ sing = f'ring r = {p}, (c(0..{n-1})), dp;\nideal I = ' + ',\n'.join(lines) + ';\
 open('/tmp/hodge/results/quadratic-cubic-pullback/verify/polar7_even.sing', 'w').write(sing)
 with open('/tmp/hodge/results/quadratic-cubic-pullback/verify/polar7_even.ms', 'w') as f:
     f.write(','.join(f'c{k}' for k in range(n)) + '\n' + f'{p}\n')
-    f.write(',\n'.join(l.replace('c(', 'c').replace(')', '') for l in lines) + '\n')
+    f.write(',\n'.join(re.sub(r'c(\d+)\*c\1(?!\d)', r'c\1^2', l.replace('c(', 'c').replace(')', '')) for l in lines) + '\n')
 out = subprocess.run(['timeout', tmo, 'Singular', '-q', '/tmp/hodge/results/quadratic-cubic-pullback/verify/polar7_even.sing'], capture_output=True, text=True).stdout.strip()
 print(out, flush=True)
 log('C29 no Y-even degree-7 polar denominator passes E2 (Hessian relaxation phi(w) in J_8^even, 60 gauge-fixed unknowns; Singular mod 32003 affine dim)',

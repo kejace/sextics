@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hess_quadrics] d=6 pD=0 nW=18 pairs=171 dim R_2d^-=866 rank(quadrics)=135 (19.6s)
+second prime 2147483647 rank 135
+annihilator RREF rows: 866; rationally reconstructible rows: 0, failed: 866, max denominator 0 (15.2s)
+dim(affine cone) = 1  projective dim = 0  degree = `dg`
+deg 0 : 1
+deg 1 : 18
+deg 2 : 36
+deg 3 : 38
+deg 4 : 38
+deg 5 : 38
+deg 6 : 38
+deg 7 : 38
+deg 8 : 38

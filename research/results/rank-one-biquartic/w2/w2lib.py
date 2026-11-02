@@ -51,6 +51,15 @@ def addexp(e, f):
     return tuple(a + b for a, b in zip(e, f))
 
 
+def _encode(E):
+    """Exponent array (..., 6) with entries < 64 -> int64 code."""
+    E = np.asarray(E, dtype=np.int64)
+    c = E[..., 0]
+    for j in range(1, NV):
+        c = c * 64 + E[..., j]
+    return c
+
+
 class Index:
     def __init__(self, mons):
         self.mons = list(mons)
@@ -285,20 +294,29 @@ class ReducedE2:
         self.nD, self.nN = Dm.n, len(Ncols)
         self.rows = Index(monomials(2 * d, pA))
         R = self.rows.n; self.R = R
-        # bilinear table: B_m(e_{i,m'}) = (m'_i - m_i) z^{m+m'-e_i}
-        Rtab = np.full((self.nD, self.nN), R, dtype=np.int32)   # R = trash row
+        # bilinear table: B_m(e_{i,m'}) = (m'_i - m_i) z^{m+m'-e_i}   (vectorized)
+        Em = np.array(Dm.mons, dtype=np.int64)                      # nD x 6
+        En = np.array([m for (i, m) in Ncols], dtype=np.int64)      # nN x 6
+        Ei = np.array([i for (i, m) in Ncols], dtype=np.int64)      # nN
+        codes_rows = _encode(np.array(self.rows.mons, dtype=np.int64))
+        order = np.argsort(codes_rows); sorted_codes = codes_rows[order]
+        Rtab = np.full((self.nD, self.nN), R, dtype=np.int32)
         Ctab = np.zeros((self.nD, self.nN), dtype=np.float64)
-        ridx = self.rows.idx
-        for a, m in enumerate(Dm.mons):
-            for b, (i, mp) in enumerate(Ncols):
-                c = mp[i] - m[i]
-                if c:
-                    e = list(m)
-                    for j in range(NV):
-                        e[j] += mp[j]
-                    e[i] -= 1
-                    Rtab[a, b] = ridx[tuple(e)]
-                    Ctab[a, b] = c
+        En_i = En[np.arange(self.nN), Ei]
+        chunk = max(1, int(4e6 // max(1, self.nN)))
+        for a0 in range(0, self.nD, chunk):
+            a1 = min(self.nD, a0 + chunk)
+            Emc = Em[a0:a1]
+            C = En_i[None, :] - Emc[:, Ei]                           # (na, nN)
+            E = Emc[:, None, :] + En[None, :, :]                     # (na, nN, 6)
+            E[np.arange(a1 - a0)[:, None], np.arange(self.nN)[None, :], Ei[None, :]] -= 1
+            codes = _encode(E)
+            pos = np.searchsorted(sorted_codes, codes)
+            pos = np.minimum(pos, len(sorted_codes) - 1)
+            ok = (C != 0) & (sorted_codes[pos] == codes)
+            rt = np.where(ok, order[pos], R).astype(np.int32)
+            Rtab[a0:a1] = rt
+            Ctab[a0:a1] = np.where(ok, C, 0).astype(np.float64)
         self.Rtab, self.Ctab = Rtab, Ctab
         # reduction mod F (monomial X_{reduce_var}^6 -> rest)
         self.reduce_var = reduce_var
@@ -375,33 +393,25 @@ class ReducedE2:
         if self.nc == 0:
             self.S = None; self.nnzS = 0
             return
-        # Build unreduced S0 (nD, (R+1)*nc) in chunks of columns, reduce each chunk by RF, concatenate.
+        # Build unreduced entries (a, c, r, val) then reduce rows mod F through RFT and re-index.
         Rtab, Ctab = self.Rtab, self.Ctab
         nD, R, nc, Rred = self.nD, self.R, self.nc, self.Rred
-        blocks = []
-        chunk = max(1, min(nc, int(2e7 // max(1, nD * 8))))
-        for c0 in range(0, nc, chunk):
-            c1 = min(nc, c0 + chunk)
-            ri, ci, vals = [], [], []
-            for c in range(c0, c1):
-                ent = cols[c]
-                ks = np.fromiter(ent.keys(), dtype=np.int64, count=len(ent))
-                vs = np.fromiter(ent.values(), dtype=np.float64, count=len(ent))
-                rows_sub = Rtab[:, ks]            # nD x nk
-                coef_sub = Ctab[:, ks] * vs[None, :]
-                mask = coef_sub != 0.0
-                aidx, kidx = np.nonzero(mask)
-                ri.append(aidx)
-                ci.append(rows_sub[aidx, kidx].astype(np.int64) * nc + c)
-                vals.append(coef_sub[aidx, kidx])
-            ri = np.concatenate(ri); ci = np.concatenate(ci); vals = np.concatenate(vals)
-            S0 = sp.csr_matrix((vals, (ri, ci)), shape=(nD, (R + 1) * nc))
-            blocks.append(S0)
-        S0 = blocks[0] if len(blocks) == 1 else sum(blocks[1:], blocks[0])
-        # reduce rows mod F: for each D-row a, reshape its (R+1) x nc block and apply RF.  Do it via kron:
-        # S_red = S0 @ kron(RF^T, I_nc)  (shape (R+1)*nc x Rred*nc)
-        Kron = sp.kron(self.RFT, sp.identity(nc, format='csr'), format='csr')
-        self.S = (S0 @ Kron).tocsr()
+        RI, CI, VI = [], [], []
+        for c in range(nc):
+            ent = cols[c]
+            ks = np.fromiter(ent.keys(), dtype=np.int64, count=len(ent))
+            vs = np.fromiter(ent.values(), dtype=np.float64, count=len(ent))
+            rows_sub = Rtab[:, ks]
+            coef_sub = Ctab[:, ks] * vs[None, :]
+            aidx, kidx = np.nonzero(coef_sub)
+            RI.append(aidx.astype(np.int64) * nc + c)
+            CI.append(rows_sub[aidx, kidx].astype(np.int64))
+            VI.append(coef_sub[aidx, kidx])
+        RI = np.concatenate(RI); CI = np.concatenate(CI); VI = np.concatenate(VI)
+        S0 = sp.csr_matrix((VI, (RI, CI)), shape=(nD * nc, R + 1))
+        S1 = (S0 @ self.RFT).tocoo()                 # (nD*nc, Rred)
+        a_idx = S1.row // nc; c_idx = S1.row % nc
+        self.S = sp.csr_matrix((S1.data, (a_idx, S1.col.astype(np.int64) * nc + c_idx)), shape=(nD, Rred * nc))
         self.S.sum_duplicates()
         self.nnzS = self.S.nnz
 
@@ -425,7 +435,7 @@ class ReducedE2:
         """Reduced Koszul matrix T_D (Rred x nc)."""
         return np.asarray(self.S.T @ Dv).reshape(self.Rred, self.nc)
 
-    def value_and_grad(self, u, fam, koszul=True, cond=1e-9, want_x=False, solver='lstsq'):
+    def value_and_grad(self, u, fam, koszul=True, cond=1e-9, want_x=False, solver='normal'):
         """f(a) and gradient wrt u for a = u/|u| (fam.Dbasis columns)."""
         u = np.asarray(u, float); nu = np.linalg.norm(u); a = u / nu
         Dv = fam.D_vec(a); Nv = fam.N0_vec(a)
@@ -436,9 +446,12 @@ class ReducedE2:
             if solver == 'lstsq':
                 x, *_ = sla.lstsq(M, b, cond=cond, lapack_driver='gelsd', check_finite=False)
             else:
-                G = M.T @ M; lam = cond * max(1.0, float(np.trace(G)) / max(1, self.nc))
+                G = M.T @ M; lam = cond * max(1e-300, float(np.trace(G)) / max(1, self.nc))
                 G[np.diag_indices_from(G)] += lam
-                x = sla.solve(G, M.T @ b, assume_a='pos', check_finite=False)
+                try:
+                    x = sla.solve(G, M.T @ b, assume_a='pos', check_finite=False)
+                except Exception:
+                    x, *_ = sla.lstsq(M, b, cond=cond, lapack_driver='gelsd', check_finite=False)
             r = M @ x - b
             Nc = np.asarray(self.Kmat @ x).ravel()
         else:
@@ -455,8 +468,8 @@ class ReducedE2:
             return f, g_u, dict(a=a, x=x, r=r, bnorm=float(np.linalg.norm(b)), Dv=Dv)
         return f, g_u
 
-    def value(self, a, fam, koszul=True, cond=1e-9):
-        f, g, info = self.value_and_grad(a, fam, koszul=koszul, cond=cond, want_x=True)
+    def value(self, a, fam, koszul=True, cond=1e-9, solver='lstsq'):
+        f, g, info = self.value_and_grad(a, fam, koszul=koszul, cond=cond, want_x=True, solver=solver)
         rel = f / max(info['bnorm'] ** 2, 1e-300)
         return f, rel, info
 

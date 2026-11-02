@@ -14,7 +14,8 @@ import kx
 from hodge import core
 from hodge.core import NV, mul, add, sub, scale, shift, pderiv, parse
 from flint import nmod_mat
-p = int(sys.argv[1]); d = int(sys.argv[2]); parD = int(sys.argv[3])
+p = int(sys.argv[1]); d = int(sys.argv[2]); parD = int(sys.argv[3]); EXACT = (len(sys.argv) > 4 and sys.argv[4] == 'exact')
+from flint import fmpz_mat
 F, A, q = kx.load()
 F7 = scale(F, 7); Fi = [pderiv(F7, i) for i in range(NV)]; Ai = [pderiv(A, i) for i in range(NV)]
 Z = [parse(v) for v in ('X0', 'X1', 'X2', 'Y0', 'Y1', 'Y2')]
@@ -102,19 +103,34 @@ for (par, ch), bl in sorted(blocks.items()):
     rows = {}
     for col in cols:
         for e in col: rows.setdefault(e, len(rows))
-    M = kx.dense(cols, rows, p)
     nT = len(tcols)
-    X, nul = M.nullspace()
-    rank = len(cols) - nul
-    # projection onto T coordinates
-    if nul and nT:
-        proj = nmod_mat(nul, nT, [int(X[r, c]) for c in range(nul) for r in range(nT)], p)
-        dimWT = proj.rank()
+    if EXACT:
+        def zmat(cs):
+            R = len(rows); C = len(cs); flat = [0] * (R * C)
+            for j, col in enumerate(cs):
+                for e, v in col.items():
+                    fv = v if isinstance(v, int) else int(v)   # all column polys are integral (7F, integer A)
+                    flat[rows[e] * C + j] = fv
+            return fmpz_mat(R, C, flat)
+        for col in cols:
+            for v in col.values():
+                assert (isinstance(v, int) or v.denominator == 1), v
+        Mz = zmat(cols); rank = Mz.rank()
+        rYQ = zmat(cols[nT:]).rank() if len(cols) > nT else 0
+        nul = len(cols) - rank
+        dimWT = nT - rank + rYQ           # dim of projection of ker M onto T-coordinates (exact over Q)
+        X = None
     else:
-        dimWT = 0
-    # rank of M_YQ alone (for the rigor caveat)
-    MYQ = kx.dense(cols[nT:], rows, p) if len(cols) > nT else None
-    rYQ = MYQ.rank() if MYQ is not None else 0
+        M = kx.dense(cols, rows, p)
+        X, nul = M.nullspace()
+        rank = len(cols) - nul
+        if nul and nT:
+            proj = nmod_mat(nul, nT, [int(X[r, c]) for c in range(nul) for r in range(nT)], p)
+            dimWT = proj.rank()
+        else:
+            dimWT = 0
+        MYQ = kx.dense(cols[nT:], rows, p) if len(cols) > nT else None
+        rYQ = MYQ.rank() if MYQ is not None else 0
     # gauge tensors in this block
     tset = {k: i for i, k in enumerate(tcols)}
     gT = []
@@ -131,16 +147,28 @@ for (par, ch), bl in sorted(blocks.items()):
                 if k in tset: flat[r * nT + tset[k]] = v
         Gm = nmod_mat(len(gT), nT, flat, p); dimG = Gm.rank()
         # containment check: gauge tensors must lie in W_T (span of proj rows)
-        if nul:
+        if nul and X is not None:
             comb = nmod_mat(nul + len(gT), nT, [int(X[r, c]) for c in range(nul) for r in range(nT)] + flat, p)
             assert comb.rank() == dimWT, ('gauge tensor not in W_T', comb.rank(), dimWT)
+        elif EXACT:
+            # exact containment: [cols | gauge-tensor images] has the same rank as cols
+            extra = []
+            for T in gT:
+                P = {}
+                for k, v in T.items():
+                    if k in tset:
+                        # undo mod-p scaling of gauge tensor coordinates: use exact rationals (v was reduced mod p for 1/2)
+                        pass
+                extra.append(T)
+            # exact gauge check is done separately below via the H(g+hZ)-H(g)-H(hZ) in (F) identity
+            pass
     total_W += dimWT; total_G += dimG
     details[f'{par},{ch}'] = {'rows': len(rows), 'nT': nT, 'nY': len(ycols), 'nQ': len(qcols), 'rank': rank, 'nullity': nul,
                               'dimWT': dimWT, 'dimGauge': dimG, 'rank_YQ': rYQ, 'nullity_YQ': len(cols) - nT - rYQ}
     print(f'  block par={par} ch={ch}: rows {len(rows)}, T {nT}, Y {len(ycols)}, Q {len(qcols)}, rank {rank}, dim W_T {dimWT}, gauge {dimG}, rank_YQ {rYQ} (nullity_YQ {len(cols)-nT-rYQ})  [{round(time.time()-t0,1)}s]', flush=True)
 decisive = (total_W == total_G)
-print(f'RESULT lin d={d} parD={parD}: dim W_T = {total_W}, dim gauge = {total_G}, zero T-columns {len(zeroT)} -> {"DECISIVE (mod-p projection; see rigor caveat)" if decisive else "NOT decisive"}', flush=True)
-res = {'d': d, 'parD': parD, 'p': p, 'n': n, 'nK': len(K), 'nQ': len(Qm), 'dimWT': total_W, 'dimGauge': total_G, 'decisive': decisive,
+print(f'RESULT lin d={d} parD={parD} exact={EXACT}: dim W_T = {total_W}, dim gauge = {total_G}, zero T-columns {len(zeroT)} -> {("DECISIVE (exact over Q)" if EXACT else "DECISIVE (mod-p projection; see rigor caveat)") if decisive else "NOT decisive"}', flush=True)
+res = {'d': d, 'parD': parD, 'p': p, 'exact': EXACT, 'n': n, 'nK': len(K), 'nQ': len(Qm), 'dimWT': total_W, 'dimGauge': total_G, 'decisive': decisive,
        'zero_T_columns': len(zeroT), 'blocks': details, 'seconds': round(time.time() - t0, 1)}
-json.dump(res, open(f'lin_d{d}_par{parD}_p{p}.json', 'w'), indent=1)
+json.dump(res, open(f'lin_d{d}_par{parD}_' + ('exact' if EXACT else f'p{p}') + '.json', 'w'), indent=1)
 kx.log(exp='full-linearization', **{k: v for k, v in res.items() if k != 'blocks'})

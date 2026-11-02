@@ -806,3 +806,115 @@ def load_kernel6(d, chi):
     with open(fn, 'wb') as fh:
         pickle.dump(k, fh)
     return k
+
+# ----------------------------------------------------------------------------- count-sketch (row compression) and hybrid kernel loading
+def _apply_sketch(self, k, seed=0):
+    """Replace the row space by k count-sketch buckets (random bucket + sign per row).  Keeps full arrays for
+    value_full().  A true solution keeps residual 0; sketched residual 0 with k >> cols is confirmed on the full system."""
+    if getattr(self, 'sketched', False):
+        return
+    rng = np.random.default_rng(seed)
+    bucket = rng.integers(0, k, self.rows)
+    sign = rng.choice([-1.0, 1.0], self.rows)
+    self._full = {'rows': self.rows, 'RR': self.RR, 'VV': self.VV, 'flat': self.flat, 'prod_idx': self.prod_idx,
+                  'MQ': getattr(self, 'MQ', None)}
+    ncols = getattr(self, 'ncols', self.nN)
+    self.RR = bucket[self.RR]; self.VV = self.VV * sign[self._full['RR']]
+    self.flat = self.RR * ncols + self.CC
+    self.prod_sign = sign[self.prod_idx]
+    self.prod_idx = bucket[self.prod_idx]
+    if getattr(self, 'MQ', None) is not None and self.nQ:
+        MQs = np.zeros((k, self.nQ))
+        np.add.at(MQs, bucket, self._full['MQ'] * sign[:, None])
+        self.MQ = MQs
+    self.rows = k
+    self.sketched = True
+
+def _assemble_sk(self, Dv):
+    ncols = getattr(self, 'ncols', self.nN)
+    M = np.bincount(self.flat, weights=Dv[self.EE] * self.VV, minlength=self.rows * ncols).reshape(self.rows, ncols)
+    if getattr(self, 'nQ', 0):
+        M[:, self.nN:] = self.MQ
+    w = np.outer(Dv, Dv)
+    if getattr(self, 'sketched', False):
+        w = w * self.prod_sign
+    b = -self.Ac * np.bincount(self.prod_idx.ravel(), weights=w.ravel(), minlength=self.rows)
+    return M, b
+
+def _value_full(self, a):
+    """Residual on the full (unsketched) system."""
+    a = np.asarray(a, float); a = a / np.linalg.norm(a)
+    Dv = self.Dvec(a)
+    if not getattr(self, 'sketched', False):
+        return self.value(a)
+    fu = self._full; ncols = getattr(self, 'ncols', self.nN)
+    M = np.bincount(fu['flat'], weights=Dv[self.EE] * fu['VV'], minlength=fu['rows'] * ncols).reshape(fu['rows'], ncols)
+    if getattr(self, 'nQ', 0):
+        M[:, self.nN:] = fu['MQ']
+    b = -self.Ac * np.bincount(fu['prod_idx'].ravel(), weights=np.outer(Dv, Dv).ravel(), minlength=fu['rows'])
+    x = self.solve_inner(M, b); r = M @ x - b
+    return float(r @ r), x, r, b
+
+for _cls in (VP5, VP6):
+    _cls.sketch = _apply_sketch
+    _cls.assemble = _assemble_sk
+    _cls.value_full = _value_full
+
+def _vp6_grad_fix(self, u):
+    # VP6.value_and_grad uses r[self.prod_idx] @ Dv ; with sketch the sign must be included
+    u = np.asarray(u, float)
+    af = self.P @ u; nu = np.linalg.norm(af); a = af / nu
+    Dv = self.Dvec(a)
+    M, b = self.assemble(Dv)
+    x = self.solve_inner(M, b); r = M @ x - b
+    fval = float(r @ r)
+    z = np.bincount(self.EE, weights=r[self.RR] * self.VV * x[self.CC], minlength=self.nD)
+    rp = r[self.prod_idx]
+    if getattr(self, 'sketched', False):
+        rp = rp * self.prod_sign
+    y = -2.0 * self.Ac * (rp @ Dv)
+    g = self.Basis @ (2.0 * (z - y))
+    g_full = (g - float(g @ a) * a) / nu
+    return fval, self.P.T @ g_full
+
+def _vp5_grad_fix(self, u):
+    u = np.asarray(u, float); nu = np.linalg.norm(u); a = u / nu
+    Dv = self.Dvec(a)
+    M, b = self.assemble(Dv)
+    x = self.solve_inner(M, b); r = M @ x - b
+    fval = float(r @ r)
+    z = np.bincount(self.EE, weights=r[self.RR] * self.VV * x[self.CC], minlength=self.nD)
+    rp = r[self.prod_idx]
+    if getattr(self, 'sketched', False):
+        rp = rp * self.prod_sign
+    y = -2.0 * self.Ac * (rp @ Dv)
+    gD = 2.0 * (z - y)
+    g = self.Basis @ gD
+    g_u = (g - float(g @ a) * a) / nu
+    self._nfev += 1
+    return fval, g_u
+
+VP5.value_and_grad = _vp5_grad_fix
+VP6.value_and_grad = _vp6_grad_fix
+
+def load_kernel(d, rD, sD, exact=True, max_primes=10):
+    """Hybrid: exact rational kernel (CRT) if reconstructible; otherwise float kernel with the exact (mod-p) dimension,
+    verified by the E1 residual of each float kernel vector."""
+    fn = f'{WD}/w2ker5h_d{d}_r{rD}s{sD}.pkl'
+    if os.path.exists(fn):
+        with open(fn, 'rb') as fh:
+            return pickle.load(fh)
+    try:
+        k = e1_kernel5_exact(d, rD, sD, max_primes=max_primes)
+        k['mode'] = 'exact'
+    except RuntimeError:
+        k = e1_kernel5(d, rD, sD, want_float=True)
+        k['mode'] = 'float'
+        if k['kerD'] and 'Cbasis' in k:
+            Cb = k['Cbasis']
+            if Cb.shape[0] != k['nonJ']:
+                # trim/extend to exact nonJ count using the SVD ordering already applied
+                k['Cbasis'] = Cb[:k['nonJ'], :]
+    with open(fn, 'wb') as fh:
+        pickle.dump(k, fh)
+    return k

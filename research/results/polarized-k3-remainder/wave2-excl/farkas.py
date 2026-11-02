@@ -14,8 +14,22 @@ from k3lib import *
 from hodge import fixed_d
 from math import gcd
 
+def intscale(P):
+    """Scale a Fraction-coefficient poly to integer coefficients (primitive)."""
+    from math import gcd
+    den = 1
+    for c in P.values():
+        c = Fr(c); den = den * c.denominator // gcd(den, c.denominator)
+    Q = {e: int(Fr(c) * den) for e, c in P.items()}
+    g = 0
+    for v in Q.values(): g = gcd(g, abs(v))
+    return {e: v // g for e, v in Q.items() if v}
+
 def build_exact(F, A, q, D, allowed=None, parity=True, verbose=False):
+    """Exact integer sparse system.  F, A, D are scaled to primitive integer polys first (consistency is
+    invariant under scaling F, A, D)."""
     t0 = time.time()
+    F = intscale(F); A = intscale(A); D = intscale(D)
     d = core.degree(D)
     degN = d + 6 * q - 5; degQ = 2 * d - 6
     Fi = [pderiv(F, i) for i in range(NV)]; Di = [pderiv(D, i) for i in range(NV)]
@@ -42,8 +56,8 @@ def build_exact(F, A, q, D, allowed=None, parity=True, verbose=False):
     for col in colpolys:
         for e in col: rows.setdefault(e, len(rows))
     for e in rhs: rows.setdefault(e, len(rows))
-    icols, _ = polys_to_int_rows(colpolys, rows)
-    irhs, _ = polys_to_int_rows([rhs], rows); irhs = irhs[0]
+    icols = [{rows[e]: int(v) for e, v in col.items() if v} for col in colpolys]
+    irhs = {rows[e]: int(v) for e, v in rhs.items() if v}
     S = dict(d=d, cols=cols, icols=icols, irhs=irhs, rows=rows, nrows=len(rows), ncols=len(cols),
              nN=sum(1 for c in cols if c[0] == 'N'), nQ=sum(1 for c in cols if c[0] == 'Q'),
              nnz=sum(len(c) for c in icols), build_time=round(time.time() - t0, 1))

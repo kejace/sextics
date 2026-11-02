@@ -32,6 +32,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 LOG = os.path.join(HERE, 'wave2-search.log.jsonl')
 P = core.PRIMES[0]
 SECS = [(0, 0), (0, 1), (1, 0), (1, 1)]
+# control-instance override (positive controls on other (F, A) with the same Klein structure):
+#   HODGE_RCR_INSTANCE=<catalogue id>  or  HODGE_RCR_INSTANCE=custom:<name> with HODGE_RCR_F / HODGE_RCR_A expressions
+INST_ID = os.environ.get('HODGE_RCR_INSTANCE', LANE)
+CACHE_PREFIX = '' if INST_ID == LANE else INST_ID.replace(':', '_') + '_'
 
 
 def chi(e):
@@ -78,6 +82,8 @@ def sector_monomials(deg, sec):
 def log_event(rec):
     rec = dict(rec)
     rec.setdefault('lane', LANE)
+    if INST_ID != LANE:
+        rec.setdefault('control_instance', INST_ID)
     rec.setdefault('ts', time.strftime('%Y-%m-%dT%H:%M:%S'))
     rec.setdefault('engine', fixed_d.ENGINE_VERSION)
     with open(LOG, 'a') as f:
@@ -90,7 +96,11 @@ _INST = None
 def instance():
     global _INST
     if _INST is None:
-        F, A, q, rec = core.load_instance(LANE)
+        if INST_ID.startswith('custom:'):
+            F = core.parse(os.environ['HODGE_RCR_F']); A = core.parse(os.environ['HODGE_RCR_A']); q = 1
+        else:
+            F, A, q, rec = core.load_instance(INST_ID)
+        assert q == 1 and chi(next(iter(A))) == (0, 1) and len({chi(e) for e in F}) == 1 and chi(next(iter(F))) == (0, 0)
         Fi = [pderiv(F, i) for i in range(NV)]
         Hs = [[pderiv(Fi[i], j) for j in range(NV)] for i in range(NV)]
         _INST = (F, A, q, Fi, Hs)
@@ -116,7 +126,7 @@ def gens_in_sector(deg, sec, p=None):
 
 
 def coker_path(deg, sec):
-    return os.path.join(HERE, f'coker_{deg}_{sec_str(sec)}.npz')
+    return os.path.join(HERE, f'{CACHE_PREFIX}coker_{deg}_{sec_str(sec)}.npz')
 
 
 def prep_coker(deg, sec, force=False, verbose=True):
@@ -175,7 +185,7 @@ def load_coker(deg, sec):
 # ----------------------------------------------------------------------------
 
 def e1_path(d, sec):
-    return os.path.join(HERE, f'e1_{d}_{sec_str(sec)}')
+    return os.path.join(HERE, f'{CACHE_PREFIX}e1_{d}_{sec_str(sec)}')
 
 
 def e1_space(d, sec, force=False, verbose=True):
@@ -189,7 +199,7 @@ def e1_space(d, sec, force=False, verbose=True):
     t0 = time.time()
     Dm = sector_monomials(d, sec)
     K = len(Dm)
-    tsec = sadd(sec, chi((3, 0, 0, 3, 0, 0)))
+    tsec = sadd(sec, chi(next(iter(A))))
     Ap = core.reduce_mod(A, P)
     gens = gens_in_sector(d + 6, tsec, p=P)
     colsp = [shift(Ap, m, 1, P) for m in Dm] + [g[2] for g in gens]
@@ -599,9 +609,12 @@ def exact_confirm(D, note='', symmetric=True, verbose=True):
             h = hashlib.sha1(w['D'].encode()).hexdigest()[:10]
             path = os.path.join(HERE, f'witness-candidate-{h}.json')
             json.dump(w, open(path, 'w'), indent=1)
-            json.dump(w, open(os.path.join(HERE, 'witness-candidate.json'), 'w'), indent=1)
+            if INST_ID == LANE:
+                json.dump(w, open(os.path.join(HERE, 'witness-candidate.json'), 'w'), indent=1)
+                print('!!!!!!!! WITNESS FOUND', path, flush=True)
+            else:
+                print(f'[control {INST_ID}] exact witness found: {path}', flush=True)
             rec['witness_file'] = path
-            print('!!!!!!!! WITNESS FOUND', path, flush=True)
     log_event(rec)
     if verbose:
         print('[confirm]', {k: v for k, v in rec.items() if k != 'D'}, flush=True)

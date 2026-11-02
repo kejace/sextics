@@ -2,3 +2,6 @@
 d=7 parD=0 n=63: 2016 T-columns built [0.3s]
 420 Koszul monomials, 26460 nonzero Y-columns [18.1s]
 gauge vectors 3, gauge tensors 189 [18.1s]
+  block par=1 ch=0: rows 768, T 274, Y 3426, Q 69, rank 727, dim W_T 207, gauge 23, rank_YQ 660 (nullity_YQ 2835)  [453.0s]
+  block par=1 ch=1: rows 846, T 300, Y 3902, Q 102, rank 784, dim W_T 229, gauge 31, rank_YQ 713 (nullity_YQ 3291)  [508.9s]
+  block par=1 ch=2: rows 847, T 300, Y 3902, Q 102, rank 780, dim W_T 233, gauge 31, rank_YQ 713 (nullity_YQ 3291)  [813.2s]

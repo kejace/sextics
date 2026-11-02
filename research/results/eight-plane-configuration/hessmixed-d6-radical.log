@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/hodge/results/eight-plane-configuration/w2_sing_radical.py", line 9, in <module>
+    eidx = [int(x) for x in eul.split(',')]
+            ^^^^^^
+ValueError: invalid literal for int() with base 10: ''

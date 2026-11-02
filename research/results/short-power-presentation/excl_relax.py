@@ -140,10 +140,38 @@ def main():
     print(f'kernel elements: {len(kern)} ({time.time()-t0:.0f}s)', flush=True)
     sysd = W.build_relaxation(F, A, d, kern, pars, p, slice_euler=slice_euler)
     W.save_system(sysd, base + '.system.json')
+    # reduce the (highly redundant) equation list to a basis of its span before handing it to the Groebner engines
+    pairs = {}
+    rows = []
+    for eq in sysd['eqs']:
+        r = {}
+        for (i, j), v in eq.items():
+            c = pairs.setdefault((i, j), len(pairs)); r[c] = v
+        rows.append(r)
+    Rn, Cn = len(rows), len(pairs)
+    flat = [0] * (Rn * Cn)
+    for i, r in enumerate(rows):
+        for c, v in r.items():
+            flat[i * Cn + c] = v
+    from flint import nmod_mat
+    Mr, rk = nmod_mat(Rn, Cn, flat, p).rref()
+    inv = {c: k for k, c in pairs.items()}
+    beqs = []
+    for i in range(rk):
+        eq = {}
+        for c in range(Cn):
+            v = int(Mr[i, c])
+            if v:
+                eq[inv[c]] = v
+        beqs.append(eq)
+    sysd['info']['independent_quadrics'] = rk
+    sysd['eqs_all'] = sysd['eqs']
+    sysd['eqs'] = beqs
+    print(f'independent quadrics: {rk} of {Rn} ({Cn} pair monomials)', flush=True)
     W.write_msolve(sysd, base + '.ms', p)
     W.write_singular(sysd, base + '.sing', p)
     nu = len(sysd['unknowns'])
-    rec = {'exp': 'relaxation', 'd': d, 'pars': parsarg, 'prime': p, 'unknowns': nu, 'equations': len(sysd['eqs']),
+    rec = {'exp': 'relaxation', 'd': d, 'pars': parsarg, 'prime': p, 'unknowns': nu, 'equations': len(sysd['eqs_all']), 'independent_quadrics': len(sysd['eqs']),
            'n_kernel': len(kern), 'slice_euler': slice_euler, 'parts': sysd['info']['parts'], 'job': job,
            'kernel_info': [{k: v for k, v in ki.items() if k in ('parD', 'kernel mod J', 'hilbert_ok', 'rank J_{d+6}')} for ki in kinfo]}
     if '--no-msolve' not in sys.argv:

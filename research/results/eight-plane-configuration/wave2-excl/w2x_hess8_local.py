@@ -9,7 +9,7 @@ from w2x_lib import *
 from w2x_hess import field_basis, euler_mult_basis
 from w2x_hess_sub import subfamily, to_vec, write_ms
 P1 = 2147483629
-MIRROR = '/tmp/hodge/remote/eight-plane-configuration'
+MIRROR = '/tmp/hodge/remote/eight-plane-configuration' if os.path.exists('/tmp/hodge/remote/eight-plane-configuration/e1kernel_basis_d10_par0.pkl') else WD
 
 def kernel_quotient(par, p):
     """returns (mons, idx, pivots, rows_std, standard) for the subspace K subset S_10^{par} from the wave-1 rref basis."""

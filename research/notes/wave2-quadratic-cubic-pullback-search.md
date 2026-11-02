@@ -91,6 +91,11 @@ Result: the only intersections are F * C[Q]_2 (21) and F * {Q_a Q_b} (9) -- spur
 section of the cubic, no cone with vertex a plane or a line, no bigraded (X-degree, Y-degree) piece, no delta * quartic,
 no A * quartic, and no product of two polars (mod J) passes E1 at degree 10.
 
+### Hessian form of stage 1 (verified exactly, both parities)
+For D = sum_l w_l F_l and N0 = A w, one has D div N0 - N0(D) == -A (w^T Hess(F) w) (mod J(F)), so the stage-1 condition is
+exactly  w^T Hess(F) w in K_{2d-6}^even = (J(F) : A)_{2d-6}.  For d <= 7 this is w^T Hess(F) w in J(F)_{2d-6} (independent of A);
+for d = 8, 9, 10 it is membership in the explicit kernels K_10, K_12, K_14 (codimensions 468, 208, 60).
+
 ### Batch 3 (item 2, exact closure of Jacobian-type degrees): stage-1 quadratic forms (w2_closure.py, w2_points.py)
 At degrees with K_d = J_d every E1-admissible D is sum_l w_l F_l and E2 implies q(w) := [D div N0 - N0(D)] = 0 in R_{2d}^odd
 (N0 = A w), a system of rJ quadratic forms in the w-coordinates, invariant under the spurious translations D -> D + F G.
@@ -102,8 +107,7 @@ the same conclusion when it returns the Groebner basis [1].
 |---|---|---|---|---|---|---|---|---|
 | 5 | even | 3 | 0 | 3 | 744 | 6/6 |  | 2 |
 | 5 | odd | 3 | 0 | 3 | 744 | 6/6 |  | 2 |
-| 6 | even | 18 | 1 | 17 | 866 | 135/153 |  | None |
-| 6 | even (Fermat control) | 18 | 1 | 17 | 866 | 8/153 |  | None |
+| 6 | even | 18 | 1 | 17 | 866 | 135/153 | deg3: 967/969 deg4: 4845/4845 | 4 |
 | 6 | odd | 18 | 0 | 18 | 866 | 153/171 |  | None |
 
 msolve (exact, mod p = 2147483629):
@@ -113,7 +117,15 @@ msolve (exact, mod p = 2147483629):
 | 6 | even | 2147483629 | 135 forms in 17 vars | [-1]: (no solution) | 0.0 s |
 | 6 | odd | 2147483629 | 153 forms in 18 vars | [-1]: (no solution) | 0.0 s |
 
-Conclusions so far: d = 5 (both parities, rank-2 certificate) and d = 6 (both parities: msolve GB = [1]; Macaulay-4 certificate
-running on the remote) admit NO certificate for A.  Combined with K_d = J_d for d <= 9, every certificate has deg D >= 7;
+Conclusions so far: d = 5 (both parities, rank-2 certificate), d = 6 Y-even (Macaulay-4 certificate 4845/4845, exact) and d = 6 Y-odd
+(msolve GB = [1]; Macaulay-4 running) admit NO certificate for A.  Combined with K_d = J_d for d <= 9, every certificate has deg D >= 7;
 d = 7, 8 msolve/Macaulay running (job closure678).
 
+### Batch 4 (item 2/3, numerical joint search, remote jobs jvp-d678 / d10; running): residual landscape so far
+rel = ||residual||^2 / ||B_D(N0)||^2 at the converged point (0 would be a certificate).  Spurious directions (F-multiples,
+Koszul gauge) are projected out; |u| = 1.  The remote box is shared with ~40 other jobs (load 300-670 on 128 cores), so
+restart counts are far below the planned thousands; the exact closures of Batch 3 supersede the d <= 6 searches.
+
+| d | parity | objective | relative residual statistics | cost |
+|---|---|---|---|---|
+| 6 | even | stage 1 (Hessian/Jacobian-quotient, LM) | n=361 min=1.890e-02 q10=2.303e-02 median=3.463e-02 max=4.660e-02 | 27.0 s/restart |

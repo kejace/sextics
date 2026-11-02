@@ -12,3 +12,10 @@ E_X_F: d=6 full system: 2602 columns, rows deg 18; built 2.4s
   Farkas vector: 189 nonzeros, max denominator bits 168; verified against all 2602 columns: True (bad=0, y.rhs=1) (0.2s)
 D8: d=8 full system: 7497 columns, rows deg 22; built 17.1s
   stabilizer order 18; sector system 5506 rows x 1188 cols
+  exact ranks: system 1041, augmented 1042 (536.2s)
+  Farkas vector: 968 nonzeros, max denominator bits 6281; verified against all 7497 columns: True (bad=0, y.rhs=1) (187.5s)
+control_F_illegal: d=6 full system: 2602 columns, rows deg 18; built 27.6s
+  stabilizer order 18; sector system 2369 rows x 440 cols
+  exact ranks: system 365, augmented 365 (21.8s)
+  CONSISTENT (no Farkas certificate)
+ALLDONE

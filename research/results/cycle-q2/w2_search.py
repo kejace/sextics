@@ -220,7 +220,9 @@ def reconstruct_and_confirm(S, kvp, cand, args, keyinfo):
         if res.get('status') == 'WITNESS':
             wit = {'instance': 'cycle-q2', 'd': core.degree(D), 'D': Ds, 'N': res['N'], 'Q': res['Q'], 'engine': W.ENGINE,
                    'family': args.family, 'key': keyinfo['key'], 'tag': args.tag, 'rel': cand['rel']}
-            with open(os.path.join(LANE, 'witness-candidate.json'), 'w') as f:
+            wfile = 'witness-candidate.json' if not getattr(args, 'target', None) else f'witness-candidate-sibling-q{args.q}.json'
+            wit['target'] = core.to_str(A); wit['q'] = q
+            with open(os.path.join(LANE, wfile), 'w') as f:
                 json.dump(wit, f, indent=1)
             W.log(step='WITNESS', **{k: v for k, v in wit.items() if k not in ('N', 'Q')}, note='WITNESS FOUND: exact certificate verified, F does not divide D')
             out['status'] = 'WITNESS'
@@ -232,9 +234,17 @@ def reconstruct_and_confirm(S, kvp, cand, args, keyinfo):
     return out
 
 
-def run_key(task):
-    args, kappa = task
+def load_target(args):
     F, A, q, rec = core.load_instance('cycle-q2')
+    if getattr(args, 'target', None):
+        A = core.parse(args.target)
+        q = args.q
+    return F, A, q
+
+
+def run_key(task):
+    args, kappa, part = task if len(task) == 3 else (task[0], task[1], 0)
+    F, A, q = load_target(args)
     S = W.Sectors(F, A)
     d = args.d
     t0 = time.time()
@@ -245,7 +255,8 @@ def run_key(task):
         return {'key': kappa, 'error': str(ex)}
     K = Bmat.shape[1] if Bmat.size else 0
     par = S.parity_of_key(d, kappa)
-    base = {'step': 'search', 'family': args.family, 'd': d, 'key': kappa, 'parity': par, 'tag': args.tag, 'K': int(K),
+    base = {'step': 'search', 'family': args.family, 'd': d, 'key': kappa, 'part': part, 'parity': par, 'tag': args.tag, 'K': int(K), 'q': q,
+            'target': core.to_str(A) if getattr(args, 'target', None) else 'A',
             'dimS': int(info.get('dimS', 0)), 'dimK': int(info.get('dimK', 0)), 'mode': args.mode, 'method': args.method}
     if K == 0 or K < args.min_K or (args.max_K and K > args.max_K):
         W.log(**base, restarts=0, note='family empty or outside K range; skipped', seconds=round(time.time() - t0, 1))
@@ -256,7 +267,7 @@ def run_key(task):
         W.log(**base, error=f'build: {ex}', note=traceback.format_exc()[-800:])
         return {'key': kappa, 'error': str(ex)}
     base.update({'rows': kvp.R, 'cols': kvp.ncols, 'nC': kvp.nC, 'nQ': kvp.nQ, 'e1_residual': kvp.e1_residual, 'build_s': round(kvp.build_time, 1)})
-    rng = np.random.default_rng(args.seed * 100003 + kappa)
+    rng = np.random.default_rng(args.seed * 100003 + kappa * 101 + part)
     done = 0
     best = None
     rels = []
@@ -332,8 +343,11 @@ def main():
     ap.add_argument('--max-K', type=int, default=0)
     ap.add_argument('--rel-thr', type=float, default=1e-10)
     ap.add_argument('--method', default='lm', help='lm (Levenberg-Marquardt varpro, default) or lbfgs')
+    ap.add_argument('--split', type=int, default=1, help='split the restarts of every key into this many parallel parts')
+    ap.add_argument('--target', default=None, help='alternative target polynomial (e.g. the q=1 sibling B = X0*X1**2*Y0*Y1**2)')
+    ap.add_argument('--q', type=int, default=2, help='pole order for --target')
     args = ap.parse_args()
-    F, A, q, rec = core.load_instance('cycle-q2')
+    F, A, q = load_target(args)
     S = W.Sectors(F, A)
     if args.keys == 'all':
         keys = S.all_keys(args.d)
@@ -349,11 +363,13 @@ def main():
             keys = [k for k in keys if str(k) in dd and dd[str(k)][2] > dd[str(k)][3]]
     t0 = time.time()
     W.log(step='search-start', family=args.family, d=args.d, tag=args.tag, n_keys=len(keys), restarts=args.restarts, maxiter=args.maxiter,
-          mode=args.mode, nproc=args.nproc, seed=args.seed, note=f'starting {args.family} d={args.d} over {len(keys)} sectors')
+          mode=args.mode, nproc=args.nproc, seed=args.seed, q=q, target=core.to_str(A) if args.target else 'A',
+          note=f'starting {args.family} d={args.d} over {len(keys)} sectors (q={q}, target {core.to_str(A) if args.target else "A"})')
     print(f'[w2_search] {args.family} d={args.d}: {len(keys)} sectors, {args.restarts} restarts each, {args.nproc} procs', flush=True)
     results = []
     with mp.get_context('fork').Pool(args.nproc) as pool:
-        for r in pool.imap_unordered(run_key, [(args, k) for k in keys]):
+        tasks = [(args, k, part) for k in keys for part in range(max(1, args.split))]
+        for r in pool.imap_unordered(run_key, tasks):
             results.append(r)
             print(f'  key {r.get("key")}: K={r.get("K")} best_rel={r.get("best_rel")} restarts={r.get("restarts")} '
                   f'{r.get("rows")}x{r.get("cols")} {r.get("seconds")}s {"WITNESS" if r.get("witness") else ""} {r.get("error", "")}', flush=True)

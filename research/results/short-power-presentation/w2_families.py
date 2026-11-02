@@ -76,16 +76,20 @@ def screen(F, A, d, par, p, families, Kp, verbose=True):
         for c in range(nul):
             x = [int(X[i, c]) for i in range(n)]; y = [int(X[n + j, c]) for j in range(k)]
             vecs.append((x, y))
-        # canonical form: rref of the x-parts (family coordinates)
+        # canonical form: rref of [y | x] (kernel coordinates first): rows with a pivot in the y-block are the
+        # canonical non-Jacobian representatives (x-part = family coordinates), the others span family ∩ J_d
         if nul:
-            Xm = nmod_mat(nul, n, [v for x, y in vecs for v in x], p)
-            Xr, rk = Xm.rref()
-            xs = [[int(Xr[i, j]) for j in range(n)] for i in range(rk)]
-            Ym = nmod_mat(nul, k, [v for x, y in vecs for v in y], p) if k else None
-            rank_y = Ym.rank() if k else 0
+            Zm = nmod_mat(nul, k + n, [v for x, y in vecs for v in (y + x)], p)
+            Zr, rk = Zm.rref()
+            xs, ys, nonjac = [], [], []
+            for i in range(rk):
+                row = [int(Zr[i, j]) for j in range(k + n)]
+                ys.append(row[:k]); xs.append(row[k:])
+                if any(row[:k]): nonjac.append(i)
+            rank_y = len(nonjac)
         else:
-            xs, rk, rank_y = [], 0, 0
-        results[key] = {'n': n, 'nullity': nul, 'rank_x': rk, 'rank_y': rank_y, 'xs': xs}
+            xs, ys, rk, rank_y, nonjac = [], [], 0, 0, []
+        results[key] = {'n': n, 'nullity': nul, 'rank_x': rk, 'rank_y': rank_y, 'xs': xs, 'ys': ys, 'nonjac': nonjac}
         if verbose and nul:
             print(f'[families] d={d} par={par} {key}: n={n} admissible dim={rk} (kernel part rank {rank_y})', file=sys.stderr, flush=True)
     return results
@@ -95,7 +99,7 @@ def main():
     ap.add_argument('d', type=int); ap.add_argument('par', type=int)
     ap.add_argument('--primes', type=int, default=2); ap.add_argument('--maxr', type=int, default=5)
     ap.add_argument('--minr', type=int, default=2); ap.add_argument('--tag', default='')
-    ap.add_argument('--threads', type=int, default=4)
+    ap.add_argument('--threads', type=int, default=4); ap.add_argument('--plist', default='')
     a = ap.parse_args()
     set_threads(a.threads)
     F, A, q, rec = load()
@@ -119,7 +123,7 @@ def main():
             families['+'.join(names)] = family_monomials(names, d, par, FP)
     nfam = len(families)
     print(f'[families] d={d} par={par}: {nfam} families built ({time.time()-t0:.0f}s)', file=sys.stderr, flush=True)
-    primes = (PGB + core.PRIMES)[:a.primes]
+    primes = [int(x) for x in a.plist.split(',')] if a.plist else (PGB + core.PRIMES)[:a.primes]
     allres = {}
     for p in primes:
         Kp = load_kernel_modp(d, par, p)
@@ -139,14 +143,15 @@ def main():
             rat, info = reconstruct_polys(lists)
             if rat:
                 elems = []
-                for vec in rat:
+                for ii, vec in enumerate(rat):
                     P = {}
                     for e, c in vec.items():
                         # find the poly for exponent e
                         for ee, PP in mons:
                             if ee == e:
                                 P = add(P, scale(PP, c)); break
-                    elems.append({'coords': {' '.join(map(str, e)): str(c) for e, c in vec.items()}, 'D': core.to_str(P)})
+                    elems.append({'coords': {' '.join(map(str, e)): str(c) for e, c in vec.items()}, 'D': core.to_str(P),
+                                  'nonjacobian': ii in r0['nonjac']})
                 rec_['rational'] = elems
             else:
                 rec_['rational'] = None; rec_['recon_info'] = info

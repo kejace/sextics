@@ -24,12 +24,18 @@ ctx = fmpz_mpoly_ctx.get(VARS, Ordering.degrevlex)
 Z = ctx.gens()
 GENS = [(3, 3, 3, 0, 0, 0), (0, 3, 0, 3, 0, 0), (4, 1, 4, 4, 1, 0)]
 LANE = '/tmp/hodge/results/one-reflection-skew'
-LOG = LANE + '/wave2-excl.log.jsonl'
+LOG = os.environ.get('W2X_LOG', LANE + '/wave2-excl.log.jsonl')
+
+def _jsdefault(o):
+    try:
+        return int(o)
+    except Exception:
+        return str(o)
 
 def logexp(**rec):
     rec.setdefault('ts', time.strftime('%Y-%m-%dT%H:%M:%S'))
     with open(LOG, 'a') as fh:
-        fh.write(json.dumps(rec) + '\n')
+        fh.write(json.dumps(rec, default=_jsdefault) + '\n')
 
 def from_dict(d):
     return ctx.from_dict({tuple(e): int(c) for e, c in d.items() if int(c)})
@@ -808,3 +814,37 @@ def macaulay_full_rank(quads, alive, k, p=2147483647):
             if v: M[i, j] = v
     r = M.rank()
     return r, len(cols), len(rows)
+
+# ---------------------------------------------------------------- Singular leaf analysis (dim / mult / Hilbert) mod p
+def singular_leaf(quads, alive, path, p=1073741827, timeout=3600):
+    """Run Singular on the restricted quadrics mod p: returns dict(dim, mult, hilb_numerator, leading_pure_powers)."""
+    import subprocess, re
+    al = sorted(alive)
+    polys = []
+    for qd in restrict_quads(quads, al):
+        terms = []
+        for (a, b), v in qd['coef'].items():
+            vv = v % p
+            if vv: terms.append(f'{vv}*l{a}*l{b}')
+        if terms: polys.append('+'.join(terms))
+    with open(path, 'w') as fh:
+        fh.write(f'ring r = {p}, (' + ','.join(f'l{a}' for a in al) + '), dp;\n')
+        fh.write('ideal I = ' + ',\n'.join(polys) + ';\n')
+        fh.write('option(redSB); ideal G = std(I);\n')
+        fh.write('print("DIM " + string(dim(G)));\nprint("MULT " + string(mult(G)));\n')
+        fh.write('intvec h = hilb(G, 1); print("HILB1 " + string(h));\nintvec h2 = hilb(G, 2); print("HILB2 " + string(h2));\n')
+        fh.write('ideal L = lead(G); print("NLEAD " + string(size(L)));\n')
+        fh.write('int i; string s = ""; for (i = 1; i <= nvars(r); i++) { if (reduce(var(i)^50, std(L)) == 0) { s = s + "1"; } else { s = s + "0"; } } print("PURE " + s);\n')
+        fh.write('quit;\n')
+    cp = subprocess.run(['Singular', '-q', path], capture_output=True, text=True, timeout=timeout)
+    out = {'raw': cp.stdout[-3000:], 'stderr': cp.stderr[-500:]}
+    for key in ('DIM', 'MULT', 'HILB1', 'HILB2', 'NLEAD', 'PURE'):
+        m = re.search(rf'^{key} (.*)$', cp.stdout, re.M)
+        if m: out[key] = m.group(1).strip()
+    if 'PURE' in out:
+        out['no_pure_power'] = [al[i] for i, ch in enumerate(out['PURE']) if ch == '0']
+    return out
+
+def quads_vanish_at_axis(quads, a):
+    """Exact: every quadric has zero coefficient on lambda_a^2  <=>  the axis through e_a lies in V_Q(I)."""
+    return all(qd['coef'].get((a, a), 0) == 0 for qd in quads)

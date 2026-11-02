@@ -29,11 +29,15 @@ while True:
         log(f'status error {ex!r}'); time.sleep(120); continue
     if len(run) < MAXRUN:
         line = pending[0]; name, cpus, cmd = line.split('|', 2)
-        try:
-            subprocess.run(['python3', '-m', 'hodge.rjob', 'submit', '--lane', LANE, '--name', name, '--cpus', cpus, '--force', '--', *cmd.split()],
-                           cwd='/home/kejace/devel/sextics-work', timeout=420, capture_output=True, text=True)
-        except subprocess.TimeoutExpired:
-            log(f'submit timed out for {name}; checking pid file')
+        with open(f'{W2}/submit_{name}.out', 'a') as fo:
+            pr = subprocess.Popen(['python3', '-m', 'hodge.rjob', 'submit', '--lane', LANE, '--name', name, '--cpus', cpus, '--force', '--', *cmd.split()],
+                                  cwd='/home/kejace/devel/sextics-work', stdout=fo, stderr=subprocess.STDOUT, start_new_session=True)
+            try:
+                pr.wait(timeout=420)
+            except subprocess.TimeoutExpired:
+                log(f'submit timed out for {name}; killing its process group and checking the pid file')
+                try: os.killpg(pr.pid, 9)
+                except Exception: pass
         ok = False
         for _ in range(3):
             try:

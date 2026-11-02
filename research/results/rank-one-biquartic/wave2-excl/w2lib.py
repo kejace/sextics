@@ -281,3 +281,137 @@ def reduce_by_rref(Mr, pivots, tvec, p, C):
                 if m:
                     v[k] = (v[k] - c * m) % p
     return not any(v)
+
+
+# ----------------------------------------------------------------------------
+# Hessian relaxation: replace the Koszul/Q columns (all of which lie in J_{2d}) by a basis of J_{2d}
+# ----------------------------------------------------------------------------
+def rref_pivots(Mr, rank, C):
+    piv = []
+    for i in range(rank):
+        j = 0
+        while j < C and int(Mr[i, j]) == 0:
+            j += 1
+        piv.append(j)
+    return piv
+
+class HessianFamily:
+    """Per Y-parity block: E' = [ m*F_i (deg 2d) | P_kl + P_lk ], rows = monomials of degree 2d of that parity.
+    A certificate lambda^T E' = (0 | target) proves target(a) in J-relaxed ideal, hence in the E2 ideal I.
+    Necessary condition it encodes: the class [B_D(N_0(D))] in (S/J)_{2d} vanishes for a certificate."""
+    def __init__(self, d, basis, verbose=True, check=True):
+        t0 = time.time()
+        self.d, self.basis = d, basis
+        K = len(basis); self.K = K
+        if check:
+            for lab, D, N in basis:
+                assert core.degree(D) == d, (lab, core.degree(D))
+                assert sub(apply_field(N, F), mul(A, D)) == {}, f'E1 fails for basis element {lab}'
+        self.par = [core.parity_of(b[1]) for b in basis]
+        assert all(pp is not None for pp in self.par), 'basis elements must have pure parity'
+        self.blocks = {}
+        for blk in (0, 1):
+            self.blocks[blk] = dict(cols=[], colpolys=[])
+        # J columns
+        for blk in (0, 1):
+            for i in range(NV):
+                pi = 0 if i < 3 else 1
+                for m in monomials(2 * d - 5, (blk - pi) % 2):
+                    self.blocks[blk]['cols'].append(('J', i, m)); self.blocks[blk]['colpolys'].append(shift(Fi[i], m, 1))
+        self.nJ = {blk: len(self.blocks[blk]['cols']) for blk in (0, 1)}
+        # aa columns: P_kl + P_lk, parity = (1 + par_k + par_l) % 2  (A is Y-odd)
+        Pm = {}
+        for k in range(K):
+            for l in range(K):
+                Pm[(k, l)] = B_op(basis[k][1], basis[l][2])
+        for k in range(K):
+            for l in range(k, K):
+                poly = Pm[(k, k)] if k == l else add(Pm[(k, l)], Pm[(l, k)])
+                blk = (1 + self.par[k] + self.par[l]) % 2
+                self.blocks[blk]['cols'].append(('aa', k, l)); self.blocks[blk]['colpolys'].append(poly)
+        for blk in (0, 1):
+            B = self.blocks[blk]
+            mons = monomials(2 * d, blk)
+            B['rows'] = {e: i for i, e in enumerate(mons)}
+            B['nrows'] = len(mons); B['ncols'] = len(B['cols'])
+            B['colidx'] = {c: j for j, c in enumerate(B['cols'])}
+            for col in B['colpolys']:
+                for e in col:
+                    assert e in B['rows'], ('parity mismatch', e, blk)
+        self.build_time = time.time() - t0
+        if verbose:
+            print(f'[hessfam d={d}] K={K} blocks: ' + '; '.join(f'par{blk}: rows {self.blocks[blk]["nrows"]} cols {self.blocks[blk]["ncols"]} (J {self.nJ[blk]})' for blk in (0, 1)) + f' built in {self.build_time:.0f}s', flush=True)
+
+    def nmod(self, blk, p):
+        B = self.blocks[blk]
+        R, C = B['nrows'], B['ncols']
+        flat = [0] * (R * C)
+        rows = B['rows']
+        for j, col in enumerate(B['colpolys']):
+            for e, v in col.items():
+                v = Fraction(v)
+                flat[rows[e] * C + j] = (v.numerator * pow(v.denominator, -1, p)) % p
+        return nmod_mat(R, C, flat, p)
+
+    def analyze(self, blk, p, verbose=True):
+        t0 = time.time()
+        Mx = self.nmod(blk, p)
+        Mr, rank = Mx.rref()
+        B = self.blocks[blk]
+        piv = rref_pivots(Mr, rank, B['ncols'])
+        rJ = sum(1 for j in piv if j < self.nJ[blk])
+        info = dict(blk=blk, p=p, rank=rank, rank_J=rJ, nrows=B['nrows'], ncols=B['ncols'], nJ=self.nJ[blk],
+                    n_aa=B['ncols'] - self.nJ[blk], t=round(time.time() - t0, 1))
+        if verbose: print('[hess analyze]', json.dumps(info), flush=True)
+        return info, Mr, piv
+
+def hess_certificates(HF, blk, Mr, piv, targets, p, verbose=True):
+    """targets: list of (name, dict col->Fraction) within block blk.  Exact lambda with lambda^T E' = target."""
+    t0 = time.time()
+    B = HF.blocks[blk]
+    R, C = B['nrows'], B['ncols']
+    Mx = HF.nmod(blk, p)
+    MTr, r2 = Mx.transpose().rref()
+    prow = rref_pivots(MTr, r2, R)
+    r = len(piv); assert r2 == r, (r2, r)
+    del Mx, MTr
+    S = fmpq_mat(r, r)
+    rowpos = {ri: a_ for a_, ri in enumerate(prow)}
+    colpos = {cj: b_ for b_, cj in enumerate(piv)}
+    rows = B['rows']
+    for b_, cj in enumerate(piv):
+        for e, v in B['colpolys'][cj].items():
+            ri = rows[e]
+            if ri in rowpos:
+                v = Fraction(v); S[rowpos[ri], b_] = fmpq(v.numerator, v.denominator)
+    T = fmpq_mat(r, len(targets))
+    for tcol, (name, tvec) in enumerate(targets):
+        for j0, v in tvec.items():
+            if j0 in colpos:
+                v = Fraction(v); T[colpos[j0], tcol] = fmpq(v.numerator, v.denominator)
+    t1 = time.time()
+    try:
+        MU = S.transpose().solve(T)
+    except Exception as ex:
+        print('[cert] solve failed', ex, flush=True); return None
+    t2 = time.time()
+    out = {}
+    for tcol, (name, tvec) in enumerate(targets):
+        lam = {}
+        for a_, ri in enumerate(prow):
+            v = MU[a_, tcol]
+            if v != 0: lam[ri] = Fraction(int(v.p), int(v.q))
+        ok = True
+        for cj, col in enumerate(B['colpolys']):
+            s = Fraction(0)
+            for e, v in col.items():
+                ri = rows[e]
+                if ri in lam: s += lam[ri] * Fraction(v)
+            if s != Fraction(tvec.get(cj, 0)):
+                ok = False; break
+        out[name] = lam if ok else None
+        if verbose:
+            h = max((max(abs(x.numerator), x.denominator) for x in lam.values()), default=1)
+            print(f'[cert] {name} verified={ok} support={len(lam)} maxheight_digits={len(str(h))}', flush=True)
+    if verbose: print(f'[cert blk{blk}] submatrix {r}x{r} build {t1-t0:.0f}s solve {t2-t1:.0f}s verify {time.time()-t2:.0f}s', flush=True)
+    return out

@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-01 19:38:23.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-01 19:57:22.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -32,6 +32,15 @@ Last rebuilt 2026-11-01 19:38:23.  Work dir `/tmp/hodge/results/rank-one-biquart
   witness from 9 random starts and confirmed it exactly (strict).  On this lane `B_{eps_X F}(A X) = 8 t A L^2 M`
   is reproduced exactly and `D = eps_X F` is inconsistent (reduced rel 0.60, unreduced 0.091); d=6 family
   dimension 18 = dim J_6^+ and d=7 dimension 66 = 63 + 3 agree with the exact profile.
+* Rigor of the exact exclusions.  All exact computations are modulo p = 2^31-1 (= `core.PRIMES[0]`); the Jacobian
+  ring dimensions found there ((S/J)_10^- = 744, (S/J)_12^- = 866, (S/J)_14^- = 744, ...) equal the regular-sequence
+  values, so every J-rank mod p equals its rank over Q.  Consequently (i) the Q-space of E1-admissible denominators
+  reduces into the mod-p space, (ii) p-integral lifts reduce to lifts, (iii) normal forms modulo J commute with
+  reduction.  If the relaxation map Phi: Sym^2(family) -> (S/J)_{2d} has full column rank mod p, its matrix over Q
+  (in a saturated p-integral basis) has full column rank, so Phi(a (x) a) != 0 for every nonzero a over C: no
+  denominator in that family passes E2.  For d <= 6 the family is the complete set of E1-admissible Y-even
+  denominators (proved over C in the dossier), so a full-rank result there is an unconditional exclusion of that
+  degree.  Numerical search results are evidence only; a failed multistart search excludes nothing.
 
 ## 1. E1-admissible denominator spaces (exact mod p = 2^31-1)
 (pending)
@@ -42,6 +51,8 @@ Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-typ
 | d | parity | family (J + kernel) | #pairs | dim (S/J)_{2d} | rank Phi | excluded? |
 |---|---|---|---|---|---|---|
 | 5 | even | ? + ? = 3 | 6 | 744 | 6 | **YES (proved, mod p -> C)** |
+| 6 | even | 18 + 0 = 18 | 171 | 866 | 82 | no (rank-deficient by count) |
+| 6 | odd | 18 + 0 = 18 | 171 | 866 | 108 | no (rank-deficient by count) |
 
 ## 3. Full-E2 variable-projection multistart searches (normalized system, float, L-BFGS)
 (pending)

@@ -1,0 +1,36 @@
+number of subgroups: 98  conjugacy classes: 33
+{'order': 1, 'n_conj': 1, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 3, 'inv_std': 2, 'is_KX': False, 'is_KW': False}
+{'order': 2, 'n_conj': 3, 'n_refl': 1, 'K_pullback_degree': 3, 'inv_21': 2, 'inv_std': 2, 'is_KX': False, 'is_KW': False}
+{'order': 2, 'n_conj': 6, 'n_refl': 1, 'K_pullback_degree': 3, 'inv_21': 2, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 2, 'n_conj': 1, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 2, 'is_KX': False, 'is_KW': False}
+{'order': 2, 'n_conj': 3, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 1, 'inv_std': 2, 'is_KX': False, 'is_KW': False}
+{'order': 2, 'n_conj': 6, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 1, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 3, 'n_conj': 4, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 1, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 3, 'n_refl': 2, 'K_pullback_degree': 2, 'inv_21': 1, 'inv_std': 2, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 3, 'n_refl': 2, 'K_pullback_degree': 2, 'inv_21': 1, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 6, 'n_refl': 2, 'K_pullback_degree': 2, 'inv_21': 1, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 3, 'n_refl': 1, 'K_pullback_degree': 3, 'inv_21': 0, 'inv_std': 2, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 6, 'n_refl': 1, 'K_pullback_degree': 3, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 1, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 2, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 3, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 3, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 4, 'n_conj': 3, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 1, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 6, 'n_conj': 4, 'n_refl': 3, 'K_pullback_degree': 1, 'inv_21': 1, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 6, 'n_conj': 4, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 6, 'n_conj': 4, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 8, 'n_conj': 3, 'n_refl': 4, 'K_pullback_degree': 0, 'inv_21': 1, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 8, 'n_conj': 1, 'n_refl': 3, 'K_pullback_degree': 1, 'inv_21': 0, 'inv_std': 2, 'is_KX': False, 'is_KW': False}
+{'order': 8, 'n_conj': 3, 'n_refl': 3, 'K_pullback_degree': 1, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 8, 'n_conj': 3, 'n_refl': 2, 'K_pullback_degree': 2, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 8, 'n_conj': 3, 'n_refl': 2, 'K_pullback_degree': 2, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 8, 'n_conj': 3, 'n_refl': 1, 'K_pullback_degree': 3, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 8, 'n_conj': 3, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 12, 'n_conj': 4, 'n_refl': 3, 'K_pullback_degree': 1, 'inv_21': 0, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 12, 'n_conj': 1, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 16, 'n_conj': 3, 'n_refl': 5, 'K_pullback_degree': -1, 'inv_21': 0, 'inv_std': 1, 'is_KX': False, 'is_KW': False}
+{'order': 24, 'n_conj': 1, 'n_refl': 6, 'K_pullback_degree': -2, 'inv_21': 0, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 24, 'n_conj': 1, 'n_refl': 3, 'K_pullback_degree': 1, 'inv_21': 0, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 24, 'n_conj': 1, 'n_refl': 0, 'K_pullback_degree': 4, 'inv_21': 0, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+{'order': 48, 'n_conj': 1, 'n_refl': 9, 'K_pullback_degree': -5, 'inv_21': 0, 'inv_std': 0, 'is_KX': False, 'is_KW': False}
+max n_refl among subgroups with (2,1)-invariants: 4
+subgroups with n_refl>=5 (uniruled quotients) and inv_21>0: []
