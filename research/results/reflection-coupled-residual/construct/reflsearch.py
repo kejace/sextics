@@ -95,9 +95,16 @@ for j in range(NCHARTS):
             coeffs.setdefault(zm, {})[rest] = cf
         for zm, d in coeffs.items():
             eqs.append(ctxA.from_dict({(0,) * n + r: cf for r, cf in d.items()}))
+# optional elimination of the lambda unknowns: substitute lambda_i = d_iPhi(v) (quintics in v)
+ELIM = os.environ.get('REFL_ELIM', '0') == '1'
+if ELIM:
+    lam_expr = [dPhi[i].compose(*(v + [gA[k] for k in range(n, len(ALL))])) for i in range(n)]
+    img2 = [gA[k] for k in range(n)] + list(gA[n:n + n - 1]) + lam_expr
+    eqs = [e.compose(*img2) for e in eqs[n:]]          # drop the n lambda-definition equations
+    UN = [f'v{i}' for i in range(1, n)]
 # drop zero eqs, dedupe
 eqs = [e for e in eqs if e != zero]
-print(f'[{name}] n={n} unknowns={len(UN)} equations={len(eqs)} charts={NCHARTS} k1only={K1_ONLY} built in {time.time()-t0:.1f}s', flush=True)
+print(f'[{name}] n={n} unknowns={len(UN)} equations={len(eqs)} charts={NCHARTS} k1only={K1_ONLY} elim={ELIM} maxdeg={max(e.total_degree() for e in eqs)} built in {time.time()-t0:.1f}s', flush=True)
 # write msolve input (only unknown variables)
 def ms_str(e):
     s = []

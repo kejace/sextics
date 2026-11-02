@@ -1,0 +1,43 @@
+{
+ "exp": "hessian-relaxation",
+ "kind": "sector",
+ "d": 9,
+ "par": "0",
+ "chi": "triv",
+ "prime": 2147483647,
+ "job": "sector_triv_d9_par0_p2147483647",
+ "family": [
+  {
+   "pD": 0,
+   "rows": 448,
+   "nN": 489,
+   "nD": 79,
+   "dimK": 34,
+   "dimJd": 33,
+   "ker_R": 1,
+   "radial": 5,
+   "complement": 29,
+   "rankM": 447
+  }
+ ],
+ "n_unknowns": 29,
+ "reducers": {
+  "1": {
+   "rank_modp": 821,
+   "rank_CI": 821,
+   "ring_dim": 17,
+   "ring_CI": 17
+  }
+ },
+ "n_quadrics": 17,
+ "files": {
+  "msolve": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_sector_triv_d9_par0_p2147483647.ms",
+  "singular": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_sector_triv_d9_par0_p2147483647.sing"
+ },
+ "result": {
+  "msolve_rc": 124,
+  "msolve_seconds": 1803.6,
+  "verdict": "msolve failed/timeout"
+ },
+ "seconds": 1816.4
+}

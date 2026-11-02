@@ -105,3 +105,6 @@
 00:25:43 done E1-kernel rep d=9 par=1 k=5 #2 (p=1000003) inconsistent rank 1535 rows 8382 cols 1746 293.79 s
 00:28:01 done E1-kernel rep d=9 par=1 k=5 #3 (p=1000003) inconsistent rank 1535 rows 8382 cols 1746 372.83 s
 00:29:28 done E1-kernel rep d=9 par=1 k=5 #4 (p=1000003) inconsistent rank 1535 rows 8153 cols 1746 406.24 s
+00:30:37 done E1-kernel rep d=9 par=1 k=5 #5 (p=1000003) inconsistent rank 1535 rows 8380 cols 1746 407.07 s
+00:32:55 done E1-kernel random combo d=9 par=1 k=5 trial 0 (p=1000003) inconsistent rank 1535 rows 8386 cols 1746 431.97 s
+00:34:08 done E1-kernel random combo d=9 par=1 k=5 trial 1 (p=1000003) inconsistent rank 1535 rows 8386 cols 1746 367.06 s

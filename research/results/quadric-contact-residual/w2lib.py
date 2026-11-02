@@ -165,7 +165,13 @@ def jgens(deg, c=None, parity=None):
 
 
 def fpoly(P):
-    return {e: float(v) for e, v in P.items()}
+    out = {}
+    for e, v in P.items():
+        try:
+            out[e] = float(v)
+        except OverflowError:
+            out[e] = float(Fraction(v).limit_denominator(10**9)) if abs(Fraction(v)) < 1e300 else (1e300 if v > 0 else -1e300)
+    return out
 
 
 def to_int_poly(P):
@@ -218,16 +224,25 @@ def e1_family(d, c, vars_mask=None, verbose=False, parity=None):
     t2 = time.time()
     kernel = []
     if nul:
-        # project kernel vectors onto the D coordinates, rref over Q
+        # project kernel vectors onto the D coordinates, rref over Q, then LLL-reduce the integer basis of the
+        # row space (the rref representatives have astronomically large entries at d >= 10; LLL makes them small)
         proj = fmpq_mat(nul, K, [int(X[j, k]) for k in range(nul) for j in range(K)])
         Pr, rk = proj.rref()
+        int_rows = []
         for i in range(rk):
             P = {}
             for j in range(K):
                 v = Pr[i, j]
                 if v != 0:
                     P[mons[j]] = Fraction(int(v.p), int(v.q))
-            kernel.append(to_int_poly(P))
+            Pi = to_int_poly(P)
+            int_rows.append([Pi.get(m, 0) for m in mons])
+        if int_rows:
+            L = fmpz_mat(int_rows).lll()
+            for i in range(rk):
+                P = {mons[j]: int(L[i, j]) for j in range(K) if int(L[i, j])}
+                if P:
+                    kernel.append(P)
     # Jacobian part of degree d inside span(mons)
     gens = []
     if vars_mask is None:
@@ -327,12 +342,20 @@ def e1_family_span(d, polys, c, verbose=False):
     if nul:
         proj = fmpq_mat(nul, K, [int(X[j, k]) for k in range(nul) for j in range(K)])
         Pr, rk = proj.rref()
+        int_rows = []
+        for i in range(rk):
+            row = [Fraction(int(Pr[i, j].p), int(Pr[i, j].q)) for j in range(K)]
+            den = 1
+            for v in row:
+                den = den * v.denominator // math.gcd(den, v.denominator)
+            int_rows.append([int(v * den) for v in row])
+        L = fmpz_mat(int_rows).lll() if int_rows else None
         for i in range(rk):
             P = {}
             for j in range(K):
-                v = Pr[i, j]
-                if v != 0:
-                    P = add(P, scale(polys[j], Fraction(int(v.p), int(v.q))))
+                cj = int(L[i, j])
+                if cj:
+                    P = add(P, scale(polys[j], Fraction(cj)))
             if P:
                 kernel.append(to_int_poly(P))
     info = {'d': d, 'K': K, 'rows': R, 'cols': C, 'nullity': nul, 'dim_kernel': len(kernel), 'seconds': round(time.time() - t0, 1)}
@@ -449,6 +472,26 @@ def build_family(d, c=None, parity=None, vars_mask=None, mode='gens', verbose=Fa
             seen.add(key)
             sm.append((Ds, Ns, 'sym:' + tag))
         members = sm
+    # normalize every member to unit coefficient norm (D_k and its lift N_k by the same factor): the exact
+    # kernel extras come as integer polynomials with huge entries, which otherwise wreck the SVD tolerances
+    # of parameter_complement (observed at d = 10: 108 of 128 directions wrongly excluded) and the float lstsq.
+    normed = []
+    for Dk, Nk, tag in members:
+        vals = list(Dk.values())
+        if all(isinstance(v, (int, Fraction)) for v in vals):
+            nrm2 = sum(Fraction(v) ** 2 for v in vals)
+            nrm = Fraction(math.isqrt(nrm2.numerator), math.isqrt(nrm2.denominator)) if nrm2 else Fraction(0)
+            if nrm == 0:
+                continue
+            Dk = {e: float(Fraction(v) / nrm) for e, v in Dk.items()}
+            Nk = [{e: float(Fraction(v) / nrm) for e, v in P.items()} for P in Nk]
+        else:
+            nrm = math.sqrt(sum(float(v) ** 2 for v in vals))
+            if nrm == 0.0:
+                continue
+            Dk = scale(Dk, 1.0 / nrm); Nk = [scale(P, 1.0 / nrm) for P in Nk]
+        normed.append((Dk, Nk, tag))
+    members = normed
     info = dict(fam['info'])
     info.update({'mode': mode, 'sym': sym, 'n_members': len(members), 'n_lifted': len(need_lift),
                  'max_lift_res': max(lift_res) if lift_res else 0.0, 't_family': round(time.time() - t0, 1)})
