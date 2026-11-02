@@ -10,3 +10,4 @@ stage-1 colon family of F0: K=74 dimP=69
   t=0 solution 6 at seed 43
   t=0 solution 7 at seed 76
 t=0: found 7 solutions in 96 restarts
+t=0.02: relres after LM over 7 tracked solutions: min 6.133e-04 median 7.991e-04
