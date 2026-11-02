@@ -22,7 +22,7 @@ Conventions as in the dossier (`/tmp/hodge/notes/dossier-reflection-coupled-resi
 | M3 | Fano / surface-fibration companions of Klein quotients (item ii) | uniruled quotient, or fibration over a surface with `p_g = q = 0` fibres | **fails**: only `W = X/r` and `X/⟨r,ρ⟩` are Fano (target not invariant); `X/ρ`, `X/τ` have `K ≡ 0`; the natural surface fibrations of `X/τ` over `P²_Y`, `P²_X` have fibres of weighted degree 6 in `P(1,1,1,2)` with `p_g = 3` (§2.3) |
 | M4 | q-raising / Gauss–Manin from the companion (item iv) | a *family* `F + tC` on which the companion's certificate deforms, with `C` `r`-odd (to flip the character) | **fails**: `C` `r`-odd leaves the one-reflection locus, where nothing is supported; `C` `r`-even preserves the character (§2.4) |
 | M5 | twisted slices of the companion's curve family on `W` (item v) | a slice `S` of the rational-curve family on `W` whose hyperelliptic lift carries anti-invariant 2-forms, i.e. `H⁰(S, Ω¹_S ⊗ λ_hyp) ≠ 0`, with nonzero Gysin image | **the only mechanism on this variety that can produce `(−,−)` classes**; explicit integration is obstructed by `H³(S, R¹p_*L) ≠ 0` (positive-genus lifts) — exactly the period obstruction met in discussion #154; a finite-field incidence seed cannot be used because the lifted curves have genus `e − 1 ≥ 1` for every weighted degree `e ≥ 2`, and `e = 1` (weighted lines) gives `r`-invariant classes only (§3) |
-| M6 | Fermat-pencil continuation (item iv) | formal deformation of the degree-6 Fermat certificate along `F_c = Fermat + cP` | queued (job `construct-rcr-all`, Exp C) |
+| M6 | Fermat-pencil continuation (item iv) | formal deformation of the degree-6 Fermat certificate along `F_c = Fermat + cP` | **fails at first order** for the strict subset-Euler base `D₀ = X0⁶+X1⁶+X2⁶`, `N₀ = A·X_i/6`: the linearised system (9306 rows, 1664 unknowns in the Klein `(+,+)` sector) has rank 1484 but the augmented rank is 1485 (`p = 2³¹−1`, job `construct-rcr-all`); the `Y`-block base is being tested |
 | M8 | nonlinear polynomial Piola / finite Fano maps (§3.4; "`F = ΣQ_i³`", block maps) | `F = G(Φ)` with `Φ` polynomial of equal dimension; served sector = `det(dΦ)·B(Φ)` | **only `Φ = (x, Y2²)` exists** (density `2Y2`, the companion): `F` is not a polynomial in `(X, Y0², Y1², Y2²)` (the `Y0Y1` terms) nor in `(X, Y0Y1, q(Y0,Y1), Y2²)` for a single quadratic `q` (`Y0²Y2²` vs `2Y1²Y2²`, `Y0³Y1·X0X1` vs `Y0Y1³·X1X2` need three invariant quadrics), and `F` is not a sum of cubes of quadrics beyond the Fermat part |
 | M7 | pencil `(Y0:Y1)` and the variation `V₁₁` (new) | Abel–Jacobi/normal-function supports would need a level-one sub-variation `V' ⊂ V₁₁` | the residual sector **is** `H¹(P¹, j_*V₁₁)`, `V₁₁` of rank 186 with Hodge numbers `(3,90,90,3)` [computed]; **`V₁₁` has no level-one sub-variation** (vanishing-cycle argument, §4) ⇒ supports must be horizontal divisors carrying `(−,−)` `(2,0)`-forms, consistent with M5 and excluding the "irregular surfaces in the fibres" route |
 
@@ -163,6 +163,18 @@ critical point (the only critical points on `{X = 0}` are the six Klein-fixed de
 `V₁₁ = V' ⊕ V'^⊥` (polarized, semisimple); `F³V' = 0` forces `ω_i ∈ V'^⊥`, hence `E ⊂ V'^⊥` and
 `V' ⊂ E^⊥`. ∎
 
+**Singular-fibre bookkeeping (computed).** The critical scheme `{∂₀F = ∂₁F = ∂₂F = ∂₅F = F = 0}` of the pencil
+has `vdim = 3750` in a random affine chart (Bezout `6·5⁴`, no points at infinity), its `Y2 = 0` part has `vdim = 750`,
+and at the Klein-fixed point `(0:0:0:1:ζ:0)` the local multiplicities are `m = 15` (confirming the Milnor-number
+prediction from the principal part `X0⁴ + Y2⁶`) and `m' = 3` for the `Y2 = 0` system (Singular, local ring `ds`,
+`p = 1000033`, jobs `construct-rcr-critpts3/4`). With free Klein orbits of 4 nodes and `r`-fixed pairs:
+`4N_free + 2N_r + 6·15 = 3750`, `2N_r + 6·3 = 750` ⇒ **`N_r = 366`, `N_free = 732`** nodal singular fibres. The Leray
+sector dimensions of `H¹(P¹, R³f_*Q)` for `X̃` are `744 / 756 / 1132 / 580` for `(−,−)/(+,−)/(−,+)/(+,+)` (the 106
+classes of `Σ₀` split 63/43 under `r`), so the naive Euler-characteristic count `dim H¹ = Σ drops − 2·rank` requires
+degenerate-fibre drops `18 / 24 / 34 / 12` (total `88 = 6·15 − 2`); `18 = 6·3` in the residual sector is consistent
+with six conjugate fibres, while `34` is not divisible by 6, so the naive formula misses a small `R⁴/R²` jump at the
+degenerate fibres in the `(−,+)` sector — irrelevant for the proposition, which uses only the 1098 nodal fibres.
+
 **Consequences for supports.** Write the Gysin map of a resolved divisor `Ẽ → X` through the Leray
 filtrations of `Ẽ_U → U` and `X_U → U`. The graded piece `H¹(U, R¹f_*Q_Ẽ)(−1) → H¹(U, V₁₁)` has image in
 `H¹(U, V'_E)` for the level-one sub-variation `V'_E = im(R¹f_*Q_Ẽ(−1) → R³f_*Q)`, which by the
@@ -202,12 +214,12 @@ the loophole `E^⊥ ≠ 0`.)
   `{λ_i = ∂_iΦ(v); D_vΦ, D_v³Φ vanish on ker(Σλ_iz_i)}` in three charts (solved with msolve; decoder
   verifies each solution exactly and maps eigenvectors back). Control: Fermat in 5 variables must give
   `5 + 10·6 = 65` reflections (local toy in 4 variables gave the expected 40 genuine solutions).
-* **C (job `construct-rcr-all`, queued)**: formal continuation of the strict Fermat certificate
+* **C (job `construct-rcr-all`, done for base X)**: formal continuation of the strict Fermat certificate
   `D₀ = X0⁶+X1⁶+X2⁶`, `N₀ = A·X_i/6` along `F_c`, degree 6, Klein `(+,+)` sector, orders 1–5 mod `2³¹−1`
   (also the `Y`-block base `D₀ = Y0⁶+Y1⁶+Y2⁶`).
 * **G (same job, after B)**: `gm_rank.py` — Griffiths–Dwork over `F_p[ε]/ε^71`, `p = 2²⁶ − 5`, rank of the `∇`-span of the
   `(3,0)`-forms in `V₁₁` (predicted 186 by §4; any smaller value would exhibit a sub-variation unseen by the nodal fibres).
-* **F (same job, after C)**: `critpts.py` — the 3750 critical points of `Y0/Y1` on `X` (msolve), classified by Klein type.
+* **F**: `critpts.py` — the 3750 critical points of `Y0/Y1` on `X`: msolve segfaults on the degree-3750 system (rc −11 after 52 s, also with a 120 GB cap); replaced by the Singular script `critpts3.sing` (job `construct-rcr-critpts3`): `vdim` of the critical scheme in a random chart, of its `Y2 = 0` part, and the local multiplicities `m`, `m'` at the Klein-fixed point (local ring, `ds` ordering) — exactly the unknowns of the bookkeeping in §4.
 
 ## 6b. Cross-references to the sibling lenses (same lane, same session)
 * exclusion lens (`wave2-reflection-coupled-residual-excl.md`): rigorous `deg D ≥ 7` for every denominator (E1 in

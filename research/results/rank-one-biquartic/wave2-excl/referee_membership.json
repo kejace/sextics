@@ -1,0 +1,154 @@
+{
+ "L2M": {
+  "degree": 6,
+  "rank_J": 36,
+  "rank_J_expected": 36,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "f": {
+  "degree": 6,
+  "rank_J": 36,
+  "rank_J_expected": 36,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "g": {
+  "degree": 6,
+  "rank_J": 36,
+  "rank_J_expected": 36,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "f-g": {
+  "degree": 6,
+  "rank_J": 36,
+  "rank_J_expected": 36,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "A": {
+  "degree": 6,
+  "rank_J": 36,
+  "rank_J_expected": 36,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "A*L": {
+  "degree": 8,
+  "rank_J": 336,
+  "rank_J_expected": 336,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "A*M": {
+  "degree": 8,
+  "rank_J": 336,
+  "rank_J_expected": 336,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "A*L^2": {
+  "degree": 10,
+  "rank_J": 1497,
+  "rank_J_expected": 1497,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "A*M^2": {
+  "degree": 10,
+  "rank_J": 1497,
+  "rank_J_expected": 1497,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "A*L*M": {
+  "degree": 10,
+  "rank_J": 1497,
+  "rank_J_expected": 1497,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "f*g": {
+  "degree": 12,
+  "rank_J": 4437,
+  "rank_J_expected": 4437,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "f*L2M": {
+  "degree": 12,
+  "rank_J": 4437,
+  "rank_J_expected": 4437,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "g*L2M": {
+  "degree": 12,
+  "rank_J": 4437,
+  "rank_J_expected": 4437,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "(L2M)^2": {
+  "degree": 12,
+  "rank_J": 4437,
+  "rank_J_expected": 4437,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "f^2": {
+  "degree": 12,
+  "rank_J": 4437,
+  "rank_J_expected": 4437,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "g^2": {
+  "degree": 12,
+  "rank_J": 4437,
+  "rank_J_expected": 4437,
+  "rankJ_ok": true,
+  "in_J_modp": false,
+  "verdict": "NOT in J: rigorous over Q"
+ },
+ "E_X F": {
+  "degree": 6,
+  "rank_J": 36,
+  "rank_J_expected": 36,
+  "rankJ_ok": true,
+  "in_J_modp": true,
+  "verdict": "in J mod p (evidence only)"
+ },
+ "E_Y F": {
+  "degree": 6,
+  "rank_J": 36,
+  "rank_J_expected": 36,
+  "rankJ_ok": true,
+  "in_J_modp": true,
+  "verdict": "in J mod p (evidence only)"
+ },
+ "F": {
+  "degree": 6,
+  "rank_J": 36,
+  "rank_J_expected": 36,
+  "rankJ_ok": true,
+  "in_J_modp": true,
+  "verdict": "in J mod p (evidence only)"
+ }
+}

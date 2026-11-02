@@ -13,8 +13,12 @@ from flint import nmod_mat
 tag, src, p = sys.argv[1], sys.argv[2], int(sys.argv[3])
 nsub = int(sys.argv[4]) if len(sys.argv) > 4 else 0
 OUT = '/tmp/hodge/results/reflection-coupled-residual/wave2-excl/referee/ref_fixedD.jsonl'
-if ':' in src and src.split(':')[0].endswith('.json'):
-    fn, key = src.split(':', 1); obj = json.load(open(fn))
+if ':' in src and (src.split(':')[0].endswith('.json') or src.split(':')[0].endswith('.jsonl')):
+    fn, key = src.split(':', 1)
+    if fn.endswith('.jsonl'):
+        obj = [json.loads(l) for l in open(fn)]
+    else:
+        obj = json.load(open(fn))
     for k in key.split('/'):
         obj = obj[int(k)] if isinstance(obj, list) else obj[k]
     expr = obj

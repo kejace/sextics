@@ -71,3 +71,4 @@
 {"ts": "2026-11-02T03:59:06Z", "step": "fold-03:58", "note": "batch 2b 39/58; rank-one d7 3/3; epc d9 0/0; fpt d8 even 154; totals 394/208/0"}
 {"ts": "2026-11-02T04:04:21Z", "step": "status-v9.2", "note": "dense-rational construct closed; rcr (0,0) timeout 5400 s recorded; note updated"}
 {"ts": "2026-11-02T04:05:05Z", "step": "fold-04:07", "note": "rcr d9 even 21, fpt d8 154+140 agree (41/58); totals 400/211/0"}
+{"ts": "2026-11-02T04:06:00Z", "step": "status-v9.3-handoff", "note": "pk3 R13 folded; hand-off STATUS written; totals 400/211/0"}

@@ -19,8 +19,8 @@
 | C^2 − (X0^2+Y1^2)^4 (Λ_mu ∪ gΛ_mu, √kappa on Λ) | 8 | (0,0) | yes | 0 | 230 |
 | C^2 − (X0Y1+X1Y0)^4 | 8 | (0,0) | yes | 0 | 227 |
 | C^2 − X0^8 | 8 | (0,0) | yes | 0 | 223 |
-| H^2 − (X0^2+Y1^2)^6 (cube root of kappa on Λ) | 12 | (0,0) | pending (job construct-off-paired-served30, sector (3,0) only) | pending | |
-| (X2^3+Y2^3)(X2^3−Y2^3)·H (2-torsion of Y_± × the kappa=∞ fibre) | 12 | (0,0) | pending (served30) | pending | |
+| H^2 − (X0^2+Y1^2)^6 (cube root of kappa on Λ) | 12 | (0,0) | not finished at session end | job construct-off-paired-served30 (sector (3,0) only) still running at 23:06 local (25 min); pull with `python3 -m hodge.rjob pull --lane off-paired`, then `python3 -I wave2-construct/c8_summarize.py`; output file wave2-construct-served30.jsonl | |
+| (X2^3+Y2^3)(X2^3−Y2^3)·H (2-torsion of Y_± × the kappa=∞ fibre) | 12 | (0,0) | not finished at session end | same job (second candidate) | |
 Interpretation: exactly as predicted in part 2 §C — the block multisection pullback (H1) and the vertical √kappa-twist with
 linearly equivalent conjugate components (V1) serve only the Jacobian part.  Note that C^2 − mu^4 DOES pass the colon
 condition E1, so it is a genuine candidate support that the geometry (not E1) kills.

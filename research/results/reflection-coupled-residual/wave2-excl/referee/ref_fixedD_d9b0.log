@@ -1,11 +1,2 @@
-Traceback (most recent call last):
-  File "/tmp/hodge/results/reflection-coupled-residual/wave2-excl/referee/ref_fixedD.py", line 23, in <module>
-    D = R.parse(expr); d = D.degree(); cD = D.chars(); assert len(cD) == 1, cD
-        ^^^^^^^^^^^^^
-  File "/tmp/hodge/results/reflection-coupled-residual/wave2-excl/referee/reflib.py", line 66, in parse
-    r = eval(expr.replace('\n', ' '), {'__builtins__': {}}, env)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<string>", line 1
-    /tmp/hodge/results/reflection-coupled-residual/wave2-excl/rigorfix.r2.jsonl:0/D
-    ^
-SyntaxError: invalid syntax
+system 32214 x 6804 (d=9, chi_D=(0, 0)) built in 52.9s
+a-priori vectors 816 (zG 588), all in kernel mod p: True, rank mod p = 798  => rank_Q(M) <= 6006
