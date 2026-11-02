@@ -88,3 +88,37 @@ DIM=0 DEG=4979 SIZE=2868
 === target=k3 char=3 Mon Nov  2 01:40:25 AM EST 2026
 [result] {"d": 8, "p": 65521, "target": "k3", "gauge": true, "char": 3, "params": 30, "pairs": 465, "L_generators": 55473, "blocks": [{"r": 0, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "quotient_dim_p": 129, "constraint_rank_p": 114, "seconds": 66.9}, {"r": 1, "rows": 3438, "L_cols": 9711, "L_rank_p": 3258, "quotient_dim_p": 180, "constraint_rank_p": 0, "seconds": 78.7}, {"r": 2, "rows": 3465, "L_cols": 10188, "L_rank_p": 3240, "quotient_dim_p": 225, "constraint_rank_p": 0, "seconds": 81.1
 [squares-summary] {"killed_mod_p": 0, "params": 30, "killed_Q": null}
+params 30 killed 0 survivors 30
+  c0 = coefficient of V2^3 in a_0 (P_0 * V2^3)
+  c1 = coefficient of V1*V2^2 in a_0 (P_0 * V1*V2^2)
+  c2 = coefficient of V1^2*V2 in a_0 (P_0 * V1^2*V2)
+  c3 = coefficient of V1^3 in a_0 (P_0 * V1^3)
+  c4 = coefficient of V0*V2^2 in a_0 (P_0 * V0*V2^2)
+  c5 = coefficient of V0*V1*V2 in a_0 (P_0 * V0*V1*V2)
+  c6 = coefficient of V0*V1^2 in a_0 (P_0 * V0*V1^2)
+  c7 = coefficient of V0^2*V2 in a_0 (P_0 * V0^2*V2)
+  c8 = coefficient of V0^2*V1 in a_0 (P_0 * V0^2*V1)
+  c9 = coefficient of V0^3 in a_0 (P_0 * V0^3)
+  c10 = coefficient of V2^3 in a_1 (P_1 * V2^3)
+  c11 = coefficient of V1*V2^2 in a_1 (P_1 * V1*V2^2)
+  c12 = coefficient of V1^2*V2 in a_1 (P_1 * V1^2*V2)
+  c13 = coefficient of V1^3 in a_1 (P_1 * V1^3)
+  c14 = coefficient of V0*V2^2 in a_1 (P_1 * V0*V2^2)
+  c15 = coefficient of V0*V1*V2 in a_1 (P_1 * V0*V1*V2)
+  c16 = coefficient of V0*V1^2 in a_1 (P_1 * V0*V1^2)
+  c17 = coefficient of V0^2*V2 in a_1 (P_1 * V0^2*V2)
+  c18 = coefficient of V0^2*V1 in a_1 (P_1 * V0^2*V1)
+  c19 = coefficient of V0^3 in a_1 (P_1 * V0^3)
+  c20 = coefficient of V2^3 in a_2 (P_2 * V2^3)
+  c21 = coefficient of V1*V2^2 in a_2 (P_2 * V1*V2^2)
+  c22 = coefficient of V1^2*V2 in a_2 (P_2 * V1^2*V2)
+  c23 = coefficient of V1^3 in a_2 (P_2 * V1^3)
+  c24 = coefficient of V0*V2^2 in a_2 (P_2 * V0*V2^2)
+  c25 = coefficient of V0*V1*V2 in a_2 (P_2 * V0*V1*V2)
+  c26 = coefficient of V0*V1^2 in a_2 (P_2 * V0*V1^2)
+  c27 = coefficient of V0^2*V2 in a_2 (P_2 * V0^2*V2)
+  c28 = coefficient of V0^2*V1 in a_2 (P_2 * V0^2*V1)
+  c29 = coefficient of V0^3 in a_2 (P_2 * V0^3)
+residual constraint rank 114 on 465 quadratic monomials in 30 variables
+DIM=0 DEG=4979 SIZE=2868
+=== target=k3 char=5 Mon Nov  2 01:53:22 AM EST 2026
