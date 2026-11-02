@@ -1,4 +1,7 @@
 """Validate the reduced E2 system against the cleared identity (exact mod p) at small degree."""
+import os as _os
+for _v in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
+    _os.environ.setdefault(_v, '1')
 import sys, time, json
 sys.path.insert(0, '/tmp/hodge/results/polarized-k3-remainder')
 import numpy as np

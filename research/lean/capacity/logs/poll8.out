@@ -1,0 +1,15 @@
+launched KS_m3_d10_k300 pid 1523141
+launched KS_m3_d10_k1000 pid 1523145
+launched KS_dn_d10_k300 pid 1523146
+launched KS_m3_d8_k150 pid 1523147
+ 02:42:40 up  3:14, 74 users,  load average: 579.04, 600.74, 900.36
+RUNNING cap-K5_dn_d10_k20
+RUNNING cap-KS_dn_d10_k20
+RUNNING cap-KS_dn_d10_k300
+RUNNING cap-KS_m3_d10_k1000
+RUNNING cap-KS_m3_d10_k300
+RUNNING cap-KS_m3_d8_k150
+RUNNING cap-SL_e2m3k150
+RUNNING cap-e1dnk40
+merged 0 new timing records
+done

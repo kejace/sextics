@@ -1,0 +1,10 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+Y-quadratic monomials [(0, 0, 0, 0, 0, 2), (0, 0, 0, 0, 1, 1), (0, 0, 0, 0, 2, 0), (0, 0, 0, 1, 0, 1), (0, 0, 0, 1, 1, 0), (0, 0, 0, 2, 0, 0)]
+dim S_6^-[3] 29 dim J_6^-[3] 3 complement 26 | S_8^-[3] 87 J_8^-[3] 22 quotient 65
+chart 0 (leading monomial (0, 0, 0, 0, 0, 2)): ann_size 1 dim -1 vdim 0 | 1  [0.1s]
+chart 1 (leading monomial (0, 0, 0, 0, 1, 1)): ann_size 1 dim -1 vdim 0 | 1  [0.1s]
+chart 2 (leading monomial (0, 0, 0, 0, 2, 0)): ann_size 1 dim -1 vdim 0 | 1  [0.1s]
+chart 3 (leading monomial (0, 0, 0, 1, 0, 1)): ann_size 1 dim -1 vdim 0 | 1  [0.1s]
+chart 4 (leading monomial (0, 0, 0, 1, 1, 0)): ann_size 1 dim -1 vdim 0 | 1  [0.0s]
+chart 5 (leading monomial (0, 0, 0, 2, 0, 0)): ann_size 1 dim -1 vdim 0 | 1  [0.0s]
+DONE

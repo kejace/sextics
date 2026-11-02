@@ -54,7 +54,7 @@ def N : Fin 6 → Poly := fun i => if i.val = 0 then N0 else if i.val = 1 then N
 noncomputable def L1 : E := (.smulN 1 (.add (.mul (.pd 0 tF) (.poly tN0)) (.add (.mul (.pd 1 tF) (.poly tN1)) (.add (.mul (.pd 2 tF) (.poly tN2)) (.add (.mul (.pd 3 tF) (.poly tN3)) (.add (.mul (.pd 4 tF) (.poly tN4)) (.mul (.pd 5 tF) (.poly tN5))))))))
 noncomputable def R1 : E := (.mul (.poly tA) (.poly tD))
 
-theorem e1_core : denC L1 = denC R1 := soundC (m := 21) (W := 61) L1 R1 (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel)
+theorem e1_core : denC L1 = denC R1 := soundN (m := 21) (W := 61) L1 R1 (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel)
 
 theorem e1 : (1 : Poly) * directional F N = A*D := by
   simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]
@@ -66,7 +66,7 @@ theorem e1 : (1 : Poly) * directional F N = A*D := by
 noncomputable def L2 : E := (.sub (.mul (.poly tD) (.add (.pd 0 tN0) (.add (.pd 1 tN1) (.add (.pd 2 tN2) (.add (.pd 3 tN3) (.add (.pd 4 tN4) (.pd 5 tN5))))))) (.add (.mul (.pd 0 tD) (.poly tN0)) (.add (.mul (.pd 1 tD) (.poly tN1)) (.add (.mul (.pd 2 tD) (.poly tN2)) (.add (.mul (.pd 3 tD) (.poly tN3)) (.add (.mul (.pd 4 tD) (.poly tN4)) (.mul (.pd 5 tD) (.poly tN5))))))))
 noncomputable def R2 : E := (.mul (.pow (.poly tF) 1) (.poly tQ))
 
-theorem e2_core : denC L2 = denC R2 := soundC (m := 21) (W := 61) L2 R2 (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel)
+theorem e2_core : denC L2 = denC R2 := soundN (m := 21) (W := 61) L2 R2 (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel) (by decide +kernel)
 
 theorem e2 : divergenceNumerator D N = F^1*Q := by
   simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]
@@ -165,7 +165,9 @@ def fUni : Polynomial Coeff := Polynomial.C ((MvPolynomial.C (-116 : ℂ))) * Po
     (MvPolynomial.C (-2 : ℂ)) * (MvPolynomial.X 4)^6) * Polynomial.X^0
 
 theorem toUni_F : toUni F = fUni := by
-  simp only [F, tF, toC, fUni, map_add, map_mul, map_pow, toUni_C, toUni_X0,toUni_X1,toUni_X2,toUni_X3,toUni_X4,toUni_X5]; polynomial
+  simp only [F, tF, toC, fUni, map_add, map_mul, map_pow, toUni_C, toUni_X0,toUni_X1,toUni_X2,toUni_X3,toUni_X4,toUni_X5]
+  push_cast
+  polynomial
 
 theorem fUni_degree : fUni.natDegree = 6 := by
   unfold fUni; compute_degree!
@@ -205,6 +207,7 @@ theorem fiber_F : (toUni F).map specialize = fFiber := by
 
 theorem fiber_D : (toUni D).map specialize = dFiber := by
   simp only [D,tD,toC,map_add,map_mul,map_pow,toUni_C,toUni_X0,toUni_X1,toUni_X2,toUni_X3,toUni_X4,toUni_X5]
+  push_cast
   norm_num [specialize,point,dFiber] <;> polynomial
 
 theorem fiber_coprime : IsCoprime fFiber dFiber := by

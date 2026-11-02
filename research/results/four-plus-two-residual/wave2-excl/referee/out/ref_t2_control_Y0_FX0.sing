@@ -1,0 +1,1 @@
+ring r=0,(v0,v1,v2,v3,v4,v5),dp; ideal I=; ideal G=std(I); print(dim(G)); print(G); quit;

@@ -27,7 +27,7 @@ eqs = [core.pderiv(Fm, i, p) for i in (0, 1, 2, 5)] + [Fm]
 eqs_str = [ms(e) for e in eqs] + [ms(lin) + '-1']
 with open(f'{name}.ms', 'w') as f:
     f.write(','.join(V) + '\n' + str(p) + '\n' + ',\n'.join(eqs_str) + '\n')
-r = subprocess.run(['msolve', '-v', '1', '-t', '16', '-P', '1', '-f', f'{name}.ms', '-o', f'{name}.param'], capture_output=True, text=True)
+r = subprocess.run(['msolve', '-v', '1', '-t', '6', '-P', '1', '-f', f'{name}.ms', '-o', f'{name}.param'], capture_output=True, text=True)
 print(f'[{name}] msolve rc={r.returncode} {time.time()-t0:.1f}s', flush=True)
 txt = open(f'{name}.param').read().replace('\n', ' ').rstrip(': ')
 data = ast.literal_eval(txt.replace("'", '"'))

@@ -1,0 +1,1 @@
+'HodgeComputer.Instances.M3Coupled.solved' depends on axioms: [propext, Classical.choice, Quot.sound]

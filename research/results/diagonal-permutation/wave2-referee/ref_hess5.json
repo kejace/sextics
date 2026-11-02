@@ -1,0 +1,9 @@
+{
+ "exp": "second_partials_exact_rank",
+ "n_second_partials": 21,
+ "rank_Q": 21,
+ "first_partials_rank_Q": 6,
+ "conclusion": "rank 21 = all 21 quadratic monomials c_i c_j independent => w^T Hess(F) w = 0 forces w = 0",
+ "seconds": 0.03,
+ "arithmetic": "exact rational (python-flint fmpq_mat)"
+}

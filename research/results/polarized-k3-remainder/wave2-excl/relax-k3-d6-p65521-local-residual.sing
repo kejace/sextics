@@ -1,0 +1,12 @@
+ring r = 65521, (c5,c10,c15), dp;
+option(redSB);
+LIB "primdec.lib";
+ideal I = 1*c5^2+65519*c5*c15+1*c15^2,
+1*c5*c10+65520*c5*c15+65520*c10*c15+1*c15^2,
+1*c10^2+65519*c10*c15+1*c15^2;
+ideal G = std(I);
+print("DIM=" + string(dim(G)) + " DEG=" + string(mult(G)) + " SIZE=" + string(size(G)));
+list L = minAssGTZ(I);
+print("NCOMP=" + string(size(L)));
+int k; for (k=1; k<=size(L); k++) { print("COMPONENT " + string(k) + " dim " + string(dim(std(L[k])))); print(L[k]); }
+quit;

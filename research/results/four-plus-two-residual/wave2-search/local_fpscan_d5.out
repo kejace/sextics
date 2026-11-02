@@ -1,0 +1,9 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d=5 lab=(0, 0, 0): K=1 K0=3 system 120x8 -> scanning 1 points of P^0(F_1019) with 2 procs
+{"d": 5, "sector": [0, 0, 0], "p": 1019, "K": 1, "K0": 3, "rows": 120, "cols": 8, "points": 1, "consistent": 0, "consistent_nonspurious": 0, "examples": [], "seconds": 0.1, "engine": 2}
+d=5 lab=(0, 3, 0): K=1 K0=3 system 120x8 -> scanning 1 points of P^0(F_1019) with 2 procs
+{"d": 5, "sector": [0, 3, 0], "p": 1019, "K": 1, "K0": 3, "rows": 120, "cols": 8, "points": 1, "consistent": 0, "consistent_nonspurious": 0, "examples": [], "seconds": 0.0, "engine": 2}
+d=5 lab=(1, 0, 0): K=2 K0=28 system 204x32 -> scanning 1020 points of P^1(F_1019) with 2 procs
+{"d": 5, "sector": [1, 0, 0], "p": 1019, "K": 2, "K0": 28, "rows": 204, "cols": 32, "points": 1020, "consistent": 0, "consistent_nonspurious": 0, "examples": [], "seconds": 6.5, "engine": 2}
+d=5 lab=(1, 0, 3): K=2 K0=28 system 204x32 -> scanning 1020 points of P^1(F_1019) with 2 procs
+{"d": 5, "sector": [1, 0, 3], "p": 1019, "K": 2, "K0": 28, "rows": 204, "cols": 32, "points": 1020, "consistent": 0, "consistent_nonspurious": 0, "examples": [], "seconds": 7.4, "engine": 2}

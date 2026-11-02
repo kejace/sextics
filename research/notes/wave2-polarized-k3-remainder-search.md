@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 21:28 from 251 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 22:19 from 252 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -64,6 +64,7 @@ mod p) as a system of quadrics with saturation by the spurious component.
 | 10 | odd | 1491 | 747 | 744 | 1008 | 261 | 743.2 |
 | 11 | even | 2184 | 1341 | 843 | 1851 | 510 | 1726.4 |
 | 11 | odd | 2184 | 1341 | 843 | 1851 | 510 | 2058.4 |
+| 12 | even | 3108 | 2223 | 885 | 2900 | 677 | 4902.4 |
 
 For d ≤ 9 the admissible space is exactly J(F)_d (Jacobian type); the extra kernel appears at d = 10.
 
@@ -324,9 +325,9 @@ Every non-Jacobian-type guess (Hessian cofactors/pairings, third polars, Fermat,
 
 Local compute is restricted to light scripting (< 1 CPU-minute, one process) on a 40-core box shared by ~50 agents; the full reduced-E2 evaluations (≈ 4–13 s each locally even for the 30-parameter P_8 piece) could therefore not be run locally, only the exact linear-algebra decisions and the tensor-frame relaxation batches (≈ 1 minute each) were.
 The remote box has been saturated by other agents since ~19:30 (load 300–1150 on 128 cores, 45–90 jobs); the runner refuses new submissions above load 150, so the heavy jobs below were queued with `--wait` and started only when capacity allowed. Latest runner messages:
-- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 576 (max 150), available memory 4 GB (min 60), 67 jobs running; waiting 60 s
-- `submit-hess-d8.out`: REMOTE BUSY: load 574 (max 150), available memory 4 GB (min 60), 67 jobs running; waiting 60 s
-- `submit-sweep-a.out`: REMOTE BUSY: load 574 (max 150), available memory 4 GB (min 60), 67 jobs running; waiting 60 s
+- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 604 (max 150), available memory 135 GB (min 60), 65 jobs running; waiting 60 s
+- `submit-hess-d8.out`: REMOTE BUSY: load 603 (max 150), available memory 135 GB (min 60), 65 jobs running; waiting 60 s
+- `submit-sweep-a.out`: REMOTE BUSY: load 604 (max 150), available memory 135 GB (min 60), 65 jobs running; waiting 60 s
 
 ## Jobs / reproduction
 

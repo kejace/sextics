@@ -2,7 +2,7 @@
 
 STATUS: in progress — no witness (exclusion lens). Running summary (03:00 EST):
 * Best rigorous bound for A (full target): deg D >= 8 (thread); degrees <= 6 independently REPLICATED exactly (p = 65521 and Q);
-  E1 injectivity of [A] through d = 9 RE-VERIFIED at a second prime (2^31-19), both parities; degree-7 modular replication queued;
+  E1 injectivity of [A] through d = 9 RE-VERIFIED at a second prime (2^31-19), both parities; degree-7 block ranks and combined constraint rank 1779 replicated at p = 65521 (chart replay running);
   degree-8 point f(U)U0^2 exact in all 3 blocks; 6 random structured degree-7 members of J exact-inconsistent (both targets).
 * NEW exact theorem: the K3-sector target A_K3 has no denominator of degree <= 6 (E1 injective through 7; degree 5 killed; degree 6
   reduces to D ~ f(U), which fails exactly). served(f(U)), served(U0), served(V0) have zero K3-class projection EXACTLY over Q.
@@ -125,7 +125,7 @@ D = f(U)h are all reducible, so they are excluded by this argument without any f
    p = 65521 and Q: identical block ranks 603/558/396/260/396/558, constraint rank 437, two-step square elimination); E1 injectivity of
    [A] through d = 9 at a second prime (2^31-19, both parities); the degree-8 point f(U)U0^2 exact in all 3 blocks (756/757, 828/829,
    516/517); degree 7 [modular replication pending in chain3; L-ranks over Q = mod p already confirmed: 1635/1602/1635/1464/1287/1464].
-2. NEW exact theorem: the K3-sector class A_K3 = P_0(A) has no denominator of degree <= 6 (E1 injective through 7 at two primes;
+2. NEW exact theorem: the K3-sector class A_K3 = P_0(A) has no denominator of degree <= 6 (E1 injective through 7 at two primes (2^31-1, 2^31-19), both parities;
    degree 5 killed; degree 6 ↦ D ~ f(U) via residual quadrics (c0-c2)^2, (c0-c2)(c1-c2), (c1-c2)^2; f(U) fails exactly 136/137).
 3. Exact served-space statements: f(U), U0, V0 have zero K3-class projection over Q (the join of the two copies of C carries no K3 class).
 4. Repaired logic: served spaces add over components (N_{Y1∪Y2} = N_{Y1}+N_{Y2}), so "deg >= 8" alone does not exclude products.
@@ -140,7 +140,7 @@ D = f(U)h are all reducible, so they are excluded by this argument without any f
 7. Non-Jacobian K3 kernel at degree 8 completely described: K4⊗K4 (81, char 4; K4 = ker(η|R_{f,4}), dim 9, exact LLL basis) ⊕
    {ℓ(U)ℓ'(V)((U0U1U2)²+(V0V1V2)²)} (9, char 1, reducible). Eight elements of K4⊗K4 fail E2 for A_K3 (μ6-restricted 13572×2430, rank 2206,
    mod 2^31-1) and the K4 pairing serves no K3-block class; [char-1 random tests pending].
-8. Exact structured screens: 6 random homogeneous members of J_7 and 5 of J_8 (chars 0,1,2,3,5; 22 runs) fail for both targets with rank gap 1; degree 9 running.
+8. Exact structured screens: 6 random homogeneous members of J_7 and 5 of J_8 (chars 0,1,2,3,5; 22 runs) fail for both targets with rank gap 1; degree 9: first run (char 0, K3) exact-inconsistent 1488/1489, continuing.
    μ6-homogeneous octic sectors: char 0 done (cones); [chars 1,2,3,5 and K3 sectors pending].
 9. Compute: the 128-core remote was saturated all night (load 580-1800, often < 60 GB free); rjob refused every submission; all results
    above were computed locally (one nice'd process at a time where possible); 7 remote jobs remain queued (sweeps of the 26 wave-1
@@ -178,7 +178,7 @@ still running.)
 ### R13. Degree-7 exclusion for A: replication at p = 65521 (block level)   [05:15]
 Own implementation, prime 65521: L-ranks 1635/1602/1635/1464/1287/1464 per character block (= thread's ranks over Q and F_101;
 and = Q-ranks computed in the K3 run, same L), constraint ranks 291/318/291/470/688/470 (= thread's augmented ranks
-1926/1920/1926/1934/1975/1934 minus the L-ranks), 2528 constraint rows in total (thread: 2,528 rows).  Combined rank and the
+1926/1920/1926/1934/1975/1934 minus the L-ranks), 2541 constraint rows of combined rank 1779 (thread: 2,528 rows, rank 1,779).  The
 chart-wise projective emptiness (thread's charts k = 0..8, square reduction to 42 variables, zero-dimensional cone) are being
 replayed with `d7_charts.py` at this second prime; together with the equal Q/F_p L-ranks this re-establishes the thread's
 "deg D >= 8" by the same flatness argument at an independent prime and with independent code.

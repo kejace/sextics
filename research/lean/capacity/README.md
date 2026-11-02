@@ -15,12 +15,16 @@ Report: /tmp/hodge/notes/lean-capacity.md.  Log: log.jsonl (append-only).  Timin
 
 ## Generators (gen/)
 - `gen_capacity.py` — exactly-true synthetic certificate identities (Koszul construction), accepted-template modules.
-- `kron_gen.py` — same data, Kronecker-checked modules (handles rational F/A by a common scale).
+- `kron_gen.py` — same data, Kronecker-checked modules (`soundN`; rational F/A by a common scale; witness integralized).
+- `kron_slice_gen.py` — Kronecker modules sliced by the degree in X4 (`sound4`, one declaration per slice; for d ≥ 10 / large witnesses).
 - `slice_gen.py` — degree-in-X0 slicing of the accepted template with `linear_combination` assembly.
 - `bind_test.py` — binding test: verifier-shaped term (`check.polynomial`) = `denW` by `rfl`, then `matchW` by kernel.
 - `kron_submit.py` — **complete proposal generator** (Kron.lean, Witness.lean, Solution.lean, proof.json, witness.json)
-  from an instance id + witness dict; check with `python3 -m hodge.leancheck --instance <id> --dir <out>`.
-- `batch1.sh`, `batch2_remote.sh`, `batch3_remote.sh`, `kjob.sh` — remote job launchers (run_module.sh = verifier-like timing harness).
+  from an instance id + witness dict (`--slice` for the sliced identities); check with `python3 -m hodge.leancheck --instance <id> --dir <out>`
+  or the official sandbox `python3 -m hodge.sandboxcheck <id> <out>`.  Validated on m3-coupled (submit/m3-coupled, submit/m3-coupled-slice).
+- `batch1.sh`, `batch{2..6}_remote.sh`, `kjob.sh` — remote job launchers (run_module.sh = verifier-like timing harness).
+
+Pitfalls learned: big data `def`s must be `noncomputable` (code generator blow-up); `decide +kernel` memory = all cached intermediates (sorted leaves + balanced trees are essential); Nat-pair values (`psiN`) are 3× faster and ~2× leaner than `Int`; `Nat.pow` is not kernel-accelerated above exponent 2^24 (use shifts); `Int.cast` coefficients need `push_cast` before the `polynomial` tactic; never push `results/` to the shared remote dir (a sibling agent's rsync clobbered it once).
 
 ## Harness
 - `run_module.sh <Module> <label> <cpuset>` — `lean -j 2 -M 14336` pinned to 2 cores + `leanchecker`, appends to results/timings.jsonl.

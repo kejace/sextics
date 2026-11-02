@@ -1,0 +1,8 @@
+[HodgeTarget.lean] OK 5.6s
+[HodgeWitness.lean] OK 14.6s
+[Kron.lean] OK 23.8s
+[Witness.lean] OK 106.2s
+[Solution.lean] OK 28.7s
+[HodgeChecked.lean] OK 5.2s
+total 184.1s; tmp dir /tmp/hodge-leancheck-x762c2op
+exit 0

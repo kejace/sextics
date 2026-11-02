@@ -3,3 +3,7 @@
 [compressed p=2147483647] k=7538 consistent=False rank=6699 nullity=798 (compress 400.4s, rref 169.1s)
 X0^3*F_X0: d=8 e1=True consistent=False rank=6699 nullity=798 (745.3s)
 [system] d=8 q=1 rows=40326 cols=7497 (N 6006, Q 1491) nnz=22802380 built in 44.3s
+[compressed p=2147483647] k=7538 consistent=False rank=6703 nullity=794 (compress 776.0s, rref 250.0s)
+X0^3 F_X0 + Y0^3 F_Y0: d=8 e1=True consistent=False rank=6703 nullity=794 (1251.1s)
+Hess minor F_X0X0*F_Y0Y0 - F_X0Y0^2: d=8 NOT in J_d -> E1 fails (kernel mod J = 0) (0.3s)
+Hess minor F_X0X0*F_X1X1 - F_X0X1^2: d=8 NOT in J_d -> E1 fails (kernel mod J = 0) (0.3s)

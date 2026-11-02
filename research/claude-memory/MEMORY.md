@@ -2,3 +2,4 @@
 - [Hodge sextics math insights](hodge-sextics-math-insights.md) — what is excluded / which mechanisms could serve the 16 open lanes (2026-11-01)
 - [Subagents must log incrementally](feedback-subagent-incremental-logging.md) — append-as-you-go logs and running reports; a crash lost unsaved agent work
 - [Keep one session](feedback-single-session.md) — check for a live `claude --resume` before resuming workflows; two copies duplicate agents
+- [Hodge Lean capacity](hodge-lean-capacity.md) — verifier limits, kernel facts, Kronecker big-integer checker + proposal generator (2026-11-02)

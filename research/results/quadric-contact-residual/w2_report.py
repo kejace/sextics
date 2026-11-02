@@ -191,6 +191,12 @@ if vp:
              'all minima are separated from the floor by many orders of magnitude unless stated otherwise.')
 else:
     L.append('(pending)\n')
+L.append('\n## Notable minima (checked by hand)\n')
+L.append('* d=9, sector 0100 (family = J_9[0100] (58) + D8*.X2, dimP 53): every one of 120 restarts converges to rel = 6.34e-7 (median 6.37e-7), '
+         'three orders of magnitude below every other sector. Re-evaluated locally with lstsq cutoffs 1e-9 .. 1e-13: identical value (the 54 structural '
+         'zero singular values of the Koszul block are cleanly separated from the rest), and polishing from the best point with 600 more L-BFGS iterations '
+         'changes nothing: it is a genuine flat local-minimum valley at 6.3e-7, not a numerically masked zero (a witness would sit at ~1e-14). '
+         'The mirror sectors 0101 / 0010 / 0051 (D8*.Y2, D8*.X1, D8*.Y1) sit at 1.3e-4 .. 3.2e-4.')
 L.append('\n## Structure notes (from the exact E1 tables)\n')
 L.append('* (J:A)/J has exactly ONE minimal generator beyond J in degrees <= 9: D8* = 4G_S^2 - G_P^2 (= const * G_u G_v, the product of the two '
          'reflection-contour quartics); the four degree-9 directions are D8*.X1, D8*.Y1, D8*.X2, D8*.Y2 (D8*.X0, D8*.Y0 lie in J_9). '

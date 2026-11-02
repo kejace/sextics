@@ -1,11 +1,25 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
-[kernel] resumed 5 primes from /tmp/hodge/results/short-power-presentation/kernel_d8_p1.json
-[JRef] e=14 par=0 p=2147483587: gens=6006 mons=5832 rank=5070 dimR=762 (build 11s, rref 21s)
-[JRef] e=8 par=1 p=2147483587: gens=168 mons=636 rank=168 dimR=468 (build 0s, rref 0s)
-[e1_kernel] d=8 par=1 p=2147483587: kernel incl J = 174, J_d = 168, mod J = 6 (37s)
-[kernel] reconstruction with 6 primes: ok {'modulus_bits': 180}
-[numerators] d=8 p=2147483647: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (41s)
-[numerators] d=8 p=2147483629: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (47s)
-[numerators] d=8 p=2147483587: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (42s)
-[numerators] d=8 p=2147483579: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (40s)
-{"kind": "e1-kernel", "d": 8, "parity": 1, "kernel_mod_J": 6, "kernel_dim_incl_J": 174, "dim_J_d": 168, "dim_R_d": 468, "dim_R_d6": 762, "primes": [536870909, 536870879, 536870869, 2147483647, 2147483629, 2147483587], "rational": true, "reconstruction": {"modulus_bits": 180}, "seconds": 37.3, "tag": "kA", "numerators": false}
+[JRef] e=14 par=0 p=536870909: gens=6006 mons=5832 rank=5070 dimR=762 (build 23s, rref 64s)
+[JRef] e=8 par=1 p=536870909: gens=168 mons=636 rank=168 dimR=468 (build 0s, rref 0s)
+[e1_kernel] d=8 par=1 p=536870909: kernel incl J = 174, J_d = 168, mod J = 6 (94s)
+[JRef] e=14 par=0 p=536870879: gens=6006 mons=5832 rank=5070 dimR=762 (build 16s, rref 142s)
+[JRef] e=8 par=1 p=536870879: gens=168 mons=636 rank=168 dimR=468 (build 0s, rref 0s)
+[e1_kernel] d=8 par=1 p=536870879: kernel incl J = 174, J_d = 168, mod J = 6 (168s)
+[kernel] reconstruction with 2 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (0, 2, 1, 1, 4, 0)', 'modulus_bits': 58}
+[JRef] e=14 par=0 p=536870869: gens=6006 mons=5832 rank=5070 dimR=762 (build 26s, rref 78s)
+[JRef] e=8 par=1 p=536870869: gens=168 mons=636 rank=168 dimR=468 (build 0s, rref 0s)
+[e1_kernel] d=8 par=1 p=536870869: kernel incl J = 174, J_d = 168, mod J = 6 (112s)
+[kernel] reconstruction with 3 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (3, 2, 2, 0, 1, 0)', 'modulus_bits': 87}
+[JRef] e=14 par=0 p=2147483647: gens=6006 mons=5832 rank=5070 dimR=762 (build 49s, rref 212s)
+[JRef] e=8 par=1 p=2147483647: gens=168 mons=636 rank=168 dimR=468 (build 0s, rref 0s)
+[e1_kernel] d=8 par=1 p=2147483647: kernel incl J = 174, J_d = 168, mod J = 6 (272s)
+[kernel] reconstruction with 4 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (5, 1, 1, 0, 1, 0)', 'modulus_bits': 118}
+[JRef] e=14 par=0 p=2147483629: gens=6006 mons=5832 rank=5070 dimR=762 (build 28s, rref 92s)
+[JRef] e=8 par=1 p=2147483629: gens=168 mons=636 rank=168 dimR=468 (build 0s, rref 0s)
+[e1_kernel] d=8 par=1 p=2147483629: kernel incl J = 174, J_d = 168, mod J = 6 (130s)
+[kernel] reconstruction with 5 primes: ok {'modulus_bits': 149}
+[numerators] d=8 p=2147483647: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (187s)
+[numerators] d=8 p=2147483629: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (152s)
+[numerators] d=8 p=2147483587: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (150s)
+[numerators] d=8 p=2147483579: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (144s)
+{"kind": "e1-kernel", "d": 8, "parity": 1, "kernel_mod_J": 6, "kernel_dim_incl_J": 174, "dim_J_d": 168, "dim_R_d": 468, "dim_R_d6": 762, "primes": [536870909, 536870879, 536870869, 2147483647, 2147483629], "rational": true, "reconstruction": {"modulus_bits": 149}, "seconds": 776.4, "tag": "local", "numerators": false}

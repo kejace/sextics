@@ -1,0 +1,49 @@
+.olean serialization took 4.74s
+tactic execution of Mathlib.Tactic.normNum took 6.46s
+tactic execution of Mathlib.Tactic.normNum took 8.78s
+tactic execution of Mathlib.Tactic.normNum took 9.99s
+tactic execution of Mathlib.Tactic.normNum took 10.2s
+tactic execution of Mathlib.Tactic.normNum took 12s
+tactic execution of Mathlib.Tactic.normNum took 8.88s
+simp took 2.01s
+tactic execution of Mathlib.Tactic.normNum took 8.26s
+tactic execution of Mathlib.Tactic.normNum took 4.74s
+tactic execution of Mathlib.Tactic.normNum took 2.28s
+ring took 7.55s
+tactic execution of Mathlib.Tactic.normNum took 6.16s
+tactic execution of Mathlib.Tactic.normNum took 9.34s
+tactic execution of Mathlib.Tactic.normNum took 10.1s
+simp took 2.87s
+tactic execution of Mathlib.Tactic.normNum took 11.7s
+simp took 2.6s
+tactic execution of Mathlib.Tactic.normNum took 11.5s
+simp took 2.45s
+tactic execution of Mathlib.Tactic.normNum took 10.2s
+simp took 2.65s
+tactic execution of Mathlib.Tactic.normNum took 7.84s
+simp took 2.05s
+tactic execution of Mathlib.Tactic.normNum took 4.72s
+tactic execution of Mathlib.Tactic.normNum took 2.07s
+ring took 22s
+type checking took 2.55s
+cumulative profiling times:
+	.olean serialization 4.74s
+	attribute application 5.53ms
+	congr simp thm 825ms
+	elaboration 6.77s
+	fix level params 434ms
+	instantiate metavars 675ms
+	let-to-have transformation 8.13ms
+	linting 448ms
+	module linting 0.00225ms
+	norm_num 82.1s
+	parsing 467ms
+	process pre-definitions 3.03s
+	ring 37.4s
+	share common exprs 7.66s
+	simp 43.7s
+	tactic execution 152s
+	tacticAnalysis 38.1ms
+	type checking 19.9s
+	typeclass inference 61.4s
+SL_m3k10 WALL=427.85 USER=411.87 MAXRSS_KB=4180760

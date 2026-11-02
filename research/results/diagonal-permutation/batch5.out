@@ -3,3 +3,44 @@
 cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] basis#0 -> d 7 e1 True cons False served 18 245.2 s
 cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] basis#1 -> d 7 e1 True cons False served 18 238.24 s
 cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] sum of basis -> d 7 e1 True cons False served 18 239.35 s
+cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] difference of basis -> d 7 e1 True cons False served 18 396.73 s
+== sigma (r,s)^3 d7 [triple along (01)-fixed surface]: dim 3
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#0 -> d 7 e1 True cons False served 18 477.75 s
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#1 -> d 7 e1 True cons False served 18 260.91 s
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#2 -> d 7 e1 True cons False served 18 216.92 s
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] sum of basis -> d 7 e1 True cons False served 18 238.96 s
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] difference of basis -> d 7 e1 True cons False served 18 247.68 s
+== sigma (p,q,b)^3 d7: dim 2
+sigma (p,q,b)^3 d7 basis#0 -> d 7 e1 True cons False served 18 194.64 s
+sigma (p,q,b)^3 d7 basis#1 -> d 7 e1 True cons False served 18 174.67 s
+sigma (p,q,b)^3 d7 sum of basis -> d 7 e1 True cons False served 18 347.05 s
+sigma (p,q,b)^3 d7 difference of basis -> d 7 e1 True cons False served 18 365.92 s
+== sigma (r,s,a)^3 d7 [elliptic cone along curve X∩{X0=X1,Y0=Y1,X2=0}]: dim 6
+   S3-inv dim 2, (01)-inv dim 2, (01)-anti dim 4
+sigma (r,s,a)^3 d7 [elliptic cone along curve X∩{X0=X1,Y0=Y1,X2=0}] S3-invariant random combo -> d 7 e1 True cons False served 18 520.49 s
+sigma (r,s,a)^3 d7 [elliptic cone along curve X∩{X0=X1,Y0=Y1,X2=0}] (01)-invariant random combo -> d 7 e1 True cons False served 18 426.02 s
+sigma (r,s,a)^3 d7 [elliptic cone along curve X∩{X0=X1,Y0=Y1,X2=0}] (01)-anti random combo -> d 7 e1 True cons False served 18 291.16 s
+sigma (r,s,a)^3 d7 [elliptic cone along curve X∩{X0=X1,Y0=Y1,X2=0}] generic random combo -> d 7 e1 True cons False served 18 607.9 s
+== sigma (r,s,b)^3 d7: dim 6
+   S3-inv dim 2, (01)-inv dim 2, (01)-anti dim 4
+sigma (r,s,b)^3 d7 S3-invariant random combo -> d 7 e1 True cons False served 18 436.33 s
+sigma (r,s,b)^3 d7 (01)-invariant random combo -> d 7 e1 True cons False served 18 403.28 s
+sigma (r,s,b)^3 d7 (01)-anti random combo -> d 7 e1 True cons False served 18 468.11 s
+sigma (r,s,b)^3 d7 generic random combo -> d 7 e1 True cons False served 18 547.42 s
+== orig (X0,X1,Y0,Y1)^4 d7 [quadruple pts on (X2,Y2)-line]: dim 10
+   S3-inv dim 6, (01)-inv dim 6, (01)-anti dim 6
+orig (X0,X1,Y0,Y1)^4 d7 [quadruple pts on (X2,Y2)-line] S3-invariant random combo -> d 7 e1 True cons False served 18 597.97 s
+orig (X0,X1,Y0,Y1)^4 d7 [quadruple pts on (X2,Y2)-line] (01)-invariant random combo -> d 7 e1 True cons False served 18 429.56 s
+orig (X0,X1,Y0,Y1)^4 d7 [quadruple pts on (X2,Y2)-line] (01)-anti random combo -> d 7 e1 True cons False served 18 395.58 s
+orig (X0,X1,Y0,Y1)^4 d7 [quadruple pts on (X2,Y2)-line] generic random combo -> d 7 e1 True cons False served 18 348.68 s
+== sigma (r,s)^2 d7 [double along (01)-fixed surface]: dim 17
+   S3-inv dim 10, (01)-inv dim 14, (01)-anti dim 3
+sigma (r,s)^2 d7 [double along (01)-fixed surface] S3-invariant random combo -> d 7 e1 True cons False served 18 571.02 s
+sigma (r,s)^2 d7 [double along (01)-fixed surface] (01)-invariant random combo -> d 7 e1 True cons False served 18 502.66 s
+sigma (r,s)^2 d7 [double along (01)-fixed surface] (01)-anti random combo -> d 7 e1 True cons False served 18 315.24 s
+sigma (r,s)^2 d7 [double along (01)-fixed surface] generic random combo -> d 7 e1 True cons False served 18 520.16 s
+== orig (X2,Y2)^2 d7 [double along X∩{X2=Y2=0}]: dim 9
+   S3-inv dim 6, (01)-inv dim 6, (01)-anti dim 3
+orig (X2,Y2)^2 d7 [double along X∩{X2=Y2=0}] S3-invariant random combo -> d 7 e1 True cons False served 18 551.31 s
+orig (X2,Y2)^2 d7 [double along X∩{X2=Y2=0}] (01)-invariant random combo -> d 7 e1 True cons False served 18 345.42 s
+orig (X2,Y2)^2 d7 [double along X∩{X2=Y2=0}] (01)-anti random combo -> d 7 e1 True cons False served 18 248.01 s

@@ -1,0 +1,394 @@
+Cap/Hesse.lean:21:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:29:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:31:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:36:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Poly 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Poly
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:38:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:40:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:42:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:44:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:46:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:48:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (MvPolynomial (Fin 6) ℂ) (MvPolynomial (Fin 6) ℂ) Poly
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:52:52: error: Type mismatch
+  X 0
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:52:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 0) (sorry ()) = 1
+Cap/Hesse.lean:54:52: error: Type mismatch
+  X 1
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:54:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 0) (sorry ()) = 0
+Cap/Hesse.lean:56:52: error: Type mismatch
+  X 2
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:56:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 0) (sorry ()) = 0
+Cap/Hesse.lean:58:52: error: Type mismatch
+  X 3
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:58:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 0) (sorry ()) = 0
+Cap/Hesse.lean:60:52: error: Type mismatch
+  X 4
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:60:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 0) (sorry ()) = 0
+Cap/Hesse.lean:62:52: error: Type mismatch
+  X 5
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:62:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 0) (sorry ()) = 0
+Cap/Hesse.lean:64:52: error: Type mismatch
+  X 0
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:64:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 1) (sorry ()) = 0
+Cap/Hesse.lean:66:52: error: Type mismatch
+  X 1
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:66:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 1) (sorry ()) = 1
+Cap/Hesse.lean:68:52: error: Type mismatch
+  X 2
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:68:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 1) (sorry ()) = 0
+Cap/Hesse.lean:70:52: error: Type mismatch
+  X 3
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:70:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 1) (sorry ()) = 0
+Cap/Hesse.lean:72:52: error: Type mismatch
+  X 4
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:72:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 1) (sorry ()) = 0
+Cap/Hesse.lean:74:52: error: Type mismatch
+  X 5
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:74:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 1) (sorry ()) = 0
+Cap/Hesse.lean:76:52: error: Type mismatch
+  X 0
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:76:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 2) (sorry ()) = 0
+Cap/Hesse.lean:78:52: error: Type mismatch
+  X 1
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:78:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 2) (sorry ()) = 0
+Cap/Hesse.lean:80:52: error: Type mismatch
+  X 2
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:80:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 2) (sorry ()) = 1
+Cap/Hesse.lean:82:52: error: Type mismatch
+  X 3
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:82:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 2) (sorry ()) = 0
+Cap/Hesse.lean:84:52: error: Type mismatch
+  X 4
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:84:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 2) (sorry ()) = 0
+Cap/Hesse.lean:86:52: error: Type mismatch
+  X 5
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:86:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 2) (sorry ()) = 0
+Cap/Hesse.lean:88:52: error: Type mismatch
+  X 0
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:88:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 3) (sorry ()) = 0
+Cap/Hesse.lean:90:52: error: Type mismatch
+  X 1
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:90:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 3) (sorry ()) = 0
+Cap/Hesse.lean:92:52: error: Type mismatch
+  X 2
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:92:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 3) (sorry ()) = 0
+Cap/Hesse.lean:94:52: error: Type mismatch
+  X 3
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:94:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 3) (sorry ()) = 1
+Cap/Hesse.lean:96:52: error: Type mismatch
+  X 4
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:96:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 3) (sorry ()) = 0
+Cap/Hesse.lean:98:52: error: Type mismatch
+  X 5
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:98:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 3) (sorry ()) = 0
+Cap/Hesse.lean:100:52: error: Type mismatch
+  X 0
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:100:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 4) (sorry ()) = 0
+Cap/Hesse.lean:102:52: error: Type mismatch
+  X 1
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:102:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 4) (sorry ()) = 0
+Cap/Hesse.lean:104:52: error: Type mismatch
+  X 2
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:104:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 4) (sorry ()) = 0
+Cap/Hesse.lean:106:52: error: Type mismatch
+  X 3
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:106:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 4) (sorry ()) = 0
+Cap/Hesse.lean:108:52: error: Type mismatch
+  X 4
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:108:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 4) (sorry ()) = 1
+Cap/Hesse.lean:110:52: error: Type mismatch
+  X 5
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:110:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 4) (sorry ()) = 0
+Cap/Hesse.lean:112:52: error: Type mismatch
+  X 0
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:112:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 5) (sorry ()) = 0
+Cap/Hesse.lean:114:52: error: Type mismatch
+  X 1
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:114:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 5) (sorry ()) = 0
+Cap/Hesse.lean:116:52: error: Type mismatch
+  X 2
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:116:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 5) (sorry ()) = 0
+Cap/Hesse.lean:118:52: error: Type mismatch
+  X 3
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:118:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 5) (sorry ()) = 0
+Cap/Hesse.lean:120:52: error: Type mismatch
+  X 4
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:120:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 5) (sorry ()) = 0
+Cap/Hesse.lean:122:52: error: Type mismatch
+  X 5
+has type
+  MvPolynomial ?m.13 ?m.10
+but is expected to have type
+  Poly
+Cap/Hesse.lean:122:72: error: unsolved goals
+Poly : Sort u_1
+⊢ (pderiv 5) (sorry ()) = 1
+Cap/Hesse.lean:124:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Poly 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  Poly
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:124:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul Poly (MvPolynomial (Fin 6) ?m.5) ?m.14
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Cap/Hesse.lean:136:13: error: typeclass instance problem is stuck
+  CommRing ?m.2
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `CommRing` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+Cap/Hesse.lean:148:34: error(lean.invalidField): Invalid field notation: Type of
+  D
+is not known; cannot resolve field `IsHomogeneous`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Ideal.IsHomogeneous`
+  • `IsHomogeneous`
+  • `Submodule.IsHomogeneous`
+  • `DirectSum.SetLike.IsHomogeneous`
+Cap/Hesse.lean:150:14:

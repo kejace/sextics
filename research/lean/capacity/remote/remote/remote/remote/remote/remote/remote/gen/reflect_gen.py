@@ -13,12 +13,19 @@ from fractions import Fraction
 import ident, synth
 CAP = '/tmp/hodge/lean/capacity'
 
-def spoly_lean(P):
-    """Ascending lexicographic order on exponent tuples (matches Mono.lt), integer coefficients only."""
+import math
+def denom(P):
+    k = 1
+    for c in P.values():
+        k = math.lcm(k, Fraction(c).denominator)
+    return k
+
+def spoly_lean(P, k=1):
+    """k*P as an integer list in ascending lexicographic order on exponent tuples (matches Mono.lt)."""
     items = []
     for e, c in sorted(P.items()):
-        c = Fraction(c)
-        assert c.denominator == 1, 'integral coefficients required in this prototype'
+        c = Fraction(c) * k
+        assert c.denominator == 1, 'scaling by the denominator LCM must give integers'
         if c == 0:
             continue
         items.append(f'(⟨{e[0]}, {e[1]}, {e[2]}, {e[3]}, {e[4]}, {e[5]}⟩, {c.numerator})')
@@ -39,41 +46,36 @@ def module_text(ns, F, A, q, D, N, Q, which=('e1', 'e2'), hb=2000000, rd=8000):
              'set_option linter.unusedTactic false\nset_option linter.unusedSimpArgs false\n'
              'set_option linter.unnecessarySeqFocus false\nset_option linter.unreachableTactic false\n')
     L.append(f'noncomputable section\n\nnamespace {ns}\n\nopen MvPolynomial HodgeTestbed HodgeComputer.Reflect\n')
-    L.append(f'def rF : SPoly := {spoly_lean(F)}\n')
-    L.append(f'def rA : SPoly := {spoly_lean(A)}\n')
-    L.append(f'def rD : SPoly := {spoly_lean(D)}\n')
-    L.append(f'def rQ : SPoly := {spoly_lean(Q)}\n')
+    kF, kA, kD, kQ = denom(F), denom(A), denom(D), denom(Q)
+    kN = 1
     for i in range(NV):
-        L.append(f'def rN{i} : SPoly := {spoly_lean(N[i])}\n')
-    L.append('def F : Poly := eval rF\ndef A : Poly := eval rA\ndef D : Poly := eval rD\ndef Q : Poly := eval rQ\n')
+        kN = math.lcm(kN, denom(N[i]))
+    L.append(f'def rF : SPoly := {spoly_lean(F, kF)}\n')
+    L.append(f'def rA : SPoly := {spoly_lean(A, kA)}\n')
+    L.append(f'def rD : SPoly := {spoly_lean(D, kD)}\n')
+    L.append(f'def rQ : SPoly := {spoly_lean(Q, kQ)}\n')
     for i in range(NV):
-        L.append(f'def N{i} : Poly := eval rN{i}\n')
+        L.append(f'def rN{i} : SPoly := {spoly_lean(N[i], kN)}\n')
+    L.append(f'def F : Poly := evalQ rF {kF}\ndef A : Poly := evalQ rA {kA}\ndef D : Poly := evalQ rD {kD}\ndef Q : Poly := evalQ rQ {kQ}\n')
+    for i in range(NV):
+        L.append(f'def N{i} : Poly := evalQ rN{i} {kN}\n')
     L.append('def N : Fin 6 → Poly := fun i => ' + ''.join(f'if i.val = {i} then N{i} else ' for i in range(5)) + 'N5\n')
+    qcast = '' if q == 1 else f'  rw [show ({q} : Poly) = (({q} : ℕ) : Poly) by norm_num]\n'
     if 'e1' in which:
-        lhs_r = f'(smul {q} {nest_add([f"(mul (pderivP {i} rF) rN{i})" for i in range(NV)])})'
-        rhs_r = '(mul rA rD)'
-        L.append(f'theorem e1_core : eval {lhs_r} = eval {rhs_r} := eval_eq_of_eq (by decide +kernel)\n')
         e1_sum = nest([f'pderiv ({i} : Fin 6) F * N{i}' for i in range(NV)])
         L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
                  f'  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
-                 f'  change ({q}:Poly) * ({e1_sum}) = A*D\n'
-                 f'  have h := e1_core\n'
-                 f'  simp only [eval_smul, eval_add, eval_mul, eval_pderivP, Int.cast_one, Int.cast_ofNat, map_one, map_ofNat] at h\n'
-                 f'  exact h\n')
+                 f'  change ({q}:Poly) * ({e1_sum}) = A*D\n' + qcast +
+                 f'  simp only [F, A, D, N0, N1, N2, N3, N4, N5, evalQ_pderiv, evalQ_mul, evalQ_add, evalQ_nsmul, one_mul]\n'
+                 f'  exact evalQ_eq_of_eq (by decide) (by decide) (by decide +kernel)\n')
     if 'e2' in which:
-        div_r = nest_add([f'(pderivP {i} rN{i})' for i in range(NV)])
-        dir_r = nest_add([f'(mul (pderivP {i} rD) rN{i})' for i in range(NV)])
-        lhs_r = f'(sub (mul rD {div_r}) {dir_r})'
-        rhs_r = f'(mul (pow rF {q}) rQ)'
-        L.append(f'theorem e2_core : eval {lhs_r} = eval {rhs_r} := eval_eq_of_eq (by decide +kernel)\n')
         div_sum = nest([f'pderiv ({i} : Fin 6) N{i}' for i in range(NV)])
         dir_sum = nest([f'pderiv ({i} : Fin 6) D * N{i}' for i in range(NV)])
         L.append(f'theorem e2 : divergenceNumerator D N = F^{q}*Q := by\n'
                  f'  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
                  f'  change D * ({div_sum}) - ({dir_sum}) = F^{q}*Q\n'
-                 f'  have h := e2_core\n'
-                 f'  simp only [eval_sub, eval_mul, eval_add, eval_pderivP, eval_pow] at h\n'
-                 f'  exact h\n')
+                 f'  simp only [F, D, Q, N0, N1, N2, N3, N4, N5, evalQ_pderiv, evalQ_mul, evalQ_add, evalQ_sub, evalQ_pow]\n'
+                 f'  exact evalQ_eq_of_eq (by decide) (by decide) (by decide +kernel)\n')
     L.append(f'end {ns}\n')
     return '\n'.join(L)
 

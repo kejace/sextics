@@ -1,0 +1,226 @@
+{
+ "9,0,0": {
+  "dimS": 116,
+  "dimJ": 33,
+  "dimColon": 35,
+  "kernel": 2,
+  "HF_R": 83,
+  "HF_ok": true
+ },
+ "9,0,1": {
+  "dimS": 156,
+  "dimJ": 63,
+  "dimColon": 66,
+  "kernel": 3,
+  "HF_R": 93,
+  "HF_ok": true
+ },
+ "9,0,2": {
+  "dimS": 156,
+  "dimJ": 63,
+  "dimColon": 66,
+  "kernel": 3,
+  "HF_R": 93,
+  "HF_ok": true
+ },
+ "9,0,3": {
+  "dimS": 139,
+  "dimJ": 52,
+  "dimColon": 54,
+  "kernel": 2,
+  "HF_R": 87,
+  "HF_ok": true
+ },
+ "9,0,4": {
+  "dimS": 156,
+  "dimJ": 63,
+  "dimColon": 73,
+  "kernel": 10,
+  "HF_R": 93,
+  "HF_ok": true
+ },
+ "9,0,5": {
+  "dimS": 139,
+  "dimJ": 52,
+  "dimColon": 53,
+  "kernel": 1,
+  "HF_R": 87,
+  "HF_ok": true
+ },
+ "9,0,6": {
+  "dimS": 139,
+  "dimJ": 52,
+  "dimColon": 55,
+  "kernel": 3,
+  "HF_R": 87,
+  "HF_ok": true
+ },
+ "9,1,0": {
+  "dimS": 176,
+  "dimJ": 93,
+  "dimColon": 93,
+  "kernel": 0,
+  "HF_R": 83,
+  "HF_ok": true
+ },
+ "9,1,1": {
+  "dimS": 139,
+  "dimJ": 49,
+  "dimColon": 54,
+  "kernel": 5,
+  "HF_R": 90,
+  "HF_ok": true
+ },
+ "9,1,2": {
+  "dimS": 139,
+  "dimJ": 49,
+  "dimColon": 49,
+  "kernel": 0,
+  "HF_R": 90,
+  "HF_ok": true
+ },
+ "9,1,3": {
+  "dimS": 136,
+  "dimJ": 46,
+  "dimColon": 46,
+  "kernel": 0,
+  "HF_R": 90,
+  "HF_ok": true
+ },
+ "9,1,4": {
+  "dimS": 139,
+  "dimJ": 49,
+  "dimColon": 58,
+  "kernel": 9,
+  "HF_R": 90,
+  "HF_ok": true
+ },
+ "9,1,5": {
+  "dimS": 136,
+  "dimJ": 46,
+  "dimColon": 52,
+  "kernel": 6,
+  "HF_R": 90,
+  "HF_ok": true
+ },
+ "9,1,6": {
+  "dimS": 136,
+  "dimJ": 46,
+  "dimColon": 50,
+  "kernel": 4,
+  "HF_R": 90,
+  "HF_ok": true
+ },
+ "10,0,0": {
+  "dimS": 255,
+  "dimJ": 159,
+  "dimColon": 183,
+  "kernel": 24,
+  "HF_R": 96,
+  "HF_ok": true
+ },
+ "10,0,1": {
+  "dimS": 212,
+  "dimJ": 101,
+  "dimColon": 147,
+  "kernel": 46,
+  "HF_R": 111,
+  "HF_ok": true
+ },
+ "10,0,2": {
+  "dimS": 212,
+  "dimJ": 101,
+  "dimColon": 140,
+  "kernel": 39,
+  "HF_R": 111,
+  "HF_ok": true
+ },
+ "10,0,3": {
+  "dimS": 207,
+  "dimJ": 96,
+  "dimColon": 135,
+  "kernel": 39,
+  "HF_R": 111,
+  "HF_ok": true
+ },
+ "10,0,4": {
+  "dimS": 212,
+  "dimJ": 101,
+  "dimColon": 155,
+  "kernel": 54,
+  "HF_R": 111,
+  "HF_ok": true
+ },
+ "10,0,5": {
+  "dimS": 207,
+  "dimJ": 96,
+  "dimColon": 142,
+  "kernel": 46,
+  "HF_R": 111,
+  "HF_ok": true
+ },
+ "10,0,6": {
+  "dimS": 207,
+  "dimJ": 96,
+  "dimColon": 142,
+  "kernel": 46,
+  "HF_R": 111,
+  "HF_ok": true
+ },
+ "10,1,0": {
+  "dimS": 180,
+  "dimJ": 75,
+  "dimColon": 111,
+  "kernel": 36,
+  "HF_R": 105,
+  "HF_ok": true
+ },
+ "10,1,1": {
+  "dimS": 228,
+  "dimJ": 120,
+  "dimColon": 159,
+  "kernel": 39,
+  "HF_R": 108,
+  "HF_ok": true
+ },
+ "10,1,2": {
+  "dimS": 228,
+  "dimJ": 120,
+  "dimColon": 159,
+  "kernel": 39,
+  "HF_R": 108,
+  "HF_ok": true
+ },
+ "10,1,3": {
+  "dimS": 209,
+  "dimJ": 104,
+  "dimColon": 140,
+  "kernel": 36,
+  "HF_R": 105,
+  "HF_ok": true
+ },
+ "10,1,4": {
+  "dimS": 228,
+  "dimJ": 120,
+  "dimColon": 159,
+  "kernel": 39,
+  "HF_R": 108,
+  "HF_ok": true
+ },
+ "10,1,5": {
+  "dimS": 209,
+  "dimJ": 104,
+  "dimColon": 140,
+  "kernel": 36,
+  "HF_R": 105,
+  "HF_ok": true
+ },
+ "10,1,6": {
+  "dimS": 209,
+  "dimJ": 104,
+  "dimColon": 140,
+  "kernel": 36,
+  "HF_R": 105,
+  "HF_ok": true
+ }
+}

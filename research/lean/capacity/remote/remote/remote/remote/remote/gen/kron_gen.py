@@ -58,7 +58,10 @@ def nestE(op, terms):
 def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdepth=4000):
     Fi, sF = clear_denominators(F)
     Ai, sA = clear_denominators(A)
-    assert sF == 1 and sA == 1, 'this prototype expects integral F and A (scale first)'
+    # common scale s for F and A: F = (1/s) F', A = (1/s) A' with integral F', A'
+    s_ = sF * sA // math.gcd(sF, sA)
+    Fi = {e: int(Fraction(c) * s_) for e, c in F.items()}
+    Ai = {e: int(Fraction(c) * s_) for e, c in A.items()}
     for P in (D, Q, *N):
         for c in P.values():
             assert Fraction(c).denominator == 1
@@ -73,7 +76,7 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
     dF = [core.pderiv(Fi, i) for i in range(NV)]; dD = [core.pderiv(Di, i) for i in range(NV)]
     dN = [core.pderiv(Ni[i], i) for i in range(NV)]
     b1 = q * sum(l1(dF[i]) * l1N[i] for i in range(NV)) + l1A * l1D
-    b2 = l1D * sum(l1(dN[i]) for i in range(NV)) + sum(l1(dD[i]) * l1N[i] for i in range(NV)) + l1F ** q * l1Q
+    b2 = (s_ ** q) * (l1D * sum(l1(dN[i]) for i in range(NV)) + sum(l1(dD[i]) * l1N[i] for i in range(NV))) + l1F ** q * l1Q
     bound = max(b1, b2)
     if W is None:
         W = max(bound.bit_length() + 2, 8)
@@ -89,7 +92,11 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
     for i in range(NV):
         L.append(f'noncomputable def tN{i} : PT := {pt_lean(Ni[i], m, degN)}\n')
     L.append('noncomputable section\n')
-    L.append('def F : Poly := toC tF\ndef A : Poly := toC tA\ndef D : Poly := toC tD\ndef Q : Poly := toC tQ\n')
+    if s_ == 1:
+        L.append('def F : Poly := toC tF\ndef A : Poly := toC tA\n')
+    else:
+        L.append(f'def F : Poly := C (1 / {s_} : ℂ) * toC tF\ndef A : Poly := C (1 / {s_} : ℂ) * toC tA\n')
+    L.append('def D : Poly := toC tD\ndef Q : Poly := toC tQ\n')
     for i in range(NV):
         L.append(f'def N{i} : Poly := toC tN{i}\n')
     L.append('def N : Fin 6 → Poly := fun i => ' + ''.join(f'if i.val = {i} then N{i} else ' for i in range(5)) + 'N5\n')
@@ -100,27 +107,55 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
         L.append(f'noncomputable def L1 : E := {lhs}\nnoncomputable def R1 : E := {rhs}\n')
         L.append(f'theorem e1_core : denC L1 = denC R1 := soundC (m := {m}) (W := {W}) L1 R1 {side}\n')
         e1_sum = nest([f'pderiv ({i} : Fin 6) F * N{i}' for i in range(NV)])
-        L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
-                 f'  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
-                 f'  change ({q}:Poly) * ({e1_sum}) = A*D\n'
-                 f'  have h := e1_core\n'
-                 f'  simp only [L1, R1, denC_smulN, denC_add, denC_mul, denC_poly, denC_pd, Nat.cast_one, Nat.cast_ofNat] at h\n'
-                 f'  simpa only [F, A, D, N0, N1, N2, N3, N4, N5] using h\n')
+        if s_ == 1:
+            L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
+                     f'  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
+                     f'  change ({q}:Poly) * ({e1_sum}) = A*D\n'
+                     f'  have h := e1_core\n'
+                     f'  simp only [L1, R1, denC_smulN, denC_add, denC_mul, denC_poly, denC_pd, Nat.cast_one, Nat.cast_ofNat] at h\n'
+                     f'  simpa only [F, A, D, N0, N1, N2, N3, N4, N5] using h\n')
+        else:
+            L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
+                     f'  simp only [directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
+                     f'  change ({q}:Poly) * ({e1_sum}) = A*D\n'
+                     f'  have h := congrArg (fun p => C (1 / {s_} : ℂ) * p) e1_core\n'
+                     f'  simp only [L1, R1, denC_smulN, denC_add, denC_mul, denC_poly, denC_pd, Nat.cast_one, Nat.cast_ofNat] at h\n'
+                     f'  simp only [F, A, D, N0, N1, N2, N3, N4, N5, pderiv_C_mul]\n'
+                     f'  linear_combination h\n')
     if 'e2' in parts:
         div_r = nestE('add', [f'(.pd {i} tN{i})' for i in range(NV)])
         dir_r = nestE('add', [f'(.mul (.pd {i} tD) (.poly tN{i}))' for i in range(NV)])
         lhs = f'(.sub (.mul (.poly tD) {div_r}) {dir_r})'
+        if s_ != 1:
+            lhs = f'(.smulN {s_ ** q} {lhs})'
         rhs = f'(.mul (.pow (.poly tF) {q}) (.poly tQ))'
         L.append(f'noncomputable def L2 : E := {lhs}\nnoncomputable def R2 : E := {rhs}\n')
         L.append(f'theorem e2_core : denC L2 = denC R2 := soundC (m := {m}) (W := {W}) L2 R2 {side}\n')
         div_sum = nest([f'pderiv ({i} : Fin 6) N{i}' for i in range(NV)])
         dir_sum = nest([f'pderiv ({i} : Fin 6) D * N{i}' for i in range(NV)])
-        L.append(f'theorem e2 : divergenceNumerator D N = F^{q}*Q := by\n'
-                 f'  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
-                 f'  change D * ({div_sum}) - ({dir_sum}) = F^{q}*Q\n'
-                 f'  have h := e2_core\n'
-                 f'  simp only [L2, R2, denC_sub, denC_add, denC_mul, denC_pow, denC_poly, denC_pd] at h\n'
-                 f'  simpa only [F, D, Q, N0, N1, N2, N3, N4, N5] using h\n')
+        if s_ == 1:
+            L.append(f'theorem e2 : divergenceNumerator D N = F^{q}*Q := by\n'
+                     f'  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
+                     f'  change D * ({div_sum}) - ({dir_sum}) = F^{q}*Q\n'
+                     f'  have h := e2_core\n'
+                     f'  simp only [L2, R2, denC_sub, denC_add, denC_mul, denC_pow, denC_poly, denC_pd] at h\n'
+                     f'  simpa only [F, D, Q, N0, N1, N2, N3, N4, N5] using h\n')
+        else:
+            sq = s_ ** q
+            div_u = nest([f'pderiv ({i} : Fin 6) (toC tN{i})' for i in range(NV)])
+            dir_u = nest([f'pderiv ({i} : Fin 6) (toC tD) * toC tN{i}' for i in range(NV)])
+            L.append(f'theorem hF{q} : F ^ {q} = C (1 / {sq} : ℂ) * toC tF ^ {q} := by\n'
+                     f'  rw [F, mul_pow, ← C_pow]; norm_num\n')
+            L.append(f'theorem hs : (C (1 / {sq} : ℂ) : Poly) * ({sq} : Poly) = 1 := by\n'
+                     f'  rw [← map_ofNat C {sq}, ← C_mul]; norm_num\n')
+            L.append(f'theorem e2 : divergenceNumerator D N = F^{q}*Q := by\n'
+                     f'  simp only [divergenceNumerator, divergence, directional, Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero]\n'
+                     f'  change D * ({div_sum}) - ({dir_sum}) = F^{q}*Q\n'
+                     f'  have h := congrArg (fun p => C (1 / {sq} : ℂ) * p) e2_core\n'
+                     f'  simp only [L2, R2, denC_smulN, denC_sub, denC_add, denC_mul, denC_pow, denC_poly, denC_pd, Nat.cast_ofNat] at h\n'
+                     f'  rw [hF{q}]\n'
+                     f'  simp only [D, Q, N0, N1, N2, N3, N4, N5]\n'
+                     f'  linear_combination h - (toC tD * ({div_u}) - ({dir_u})) * hs\n')
     if 'homog' in parts:
         L.append(f'theorem denominator_homogeneous : D.IsHomogeneous {d} := toC_isHomogeneous {d} tD (by decide +kernel)\n')
         for i in range(NV):
@@ -131,7 +166,7 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
         vec = '![' + ','.join(str(v) for v in pt) + ']'
         L.append(f'theorem denominator_ne_zero : D ≠ 0 := toC_ne_zero_of_evalPT {vec} tD (by decide +kernel)\n')
     L.append(f'end\nend {ns}\n')
-    meta = {'m': m, 'W': W, 'bound_bits': bound.bit_length(), 'deg1': deg1, 'deg2': deg2}
+    meta = {'m': m, 'W': W, 'bound_bits': bound.bit_length(), 'deg1': deg1, 'deg2': deg2, 'scale': s_}
     return '\n'.join(L), meta
 
 

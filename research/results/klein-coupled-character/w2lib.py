@@ -163,8 +163,14 @@ def sector_space(F, A, d, parD, k, nprimes=12, verbose=False, want_rational=True
             c = Ctx(F, A, p)
             s = sector_kernel_full(c, d, k, parD)
             return s['kervecs']
-        rat = crt_lift_vectors(getter, nprimes, verbose)
+        rat = crt_lift_vectors(getter, min(nprimes, 4), verbose)
         info['lift_ok'] = rat is not None
+        if rat is None or (rat and max(max(abs(Fraction(x).numerator) for x in v) for v in rat) > 10**9):
+            # canonical rref basis has large height: find short kernel vectors by LLL on the mod-m kernel lattice instead
+            Dm2, good, nk2, jd2 = kernel_small_vectors(F, A, d, parD, k, nprimes=2, verbose=verbose)
+            if good:
+                rat = [[Fraction(x) for x in v] for v in good]
+                info['lift_ok'] = True; info['lift_method'] = 'lll-lattice'
         if rat is not None:
             # lattice: J_d generator vectors (integral after x7) + cleared kernel vectors; LLL; pick reps independent mod J_d
             idx = {m: i for i, m in enumerate(Dm)}
@@ -316,10 +322,13 @@ class KoszulVarPro:
     """
 
     def __init__(self, F, A, fam, restrict=True, k=None, exclude_F_multiples=True, cond=1e-9, verbose=False,
-                 normalize=True):
+                 normalize=True, reg=0.0, reduce_F=True):
         t0 = time.time()
         self.F, self.A = F, A
         self.cond = cond
+        self.reduce_F = reduce_F
+        self._cache = None
+        self.reg = reg      # >0: Tikhonov (relative lambda) via SVD instead of truncated-SVD lstsq
         self.fam = fam
         self.K = len(fam)
         if self.K == 0:
@@ -433,6 +442,17 @@ class KoszulVarPro:
                     ri.append(rows[e]); ci.append(kk * K + l); vals.append(c)
         self.Bbig = sp.csr_matrix((np.array(vals), (np.array(ri, dtype=np.int64), np.array(ci, dtype=np.int64))),
                                   shape=(R, K * K))
+        self.Bbig_full = self.Bbig
+        if reduce_F and self.nQ:
+            # eliminate Q: reduce every row monomial modulo F (leading term Y0^6); rows' = monomials not divisible by Y0^6
+            Rmat, rrows = rem_F_matrix(rows, self.F)
+            self.Mbig = (Rmat @ self.Mbig).tocsr()
+            self.Bbig = (Rmat @ self.Bbig).tocsr()
+            self.MQ = np.zeros((len(rrows), 0))
+            self.nQ_eliminated = self.nQ
+            self.nQ = 0
+            self.rows_full = R
+            R = len(rrows); self.rows, self.row_index = R, rrows
         self.nnz = int(self.Mbig.nnz + self.Bbig.nnz)
         self.ncols = self.nP + self.nQ
         self.P = np.eye(self.K); self.excluded_dim = 0
@@ -473,6 +493,20 @@ class KoszulVarPro:
         r = int(np.sum(s > 1e-10 * max(1.0, s[0])))
         return U[:, r:], r
 
+
+    def _solve(self, M, B):
+        """Least squares M X = B (B vector or matrix): truncated SVD (cond) or Tikhonov (reg > 0)."""
+        if self.reg <= 0:
+            X, *_ = sla.lstsq(M, B, cond=self.cond, lapack_driver='gelsd', check_finite=False)
+            return X
+        U, s, Vt = sla.svd(M, full_matrices=False, check_finite=False, lapack_driver='gesdd')
+        lam = self.reg * (s[0] if s.size else 1.0)
+        filt = s / (s * s + lam * lam)
+        UtB = U.T @ B
+        if B.ndim == 1:
+            return Vt.T @ (filt * UtB)
+        return Vt.T @ (filt[:, None] * UtB)
+
     def assemble(self, a):
         K, nP = self.K, self.nP
         if nP:
@@ -490,7 +524,7 @@ class KoszulVarPro:
         na = np.linalg.norm(a)
         a = a / na
         M, b = self.assemble(a)
-        x, *_ = sla.lstsq(M, b, cond=self.cond, lapack_driver='gelsd', check_finite=False)
+        x = self._solve(M, b)
         r = M @ x - b
         self._nfev += 1
         return float(r @ r), x, r, b
@@ -501,7 +535,7 @@ class KoszulVarPro:
         na = np.linalg.norm(a_full)
         a = a_full / na
         M, b = self.assemble(a)
-        x, *_ = sla.lstsq(M, b, cond=self.cond, lapack_driver='gelsd', check_finite=False)
+        x = self._solve(M, b)
         r = M @ x - b
         f = float(r @ r)
         K = self.K
@@ -521,8 +555,12 @@ class KoszulVarPro:
         return f, self.P.T @ g_full
 
     def rel(self, a):
+        """(f / |b_full|^2, f, |b_full|^2): residual relative to the UNreduced right-hand side -B_D(N0) (scale-free,
+        comparable across sectors; in the F-reduced system the reduced rhs alone would give rel = 1 whenever p = 0)."""
         f, x, r, b = self.value(a)
-        bn = float(b @ b)
+        a = np.asarray(a, float); a = a / np.linalg.norm(a)
+        bf = self.Bbig_full @ np.outer(a, a).ravel()
+        bn = float(bf @ bf)
         return f / max(bn, 1e-300), f, bn
 
     def is_spurious(self, a, tol=1e-8):
@@ -586,12 +624,18 @@ class KoszulVarPro:
         """Residual r(u) = M(a) x - b(a) at a = P u/|P u|, x = lstsq, and the Kaufman Jacobian
         dr/du ~= P_perp (dM/da_k x - db/da_k) * (d a / d u)."""
         u = np.asarray(u, dtype=float)
-        a_full = self.P @ u
-        na = np.linalg.norm(a_full)
-        a = a_full / na
-        M, b = self.assemble(a)
-        x, *_ = sla.lstsq(M, b, cond=self.cond, lapack_driver='gelsd', check_finite=False)
-        r = M @ x - b
+        key = u.tobytes()
+        if self._cache is not None and self._cache[0] == key:
+            _, a, na, M, b, x, r = self._cache
+        else:
+            a_full = self.P @ u
+            na = np.linalg.norm(a_full)
+            a = a_full / na
+            M, b = self.assemble(a)
+            x = self._solve(M, b)
+            r = M @ x - b
+            self._cache = (key, a, na, M, b, x, r)
+        self._nfev += 1
         if not want_jac:
             return r, None, a, x, b
         K = self.K
@@ -605,15 +649,27 @@ class KoszulVarPro:
         Gb = (self.Bbig @ (Ia + aI)).toarray()
         V = Mx - Gb                                   # R x K : d r / d a (ignoring the x-dependence)
         # project onto the orthogonal complement of the column space of M (Kaufman)
-        Y, *_ = sla.lstsq(M, V, cond=self.cond, lapack_driver='gelsd', check_finite=False)
+        Y = self._solve(M, V)
         V = V - M @ Y
         # chain rule a = a_full/|a_full|, a_full = P u :  da/du = (I - a a^T)/na @ P
         Ja = (V - np.outer(V @ a, a)) / na
         J = Ja @ self.P
         return r, J, a, x, b
 
+    def random_start(self, rng, sparse=0):
+        """Random start in reduced coordinates; sparse>0 picks that many random family coordinates (sparse D)."""
+        if sparse and sparse < self.K:
+            a0 = np.zeros(self.K)
+            idx = rng.choice(self.K, size=sparse, replace=False)
+            a0[idx] = rng.standard_normal(sparse)
+            u0 = self.P.T @ a0
+            if np.linalg.norm(u0) < 1e-12:
+                u0 = rng.standard_normal(self.dimP)
+            return u0
+        return rng.standard_normal(self.dimP)
+
     def search_lm(self, n_restarts=10, seed=0, max_nfev=300, verbose=False, stop_rel=1e-13, callback=None, init=None,
-                  polish=True):
+                  polish=True, sparse=0):
         """Random-restart Levenberg-Marquardt / TRF on the sphere with the Kaufman varpro Jacobian."""
         from scipy.optimize import least_squares
         rng = np.random.default_rng(seed)
@@ -623,7 +679,7 @@ class KoszulVarPro:
             if init is not None and it == 0:
                 u0 = self.P.T @ np.asarray(init, float)
             else:
-                u0 = rng.standard_normal(self.dimP)
+                u0 = self.random_start(rng, sparse)
             u0 /= np.linalg.norm(u0)
             fun = lambda u: self._resid_and_jac(u, want_jac=False)[0]
             jac = lambda u: self._resid_and_jac(u, want_jac=True)[1]
@@ -642,6 +698,159 @@ class KoszulVarPro:
             if verbose:
                 print(f'[kvarpro-lm] restart {it}: f={f:.3e} rel={relv:.3e} nfev={nfev} status={status} spurious={spur} '
                       f'({time.time()-t0:.1f}s)', file=sys.stderr)
+            if callback is not None:
+                callback(cand)
+            if relv < stop_rel and not spur:
+                break
+        out.sort(key=lambda c: (c['spurious'], c['rel']))
+        return out
+
+
+    def search_joint(self, n_restarts=10, seed=0, max_nfev=300, verbose=False, stop_rel=1e-13, callback=None, init=None):
+        """Random-restart LM/TRF over (u, x) jointly (no variable projection; no SVD cutoff)."""
+        from scipy.optimize import least_squares
+        rng = np.random.default_rng(seed)
+        K, nP = self.K, self.nP
+        out = []
+        t0 = time.time()
+
+        def unpack(z):
+            u = z[:self.dimP]; x = z[self.dimP:]
+            a_full = self.P @ u; na = np.linalg.norm(a_full); a = a_full / na
+            return u, x, a, na
+
+        def fun(z):
+            u, x, a, na = unpack(z)
+            M, b = self.assemble(a)
+            return M @ x - b
+
+        def jac(z):
+            u, x, a, na = unpack(z)
+            M, b = self.assemble(a)
+            if nP:
+                xP = x[:nP]
+                Mx = (self.Mbig @ sp.kron(sp.identity(K, format='csr'), sp.csr_matrix(xP.reshape(nP, 1)), format='csr')).toarray()
+            else:
+                Mx = np.zeros((self.rows, K))
+            Ia = sp.kron(sp.identity(K, format='csr'), sp.csr_matrix(a.reshape(K, 1)), format='csr')
+            aI = sp.kron(sp.csr_matrix(a.reshape(K, 1)), sp.identity(K, format='csr'), format='csr')
+            Gb = (self.Bbig @ (Ia + aI)).toarray()
+            V = Mx - Gb
+            Ja = (V - np.outer(V @ a, a)) / na
+            return np.hstack([Ja @ self.P, M])
+
+        for it in range(n_restarts):
+            if init is not None and it == 0:
+                u0 = self.P.T @ np.asarray(init, float)
+            else:
+                u0 = rng.standard_normal(self.dimP)
+            u0 /= np.linalg.norm(u0)
+            a0 = self.P @ u0; a0 /= np.linalg.norm(a0)
+            M, b = self.assemble(a0)
+            x0 = self._solve(M, b)
+            z0 = np.concatenate([u0, x0])
+            try:
+                res = least_squares(fun, z0, jac=jac, method='trf', x_scale='jac', max_nfev=max_nfev,
+                                    ftol=1e-15, xtol=1e-15, gtol=1e-15)
+                z = res.x; nfev = int(res.nfev); status = int(res.status)
+            except Exception as ex:
+                z = z0; nfev = 0; status = -99
+            u, x, a, na = unpack(z)
+            relv, f, bn = self.rel(a)
+            spur, srel = self.is_spurious(a)
+            cand = {'value': f, 'rel': relv, 'bnorm2': bn, 'a': a, 'spurious': spur, 'div_rel': srel,
+                    'iters': nfev, 'status': status, 'restart': it, 'seconds': round(time.time() - t0, 1)}
+            out.append(cand)
+            if verbose:
+                print(f'[kvarpro-joint] restart {it}: f={f:.3e} rel={relv:.3e} nfev={nfev} status={status} spurious={spur} '
+                      f'({time.time()-t0:.1f}s)', file=sys.stderr)
+            if callback is not None:
+                callback(cand)
+            if relv < stop_rel and not spur:
+                break
+        out.sort(key=lambda c: (c['spurious'], c['rel']))
+        return out
+
+
+    # ------------------------------------------------------------------ two-stage: relaxation funnel, then full E2
+    def ensure_relax(self, verbose=False):
+        if getattr(self, '_relax', None) is None:
+            self._relax = Relax(self, verbose=verbose)
+        return self._relax
+
+    def search_two_stage(self, n_restarts=50, seed=0, max_nfev=300, keep_frac=0.3, keep_rel=1e-6, verbose=False,
+                         callback=None, relax_maxiter=600):
+        """Stage 1: relaxation minima from n_restarts random starts; stage 2: full-E2 LM from the kept minima
+        (all with relaxation rel < keep_rel, else the best keep_frac fraction).  Returns (E2 candidates, relax stats)."""
+        rx = self.ensure_relax(verbose=verbose)
+        t0 = time.time()
+        r1 = rx.search(n_restarts, seed, maxiter=relax_maxiter)
+        rels1 = np.array([c['rel'] for c in r1])
+        nkeep = max(1, int(math.ceil(keep_frac * len(r1))))
+        kept = [c for c in r1 if c['rel'] < keep_rel]
+        if len(kept) < nkeep:
+            kept = r1[:nkeep]
+        out = []
+        for j, c0 in enumerate(kept):
+            cand = self.search_lm(n_restarts=1, init=c0['a'], max_nfev=max_nfev, seed=seed + j)[0]
+            cand['relax_rel'] = c0['rel']; cand['restart'] = j
+            cand['seconds'] = round(time.time() - t0, 1)
+            out.append(cand)
+            if callback is not None:
+                callback(cand)
+            if verbose:
+                print(f'[two-stage] start {j}: relax rel={c0["rel"]:.2e} -> E2 rel={cand["rel"]:.2e} nfev={cand["iters"]}', file=sys.stderr)
+            if cand['rel'] < 1e-13 and not cand['spurious']:
+                break
+        out.sort(key=lambda c: (c['spurious'], c['rel']))
+        stats = {'relax_restarts': len(r1), 'relax_best_rel': float(rels1.min()), 'relax_median_rel': float(np.median(rels1)),
+                 'relax_n_lt_1e-6': int(np.sum(rels1 < 1e-6)), 'relax_n_lt_1e-10': int(np.sum(rels1 < 1e-10)),
+                 'relax_nl': rx.nl, 'relax_dimP': self.dimP, 'kept': len(kept), 'seconds': round(time.time() - t0, 1)}
+        return out, stats
+
+
+    def search_clm(self, n_restarts=10, seed=0, max_nfev=300, mu=10.0, verbose=False, stop_rel=1e-13, callback=None, init=None):
+        """LM on the combined residual [E2 varpro residual ; mu * relaxation residual L^T b(a)] (same zero set as E2;
+        the relaxation part is cheap and shapes the landscape towards the mod-J solution set)."""
+        from scipy.optimize import least_squares
+        rx = self.ensure_relax()
+        rng = np.random.default_rng(seed)
+        out = []
+        t0 = time.time()
+        scale_mu = mu * math.sqrt(max(1, self.rows) / max(1, rx.nl))
+
+        def fun(u):
+            r, _, a, x, b = self._resid_and_jac(u, want_jac=False)
+            qv, _ = rx.q_and_grad(a)
+            return np.concatenate([r, scale_mu * qv])
+
+        def jac(u):
+            r, J, a, x, b = self._resid_and_jac(u, want_jac=True)
+            qv, dq = rx.q_and_grad(a)
+            na = np.linalg.norm(self.P @ u)
+            dqa = (dq - np.outer(dq @ a, a)) / na
+            return np.vstack([J, scale_mu * (dqa @ self.P)])
+
+        for it in range(n_restarts):
+            if init is not None and it == 0:
+                u0 = self.P.T @ np.asarray(init, float)
+            else:
+                u0 = rng.standard_normal(self.dimP)
+            u0 /= np.linalg.norm(u0)
+            try:
+                res = least_squares(fun, u0, jac=jac, method='trf', x_scale='jac', max_nfev=max_nfev,
+                                    ftol=1e-15, xtol=1e-15, gtol=1e-15)
+                uopt = res.x; nfev = int(res.nfev); status = int(res.status)
+            except Exception:
+                uopt = u0; nfev = 0; status = -99
+            a = self.P @ uopt; a /= np.linalg.norm(a)
+            relv, f, bn = self.rel(a)
+            spur, srel = self.is_spurious(a)
+            cand = {'value': f, 'rel': relv, 'bnorm2': bn, 'a': a, 'spurious': spur, 'div_rel': srel, 'relax_rel': rx.rel(a)[0],
+                    'iters': nfev, 'status': status, 'restart': it, 'seconds': round(time.time() - t0, 1)}
+            out.append(cand)
+            if verbose:
+                print(f'[kvarpro-clm] restart {it}: rel={relv:.3e} relax={cand["relax_rel"]:.2e} nfev={nfev} status={status} ({time.time()-t0:.1f}s)', file=sys.stderr)
             if callback is not None:
                 callback(cand)
             if relv < stop_rel and not spur:
@@ -711,10 +920,9 @@ def confirm_exact(F, A, D, verbose=False, restrict=True, with_engine=False):
     t0 = time.time()
     if not D:
         return 'inconsistent', {'note': 'D = 0'}
-    ok, info = fixed_d.e1_solvable(F, A, 1, D)
-    if not ok:
-        return 'e1-fail', {'e1': info}
     e = kcc2.full_test(F, A, D, 'w2-confirm', 'w2-confirm', weights=restrict, verbose=verbose, want_log=False)
+    if not e.get('e1'):
+        return 'e1-fail', {'e1': False, 'seconds_modp': round(time.time() - t0, 1)}
     data = {'rank': e.get('rank'), 'nullity': e.get('nullity'), 'rows': e.get('rows'), 'cols': e.get('cols'),
             'seconds_modp': round(time.time() - t0, 1)}
     if not e.get('consistent'):
@@ -896,3 +1104,261 @@ def reconstruct_poly(Dr, max_den=1000, tol=1e-7, drop=1e-9):
         if P and P not in out:
             out.append(P)
     return out
+
+
+def rem_F_matrix(rows, F):
+    """Sparse matrix R (reduced rows x rows) of the linear map 'remainder modulo F' (leading term Y0^6) on the
+    span of the given row monomials; returns (R, reduced_row_index)."""
+    t6 = (0, 0, 0, 6, 0, 0)
+    assert F.get(t6, 0) == 1
+    rest = {e: float(v) for e, v in F.items() if e != t6}
+    memo = {}
+
+    def red(e):
+        if e[3] < 6:
+            return {e: 1.0}
+        if e in memo:
+            return memo[e]
+        m = list(e); m[3] -= 6; m = tuple(m)
+        acc = {}
+        for e2, v2 in rest.items():
+            e3 = tuple(x + y for x, y in zip(m, e2))
+            for e4, v4 in red(e3).items():
+                acc[e4] = acc.get(e4, 0.0) - v2 * v4
+        acc = {k: v for k, v in acc.items() if v != 0.0}
+        memo[e] = acc
+        return acc
+    rrows = {}
+    ri, ci, vals = [], [], []
+    for e, j in rows.items():
+        for e4, v in red(e).items():
+            if e4 not in rrows:
+                rrows[e4] = len(rrows)
+            ri.append(rrows[e4]); ci.append(j); vals.append(v)
+    R = sp.csr_matrix((np.array(vals), (np.array(ri, dtype=np.int64), np.array(ci, dtype=np.int64))),
+                      shape=(len(rrows), len(rows)))
+    return R, rrows
+
+
+# ----------------------------------------------------------------------------- mod-J (Hessian) relaxation on a family
+def jblock_float_sector(F, d, k, restrict=True):
+    """Float J-block in degree 2d (Y-odd, weight 3+2k when restrict) over all sector monomials; returns (J, row index)."""
+    a = 3; pA = 1
+    tk = (a + 2 * k) % 7 if (restrict and k is not None) else None
+    Fi = [fl(pderiv(F, i)) for i in range(NV)]
+    tgt = wmonomials(2 * d, pA, tk)
+    rows = {m: i for i, m in enumerate(tgt)}
+    cols = []
+    for i in range(NV):
+        pm = (pA + PI[i]) % 2
+        km = (tk + W[i]) % 7 if tk is not None else None
+        for m in wmonomials(2 * d - 5, pm, km):
+            cols.append(shift(Fi[i], m, 1.0))
+    J = np.zeros((len(rows), len(cols)))
+    for j, c in enumerate(cols):
+        for e, v in c.items():
+            J[rows[e], j] = v
+    return J, rows
+
+
+class Relax:
+    """f(a) = |L^T b(a)|^2 where b(a) = -B_{D(a)}(N0(a)) (from a KoszulVarPro, reduced or not) and L = orthonormal
+    functionals on the degree-2d sector vanishing on J(F).  Zero iff B_{D(a)}(N0(a)) in J, a necessary condition for E2."""
+
+    def __init__(self, kv, verbose=False):
+        t0 = time.time()
+        self.kv = kv; self.K = kv.K; self.P = kv.P; self.dimP = kv.dimP
+        J, frows = jblock_float_sector(kv.F, kv.d, kv.k, kv.restrict)
+        U, s, Vt = np.linalg.svd(J, full_matrices=True)
+        tol = max(J.shape) * np.finfo(float).eps * s[0] * 1e3
+        rank = int(np.sum(s > tol))
+        Lfull = U[:, rank:]
+        self.nl = Lfull.shape[1]; self.jrank = rank
+        self.sv_gap = (float(s[rank - 1]), float(s[rank]) if rank < len(s) else 0.0)
+        sub_idx = np.array([frows[e] for e, j in sorted(kv.row_index.items(), key=lambda kv_: kv_[1])])
+        self.L = Lfull[sub_idx, :]
+        self.LtB = None
+        if kv.Bbig.shape[1] * self.nl <= 3e7:
+            self.LtB = (self.L.T @ kv.Bbig.toarray())          # nl x K^2
+        self.build_time = time.time() - t0
+        if verbose:
+            print(f'[relax] d={kv.d} k={kv.k} K={self.K} nl={self.nl} jrank={rank} sv_gap={self.sv_gap} built in {self.build_time:.1f}s', file=sys.stderr)
+
+    def q_and_grad(self, a):
+        K = self.K
+        v = np.outer(a, a).ravel()
+        if self.LtB is not None:
+            qv = self.LtB @ v
+            G = self.LtB.reshape(-1, K, K)
+            dq = np.einsum('mkl,l->mk', G, a) + np.einsum('mkl,k->ml', G, a)
+        else:
+            b = self.kv.Bbig @ v
+            qv = self.L.T @ b
+            Ia = sp.kron(sp.identity(K, format='csr'), sp.csr_matrix(a.reshape(K, 1)), format='csr')
+            aI = sp.kron(sp.csr_matrix(a.reshape(K, 1)), sp.identity(K, format='csr'), format='csr')
+            dq = self.L.T @ (self.kv.Bbig @ (Ia + aI)).toarray()
+        return qv, dq
+
+    def value_and_grad(self, u):
+        a_full = self.P @ u; na = np.linalg.norm(a_full); a = a_full / na
+        qv, dq = self.q_and_grad(a)
+        f = float(qv @ qv)
+        g = 2.0 * (dq.T @ qv)
+        g_full = (g - float(g @ a) * a) / na
+        return f, self.P.T @ g_full
+
+    def rel(self, a):
+        a = np.asarray(a, float); a = a / np.linalg.norm(a)
+        b = self.kv.Bbig @ np.outer(a, a).ravel()
+        qv = self.L.T @ b
+        return float(qv @ qv) / max(float(b @ b), 1e-300), float(qv @ qv), float(b @ b)
+
+    def search(self, n_restarts, seed, maxiter=600, init=None):
+        rng = np.random.default_rng(seed)
+        out = []
+        for it in range(n_restarts):
+            if init is not None and it == 0:
+                u0 = self.P.T @ np.asarray(init, float)
+            else:
+                u0 = rng.standard_normal(self.dimP)
+            u0 /= np.linalg.norm(u0)
+            res = minimize(self.value_and_grad, u0, jac=True, method='L-BFGS-B',
+                           options={'maxiter': maxiter, 'gtol': 1e-14, 'ftol': 1e-20})
+            a = self.P @ res.x; a /= np.linalg.norm(a)
+            relv, f, bn = self.rel(a)
+            out.append({'f': f, 'rel': relv, 'bn': bn, 'a': a, 'iters': int(res.nit)})
+        out.sort(key=lambda c: c['rel'])
+        return out
+
+
+def kernel_small_vectors(F, A, d, parD, k, nprimes=2, verbose=False, max_height=10**12):
+    """Short integer vectors of the E1 kernel {D in S_d[parD,k] : A D in J} via LLL on the lattice
+    {v in Z^nD : v mod m in ker_m}, m = product of nprimes primes (CRT of the canonical mod-p bases).
+    Returns (Dm, list of integer vectors verified in the kernel mod an extra prime, nk, jd)."""
+    ms = None; base = None; nk = jd = 0; Dm = None
+    for p in core.PRIMES[:nprimes]:
+        ctx = Ctx(F, A, p)
+        S = sector_kernel_full(ctx, d, k, parD)
+        Dm = S['Dm']; nk = len(S['kervecs']); jd = S['jd']
+        if nk == 0:
+            return Dm, [], 0, jd
+        if base is None:
+            base = [list(v) for v in S['kervecs']]; ms = p
+        else:
+            if len(S['kervecs']) != len(base):
+                continue
+            base = [[core.crt_pair(a, ms, b, p)[0] for a, b in zip(v1, v2)] for v1, v2 in zip(base, S['kervecs'])]
+            ms *= p
+    nD = len(Dm)
+    rows = [[int(x) % ms for x in v] for v in base] + [[ms if i == j else 0 for i in range(nD)] for j in range(nD)]
+    M = fmpz_mat(len(rows), nD, [x for r in rows for x in r])
+    R = M.lll()
+    cands = []
+    for i in range(R.nrows()):
+        v = [int(R[i, j]) for j in range(nD)]
+        if any(v) and max(abs(x) for x in v) < max_height:
+            cands.append(v)
+    # verify mod an extra prime (not used in the lattice): functionals vanishing on J applied to A*D
+    cands.sort(key=lambda v: sum(x * x for x in v))
+    cands = cands[: nk + 10]
+    pv = core.PRIMES[nprimes]
+    ctx = Ctx(F, A, pv)
+    tpar = (parD + ctx.pA) % 2; tk = (k + ctx.a) % 7
+    tgt = wmonomials(d + 6, tpar, tk)
+    rws = {m: i for i, m in enumerate(tgt)}
+    jk, jp = kcc2.jac_block_cols(ctx, d + 6, tpar, tk)
+    MJ, _ = dense_from_cols(jp, None, pv, rws)
+    Lm, nl = MJ.transpose().nullspace()
+    Lt = nmod_mat(nl, len(rws), [int(Lm[r, c]) for c in range(nl) for r in range(len(rws))], pv)
+    good = []
+    for v in cands:
+        D = {m: c % pv for m, c in zip(Dm, v) if c % pv}
+        AD = mul(ctx.A, D, pv)
+        vec = [0] * len(rws)
+        for e, c in AD.items():
+            vec[rws[e]] = c
+        if all(int(x) == 0 for x in (Lt * nmod_mat(len(rws), 1, vec, pv)).entries()):
+            good.append(v)
+    good.sort(key=lambda v: sum(x * x for x in v))
+    if verbose:
+        print(f'[kernel-lll] d={d} parD={parD} k={k}: nk={nk} jd={jd} lattice candidates {len(cands)} verified {len(good)} '
+              f'heights {[max(abs(x) for x in v) for v in good[:8]]}', file=sys.stderr)
+    return Dm, good, nk, jd
+
+
+def float_kernel_reps(F, A, d, parD, k, tol=1e-9, verbose=False):
+    """Floating-point basis of the E1 kernel {D in S_d[parD,k] : A D in J} orthogonal to J_d (nontrivial directions),
+    for sectors whose rational representatives have astronomically large height.  Returns (reps as float polys,
+    lifts as float polys, info).  Uses the functionals L (left null space of the degree-(d+6) J-block) in float."""
+    t0 = time.time()
+    a = 3; pA = 1
+    Dm = wmonomials(d, parD, k)
+    if not Dm:
+        return [], [], {'nD': 0}
+    tpar = (parD + pA) % 2; tk = (k + a) % 7
+    tgt = wmonomials(d + 6, tpar, tk)
+    rows = {m: i for i, m in enumerate(tgt)}
+    Fi = [fl(pderiv(F, i)) for i in range(NV)]
+    jcols = []
+    for i in range(NV):
+        pm = (tpar + PI[i]) % 2; km = (tk + W[i]) % 7
+        for m in wmonomials(d + 1, pm, km):
+            jcols.append(shift(Fi[i], m, 1.0))
+    J = np.zeros((len(rows), len(jcols)))
+    for j, c in enumerate(jcols):
+        for e, v in c.items():
+            J[rows[e], j] = v
+    U, s, Vt = np.linalg.svd(J, full_matrices=True)
+    cut = max(J.shape) * np.finfo(float).eps * s[0] * 1e3
+    rank = int(np.sum(s > cut))
+    Lf = U[:, rank:]                       # functionals vanishing on J_{d+6}
+    Af = fl(A)
+    AD = np.zeros((len(rows), len(Dm)))
+    for j, m in enumerate(Dm):
+        for e, v in shift(Af, m, 1.0).items():
+            AD[rows[e], j] = v
+    Mult = Lf.T @ AD                        # nl x nD
+    U2, s2, Vt2 = np.linalg.svd(Mult, full_matrices=True)
+    cut2 = max(Mult.shape) * np.finfo(float).eps * (s2[0] if s2.size else 1.0) * 1e3
+    r2 = int(np.sum(s2 > cut2))
+    Kb = Vt2[r2:, :].T                      # nD x nk orthonormal kernel basis
+    nk = Kb.shape[1]
+    # J_d part in D coordinates
+    idx = {m: i for i, m in enumerate(Dm)}
+    jd_cols = []
+    for i in range(NV):
+        pm = (parD + PI[i]) % 2; km = (k + W[i]) % 7
+        for m in wmonomials(d - 5, pm, km):
+            jd_cols.append(shift(Fi[i], m, 1.0))
+    Jd = np.zeros((len(Dm), len(jd_cols)))
+    for j, c in enumerate(jd_cols):
+        for e, v in c.items():
+            Jd[idx[e], j] = v
+    if jd_cols:
+        Q, Rr = np.linalg.qr(Jd)
+        sj = np.linalg.svd(Jd, compute_uv=False)
+        rj = int(np.sum(sj > max(Jd.shape) * np.finfo(float).eps * sj[0] * 1e3))
+        Uj, _, _ = np.linalg.svd(Jd, full_matrices=False)
+        Uj = Uj[:, :rj]
+        Kperp = Kb - Uj @ (Uj.T @ Kb)       # component orthogonal to J_d
+    else:
+        rj = 0; Kperp = Kb
+    U3, s3, Vt3 = np.linalg.svd(Kperp, full_matrices=False)
+    cut3 = (s3[0] if s3.size else 1.0) * 1e-8
+    r3 = int(np.sum(s3 > cut3))
+    reps_vec = U3[:, :r3]                   # nD x nontrivial, orthonormal, orthogonal to J_d
+    reps = []
+    for j in range(r3):
+        v = reps_vec[:, j]
+        reps.append({Dm[i]: float(v[i]) for i in range(len(Dm)) if abs(v[i]) > 1e-15})
+    lifts = []; lift_res = []
+    for D in reps:
+        N, relr = float_e1_lift(F, A, D, restrict=True)
+        lifts.append(N); lift_res.append(relr)
+    info = {'nD': len(Dm), 'nl': Lf.shape[1], 'kernel_total': nk, 'J_d': rj, 'nontrivial': r3, 'lift_res': lift_res,
+            'sv_kernel_gap': [float(s2[r2 - 1]) if r2 > 0 else None, float(s2[r2]) if r2 < len(s2) else None],
+            'seconds': round(time.time() - t0, 1)}
+    if verbose:
+        print(f'[float-kernel] d={d} parD={parD} k={k}: nD={len(Dm)} nl={Lf.shape[1]} kernel={nk} J_d={rj} nontrivial={r3} '
+              f'lift residuals {lift_res} [{info["seconds"]}s]', file=sys.stderr)
+    return reps, lifts, info

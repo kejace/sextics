@@ -56,6 +56,12 @@ def build_poly(spec, F, A, q, p):
         for s in spec['product'][1:]:
             P = core.mul(P, build_poly(s, F, A, q, p))
         return P
+    if 'lincomb' in spec:
+        from fractions import Fraction
+        P = {}
+        for c, s in spec['lincomb']:
+            P = core.add(P, core.scale(build_poly(s, F, A, q, p), Fraction(c)))
+        return P
     if 'kernel_rep' in spec:
         kr = spec['kernel_rep']
         out = jacobian.mult_kernel(F, A, kr['d'], p, parity=kr.get('parity', 0))

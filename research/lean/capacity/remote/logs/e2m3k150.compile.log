@@ -1,0 +1,5 @@
+Cap/e2m3k150.lean:1184:15: error: (deterministic) timeout at `«Mathlib.Tactic.Ring.Common.evalMulProd»`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

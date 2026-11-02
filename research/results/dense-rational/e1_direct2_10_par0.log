@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[d=10 par=0] matrix 10152 x 14616, nnz=1652616, built in 4.7s
+rank=10152 nullity=4464 (817.8s)
+{"mode": "direct2", "d": 10, "parD": 0, "p": 2147483647, "rows": 10152, "cols": 14616, "rank": 10152, "nullity": 4464, "Kfull": 1044, "dimJ": 750, "kernel_mod_J": 294, "seconds": 843.1}
+saved 5 representatives with E1 numerators

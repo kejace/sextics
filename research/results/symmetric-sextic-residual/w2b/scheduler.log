@@ -9,3 +9,4 @@
 20:36:02 submit timed out for search-symmetric-sextic-residual-w2b-jac1; killing its process group and checking the pid file
 20:36:03 submitted search-symmetric-sextic-residual-w2b-jac1 (running before: ['search-symmetric-sextic-residual-w2b-single', 'search-symmetric-sextic-residual-w2b-vp1b', 'search-symmetric-sextic-residual-w2b-vp2b'])
 21:55:38 submitted search-symmetric-sextic-residual-w2b-xcheck (running before: ['search-symmetric-sextic-residual-w2b-vp1b', 'search-symmetric-sextic-residual-w2b-vp2b', 'search-symmetric-sextic-residual-w2b-jac1'])
+22:11:48 submitted search-symmetric-sextic-residual-w2b-polish (running before: ['search-symmetric-sextic-residual-w2b-vp1b', 'search-symmetric-sextic-residual-w2b-vp2b', 'search-symmetric-sextic-residual-w2b-jac1'])

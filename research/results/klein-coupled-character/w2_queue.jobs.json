@@ -1,0 +1,64 @@
+[
+ {
+  "name": "w2-control",
+  "cpus": 4,
+  "cmd": "python3 -u w2_control.py hesse-triangle 16 cutoff1e-9,tikh1e-8 lbfgs,lm,joint,clm 1 > w2-control.job.out 2>&1; python3 -u w2_control.py hesse-triangle 16 cutoff1e-9 lm,joint 0 >> w2-control.job.out 2>&1"
+ },
+ {
+  "name": "w2-kernels",
+  "cpus": 8,
+  "cmd": "python3 -u w2_kernels.py 4,5,6,7,8,9,10,11,12 8 > w2-kernels.job.out 2>&1"
+ },
+ {
+  "name": "w2-exactE2a",
+  "cpus": 8,
+  "cmd": "python3 -u w2_exactE2_batch.py 8 3600 6:0:0:1000003 6:0:0:2147483647 7:0:1:32003 7:0:2:32003 7:0:4:32003 7:1:0:32003 7:0:1:1000003 7:0:2:1000003 > w2-exactE2a.job.out 2>&1"
+ },
+ {
+  "name": "w2-hess8",
+  "cpus": 8,
+  "cmd": "python3 -u w2_hess.py --tasks 8:0:0-6,8:1:0-6 --restarts 1500 --procs 8 --singular --sing-timeout 3600 --tag h8 > w2-hess8.job.out 2>&1"
+ },
+ {
+  "name": "w2-vp678",
+  "cpus": 8,
+  "cmd": "python3 -u w2_varpro.py --tasks 6:0:0-6,6:1:1-6,7:0:0-6,7:1:0-6,8:0:0-6,8:1:0-6 --family J --restarts 300 --chunk 50 --method lm --maxiter 300 --procs 8 --tag vp678 > w2-vp678.job.out 2>&1"
+ },
+ {
+  "name": "w2-struct",
+  "cpus": 8,
+  "cmd": "python3 -u w2_struct.py --degrees 6,7,8,9,10,11,12 --procs 8 --restarts 100 --explicit --tag struct > w2-struct.job.out 2>&1"
+ },
+ {
+  "name": "w2-vp9",
+  "cpus": 8,
+  "deps": [
+   "w2-kernels"
+  ],
+  "cmd": "python3 -u w2_varpro.py --tasks 9:0:0-6,9:1:1+4+5+6 --family K --restarts 400 --chunk 50 --method lm --maxiter 300 --procs 8 --tag vp9K > w2-vp9K.job.out 2>&1; python3 -u w2_varpro.py --tasks 9:0:0-6,9:1:0-6 --family KJ --restarts 240 --chunk 24 --method lm --maxiter 300 --procs 8 --tag vp9 > w2-vp9.job.out 2>&1"
+ },
+ {
+  "name": "w2-hess910",
+  "cpus": 8,
+  "deps": [
+   "w2-kernels"
+  ],
+  "cmd": "python3 -u w2_hess.py --tasks 9:0:0-6,9:1:0-6,10:0:0-6,10:1:0-6 --family KJ --restarts 600 --procs 8 --tag h910 > w2-hess910.job.out 2>&1"
+ },
+ {
+  "name": "w2-vp10",
+  "cpus": 8,
+  "deps": [
+   "w2-kernels"
+  ],
+  "cmd": "python3 -u w2_varpro.py --tasks 10:0:0-6,10:1:0-6 --family K --restarts 200 --chunk 25 --method lm --maxiter 300 --procs 8 --tag vp10K > w2-vp10K.job.out 2>&1; python3 -u w2_varpro.py --tasks 10:0:0-6,10:1:0-6 --family KJ --restarts 64 --chunk 8 --method lm --maxiter 300 --procs 8 --tag vp10 > w2-vp10.job.out 2>&1"
+ },
+ {
+  "name": "w2-vp9sparse",
+  "cpus": 8,
+  "deps": [
+   "w2-kernels"
+  ],
+  "cmd": "python3 -u w2_varpro.py --tasks 9:0:0-6,9:1:0-6 --family KJ --restarts 240 --chunk 24 --method lm --maxiter 300 --procs 8 --tag vp9s --sparse 4 > w2-vp9s.job.out 2>&1"
+ }
+]

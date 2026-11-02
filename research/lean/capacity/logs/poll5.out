@@ -1,0 +1,16 @@
+ 02:23:03 up  2:54, 74 users,  load average: 1159.48, 1695.70, 1717.34
+launched K4_m3_d10_k300 pid 1342998
+launched K4_m3_d10_k1000 pid 1342999
+launched K4_dn_d10_k300 pid 1343000
+launched K4_m3_q2_d8_k100 pid 1343001
+launched SL_e2m3k150
+RUNNING cap-K2_m3_d10_dense
+RUNNING cap-K4_dn_d10_k300
+RUNNING cap-K4_m3_d10_k1000
+RUNNING cap-K4_m3_d10_k300
+RUNNING cap-K4_m3_q2_d8_k100
+RUNNING cap-SL_e2m3k150
+RUNNING cap-e1dnk20
+32 /tmp/hodge/lean/capacity/results/timings.jsonl
+merged 2 new timing records
+done

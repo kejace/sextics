@@ -1,0 +1,1257 @@
+import HodgeComputer.Verify
+
+/-!
+# Kronecker-substitution checker for polynomial identities in `MvPolynomial (Fin 6) ℂ`
+
+Explicit polynomials with integer coefficients are given as balanced binary trees of monomials (`PT`).
+An identity `L = R` between expressions built from such polynomials (products, sums, natural scalars,
+powers and partial derivatives of the explicit polynomials) is verified by the kernel in three steps:
+
+* a homogeneity/degree check (`homE`, `degE`) that bounds every exponent of `L - R` by `n < m`;
+* an ℓ¹ bound (`l1E`) that bounds every coefficient of `L - R` by `2^W`;
+* the equality of the two Kronecker values `psiE m W L = psiE m W R`, i.e. the evaluations at
+  `X i ↦ 2^(W·mⁱ)` for `i < 5` and `X 5 ↦ 1`.
+
+Together these imply `L = R` (`sound`), first over `ℤ` and then over `ℂ` (`soundC`).  The Kronecker
+values are computed with kernel-accelerated big-integer arithmetic (`Nat.shiftLeft`, `Nat.mul`), with a
+divide-and-conquer evaluation (`psiRel`) that keeps every intermediate number proportional to the span of
+monomial positions in its subtree, so memory stays `O(size · depth)`.
+
+The only trusted interface is `MvPolynomial`; no new axioms, no `native_decide`.
+-/
+
+set_option autoImplicit false
+set_option linter.unusedSimpArgs false
+
+namespace HodgeComputer.Kron
+
+open MvPolynomial
+
+abbrev ZP := MvPolynomial (Fin 6) ℤ
+
+/-- Exponent vector of a monomial in `X0 X1 X2 Y0 Y1 Y2`. -/
+structure Mono where
+  e0 : ℕ
+  e1 : ℕ
+  e2 : ℕ
+  e3 : ℕ
+  e4 : ℕ
+  e5 : ℕ
+deriving DecidableEq, Repr
+
+/-- Balanced tree of monomials with integer coefficients (leaves sorted by `Mono.pos`). -/
+inductive PT where
+  | leaf (m : Mono) (c : ℤ)
+  | node (l r : PT)
+
+namespace Mono
+
+def deg (mo : Mono) : ℕ := mo.e0 + mo.e1 + mo.e2 + mo.e3 + mo.e4 + mo.e5
+
+/-- Kronecker position (base `m`, dehomogenized: the last exponent is ignored). -/
+def pos (m : ℕ) (mo : Mono) : ℕ := mo.e0 + m * (mo.e1 + m * (mo.e2 + m * (mo.e3 + m * mo.e4)))
+
+/-- the exponent vector as a finitely supported function -/
+noncomputable def vec (mo : Mono) : Fin 6 →₀ ℕ :=
+  Finsupp.single 0 mo.e0 + Finsupp.single 1 mo.e1 + Finsupp.single 2 mo.e2 +
+    Finsupp.single 3 mo.e3 + Finsupp.single 4 mo.e4 + Finsupp.single 5 mo.e5
+
+end Mono
+
+/-! ## Denotations -/
+
+noncomputable def monoZ (mo : Mono) : ZP :=
+  X 0 ^ mo.e0 * X 1 ^ mo.e1 * X 2 ^ mo.e2 * X 3 ^ mo.e3 * X 4 ^ mo.e4 * X 5 ^ mo.e5
+
+noncomputable def toZ : PT → ZP
+  | .leaf mo c => C c * monoZ mo
+  | .node l r => toZ l + toZ r
+
+/-- the complex denotation, in the shape used by certificate modules -/
+noncomputable def toC : PT → Poly
+  | .leaf mo c => C (c : ℂ) * (X 0 ^ mo.e0 * X 1 ^ mo.e1 * X 2 ^ mo.e2 * X 3 ^ mo.e3 * X 4 ^ mo.e4 * X 5 ^ mo.e5)
+  | .node l r => toC l + toC r
+
+theorem toC_eq_map (t : PT) : toC t = MvPolynomial.map (Int.castRingHom ℂ) (toZ t) := by
+  induction t with
+  | leaf mo c => simp [toC, toZ, monoZ, MvPolynomial.map_C, MvPolynomial.map_X]
+  | node l r ihl ihr => simp [toC, toZ, ihl, ihr]
+
+theorem monoZ_eq_monomial (mo : Mono) : monoZ mo = monomial mo.vec 1 := by
+  simp only [monoZ, Mono.vec, X_pow_eq_monomial, monomial_mul, mul_one]
+
+/-! ## Kronecker evaluation -/
+
+/-- `v * 2^s` through a kernel-accelerated shift. -/
+def shl (v : ℤ) (s : ℕ) : ℤ := v * ((1 <<< s : ℕ) : ℤ)
+
+theorem shl_eq (v : ℤ) (s : ℕ) : shl v s = v * 2 ^ s := by
+  simp [shl, Nat.shiftLeft_eq]
+
+/-- Value relative to the minimal position of the subtree, together with that position. -/
+def psiRel (m W : ℕ) : PT → ℤ × ℕ
+  | .leaf mo c => (c, mo.pos m)
+  | .node l r =>
+    let a := psiRel m W l
+    let b := psiRel m W r
+    let p := min a.2 b.2
+    (shl a.1 (W * (a.2 - p)) + shl b.1 (W * (b.2 - p)), p)
+
+def psi (m W : ℕ) (t : PT) : ℤ := shl (psiRel m W t).1 (W * (psiRel m W t).2)
+
+/-- the Kronecker point -/
+noncomputable def kpt (m W : ℕ) : Fin 6 → ℤ :=
+  ![2 ^ W, 2 ^ (W * m), 2 ^ (W * m ^ 2), 2 ^ (W * m ^ 3), 2 ^ (W * m ^ 4), 1]
+
+theorem kpt_zero (m W : ℕ) : kpt m W 0 = 2 ^ W := rfl
+theorem kpt_one (m W : ℕ) : kpt m W 1 = 2 ^ (W * m) := rfl
+theorem kpt_two (m W : ℕ) : kpt m W 2 = 2 ^ (W * m ^ 2) := rfl
+theorem kpt_three (m W : ℕ) : kpt m W 3 = 2 ^ (W * m ^ 3) := rfl
+theorem kpt_four (m W : ℕ) : kpt m W 4 = 2 ^ (W * m ^ 4) := rfl
+theorem kpt_five (m W : ℕ) : kpt m W 5 = 1 := rfl
+
+theorem eval_monoZ (m W : ℕ) (mo : Mono) : eval (kpt m W) (monoZ mo) = 2 ^ (W * mo.pos m) := by
+  simp only [monoZ, map_mul, map_pow, eval_X, kpt_zero, kpt_one, kpt_two, kpt_three, kpt_four, kpt_five,
+    Mono.pos, one_pow, mul_one, ← pow_mul, ← pow_add]
+  congr 1
+  ring
+
+theorem psiRel_spec (m W : ℕ) (t : PT) :
+    (psiRel m W t).1 * 2 ^ (W * (psiRel m W t).2) = eval (kpt m W) (toZ t) := by
+  induction t with
+  | leaf mo c => simp [psiRel, toZ, eval_monoZ, eval_C]
+  | node l r ihl ihr =>
+    simp only [psiRel, toZ, map_add]
+    rw [← ihl, ← ihr]
+    simp only [shl_eq, add_mul, mul_assoc, ← pow_add]
+    have h1 : W * ((psiRel m W l).2 - min (psiRel m W l).2 (psiRel m W r).2) +
+        W * min (psiRel m W l).2 (psiRel m W r).2 = W * (psiRel m W l).2 := by
+      rw [← Nat.mul_add, Nat.sub_add_cancel (Nat.min_le_left _ _)]
+    have h2 : W * ((psiRel m W r).2 - min (psiRel m W l).2 (psiRel m W r).2) +
+        W * min (psiRel m W l).2 (psiRel m W r).2 = W * (psiRel m W r).2 := by
+      rw [← Nat.mul_add, Nat.sub_add_cancel (Nat.min_le_right _ _)]
+    rw [h1, h2]
+
+theorem eval_kpt_toZ (m W : ℕ) (t : PT) : eval (kpt m W) (toZ t) = psi m W t := by
+  rw [psi, shl_eq, psiRel_spec]
+
+/-! ## Partial derivatives -/
+
+def pdLeaf (i : Fin 6) (mo : Mono) (c : ℤ) : PT :=
+  match i.val with
+  | 0 => .leaf { mo with e0 := mo.e0 - 1 } (c * mo.e0)
+  | 1 => .leaf { mo with e1 := mo.e1 - 1 } (c * mo.e1)
+  | 2 => .leaf { mo with e2 := mo.e2 - 1 } (c * mo.e2)
+  | 3 => .leaf { mo with e3 := mo.e3 - 1 } (c * mo.e3)
+  | 4 => .leaf { mo with e4 := mo.e4 - 1 } (c * mo.e4)
+  | _ => .leaf { mo with e5 := mo.e5 - 1 } (c * mo.e5)
+
+def pderivPT (i : Fin 6) : PT → PT
+  | .leaf mo c => pdLeaf i mo c
+  | .node l r => .node (pderivPT i l) (pderivPT i r)
+
+theorem pderiv_X_pow_self' (i : Fin 6) (n : ℕ) :
+    pderiv i ((X i : ZP) ^ n) = (n : ZP) * X i ^ (n - 1) := by
+  rw [pderiv_pow, pderiv_X_self, mul_one]
+
+theorem pderiv_X_pow_ne' {i j : Fin 6} (h : j ≠ i) (n : ℕ) : pderiv i ((X j : ZP) ^ n) = 0 := by
+  rw [pderiv_pow, pderiv_X_of_ne h, mul_zero]
+
+theorem toZ_pdLeaf_zero (mo : Mono) (c : ℤ) : toZ (pdLeaf 0 mo c) = pderiv 0 (toZ (.leaf mo c)) := by
+  rcases mo with ⟨a0, a1, a2, a3, a4, a5⟩
+  simp only [pdLeaf, Fin.val_zero, toZ, monoZ, pderiv_mul, pderiv_C, pderiv_X_pow_self',
+    pderiv_X_pow_ne' (show (1 : Fin 6) ≠ 0 by decide), pderiv_X_pow_ne' (show (2 : Fin 6) ≠ 0 by decide), pderiv_X_pow_ne' (show (3 : Fin 6) ≠ 0 by decide), pderiv_X_pow_ne' (show (4 : Fin 6) ≠ 0 by decide), pderiv_X_pow_ne' (show (5 : Fin 6) ≠ 0 by decide),
+    mul_zero, zero_mul, add_zero, zero_add, C_mul, C_eq_coe_nat]
+  ring
+
+theorem toZ_pdLeaf_one (mo : Mono) (c : ℤ) : toZ (pdLeaf 1 mo c) = pderiv 1 (toZ (.leaf mo c)) := by
+  rcases mo with ⟨a0, a1, a2, a3, a4, a5⟩
+  simp only [pdLeaf, Fin.val_one, toZ, monoZ, pderiv_mul, pderiv_C, pderiv_X_pow_self',
+    pderiv_X_pow_ne' (show (0 : Fin 6) ≠ 1 by decide), pderiv_X_pow_ne' (show (2 : Fin 6) ≠ 1 by decide), pderiv_X_pow_ne' (show (3 : Fin 6) ≠ 1 by decide), pderiv_X_pow_ne' (show (4 : Fin 6) ≠ 1 by decide), pderiv_X_pow_ne' (show (5 : Fin 6) ≠ 1 by decide),
+    mul_zero, zero_mul, add_zero, zero_add, C_mul, C_eq_coe_nat]
+  ring
+
+theorem toZ_pdLeaf_two (mo : Mono) (c : ℤ) : toZ (pdLeaf 2 mo c) = pderiv 2 (toZ (.leaf mo c)) := by
+  rcases mo with ⟨a0, a1, a2, a3, a4, a5⟩
+  simp only [pdLeaf, show ((2 : Fin 6).val = 2) from rfl, toZ, monoZ, pderiv_mul, pderiv_C, pderiv_X_pow_self',
+    pderiv_X_pow_ne' (show (0 : Fin 6) ≠ 2 by decide), pderiv_X_pow_ne' (show (1 : Fin 6) ≠ 2 by decide), pderiv_X_pow_ne' (show (3 : Fin 6) ≠ 2 by decide), pderiv_X_pow_ne' (show (4 : Fin 6) ≠ 2 by decide), pderiv_X_pow_ne' (show (5 : Fin 6) ≠ 2 by decide),
+    mul_zero, zero_mul, add_zero, zero_add, C_mul, C_eq_coe_nat]
+  ring
+
+theorem toZ_pdLeaf_three (mo : Mono) (c : ℤ) : toZ (pdLeaf 3 mo c) = pderiv 3 (toZ (.leaf mo c)) := by
+  rcases mo with ⟨a0, a1, a2, a3, a4, a5⟩
+  simp only [pdLeaf, show ((3 : Fin 6).val = 3) from rfl, toZ, monoZ, pderiv_mul, pderiv_C, pderiv_X_pow_self',
+    pderiv_X_pow_ne' (show (0 : Fin 6) ≠ 3 by decide), pderiv_X_pow_ne' (show (1 : Fin 6) ≠ 3 by decide), pderiv_X_pow_ne' (show (2 : Fin 6) ≠ 3 by decide), pderiv_X_pow_ne' (show (4 : Fin 6) ≠ 3 by decide), pderiv_X_pow_ne' (show (5 : Fin 6) ≠ 3 by decide),
+    mul_zero, zero_mul, add_zero, zero_add, C_mul, C_eq_coe_nat]
+  ring
+
+theorem toZ_pdLeaf_four (mo : Mono) (c : ℤ) : toZ (pdLeaf 4 mo c) = pderiv 4 (toZ (.leaf mo c)) := by
+  rcases mo with ⟨a0, a1, a2, a3, a4, a5⟩
+  simp only [pdLeaf, show ((4 : Fin 6).val = 4) from rfl, toZ, monoZ, pderiv_mul, pderiv_C, pderiv_X_pow_self',
+    pderiv_X_pow_ne' (show (0 : Fin 6) ≠ 4 by decide), pderiv_X_pow_ne' (show (1 : Fin 6) ≠ 4 by decide), pderiv_X_pow_ne' (show (2 : Fin 6) ≠ 4 by decide), pderiv_X_pow_ne' (show (3 : Fin 6) ≠ 4 by decide), pderiv_X_pow_ne' (show (5 : Fin 6) ≠ 4 by decide),
+    mul_zero, zero_mul, add_zero, zero_add, C_mul, C_eq_coe_nat]
+  ring
+
+theorem toZ_pdLeaf_five (mo : Mono) (c : ℤ) : toZ (pdLeaf 5 mo c) = pderiv 5 (toZ (.leaf mo c)) := by
+  rcases mo with ⟨a0, a1, a2, a3, a4, a5⟩
+  simp only [pdLeaf, show ((5 : Fin 6).val = 5) from rfl, toZ, monoZ, pderiv_mul, pderiv_C, pderiv_X_pow_self',
+    pderiv_X_pow_ne' (show (0 : Fin 6) ≠ 5 by decide), pderiv_X_pow_ne' (show (1 : Fin 6) ≠ 5 by decide), pderiv_X_pow_ne' (show (2 : Fin 6) ≠ 5 by decide), pderiv_X_pow_ne' (show (3 : Fin 6) ≠ 5 by decide), pderiv_X_pow_ne' (show (4 : Fin 6) ≠ 5 by decide),
+    mul_zero, zero_mul, add_zero, zero_add, C_mul, C_eq_coe_nat]
+  ring
+
+theorem toZ_pdLeaf (i : Fin 6) (mo : Mono) (c : ℤ) : toZ (pdLeaf i mo c) = pderiv i (toZ (.leaf mo c)) := by
+  fin_cases i
+  · exact toZ_pdLeaf_zero mo c
+  · exact toZ_pdLeaf_one mo c
+  · exact toZ_pdLeaf_two mo c
+  · exact toZ_pdLeaf_three mo c
+  · exact toZ_pdLeaf_four mo c
+  · exact toZ_pdLeaf_five mo c
+
+theorem toZ_pderivPT (i : Fin 6) (t : PT) : toZ (pderivPT i t) = pderiv i (toZ t) := by
+  induction t with
+  | leaf mo c => exact toZ_pdLeaf i mo c
+  | node l r ihl ihr => simp [pderivPT, toZ, ihl, ihr]
+
+/-! ## Size data: ℓ¹ norm, degree, homogeneity -/
+
+def l1PT : PT → ℕ
+  | .leaf _ c => c.natAbs
+  | .node l r => l1PT l + l1PT r
+
+/-- degree of the first leaf with nonzero coefficient (zero leaves, e.g. produced by slicing, are ignored) -/
+def firstDeg : PT → Option ℕ
+  | .leaf mo c => if c = 0 then none else some mo.deg
+  | .node l r =>
+    match firstDeg l with
+    | some n => some n
+    | none => firstDeg r
+
+def degPT (t : PT) : ℕ := (firstDeg t).getD 0
+
+def homB (n : ℕ) : PT → Bool
+  | .leaf mo c => (c == 0) || (mo.deg == n)
+  | .node l r => homB n l && homB n r
+
+theorem monoZ_isHomogeneous (mo : Mono) : (monoZ mo).IsHomogeneous mo.deg := by
+  have h := (((((isHomogeneous_X ℤ (0 : Fin 6)).pow mo.e0).mul ((isHomogeneous_X ℤ 1).pow mo.e1)).mul
+    ((isHomogeneous_X ℤ 2).pow mo.e2)).mul ((isHomogeneous_X ℤ 3).pow mo.e3)).mul
+    ((isHomogeneous_X ℤ 4).pow mo.e4) |>.mul ((isHomogeneous_X ℤ 5).pow mo.e5)
+  simpa [monoZ, Mono.deg] using h
+
+theorem toZ_isHomogeneous (n : ℕ) (t : PT) (h : homB n t = true) : (toZ t).IsHomogeneous n := by
+  induction t with
+  | leaf mo c =>
+    simp only [homB, Bool.or_eq_true, beq_iff_eq] at h
+    rcases h with h | h
+    · subst h; simp only [toZ, C_0, zero_mul]; exact isHomogeneous_zero _ _ _
+    · subst h; simpa [toZ] using (isHomogeneous_C _ c).mul (monoZ_isHomogeneous mo)
+  | node l r ihl ihr =>
+    simp only [homB, Bool.and_eq_true] at h
+    exact (ihl h.1).add (ihr h.2)
+
+/-- absolute values of the coefficients -/
+def absPT : PT → PT
+  | .leaf mo c => .leaf mo (c.natAbs : ℤ)
+  | .node l r => .node (absPT l) (absPT r)
+
+theorem coeff_monoZ_nonneg (mo : Mono) (d : Fin 6 →₀ ℕ) : 0 ≤ coeff d (monoZ mo) := by
+  classical
+  rw [monoZ_eq_monomial, coeff_monomial]
+  split_ifs <;> simp
+
+theorem coeff_toZ_absPT_nonneg (t : PT) (d : Fin 6 →₀ ℕ) : 0 ≤ coeff d (toZ (absPT t)) := by
+  induction t with
+  | leaf mo c =>
+    simp only [absPT, toZ, coeff_C_mul]
+    exact mul_nonneg (by positivity) (coeff_monoZ_nonneg mo d)
+  | node l r ihl ihr => simp only [absPT, toZ, coeff_add]; exact add_nonneg (ihl) (ihr)
+
+theorem abs_coeff_toZ_le (t : PT) (d : Fin 6 →₀ ℕ) : |coeff d (toZ t)| ≤ coeff d (toZ (absPT t)) := by
+  induction t with
+  | leaf mo c =>
+    simp only [absPT, toZ, coeff_C_mul, abs_mul, abs_of_nonneg (coeff_monoZ_nonneg mo d)]
+    simp
+  | node l r ihl ihr =>
+    simp only [absPT, toZ, coeff_add]
+    exact (abs_add_le _ _).trans (add_le_add ihl ihr)
+
+theorem eval_one_toZ_absPT (t : PT) : eval (fun _ => (1 : ℤ)) (toZ (absPT t)) = (l1PT t : ℤ) := by
+  induction t with
+  | leaf mo c => simp [absPT, toZ, monoZ, l1PT]
+  | node l r ihl ihr => simp [absPT, toZ, l1PT, ihl, ihr]
+
+/-! ## Expressions -/
+
+inductive E where
+  | poly (t : PT)
+  | pd (i : Fin 6) (t : PT)
+  | mul (a b : E)
+  | add (a b : E)
+  | sub (a b : E)
+  | smulN (c : ℕ) (a : E)
+  | pow (a : E) (n : ℕ)
+
+noncomputable def denZ : E → ZP
+  | .poly t => toZ t
+  | .pd i t => pderiv i (toZ t)
+  | .mul a b => denZ a * denZ b
+  | .add a b => denZ a + denZ b
+  | .sub a b => denZ a - denZ b
+  | .smulN c a => (c : ZP) * denZ a
+  | .pow a n => denZ a ^ n
+
+noncomputable def absE : E → ZP
+  | .poly t => toZ (absPT t)
+  | .pd i t => toZ (absPT (pderivPT i t))
+  | .mul a b => absE a * absE b
+  | .add a b => absE a + absE b
+  | .sub a b => absE a + absE b
+  | .smulN c a => (c : ZP) * absE a
+  | .pow a n => absE a ^ n
+
+def psiE (m W : ℕ) : E → ℤ
+  | .poly t => psi m W t
+  | .pd i t => psi m W (pderivPT i t)
+  | .mul a b => psiE m W a * psiE m W b
+  | .add a b => psiE m W a + psiE m W b
+  | .sub a b => psiE m W a - psiE m W b
+  | .smulN c a => (c : ℤ) * psiE m W a
+  | .pow a n => psiE m W a ^ n
+
+def l1E : E → ℕ
+  | .poly t => l1PT t
+  | .pd i t => l1PT (pderivPT i t)
+  | .mul a b => l1E a * l1E b
+  | .add a b => l1E a + l1E b
+  | .sub a b => l1E a + l1E b
+  | .smulN c a => c * l1E a
+  | .pow a n => l1E a ^ n
+
+/-- degree of an expression: `none` means the expression denotes the zero polynomial (any degree). -/
+def degE : E → Option ℕ
+  | .poly t => firstDeg t
+  | .pd i t => firstDeg (pderivPT i t)
+  | .mul a b =>
+    match degE a, degE b with
+    | some x, some y => some (x + y)
+    | _, _ => none
+  | .add a b =>
+    match degE a, degE b with
+    | some x, _ => some x
+    | none, y => y
+  | .sub a b =>
+    match degE a, degE b with
+    | some x, _ => some x
+    | none, y => y
+  | .smulN _ a => degE a
+  | .pow a n =>
+    match degE a with
+    | some x => some (x * n)
+    | none => if n = 0 then some 0 else none
+
+def degCompat : Option ℕ → Option ℕ → Bool
+  | some x, some y => x == y
+  | _, _ => true
+
+def homE : E → Bool
+  | .poly t => homB (degPT t) t
+  | .pd i t => homB (degPT (pderivPT i t)) (pderivPT i t)
+  | .mul a b => homE a && homE b
+  | .add a b => homE a && homE b && degCompat (degE a) (degE b)
+  | .sub a b => homE a && homE b && degCompat (degE a) (degE b)
+  | .smulN _ a => homE a
+  | .pow a _ => homE a
+
+/-- the degree used for the identity `L = R` -/
+def degLR (x y : Option ℕ) : ℕ := (x.getD (y.getD 0))
+
+theorem eval_kpt_denZ (m W : ℕ) (e : E) : eval (kpt m W) (denZ e) = psiE m W e := by
+  induction e with
+  | poly t => simp [denZ, psiE, eval_kpt_toZ]
+  | pd i t => simp [denZ, psiE, ← toZ_pderivPT, eval_kpt_toZ]
+  | mul a b iha ihb => simp [denZ, psiE, iha, ihb]
+  | add a b iha ihb => simp [denZ, psiE, iha, ihb]
+  | sub a b iha ihb => simp [denZ, psiE, iha, ihb]
+  | smulN c a iha => simp [denZ, psiE, iha]
+  | pow a n iha => simp [denZ, psiE, iha]
+
+theorem toZ_eq_zero_of_firstDeg (t : PT) (h : firstDeg t = none) : toZ t = 0 := by
+  induction t with
+  | leaf mo c =>
+    simp only [firstDeg] at h
+    split_ifs at h with hc
+    · subst hc; simp [toZ]
+  | node l r ihl ihr =>
+    simp only [firstDeg] at h
+    split at h
+    · exact absurd h (by simp)
+    · rename_i hl
+      simp [toZ, ihl hl, ihr h]
+
+theorem toZ_isHomogeneous_degPT (t : PT) (h : homB (degPT t) t = true) : (toZ t).IsHomogeneous (degPT t) :=
+  toZ_isHomogeneous _ t h
+
+theorem denZ_eq_zero_of_degE (e : E) (h : degE e = none) : denZ e = 0 := by
+  induction e with
+  | poly t => exact toZ_eq_zero_of_firstDeg t h
+  | pd i t => simp only [denZ]; rw [← toZ_pderivPT]; exact toZ_eq_zero_of_firstDeg _ h
+  | mul a b iha ihb =>
+    simp only [denZ]
+    rcases ha : degE a with _ | x
+    · rw [iha ha, zero_mul]
+    · rcases hb : degE b with _ | y
+      · rw [ihb hb, mul_zero]
+      · simp [degE, ha, hb] at h
+  | add a b iha ihb =>
+    simp only [denZ]
+    rcases ha : degE a with _ | x
+    · simp only [degE, ha] at h
+      rw [iha ha, ihb h, add_zero]
+    · simp [degE, ha] at h
+  | sub a b iha ihb =>
+    simp only [denZ]
+    rcases ha : degE a with _ | x
+    · simp only [degE, ha] at h
+      rw [iha ha, ihb h, sub_zero]
+    · simp [degE, ha] at h
+  | smulN c a iha => simp [denZ, iha h]
+  | pow a n iha =>
+    simp only [denZ]
+    rcases ha : degE a with _ | x
+    · simp only [degE, ha] at h
+      split_ifs at h with hn
+      rw [iha ha, zero_pow hn]
+    · simp [degE, ha] at h
+
+theorem denZ_isHomogeneous (e : E) (h : homE e = true) : (denZ e).IsHomogeneous ((degE e).getD 0) := by
+  induction e with
+  | poly t => exact toZ_isHomogeneous _ _ h
+  | pd i t => simp only [denZ, degE]; rw [← toZ_pderivPT]; exact toZ_isHomogeneous _ _ h
+  | mul a b iha ihb =>
+    simp only [homE, Bool.and_eq_true] at h
+    simp only [denZ, degE]
+    rcases ha : degE a with _ | x
+    · rw [denZ_eq_zero_of_degE a ha, zero_mul]; exact isHomogeneous_zero _ _ _
+    · rcases hb : degE b with _ | y
+      · rw [denZ_eq_zero_of_degE b hb, mul_zero]; exact isHomogeneous_zero _ _ _
+      · have h1 := iha h.1; have h2 := ihb h.2
+        rw [ha] at h1; rw [hb] at h2
+        simpa using h1.mul h2
+  | add a b iha ihb =>
+    simp only [homE, Bool.and_eq_true] at h
+    simp only [denZ, degE]
+    have h1 := iha h.1.1; have h2 := ihb h.1.2
+    rcases ha : degE a with _ | x
+    · rw [denZ_eq_zero_of_degE a ha, zero_add]; exact h2
+    · rcases hb : degE b with _ | y
+      · rw [denZ_eq_zero_of_degE b hb, add_zero]; rw [ha] at h1; exact h1
+      · have hc := h.2; rw [ha, hb] at hc; simp only [degCompat, beq_iff_eq] at hc
+        rw [ha] at h1; rw [hb] at h2; subst hc
+        exact h1.add h2
+  | sub a b iha ihb =>
+    simp only [homE, Bool.and_eq_true] at h
+    simp only [denZ, degE]
+    have h1 := iha h.1.1; have h2 := ihb h.1.2
+    rcases ha : degE a with _ | x
+    · rw [denZ_eq_zero_of_degE a ha, zero_sub]; exact h2.neg
+    · rcases hb : degE b with _ | y
+      · rw [denZ_eq_zero_of_degE b hb, sub_zero]; rw [ha] at h1; exact h1
+      · have hc := h.2; rw [ha, hb] at hc; simp only [degCompat, beq_iff_eq] at hc
+        rw [ha] at h1; rw [hb] at h2; subst hc
+        exact h1.sub h2
+  | smulN c a iha =>
+    simp only [denZ, degE]
+    rw [← C_eq_coe_nat]
+    simpa using (isHomogeneous_C _ (c : ℤ)).mul (iha h)
+  | pow a n iha =>
+    simp only [denZ, degE]
+    rcases ha : degE a with _ | x
+    · rw [denZ_eq_zero_of_degE a ha]
+      split_ifs with hn
+      · subst hn; simpa using isHomogeneous_one (Fin 6) ℤ
+      · simp only [Option.getD_none]; rw [zero_pow hn]; exact isHomogeneous_zero _ _ _
+    · have h1 := iha h; rw [ha] at h1
+      simpa using h1.pow n
+
+theorem sub_isHomogeneous (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hc : degCompat (degE L) (degE R) = true) :
+    (denZ L - denZ R).IsHomogeneous (degLR (degE L) (degE R)) := by
+  have h1 := denZ_isHomogeneous L hL; have h2 := denZ_isHomogeneous R hR
+  rcases ha : degE L with _ | x
+  · rw [denZ_eq_zero_of_degE L ha, zero_sub]; simp only [degLR, Option.getD_none]; exact h2.neg
+  · rcases hb : degE R with _ | y
+    · rw [denZ_eq_zero_of_degE R hb, sub_zero]; rw [ha] at h1; simpa [degLR] using h1
+    · rw [ha, hb] at hc; simp only [degCompat, beq_iff_eq] at hc; subst hc
+      rw [ha] at h1; rw [hb] at h2
+      simpa [degLR] using h1.sub h2
+
+theorem coeff_absE_nonneg (e : E) (d : Fin 6 →₀ ℕ) : 0 ≤ coeff d (absE e) := by
+  classical
+  induction e generalizing d with
+  | poly t => exact coeff_toZ_absPT_nonneg t d
+  | pd i t => exact coeff_toZ_absPT_nonneg _ d
+  | mul a b iha ihb =>
+    simp only [absE, coeff_mul]
+    exact Finset.sum_nonneg fun x _ => mul_nonneg (iha _) (ihb _)
+  | add a b iha ihb => simp only [absE, coeff_add]; exact add_nonneg (iha d) (ihb d)
+  | sub a b iha ihb => simp only [absE, coeff_add]; exact add_nonneg (iha d) (ihb d)
+  | smulN c a iha =>
+    simp only [absE]; rw [← C_eq_coe_nat, coeff_C_mul]; exact mul_nonneg (by positivity) (iha d)
+  | pow a n iha =>
+    induction n generalizing d with
+    | zero => simp only [absE, pow_zero]; rw [← C_1, coeff_C]; split_ifs <;> simp
+    | succ k ih =>
+      simp only [absE, pow_succ, coeff_mul] at ih ⊢
+      exact Finset.sum_nonneg fun x _ => mul_nonneg (ih _) (iha _)
+
+theorem abs_coeff_mul_le {P P' Q Q' : ZP} (hP' : ∀ d, 0 ≤ coeff d P') (hQ' : ∀ d, 0 ≤ coeff d Q')
+    (hP : ∀ d, |coeff d P| ≤ coeff d P') (hQ : ∀ d, |coeff d Q| ≤ coeff d Q') (d : Fin 6 →₀ ℕ) :
+    |coeff d (P * Q)| ≤ coeff d (P' * Q') := by
+  classical
+  simp only [coeff_mul]
+  refine (Finset.abs_sum_le_sum_abs _ _).trans (Finset.sum_le_sum fun x _ => ?_)
+  rw [abs_mul]
+  exact mul_le_mul (hP _) (hQ _) (abs_nonneg _) (hP' _)
+
+theorem abs_coeff_denZ_le (e : E) (d : Fin 6 →₀ ℕ) : |coeff d (denZ e)| ≤ coeff d (absE e) := by
+  induction e generalizing d with
+  | poly t => exact abs_coeff_toZ_le t d
+  | pd i t => simp only [denZ, absE]; rw [← toZ_pderivPT]; exact abs_coeff_toZ_le _ d
+  | mul a b iha ihb =>
+    exact abs_coeff_mul_le (coeff_absE_nonneg a) (coeff_absE_nonneg b) iha ihb d
+  | add a b iha ihb =>
+    simp only [denZ, absE, coeff_add]
+    exact (abs_add_le _ _).trans (add_le_add (iha d) (ihb d))
+  | sub a b iha ihb =>
+    simp only [denZ, absE, coeff_sub, coeff_add]
+    exact (abs_sub _ _).trans (add_le_add (iha d) (ihb d))
+  | smulN c a iha =>
+    simp only [denZ, absE]
+    rw [← C_eq_coe_nat, coeff_C_mul, coeff_C_mul, abs_mul, abs_of_nonneg (by positivity : (0:ℤ) ≤ c)]
+    exact mul_le_mul_of_nonneg_left (iha d) (by positivity)
+  | pow a n iha =>
+    induction n generalizing d with
+    | zero =>
+      simp only [denZ, absE, pow_zero]; rw [← C_1, coeff_C]; split_ifs <;> simp
+    | succ k ih =>
+      simp only [denZ, absE, pow_succ] at ih ⊢
+      exact abs_coeff_mul_le (fun d => by
+          have := coeff_absE_nonneg (.pow a k) d; simpa [absE] using this)
+        (coeff_absE_nonneg a) ih iha d
+
+theorem eval_one_absE (e : E) : eval (fun _ => (1 : ℤ)) (absE e) = (l1E e : ℤ) := by
+  induction e with
+  | poly t => simp [absE, l1E, eval_one_toZ_absPT]
+  | pd i t => simp [absE, l1E, eval_one_toZ_absPT]
+  | mul a b iha ihb => simp [absE, l1E, iha, ihb]
+  | add a b iha ihb => simp [absE, l1E, iha, ihb]
+  | sub a b iha ihb => simp [absE, l1E, iha, ihb]
+  | smulN c a iha => simp [absE, l1E, iha]
+  | pow a n iha => simp [absE, l1E, iha]
+
+theorem coeff_le_eval_one {P : ZP} (h : ∀ d, 0 ≤ coeff d P) (d : Fin 6 →₀ ℕ) :
+    coeff d P ≤ eval (fun _ => (1 : ℤ)) P := by
+  classical
+  rw [eval_eq']
+  simp only [one_pow, Finset.prod_const_one, mul_one]
+  by_cases hd : d ∈ P.support
+  · exact Finset.single_le_sum (fun i _ => h i) hd
+  · rw [notMem_support_iff.mp hd]
+    exact Finset.sum_nonneg fun i _ => h i
+
+theorem abs_coeff_denZ_le_l1 (e : E) (d : Fin 6 →₀ ℕ) : |coeff d (denZ e)| ≤ (l1E e : ℤ) := by
+  rw [← eval_one_absE]
+  exact (abs_coeff_denZ_le e d).trans (coeff_le_eval_one (coeff_absE_nonneg e) d)
+
+/-! ## Injectivity of the Kronecker evaluation on bounded homogeneous polynomials -/
+
+/-- the position of an exponent vector -/
+def posF (m : ℕ) (d : Fin 6 →₀ ℕ) : ℕ := d 0 + m * (d 1 + m * (d 2 + m * (d 3 + m * d 4)))
+
+theorem prod_kpt_pow (m W : ℕ) (d : Fin 6 →₀ ℕ) : ∏ i, kpt m W i ^ d i = 2 ^ (W * posF m d) := by
+  rw [Fin.prod_univ_six]
+  simp only [kpt_zero, kpt_one, kpt_two, kpt_three, kpt_four, kpt_five, posF, one_pow, mul_one,
+    ← pow_mul, ← pow_add]
+  congr 1
+  ring
+
+theorem mr_head {m a b x y : ℕ} (ha : a < m) (hb : b < m) (h : a + m * x = b + m * y) : a = b ∧ x = y := by
+  have hm : 0 < m := lt_of_le_of_lt (Nat.zero_le _) ha
+  have h1 : (a + m * x) % m = a := by rw [Nat.add_mul_mod_self_left, Nat.mod_eq_of_lt ha]
+  have h2 : (b + m * y) % m = b := by rw [Nat.add_mul_mod_self_left, Nat.mod_eq_of_lt hb]
+  have hab : a = b := by rw [← h1, h, h2]
+  refine ⟨hab, ?_⟩
+  subst hab
+  have := Nat.add_left_cancel h
+  exact Nat.eq_of_mul_eq_mul_left hm this
+
+theorem posF_injective {m n : ℕ} (hn : n < m) {d d' : Fin 6 →₀ ℕ}
+    (hd : d 0 + d 1 + d 2 + d 3 + d 4 + d 5 = n) (hd' : d' 0 + d' 1 + d' 2 + d' 3 + d' 4 + d' 5 = n)
+    (h : posF m d = posF m d') : d = d' := by
+  simp only [posF] at h
+  obtain ⟨h0, h⟩ := mr_head (by omega) (by omega) h
+  obtain ⟨h1, h⟩ := mr_head (by omega) (by omega) h
+  obtain ⟨h2, h⟩ := mr_head (by omega) (by omega) h
+  obtain ⟨h3, h4⟩ := mr_head (by omega) (by omega) h
+  have h5 : d 5 = d' 5 := by omega
+  ext i
+  fin_cases i <;> assumption
+
+theorem sum_six_of_isHomogeneous {P : ZP} {n : ℕ} (hP : P.IsHomogeneous n) {d : Fin 6 →₀ ℕ}
+    (hd : coeff d P ≠ 0) : d 0 + d 1 + d 2 + d 3 + d 4 + d 5 = n := by
+  have := hP hd
+  rw [show (1 : Fin 6 → ℕ) = fun _ => 1 from rfl, ← Finsupp.degree_eq_weight_one, Finsupp.degree_eq_sum,
+    Fin.sum_univ_six] at this
+  exact this
+
+theorem eq_zero_of_eval_kpt {m W n : ℕ} {P : ZP} (hP : P.IsHomogeneous n) (hn : n < m)
+    (hc : ∀ d, |coeff d P| < 2 ^ W) (h : eval (kpt m W) P = 0) : P = 0 := by
+  classical
+  by_contra hne
+  have hsupp : P.support.Nonempty := by
+    rw [Finset.nonempty_iff_ne_empty, Ne, support_eq_empty]; exact hne
+  obtain ⟨d0, hd0, hmin⟩ := Finset.exists_min_image P.support (posF m) hsupp
+  rw [eval_eq'] at h
+  simp only [prod_kpt_pow] at h
+  rw [← Finset.add_sum_erase _ _ hd0] at h
+  have hdvd : (2 : ℤ) ^ (W * (posF m d0 + 1)) ∣ ∑ x ∈ P.support.erase d0, coeff x P * 2 ^ (W * posF m x) := by
+    refine Finset.dvd_sum fun x hx => ?_
+    have hx' := Finset.mem_of_mem_erase hx
+    have hne' : x ≠ d0 := Finset.ne_of_mem_erase hx
+    have hle := hmin x hx'
+    have hposne : posF m x ≠ posF m d0 := by
+      intro heq
+      exact hne' (posF_injective hn (sum_six_of_isHomogeneous hP (mem_support_iff.mp hx'))
+        (sum_six_of_isHomogeneous hP (mem_support_iff.mp hd0)) heq)
+    have hlt : posF m d0 + 1 ≤ posF m x := by omega
+    exact Dvd.dvd.mul_left (pow_dvd_pow 2 (Nat.mul_le_mul_left W hlt)) _
+  have hmain : (2 : ℤ) ^ (W * (posF m d0 + 1)) ∣ coeff d0 P * 2 ^ (W * posF m d0) := by
+    have : coeff d0 P * 2 ^ (W * posF m d0) = -∑ x ∈ P.support.erase d0, coeff x P * 2 ^ (W * posF m x) := by
+      linarith
+    rw [this]
+    exact (dvd_neg).mpr hdvd
+  have h2 : (2 : ℤ) ^ (W * (posF m d0 + 1)) = 2 ^ (W * posF m d0) * 2 ^ W := by
+    rw [← pow_add, Nat.mul_succ]
+  rw [h2, mul_comm (coeff d0 P)] at hmain
+  have hdiv : (2 : ℤ) ^ W ∣ coeff d0 P :=
+    (mul_dvd_mul_iff_left (pow_ne_zero _ (by norm_num))).mp hmain
+  have hz : coeff d0 P = 0 := Int.eq_zero_of_abs_lt_dvd hdiv (hc d0)
+  exact (mem_support_iff.mp hd0) hz
+
+/-! ## Soundness -/
+
+theorem sound {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hdeg : degCompat (degE L) (degE R) = true)
+    (hm : degLR (degE L) (degE R) < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiE m W L = psiE m W R) :
+    denZ L = denZ R := by
+  have hhom := sub_isHomogeneous L R hL hR hdeg
+  have hc : ∀ d, |coeff d (denZ L - denZ R)| < 2 ^ W := by
+    intro d
+    rw [coeff_sub]
+    calc |coeff d (denZ L) - coeff d (denZ R)| ≤ |coeff d (denZ L)| + |coeff d (denZ R)| := abs_sub _ _
+      _ ≤ (l1E L : ℤ) + (l1E R : ℤ) := add_le_add (abs_coeff_denZ_le_l1 L d) (abs_coeff_denZ_le_l1 R d)
+      _ < 2 ^ W := by exact_mod_cast hb
+  have hev : eval (kpt m W) (denZ L - denZ R) = 0 := by
+    rw [map_sub, eval_kpt_denZ, eval_kpt_denZ, hpsi, sub_self]
+  exact sub_eq_zero.mp (eq_zero_of_eval_kpt hhom hm hc hev)
+
+/-! ## Transfer to complex coefficients -/
+
+noncomputable def denC (e : E) : Poly := MvPolynomial.map (Int.castRingHom ℂ) (denZ e)
+
+@[simp] theorem denC_poly (t : PT) : denC (.poly t) = toC t := by rw [denC, denZ, toC_eq_map]
+@[simp] theorem denC_pd (i : Fin 6) (t : PT) : denC (.pd i t) = pderiv i (toC t) := by
+  rw [denC, denZ, toC_eq_map, pderiv_map]
+@[simp] theorem denC_mul (a b : E) : denC (.mul a b) = denC a * denC b := by simp [denC, denZ]
+@[simp] theorem denC_add (a b : E) : denC (.add a b) = denC a + denC b := by simp [denC, denZ]
+@[simp] theorem denC_sub (a b : E) : denC (.sub a b) = denC a - denC b := by simp [denC, denZ]
+@[simp] theorem denC_smulN (c : ℕ) (a : E) : denC (.smulN c a) = (c : Poly) * denC a := by
+  simp [denC, denZ]
+@[simp] theorem denC_pow (a : E) (n : ℕ) : denC (.pow a n) = denC a ^ n := by simp [denC, denZ]
+
+theorem soundC {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hdeg : degCompat (degE L) (degE R) = true)
+    (hm : degLR (degE L) (degE R) < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiE m W L = psiE m W R) :
+    denC L = denC R := by
+  rw [denC, denC, sound L R hL hR hdeg hm hb hpsi]
+
+/-! ## Auxiliary facts about explicit trees used by certificate modules -/
+
+theorem toC_isHomogeneous (n : ℕ) (t : PT) (h : homB n t = true) : (toC t).IsHomogeneous n := by
+  rw [toC_eq_map]; exact (toZ_isHomogeneous n t h).map _
+
+/-- integer evaluation of a tree -/
+def evalPT (x : Fin 6 → ℤ) : PT → ℤ
+  | .leaf mo c => c * (x 0 ^ mo.e0 * x 1 ^ mo.e1 * x 2 ^ mo.e2 * x 3 ^ mo.e3 * x 4 ^ mo.e4 * x 5 ^ mo.e5)
+  | .node l r => evalPT x l + evalPT x r
+
+theorem eval_toZ (x : Fin 6 → ℤ) (t : PT) : eval x (toZ t) = evalPT x t := by
+  induction t with
+  | leaf mo c => simp [toZ, monoZ, evalPT]
+  | node l r ihl ihr => simp [toZ, evalPT, ihl, ihr]
+
+theorem eval_toC (x : Fin 6 → ℤ) (t : PT) : eval (fun i => (x i : ℂ)) (toC t) = (evalPT x t : ℂ) := by
+  induction t with
+  | leaf mo c => simp [toC, evalPT]
+  | node l r ihl ihr => simp [toC, evalPT, ihl, ihr]
+
+theorem toC_ne_zero_of_evalPT (x : Fin 6 → ℤ) (t : PT) (h : evalPT x t ≠ 0) : toC t ≠ 0 := by
+  intro h0
+  have := congrArg (eval (fun i => (x i : ℂ))) h0
+  rw [eval_toC, map_zero] at this
+  exact h (by exact_mod_cast this)
+
+/-! ## Binding the verifier's witness terms
+
+`scripts/proposals/check.py` translates a witness string into nested `+`, `*`, `^`, unary `-`, variables
+`MvPolynomial.X i` and numerals `(n : Poly)`.  `W` mirrors exactly these shapes, so `HodgeWitness.D = denW w`
+holds by `rfl`, and `matchW w t` certifies (by kernel evaluation) that the same monomials, in the same tree
+order, are the leaves of the `PT` tree `t`. -/
+
+inductive W where
+  | var (i : Fin 6)
+  | nat (n : ℕ)
+  | neg (a : W)
+  | add (a b : W)
+  | sub (a b : W)
+  | mul (a b : W)
+  | pow (a : W) (n : ℕ)
+
+noncomputable def denW : W → Poly
+  | .var i => MvPolynomial.X i
+  | .nat n => (n : Poly)
+  | .neg a => -denW a
+  | .add a b => denW a + denW b
+  | .sub a b => denW a - denW b
+  | .mul a b => denW a * denW b
+  | .pow a n => denW a ^ n
+
+def Mono.zero : Mono := ⟨0, 0, 0, 0, 0, 0⟩
+
+def Mono.unit (i : Fin 6) (e : ℕ) : Mono :=
+  match i.val with
+  | 0 => ⟨e, 0, 0, 0, 0, 0⟩
+  | 1 => ⟨0, e, 0, 0, 0, 0⟩
+  | 2 => ⟨0, 0, e, 0, 0, 0⟩
+  | 3 => ⟨0, 0, 0, e, 0, 0⟩
+  | 4 => ⟨0, 0, 0, 0, e, 0⟩
+  | _ => ⟨0, 0, 0, 0, 0, e⟩
+
+def Mono.mul (a b : Mono) : Mono := ⟨a.e0 + b.e0, a.e1 + b.e1, a.e2 + b.e2, a.e3 + b.e3, a.e4 + b.e4, a.e5 + b.e5⟩
+
+/-- the monomial and coefficient denoted by a product-shaped witness term -/
+def leafVal : W → Option (Mono × ℤ)
+  | .var i => some (Mono.unit i 1, 1)
+  | .nat n => some (Mono.zero, n)
+  | .pow (.var i) e => some (Mono.unit i e, 1)
+  | .neg a => (leafVal a).map fun p => (p.1, -p.2)
+  | .mul a b => match leafVal a, leafVal b with
+    | some p, some q => some (Mono.mul p.1 q.1, p.2 * q.2)
+    | _, _ => none
+  | _ => none
+
+def matchW : W → PT → Bool
+  | .add a b, .node l r => matchW a l && matchW b r
+  | w, .leaf mo c => leafVal w == some (mo, c)
+  | _, _ => false
+
+theorem toC_leaf_mul (a b : Mono) (x y : ℤ) :
+    toC (.leaf (Mono.mul a b) (x * y)) = toC (.leaf a x) * toC (.leaf b y) := by
+  simp only [toC, Mono.mul, pow_add, Int.cast_mul, C_mul]; ring
+
+theorem toC_leaf_neg (a : Mono) (x : ℤ) : toC (.leaf a (-x)) = -toC (.leaf a x) := by
+  simp only [toC, Int.cast_neg, C_neg]; ring
+
+theorem toC_unit (i : Fin 6) (e : ℕ) : toC (.leaf (Mono.unit i e) 1) = MvPolynomial.X i ^ e := by
+  fin_cases i <;> simp [toC, Mono.unit]
+
+theorem toC_nat (n : ℕ) : toC (.leaf Mono.zero n) = (n : Poly) := by
+  simp [toC, Mono.zero]
+
+theorem leafVal_sound (w : W) (mo : Mono) (c : ℤ) (h : leafVal w = some (mo, c)) : denW w = toC (.leaf mo c) := by
+  induction w generalizing mo c with
+  | var i => simp only [leafVal, Option.some.injEq, Prod.mk.injEq] at h; obtain ⟨rfl, rfl⟩ := h
+             rw [denW, toC_unit, pow_one]
+  | nat n => simp only [leafVal, Option.some.injEq, Prod.mk.injEq] at h; obtain ⟨rfl, rfl⟩ := h
+             exact (toC_nat n).symm
+  | neg a ih =>
+    simp only [leafVal, Option.map_eq_some_iff] at h
+    obtain ⟨⟨mo', c'⟩, h1, h2⟩ := h
+    simp only [Prod.mk.injEq] at h2
+    obtain ⟨rfl, rfl⟩ := h2
+    simp only [denW, ih mo' c' h1, toC_leaf_neg]
+  | add a b iha ihb => simp [leafVal] at h
+  | sub a b iha ihb => simp [leafVal] at h
+  | mul a b iha ihb =>
+    simp only [leafVal] at h
+    split at h
+    · rename_i p q hp hq
+      simp only [Option.some.injEq, Prod.mk.injEq] at h
+      obtain ⟨rfl, rfl⟩ := h
+      rw [denW, iha p.1 p.2 hp, ihb q.1 q.2 hq, toC_leaf_mul]
+    · exact absurd h (by simp)
+  | pow a n ih =>
+    cases a with
+    | var i =>
+      simp only [leafVal, Option.some.injEq, Prod.mk.injEq] at h; obtain ⟨rfl, rfl⟩ := h
+      simp only [denW]; exact (toC_unit i n).symm
+    | nat _ => simp [leafVal] at h
+    | neg _ => simp [leafVal] at h
+    | add _ _ => simp [leafVal] at h
+    | sub _ _ => simp [leafVal] at h
+    | mul _ _ => simp [leafVal] at h
+    | pow _ _ => simp [leafVal] at h
+
+theorem matchW_sound (w : W) (t : PT) (h : matchW w t = true) : denW w = toC t := by
+  induction t generalizing w with
+  | leaf mo c =>
+    have h' : leafVal w = some (mo, c) := by
+      cases w <;> simpa [matchW] using h
+    exact leafVal_sound w mo c h'
+  | node l r ihl ihr =>
+    cases w with
+    | add a b =>
+      simp only [matchW, Bool.and_eq_true] at h
+      simp only [denW, toC, ihl a h.1, ihr b h.2]
+    | var _ => simp [matchW] at h
+    | nat _ => simp [matchW] at h
+    | neg _ => simp [matchW] at h
+    | sub _ _ => simp [matchW] at h
+    | mul _ _ => simp [matchW] at h
+    | pow _ _ => simp [matchW] at h
+
+
+/-! ## Kronecker values as pairs of naturals (positive and negative parts)
+
+Avoids `Int` constructor matching and the separate `1 <<< s` literal of `shl`: every big-number operation is a
+single kernel-accelerated `Nat` operation, roughly halving kernel memory. -/
+
+abbrev NN := ℕ × ℕ
+
+def nnAdd (a b : NN) : NN := (a.1 + b.1, a.2 + b.2)
+def nnSub (a b : NN) : NN := (a.1 + b.2, a.2 + b.1)
+def nnMul (a b : NN) : NN := (a.1 * b.1 + a.2 * b.2, a.1 * b.2 + a.2 * b.1)
+def nnShl (a : NN) (s : ℕ) : NN := (a.1 <<< s, a.2 <<< s)
+def nnSmul (c : ℕ) (a : NN) : NN := (c * a.1, c * a.2)
+def nnPow (a : NN) : ℕ → NN
+  | 0 => (1, 0)
+  | n + 1 => nnMul a (nnPow a n)
+def nnOfInt : ℤ → NN
+  | .ofNat n => (n, 0)
+  | .negSucc n => (0, n + 1)
+def nnVal (a : NN) : ℤ := (a.1 : ℤ) - a.2
+
+theorem nnVal_add (a b : NN) : nnVal (nnAdd a b) = nnVal a + nnVal b := by simp [nnVal, nnAdd]; ring
+theorem nnVal_sub (a b : NN) : nnVal (nnSub a b) = nnVal a - nnVal b := by simp [nnVal, nnSub]; ring
+theorem nnVal_mul (a b : NN) : nnVal (nnMul a b) = nnVal a * nnVal b := by simp [nnVal, nnMul]; ring
+theorem nnVal_shl (a : NN) (s : ℕ) : nnVal (nnShl a s) = nnVal a * 2 ^ s := by
+  simp [nnVal, nnShl, Nat.shiftLeft_eq]; ring
+theorem nnVal_smul (c : ℕ) (a : NN) : nnVal (nnSmul c a) = (c : ℤ) * nnVal a := by simp [nnVal, nnSmul]; ring
+theorem nnVal_pow (a : NN) (n : ℕ) : nnVal (nnPow a n) = nnVal a ^ n := by
+  induction n with
+  | zero => simp [nnPow, nnVal]
+  | succ n ih => simp [nnPow, nnVal_mul, ih, pow_succ]; ring
+theorem nnVal_ofInt (c : ℤ) : nnVal (nnOfInt c) = c := by
+  cases c with
+  | ofNat n => simp [nnOfInt, nnVal]
+  | negSucc n => simp [nnOfInt, nnVal, Int.negSucc_eq]
+
+def psiRelN (m W : ℕ) : PT → NN × ℕ
+  | .leaf mo c => (nnOfInt c, mo.pos m)
+  | .node l r =>
+    let a := psiRelN m W l
+    let b := psiRelN m W r
+    let p := min a.2 b.2
+    (nnAdd (nnShl a.1 (W * (a.2 - p))) (nnShl b.1 (W * (b.2 - p))), p)
+
+def psiN (m W : ℕ) (t : PT) : NN := nnShl (psiRelN m W t).1 (W * (psiRelN m W t).2)
+
+theorem psiRelN_spec (m W : ℕ) (t : PT) :
+    (psiRelN m W t).2 = (psiRel m W t).2 ∧ nnVal (psiRelN m W t).1 = (psiRel m W t).1 := by
+  induction t with
+  | leaf mo c => simp [psiRelN, psiRel, nnVal_ofInt]
+  | node l r ihl ihr =>
+    simp [psiRelN, psiRel, nnVal_add, nnVal_shl, shl_eq, ihl.1, ihr.1, ihl.2, ihr.2]
+
+theorem nnVal_psiN (m W : ℕ) (t : PT) : nnVal (psiN m W t) = psi m W t := by
+  rw [psiN, psi, nnVal_shl, shl_eq, (psiRelN_spec m W t).1, (psiRelN_spec m W t).2]
+
+def psiEN (m W : ℕ) : E → NN
+  | .poly t => psiN m W t
+  | .pd i t => psiN m W (pderivPT i t)
+  | .mul a b => nnMul (psiEN m W a) (psiEN m W b)
+  | .add a b => nnAdd (psiEN m W a) (psiEN m W b)
+  | .sub a b => nnSub (psiEN m W a) (psiEN m W b)
+  | .smulN c a => nnSmul c (psiEN m W a)
+  | .pow a n => nnPow (psiEN m W a) n
+
+theorem nnVal_psiEN (m W : ℕ) (e : E) : nnVal (psiEN m W e) = psiE m W e := by
+  induction e with
+  | poly t => simp [psiEN, psiE, nnVal_psiN]
+  | pd i t => simp [psiEN, psiE, nnVal_psiN]
+  | mul a b iha ihb => simp [psiEN, psiE, nnVal_mul, iha, ihb]
+  | add a b iha ihb => simp [psiEN, psiE, nnVal_add, iha, ihb]
+  | sub a b iha ihb => simp [psiEN, psiE, nnVal_sub, iha, ihb]
+  | smulN c a iha => simp [psiEN, psiE, nnVal_smul, iha]
+  | pow a n iha => simp [psiEN, psiE, nnVal_pow, iha]
+
+/-- equality of Kronecker values, decided with one `Nat` comparison -/
+def psiEq (m W : ℕ) (L R : E) : Bool :=
+  let a := psiEN m W L
+  let b := psiEN m W R
+  (a.1 + b.2) == (a.2 + b.1)
+
+theorem psiE_eq_of_psiEq {m W : ℕ} {L R : E} (h : psiEq m W L R = true) : psiE m W L = psiE m W R := by
+  simp only [psiEq, beq_iff_eq] at h
+  rw [← nnVal_psiEN, ← nnVal_psiEN]
+  simp only [nnVal]
+  omega
+
+theorem soundN {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hdeg : degCompat (degE L) (degE R) = true)
+    (hm : degLR (degE L) (degE R) < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiEq m W L R = true) :
+    denC L = denC R :=
+  soundC L R hL hR hdeg hm hb (psiE_eq_of_psiEq hpsi)
+
+
+/-! ## Slicing by the fourth variable
+
+To keep Kronecker numbers small for high-degree identities, an identity `L = R` is split by the degree in `X 4`:
+`toC t = Σ_k X 4 ^ k * toC (sliceK k t)` and each slice identity (an identity between `X 4`-free polynomials)
+is checked with a Kronecker point on the remaining four free variables (`m⁴` positions instead of `m⁵`). -/
+
+/-- the `X 4 ^ k`-part of a tree, with `X 4` removed; other leaves are kept with coefficient 0 so that the tree
+shape (and the position order) is preserved -/
+def sliceK (k : ℕ) : PT → PT
+  | .leaf mo c => if mo.e4 = k then .leaf { mo with e4 := 0 } c else .leaf { mo with e4 := 0 } 0
+  | .node l r => .node (sliceK k l) (sliceK k r)
+
+/-- maximal `X 4`-exponent occurring in a tree -/
+def maxE4 : PT → ℕ
+  | .leaf mo _ => mo.e4
+  | .node l r => max (maxE4 l) (maxE4 r)
+
+def x4free : PT → Bool
+  | .leaf mo c => (mo.e4 == 0) || (c == 0)
+  | .node l r => x4free l && x4free r
+
+theorem x4free_sliceK (k : ℕ) (t : PT) : x4free (sliceK k t) = true := by
+  induction t with
+  | leaf mo c => simp only [sliceK]; split_ifs <;> simp [x4free]
+  | node l r ihl ihr => simp [sliceK, x4free, ihl, ihr]
+
+theorem toZ_leaf_e4 (mo : Mono) (c : ℤ) :
+    toZ (.leaf mo c) = X 4 ^ mo.e4 * toZ (.leaf { mo with e4 := 0 } c) := by
+  simp only [toZ, monoZ]; ring
+
+theorem toZ_eq_sum_sliceK (t : PT) (K : ℕ) (hK : maxE4 t ≤ K) :
+    toZ t = ∑ k ∈ Finset.range (K + 1), X 4 ^ k * toZ (sliceK k t) := by
+  induction t with
+  | leaf mo c =>
+    have hmo : mo.e4 ∈ Finset.range (K + 1) := by
+      simp only [maxE4] at hK; exact Finset.mem_range.mpr (Nat.lt_succ_of_le hK)
+    rw [toZ_leaf_e4]
+    rw [Finset.sum_eq_single mo.e4]
+    · simp [sliceK]
+    · intro k _ hk
+      simp only [sliceK]
+      rw [if_neg (Ne.symm hk)]
+      simp [toZ]
+    · intro h; exact absurd hmo h
+  | node l r ihl ihr =>
+    simp only [maxE4, max_le_iff] at hK
+    simp only [toZ, sliceK, ihl hK.1, ihr hK.2, ← Finset.sum_add_distrib, mul_add]
+
+theorem toC_eq_sum_sliceK (t : PT) (K : ℕ) (hK : maxE4 t ≤ K) :
+    toC t = ∑ k ∈ Finset.range (K + 1), X 4 ^ k * toC (sliceK k t) := by
+  rw [toC_eq_map, toZ_eq_sum_sliceK t K hK, map_sum]
+  simp [toC_eq_map, MvPolynomial.map_X]
+
+
+/-- `pderiv 4` of an `X 4`-free tree vanishes -/
+theorem pderiv_four_toZ (t : PT) (h : x4free t = true) : pderiv (4 : Fin 6) (toZ t) = 0 := by
+  rw [← toZ_pderivPT]
+  induction t with
+  | leaf mo c =>
+    simp only [x4free, Bool.or_eq_true, beq_iff_eq] at h
+    simp only [pderivPT, pdLeaf, show ((4 : Fin 6).val = 4) from rfl, toZ]
+    rcases h with h | h <;> simp [h]
+  | node l r ihl ihr =>
+    simp only [x4free, Bool.and_eq_true] at h
+    simp [pderivPT, toZ, ihl h.1, ihr h.2]
+
+theorem pderiv_four_toC (t : PT) (h : x4free t = true) : pderiv (4 : Fin 6) (toC t) = 0 := by
+  rw [toC_eq_map, pderiv_map, pderiv_four_toZ t h, map_zero]
+
+/-! ### Kronecker point on four variables -/
+
+def Mono.pos4 (m : ℕ) (mo : Mono) : ℕ := mo.e0 + m * (mo.e1 + m * (mo.e2 + m * mo.e3))
+
+noncomputable def kpt4 (m W : ℕ) : Fin 6 → ℤ := ![2 ^ W, 2 ^ (W * m), 2 ^ (W * m ^ 2), 2 ^ (W * m ^ 3), 1, 1]
+
+theorem kpt4_zero (m W : ℕ) : kpt4 m W 0 = 2 ^ W := rfl
+theorem kpt4_one (m W : ℕ) : kpt4 m W 1 = 2 ^ (W * m) := rfl
+theorem kpt4_two (m W : ℕ) : kpt4 m W 2 = 2 ^ (W * m ^ 2) := rfl
+theorem kpt4_three (m W : ℕ) : kpt4 m W 3 = 2 ^ (W * m ^ 3) := rfl
+theorem kpt4_four (m W : ℕ) : kpt4 m W 4 = 1 := rfl
+theorem kpt4_five (m W : ℕ) : kpt4 m W 5 = 1 := rfl
+
+theorem eval_monoZ4 (m W : ℕ) (mo : Mono) : eval (kpt4 m W) (monoZ mo) = 2 ^ (W * mo.pos4 m) := by
+  simp only [monoZ, map_mul, map_pow, eval_X, kpt4_zero, kpt4_one, kpt4_two, kpt4_three, kpt4_four, kpt4_five,
+    Mono.pos4, one_pow, mul_one, ← pow_mul, ← pow_add]
+  congr 1
+  ring
+
+def psiRel4 (m W : ℕ) : PT → NN × ℕ
+  | .leaf mo c => (nnOfInt c, mo.pos4 m)
+  | .node l r =>
+    let a := psiRel4 m W l
+    let b := psiRel4 m W r
+    let p := min a.2 b.2
+    (nnAdd (nnShl a.1 (W * (a.2 - p))) (nnShl b.1 (W * (b.2 - p))), p)
+
+def psi4 (m W : ℕ) (t : PT) : NN := nnShl (psiRel4 m W t).1 (W * (psiRel4 m W t).2)
+
+theorem psiRel4_spec (m W : ℕ) (t : PT) :
+    nnVal (psiRel4 m W t).1 * 2 ^ (W * (psiRel4 m W t).2) = eval (kpt4 m W) (toZ t) := by
+  induction t with
+  | leaf mo c => simp [psiRel4, toZ, eval_monoZ4, eval_C, nnVal_ofInt]
+  | node l r ihl ihr =>
+    simp only [psiRel4, toZ, map_add]
+    rw [← ihl, ← ihr]
+    simp only [nnVal_add, nnVal_shl, add_mul, mul_assoc, ← pow_add]
+    have h1 : W * ((psiRel4 m W l).2 - min (psiRel4 m W l).2 (psiRel4 m W r).2) +
+        W * min (psiRel4 m W l).2 (psiRel4 m W r).2 = W * (psiRel4 m W l).2 := by
+      rw [← Nat.mul_add, Nat.sub_add_cancel (Nat.min_le_left _ _)]
+    have h2 : W * ((psiRel4 m W r).2 - min (psiRel4 m W l).2 (psiRel4 m W r).2) +
+        W * min (psiRel4 m W l).2 (psiRel4 m W r).2 = W * (psiRel4 m W r).2 := by
+      rw [← Nat.mul_add, Nat.sub_add_cancel (Nat.min_le_right _ _)]
+    rw [h1, h2]
+
+theorem nnVal_psi4 (m W : ℕ) (t : PT) : nnVal (psi4 m W t) = eval (kpt4 m W) (toZ t) := by
+  rw [psi4, nnVal_shl, psiRel4_spec]
+
+def psiE4 (m W : ℕ) : E → NN
+  | .poly t => psi4 m W t
+  | .pd i t => psi4 m W (pderivPT i t)
+  | .mul a b => nnMul (psiE4 m W a) (psiE4 m W b)
+  | .add a b => nnAdd (psiE4 m W a) (psiE4 m W b)
+  | .sub a b => nnSub (psiE4 m W a) (psiE4 m W b)
+  | .smulN c a => nnSmul c (psiE4 m W a)
+  | .pow a n => nnPow (psiE4 m W a) n
+
+theorem nnVal_psiE4 (m W : ℕ) (e : E) : nnVal (psiE4 m W e) = eval (kpt4 m W) (denZ e) := by
+  induction e with
+  | poly t => simp [psiE4, denZ, nnVal_psi4]
+  | pd i t => simp [psiE4, denZ, nnVal_psi4, ← toZ_pderivPT]
+  | mul a b iha ihb => simp [psiE4, denZ, nnVal_mul, iha, ihb]
+  | add a b iha ihb => simp [psiE4, denZ, nnVal_add, iha, ihb]
+  | sub a b iha ihb => simp [psiE4, denZ, nnVal_sub, iha, ihb]
+  | smulN c a iha => simp [psiE4, denZ, nnVal_smul, iha]
+  | pow a n iha => simp [psiE4, denZ, nnVal_pow, iha]
+
+def psiEq4 (m W : ℕ) (L R : E) : Bool :=
+  let a := psiE4 m W L
+  let b := psiE4 m W R
+  (a.1 + b.2) == (a.2 + b.1)
+
+theorem eval_kpt4_eq_of_psiEq4 {m W : ℕ} {L R : E} (h : psiEq4 m W L R = true) :
+    eval (kpt4 m W) (denZ L) = eval (kpt4 m W) (denZ R) := by
+  simp only [psiEq4, beq_iff_eq] at h
+  rw [← nnVal_psiE4, ← nnVal_psiE4]
+  simp only [nnVal]
+  omega
+
+/-- `X 4`-freeness of an expression (checked structurally) -/
+def x4freeE : E → Bool
+  | .poly t => x4free t
+  | .pd i t => x4free (pderivPT i t)
+  | .mul a b => x4freeE a && x4freeE b
+  | .add a b => x4freeE a && x4freeE b
+  | .sub a b => x4freeE a && x4freeE b
+  | .smulN _ a => x4freeE a
+  | .pow a _ => x4freeE a
+
+theorem vec_apply_four (mo : Mono) : mo.vec 4 = mo.e4 := by
+  simp [Mono.vec, Finsupp.single_apply]
+
+theorem coeff_toZ_x4free (t : PT) (h : x4free t = true) (d : Fin 6 →₀ ℕ) (hd : coeff d (toZ t) ≠ 0) : d 4 = 0 := by
+  classical
+  induction t with
+  | leaf mo c =>
+    simp only [x4free, Bool.or_eq_true, beq_iff_eq] at h
+    simp only [toZ, coeff_C_mul, monoZ_eq_monomial, coeff_monomial] at hd
+    split_ifs at hd with hv
+    · subst hv
+      rw [vec_apply_four]
+      rcases h with h | h
+      · exact h
+      · exact absurd (by simp [h]) hd
+    · exact absurd (by simp) hd
+  | node l r ihl ihr =>
+    simp only [x4free, Bool.and_eq_true] at h
+    simp only [toZ, coeff_add] at hd
+    by_cases hl : coeff d (toZ l) = 0
+    · exact ihr h.2 (by rw [hl, zero_add] at hd; exact hd)
+    · exact ihl h.1 hl
+
+theorem coeff_denZ_x4free (e : E) (h : x4freeE e = true) (d : Fin 6 →₀ ℕ) (hd : coeff d (denZ e) ≠ 0) : d 4 = 0 := by
+  classical
+  induction e generalizing d with
+  | poly t => exact coeff_toZ_x4free t h d hd
+  | pd i t =>
+    simp only [denZ] at hd; rw [← toZ_pderivPT] at hd
+    exact coeff_toZ_x4free _ h d hd
+  | mul a b iha ihb =>
+    simp only [x4freeE, Bool.and_eq_true] at h
+    simp only [denZ, coeff_mul] at hd
+    obtain ⟨x, hx, hne⟩ := Finset.exists_ne_zero_of_sum_ne_zero hd
+    have h1 := iha h.1 x.1 (left_ne_zero_of_mul hne)
+    have h2 := ihb h.2 x.2 (right_ne_zero_of_mul hne)
+    have hx' := Finset.mem_antidiagonal.mp hx
+    have := congrArg (fun f => f 4) hx'
+    simp only [Finsupp.coe_add, Pi.add_apply] at this
+    omega
+  | add a b iha ihb =>
+    simp only [x4freeE, Bool.and_eq_true] at h
+    simp only [denZ, coeff_add] at hd
+    by_cases ha : coeff d (denZ a) = 0
+    · exact ihb h.2 d (by rw [ha, zero_add] at hd; exact hd)
+    · exact iha h.1 d ha
+  | sub a b iha ihb =>
+    simp only [x4freeE, Bool.and_eq_true] at h
+    simp only [denZ, coeff_sub] at hd
+    by_cases ha : coeff d (denZ a) = 0
+    · exact ihb h.2 d (by rw [ha, zero_sub, neg_ne_zero] at hd; exact hd)
+    · exact iha h.1 d ha
+  | smulN c a iha =>
+    simp only [denZ] at hd
+    rw [← C_eq_coe_nat, coeff_C_mul] at hd
+    exact iha h d (right_ne_zero_of_mul hd)
+  | pow a n iha =>
+    simp only [x4freeE] at h
+    induction n generalizing d with
+    | zero =>
+      simp only [denZ, pow_zero] at hd
+      rw [← C_1, coeff_C] at hd
+      split_ifs at hd with h0
+      · subst h0; rfl
+      · exact absurd rfl hd
+    | succ k ih =>
+      simp only [denZ, pow_succ, coeff_mul] at hd ih
+      obtain ⟨x, hx, hne⟩ := Finset.exists_ne_zero_of_sum_ne_zero hd
+      have h1 := ih x.1 (left_ne_zero_of_mul hne)
+      have h2 := iha h x.2 (right_ne_zero_of_mul hne)
+      have hx' := Finset.mem_antidiagonal.mp hx
+      have := congrArg (fun f => f 4) hx'
+      simp only [Finsupp.coe_add, Pi.add_apply] at this
+      omega
+
+def pos4F (m : ℕ) (d : Fin 6 →₀ ℕ) : ℕ := d 0 + m * (d 1 + m * (d 2 + m * d 3))
+
+theorem prod_kpt4_pow (m W : ℕ) (d : Fin 6 →₀ ℕ) : ∏ i, kpt4 m W i ^ d i = 2 ^ (W * pos4F m d) := by
+  rw [Fin.prod_univ_six]
+  simp only [kpt4_zero, kpt4_one, kpt4_two, kpt4_three, kpt4_four, kpt4_five, pos4F, one_pow, mul_one,
+    ← pow_mul, ← pow_add]
+  congr 1
+  ring
+
+theorem pos4F_injective {m n : ℕ} (hn : n < m) {d d' : Fin 6 →₀ ℕ}
+    (hd : d 0 + d 1 + d 2 + d 3 + d 4 + d 5 = n) (hd' : d' 0 + d' 1 + d' 2 + d' 3 + d' 4 + d' 5 = n)
+    (h4 : d 4 = 0) (h4' : d' 4 = 0) (h : pos4F m d = pos4F m d') : d = d' := by
+  simp only [pos4F] at h
+  obtain ⟨h0, h⟩ := mr_head (by omega) (by omega) h
+  obtain ⟨h1, h⟩ := mr_head (by omega) (by omega) h
+  obtain ⟨h2, h3⟩ := mr_head (by omega) (by omega) h
+  have h5 : d 5 = d' 5 := by omega
+  ext i
+  fin_cases i
+  · exact h0
+  · exact h1
+  · exact h2
+  · exact h3
+  · exact h4.trans h4'.symm
+  · exact h5
+
+theorem eq_zero_of_eval_kpt4 {m W n : ℕ} {P : ZP} (hP : P.IsHomogeneous n) (hn : n < m)
+    (hx : ∀ d, coeff d P ≠ 0 → d 4 = 0)
+    (hc : ∀ d, |coeff d P| < 2 ^ W) (h : eval (kpt4 m W) P = 0) : P = 0 := by
+  classical
+  by_contra hne
+  have hsupp : P.support.Nonempty := by
+    rw [Finset.nonempty_iff_ne_empty, Ne, support_eq_empty]; exact hne
+  obtain ⟨d0, hd0, hmin⟩ := Finset.exists_min_image P.support (pos4F m) hsupp
+  rw [eval_eq'] at h
+  simp only [prod_kpt4_pow] at h
+  rw [← Finset.add_sum_erase _ _ hd0] at h
+  have hdvd : (2 : ℤ) ^ (W * (pos4F m d0 + 1)) ∣ ∑ x ∈ P.support.erase d0, coeff x P * 2 ^ (W * pos4F m x) := by
+    refine Finset.dvd_sum fun x hx' => ?_
+    have hx'' := Finset.mem_of_mem_erase hx'
+    have hne' : x ≠ d0 := Finset.ne_of_mem_erase hx'
+    have hle := hmin x hx''
+    have hposne : pos4F m x ≠ pos4F m d0 := by
+      intro heq
+      exact hne' (pos4F_injective hn (sum_six_of_isHomogeneous hP (mem_support_iff.mp hx''))
+        (sum_six_of_isHomogeneous hP (mem_support_iff.mp hd0)) (hx x (mem_support_iff.mp hx''))
+        (hx d0 (mem_support_iff.mp hd0)) heq)
+    have hlt : pos4F m d0 + 1 ≤ pos4F m x := by omega
+    exact Dvd.dvd.mul_left (pow_dvd_pow 2 (Nat.mul_le_mul_left W hlt)) _
+  have hmain : (2 : ℤ) ^ (W * (pos4F m d0 + 1)) ∣ coeff d0 P * 2 ^ (W * pos4F m d0) := by
+    have : coeff d0 P * 2 ^ (W * pos4F m d0) = -∑ x ∈ P.support.erase d0, coeff x P * 2 ^ (W * pos4F m x) := by
+      linarith
+    rw [this]
+    exact (dvd_neg).mpr hdvd
+  have h2 : (2 : ℤ) ^ (W * (pos4F m d0 + 1)) = 2 ^ (W * pos4F m d0) * 2 ^ W := by
+    rw [← pow_add, Nat.mul_succ]
+  rw [h2, mul_comm (coeff d0 P)] at hmain
+  have hdiv : (2 : ℤ) ^ W ∣ coeff d0 P :=
+    (mul_dvd_mul_iff_left (pow_ne_zero _ (by norm_num))).mp hmain
+  have hz : coeff d0 P = 0 := Int.eq_zero_of_abs_lt_dvd hdiv (hc d0)
+  exact (mem_support_iff.mp hd0) hz
+
+theorem sound4 {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hdeg : degCompat (degE L) (degE R) = true)
+    (hm : degLR (degE L) (degE R) < m) (hb : l1E L + l1E R < 2 ^ W) (hxL : x4freeE L = true) (hxR : x4freeE R = true)
+    (hpsi : psiEq4 m W L R = true) : denC L = denC R := by
+  have hhom := sub_isHomogeneous L R hL hR hdeg
+  have hc : ∀ d, |coeff d (denZ L - denZ R)| < 2 ^ W := by
+    intro d
+    rw [coeff_sub]
+    calc |coeff d (denZ L) - coeff d (denZ R)| ≤ |coeff d (denZ L)| + |coeff d (denZ R)| := abs_sub _ _
+      _ ≤ (l1E L : ℤ) + (l1E R : ℤ) := add_le_add (abs_coeff_denZ_le_l1 L d) (abs_coeff_denZ_le_l1 R d)
+      _ < 2 ^ W := by exact_mod_cast hb
+  have hx : ∀ d, coeff d (denZ L - denZ R) ≠ 0 → d 4 = 0 := by
+    intro d hd
+    rw [coeff_sub] at hd
+    by_cases ha : coeff d (denZ L) = 0
+    · exact coeff_denZ_x4free R hxR d (by rw [ha, zero_sub, neg_ne_zero] at hd; exact hd)
+    · exact coeff_denZ_x4free L hxL d ha
+  have hev : eval (kpt4 m W) (denZ L - denZ R) = 0 := by
+    rw [map_sub, eval_kpt4_eq_of_psiEq4 hpsi, sub_self]
+  have := eq_zero_of_eval_kpt4 hhom hm hx hc hev
+  rw [denC, denC, sub_eq_zero.mp this]
+
+
+/-! ### Simp lemmas for the slice assembly over ℂ -/
+
+theorem pderiv_four_toC_sliceK (k : ℕ) (t : PT) : pderiv (4 : Fin 6) (toC (sliceK k t)) = 0 :=
+  pderiv_four_toC _ (x4free_sliceK k t)
+
+theorem pderiv_X_pow_self_C (i : Fin 6) (n : ℕ) :
+    pderiv i ((X i : Poly) ^ n) = (n : Poly) * X i ^ (n - 1) := by
+  rw [pderiv_pow, pderiv_X_self, mul_one]
+
+theorem pderiv_X_pow_ne_C {i j : Fin 6} (h : j ≠ i) (n : ℕ) : pderiv i ((X j : Poly) ^ n) = 0 := by
+  rw [pderiv_pow, pderiv_X_of_ne h, mul_zero]
+
+theorem pderiv_X4_pow_zero (n : ℕ) : pderiv (0 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_one (n : ℕ) : pderiv (1 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_two (n : ℕ) : pderiv (2 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_three (n : ℕ) : pderiv (3 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_five (n : ℕ) : pderiv (5 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_four (n : ℕ) : pderiv (4 : Fin 6) ((X 4 : Poly) ^ n) = (n : Poly) * X 4 ^ (n - 1) :=
+  pderiv_X_pow_self_C 4 n
+
+
+end HodgeComputer.Kron

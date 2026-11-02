@@ -1,0 +1,16 @@
+# queued job commands (submit when a slot frees; max 4 running)
+w2-k3-relax-exact-d8p0 | cpus 4 | python3 w2_relax_exact.py 8 0 32003 && (ulimit -v 120000000; timeout 5h Singular -q w2-relax-d8-p0-32003.sing > w2-relax-d8-p0-32003.out 2>&1); tail -5 w2-relax-d8-p0-32003.out
+w2-k3-relax-exact-d8p1 | cpus 4 | python3 w2_relax_exact.py 8 1 32003 && (ulimit -v 120000000; timeout 5h Singular -q w2-relax-d8-p1-32003.sing > w2-relax-d8-p1-32003.out 2>&1); tail -5 w2-relax-d8-p1-32003.out
+w2-k3-full-d9p0-s1 | cpus 8 | python3 w2_full_e2.py 9 0 150 1 --maxiter 50 --tag s1
+w2-k3-full-d8p1-s1 | cpus 8 | python3 w2_full_e2.py 8 1 300 1 --maxiter 60 --tag s1
+w2-k3-full-d8p0-s2 | cpus 8 | python3 w2_full_e2.py 8 0 400 2 --maxiter 60 --tag s2
+w2-k3-nonjac-d10p0-s1 | cpus 8 | python3 w2_nonjac_e2.py 10 0 30 1 --maxiter 40 --tag s1
+w2-k3-relax-exact-d8pf | cpus 4 | python3 w2_relax_exact.py 8 -1 32003 && (ulimit -v 160000000; timeout 8h Singular -q w2-relax-d8-p-1-32003.sing > w2-relax-d8-p-1-32003.out 2>&1); tail -5 w2-relax-d8-p-1-32003.out
+# UV-bidegree pieces (cheap, clean subfamilies; no F-multiples or g*h inside a single piece)
+w2-k3-full-d8-uv | cpus 8 | for a in 8 7 6 5; do python3 w2_full_e2.py 8 0 60 1 --maxiter 60 --tag s1 --uvbideg $a; done; for a in 8 7 6 5; do python3 w2_full_e2.py 8 1 40 1 --maxiter 60 --tag s1 --uvbideg $a; done
+w2-k3-full-d9-uv | cpus 8 | for a in 9 8 7 6 5; do python3 w2_full_e2.py 9 0 30 1 --maxiter 50 --tag s1 --uvbideg $a; done
+w2-k3-hess-d8-uv | cpus 4 | for a in 8 7 6 5; do python3 w2_hess_relax.py 8 0 300 21 --tag s1 --uvbideg $a --batch 100; done
+# exact relaxation variety (tensor frame, both sectors at once): Singular std + saturation by the P8 component
+w2-k3-tensor-relax-d8 | cpus 2 | python3 w2_tensor_singular.py 8 32003 && (ulimit -v 120000000; timeout 6h Singular -q w2-tensor-relax-d8-32003.sing > w2-tensor-relax-d8-32003.out 2>&1); tail -8 w2-tensor-relax-d8-32003.out
+w2-k3-p8relax-d8 | cpus 2 | (ulimit -v 60000000; timeout 2h Singular -q w2-p8relax-d8-32003.sing > w2-p8relax-d8-32003.out 2>&1); tail -12 w2-p8relax-d8-32003.out
+w2-k3-p8relax-Q | cpus 2 | (ulimit -v 60000000; timeout 3h Singular -q w2-p8relax-d8-Q.sing > w2-p8relax-d8-Q.out 2>&1); tail -12 w2-p8relax-d8-Q.out

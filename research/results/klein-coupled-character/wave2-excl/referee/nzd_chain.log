@@ -1,0 +1,6 @@
+Xchart0_X0+b1X1+b2X2 rows 193 cols 90 ann_size 1 dim -1 ann_is_unit 1  [0.6s]
+Xchart1_X1+b1X2 rows 170 cols 90 ann_size 1 dim -1 ann_is_unit 1  [0.6s]
+Ychart0_Y0+b1Y1+b2Y2 rows 271 cols 90 ann_size 1 dim -1 ann_is_unit 1  [0.7s]
+Ychart1_Y1+b1Y2 rows 212 cols 90 ann_size 1 dim -1 ann_is_unit 1  [0.7s]
+NZD_DONE (coordinate points X2, Y2 and all six coordinate forms: see referee_colon json, colon_linear)
+NZD_EXIT 0

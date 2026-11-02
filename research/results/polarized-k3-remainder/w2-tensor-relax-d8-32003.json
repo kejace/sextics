@@ -1,0 +1,11 @@
+{
+ "experiment": "tensor-relaxation-singular-export",
+ "d": 8,
+ "p": 32003,
+ "K": 168,
+ "nvars": 147,
+ "nquadrics": 468,
+ "coords": 468,
+ "P8_vars": 24,
+ "seconds": 24.3
+}

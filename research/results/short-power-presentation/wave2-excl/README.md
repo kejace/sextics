@@ -14,7 +14,15 @@ Instance: q = 1, A = X0^3 Y0^3, F = eX + eY + c((L+M)^6 + (L−M)^6), c = 5/7^7,
   (Proof: for d ≤ 5 and for Y-pure d = 6, K_d = J_d, so D = w(F); the E2 relaxation Ξ(w) := −A·w^T Hess(F) w ∈ J_{2d}
   has, in the Euler slice, an m-primary ideal mod a good prime (Hilbert function reaches 0), hence by
   h_{S/I_p} ≥ h_{S/I_Q} the only solutions over Q-bar are w = G·E, i.e. D = 6GF, not coprime to F.)
-* **T3 (mixed d = 6, Y-pure d = 7).** status in `receipts.jsonl` (`exp` = relaxation, `pars` = m / e / o).
+* **T2' (mixed parity, d = 6).** For D = D^+ + D^- (both parts nonzero) the odd part of the relaxation has no cross
+  terms; linear functionals vanishing on J_12^- and on the span L^+ of the coordinate polynomials of Ξ^+ give 36 quadrics
+  in the 18 odd coefficients whose ideal is m-primary mod 1073741789 (Singular dim 0, vdim 4096); dim_Q L^+ = 39 = dim_p L^+
+  is certified by 114 rational dependency certificates verified with fmpq_mpoly (`exp` = mixed-annihilator-exact-certificate),
+  so the functionals are reductions of rational ones. Hence w^- = 0, then w^+ = 0 by T2. **Theorem: every certificate
+  denominator has degree ≥ 7.**
+* **T3 (Y-pure d = 7).** D = λ·D7 + w(F). Block elimination (`excl_blocks.py`, `exp` = block-elimination-step) mod p:
+  λ = 0 and the 18 coefficients w_{k,X_iY_j} (j ≠ k, Y-components) vanish; residual: 42 unknowns / 231 quadrics —
+  see `receipts.jsonl` for the final verdict and the exact certificates.
 
 ## Replay
 ```

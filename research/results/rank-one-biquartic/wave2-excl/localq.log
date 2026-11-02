@@ -3,3 +3,5 @@
 [20:22:16] START timeout 3600 python3 k7exact.py 7
 [20:39:04] END rc=0 timeout 3600 python3 k7exact.py 7
 [20:39:04] START timeout 10800 python3 hess_pipeline.py 7 3 --sparse --nonj nonj_d7.json --tag hpipe_d7
+[22:10:09] END rc=0 timeout 10800 python3 hess_pipeline.py 7 3 --sparse --nonj nonj_d7.json --tag hpipe_d7
+[22:10:09] START timeout 3000 Singular -q quotJA_p65521.sing

@@ -1,0 +1,47 @@
+[HodgeTarget.lean] OK 5.7s
+[HodgeWitness.lean] OK 13.8s
+[Kron.lean] OK 21.4s
+[Witness.lean] FAIL 186.8s
+Proposal/Witness.lean:168:123: error: algebra failed, algebra expressions not equal
+⊢ (algebraMap Coeff (Polynomial Coeff))
+            ((-2 • 1) • 1 * X 4 ^ 6 + X 0 ^ 2 * X 2 ^ 2 * X 3 ^ 2 * (1 • 1) • 1 + X 0 ^ 2 * X 2 ^ 4 * (-34 • 1) • 1 +
+                                    X 0 ^ 4 * X 2 ^ 2 * (62 • 1) • 1 +
+                                  X 0 ^ 6 * (-30 • 1) • 1 +
+                                X 1 ^ 2 * X 3 ^ 2 * X 4 ^ 2 * (6 • 1) • 1 +
+                              X 1 ^ 2 * X 3 ^ 4 * (32 • 1) • 1 +
+                            X 1 ^ 2 * X 4 ^ 4 * (40 • 1) • 1 +
+                          X 1 ^ 4 * X 3 ^ 2 * (-56 • 1) • 1 +
+                        X 1 ^ 4 * X 4 ^ 2 * (80 • 1) • 1 +
+                      X 1 ^ 6 * (22 • 1) • 1 +
+                    X 2 ^ 6 * (-3 • 1) • 1 +
+                  X 3 ^ 2 * X 4 ^ 4 * (8 • 1) • 1 +
+                X 3 ^ 4 * X 4 ^ 2 * (40 • 1) • 1 +
+              X 3 ^ 6 * (2 • 1) • 1) +
+          Polynomial.X ^ 2 *
+            (algebraMap Coeff (Polynomial Coeff))
+              (X 0 ^ 2 * X 2 ^ 2 * (-52 • 1) • 1 + X 0 ^ 4 * (14 • 1) • 1 + X 1 ^ 2 * X 4 ^ 2 * (1 • 1) • 1 +
+                X 2 ^ 4 * (33 • 1) • 1) +
+        Polynomial.X ^ 4 * (algebraMap Coeff (Polynomial Coeff)) (X 0 ^ 2 * (132 • 1) • 1 + X 2 ^ 2 * (-171 • 1) • 1) +
+      Polynomial.X ^ 6 * (algebraMap Coeff (Polynomial Coeff)) ((-116 • 1) • 1) =
+    (algebraMap Coeff (Polynomial Coeff))
+            (X 0 ^ 2 * X 2 ^ 2 * X 3 ^ 2 * 1 • 1 + X 0 ^ 2 * X 2 ^ 4 * -34 • 1 + X 0 ^ 4 * X 2 ^ 2 * 62 • 1 +
+                                    X 0 ^ 6 * -30 • 1 +
+                                  X 1 ^ 2 * X 3 ^ 2 * X 4 ^ 2 * 6 • 1 +
+                                X 1 ^ 2 * X 3 ^ 4 * 32 • 1 +
+                              X 1 ^ 2 * X 4 ^ 4 * 40 • 1 +
+                            X 1 ^ 4 * X 3 ^ 2 * -56 • 1 +
+                          X 1 ^ 4 * X 4 ^ 2 * 80 • 1 +
+                        X 1 ^ 6 * 22 • 1 +
+                      X 2 ^ 6 * -3 • 1 +
+                    X 3 ^ 2 * X 4 ^ 4 * 8 • 1 +
+                  X 3 ^ 4 * X 4 ^ 2 * 40 • 1 +
+                X 3 ^ 6 * 2 • 1 +
+              X 4 ^ 6 * -2 • 1) +
+          Polynomial.X ^ 2 *
+            (algebraMap Coeff (Polynomial Coeff))
+              (X 0 ^ 2 * X 2 ^ 2 * -52 • 1 + X 0 ^ 4 * 14 • 1 + X 1 ^ 2 * X 4 ^ 2 * 1 • 1 + X 2 ^ 4 * 33 • 1) +
+        Polynomial.X ^ 4 * (algebraMap Coeff (Polynomial Coeff)) (X 0 ^ 2 * 132 • 1 + X 2 ^ 2 * -171 • 1) +
+      Polynomial.X ^ 6 * (algebraMap Coeff (Polynomial Coeff)) (-116 • 1)
+ 
+total 227.7s; tmp dir /tmp/hodge-leancheck-11fm2mwv
+exit 0

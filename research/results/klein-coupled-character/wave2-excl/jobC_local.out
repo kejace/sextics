@@ -1,0 +1,56 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+20:18:24 d=9 par=0 k=0: kernel 2 J 33 HF_ok True [9s]
+20:18:27 d=9 par=0 k=1: kernel 3 J 63 HF_ok True [3s]
+20:18:42 d=9 par=0 k=2: kernel 3 J 63 HF_ok True [15s]
+20:18:45 d=9 par=0 k=3: kernel 2 J 52 HF_ok True [3s]
+20:18:57 d=9 par=0 k=4: kernel 10 J 63 HF_ok True [13s]
+20:19:16 d=9 par=0 k=5: kernel 1 J 52 HF_ok True [18s]
+20:19:33 d=9 par=0 k=6: kernel 3 J 52 HF_ok True [17s]
+20:19:41 d=9 par=1 k=0: kernel 0 J 93 HF_ok True [7s]
+20:19:47 d=9 par=1 k=1: kernel 5 J 49 HF_ok True [6s]
+20:20:05 d=9 par=1 k=2: kernel 0 J 49 HF_ok True [18s]
+20:20:07 d=9 par=1 k=3: kernel 0 J 46 HF_ok True [3s]
+20:20:11 d=9 par=1 k=4: kernel 9 J 49 HF_ok True [3s]
+20:20:28 d=9 par=1 k=5: kernel 6 J 46 HF_ok True [18s]
+20:20:42 d=9 par=1 k=6: kernel 4 J 46 HF_ok True [13s]
+20:21:31 d=10 par=0 k=0: kernel 24 J 159 HF_ok True [50s]
+20:22:18 d=10 par=0 k=1: kernel 46 J 101 HF_ok True [47s]
+20:22:57 d=10 par=0 k=2: kernel 39 J 101 HF_ok True [39s]
+20:23:25 d=10 par=0 k=3: kernel 39 J 96 HF_ok True [28s]
+20:23:42 d=10 par=0 k=4: kernel 54 J 101 HF_ok True [17s]
+20:23:57 d=10 par=0 k=5: kernel 46 J 96 HF_ok True [14s]
+20:24:14 d=10 par=0 k=6: kernel 46 J 96 HF_ok True [17s]
+20:24:40 d=10 par=1 k=0: kernel 36 J 75 HF_ok True [26s]
+20:25:06 d=10 par=1 k=1: kernel 39 J 120 HF_ok True [26s]
+20:25:27 d=10 par=1 k=2: kernel 39 J 120 HF_ok True [21s]
+20:26:12 d=10 par=1 k=3: kernel 36 J 104 HF_ok True [45s]
+20:26:46 d=10 par=1 k=4: kernel 39 J 120 HF_ok True [34s]
+20:27:03 d=10 par=1 k=5: kernel 36 J 104 HF_ok True [17s]
+20:27:16 d=10 par=1 k=6: kernel 36 J 104 HF_ok True [12s]
+20:27:16 132 tasks
+20:46:25 done E1-kernel random combo d=9 par=0 k=0 trial 0 (p=1000003) inconsistent rank 1496 rows 8308 cols 1674 1149.56 s
+20:46:55 done E1-kernel rep d=9 par=0 k=0 #0 (p=1000003) inconsistent rank 1496 rows 8217 cols 1674 1179.01 s
+20:59:58 done E1-kernel rep d=9 par=0 k=0 #1 (p=1000003) inconsistent rank 1496 rows 8094 cols 1674 1962.56 s
+21:02:11 done E1-kernel random combo d=9 par=0 k=0 trial 1 (p=1000003) inconsistent rank 1496 rows 8308 cols 1674 2095.53 s
+21:02:45 done E1-kernel+J_d random d=9 par=0 k=0 trial 1 (p=1000003) inconsistent rank 1496 rows 8444 cols 1674 950.15 s
+21:06:54 done E1-kernel+J_d random d=9 par=0 k=0 trial 0 (p=1000003) inconsistent rank 1496 rows 8444 cols 1674 1228.1 s
+21:17:46 done E1-kernel rep d=9 par=0 k=1 #2 (p=1000003) inconsistent rank 1534 rows 8244 cols 1718 900.32 s
+21:19:44 done E1-kernel random combo d=9 par=0 k=1 trial 0 (p=1000003) inconsistent rank 1534 rows 8244 cols 1718 769.74 s
+21:27:24 done E1-kernel rep d=9 par=0 k=1 #0 (p=1000003) inconsistent rank 1534 rows 8244 cols 1718 1645.74 s
+21:27:36 done E1-kernel random combo d=9 par=0 k=1 trial 1 (p=1000003) inconsistent rank 1534 rows 8244 cols 1718 590.67 s
+21:27:39 done E1-kernel rep d=9 par=0 k=1 #1 (p=1000003) inconsistent rank 1534 rows 8244 cols 1718 1527.34 s
+21:32:47 done E1-kernel+J_d random d=9 par=0 k=1 trial 0 (p=1000003) inconsistent rank 1534 rows 8296 cols 1718 782.72 s
+21:42:44 done E1-kernel rep d=9 par=0 k=2 #0 (p=1000003) inconsistent rank 1455 rows 8303 cols 1633 907.63 s
+21:43:04 done E1-kernel+J_d random d=9 par=0 k=1 trial 1 (p=1000003) inconsistent rank 1534 rows 8296 cols 1718 939.63 s
+21:43:24 done E1-kernel rep d=9 par=0 k=2 #1 (p=1000003) inconsistent rank 1455 rows 8303 cols 1633 945.11 s
+21:46:54 done E1-kernel rep d=9 par=0 k=2 #2 (p=1000003) inconsistent rank 1455 rows 8300 cols 1633 846.75 s
+21:53:11 done E1-kernel random combo d=9 par=0 k=2 trial 1 (p=1000003) inconsistent rank 1455 rows 8303 cols 1633 605.83 s
+22:00:13 done E1-kernel random combo d=9 par=0 k=2 trial 0 (p=1000003) inconsistent rank 1455 rows 8303 cols 1633 1048.35 s
+22:00:38 done E1-kernel+J_d random d=9 par=0 k=2 trial 0 (p=1000003) inconsistent rank 1455 rows 8306 cols 1633 1033.73 s
+22:07:42 done E1-kernel+J_d random d=9 par=0 k=2 trial 1 (p=1000003) inconsistent rank 1455 rows 8306 cols 1633 1248.46 s
+22:13:02 done E1-kernel random combo d=9 par=0 k=3 trial 0 (p=1000003) inconsistent rank 1519 rows 8362 cols 1697 743.98 s
+22:14:07 done E1-kernel rep d=9 par=0 k=3 #1 (p=1000003) inconsistent rank 1519 rows 8204 cols 1697 833.89 s
+22:14:27 done E1-kernel rep d=9 par=0 k=3 #0 (p=1000003) inconsistent rank 1519 rows 8201 cols 1697 1275.79 s
+22:16:05 done E1-kernel random combo d=9 par=0 k=3 trial 1 (p=1000003) inconsistent rank 1519 rows 8362 cols 1697 502.22 s
+22:20:56 done E1-kernel+J_d random d=9 par=0 k=3 trial 0 (p=1000003) inconsistent rank 1519 rows 8522 cols 1697 474.13 s
+22:22:04 done E1-kernel+J_d random d=9 par=0 k=3 trial 1 (p=1000003) inconsistent rank 1519 rows 8522 cols 1697 476.88 s

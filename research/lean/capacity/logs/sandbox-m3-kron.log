@@ -1,0 +1,6 @@
+Verification logs: /tmp/hodge-proof-check-xuuo8__4
+compile-HodgeTarget: starting
+compile-HodgeTarget: passed in 55.3s
+compile-HodgeWitness: starting
+compile-HodgeWitness: passed in 31.4s
+compile-Kron: starting

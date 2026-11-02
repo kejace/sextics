@@ -1,0 +1,8 @@
+[HodgeTarget.lean] OK 5.9s
+[HodgeWitness.lean] OK 13.7s
+[Kron.lean] OK 21.0s
+[Witness.lean] OK 182.4s
+[Solution.lean] OK 22.0s
+[HodgeChecked.lean] OK 5.9s
+total 250.8s; tmp dir /tmp/hodge-leancheck-qac3xs30
+exit 0

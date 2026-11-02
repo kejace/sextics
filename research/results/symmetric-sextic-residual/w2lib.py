@@ -13,6 +13,8 @@ Only an exact re-solve (charsolve.solve_char -> core.verify_witness) counts as e
 """
 from __future__ import annotations
 import sys, os, time, json, math, itertools
+for _v in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
+    os.environ.setdefault(_v, '1')
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
@@ -528,3 +530,365 @@ def try_confirm(fam, cand, logrec, verbose=True):
                 return True, results
         results.append(rec)
     return False, results
+
+
+# ---------------------------------------------------------------- generic helpers (added after validation)
+def generic_f_multiples(F, basis):
+    """K x nF matrix of coefficient vectors a with D(a) in F * R_{d-6} (monomial-space nullspace)."""
+    d = core.degree(basis[0]); pD = core.parity_of(basis[0]); K = len(basis)
+    if d < 6:
+        return np.zeros((K, 0))
+    Gm = core.monomials(d - 6, (pD - core.parity_of(F)) % 2)
+    Fcols = [core.shift(F, m, 1) for m in Gm]
+    mons = {}
+    for B in basis + Fcols:
+        for e in B:
+            mons.setdefault(e, len(mons))
+    Mb = np.zeros((len(mons), K + len(Fcols)))
+    for k, B in enumerate(basis):
+        for e, v in B.items():
+            Mb[mons[e], k] = float(v)
+    for j, C in enumerate(Fcols):
+        for e, v in C.items():
+            Mb[mons[e], K + j] = -float(v)
+    ns = sla.null_space(Mb)
+    S = ns[:K, :] if ns.size else np.zeros((K, 0))
+    if S.shape[1] == 0:
+        return np.zeros((K, 0))
+    U, s, _ = np.linalg.svd(S, full_matrices=False)
+    r = int(np.sum(s > 1e-10 * max(1.0, s[0])))
+    return U[:, :r]
+
+
+def build_family(F, A, q, G, basis, label, p=P0, verbose=False, exclude_F=True):
+    """CharFamily on an arbitrary chi-type basis, restricted to the E1 kernel minus F-multiples."""
+    t0 = time.time()
+    d = core.degree(basis[0]); pD = core.parity_of(basis[0])
+    info = {'label': label, 'd': d, 'pD': pD, 'nD': len(basis)}
+    dimK, kvecs, nN1, rows1 = e1_family_modp(F, A, q, basis, G, pD, p)
+    info.update(dimK=dimK, e1_rows=rows1, e1_nN=nN1)
+    if dimK == 0:
+        info['dimP'] = 0; return None, info
+    Kb, finfo = e1_family_float(F, A, q, basis, G, pD, expect=dimK)
+    info['sv_gap'] = finfo['sv_gap']
+    fam = CharFamily(F, A, q, G, basis, reps=None, verbose=verbose, label=label)
+    Pm = Kb; nF = 0
+    if exclude_F and d >= 6:
+        Fv = generic_f_multiples(F, basis)
+        if Fv.shape[1]:
+            S = Kb.T @ Fv
+            info['F_in_kernel_resid'] = float(np.linalg.norm(Fv - Kb @ S) / max(np.linalg.norm(Fv), 1e-300))
+            U, s, _ = np.linalg.svd(S, full_matrices=True)
+            nF = int(np.sum(s > 1e-9 * max(1.0, s[0])))
+            Pm = Kb @ U[:, nF:]
+    info['dimF'] = nF
+    fam.set_subspace(Pm)
+    info.update(dimP=fam.dimP, rows=fam.rows, nN=fam.nN, nQ=fam.nQ, build_s=round(time.time() - t0, 1))
+    fam.info = info
+    return fam, info
+
+
+def restricted_family(polys, G, p=P0):
+    """chi-symmetrise the given exact polys (common degree/parity) and extract a basis of their span."""
+    syms = []
+    for P in polys:
+        S = G.sym_chi(P)
+        if S:
+            syms.append(S)
+    if not syms:
+        return []
+    mons = {}
+    for S in syms:
+        for e in S:
+            mons.setdefault(e, len(mons))
+    rows = []
+    for S in syms:
+        Sp = core.reduce_mod(S, p)
+        rows.append([Sp.get(e, 0) for e in mons])
+    M = nmod_mat(len(rows), len(mons), [v for r in rows for v in r], p)
+    # greedy independent subset via rref of the transpose (pivot columns = independent polys)
+    Mt = M.transpose()
+    Mr, rk = Mt.rref()
+    piv = []
+    for i in range(rk):
+        j = 0
+        while j < Mt.ncols() and int(Mr[i, j]) == 0:
+            j += 1
+        piv.append(j)
+    return [syms[j] for j in piv]
+
+
+def solve_single(F, A, q, D, G, p=P0, lift=False):
+    """fixed-D character-reduced solve (mod p); D may be an exact or a mod-p (int coefficient) poly."""
+    t0 = time.time()
+    ok, info = e1_char(F, A, q, D, G, p)
+    if not ok:
+        return {'e1': False, 'consistent': False, 'rank': info['rank'], 'nullity': info['cols'] - info['rank'],
+                'rows': info['rows'], 'cols': info['cols'], 'seconds': round(time.time() - t0, 2)}
+    S = CharSystem(F, A, q, D, G, p=p)
+    r = S.solve()
+    out = {'e1': True, 'consistent': r['consistent'], 'rank': r['rank'], 'nullity': r['nullity'],
+           'rows': S.nrows, 'cols': S.ncols, 'seconds': round(time.time() - t0, 2)}
+    if r['consistent'] and lift:
+        status, data = solve_char(F, A, q, D, G)
+        out['lift_status'] = status
+        if status == 'solved':
+            out['N'], out['Q'] = data['N'], data['Q']
+    return out
+
+
+def kernel_classes(F, A, q, chi, d, pD, p=P0):
+    """E1-kernel classes modulo J^chi_d (mod p; signed-int coefficient polys) via charsolve.e1_kernel_char."""
+    from charsolve import e1_kernel_char
+    G = GROUPS[chi]()
+    info, polys = e1_kernel_char(F, A, q, d, pD, G, p)
+    return G, info, polys
+
+
+# ---------------------------------------------------------------- Jacobian-type (w-space) family, unrestricted
+def _poly_rows(polys):
+    rows = {}
+    for P in polys:
+        for e in P:
+            rows.setdefault(e, len(rows))
+    return rows
+
+
+class JacFamily(CharFamily):
+    """D(a) = sum_k a_k D_k with explicit E1 lifts N0_k (N0_k(F) = A D_k / q); unknowns = Koszul corrections
+    c_ij (deg d-4) and Q.  Equation: T_D(c) - F Q = -B_D(N0),  B_D(N) = D div N - N(D)  (book ch.5 criterion).
+    Family members: all m F_i (m of degree d-5 with the parity forced by pD) with N0 = A m e_i / q, plus optional
+    extra (D_k, N0_k) pairs (e.g. E1-kernel classes beyond J with least-squares lifts)."""
+
+    def __init__(self, F, A, q, d, pD, extra=(), verbose=False, cond=1e-9, label=''):
+        t0 = time.time()
+        assert q == 1
+        self.F, self.A, self.q = F, A, q
+        self.cond = cond; self.label = label or f'jac/d{d}/p{pD}'
+        self.d, self.pD = d, pD
+        pA = core.parity_of(A); self.pA = pA
+        parF = [0, 0, 0, 1, 1, 1]
+        parN = [(pA - pD - parF[i]) % 2 for i in range(6)]
+        self.parN = parN
+        Fi = [core.pderiv(F, i) for i in range(6)]
+        Ff = fpoly(F); Fif = [fpoly(P) for P in Fi]; Af = fpoly(A)
+        # family: w-basis
+        basis = []; lifts = []   # D_k (float dict) ; N0_k = list of 6 float-array polys
+        self.wbasis = []
+        for i in range(6):
+            for m in core.monomials(d - 5, (pD - parF[i]) % 2):
+                Dk = core.shift(Fi[i], m, 1)
+                basis.append({e: float(v) for e, v in Dk.items()})
+                N0 = [(np.zeros((0, 6), dtype=np.int64), np.zeros(0))] * 6
+                N0 = list(N0); N0[i] = fscale(fmul(Af, (np.array([m], dtype=np.int64), np.array([1.0]))), 1.0 / q)
+                lifts.append(N0); self.wbasis.append((i, m))
+        self.nW = len(basis)
+        for Dk, N0k in extra:
+            basis.append({e: float(v) for e, v in Dk.items()}); lifts.append(N0k)
+        self.basis = basis; self.lifts = lifts; K = len(basis); self.K = K; self.reps = None
+        degC = d - 4; degQ = 2 * d - 6; self.degQ = degQ
+        # rows: Y-odd monomials of degree 2d (parity of B_D(N) = pA)
+        rowmons = core.monomials(2 * d, pA)
+        self.row_index = {m: i for i, m in enumerate(rowmons)}; R = len(rowmons); self.rows = R
+        E_all = np.array(rowmons, dtype=np.int64)
+        codes_all = np.zeros(R, dtype=np.int64)
+        for i in range(6): codes_all = codes_all * 64 + E_all[:, i]
+        order = np.argsort(codes_all); self.sorted_codes = codes_all[order]; self.order = order
+        def ridx(E):
+            c = np.zeros(E.shape[0], dtype=np.int64)
+            for i in range(6): c = c * 64 + E[:, i]
+            pos = np.searchsorted(self.sorted_codes, c)
+            return order[pos]
+        self._ridx = ridx
+        # Koszul columns: pairs (i<j), monomial c of parity parN[i] - parF[j]
+        Tcols = []
+        for i in range(6):
+            for j in range(i + 1, 6):
+                for c in core.monomials(degC, (parN[i] - parF[j]) % 2) if degC >= 0 else []:
+                    Tcols.append((i, j, c))
+        self.Ncols = Tcols; nN = len(Tcols); self.nN = nN
+        Bf = [fpoly(B) for B in basis]
+        tri = []
+        for k, (Dk, Dkf) in enumerate(zip(basis, Bf)):
+            Dki = [fderiv(Dkf, i) for i in range(6)]
+            for jcol, (i, j, c) in enumerate(Tcols):
+                cm = (np.array([c], dtype=np.int64), np.array([1.0]))
+                parts = []
+                # D (d_i c F_j - d_j c F_i)
+                dic = fderiv(cm, i); djc = fderiv(cm, j)
+                if dic[1].size: parts.append(fmul(Dkf, fmul(dic, Fif[j])))
+                if djc[1].size: parts.append(fscale(fmul(Dkf, fmul(djc, Fif[i])), -1.0))
+                # - c (D_i F_j - D_j F_i)
+                parts.append(fscale(fmul(cm, fmul(Dki[i], Fif[j])), -1.0))
+                parts.append(fmul(cm, fmul(Dki[j], Fif[i])))
+                E = np.concatenate([p_[0] for p_ in parts]); C = np.concatenate([p_[1] for p_ in parts])
+                if E.shape[0] == 0: continue
+                r = ridx(E)
+                tri.append((r * nN + jcol, np.full(len(r), k), C))
+        ri = np.concatenate([t[0] for t in tri]); ci = np.concatenate([t[1] for t in tri]); vals = np.concatenate([t[2] for t in tri])
+        self.Mstack = sp.coo_matrix((vals, (ri, ci)), shape=(R * nN, K)).tocsr(); self.MstackT = self.Mstack.T.tocsr()
+        # Q columns: -F m
+        Qcols = core.monomials(degQ, pA) if degQ >= 0 else []
+        self.Qcols = Qcols; nQ = len(Qcols); self.nQ = nQ
+        MQ = np.zeros((R, nQ))
+        if nQ:
+            Qm = np.array(Qcols, dtype=np.int64)
+            E = (Ff[0][None, :, :] + Qm[:, None, :]).reshape(-1, 6)
+            C = -np.broadcast_to(Ff[1][None, :], (nQ, Ff[1].shape[0])).ravel()
+            np.add.at(MQ, (ridx(E), np.repeat(np.arange(nQ), Ff[1].shape[0])), C)
+        self.MQ = MQ
+        # rhs: b(a) = -B_{D(a)}(N0(a)) = sum_{k,l} a_k a_l v_kl,  v_kl = -(D_k div N0_l - N0_l(D_k))
+        tri = []
+        divN = []
+        for N0 in lifts:
+            parts = [fderiv(N0[i], i) for i in range(6) if N0[i][1].size]
+            divN.append((np.concatenate([p_[0] for p_ in parts]) if parts else np.zeros((0, 6), dtype=np.int64),
+                         np.concatenate([p_[1] for p_ in parts]) if parts else np.zeros(0)))
+        for k, Dkf in enumerate(Bf):
+            Dki = [fderiv(Dkf, i) for i in range(6)]
+            for l, N0 in enumerate(lifts):
+                parts = [fscale(fmul(Dkf, divN[l]), -1.0)]
+                for i in range(6):
+                    if N0[i][1].size and Dki[i][1].size:
+                        parts.append(fmul(N0[i], Dki[i]))
+                E = np.concatenate([p_[0] for p_ in parts]); C = np.concatenate([p_[1] for p_ in parts])
+                if E.shape[0] == 0: continue
+                r = ridx(E)
+                tri.append((r, np.full(len(r), k * K + l), C))
+        ri = np.concatenate([t[0] for t in tri]); ci = np.concatenate([t[1] for t in tri]); vals = np.concatenate([t[2] for t in tri])
+        self.Vstack = sp.coo_matrix((vals, (ri, ci)), shape=(R, K * K)).tocsr(); self.VstackT = self.Vstack.T.tocsr()
+        self.ncols = nN + nQ
+        self.P = np.eye(K); self.dimP = K; self._nfev = 0
+        self.build_time = time.time() - t0
+        if verbose:
+            print(f'[jacfamily {self.label}] d={d} pD={pD} K={K} (w {self.nW}, extra {K-self.nW}) rows={R} cols={self.ncols} '
+                  f'(T {nN}, Q {nQ}) nnz(M)={self.Mstack.nnz} built in {self.build_time:.1f}s', file=sys.stderr)
+
+    def value_and_grad(self, u):
+        a_full = self.P @ u
+        na = np.linalg.norm(a_full); a = a_full / na
+        M, b = self.assemble(a)
+        x, *_ = sla.lstsq(M, b, cond=self.cond, lapack_driver='gelsd', check_finite=False)
+        r = M @ x - b
+        f = float(r @ r)
+        xN = x[:self.nN]
+        gM = self.MstackT @ np.outer(r, xN).ravel()
+        W = (self.VstackT @ r).reshape(self.K, self.K)
+        gb = W @ a + W.T @ a
+        g = 2.0 * (gM - gb)
+        g_full = (g - float(g @ a) * a) / na
+        self._nfev += 1
+        return f, self.P.T @ g_full
+
+    def D_exact(self, frac):
+        D = {}
+        for k, (i, m) in enumerate(self.wbasis):
+            if frac[k]:
+                D = core.add(D, core.scale(core.shift(core.pderiv(self.F, i), m, 1), Fraction(frac[k])))
+        for k in range(self.nW, self.K):
+            if frac[k]:
+                D = core.add(D, core.scale({e: Fraction(v) for e, v in self.basis[k].items()}, Fraction(frac[k])))
+        return D
+
+    def confirm(self, frac, verbose=False):
+        D = self.D_exact(frac)
+        if not D:
+            return 'inconsistent', {'note': 'D = 0'}
+        if self.d >= 6:
+            divF, _ = jacobian.divisible_by(self.F, D)
+            if divF:
+                return 'spurious', {'note': 'F divides D', 'D': D}
+        ok, info = fixed_d.e1_solvable(self.F, self.A, self.q, D)
+        if not ok:
+            return 'inconsistent', {'note': 'e1 fails', 'e1': info, 'D': D}
+        out = fixed_d.solve_fixed_D_fast(self.F, self.A, self.q, D, verbose=verbose)
+        if not out['consistent']:
+            return 'inconsistent', {'rank': out['rank'], 'nullity': out['nullity'], 'D': D}
+        if out.get('exact'):
+            return 'solved', {'N': out['N'], 'Q': out['Q'], 'rank': out['rank'], 'nullity': out['nullity'], 'D': D}
+        status, data = fixed_d.solve_fixed_D(self.F, self.A, self.q, D, verbose=verbose)
+        data['D'] = D
+        return status, data
+
+
+def unrestricted_kernel_extra(F, A, q, d, pD, verbose=False):
+    """E1-kernel classes beyond J (unrestricted, float) with least-squares E1 lifts, as (D_k, N0_k) pairs."""
+    t0 = time.time()
+    G0 = Group([], [])
+    mons = core.monomials(d, pD)
+    basis = [{m: Fraction(1)} for m in mons]
+    dimK, kv, nN1, rows1 = e1_family_modp(F, A, q, basis, G0, pD)
+    Kb, finfo = e1_family_float(F, A, q, basis, G0, pD, expect=dimK)
+    # J part in monomial coordinates
+    Fi = [core.pderiv(F, i) for i in range(6)]
+    parF = [0, 0, 0, 1, 1, 1]
+    idx = {m: i for i, m in enumerate(mons)}
+    Jv = []
+    for i in range(6):
+        for m in core.monomials(d - 5, (pD - parF[i]) % 2):
+            P = core.shift(Fi[i], m, 1); v = np.zeros(len(mons))
+            for e, c in P.items(): v[idx[e]] = float(c)
+            Jv.append(v)
+    Jm = np.array(Jv).T if Jv else np.zeros((len(mons), 0))
+    S = Kb.T @ Jm
+    U, s, _ = np.linalg.svd(S, full_matrices=True) if S.shape[1] else (np.eye(Kb.shape[1]), np.zeros(0), None)
+    nJ = int(np.sum(s > 1e-9 * max(1.0, s[0]))) if s.size else 0
+    Comp = Kb @ U[:, nJ:]            # kernel directions beyond J (orthogonal to J inside the kernel)
+    extra = []
+    if Comp.shape[1]:
+        # E1 lifts by least squares: columns F_i m (deg m = d+1), rows degree d+6 parity (pA+pD)%2
+        pA = core.parity_of(A)
+        parN = [(pA - pD - parF[i]) % 2 for i in range(6)]
+        cols = []
+        for i in range(6):
+            for m in core.monomials(d + 1, parN[i]):
+                cols.append((i, m, core.shift(Fi[i], m, q)))
+        rows = _poly_rows([c[2] for c in cols])
+        Af = A
+        tgt_polys = []
+        for t in range(Comp.shape[1]):
+            Dk = {mons[j]: float(Comp[j, t]) for j in range(len(mons)) if abs(Comp[j, t]) > 1e-14}
+            AD = {}
+            for e, c in Dk.items():
+                for ea, ca in A.items():
+                    ee = tuple(x + y for x, y in zip(e, ea)); AD[ee] = AD.get(ee, 0.0) + c * float(ca)
+            for e in AD: rows.setdefault(e, len(rows))
+            tgt_polys.append((Dk, AD))
+        R = len(rows); C = len(cols)
+        M = np.zeros((R, C))
+        for j, (i, m, P) in enumerate(cols):
+            for e, c in P.items(): M[rows[e], j] = float(c)
+        Bm = np.zeros((R, len(tgt_polys)))
+        for t, (Dk, AD) in enumerate(tgt_polys):
+            for e, c in AD.items(): Bm[rows[e], t] = c
+        Xs, res, rk, sv = sla.lstsq(M, Bm, cond=1e-10, lapack_driver='gelsd', check_finite=False)
+        resid = np.linalg.norm(M @ Xs - Bm, axis=0) / np.maximum(np.linalg.norm(Bm, axis=0), 1e-300)
+        for t, (Dk, AD) in enumerate(tgt_polys):
+            N0 = []
+            for i in range(6):
+                sel = [(j, cols[j][1]) for j in range(C) if cols[j][0] == i]
+                E = np.array([m for _, m in sel], dtype=np.int64) if sel else np.zeros((0, 6), dtype=np.int64)
+                Cc = np.array([Xs[j, t] for j, _ in sel]) if sel else np.zeros(0)
+                N0.append((E, Cc))
+            extra.append((Dk, N0))
+        if verbose:
+            print(f'[kernel-extra d={d} p={pD}] dimK={dimK} nJ={nJ} beyond={Comp.shape[1]} lift resid={resid} ({time.time()-t0:.1f}s)', file=sys.stderr)
+    return extra, {'dimK': dimK, 'nJ': nJ, 'beyond': Comp.shape[1], 'seconds': round(time.time() - t0, 1)}
+
+
+def build_jac_family(F, A, q, d, pD, with_kernel=True, verbose=False, exclude_F=True):
+    t0 = time.time()
+    extra, kinfo = ([], {'beyond': 0}) if not with_kernel else unrestricted_kernel_extra(F, A, q, d, pD, verbose=verbose)
+    fam = JacFamily(F, A, q, d, pD, extra=extra, verbose=verbose)
+    info = {'d': d, 'pD': pD, 'K': fam.K, 'nW': fam.nW, 'n_kernel_extra': fam.K - fam.nW, 'rows': fam.rows, 'nT': fam.nN,
+            'nQ': fam.nQ, 'kernel_info': kinfo}
+    nF = 0
+    if exclude_F and d >= 6:
+        Fv = generic_f_multiples(F, fam.basis)
+        if Fv.shape[1]:
+            U, s, _ = np.linalg.svd(Fv, full_matrices=True)
+            nF = Fv.shape[1]
+            fam.set_subspace(U[:, nF:])
+    info['dimF'] = nF; info['dimP'] = fam.dimP; info['build_s'] = round(time.time() - t0, 1)
+    fam.info = info
+    return fam, info

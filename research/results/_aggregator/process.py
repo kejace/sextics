@@ -72,8 +72,8 @@ if '--full' in sys.argv or True:
     print('--- all results (compact):')
     for e in sorted(allv, key=lambda e: e['check']):
         g = e['got']
-        key = {k: g.get(k) for k in ('dim', 'consistent', 'e1', 'in_jacobian', 'equal', 'status', 'size', 'order')} if g else {}
+        key = ({k: g.get(k) for k in ('dim', 'consistent', 'e1', 'in_jacobian', 'equal', 'status', 'size', 'order')} if isinstance(g, dict) else {'raw': g}) if g else {}
         key = {k: v for k, v in key.items() if v is not None}
-        extra = {k: g.get(k) for k in ('kernel_dim', 'rank', 'nullity', 'ring_dim_par0', 'ring_dim_par1', 'seconds') if g and g.get(k) is not None}
+        extra = {k: g.get(k) for k in ('kernel_dim', 'rank', 'nullity', 'ring_dim_par0', 'ring_dim_par1', 'seconds') if isinstance(g, dict) and g.get(k) is not None}
         flag = 'AGREE' if e['agree'] else ('DISAGREE' if e['agree'] is False else ('ERR' if not e['ok'] else 'info'))
         print(f"  {flag:8s} {e['check']:62s} {key} {extra}")

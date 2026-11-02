@@ -90,6 +90,18 @@ if partial:
         mins = collections.Counter(f'{r:.3g}' for r in rels)
         mtxt = ', '.join(f'{v}: {c}' for v, c in sorted(mins.items(), key=lambda kv: float(kv[0]))[:5])
         out.append(f"| {k[0]} d={k[1]} pD={k[2]} | {k[3]} | {len(rs)} | {rels[0]:.2e} | {rels[len(rels)//2]:.1e} | {sum(1 for r in rels if r < 1e-6)} | {sum(1 for r in rels if r < 1e-10)} | {mtxt} |")
+# ---- polish checks
+Pc = [r for r in recs if r.get('family') == 'polish-check']
+if Pc:
+    out.append('\n## 7b. Gauss–Newton polish of the best points (is a small residual a zero?)\n')
+    out.append('The best restart of a sector is reproduced from its seed, polished by joint Gauss–Newton inside the admissible subspace (10 iterations), continued by 2000 L-BFGS iterations and polished again. A true zero drops to ~1e-28 (Fermat control); a nonzero minimum stays put.\n')
+    out.append('| sector | dimP | remote rel | re-run | polished | +2000 L-BFGS | polished again | verdict |')
+    out.append('|---|---:|---:|---:|---:|---:|---:|---|')
+    for r in sorted(Pc, key=lambda r: (r['d'], r['pD'])):
+        if 'error' in r:
+            out.append(f"| {r['chi']} d={r['d']} pD={r['pD']} | | | | | | | error: {r['error'][:60]} |"); continue
+        verdict = 'ZERO (candidate!)' if r['polished2_rel'] < 1e-12 else ('nonzero minimum (stable)' if r['polished2_rel'] > 0.5 * r['remote_rel'] else 'decreased — inspect')
+        out.append(f"| {r['chi']} d={r['d']} pD={r['pD']} | {r.get('dimP')} | {r['remote_rel']:.2e} | {r['rerun_rel']:.2e} | {r['polished_rel']:.2e} | {r['lbfgs2000_rel']:.2e} | {r['polished2_rel']:.2e} | {verdict} |")
 # ---- single solves
 Sg = [r for r in recs if r.get('family') in ('kernel-class', 'kernel-random-combo', 'structured-single')]
 if Sg:

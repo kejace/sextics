@@ -1,0 +1,45 @@
+.olean serialization took 2.68s
+type checking took 29.2s
+type checking took 31.7s
+type checking took 1.18s
+type checking took 54.9s
+type checking took 88.2s
+type checking took 88.3s
+type checking took 88.4s
+type checking took 88.5s
+type checking took 88.5s
+type checking took 88.5s
+type checking took 88.6s
+type checking took 88.8s
+simp took 1.25s
+tactic execution of Mathlib.Tactic.normNum took 2.91s
+simp took 4.22s
+simp took 1.05s
+tactic execution of Mathlib.Tactic.normNum took 12.1s
+type checking took 2.3s
+cumulative profiling times:
+	.olean serialization 2.68s
+	algebra 1.83s
+	attribute application 33ms
+	compilation (IR) 1.83ms
+	compilation (LCNF base) 62.5ms
+	compilation (LCNF impure) 7.97ms
+	compilation (LCNF mono) 26.7ms
+	congr simp thm 177ms
+	elaboration 3.1s
+	fix level params 56.8ms
+	instantiate metavars 44.2ms
+	let-to-have transformation 3.17ms
+	linting 462ms
+	module linting 0.00235ms
+	norm_num 5.41s
+	parsing 245ms
+	process pre-definitions 717ms
+	share common exprs 859ms
+	simp 9.03s
+	tactic execution 20.1s
+	tacticAnalysis 18.4ms
+	type checking 830s
+	typeclass inference 18.5s
+M3Kron WALL=104.58 USER=141.07 MAXRSS_KB=10162764
+done

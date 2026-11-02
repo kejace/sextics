@@ -13,3 +13,8 @@ X0^6+Y0^6 pair: d=6 NOT in J_d -> E1 fails (kernel mod J = 0) (0.0s)
 [compressed p=2147483647] k=2643 consistent=False rank=2359 nullity=243 (compress 39.7s, rref 7.6s)
 E_X(F) - E_Y(F): d=6 e1=True consistent=False rank=2359 nullity=243 (72.1s)
 [system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=4764547 built in 6.7s
+[compressed p=2147483647] k=2643 consistent=False rank=2359 nullity=243 (compress 61.8s, rref 25.6s)
+X0*F_X0 (block radial, 1 var): d=6 e1=True consistent=False rank=2359 nullity=243 (116.1s)
+[system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=6027554 built in 27.8s
+[compressed p=2147483647] k=2643 consistent=False rank=2359 nullity=243 (compress 63.6s, rref 7.9s)
+X0*F_X0 + Y0*F_Y0 (pair radial): d=6 e1=True consistent=False rank=2359 nullity=243 (166.9s)

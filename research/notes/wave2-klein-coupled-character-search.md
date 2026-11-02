@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 22:16:58 from 913 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 22:23:03 from 923 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -101,9 +101,9 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 
 ## (4) Structured families (E1-admissible dimension per sector; varpro where nonzero)
 
-Cells with zero E1-admissible part (excluded as supports), by family: G-multiples:9, K+G-multiples:9, K-multiples:9, M-multiples:9, Xdeg_0:3, Xdeg_1:9, Xdeg_2:18, Xdeg_3:21, Xdeg_4:21, Xdeg_5:21, Xdeg_6:21, Xdeg_7:14, Xdeg_8:7, Xdeg_le3:42, Ydeg_le3:4, no_r:25, no_s:25, no_t:25, no_x:19, no_y:19, no_z:19, pureX:21, pureY:3, vars_trsx:24, vars_trsy:24, vars_trsz:24, vars_xyzr:27, vars_xyzs:27, vars_xyzt:27
+Cells with zero E1-admissible part (excluded as supports), by family: G-multiples:9, K+G-multiples:9, K-multiples:9, M-multiples:9, Xdeg_0:3, Xdeg_1:9, Xdeg_2:18, Xdeg_3:21, Xdeg_4:21, Xdeg_5:21, Xdeg_6:21, Xdeg_7:14, Xdeg_8:7, Xdeg_le3:42, Ydeg_le3:4, no_r:25, no_s:25, no_t:25, no_x:19, no_y:19, no_z:19, pureX:23, pureY:3, vars_trsx:25, vars_trsy:25, vars_trsz:25, vars_xyzr:27, vars_xyzs:27, vars_xyzt:27
 
-712 (family, d, parity, k) cells tested; 186 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
+721 (family, d, parity, k) cells tested; 190 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
 
 | family | d | parity | k | dim V | dim E1 | nontrivial mod J | dimP | restarts | best rel | exact tests |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -293,17 +293,21 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 | no_t | 8 | 1 | 5 | 34 | 1 | 0 | 1 | 6 | 9.96e-01 | inconsistent |
 | Ydeg_le3 | 8 | 1 | 6 | 45 | 6 | 0 | 6 | 6 | 4.23e-01 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
 | no_r | 8 | 1 | 6 | 34 | 1 | 0 | 1 | 6 | 7.45e-02 | inconsistent |
+| vars_xyzr | 9 | 0 | 0 | 17 | 1 | 0 | 1 | 6 | 5.36e-01 | inconsistent |
+| vars_xyzs | 9 | 0 | 0 | 17 | 1 | 0 | 1 | 6 | 4.55e-01 | inconsistent |
+| vars_xyzt | 9 | 0 | 0 | 17 | 1 | 0 | 1 | 6 | 3.17e+00 | inconsistent |
+| vars_xyzt | 9 | 0 | 1 | 18 | 2 | 0 | 2 | 6 | 4.50e+00 | inconsistent,inconsistent |
 
 ## Remote job queue (tail)
 ```
-22:05:32 gate closed for w2-control: 00), available memory 89 GB (min 110), 66 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:07:06 gate closed for w2-control: 00), available memory 82 GB (min 110), 66 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:08:40 gate closed for w2-control: 00), available memory 74 GB (min 110), 65 jobs running with 325 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:10:13 gate closed for w2-control: 00), available memory 61 GB (min 110), 65 jobs running with 325 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:11:48 gate closed for w2-control: 00), available memory 67 GB (min 110), 65 jobs running with 325 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:13:22 gate closed for w2-control: 00), available memory 66 GB (min 110), 66 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:14:56 gate closed for w2-control: 00), available memory 66 GB (min 110), 66 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:16:30 gate closed for w2-control: 00), available memory 48 GB (min 110), 66 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:18:04 gate closed for w2-control: 00), available memory 80 GB (min 110), 66 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:19:39 gate closed for w2-control: 0), available memory 136 GB (min 110), 65 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:21:13 gate closed for w2-control: 0), available memory 158 GB (min 110), 65 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:22:47 gate closed for w2-control: 0), available memory 172 GB (min 110), 62 jobs running with 322 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation
@@ -380,4 +384,9 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
   every nonzero E1-admissible part lies in J_8 and has no E2 zero (smallest residuals 1.5e-4 .. 3e-3, see table).
 * Structured families now complete locally for degrees 6, 7 and 8 (all families, all 14 sectors): no E2 zero anywhere;
   all nonzero E1-admissible parts are Jacobian-type.  Degrees 9-12 of the structured sweep remain for the remote job.
+* Degree-9 structured sweep (local, partial): (9,even,0) and (9,even,1) plane/line-vertex cones -- E1 parts of dimension
+  1-2 (Jacobian type), best rel >= 0.45; the remaining degree 9-12 cells are left to the remote job `w2-struct`.
+* Control hit rate (hesse-triangle, 18-dim family {D*}+J_6, reduced system, varpro-LM): seeds 7/3 gave 0 hits in 26
+  restarts; seed 101 found the witness (rel 8e-30) on the 4th restart.  Overall about 1 hit per 30 random restarts in
+  18 dimensions; the reconstructed D agrees with rem_F(D*) and the exact re-solve confirms it (pipeline validated end to end).
 

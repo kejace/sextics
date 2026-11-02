@@ -12,7 +12,9 @@ rationals where stated. Reproduction: `/tmp/hodge/results/polarized-k3-remainder
 * Degree 6: the L-relaxation (D = sum P_i a_i, B_D(Ta) in (G)+J(G)^2+(R_ijk)) rebuilt from scratch at p = 65521 and
   exactly over Q gives the same block ranks (603/558/396/260/396/558; augmented 713/715/617/470/617/715), constraint
   rank 437, and the same two-step square elimination (30 off-diagonal, then 5 diagonal entries) => D in {0, cG}.
-* Degree 7: [pending: block ranks over Q and F_65521, constraint rank 1779, projective emptiness].
+* Degree 7: block L-ranks 1635/1602/1635/1464/1287/1464 (exact over Q = mod 65521), constraint ranks 291/318/291/470/688/470,
+  combined rank 1779 on 7260 quadratic monomials — all identical to the thread's values at p = 101; [projective emptiness replay
+  (charts + square reduction + homogeneous GB) at p = 65521 pending].
 * Degree 8, D = f(U)U0^2: exact rank gap 756/757 in the residue-0 block reproduced; the other two blocks are also
   inconsistent (828/829, 516/517).
 

@@ -1,0 +1,5 @@
+DIM=1 DEG=3 SIZE=3
+NCOMP=1
+COMPONENT 1 dim 1
+c10-c15,
+c5-c15

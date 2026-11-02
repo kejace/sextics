@@ -1,0 +1,90 @@
+d5_even: n_vars 3 (gauge removed 0) n_eqs 12 | gb_size 6 dim 0 vdim 4 [0.0s]
+d5_odd: n_vars 3 (gauge removed 0) n_eqs 6 | gb_size 6 dim 0 vdim 4 [0.0s]
+d5_mixed: n_vars 6 (gauge removed 0) n_eqs 30 | gb_size 21 dim 0 vdim 7 [0.0s]
+RELAX_DONE d5
+d6_odd_allchars: n_vars 18 (gauge removed 0) n_eqs 153 | gb_size 135 dim 0 vdim 57 [0.0s]
+RELAX_DONE d6odd
+d7_even_k0: n_vars 3 (gauge removed 0) n_eqs 15 | gb_size 6 dim 0 vdim 4 [0.0s]
+d7_even_k3: n_vars 8 (gauge removed 0) n_eqs 53 | gb_size 30 dim 0 vdim 16 [0.0s]
+d7_even_k5: n_vars 8 (gauge removed 0) n_eqs 51 | gb_size 30 dim 0 vdim 16 [0.0s]
+d7_even_k6: n_vars 8 (gauge removed 0) n_eqs 51 | gb_size 30 dim 0 vdim 16 [0.0s]
+d7_odd_k1: n_vars 6 (gauge removed 0) n_eqs 28 | gb_size 20 dim 0 vdim 8 [0.0s]
+d7_odd_k2: n_vars 6 (gauge removed 0) n_eqs 31 | gb_size 20 dim 0 vdim 8 [0.0s]
+d7_odd_k3: n_vars 6 (gauge removed 0) n_eqs 26 | gb_size 20 dim 0 vdim 8 [0.0s]
+d7_odd_k4: n_vars 6 (gauge removed 0) n_eqs 28 | gb_size 20 dim 0 vdim 8 [0.0s]
+d7_odd_k5: n_vars 6 (gauge removed 0) n_eqs 24 | gb_size 20 dim 0 vdim 8 [0.0s]
+d7_odd_k6: n_vars 6 (gauge removed 0) n_eqs 24 | gb_size 20 dim 0 vdim 8 [0.0s]
+RELAX_DONE d7empty
+d6even: n_vars 17 n_eqs 105; diagonal unknowns [(3, '(1,X0X1X0Y0Y0Y0)'), (5, '(2,X0X0X1Y0Y0Y0)'), (10, '(3,X0X0X0Y1Y0Y0)'), (12, '(4,X0X0X0Y0Y1Y0)'), (14, '(5,X0X0X0Y0Y0Y1)')]
+gb_size 201 dim 2
+u0 power 2 in I
+u1 power 2 in I
+u2 power 2 in I
+u4 power 2 in I
+u6 power 2 in I
+u7 power 2 in I
+u8 power 2 in I
+u9 power 2 in I
+u11 power 2 in I
+u13 power 2 in I
+u15 power 2 in I
+u16 power 2 in I
+C_ideal_gb
+150*u5^2-70*u3*u10-30*u5*u10+75*u10^2-60*u3*u12-66*u5*u12-20*u10*u12+215*u12^2-10*u3*u14-96*u5*u14-10*u10*u14-66*u12*u14+190*u14^2,
+6*u3*u5-14*u5^2+2*u3*u10+6*u5*u10-5*u10^2+4*u5*u12-10*u12^2+2*u3*u14+10*u5*u14+2*u10*u14+4*u12*u14-15*u14^2,
+40*u3^2-34*u3*u5+46*u5^2-18*u3*u10-54*u5*u10+45*u10^2-18*u3*u14-54*u5*u14-18*u10*u14+45*u14^2,
+16519875*u5*u10^2-23697500*u10^3-14327870*u3*u10*u12+9817370*u5*u10*u12+21224075*u10^2*u12-67221785*u3*u12^2+66053024*u5*u12^2-52475345*u10*u12^2+70692365*u12^3+58584530*u3*u10*u14+24756720*u5*u10*u14-24009425*u10^2*u14+69807380*u3*u12*u14-6511862*u5*u12*u14+33561220*u10*u12*u14-119058536*u12^2*u14-57579135*u3*u14^2+26583689*u5*u14^2-51424635*u10*u14^2+60284684*u12*u14^2-43083335*u14^3,
+8335*u3*u10^2-21210*u5*u10^2+9525*u10^3+6780*u3*u10*u12-1782*u5*u10*u12+785*u10^2*u12+38565*u3*u12^2-25551*u5*u12^2-2315*u10*u12^2-29010*u12^3-21070*u3*u10*u14-9642*u5*u10*u14+3580*u10^2*u14-29310*u3*u12*u14-792*u5*u12*u14-7672*u10*u12*u14+40939*u12^2*u14+28060*u3*u14^2-9231*u5*u14^2+11490*u10*u14^2-20571*u12*u14^2+12065*u14^3,
+381019765959375*u10^4-911907063814250*u10^3*u12+891327778216880*u3*u10*u12^2-149471401275580*u5*u10*u12^2+1410149086946975*u10^2*u12^2-1877574154617860*u3*u12^3+805295996966204*u5*u12^3-2110501262445870*u10*u12^3+2204431308192915*u12^4-2529604636919250*u10^3*u14-2779344514071840*u3*u10*u12*u14+1922226407641440*u5*u10*u12*u14+3574322305716700*u10^2*u12*u14-6063797822367180*u3*u12^2*u14+10025707490277052*u5*u12^2*u14-7817494816293800*u10*u12^2*u14+7566751738638734*u12^3*u14+10008347391114160*u3*u10*u14^2+3474049229272140*u5*u10*u14^2-3747435469300425*u10^2*u14^2+8372713825642660*u3*u12*u14^2-1365784740423844*u5*u12*u14^2+3631458519958740*u10*u12*u14^2-16242159021454177*u12^2*u14^2-7213976539243220*u3*u14^3+4292709497290428*u5*u14^3-7677890466520970*u10*u14^3+8243232372622818*u12*u14^3-6830904776152795*u14^4
+dim 14 mult 8
+lens C quadrics reduce to 0 mod mine: 1 | mine reduce to 0 mod lens: 1
+total failures 0 [0.1s]
+RELAX_DONE d6even
+d6mixed: n_vars 35 n_eqs 313; diagonal unknowns [(9, '(1,X0X1X0Y0Y0Y0)'), (14, '(2,X0X0X1Y0Y0Y0)'), (19, '(3,X0X0X0Y1Y0Y0)'), (24, '(4,X0X0X0Y0Y1Y0)'), (29, '(5,X0X0X0Y0Y0Y1)')]
+gb_size 1354 dim 2
+u0 power 2 in I
+u1 power 2 in I
+u2 power 2 in I
+u3 power 2 in I
+u4 power 2 in I
+u5 power 2 in I
+u6 power 2 in I
+u7 power 2 in I
+u8 power 2 in I
+u10 power 2 in I
+u11 power 2 in I
+u12 power 2 in I
+u13 power 2 in I
+u15 power 2 in I
+u16 power 2 in I
+u17 power 2 in I
+u18 power 2 in I
+u20 power 2 in I
+u21 power 2 in I
+u22 power 2 in I
+u23 power 2 in I
+u25 power 2 in I
+u26 power 2 in I
+u27 power 2 in I
+u28 power 2 in I
+u30 power 2 in I
+u31 power 2 in I
+u32 power 2 in I
+u33 power 2 in I
+u34 power 2 in I
+C_ideal_gb
+150*u14^2-70*u9*u19-30*u14*u19+75*u19^2-60*u9*u24-66*u14*u24-20*u19*u24+215*u24^2-10*u9*u29-96*u14*u29-10*u19*u29-66*u24*u29+190*u29^2,
+6*u9*u14-14*u14^2+2*u9*u19+6*u14*u19-5*u19^2+4*u14*u24-10*u24^2+2*u9*u29+10*u14*u29+2*u19*u29+4*u24*u29-15*u29^2,
+40*u9^2-34*u9*u14+46*u14^2-18*u9*u19-54*u14*u19+45*u19^2-18*u9*u29-54*u14*u29-18*u19*u29+45*u29^2,
+16519875*u14*u19^2-23697500*u19^3-14327870*u9*u19*u24+9817370*u14*u19*u24+21224075*u19^2*u24-67221785*u9*u24^2+66053024*u14*u24^2-52475345*u19*u24^2+70692365*u24^3+58584530*u9*u19*u29+24756720*u14*u19*u29-24009425*u19^2*u29+69807380*u9*u24*u29-6511862*u14*u24*u29+33561220*u19*u24*u29-119058536*u24^2*u29-57579135*u9*u29^2+26583689*u14*u29^2-51424635*u19*u29^2+60284684*u24*u29^2-43083335*u29^3,
+8335*u9*u19^2-21210*u14*u19^2+9525*u19^3+6780*u9*u19*u24-1782*u14*u19*u24+785*u19^2*u24+38565*u9*u24^2-25551*u14*u24^2-2315*u19*u24^2-29010*u24^3-21070*u9*u19*u29-9642*u14*u19*u29+3580*u19^2*u29-29310*u9*u24*u29-792*u14*u24*u29-7672*u19*u24*u29+40939*u24^2*u29+28060*u9*u29^2-9231*u14*u29^2+11490*u19*u29^2-20571*u24*u29^2+12065*u29^3,
+381019765959375*u19^4-911907063814250*u19^3*u24+891327778216880*u9*u19*u24^2-149471401275580*u14*u19*u24^2+1410149086946975*u19^2*u24^2-1877574154617860*u9*u24^3+805295996966204*u14*u24^3-2110501262445870*u19*u24^3+2204431308192915*u24^4-2529604636919250*u19^3*u29-2779344514071840*u9*u19*u24*u29+1922226407641440*u14*u19*u24*u29+3574322305716700*u19^2*u24*u29-6063797822367180*u9*u24^2*u29+10025707490277052*u14*u24^2*u29-7817494816293800*u19*u24^2*u29+7566751738638734*u24^3*u29+10008347391114160*u9*u19*u29^2+3474049229272140*u14*u19*u29^2-3747435469300425*u19^2*u29^2+8372713825642660*u9*u24*u29^2-1365784740423844*u14*u24*u29^2+3631458519958740*u19*u24*u29^2-16242159021454177*u24^2*u29^2-7213976539243220*u9*u29^3+4292709497290428*u14*u29^3-7677890466520970*u19*u29^3+8243232372622818*u24*u29^3-6830904776152795*u29^4
+dim 32 mult 8
+lens C quadrics reduce to 0 mod mine: 1 | mine reduce to 0 mod lens: 1
+total failures 0 [7.9s]
+RELAX_DONE d6mixed
+d7 even k=1 (lift X0.C): n_vars 11 n_eqs 27 | gb_size 94 dim 2 mult 8 | u2 power 2 in I | u3 power 2 in I | u5 power 2 in I | u7 power 2 in I | u9 power 2 in I | u10 power 2 in I | C-quadric image power 2 in I | C-quadric image power 2 in I | C-quadric image power 2 in I | lifted family inside V(I): 1 | total failures 0 [0.0s]
+d7 even k=2 (lift X1.C): n_vars 11 n_eqs 27 | gb_size 94 dim 2 mult 8 | u2 power 2 in I | u3 power 2 in I | u5 power 2 in I | u7 power 2 in I | u9 power 2 in I | u10 power 2 in I | C-quadric image power 2 in I | C-quadric image power 2 in I | C-quadric image power 2 in I | lifted family inside V(I): 1 | total failures 0 [0.1s]
+d7 even k=4 (lift X2.C): n_vars 11 n_eqs 39 | gb_size 94 dim 2 mult 8 | u2 power 2 in I | u3 power 2 in I | u5 power 2 in I | u7 power 2 in I | u9 power 2 in I | u10 power 2 in I | C-quadric image power 2 in I | C-quadric image power 2 in I | C-quadric image power 2 in I | lifted family inside V(I): 1 | total failures 0 [0.0s]
+RELAX_DONE d7lift
+CHAIN_EXIT 0
