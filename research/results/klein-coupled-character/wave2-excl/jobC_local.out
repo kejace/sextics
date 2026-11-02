@@ -159,3 +159,5 @@
 02:40:57 done E1-kernel+J_d random d=10 par=1 k=5 trial 0 (p=1000003) inconsistent rank 2388 rows 12032 cols 2693 626.74 s
 02:46:01 done E1-kernel random combo d=10 par=1 k=6 trial 0 (p=1000003) inconsistent rank 2415 rows 12090 cols 2720 627.5 s
 02:46:41 done E1-kernel random combo d=10 par=1 k=6 trial 1 (p=1000003) inconsistent rank 2415 rows 12090 cols 2720 577.54 s
+02:48:04 done E1-kernel+J_d random d=10 par=1 k=6 trial 0 (p=1000003) inconsistent rank 2415 rows 12167 cols 2720 583.6 s
+02:48:04 JOBC_LOCAL_DONE

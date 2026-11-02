@@ -2749,5 +2749,26 @@
   "compressed": false,
   "subgroup": 14,
   "seconds": 577.54
+ },
+ {
+  "exp": "fixedD",
+  "D": "E1-kernel+J_d random d=10 par=1 k=6 trial 0 (p=1000003)",
+  "d": 10,
+  "par": 1,
+  "k": 6,
+  "prime": 1000003,
+  "family": "e1-kernel-plus-J-random",
+  "e1": true,
+  "engine": "v2-restricted",
+  "result": "inconsistent",
+  "rank": 2415,
+  "nullity": 305,
+  "note": "random kernel combo plus random element of J_d",
+  "job": "jobC-local",
+  "rows": 12167,
+  "cols": 2720,
+  "compressed": false,
+  "subgroup": 14,
+  "seconds": 583.6
  }
 ]
