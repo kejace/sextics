@@ -9,3 +9,5 @@
 [09:56:24] start d10all-c40 (eff 76) elapsed 3180s
    -> no summary: [Errno 2] No such file or directory: 'wave2-d10all-c40.summary.json'
 [09:56:33] start d10all-c50 (eff 75) elapsed 3188s
+   -> best 7.046e-03 median 1.185e-02 restarts 8 dimP 75 t/restart 598.08 witness False
+[10:07:33] start d10all-c01 (eff 66) elapsed 3849s
