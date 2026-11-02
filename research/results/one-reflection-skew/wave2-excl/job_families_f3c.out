@@ -120,3 +120,6 @@ v*r2*f 12 EXCLUDED-exact 5894.28
 c1*c1*f 12 EXCLUDED-exact 5723.87
 m*r2*f 12 EXCLUDED-exact 7121.07
 cq*cq*f 12 EXCLUDED-exact 3088.85
+c1*cq*f 12 EXCLUDED-exact 6639.08
+c1*q2*f 12 EXCLUDED-exact 6273.27
+cq*q2*f 12 EXCLUDED-exact 3391.78

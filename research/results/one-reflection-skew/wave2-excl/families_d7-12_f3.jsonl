@@ -1386,3 +1386,6 @@
 {"name": "c1*c1*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5293, "rank_aug": 5294, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 5723.87}
 {"name": "m*r2*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5605, "rank_aug": 5606, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 7121.07}
 {"name": "cq*cq*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5293, "rank_aug": 5294, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 3088.85}
+{"name": "c1*cq*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5455, "rank_aug": 5456, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 6639.08}
+{"name": "c1*q2*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5581, "rank_aug": 5582, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 6273.27}
+{"name": "cq*q2*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5581, "rank_aug": 5582, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 3391.78}

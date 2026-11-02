@@ -1,1 +1,3 @@
 [09:03:24] start d10all-c00 (eff 85) elapsed 0s
+   -> best 1.677e-03 median 1.694e-03 restarts 8 dimP 85 t/restart 768.89 witness False
+[09:17:37] start d10all-c30 (eff 82) elapsed 853s
