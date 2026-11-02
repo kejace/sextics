@@ -62,3 +62,5 @@
 22:42:23 done E1-kernel rep d=9 par=0 k=4 #6 (p=1000003) inconsistent rank 1650 rows 8393 cols 1908 554.2 s
 22:44:08 done E1-kernel rep d=9 par=0 k=4 #7 (p=1000003) inconsistent rank 1650 rows 8393 cols 1908 572.68 s
 22:46:31 done E1-kernel rep d=9 par=0 k=4 #5 (p=1000003) inconsistent rank 1650 rows 8398 cols 1908 1022.88 s
+22:50:58 done E1-kernel rep d=9 par=0 k=4 #8 (p=1000003) inconsistent rank 1650 rows 8393 cols 1908 799.92 s
+22:55:27 done E1-kernel rep d=9 par=0 k=4 #9 (p=1000003) inconsistent rank 1650 rows 8392 cols 1908 783.29 s

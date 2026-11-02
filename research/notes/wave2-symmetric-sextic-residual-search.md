@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 22:35 EST from 789 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 22:55 EST from 809 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -99,6 +99,20 @@ reproduced from their seeds. Result (job `polish`, §7b): the best points of all
 the polish, by 2000 further L-BFGS iterations and by a second polish — so the decreasing trend is the growing-freedom effect, not an
 approach to a solution. The remaining sectors are checked the same way as they finish.
 
+## 11. Autonomous continuation after this session
+
+The local scheduler (`w2b/scheduler.py`, keeps ≤ 4 of this lane's jobs on the remote, queue in `w2b/queue.txt`) and the
+auto-sync loop (`w2b/autosync.sh`: pull, merge into `wave2-search.log.jsonl`, regenerate this report every 20 minutes
+for 14 hours) keep running after the agent session ends. Still running / queued at the time of writing: `vp2b` (triv
+d = 10, 11, 60 restarts each), `jac1` (unrestricted w-space d = 6 pD = 1, d = 7; 680 restarts per sector), `vp3` (triv
+d = 12 + sign-sector consistency checks), `struct2` (seven vertex-cone families × 4 characters × d = 7..12), then
+`singlesub` (S2×S2 / S3×S2 / S2×S3 kernel classes d = 8, 9), `jac2` (unrestricted w-space d = 8, K = 174), `vp4` (S2×S2-type
+varpro d = 6..8), `vp6` (600 more seeds per invariant sector d = 8..11), `vp5` (triv d = 13, 14), `kernfull` (unrestricted
+kernels d = 9..11), `xcheck2` (reduced vs. engine objective). Any verified witness is written to
+`witness-candidate.json` in the lane dir (and mirrored by the sync) and marked WITNESS in the log; the STATUS line of
+this report is regenerated from that file. The remote was at load 1000–1700 on 128 cores throughout (≈ 10× oversubscribed
+by other agents' jobs), which is why the restart counts are in the hundreds rather than thousands per sector.
+
 ## 6. Concurrent agent on this lane (cross-check, not our work)
 
 Another process submits jobs named `search-symmetric-sextic-residual-{dims,dims2,struct,vp-d8triv0,vp-d8sgnX1}` and
@@ -143,11 +157,13 @@ Per sector: admissible dimension `dimP` (= dimK − F-multiples), total restarts
 | jac d=5 pD=0 | 3 | 3 (3+0) | 3 | 1491×105 | 12 | 5.81e-01 | 5.8e-01 | 0 | 0 | 0.581: 9, 0.592: 3 | local1 |
 | jac d=5 pD=1 | 3 | 3 (3+0) | 3 | 1491×105 | 12 | 6.03e-01 | 6.0e-01 | 0 | 0 | 0.603: 9, 0.656: 3 | local1 |
 | jac d=6 pD=0 | 18 | 18 (18+0) | 17 | 3080×388 | 680 | 1.80e-01 | 2.1e-01 | 0 | 0 | 0.18: 34, 0.187: 11, 0.191: 13, 0.192: 59, 0.2: 5 | jac1 |
-| triv d=7 pD=0 | 37 | 8 (8+0) | 7 | 1268×279 | 10 | 4.34e-04 | 4.3e-04 | 0 | 0 | 0.000434: 10 | local2 |
-| triv d=7 pD=1 | 37 | 8 (8+0) | 7 | 1268×279 | 12 | 1.54e-04 | 1.5e-04 | 0 | 0 | 0.000154: 12 | local2,local3 |
+| triv d=6 pD=1 | 19 | 2 (2+0) | 2 | 838×183 | 60 | 1.69e-04 | 1.7e-04 | 0 | 0 | 0.000169: 60 | vp1b |
+| triv d=7 pD=0 | 37 | 8 (8+0) | 7 | 1268×279 | 70 | 4.34e-04 | 4.3e-04 | 0 | 0 | 0.000434: 70 | local2,vp1b |
+| triv d=7 pD=1 | 37 | 8 (8+0) | 7 | 1268×279 | 72 | 1.54e-04 | 1.5e-04 | 0 | 0 | 0.000154: 72 | local2,local3,vp1b |
 | triv d=8 pD=0 | 64 | 22 (20+2) | 18 | 1858×421 | 60 | 6.39e-04 | 6.4e-04 | 0 | 0 | 0.000639: 18, 0.000641: 28, 0.0032: 8, 0.00328: 6 | vp1b |
 | triv d=8 pD=1 | 46 | 14 (14+0) | 13 | 1858×457 | 60 | 1.00e-04 | 1.0e-04 | 0 | 0 | 0.0001: 60 | vp1b |
 | triv d=9 pD=0 | 79 | 34 (33+1) | 29 | 2648×673 | 60 | 3.84e-05 | 3.8e-05 | 0 | 0 | 3.84e-05: 51, 5.76e-05: 7, 6.02e-05: 1, 0.00017: 1 | vp1b |
+| triv d=9 pD=1 | 79 | 34 (33+1) | 29 | 2648×673 | 60 | 1.63e-05 | 1.6e-05 | 0 | 0 | 1.63e-05: 58, 7.12e-05: 2 | vp1b |
 | sgnX d=7 pD=0 | 12 | 3 (2+1) | 3 | 1268×279 | 12 | 1.57e-02 | 1.6e-02 | 0 | 0 | 0.0157: 9, 0.357: 3 | local1 |
 | sgnY d=7 pD=1 | 12 | 3 (2+1) | 3 | 1268×279 | 12 | 1.82e-02 | 6.1e-02 | 0 | 0 | 0.0182: 5, 0.0615: 7 | local1 |
 
@@ -157,10 +173,14 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=6 pD=1 | jac1 | 265 | 2.62e-01 | 3.5e-01 | 0 | 0 | 0.262: 1, 0.282: 1, 0.314: 3, 0.319: 53, 0.331: 7 |
+| jac d=6 pD=1 | jac1 | 495 | 2.62e-01 | 3.5e-01 | 0 | 0 | 0.262: 1, 0.282: 2, 0.314: 5, 0.319: 93, 0.327: 3 |
+| ternX-sgnX d=7 pD=0 | struct2 | 60 | 6.46e-01 | 6.5e-01 | 0 | 0 | 0.646: 42, 0.667: 18 |
+| ternX-sgnX d=8 pD=0 | struct2 | 60 | 4.36e-01 | 5.2e-01 | 0 | 0 | 0.436: 25, 0.525: 25, 0.626: 10 |
+| ternX-triv d=7 pD=0 | struct2 | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
 | ternX-triv d=7 pD=0 | struct | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
-| triv d=9 pD=1 | vp1b | 59 | 1.63e-05 | 1.6e-05 | 0 | 0 | 1.63e-05: 57, 7.12e-05: 2 |
-| triv d=10 pD=0 | vp2b | 25 | 2.07e-06 | 9.6e-06 | 0 | 0 | 2.07e-06: 10, 2.94e-06: 2, 9.6e-06: 1, 1.17e-05: 9, 1.72e-05: 1 |
+| ternX-triv d=8 pD=0 | struct2 | 60 | 4.52e-01 | 4.5e-01 | 0 | 0 | 0.452: 34, 0.603: 26 |
+| ternX-triv d=9 pD=0 | struct2 | 36 | 1.28e-01 | 3.4e-01 | 0 | 0 | 0.128: 1, 0.228: 10, 0.342: 25 |
+| triv d=10 pD=0 | vp2b | 29 | 2.07e-06 | 1.2e-05 | 0 | 0 | 2.07e-06: 10, 2.94e-06: 2, 9.6e-06: 2, 1.17e-05: 12, 1.72e-05: 1 |
 
 ## 7b. Gauss–Newton polish of the best points (is a small residual a zero?)
 
@@ -190,9 +210,25 @@ Kernel classes / combos per sector (tested, consistent, errors): sgnX d=8 pD=1: 
 
 | family | χ | d | pD | monomials | nD | dimK | dimP | restarts | best rel | single solves (consistent/total) | note |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|
+| ternX | sgnX | 7 | 0 | 36 | 4 | 2 | 2 | 60 | 6.46e-01 | 0/2 |  |
+| ternX | sgnX | 7 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnY | 7 | 0 | 36 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnY | 7 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnsgn | 7 | 0 | 36 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnsgn | 7 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | triv | 7 | 0 | 36 | 8 | 1 | 1 | 40 | 5.47e-01 | 0/1 |  |
 | ternX | triv | 7 | 0 | 36 | 8 | 1 | 1 | 40 | 5.47e-01 | 0/1 |  |
 | ternX | triv | 7 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | triv | 7 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnX | 8 | 0 | 45 | 5 | 3 | 3 | 60 | 4.36e-01 | 0/3 |  |
+| ternX | sgnX | 8 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnY | 8 | 0 | 45 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnY | 8 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnsgn | 8 | 0 | 45 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | sgnsgn | 8 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
+| ternX | triv | 8 | 0 | 45 | 10 | 2 | 2 | 60 | 4.52e-01 | 0/2 |  |
+| ternX | triv | 8 | 1 | 0 | 0 | None | None | | | | empty after symmetrisation |
 
 ## 10. Batches logged per job
 
-`jac1`: 1 records, 1.7 h, `kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `polish`: 5 records, 0.2 h, `single`: 477 records, 14.7 h, `struct`: 2 records, 0.0 h, `vp1b`: 3 records, 1.9 h
+`jac1`: 1 records, 1.7 h, `kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `polish`: 5 records, 0.2 h, `single`: 477 records, 14.7 h, `struct`: 2 records, 0.0 h, `struct2`: 16 records, 0.1 h, `vp1b`: 7 records, 2.5 h

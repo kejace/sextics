@@ -46,3 +46,13 @@ DONE
 [block] {"r": 1, "rows": 1926, "L_cols": 3870, "L_rank_p": 1602, "quotient_dim_p": 324, "constraint_rank_p": 318, "seconds": 40.9}
 [block] {"r": 2, "rows": 1926, "L_cols": 3408, "L_rank_p": 1635, "quotient_dim_p": 291, "constraint_rank_p": 291, "seconds": 60.5}
 === [chain3] K3-target d=8 relaxation p=65521 (modular) Sun Nov  1 10:21:46 PM EST 2026
+[quad] d=8 params=315 pairs=49770 in 2.3s
+[block] {"r": 0, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "quotient_dim_p": 129, "constraint_rank_p": 129, "seconds": 159.4}
+[block] {"r": 1, "rows": 3438, "L_cols": 9711, "L_rank_p": 3258, "quotient_dim_p": 180, "constraint_rank_p": 180, "seconds": 182.1}
+[block] {"r": 2, "rows": 3465, "L_cols": 10188, "L_rank_p": 3240, "quotient_dim_p": 225, "constraint_rank_p": 144, "seconds": 216.3}
+[block] {"r": 3, "rows": 3438, "L_cols": 9711, "L_rank_p": 3258, "quotient_dim_p": 180, "constraint_rank_p": 180, "seconds": 302.6}
+[block] {"r": 4, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "quotient_dim_p": 129, "constraint_rank_p": 129, "seconds": 270.7}
+[block] {"r": 5, "rows": 3276, "L_cols": 8289, "L_rank_p": 3069, "quotient_dim_p": 207, "constraint_rank_p": 194, "seconds": 263.2}
+[squares] {"remaining": 315, "rank": 956, "forced": []}
+[squares-summary] {"killed_mod_p": 0, "params": 315, "killed_Q": null}
+=== [chain3] full-target d=8 relaxation regeneration p=65521 (modular) Sun Nov  1 10:52:02 PM EST 2026

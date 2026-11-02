@@ -84,4 +84,25 @@ Receipts: `wave2-excl.log.jsonl` (master, 90 lines), `receipts/wave2-excl.hessL6
     python3 referee_hess8.py             # remote: 2 structured degree-8 candidates (J_16^odd rank 9684 certified)
 
 Output: `referee/referee-replay.jsonl` (one JSON line per check), `referee/referee_replay.out`, `referee/referee_hess7.out`,
-`referee/referee_deg6_singular.out`, `referee/referee-replay-remote.jsonl` (degree 8, if the remote job ran).
+`referee/referee_deg6_singular.out` (exact, over Q), `referee/referee_deg6_modp_singular.out` (same quadrics mod 1000000009),
+`referee/referee-replay-remote.jsonl` (degree 8, only if the remote job ran).
+
+## Results of the referee's replays (2026-11-02, fresh prime 1000000009)
+
+| check | result |
+|---|---|
+| `F = sum Q_i^3` | exact, 0 residual terms |
+| 21 second partials `F_ij` | exact rank 21 |
+| `A`, `delta` vs `J_6^odd` | exact ranks 18 / 19 / 19 / 20 (226 odd sextic monomials): `A, delta` independent mod `J_6`, `h^{3,1}(X)^+ = 208` |
+| own parity-split Koszul series | `R_6 = 218+208`, `R_10 = 762+744`, `R_12 = 885+866`, `R_14 = 762+744`, `R_16 = 483+468` (matches the packet's table) |
+| `J_k` block ranks | k = 6 (18/18), 10 (750/747), 11 (1341/1341), 12 (2223/2214), 14 odd (5052): all equal to the Hilbert values |
+| E1 kernels `K_d`, d = 0..8, both parities | `dim K_d = dim J_d` in every case (0,0,0,0,0,3,18,63,168), every `J_{d+6}` block at its Hilbert rank => `K_d = J_d` over Q for d <= 8 |
+| degree-5 Hessian relaxation | joint 3003-column system, `J_10` blocks 750/747 = Hilbert, `dim K_H = 0` => no degree-5 polar denominator (any parity mixture) |
+| E2 reduction identity | `E = F (Phi(w) + L(c,w))` exact for random data at d = 5, 6, 7; `z^T Hess F w = 5 w(F)`, `z^T Hess F z = 30 F` exact |
+| lens KH bases (degree 6) | all 18 / 36 / 261 lifted vectors satisfy `w^T Hess F w in J_6` exactly (own fmpq rref of `J_6`), lifted ranks 18 / 36 / 261 |
+| lens Y-odd KH basis | no basis vector has a diagonal `W_aa` entry (18 vectors, 2 entries each) => `w = 0` by hand |
+| own exact degree-6 system | 218 + 208 = 426 exact quadrics in the 36 linear coefficients, Euler field is a solution; Singular results: see the two `.out` files and the line below |
+| structured degree-7 candidates | `J_14^odd` rank 5052 = Hilbert; `gradX0Q0`, `wQX`, `wQ3e3` all have `A w^T Hess F w notin J_14` (stacked rank 5053) => excluded, rigorous |
+| structured degree-8 candidates | remote replay submitted (`referee_hess8.py`); outcome recorded in `referee-replay-remote.jsonl` if it ran |
+
+SINGULAR_RESULT_LINE

@@ -236,11 +236,12 @@ def exact_rank(M):
 # ------------------------------------------------------------------ commands
 def cmd_hilbert():
     """dim J_m mod p for m = 5..18 vs the complete-intersection Hilbert function (all 48 characters), for several primes."""
-    primes = [P] + [int(x) for x in os.environ.get('REF_PRIMES', '2147483629,1000000007,998244353').split(',') if x]
+    primes = [int(x) for x in os.environ.get('REF_PRIMES', str(P)).split(',') if x]
     for p in primes:
         t0 = time.time(); bad = []; dims = {}
         for m in range(5, 19):
-            tot = sum(sec(m, c, p).rank for c in ALL_CHARS)
+            chars_m = sorted({chi(e) for e in monomials(m)})
+            tot = sum(sec(m, c, p).rank for c in chars_m)
             expect = len(monomials(m)) - ci_hilbert(m)
             dims[m] = tot
             if tot != expect: bad.append((m, tot, expect))

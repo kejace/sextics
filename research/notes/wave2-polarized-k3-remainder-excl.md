@@ -179,6 +179,8 @@ still running.)
 Own implementation, prime 65521: L-ranks 1635/1602/1635/1464/1287/1464 per character block (= thread's ranks over Q and F_101;
 and = Q-ranks computed in the K3 run, same L), constraint ranks 291/318/291/470/688/470 (= thread's augmented ranks
 1926/1920/1926/1934/1975/1934 minus the L-ranks), 2541 constraint rows of combined rank 1779 (thread: 2,528 rows, rank 1,779).  The
-chart-wise projective emptiness (thread's charts k = 0..8, square reduction to 42 variables, zero-dimensional cone) are being
-replayed with `d7_charts.py` at this second prime; together with the equal Q/F_p L-ranks this re-establishes the thread's
+chart-wise projective emptiness replay (`d7_charts.py`, p = 65521): all nine charts c_0=…=c_{k-1}=0, c_k=1 (k = 0..8) give the
+unit ideal (1682 s), and the square reduction on the restricted system follows the thread's sequence exactly
+(111→108→104→92→63→…, identical forced-index sets); the final homogeneous Gröbner basis of the remaining variables
+(thread: 42 variables, affine dimension 0) is running; together with the equal Q/F_p L-ranks this re-establishes the thread's
 "deg D >= 8" by the same flatness argument at an independent prime and with independent code.

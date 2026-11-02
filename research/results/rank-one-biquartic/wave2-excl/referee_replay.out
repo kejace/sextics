@@ -77,3 +77,10 @@
 [e1] d=4 p=1000000009: rank J_10 = 1497 (regular-sequence value 1497, ok=True); dim V_d mod p = 0, dim J_d = 0, kernel mod J = 0 (15.8s)
 [e1] d=5 p=1000000009: rank J_11 = 2682 (regular-sequence value 2682, ok=True); dim V_d mod p = 6, dim J_d = 6, kernel mod J = 0 (54.8s)
 [e1] d=6 p=1000000009: rank J_12 = 4437 (regular-sequence value 4437, ok=True); dim V_d mod p = 36, dim J_d = 36, kernel mod J = 0 (152.2s)
+[e1] d=7 p=1000000009: rank J_13 = 6882 (regular-sequence value 6882, ok=True); dim V_d mod p = 129, dim J_d = 126, kernel mod J = 3 (431.5s)
+[k7] K7_8: N(F) = A D exactly over Q: True; deg D 7, 64 terms, Y-parity [0]
+[k7] K7_9: N(F) = A D exactly over Q: True; deg D 7, 64 terms, Y-parity [0]
+[k7] K7_10: N(F) = A D exactly over Q: True; deg D 7, 64 terms, Y-parity [0]
+[k7] p=1000000009: rank J_7 = 126 (expected 126), rank [J_7 | D1 D2 D3] = 129 -> independent mod J_7: 3 of 3 (rigorous over Q)
+=== done 672s ===
+[setup] F parsed: 54 terms, degree 6; A = X0^3 Y0^3; q = 1

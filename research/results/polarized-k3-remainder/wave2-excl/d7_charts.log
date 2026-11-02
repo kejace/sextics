@@ -1,2 +1,31 @@
 constraint rank 1779 params 120
 charts: [('0', '-1', '1'), ('1', '-1', '1'), ('2', '-1', '1'), ('3', '-1', '1'), ('4', '-1', '1'), ('5', '-1', '1'), ('6', '-1', '1'), ('7', '-1', '1'), ('8', '-1', '1')] 1681.9 s
+squares {'remaining': 111, 'rank': 1709, 'forced': [np.int32(83), np.int32(104), np.int32(119)]}
+squares {'remaining': 108, 'rank': 1676, 'forced': [np.int32(81), np.int32(102), np.int32(116), np.int32(117)]}
+squares {'remaining': 104, 'rank': 1651, 'forced': [np.int32(21), np.int32(23), np.int32(26), np.int32(42), np.int32(44), np.int32(47), np.int32(72), np.int32(78), np.int32(93), np.int32(99), np.int32(110), np.int32(115)]}
+squares {'remaining': 92, 'rank': 1526, 'forced': [np.int32(22), np.int32(24), np.int32(25), np.int32(27), np.int32(28), np.int32(29), np.int32(43), np.int32(45), np.int32(46), np.int32(52), np.int32(53), np.int32(54), np.int32(57), np.int32(58), np.int32(59), np.int32(76), np.int32(77), np.int32(79), np.int32(80), np.int32(82), np.int32(97), np.int32(98), np.int32(100), np.int32(101), np.int32(103), np.int32(109), np.int32(113), np.int32(114), np.int32(118)]}
+squares {'remaining': 63, 'rank': 1142, 'forced': [np.int32(10), np.int32(11), np.int32(12), np.int32(36), np.int32(37), np.int32(38), np.int32(69), np.int32(90), np.int32(108), np.int32(112)]}
+squares {'remaining': 53, 'rank': 971, 'forced': [np.int32(70), np.int32(71), np.int32(73), np.int32(91), np.int32(92), np.int32(94), np.int32(111)]}
+squares {'remaining': 46, 'rank': 797, 'forced': [np.int32(74), np.int32(75), np.int32(95), np.int32(96)]}
+squares {'remaining': 42, 'rank': 680, 'forced': []}
+Traceback (most recent call last):
+  File "/tmp/hodge/results/polarized-k3-remainder/wave2-excl/d7_charts.py", line 59, in <module>
+    json.dump(res, open(prefix + '-charts.json', 'w'), indent=1)
+  File "/usr/lib/python3.12/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/usr/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type int32 is not JSON serializable

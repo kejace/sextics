@@ -42,7 +42,7 @@ while True:
     for i in range(rk):
         row = [int(Rs[i, j]) for j in range(len(cols))]; reduced.append(row)
         nz = [j for j, v in enumerate(row) if v]
-        if len(nz) == 1 and pairs[cols[nz[0]]][0] == pairs[cols[nz[0]]][1]: new.add(pairs[cols[nz[0]]][0])
+        if len(nz) == 1 and pairs[cols[nz[0]]][0] == pairs[cols[nz[0]]][1]: new.add(int(pairs[cols[nz[0]]][0]))
     steps.append({'remaining': n - len(killed), 'rank': rk, 'forced': sorted(new)}); print('squares', steps[-1], flush=True)
     if not new: break
     killed |= new

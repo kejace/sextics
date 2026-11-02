@@ -33,7 +33,7 @@ def main():
     witness = [r for r in rows if r.get('family') == 'WITNESS']
     status = 'WITNESS FOUND -- see /tmp/hodge/results/klein-coupled-character/witness-candidate.json' if witness else 'NO WITNESS FOUND (search in progress)'
     if len(sys.argv) > 1 and sys.argv[1] == 'final' and not witness:
-        status = 'NO WITNESS FOUND (wave 2 complete)'
+        status = 'NO WITNESS FOUND (local wave-2 programme complete: degrees <= 8 excluded for sigma-eigen denominators, degree-9 kernel-only and structured families exhausted numerically; the remote thousands-of-restarts programme is queued but could not start -- see Remote jobs)'
     L = []
     L.append('# Wave 2 search report: klein-coupled-character (q = 1, A = X0^3 Y0^3)\n')
     L.append(f'STATUS: {status}\n')
@@ -47,7 +47,9 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
 
 ## Method
 * **Sector E1 spaces.** (J(F):A)_d per sector = J(F)_d ⊕ (kernel of [A] on (R/J)_d) computed mod p = 2147483647 with
-  canonical bases, lifted to Q by 12-prime CRT + LLL (small-height representatives), exact E1 lifts N_k by CRT.
+  canonical bases; small-height rational representatives of the non-Jacobian directions by CRT (4 primes) or by LLL on
+  the mod-m kernel lattice, exact E1 lifts by CRT; where the directions have no representative of height < 1e21 an
+  orthonormal floating-point kernel basis (with least-squares lifts, residual ~1e-15) is used for the search.
 * **Joint E2 search (varpro, Koszul form).** D(a) = sum a_k D_k, N0(a) = sum a_k N_k, unknowns p_ij (deg d-4) and Q
   (deg 2d-6) character-restricted; Q eliminated by the t-monic remainder mod F.  f(a) = min_p |R(T_{D(a)} p + B_{D(a)}(N0(a)))|^2
   on the unit sphere orthogonal to the F-multiples.  Optimizers: L-BFGS (engine style), LM/TRF with the Kaufman

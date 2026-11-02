@@ -67,3 +67,4 @@
 {"ts": "2026-11-02T03:37:45Z", "step": "fold-03:38", "note": "ssr d8 odd 0-4 (29/58); rank-one d7 kernel 3; totals 383/205/0"}
 {"ts": "2026-11-02T03:42:17Z", "step": "status-v9.1", "note": "off-paired construct folded"}
 {"ts": "2026-11-02T03:48:43Z", "step": "fold-03:47", "note": "ssr 12/12; rank-one d8 kernels 9+9, d7 elt0 inconsistent (34/58); totals 389/206/0"}
+{"ts": "2026-11-02T03:54:52Z", "step": "fold-03:53", "note": "epc construct FINAL; off-paired served scan 4/7 trivial"}

@@ -1,8 +1,8 @@
 # Wave 2 search report: klein-coupled-character (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS FOUND (search in progress)
+STATUS: NO WITNESS FOUND (local wave-2 programme complete: degrees <= 8 excluded for sigma-eigen denominators, degree-9 kernel-only and structured families exhausted numerically; the remote thousands-of-restarts programme is queued but could not start -- see Remote jobs)
 
-Updated 2026-11-01 22:48:48 from 1040 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 22:55:18 from 1055 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -13,7 +13,9 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
 
 ## Method
 * **Sector E1 spaces.** (J(F):A)_d per sector = J(F)_d ⊕ (kernel of [A] on (R/J)_d) computed mod p = 2147483647 with
-  canonical bases, lifted to Q by 12-prime CRT + LLL (small-height representatives), exact E1 lifts N_k by CRT.
+  canonical bases; small-height rational representatives of the non-Jacobian directions by CRT (4 primes) or by LLL on
+  the mod-m kernel lattice, exact E1 lifts by CRT; where the directions have no representative of height < 1e21 an
+  orthonormal floating-point kernel basis (with least-squares lifts, residual ~1e-15) is used for the search.
 * **Joint E2 search (varpro, Koszul form).** D(a) = sum a_k D_k, N0(a) = sum a_k N_k, unknowns p_ij (deg d-4) and Q
   (deg 2d-6) character-restricted; Q eliminated by the t-monic remainder mod F.  f(a) = min_p |R(T_{D(a)} p + B_{D(a)}(N0(a)))|^2
   on the unit sphere orthogonal to the F-multiples.  Optimizers: L-BFGS (engine style), LM/TRF with the Kaufman
@@ -41,13 +43,14 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
 | 7 | odd | 78,53,53,53,53,53,53 | 27,6,6,6,6,6,6 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
 | 8 | even | 120,89,89,88,89,88,88 | 51,20,20,19,20,19,19 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
 | 8 | odd | 69,102,102,87,102,87,87 | 12,30,30,22,30,22,22 | 0,0,0,0,0,0,0 | -,-,-,-,-,-,- | 0 |
-| 9 | even | -,156,156,139,156,139,139 | -,63,63,52,63,52,52 | -,3,3,2,10,1,3 | -,-,-,49994,-,31345,272340 | 0 |
-| 9 | odd | -,139,-,-,139,136,136 | -,49,-,-,49,46,46 | -,5,-,-,9,6,4 | -,2420,-,-,-,3625,3500 | 0 |
+| 9 | even | 116,156,156,139,156,139,139 | 33,63,63,52,63,52,52 | 2,3,3,2,10,1,3 | -,-,-,49994,-,31345,272340 | 0 |
+| 9 | odd | 176,139,139,136,139,136,136 | 93,49,49,46,49,46,46 | 0,5,0,0,9,6,4 | -,2420,-,-,-,3625,3500 | 0 |
 | 10 | even | 255,212,212,207,212,207,207 | 159,101,101,96,101,96,96 | 24,46,39,39,54,46,46 | -,-,-,-,-,-,- | 0 |
 | 10 | odd | 180,228,228,209,228,209,209 | 75,120,120,104,120,104,104 | 36,39,39,36,39,36,36 | -,-,-,-,-,-,- | 0 |
 | 11 | even | 273,329,329,308,329,308,308 | 150,209,209,188,209,188,188 | 76,73,73,73,69,73,73 | -,-,-,-,-,-,- | 0 |
 | 11 | odd | 357,308,308,301,308,301,301 | 252,185,185,178,185,178,178 | 51,78,69,69,87,78,78 | -,-,-,-,-,-,- | 0 |
-| 12 | even | 495,440,440,431,-,-,- | 384,311,311,302,-,-,- | 74,103,92,92,-,-,- | -,-,-,-,-,-,- | 0 |
+| 12 | even | 495,440,440,431,440,431,431 | 384,311,311,302,311,302,302 | 74,103,92,92,110,103,103 | -,-,-,-,-,-,- | 0 |
+| 12 | odd | 395,459,459,436,459,436,436 | 267,336,336,313,336,313,313 | 98,93,93,93,85,93,93 | -,-,-,-,-,-,- | 0 |
 
 ## (2) Mod-J relaxation per sector (real zeros numerically; Singular exact dimension mod 32003)
 
@@ -96,6 +99,7 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
 | 8 | odd | 4 | probe-J | 27 | 65 | 40 | 6.39e-07 | 4.70e-06 | None | - |
 | 8 | odd | 5 | probe-J | 22 | 72 | 40 | 6.02e-06 | 2.81e-05 | None | - |
 | 8 | odd | 6 | probe-J | 22 | 65 | 40 | 7.47e-06 | 1.32e-05 | None | - |
+| 9 | even | 4 | KJ | 66 | 26 | 12 | 8.09e-21 | 5.48e-20 | 12 | - |
 
 Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 
@@ -329,14 +333,14 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 
 ## Remote job queue (tail)
 ```
-22:36:55 gate closed for w2-control: 0), available memory 154 GB (min 110), 62 jobs running with 332 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:38:29 gate closed for w2-control: 0), available memory 145 GB (min 110), 62 jobs running with 332 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:40:03 gate closed for w2-control: 0), available memory 144 GB (min 110), 62 jobs running with 332 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:41:37 gate closed for w2-control: 0), available memory 144 GB (min 110), 61 jobs running with 328 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:43:11 gate closed for w2-control: 0), available memory 122 GB (min 110), 61 jobs running with 329 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:44:46 gate closed for w2-control: 0), available memory 106 GB (min 110), 62 jobs running with 337 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:46:20 gate closed for w2-control: 0), available memory 101 GB (min 110), 60 jobs running with 349 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:47:54 gate closed for w2-control: 00), available memory 96 GB (min 110), 61 jobs running with 355 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:49:28 gate closed for w2-control: 00), available memory 90 GB (min 110), 61 jobs running with 355 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:51:02 gate closed for w2-control: 00), available memory 85 GB (min 110), 61 jobs running with 355 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:52:36 gate closed for w2-control: 0), available memory 100 GB (min 110), 61 jobs running with 355 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:54:10 gate closed for w2-control: 00), available memory 96 GB (min 110), 61 jobs running with 355 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation
@@ -426,4 +430,23 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
   (9,e,4) 0.56, (9,e,5) 0.012, (9,e,6) 0.050, (9,o,0) 6.3e-3 (J only, 93-dim), (9,o,1) 0.077, (9,o,2) 0.25, (9,o,3) 0.38,
   (9,o,4) 0.13, (9,o,5) 0.48, (9,o,6) 0.054 -- a landscape survey only (a few restarts per 50-90-dim family); the
   thousands-of-restarts runs are queued as remote jobs `w2-vp9`, `w2-vp9sparse`.
+
+### Remote jobs
+The remote 128-core box was saturated by other lanes for the whole session (load 600-1200, 60-90 jobs, 230-330 cpus
+allocated against the gate's 200-220 cap, free memory often below the 90-110 GB floor), so none of the queued `w2-*`
+jobs could be submitted (`w2_queue.log`).  The queue daemon `w2_queue.py` (jobs in `w2_queue.jobs.json`) keeps retrying
+and respects the 4-jobs-per-agent limit; when the gate opens it submits, in order: `w2-control` (hit-rate statistics of
+the optimizers on the accepted-witness control), `w2-kernels` (sector spaces d = 4..12 with rational/float reps and
+lifts), `w2-exactE2a` (exact saturated E2 systems for (6,e,0) at p = 2147483647 and the four degree-7 sectors left open
+by the relaxation), `w2-hess8` (1500-restart relaxation + Singular at d = 8), `w2-vp678` (300 LM restarts per sector of
+the full E2 search at d = 6, 7, 8), `w2-struct` (structured families d = 6..12), `w2-vp9` (kernel-only 400 restarts, then
+kernel+J 240 restarts per sector), `w2-hess910`, `w2-vp10` (kernel-only 200, kernel+J 64 per sector), `w2-vp9sparse`
+(sparse random starts).  All results of these jobs land in the same log and this report regenerates from it
+(`python3 w2_report.py`).
+* Degree 9 relaxation is underdetermined: e.g. sector (9,even,4) has 66 free parameters against 26 mod-J equations, every
+  one of 12 restarts reaches a relaxation zero (1e-20) and the full E2 residual at those zeros is 1.4-4.1 (nowhere near 0).
+  From degree 9 on only the full E2 search (or exact elimination) is informative.
+* To resume the remote programme after this session: `cd /tmp/hodge/results/klein-coupled-character && python3 w2_queue.py`
+  (reads `w2_queue.jobs.json`, respects the 4-jobs limit and the gate; results append to `wave2-search.log.jsonl`; then
+  `python3 w2_report.py` rewrites this report).
 

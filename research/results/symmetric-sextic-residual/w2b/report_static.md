@@ -93,6 +93,20 @@ reproduced from their seeds. Result (job `polish`, §7b): the best points of all
 the polish, by 2000 further L-BFGS iterations and by a second polish — so the decreasing trend is the growing-freedom effect, not an
 approach to a solution. The remaining sectors are checked the same way as they finish.
 
+## 11. Autonomous continuation after this session
+
+The local scheduler (`w2b/scheduler.py`, keeps ≤ 4 of this lane's jobs on the remote, queue in `w2b/queue.txt`) and the
+auto-sync loop (`w2b/autosync.sh`: pull, merge into `wave2-search.log.jsonl`, regenerate this report every 20 minutes
+for 14 hours) keep running after the agent session ends. Still running / queued at the time of writing: `vp2b` (triv
+d = 10, 11, 60 restarts each), `jac1` (unrestricted w-space d = 6 pD = 1, d = 7; 680 restarts per sector), `vp3` (triv
+d = 12 + sign-sector consistency checks), `struct2` (seven vertex-cone families × 4 characters × d = 7..12), then
+`singlesub` (S2×S2 / S3×S2 / S2×S3 kernel classes d = 8, 9), `jac2` (unrestricted w-space d = 8, K = 174), `vp4` (S2×S2-type
+varpro d = 6..8), `vp6` (600 more seeds per invariant sector d = 8..11), `vp5` (triv d = 13, 14), `kernfull` (unrestricted
+kernels d = 9..11), `xcheck2` (reduced vs. engine objective). Any verified witness is written to
+`witness-candidate.json` in the lane dir (and mirrored by the sync) and marked WITNESS in the log; the STATUS line of
+this report is regenerated from that file. The remote was at load 1000–1700 on 128 cores throughout (≈ 10× oversubscribed
+by other agents' jobs), which is why the restart counts are in the hundreds rather than thousands per sector.
+
 ## 6. Concurrent agent on this lane (cross-check, not our work)
 
 Another process submits jobs named `search-symmetric-sextic-residual-{dims,dims2,struct,vp-d8triv0,vp-d8sgnX1}` and

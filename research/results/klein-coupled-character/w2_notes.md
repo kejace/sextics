@@ -83,3 +83,22 @@
   (9,e,4) 0.56, (9,e,5) 0.012, (9,e,6) 0.050, (9,o,0) 6.3e-3 (J only, 93-dim), (9,o,1) 0.077, (9,o,2) 0.25, (9,o,3) 0.38,
   (9,o,4) 0.13, (9,o,5) 0.48, (9,o,6) 0.054 -- a landscape survey only (a few restarts per 50-90-dim family); the
   thousands-of-restarts runs are queued as remote jobs `w2-vp9`, `w2-vp9sparse`.
+
+### Remote jobs
+The remote 128-core box was saturated by other lanes for the whole session (load 600-1200, 60-90 jobs, 230-330 cpus
+allocated against the gate's 200-220 cap, free memory often below the 90-110 GB floor), so none of the queued `w2-*`
+jobs could be submitted (`w2_queue.log`).  The queue daemon `w2_queue.py` (jobs in `w2_queue.jobs.json`) keeps retrying
+and respects the 4-jobs-per-agent limit; when the gate opens it submits, in order: `w2-control` (hit-rate statistics of
+the optimizers on the accepted-witness control), `w2-kernels` (sector spaces d = 4..12 with rational/float reps and
+lifts), `w2-exactE2a` (exact saturated E2 systems for (6,e,0) at p = 2147483647 and the four degree-7 sectors left open
+by the relaxation), `w2-hess8` (1500-restart relaxation + Singular at d = 8), `w2-vp678` (300 LM restarts per sector of
+the full E2 search at d = 6, 7, 8), `w2-struct` (structured families d = 6..12), `w2-vp9` (kernel-only 400 restarts, then
+kernel+J 240 restarts per sector), `w2-hess910`, `w2-vp10` (kernel-only 200, kernel+J 64 per sector), `w2-vp9sparse`
+(sparse random starts).  All results of these jobs land in the same log and this report regenerates from it
+(`python3 w2_report.py`).
+* Degree 9 relaxation is underdetermined: e.g. sector (9,even,4) has 66 free parameters against 26 mod-J equations, every
+  one of 12 restarts reaches a relaxation zero (1e-20) and the full E2 residual at those zeros is 1.4-4.1 (nowhere near 0).
+  From degree 9 on only the full E2 search (or exact elimination) is informative.
+* To resume the remote programme after this session: `cd /tmp/hodge/results/klein-coupled-character && python3 w2_queue.py`
+  (reads `w2_queue.jobs.json`, respects the 4-jobs limit and the gate; results append to `wave2-search.log.jsonl`; then
+  `python3 w2_report.py` rewrites this report).

@@ -1,1 +1,4 @@
-// ** Can not open referee_d6_charQ.sing
+dim V(I) over Q (affine): 1  #gens: 58
+coordinates of V_6/<F> not in radical over Q: 0 of 35
+spurious group indices: [5, 10, 15, 20, 25, 30]
+Singular -q referee_d6_charQ.sing  0.09s user 0.00s system 86% cpu 0.115 total

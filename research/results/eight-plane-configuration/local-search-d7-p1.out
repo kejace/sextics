@@ -1,3 +1,4 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 [E2Family jacobian-d7-p1] d=7 pD=1 K=63 (spurious dim 3, free 60) rows=5796 nN=3861 nc=420 nQ=636 nnz(Omega)=1121913 built in 1.9s
 [local-search-d7-p1] 10/16 restarts, best key 0.22980315115954683 (2035s)
+[local-search-d7-p1] 16/16 restarts, best key 0.22980315115954683 (3170s)
