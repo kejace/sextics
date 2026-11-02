@@ -298,3 +298,6 @@ submit search-off-paired-s2-struct-hess4: launch ssh timed out after 120 s (job 
 06:54:48 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones', 'search-off-paired-s2-struct-hess4']; waiting
 06:57:23 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones', 'search-off-paired-s2-struct-hess4']; waiting
 06:59:57 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones', 'search-off-paired-s2-struct-hess4']; waiting
+07:02:33 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones', 'search-off-paired-s2-struct-hess4']; waiting
+07:05:07 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones', 'search-off-paired-s2-struct-hess4']; waiting
+07:07:42 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones', 'search-off-paired-s2-struct-hess4']; waiting
