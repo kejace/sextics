@@ -1,1 +1,5 @@
 {"t": 0.0, "relres": 5.178855242691244e-16, "start": "f6"}
+{"stage": "multi-t1", "t1": 0.02, "sol": 0, "relres_warm": 0.0018205216874013705, "relres_after_LM": 0.0006132644491841432}
+{"stage": "multi-t1", "t1": 0.02, "sol": 1, "relres_warm": 0.0029243518145163475, "relres_after_LM": 0.001262799009933849}
+{"stage": "multi-t1", "t1": 0.02, "sol": 2, "relres_warm": 0.003650710952687127, "relres_after_LM": 0.0008682754943087276}
+{"stage": "multi-t1", "t1": 0.02, "sol": 3, "relres_warm": 0.0038627461265615913, "relres_after_LM": 0.0007990741889687045}
