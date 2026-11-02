@@ -6,3 +6,4 @@
 [refine1 d=8] seed 2: rel 1.030e-06 -> 1.031e-06 nfev=345 status=3 (439s)
 [refine1 d=8] seed 3: rel 1.082e-06 -> 1.082e-06 nfev=113 status=3 (143s)
 [stage2 d=8] start 0: rel=3.195e-05 (stage1 5.00e-05) nit=165 (4682s)
+[stage2 d=8] start 1: rel=3.195e-05 (stage1 5.00e-05) nit=168 (9051s)
