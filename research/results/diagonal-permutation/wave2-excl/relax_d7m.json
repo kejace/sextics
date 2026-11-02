@@ -16,5 +16,9 @@
   "w0_000101_e0",
   "w0_000110_e0"
  ],
- "all_quadratic_monomials_in_I": false
+ "all_quadratic_monomials_in_I": false,
+ "msolve_status": "timeout",
+ "msolve_seconds": 14404.8,
+ "msolve_tail": "",
+ "verdict": "msolve failed"
 }
