@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 22:23:03 from 923 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 22:24:32 from 923 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -300,7 +300,6 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 
 ## Remote job queue (tail)
 ```
-22:11:48 gate closed for w2-control: 00), available memory 67 GB (min 110), 65 jobs running with 325 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:13:22 gate closed for w2-control: 00), available memory 66 GB (min 110), 66 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:14:56 gate closed for w2-control: 00), available memory 66 GB (min 110), 66 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:16:30 gate closed for w2-control: 00), available memory 48 GB (min 110), 66 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
@@ -308,6 +307,7 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 22:19:39 gate closed for w2-control: 0), available memory 136 GB (min 110), 65 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:21:13 gate closed for w2-control: 0), available memory 158 GB (min 110), 65 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:22:47 gate closed for w2-control: 0), available memory 172 GB (min 110), 62 jobs running with 322 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:24:21 gate closed for w2-control: 0), available memory 168 GB (min 110), 62 jobs running with 322 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation
@@ -389,4 +389,7 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 * Control hit rate (hesse-triangle, 18-dim family {D*}+J_6, reduced system, varpro-LM): seeds 7/3 gave 0 hits in 26
   restarts; seed 101 found the witness (rel 8e-30) on the 4th restart.  Overall about 1 hit per 30 random restarts in
   18 dimensions; the reconstructed D agrees with rem_F(D*) and the exact re-solve confirms it (pipeline validated end to end).
+* Control, seed 202: hit on the 3rd restart (rel 1.5e-24); the rem_F-chart reconstruction returned a rational point of the
+  1-dimensional solution set different from D*, and the exact re-solve produced a verified certificate for it
+  (confirm_exact -> solved, verify_witness True).  Running tally: 3 hits in 41 random restarts (~7%) on the 18-dim control.
 

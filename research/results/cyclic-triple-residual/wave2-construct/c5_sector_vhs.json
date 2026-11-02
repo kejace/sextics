@@ -1,0 +1,27 @@
+{
+ "n_Def": 49,
+ "1000003": {
+  "p": 1000003,
+  "dims": {
+   "R6": 41,
+   "R12": 119,
+   "R18": 26
+  },
+  "dim_DefG_xi_in_R12": 41,
+  "dim_DefG2_xi_in_R18": 26,
+  "dim_K_annihilated_by_Def": 0,
+  "seconds": 30.1
+ },
+ "998244353": {
+  "p": 998244353,
+  "dims": {
+   "R6": 41,
+   "R12": 119,
+   "R18": 26
+  },
+  "dim_DefG_xi_in_R12": 41,
+  "dim_DefG2_xi_in_R18": 26,
+  "dim_K_annihilated_by_Def": 0,
+  "seconds": 30.4
+ }
+}

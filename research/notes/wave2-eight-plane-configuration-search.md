@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T22:07:02. 228 search restarts collected over 8 batches; 2 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1900 on 128 cores, memory near the gate floor); the runner's capacity gate has refused all submissions so far; results below are exact local computations plus bounded local numerical batches; remote queues (w2_queue1.sh, w2_queue2.sh) submit automatically when capacity appears.
+STATUS: NO WITNESS. Updated 2026-11-01T22:24:31. 242 search restarts collected over 8 batches; 2 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1900 on 128 cores); the runner's capacity gate has refused all submissions so far; results below are exact local computations plus bounded local numerical batches; remote queues (w2_queue1.sh, w2_queue2.sh) submit automatically when capacity appears.
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -54,6 +54,7 @@ Exact confirmation for d = 11, 12 is queued on the remote (`w2_kernel.py`); the 
 - d = 7, plane-adapted Jacobian fields (w tangent to the eight-plane arrangement: w = sum_j L_j R_j + M_j S_j + Q_j v_j, 24 independent parameters per parity; the tangency divisor X ∩ V(w(F)) then contains all eight planes): the exact Hessian quadrics restricted to this family have rank 210 and their zero set is exactly the spurious plane {g*Euler : g linear} (Singular, both parities). Structured probe (corrected block scalings): only the six spurious fields among 344 candidates.
 - d = 7 full-E2 variable projection (local, even parity, 16 restarts initialized on stage-1 minima, Koszul corrections 420 unknowns + Q 636 unknowns, 5796 equations): best rel 0.111, median 0.33 (the full residual moves off the stage-1 minima: R-part 0.045 at the best point). No restart below 0.1. Odd parity running.
 - d = 8 family statistics (local build, 71 min single-threaded for the R-projector): 168 w-parameters per parity (spurious subspace {g*Euler, g quadratic} of dim 12, 156 free), R-part conditions 468 = dim R_16^-, full E2 in degree 16: 10152 equations, Koszul corrections 954 + Q 1491 unknowns, nnz(Omega) = 2.95M. Stage-1 batches (20 restarts per parity) running locally.
+- d = 7, mixed parity (local, mod p, 20 min): 126 w-parameters, 951 independent quadrics = 483 (odd target sector) + 468 (even target sector from the cross term Hess(w_+, w_-)), dim R_14 (both parities) = 1506; the spurious subspace {g*Euler, g linear} has dim 6, so 951 quadrics on P^119: generically empty (a Groebner/Hilbert computation on 126 variables is beyond local reach; a bounded Singular attempt was made).
 
 
 ## 1. E1-admissible denominator spaces per degree (mod p = 2147483629)
@@ -84,10 +85,10 @@ rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q;
 | local-search-d6-p0 | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 162+226 (144-144) | 57 | 0.17 | 0.222 | 0.592 | 0.963 | - | 0 | 0 | 25.8 | 81.2 | 0 |
 | local-search-d6-p1 | jacobian-d6-p1 | 6 | 1 | 18 (18) | 3080 | 153+226 (136-136) | 60 | 0.682 | 0.704 | 0.731 | 0.985 | - | 0 | 0 | 17.8 | 67.4 | 0 |
 | local-search-d7-p0 | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (360-360) | 16 | 0.111 | 0.113 | 0.289 | 0.459 | 0.0143 | 0 | 0 | 187.3 | 95.3 | 0 |
-| local-search-d7-p1 (running) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (360-360) | 2 | 0.365 | 0.365 | 0.373 | 0.38 | 0.0518 | 0 | 0 | 169.3 | 74.5 | 0 |
+| local-search-d7-p1 (running) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (360-360) | 7 | 0.335 | 0.335 | 0.365 | 0.38 | 0.0518 | 0 | 0 | 191.5 | 82.9 | 0 |
 | local-stage1-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00441 | 0.00503 | 0.0124 | 0.0185 | 0.00441 | 0 | 0 | 19.9 | 102.8 | 0 |
 | local-stage1-d7-p1 (stage 1 only) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00387 | 0.0039 | 0.004 | 0.0151 | 0.00387 | 0 | 0 | 19.8 | 120.0 | 0 |
-| local-stage1-d8-p0 (stage 1 only) (running) | jacobian-d8-p0 | 8 | 0 | 168 (156) | 10152 | 954+1491 (None-None) | 1 | 0.000717 | 0.000717 | 0.000717 | 0.000717 | 0.000717 | 0 | 0 | 111.3 | 140.0 | 0 |
+| local-stage1-d8-p0 (stage 1 only) (running) | jacobian-d8-p0 | 8 | 0 | 168 (156) | 10152 | 954+1491 (None-None) | 10 | 0.000268 | 0.00033 | 0.000747 | 0.00116 | 0.000268 | 0 | 0 | 117.6 | 169.8 | 0 |
 | local-stage1b-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 12 | 0.00239 | 0.00241 | 0.00987 | 0.0185 | 0.00239 | 0 | 0 | 16.8 | 112.4 | 0 |
 
 ## 4. Structured families at d = 10 intersected with the admissible space (mod p)

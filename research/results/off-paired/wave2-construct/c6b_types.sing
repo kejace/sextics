@@ -1,0 +1,22 @@
+LIB "sing.lib";
+ring r = (0,i),(rho,u,z),dp; minpoly = i^2+1;
+poly B2 = (rho^2*(z+u) - 2*u^3)*(rho^2*(z+u) + 2*u^3);
+poly B3 = (z^3 + rho*u*z - 2*u^3)*(z^3 + rho*u*z + 2*u^3);
+poly B4 = (rho*z^2 + rho^2*u - 2*u^3)*(rho*z^2 + rho^2*u + 2*u^3);
+poly B5 = (rho^2*z^2 + rho^3*u - 2*u^3*z)*(rho^2*z^2 + rho^3*u + 2*u^3*z);
+poly B6 = (z^3 + rho^2*u - 2*u^3)*(z^3 + rho^2*u + 2*u^3);
+ring rl = (0,i),(x,y),ds; minpoly = i^2+1;
+// charts: "z1": rho->x, u->y, z->1  (point (0:0:1));  "r1": rho->1, u->x, z->y (point (1:0:0)); "u1": rho->x,u->1,z->y (point (0:1:0))
+map z1 = r, x, y, 1;  map r1 = r, 1, x, y;  map u1 = r, x, 1, y;
+proc rep(poly G, string lab)
+{
+  ideal T = std(ideal(G, diff(G,x), diff(G,y)));
+  int mu = vdim(std(ideal(diff(G,x), diff(G,y))));
+  "  ", lab, ": mult=", mult(std(G)), " tjurina=", vdim(T), " milnor=", mu, " jet2=", jet(G,2);
+}
+rep(z1(B2), "n=2 (0:0:1)"); rep(r1(B2), "n=2 (1:0:0)");
+rep(r1(B3), "n=3 (1:0:0)");
+rep(z1(B4), "n=4 (0:0:1)"); rep(r1(B4), "n=4 (1:0:0)");
+rep(z1(B5), "n=5 (0:0:1)"); rep(r1(B5), "n=5 (1:0:0)"); rep(u1(B5), "n=5 (0:1:0)");
+rep(r1(B6), "n=6 (1:0:0)");
+quit;

@@ -75,3 +75,6 @@
 * Control hit rate (hesse-triangle, 18-dim family {D*}+J_6, reduced system, varpro-LM): seeds 7/3 gave 0 hits in 26
   restarts; seed 101 found the witness (rel 8e-30) on the 4th restart.  Overall about 1 hit per 30 random restarts in
   18 dimensions; the reconstructed D agrees with rem_F(D*) and the exact re-solve confirms it (pipeline validated end to end).
+* Control, seed 202: hit on the 3rd restart (rel 1.5e-24); the rem_F-chart reconstruction returned a rational point of the
+  1-dimensional solution set different from D*, and the exact re-solve produced a verified certificate for it
+  (confirm_exact -> solved, verify_witness True).  Running tally: 3 hits in 41 random restarts (~7%) on the 18-dim control.

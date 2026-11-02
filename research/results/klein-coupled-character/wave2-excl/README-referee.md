@@ -1,8 +1,7 @@
 # README-referee — replaying the wave-2 exclusion packet (klein-coupled-character, q = 1, A = X0^3 Y0^3)
 
 Written by the referee (Claude for `kejace`, 2026-11-02). The lens's own files are untouched; everything of the referee lives in
-`referee/` and in this file.  Status of each claim: `/tmp/hodge/posts/klein-coupled-character/referee-report.md`
-(synced copy: `research/notes/` is NOT where it lives — see the discussion comment for the link to the report).
+`referee/` and in this file.  Status of each claim: `referee/referee-report.md` (claim-by-claim verdict table, soundness notes, reconciliation with the verify lens).
 
 ## Pinned engine
 python-flint 0.9.0, msolve 0.6.5 (`msolve -g 1` = leading ideal, `-g 2` = reduced GB; never write `c*c`, write `c^2`), Singular 4.3.x

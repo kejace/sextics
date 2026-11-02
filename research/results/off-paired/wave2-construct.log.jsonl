@@ -1,1 +1,5 @@
 {"ts":"2026-11-01T22:08:19-05:00","step":"part1-written","lane":"off-paired","note":"framework + mechanism verdicts (i)-(v) recorded; computations pending"}
+{"ts":"2026-11-01T22:24:29-05:00","lane":"off-paired","step":"c1-identities: block form, t1/t2 squares, v^2, cubic factorisation, Weierstrass disc, Sigma rational param, g-action all exact TRUE"}
+{"ts":"2026-11-01T22:24:29-05:00","lane":"off-paired","step":"c2-sigma_n singularities: Sigma_1 has 2A1+2A2 only (rational, p_g=0); Sigma_n (n>=2) has double curves along {rho=0,w=inf} and {rho=inf,w=0} (fibres over kappa=0,inf are non-reduced in the (w,s) model) -> adjunction count 2(n-1) invalid"}
+{"ts":"2026-11-01T22:24:29-05:00","lane":"off-paired","step":"c3-sectors: h-inv Y-odd primitive sector = (56,144,56), entirely sigma2-anti-invariant; by g-char: g=0 (22,50,22), g=2,4 (17,47,17) each, odd g empty"}
+{"ts":"2026-11-01T22:24:29-05:00","lane":"off-paired","step":"c4-Skappa: normalisation model {C=k s^2, H=k s^3} in P(1,1,1,1,2) quasi-smooth for k=1,5 (mod 32003) => K=O(4), p_g=45, q=0; base curve C=H=0 = plane Fermat sextic (X1=0) + irreducible degree-18 curve"}
