@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-02 09:40 EST from 836 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-02 10:01 EST from 836 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
