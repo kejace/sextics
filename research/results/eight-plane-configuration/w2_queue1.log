@@ -8,3 +8,6 @@ REMOTE BUSY: load 494 (max 300), available memory 75 GB (min 110), 53 jobs runni
 REMOTE BUSY: load 419 (max 300), available memory 150 GB (min 110), 50 jobs running with 331 cpus allocated (max 200); waiting 60 s
 REMOTE BUSY: load 417 (max 300), available memory 151 GB (min 110), 50 jobs running with 331 cpus allocated (max 200); waiting 60 s
 [07:29:57] submitting search-eight-plane-configuration-hessB
+submit search-eight-plane-configuration-hessB: launch ssh timed out after 120 s (job may still have started; check status --name search-eight-plane-configuration-hessB)
+up: done ['eight-plane-configuration']
+[07:33:17] queue 1 done

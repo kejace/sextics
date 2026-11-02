@@ -223,3 +223,5 @@ wave2-search/run_koszul_struct.sh: line 5: 870318 Killed                  $S --j
 [search] vars:X0,X1,Y0,X2 d=9 sec=[4, 0, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
 [search] vars:X0,X1,Y0,X2 d=9 sec=[4, 0, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
 [search] vars:X0,X1,Y0,X2 d=7 sec=[5, 0, 0] b=0 K=10 dimP=10 rows=684 cols=198 restarts=25 best=6.91e-02 med=1.9e-01 cands=0 85.4s  
+[search] vars:X0,X1,Y0,X2 d=8 sec=[5, 3, 0] b=0 K=10 dimP=10 rows=1104 cols=304 restarts=25 best=6.36e-02 med=1.9e-01 cands=0 193.1s  
+[search] vars:X0,X1,Y0,X2 d=8 sec=[5, 3, 3] b=0 K=6 dimP=6 rows=1104 cols=304 restarts=25 best=3.78e-01 med=3.8e-01 cands=0 262.2s  
