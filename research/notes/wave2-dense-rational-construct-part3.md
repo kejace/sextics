@@ -25,7 +25,9 @@ V3 = ∅ would add: no linear reflection (F even in no linear form), closing the
 | 8 | Y | 14 / odd | 5796 | 6006 | 5052 | 5052 | 45 | 0 | yes | (local) |
 | 9 | X | 15 / odd | 7752 | 9009 | 7129 | 7129 | 55 | 0 | yes | (local) |
 | 9 | Y | 15 / even | 7752 | 9009 | 7129 | 7129 | 55 | 0 | yes | (local) |
-| 10..12 | X, Y | | | | | | | remote job construct-dense-rational-cones (also re-runs 9) | | pending |
+| 10 | X | 16 / odd | 10152 | 13104 | 9684 | 9684 | 66 | 0 | yes | (local) |
+| 10 | Y | 16 / odd | | | | | 66 | running locally | | |
+| 11, 12 | X, Y | | | | | | | remote job construct-dense-rational-k1012-univ (queued; remote at capacity) | | pending |
 (k <= 6: cones are in J_k ∩ C[X]_k = 0 by (J:A)_k = J_k and the plane-sextic Jacobian ring; F60, F06 ∉ J_6 is referee claim 23.)
 
 ## 3.3 Universal degree-12 denominators (R' and the products of the pieces)  — remote job construct-dense-rational-univ12

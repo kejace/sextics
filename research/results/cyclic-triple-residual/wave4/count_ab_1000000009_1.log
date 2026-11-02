@@ -1,0 +1,47 @@
+
+--------------- INPUT DATA ---------------
+#variables                      11
+#equations                      11
+#invalid equations               0
+field characteristic    1000000009
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         3
+info level                       1
+generate pbm files               0
+------------------------------------------
+Dimension of quotient: 1728
+[1728, 875], Non trivial / Trivial = 50.64%
+Density of non-trivial part 100.00%
+Time spent to generate sequence (elapsed): 1.88 sec (2.78 Gops/sec)
+Mininimal polynomial is not square-free
+Degree of the square-free part: 1490
+[1728, 1514, 1490]
+Time spent to compute eliminating polynomial (elapsed): 0.03 sec
+Elimination polynomial is not squarefree.
+Time for rational param:         46.01 (elapsed) sec / 112.74 sec (cpu)
+
+
+--------------- INPUT DATA ---------------
+#variables                      12
+#equations                      12
+#invalid equations               0
+field characteristic    1000000009
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         3
+info level                       1
+generate pbm files               0
+------------------------------------------

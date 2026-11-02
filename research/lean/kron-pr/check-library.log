@@ -1147,3 +1147,98 @@ info: HodgeComputer/Constructions/HoldoutCover/CoverSourceBinding.lean:249:0: 'H
 info: HodgeComputer/Constructions/HoldoutCover/CoverQuotientCompatibility.lean:154:0: 'HoldoutConstruction.coverQuotientTangent_base' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: HodgeComputer/Constructions/HoldoutCover/CoverQuotientCompatibility.lean:155:0: 'HoldoutConstruction.coverQuotientTangent_root' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: HodgeComputer/Constructions/HoldoutCover/CoverQuotientCompatibility.lean:156:0: 'HoldoutConstruction.coverQuotientTangent_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3768/3805] Built HodgeComputer.Constructions.EllipticCompanions.Kernels (39s)
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:118:0: automatically included section variable(s) unused in theorem `CrossedEllipticTheta.cofactor_at_root`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:133:0: automatically included section variable(s) unused in theorem `CrossedEllipticTheta.cubic_factor`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:156:46: This simp argument is unused:
+  h12
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [uniformizer, cofactor, remainderZero, map_mul, map_sub, map_add, map_pow, map_neg,
+    RatFunc.algebraMap_X, RatFunc.algebraMap_C, h2, hp12, hp2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:156:50: This simp argument is unused:
+  h2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [uniformizer, cofactor, remainderZero, map_mul, map_sub, map_add, map_pow, map_neg,
+    RatFunc.algebraMap_X, RatFunc.algebraMap_C, h12, hp12, hp2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:180:46: This simp argument is unused:
+  h1728
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [uniformizer, cofactor, remainderOne, map_mul, map_sub, map_add, map_pow, map_neg,
+    RatFunc.algebraMap_X, RatFunc.algebraMap_C, h864, hp1728, hp864]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:180:52: This simp argument is unused:
+  h864
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [uniformizer, cofactor, remainderOne, map_mul, map_sub, map_add, map_pow, map_neg,
+    RatFunc.algebraMap_X, RatFunc.algebraMap_C, h1728, hp1728, hp864]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:211:0: automatically included section variable(s) unused in theorem `CrossedEllipticTheta.residue_C_mul`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:273:0: automatically included section variable(s) unused in theorem `CrossedElliptic.first_y`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:286:0: automatically included section variable(s) unused in theorem `CrossedElliptic.cubic_sub_constant_ne_zero`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:429:0: automatically included section variable(s) unused in theorem `CrossedRationalCoefficientMap.polynomial_image_eval`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:437:0: automatically included section variable(s) unused in theorem `CrossedRationalCoefficientMap.map_polynomial_eval`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:496:0: automatically included section variable(s) unused in theorem `CrossedRationalCoefficientMap.derivation_ratCast`:
+  [CharZero L]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero L] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Kernels.lean:525:0: automatically included section variable(s) unused in theorem `CrossedEllipticBaseChange.equation_root`:
+  [CharZero K]
+  [CharZero L]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] [CharZero L] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ℹ [3769/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverCertificate (52s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverCertificate.lean:129:0: 'HoldoutConstruction.holdout_hasCertificate_of_quotient_residue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverCertificate.lean:130:0: 'HoldoutConstruction.holdout_hasCertificate_of_quotient_divergence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

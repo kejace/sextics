@@ -1,4 +1,4 @@
-STATUS: IN PROGRESS (2026-11-02, restarted after the previous attempt was killed for output volume). Theory part 1 (Esnault–Viehweg transfer + W-tower rigidity) being written; computations for qcr Galois tower and rcr/qcr sector variation queued. No witness, no new certificate on any of the three lanes.
+STATUS: IN PROGRESS (2026-11-02). Parts 1-2 written (EV transfer theory, W-tower rigidity theorem, Galois closures incl. NEW qcr towers). Part 3 (sector-variation budgets rcr/qcr, klt check, verdicts) pending remote jobs trio-rcr-sectorvhs / trio-qcr-ztsing (remote saturated, waiting for the capacity gate). No witness, no new certificate on any lane.
 
 # Wave-2: residual-companion trio — character-transfer theory (index)
 

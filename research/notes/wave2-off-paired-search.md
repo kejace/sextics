@@ -1,6 +1,8 @@
 # Wave 2 — off-paired — SEARCH lens (joint denominator search)
 
-STATUS: NO WITNESS FOUND (as of 2026-11-01 20:45 local; jobs still running, see §10). No nontrivially served class found either.
+STATUS: NO WITNESS FOUND (session closed 2026-11-01 23:45 local; the remote queue keeps running, see §10). No nontrivially
+served class found either. ~9700 LM restarts over 40 (degree, sector, family) jobs (d = 6..12), 0 numerical hits (relres < 1e-9);
+best residual on off-paired 5.1e-4 (d = 11, (0,0)); Fermat controls hit exact solutions 11-17 % of the time.
 Everything below is a negative or structural result. Target: q = 1, A = X0^3 Y0^3, F = Fermat + X0^3X1Y0Y1/2 + X1^3X2Y1Y2/2 + X0^2X1X2Y0Y2/3.
 Diagonal group G = Z/6 x Z/6 (g = (0,2,0,1,3,3), h = (0,0,1,0,0,5)), characters (g,h); A has character (3,0); residue G-invariant, sigma2-anti-invariant.
 
@@ -50,14 +52,30 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
 
 | job | step | d | sector | grp | family | dimP | restarts | best relres | median | hits<1e-9 | distinct minima | s/restart | status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| d10h0-c00 | varpro | 10 | [0, 0] | G | colon | ? | 15 | 1.677e-03 | 9.73e-03 | 0 | 9 | 687.2 | partial |
+| d10h0-c00 | varpro | 10 | [0, 0] | G | colon | 85 | 17 | 1.649e-03 | 7.41e-03 | 0 | 11 | 644.7 | yes |
 | hess-d10-c00 | hess | 10 | [0, 0] | G | ? | 66 | 186 | 8.446e-02 | 2.23e-01 | 0 | 71 | 8.6 | yes |
+| d10h0-c10 | varpro | 10 | [1, 0] | G | colon | 76 | 23 | 2.759e-03 | 2.82e-03 | 0 | 14 | 620.6 | yes |
 | hess-d10-c10 | hess | 10 | [1, 0] | G | ? | 59 | 400 | 7.688e-02 | 6.74e-01 | 0 | 79 | 3.0 | yes |
+| d10h0-c20 | varpro | 10 | [2, 0] | G | colon | 77 | 24 | 2.945e-03 | 1.20e-02 | 0 | 18 | 560.3 | yes |
 | hess-d10-c20 | hess | 10 | [2, 0] | G | ? | 58 | 325 | 9.360e-02 | 6.23e-01 | 0 | 113 | 4.9 | yes |
+| d10h0-c30 | varpro | 10 | [3, 0] | G | colon | ? | 6 | 1.510e-03 | 1.51e-03 | 0 | 3 | 605.9 | partial |
 | hess-d10-c30 | hess | 10 | [3, 0] | G | ? | 61 | 188 | 9.810e-02 | 4.44e-01 | 0 | 46 | 8.6 | yes |
 | hess-d10-c40 | hess | 10 | [4, 0] | G | ? | 58 | 392 | 8.828e-02 | 7.80e-01 | 0 | 90 | 4.0 | yes |
 | hess-d10-c50 | hess | 10 | [5, 0] | G | ? | 59 | 400 | 1.417e-01 | 5.01e-01 | 0 | 97 | 3.2 | yes |
-| hess-d11-c00 | varpro | 11 | [0, 0] | G | ? | ? | 97 | 2.134e-02 | 3.10e-01 | 0 | 51 | 12.2 | partial |
+| d11a-c00 | varpro | 11 | [0, 0] | G | colon | 127 | 17 | 5.083e-04 | 5.24e-04 | 0 | 9 | 1470.4 | yes |
+| hess-d11-c00 | hess | 11 | [0, 0] | G | ? | 101 | 127 | 2.134e-02 | 3.85e-01 | 0 | 62 | 12.7 | yes |
+| hess-d11-c10 | hess | 11 | [1, 0] | G | ? | 96 | 162 | 6.300e-02 | 3.17e-01 | 0 | 89 | 9.9 | yes |
+| hess-d11-c20 | hess | 11 | [2, 0] | G | ? | 96 | 169 | 7.082e-02 | 4.02e-01 | 0 | 57 | 9.5 | yes |
+| d11a-c30 | varpro | 11 | [3, 0] | G | colon | ? | 8 | 5.998e-04 | 6.00e-04 | 0 | 3 | 1292.3 | partial |
+| hess-d11-c30 | hess | 11 | [3, 0] | G | ? | 101 | 108 | 5.913e-02 | 4.78e-01 | 0 | 64 | 15.2 | yes |
+| hess-d11-c40 | hess | 11 | [4, 0] | G | ? | 93 | 126 | 6.969e-02 | 6.28e-01 | 0 | 71 | 12.7 | yes |
+| hess-d11-c50 | hess | 11 | [5, 0] | G | ? | 93 | 139 | 8.246e-02 | 6.33e-01 | 0 | 64 | 11.5 | yes |
+| hess-d12-c00 | hess | 12 | [0, 0] | G | ? | 151 | 37 | 6.015e-02 | 4.98e-01 | 0 | 32 | 46.2 | yes |
+| hess-d12-c10 | hess | 12 | [1, 0] | G | ? | 142 | 43 | 2.216e-02 | 9.73e-02 | 0 | 24 | 38.6 | yes |
+| hess-d12-c20 | hess | 12 | [2, 0] | G | ? | 144 | 52 | 3.027e-02 | 4.25e-01 | 0 | 30 | 31.3 | yes |
+| hess-d12-c30 | hess | 12 | [3, 0] | G | ? | 152 | 41 | 4.840e-02 | 2.78e-01 | 0 | 26 | 39.1 | yes |
+| hess-d12-c40 | hess | 12 | [4, 0] | G | ? | 144 | 43 | 5.687e-02 | 3.35e-01 | 0 | 37 | 37.4 | yes |
+| hess-d12-c50 | varpro | 12 | [5, 0] | G | ? | ? | 40 | 8.245e-02 | 4.53e-01 | 0 | 27 | 40.0 | partial |
 | fe6 | varpro | 6 | [0, 0] | G | colon | 6 | 60 | 6.229e-02 | 1.77e-01 | 0 | 8 | 4.6 | yes |
 | fe7 | varpro | 7 | [0, 0] | G | colon | 14 | 60 | 5.137e-02 | 1.04e-01 | 0 | 15 | 30.5 | yes |
 | t01d7 | varpro | 7 | [0, 0] | G | colon | 14 | 60 | 1.457e-02 | 9.83e-02 | 0 | 19 | 7.0 | yes |
@@ -81,13 +99,16 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
 | hess-d9-c00 | hess | 9 | [0, 0] | G | ? | 37 | 400 | 1.505e-01 | 2.44e-01 | 0 | 44 | 2.2 | yes |
 | d9h0-c10 | varpro | 9 | [1, 0] | G | colon | 43 | 120 | 6.851e-03 | 2.87e-02 | 0 | 41 | 107.2 | yes |
 | hess-d9-c10 | hess | 9 | [1, 0] | G | ? | 32 | 400 | 1.002e-01 | 8.33e-01 | 0 | 41 | 2.1 | yes |
-| d9h0-c20 | varpro | 9 | [2, 0] | G | colon | ? | 40 | 1.005e-02 | 3.13e-02 | 0 | 28 | 259.7 | partial |
+| d9h0-c20 | varpro | 9 | [2, 0] | G | colon | 43 | 49 | 1.005e-02 | 3.13e-02 | 0 | 32 | 254.3 | yes |
 | hess-d9-c20 | hess | 9 | [2, 0] | G | ? | 32 | 400 | 1.933e-01 | 7.88e-01 | 0 | 55 | 1.9 | yes |
+| d9h0-c30 | varpro | 9 | [3, 0] | G | colon | 50 | 47 | 5.209e-03 | 3.14e-02 | 0 | 28 | 271.0 | yes |
 | hess-d9-c30 | hess | 9 | [3, 0] | G | ? | 37 | 400 | 1.792e-01 | 2.98e-01 | 0 | 77 | 2.2 | yes |
+| d9h0-c40 | varpro | 9 | [4, 0] | G | colon | 44 | 61 | 1.671e-02 | 3.50e-02 | 0 | 32 | 204.9 | yes |
 | hess-d9-c40 | hess | 9 | [4, 0] | G | ? | 35 | 400 | 1.700e-01 | 3.41e-01 | 0 | 56 | 3.2 | yes |
+| d9h0-c50 | varpro | 9 | [5, 0] | G | colon | ? | 35 | 1.124e-02 | 3.65e-02 | 0 | 20 | 246.6 | partial |
 | hess-d9-c50 | hess | 9 | [5, 0] | G | ? | 35 | 400 | 1.656e-01 | 5.12e-01 | 0 | 52 | 2.2 | yes |
 
-Total restarts 8712 over 36 jobs; numerical hits (relres < 1e-9): 0.
+Total restarts 9934 over 55 jobs; numerical hits (relres < 1e-9): 0.
 
 Reading the table: 'best relres' = min over restarts of ||residual||/||A D^2|| for the complete fixed-D system (six numerators of
 degree d+1 and Q of degree 2d-6, character-restricted) at the LM endpoint; a certificate gives ~1e-13 (Fermat controls: 3e-14).
@@ -178,12 +199,15 @@ through {X0 = Y1 = 0}; X0 and Y1 are the variables shared by the two chain links
 
 ## 10. Jobs (remote hodge-sextics, prefix search-off-paired-s2-; queue in wave2-search/queue.txt, runner op_s2_queue.py)
 
-Done: dims, control (d = 6, 7), servedscan, servedscan-all, d8c00 (partial, old solver), d8h0-c10. Running/queued at the time of
-writing: control d = 8, d8c00b, d8h0b, firstorder (d = 10, 11), fe-control (Fermat + extra term alone, d = 6, 7), smallt (t = 1/10,
-d = 7, 8), d9h0, hess (Hessian relaxation d = 8..12), struct-hess3, homotopy (+ exact served tracking along F_t, multi-start), d10h0,
-d11 (0,0)/(3,0), ft-d9h0 (free target), d8hmix (h-only sectors), d12, d9h0more, struct-cones, d8gmix, d10rest, ft-d8h0, struct-hess4,
-d7tau (parity-only d = 7), d10h0more. The remote is 8-10x oversubscribed by ~50 agents (load 750-1300 on 128 cores), so throughput is
-~10 % of nominal; all jobs checkpoint per restart (per-worker JSONL) and can be resumed with new seeds.
+Done: dims, control (d = 6, 7, 8), servedscan, servedscan-all, firstorder (d = 6..11), fe-control (d = 6, 7), smallt (d = 7, 8),
+d8c00 + d8c00b (351 restarts), d8h0/d8h0b (sectors (1,0),(2,0),(3,0),(4,0),(5,0)), d9h0 ((0,0),(1,0),(2,0),(3,0),(4,0); (5,0) running),
+d10h0 ((0,0),(1,0),(2,0); (3,0) running), d11 ((0,0); (3,0) running), hess (d = 8..12, all six h-invariant sectors; d = 12 finishing),
+struct-hess3, homotopy (servedt, hom8). Still queued when the session closed (the local runner keeps submitting them, <= 4 at a time):
+homotopy2 (multi-start d = 8, 9), ft-d9h0 (free target), d8hmix (h-only sectors, g-mixing), d12c00, d9h0more, struct-cones, d8gmix,
+d10rest, ft-d8h0, struct-hess4, d7tau (parity-only d = 7), d10h0more. Every job checkpoints per restart (per-worker JSONL) and writes
+wave2-<job>.summary.json; collect later with `python3 wave2-search/w2_report.py` (pull + merge batch lines) and
+`python3 wave2-search/w2_refresh_report.py` (rebuild §3). The remote was 5-15x oversubscribed by ~50 agents (load 550-1950 on 128
+cores) throughout, so per-restart times were 10x nominal.
 
 ## 11. Next steps
 
