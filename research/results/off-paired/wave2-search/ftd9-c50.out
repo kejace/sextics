@@ -4,3 +4,68 @@
 [free-target varpro] d=9 c=(5, 0) dimP=44 targets 24 (J-part 2, free 22) rows=3526 N=609 Q=209
 [2026-11-02T06:49:46] family built: K=48 rank=48 gauge=4 dimP=44 rows=3526 N=609 Q=209 build 1.3s
 gradient check: analytic 8.603101e-02 fd 8.603101e-02
+{
+ "ts": "2026-11-02T07:12:50",
+ "job": "ftd9-c50",
+ "step": "varpro-free-target",
+ "F": "offpaired",
+ "d": 9,
+ "sector": [
+  5,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 48,
+ "rank": 48,
+ "gauge": 4,
+ "dimP": 44,
+ "rows": 3526,
+ "nN": 609,
+ "nQ": 209,
+ "dimT": 22,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 10,
+ "best_relres": 0.0019159700776888583,
+ "median_relres": 0.005990606839040831,
+ "hist": {
+  "lt1e-2": 8,
+  "ge1e-2": 2
+ },
+ "top_minima": [
+  [
+   "1.916e-03",
+   1
+  ],
+  [
+   "2.229e-03",
+   4
+  ],
+  [
+   "5.991e-03",
+   1
+  ],
+  [
+   "6.659e-03",
+   1
+  ],
+  [
+   "8.842e-03",
+   1
+  ],
+  [
+   "1.205e-02",
+   2
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 884.14,
+ "statuses": {
+  "maxiter": 3,
+  "flat": 2,
+  "stalled": 5
+ },
+ "wall": 1385.9,
+ "witness": false
+}

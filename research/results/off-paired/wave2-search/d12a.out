@@ -1,1 +1,3 @@
 [05:27:49] start d12a-c00 (eff 185) elapsed 0s
+   -> best 2.282e-04 median 2.540e-04 restarts 16 dimP 185 t/restart 3089.04 witness False
+[07:15:52] start d12a-c30 (eff 183) elapsed 6483s

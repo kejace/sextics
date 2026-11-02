@@ -1,1 +1,16 @@
 wrote reflection_offX_v2.ms 57 equations 27 unknowns
+Traceback (most recent call last):
+  File "/tmp/hodge/results/diagonal-permutation/w2c_reflection.py", line 57, in <module>
+    r = subprocess.run(['msolve','-v','1','-t',str(nthreads),'-f',fname,'-o',fname.replace('.ms','.out')], capture_output=True, text=True, timeout=7000)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['msolve', '-v', '1', '-t', '4', '-f', 'reflection_offX_v2.ms', '-o', 'reflection_offX_v2.out']' timed out after 7000 seconds
