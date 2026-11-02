@@ -86,3 +86,4 @@
 {"seed": 50081, "mode": "complex", "f": 1.555993461606813e-05, "iters": 306, "seconds": 320.78, "name": "hr8ec", "d": 8, "sector": "0"}
 {"seed": 50082, "mode": "complex", "f": 7.065355784431774e-08, "iters": 283, "seconds": 283.46, "name": "hr8ec", "d": 8, "sector": "0"}
 {"seed": 50083, "mode": "complex", "f": 1.2285128304225566e-05, "iters": 235, "seconds": 258.9, "name": "hr8ec", "d": 8, "sector": "0"}
+{"seed": 50092, "mode": "complex", "f": 8.032625527625082e-08, "iters": 168, "seconds": 155.56, "name": "hr8ec", "d": 8, "sector": "0"}

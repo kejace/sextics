@@ -16,3 +16,4 @@ reduce gb                        1
 info level                       1
 generate pbm files               0
 ------------------------------------------
+timeout: the monitored command dumped core

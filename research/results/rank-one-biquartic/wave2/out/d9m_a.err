@@ -5,3 +5,10 @@
 [family] F-multiples not inside family (fit 1.00e+00) -> no spurious directions removed
 [search] d=9 pD=0 K=30 spurious=0 n_u=30 n_c=1890 rows_red=13717 rows=16797 build 1015.5s
 [search] generic reduced Koszul rank {'Mred_shape': [13717, 1890], 'rank': 1530, 'nullity': 360, 'sv_min_kept': 14.578559903741676, 'sv_next': 2.439060713232608e-10, 'sv_max': 2104585.9711744706}
+[search] STOP file for d9m_a: ending batch early after 1 restarts in this worker
+[search] STOP file for d9m_a: ending batch early after 1 restarts in this worker
+[search] STOP file for d9m_a: ending batch early after 1 restarts in this worker
+[search] STOP file for d9m_a: ending batch early after 1 restarts in this worker
+[search] STOP file for d9m_a: ending batch early after 1 restarts in this worker
+[search] STOP file for d9m_a: ending batch early after 1 restarts in this worker
+[search] STOP file for d9m_a: ending batch early after 1 restarts in this worker
