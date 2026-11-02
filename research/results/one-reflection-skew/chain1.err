@@ -12,3 +12,4 @@
 [op5 one-reflection-skew] d=7 sector=(0,1) rows=2640 cols=615 nD=80 nnz=387104 build 0.5s
 [op5 one-reflection-skew] d=7 sector=(1,0) rows=2640 cols=630 nD=80 nnz=396950 build 0.7s
 [op5 one-reflection-skew] d=7 sector=(1,1) rows=2640 cols=615 nD=80 nnz=387104 build 0.7s
+[op5 one-reflection-skew] d=8 sector=(0,0) rows=3718 cols=890 nD=135 nnz=954445 build 0.9s
