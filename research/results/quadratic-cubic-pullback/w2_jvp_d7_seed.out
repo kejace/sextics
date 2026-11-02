@@ -2,3 +2,5 @@
 [jvp d=7] K=63 (w 63) dimP=60 nout=5796  nc=420 nQ=636 k=620 built in 13.3s
 [stage2 d=7] start 0: rel=3.709e-03 (stage1 nan) nit=75 (121s)
 [stage2 d=7] start 1: rel=3.709e-03 (stage1 nan) nit=74 (226s)
+[stage2 d=7] start 2: rel=2.994e-03 (stage1 nan) nit=123 (462s)
+[stage2 d=7] start 3: rel=2.626e-03 (stage1 nan) nit=80 (571s)

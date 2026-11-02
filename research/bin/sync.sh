@@ -13,7 +13,13 @@ rsync -a --delete --exclude __pycache__ --exclude venv "$HOME/devel/sextics-work
 [ -d /tmp/hodge/lean ] && rsync -a --exclude '*.olean' --max-size=20m /tmp/hodge/lean/ $R/lean/
 for p in "$HOME"/.claude/projects/*sextics*/workflows/scripts; do [ -d "$p" ] && rsync -a "$p/" $R/workflows/; done
 for m in "$HOME"/.claude/projects/*sextics*/memory; do [ -d "$m" ] && rsync -a "$m/" $R/claude-memory/; done
+# per-host branch: brunos -> research (primary), anything else -> research-<shorthost>
+case "$(hostname)" in brunos) BR=research;; *) BR=research-$(hostname -s | cut -c1-12);; esac
+git rev-parse --verify -q "$BR" >/dev/null || git checkout -q -b "$BR"
+[ "$(git branch --show-current)" = "$BR" ] || git checkout -q "$BR"
 git add -A $R >/dev/null 2>&1
 if ! git diff --cached --quiet; then
-  git -c user.name="${GIT_USER:-kejace}" commit -qm "sync $(hostname) $(date -u +%Y-%m-%dT%H:%MZ)" && git pull -q --rebase fork research 2>/dev/null; git push -q fork research 2>&1 | tail -1
+  git -c user.name="${GIT_USER:-kejace}" commit -qm "sync $(hostname -s) $(date -u +%Y-%m-%dT%H:%MZ)"
 fi
+git fetch -q fork "$BR" 2>/dev/null && git merge -q -X ours --no-edit "fork/$BR" 2>/dev/null
+git push -q fork "$BR" 2>&1 | grep -v "^hint:" | tail -1
