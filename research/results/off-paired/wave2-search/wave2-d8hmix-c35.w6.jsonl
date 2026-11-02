@@ -1,1 +1,2 @@
 {"seed": 6, "f": 0.0049100341903141696, "bnorm2": 1.7904934994612138, "relres": 0.052366781640520214, "iters": 99, "njac": 99, "nres": 153, "status": "stalled", "time": 687.51, "init": "gauss"}
+{"seed": 14, "f": 0.008240233601490106, "bnorm2": 1.9821883279235761, "relres": 0.06447588389816959, "iters": 65, "njac": 65, "nres": 112, "status": "stalled", "time": 626.48, "init": "gauss"}
