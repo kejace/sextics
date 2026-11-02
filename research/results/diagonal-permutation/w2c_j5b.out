@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/hodge/results/diagonal-permutation/w2c_j5b.py", line 16, in <module>
+    Fpq = sp.expand(Fs.subs(sub_fw, simultaneous=True))
+                    ^^
+NameError: name 'Fs' is not defined. Did you mean: 'F'?

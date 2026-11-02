@@ -1,6 +1,6 @@
 # Wave 2 — `four-plus-two-residual` — EXCLUSION / RIGOR lens
 
-STATUS: no witness (in progress). BEST RIGOROUS BOUND: **no certificate with deg D <= 5 exists over C** (E1 kernel exact + degree-5 Hessian relaxation exact, see §1–2). Remote jobs: excl-kernels (running), excl-d5 and excl-d6 (queued for capacity; remote load ~400/128).
+STATUS: no witness (in progress). BEST RIGOROUS BOUND: **no certificate with deg D <= 5 exists over C** (E1 kernel exact + degree-5 Hessian relaxation exact, §1–2); at degree 6 the 10-parameter eigenvector Jacobian family is excluded exactly (§3.1). Remote box saturated (load 1100+/128): excl-kernels running there; excl-d5/excl-d6 submits waiting; sector-restricted sweeps run locally in a single niced process (chain: symsweep k=6..8 → sum → struct → symsweep k=9..12).
 
 Log: `/tmp/hodge/results/four-plus-two-residual/wave2-excl.log.jsonl` (merged from the remote per-job files `wave2-excl/remote/*.jsonl` by `wave2-excl/w2_pull.py`).
 Packet: `/tmp/hodge/results/four-plus-two-residual/wave2-excl/` (w2lib.py, w2_*.py, receipts/, README.md).
@@ -25,7 +25,11 @@ an identity verified exactly on random data (`d5-reduction-identity-check`).
 Positive control: for the Jacobian target Y0·∂F/∂X0 (served by every D) the same code gives W = Sym² (dim 21) and the cone is all of C^6, as it must.
 Together with §1: **deg D ≥ 6 for every certificate of this instance** (any parity, any coefficient field ⊂ C). Receipts: `wave2-excl/receipts/excl-d5-local*.{jsonl,json,sing}`.
 
-## 3. Degree 6 (job excl-d6, queued) — pending
+## 3. Degree 6
+### 3.1 Eigenvector Jacobian family — EXCLUDED over C [EXACT] (local run `excl-d6jac-local`)
+E1-admissible denominators of degree 6 are D = F_w + c with w ∈ (R_1)^6 and c ∈ ker_6 (33 reps). The sub-family of G-eigenvectors of Jacobian type is the 10-parameter family D = Σ_a w_a F_a, w_a = Σ_{c ∈ class(a)} w_ac z_c, classes {X0,X1}, {Y0,Y1}, {X2}, {Y2} (it contains all weighted Euler polars Σ λ_a z_a F_a). E2 reduces to F_w w(A) + A(F_w div w − w(F_w)) + F_w div K − K(F_w) = F Q with K Koszul (quadratic coefficients, sector-restricted: 48 unknowns) and Q in its sector (40). The Hessian relaxation (S ∈ Sym²(C^10): 55, T = w⊗k: 480, Q: 40; 384 equations) solved exactly over Q has a 26-dimensional projection W; the rank-one locus {w : w⊗w ∈ W} is cut out by 29 quadrics whose minimal associated prime (Singular `minAssGTZ`) is the single line w_00 = w_11 = w_33 = w_44 = w_22 = w_55, w_01 = w_10 = w_34 = w_43 = 0, i.e. D = λ Σ_a z_a F_a = 6λF — not coprime to F. **Hence no denominator of this 10-parameter family has a certificate.** Receipts: `receipts/excl-d6jac-local*.{jsonl,json,sing}`.
+### 3.2 Individual degree-6 denominators (full system, two primes) — pending (job excl-d6, queued on the saturated remote); the 33 core-kernel representatives are being excluded exactly by the sector-restricted sweep (§4, local chain).
+
 ## 4. Core-only kernel elements, degrees 7–12, sector-restricted full system [EXACT] — pending (job excl-symsweep)
 ## 5. Sum principle / served sectors — pending (job excl-sum)
 ## 6. Generic E1-admissible members, degrees 7–10 — pending (job excl-generic)

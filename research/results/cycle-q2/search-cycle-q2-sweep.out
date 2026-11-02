@@ -1,3 +1,15 @@
 [struct-sweep] 420 candidates, 420 new
   hess-minor2 d=8 e1=False cons=False rk=-1 5.09s det H[X0,X1;X1,Y1] 
   hess-minor2^2 d=16 e1=None cons=False rk=7227 1097.53s det H[X0,X1;X1,Y1] squared 
+  hess-minor2 d=8 e1=False cons=False rk=-1 4.07s det H[X0,X1;X1,X2] 
+  hess-minor2^2 d=16 e1=None cons=False rk=7387 1158.82s det H[X0,X1;X1,X2] squared 
+  hess-minor2 d=8 e1=False cons=False rk=-1 2.33s det H[X0,X1;X0,X1] 
+  hess-minor2^2 d=16 e1=None cons=False rk=7613 1171.31s det H[X0,X1;X0,X1] squared 
+  hess-minor2 d=8 e1=False cons=False rk=-1 3.7s det H[X0,X1;X0,X2] 
+  hess-minor2^2 d=16 e1=None cons=False rk=7365 1195.77s det H[X0,X1;X0,X2] squared 
+  hess-minor2 d=8 e1=False cons=False rk=-1 2.45s det H[X0,X1;X1,Y0] 
+  hess-minor2^2 d=16 e1=None cons=False rk=7771 1203.03s det H[X0,X1;X1,Y0] squared 
+  hess-minor2 d=8 e1=False cons=False rk=-1 6.36s det H[X0,X1;X0,Y0] 
+  hess-minor2^2 d=16 e1=None cons=False rk=7224 1207.82s det H[X0,X1;X0,Y0] squared 
+  hess-minor2 d=8 e1=False cons=False rk=-1 3.94s det H[X0,X1;X0,Y2] 
+  hess-minor2^2 d=16 e1=None cons=False rk=7327 1272.78s det H[X0,X1;X0,Y2] squared 

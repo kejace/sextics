@@ -123,6 +123,10 @@ with open(f'{SD_DIR}/hess_d{d}_par{parD}.sing', 'w') as f:
     for v in lin:
         f.write('L[size(L)+1] = ' + '+'.join(f'({c})*{var(k)}' for k, c in enumerate(v) if c != 0) + ';\n')
     f.write('int t0 = timer;\nideal SI = std(I);\n"dim(I) (affine, includes origin) =", dim(SI), " degree =", mult(SI), " time", timer - t0;\n')
-    f.write('LIB "elim.lib";\nt0 = timer;\nideal S = sat(SI, L)[1];\n"saturation w.r.t. Euler cone: S == 1 ?", (S[1] == 1), " dim(S) =", dim(std(S)), " time", timer - t0;\n')
-    f.write('"Euler cone dim (affine) =", dim(std(L));\nquit;\n')
+    if lin:
+        f.write('LIB "elim.lib";\nt0 = timer;\nideal S = sat(SI, L)[1];\n"saturation w.r.t. Euler cone: S == 1 ?", (S[1] == 1), " dim(S) =", dim(std(S)), " time", timer - t0;\n')
+        f.write('"Euler cone dim (affine) =", dim(std(L));\n')
+    else:
+        f.write('"no Euler cone in this parity: solutions exist iff dim(I) > 0";\n')
+    f.write('quit;\n')
 print('written', f'{SD_DIR}/hess_d{d}_par{parD}.sing', 'with', len(quad), 'quadrics,', len(lin), 'linear forms (Euler cone codim)')

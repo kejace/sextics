@@ -5,7 +5,12 @@ MIR = '/tmp/hodge/remote/rank-one-biquartic/wave2/out'
 LOG = f'{LANE}/wave2-search.log.jsonl'
 REP = '/tmp/hodge/notes/wave2-rank-one-biquartic-search.md'
 recs = [json.loads(l) for l in open(LOG) if l.strip()]
-wit = any(r.get('witness') or r.get('WITNESS') or (r.get('status') == 'WITNESS' and 'coupled' not in str(r.get('tag'))) for r in recs)
+def _is_lane_witness(r):
+    tag = str(r.get('tag', ''))
+    if tag.startswith(('planted', 'smoke')) or r.get('instance') not in (None, 'rank-one-biquartic'):
+        return False
+    return bool(r.get('witness') or r.get('WITNESS') or r.get('status') == 'WITNESS')
+wit = any(_is_lane_witness(r) for r in recs)
 wit = wit or os.path.exists(f'{LANE}/witness-candidate.json') or os.path.exists('/tmp/hodge/remote/rank-one-biquartic/witness-candidate.json')
 out = []
 out.append('# Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)\n')

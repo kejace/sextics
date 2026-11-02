@@ -1,11 +1,15 @@
 # Wave 2 — off-paired — SEARCH lens
 
-STATUS: IN PROGRESS (2026-11-01 19:58 local). No witness. Step 1 (E1 dimension table d=4..12, all 36 characters) DONE.
-Remote (128 cores) is at load 700-770 from ~50 agents, so my 4 jobs run at ~1/5 speed; jobs are force-submitted through a local
-queue runner (w2_queue.py, <= 4 running). Running: control (Fermat calibration), d8c00 (800 restarts), d8h0; queued: d9all, d10all,
-hess, struct-hess3, homotopy, d11h0, d8hmix, ft-d9, d12h0, struct-cones, d8gmix, struct-hess4, d7tau, d10h0more, d9h0more, ft-d8, ft-d10.
-Calibration so far (remote): Fermat d=6 16/96 restarts hit the exact solution (relres < 1e-13), d=7 10/96 (dimP 28, 12 s/restart).
-Interim off-paired d=8 (0,0): 22 restarts, best relres 1.3173e-2 (reproducible local minimum, hit 3x), median 0.058.
+STATUS: IN PROGRESS (2026-11-01 20:20 local). No witness; no nontrivially served class found so far.
+Remote (128 cores) is at load 1000-1300 from ~50 agents (10x oversubscribed), so throughput is ~1/10 of nominal; jobs are
+force-submitted through a local queue runner (op_s2_queue.py, <= 4 running, prefix search-off-paired-s2-).
+DONE: step 1 (E1 dimension table); Fermat calibration d=6 (16/96 exact hits), d=7 (10/96); exact served-space scan of 3922
+structured denominators (all 3/4/5-variable-subset forms of degree 4-6 in every G-character, Fermat-type cones, named blocks,
+random colon elements at d=9..12): 0 nontrivially served (3,0)-classes; d=8 (0,0) colon search, first 52 restarts (exact-QR
+solver): best relres 1.3173e-2 (a hyperplane-arrangement attractor, see landscape note), 25 distinct minima; d=8 (1,0): 25 restarts,
+best 7.3e-2. Solver sped up 3x (ridge normal equations + SVD polish, identical minima); d=8 jobs relaunched (d8c00b, d8h0b).
+RUNNING/QUEUED: d8c00b, d8h0b, d9h0, d10h0, hess, struct-hess3, homotopy(+served tracking, multi-start), d11, ft-d9h0, d8hmix,
+d12, d9h0more, struct-cones, d8gmix, d10rest, ft-d8h0, struct-hess4, d7tau, d10h0more; servedscan-all (all 18 Y-odd target sectors).
 Sector VarPro library validated on the Fermat positive control (exact f6 recovered to 7e-14, confirmed exactly).
 Remote jobs queued (remote at load ~250/128, waiting for capacity): Fermat success-rate calibration, d=8 (0,0) colon search.
 NOTE: a second agent (lens `excl`) works on this lane in wave2-excl/ and runs the Delta_t full solve and the two-prime

@@ -35,7 +35,11 @@ from flint import nmod_mat, fmpz_mat
 
 LANE = 'one-reflection-skew'
 WD = f'/tmp/hodge/results/{LANE}'
-W2LOG = f'{WD}/wave2-search.log.jsonl'
+import socket as _socket
+# Remote jobs log to a file that never exists on the local machine: the runner's rsync (`up`) pushes the local
+# lane dir without --update, so a local copy of wave2-search.log.jsonl would clobber the remote one.
+_ON_REMOTE = not _socket.gethostname().startswith('brunos')
+W2LOG = f'{WD}/wave2-remote.log.jsonl' if _ON_REMOTE else f'{WD}/wave2-search.log.jsonl'
 PR = core.PRIMES
 SIXFIFTH = 1.2
 

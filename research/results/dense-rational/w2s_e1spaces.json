@@ -163,5 +163,20 @@
   "min_kernel_by_count": 0,
   "J_in_Kfull_resid": 6.445872219786297e-09,
   "seconds": 823.4
+ },
+ {
+  "d": 9,
+  "pD": 1,
+  "dimS": 1001,
+  "dimJ_num": 378,
+  "dimJ_exact": 378,
+  "dimR_exact": 623,
+  "dimKfull_num": 379,
+  "kernel_modJ_num": 1,
+  "rankA_num": 622,
+  "dimR_target_exact": 623,
+  "min_kernel_by_count": 0,
+  "J_in_Kfull_resid": 6.695730541602119e-09,
+  "seconds": 872.6
  }
 ]

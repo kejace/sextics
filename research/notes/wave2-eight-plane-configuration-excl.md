@@ -39,6 +39,9 @@ Exact parity-refined Hilbert function (w2x_hilbert.py): R_6 = 218/208, R_8 = 483
 
 **Current rigorous statement: every certificate has deg D >= 7; if deg D in {7,8,9} then D = w(F) is a Jacobian denominator with A*Hess_F(w,w) in J (and w outside the subfamilies listed above).**
 
+## 3a. Sampling of individual Jacobian denominators (goal c, screening)
+batch2a (running): Koszul-reduced E2 (p = 2147483587) on 140 fields at d = 7 (random; arrangement fields with random coefficients; Hamiltonian pair fields G_j d_i - G_i d_j and random-C Hamiltonian fields for ~40 cubics G built from Q_i, K_i, H_i, diag_i, F; gradient fields grad G): every one tested so far is inconsistent (rank 996, augmented 997, 1056 unknowns, 5796 rows; the homogeneous reduced system has nullity 60 generically). d = 8 sampling queued in the same job. (These are screens of specific D's; the family-level statements are in §2.)
+
 ## 3. Sum-principle bookkeeping (goal c, exclusion side)
 For 36 natural low-degree factors — Q_i, Q_i ± Q_j, Q0+Q1+Q2, X_iY_i, X_i^2 - Y_i^2, X0^2, X0X1, X0Y1 (deg 2); K_i, H_i, diag_i, Q_i^2, Q_iQ_j (deg 4); Q0Q1Q2, Fermat (deg 6) — Ann_R(D)_6^{odd} = 0 (p = 2147483587), and for deg <= 4 the full served space fixed_d.target_image is exactly J_6^- (dim 18, 0 mod J). Hence no product of these factors (any degree) serves A (R6). (log: exp c-factor-annihilator.)
 

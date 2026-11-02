@@ -20,7 +20,11 @@ from hodge.core import NV, monomials, shift, mul, add, sub, scale, pderiv, power
 from flint import nmod_mat, fmpz_mat, fmpq_mat
 
 LANE = '/tmp/hodge/results/cycle-q2'
-LOG = f'{LANE}/wave2-excl.log.jsonl'
+import socket
+_HOST = socket.gethostname()
+# remote jobs write to a remote-only file (merged into the canonical local log by merge.py); this avoids the rsync race
+# in which `rjob up` pushed the local copy of wave2-excl.log.jsonl over the remote one and lost lines appended there.
+LOG = f'{LANE}/wave2-excl.log.jsonl' if _HOST == 'brunos' else f'{LANE}/wave2-excl.remote.log.jsonl'
 PACKET = f'{LANE}/wave2-excl'
 P1, P2, P3 = 1000000007, 998244353, 2147483629   # wave-2 primes (wave-1 used 2^31-1, 4194301, 4194287; dossier 10007, 65521)
 

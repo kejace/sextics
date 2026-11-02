@@ -16,3 +16,9 @@ as listed; all log lines carry `"lens": "excl", "engine": 2` and `"job": "excl-c
   Hessian relaxation varieties; structured irreducible families at d <= 12.
 
 Report (brunos): `/tmp/hodge/notes/wave2-cycle-q2-excl.md`.  Please do not overwrite; append your own section or use a different file name.
+
+**WARNING (2026-11-01 ~20:50): log-file race.** `rjob submit`/`up` rsyncs the *local* lane dir over the remote one (no `--update`), so a local copy of
+`wave2-excl.log.jsonl` overwrites the remote copy and silently drops lines that remote jobs appended since the last pull. This bit my resumed
+`sectors.py --deg 6` run (records recovered from `sectors6.out` and `certs/`). My remote jobs now log to `wave2-excl.remote.log.jsonl`
+(remote-only; merged into the canonical brunos log by `merge.py`). If your jobs append to the remote `wave2-excl.log.jsonl`, consider the same
+split, or pull before every submit.

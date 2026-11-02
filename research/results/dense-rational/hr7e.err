@@ -21,3 +21,7 @@
 [hessrelax hr7e] 1600 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (1203s)
 [hessrelax hr7e] 1700 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (1333s)
 [hessrelax hr7e] 1800 restarts best f 6.854e-04 (seed 623) median 7.783e-04 (1464s)
+[hessrelax hr7e] 1900 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (1604s)
+[hessrelax hr7e] 2000 restarts best f 6.854e-04 (seed 623) median 7.783e-04 (1729s)
+[hessrelax hr7e] 2100 restarts best f 6.854e-04 (seed 623) median 7.782e-04 (1853s)
+[hessrelax hr7e] 2200 restarts best f 6.854e-04 (seed 623) median 7.784e-04 (2019s)

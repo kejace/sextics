@@ -81,7 +81,8 @@ E1-admissible denominator of degree 9 is then (01)-invariant modulo J, so the (0
 * d8F: crashed -- rational reconstruction of u8 failed after 6 primes (heights too large).  Resubmitted as d8G with a mod-p
   fallback; the mod-p relaxation verdict is rigorous for D8 by the regular-sequence argument (README §1.3, "D8 without an exact lift").
 * relax7F: d=7 even system built (60 unknowns, 480 independent quadrics in 1830 pair monomials, good reduction in degree 14);
-  msolve running (4 threads, box at load ~700).
+  msolve running (4 threads; remote load average 1300 on 128 cores at 01:10 UTC, so a multi-hour run is expected; a sibling
+  lane's comparable d=7 msolve has >190 CPU-minutes).  Odd and mixed d=7 sectors queued behind it in the same job.
 
 ### R2. Sibling-lens data on this lane seen on the remote (search lens, not mine; to be re-verified)
 * d = 9 E1 kernel (Y-even) primitive dimension 21 (p = 2147483647), hence 21 odd as well by duality (e1kernel_d9.out).

@@ -1,0 +1,1 @@
+{"name": "fc", "family": "companion:fc", "d": 6, "job": "w2-struct", "event": "struct-candidate", "inst": "one-reflection-skew", "rho": 0, "sigma": null, "e1": false, "note": "e1 fails (A D not in J_f mod p)", "secs": 45.0, "D": "X0**6 + X0**3*X1*Y0*Y1 + X1**6 + X1**3*X2*Y0*Y1 + X2**6 + 2*Y0**3*Y1**3"}

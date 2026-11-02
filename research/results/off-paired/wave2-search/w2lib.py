@@ -228,6 +228,68 @@ def exact_span_basis(polys, mons, verbose=False, tag='span'):
     return [{mons[j]: v for j, v in enumerate(row) if v} for row in rat]
 
 
+def float_colon_basis(F, A, q, d, c, family=None, tol=1e-9, verbose=False):
+    """Floating-point orthonormal basis (rows, D-monomial coordinates -> polys with float coefficients) of
+    {D in span(family) : A D in J(F)}, via SVD of the E1 system; dimension cross-checked against the mod-p rank."""
+    Dbasis = family if family is not None else [{m: Fraction(1)} for m in monos_char(d, c)]
+    nW = len(Dbasis)
+    if nW == 0:
+        return [], np.zeros((0, 0))
+    cA = oplib.char_of(A)
+    degN = d + 6 * q - 5
+    Fi = [pderiv(F, i) for i in range(NV)]
+    cols = []
+    for i in range(NV):
+        ci = cadd(cadd(c, VARCHAR[i]), cA)
+        for m in monos_char(degN, ci):
+            cols.append(shift(Fi[i], m, q))
+    nNc = len(cols)
+    for Bk in Dbasis:
+        cols.append(scale(mul(A, Bk), -1))
+    rows = {}
+    for col in cols:
+        for e in col:
+            rows.setdefault(e, len(rows))
+    M = np.zeros((len(rows), len(cols)))
+    for j, col in enumerate(cols):
+        for e, v in col.items():
+            M[rows[e], j] = float(v)
+    ns = sla.null_space(M, rcond=tol)
+    proj = ns[nNc:, :]                      # D-coordinates (in the family basis)
+    U, sv, Vt = np.linalg.svd(proj, full_matrices=False)
+    r = int(np.sum(sv > tol * (sv[0] if sv.size else 1.0)))
+    coords = Vt[:r, :] if False else U[:, :r].T   # r x nW orthonormal rows spanning the colon subspace in family coords
+    # cross-check with the modular dimension
+    vecs = colon_vecs_modp(F, A, q, d, c, Dbasis, P0)
+    rk = nmod_mat(len(vecs), nW, [v % P0 for row in vecs for v in row], P0).rank() if vecs else 0
+    if rk != r:
+        raise RuntimeError(f'float colon basis d={d} c={c}: numeric rank {r} != modular rank {rk}')
+    polys = []
+    for row in coords:
+        P = {}
+        for k, v in enumerate(row):
+            if abs(v) > 1e-15:
+                for e, w in Dbasis[k].items():
+                    P[e] = P.get(e, 0.0) + float(w) * float(v)
+        polys.append({e: v for e, v in P.items() if abs(v) > 1e-15})
+    if verbose:
+        print(f'[float colon basis d={d} c={c}] dim {r} (modular {rk})', file=sys.stderr)
+    return polys, coords
+
+
+def float_span_basis(polys, mons, tol=1e-9):
+    idx = {m: i for i, m in enumerate(mons)}
+    if not polys:
+        return []
+    M = np.zeros((len(polys), len(mons)))
+    for k, P in enumerate(polys):
+        for e, v in P.items():
+            M[k, idx[e]] = float(v)
+    U, sv, Vt = np.linalg.svd(M, full_matrices=False)
+    r = int(np.sum(sv > tol * sv[0]))
+    return [{mons[j]: float(v) for j, v in enumerate(row) if abs(v) > 1e-15} for row in Vt[:r]]
+
+
 def gauge_polys(F, d, c):
     """F * m for monomials m of degree d-6 and character c (F has character (0,0))."""
     if d < 6:
@@ -251,6 +313,7 @@ class SectorVarPro:
         d = core.degree(basis[0]); self.d = d
         for Bk in basis:
             assert core.degree(Bk) == d and oplib.char_of(Bk) == c, 'basis must be homogeneous of one character'
+        self.exact_basis = all(isinstance(v, (Fraction, int)) for Bk in basis for v in Bk.values())
         cA = oplib.char_of(A); self.cA = cA
         self.cond = cond
         Dm = monos_char(d, c); self.Dm = Dm; nD = len(Dm); self.nD = nD
@@ -468,19 +531,62 @@ class SectorVarPro:
         self._nfev += 1
         return r, xN, b, Q1
 
-    def resid(self, u):
+    # --- fast path: ridge-regularized normal equations (approximate projector), exact SVD path for polishing ---------
+    RIDGE = 1e-10
+    use_fast = True
+    switch_rel = 1e-5
+
+    def _fast_solve(self, Dc):
+        """Approximate LS via (M^T M + eps I); returns (r, xN, b, solve) where solve(V) = H_eps^{-1} V."""
+        MN, b = self.assemble(Dc)
+        if self.nQ:
+            MNp = MN - self.QQ @ (self.QQ.T @ MN); bp = b - self.QQ @ (self.QQ.T @ b)
+        else:
+            MNp, bp = MN, b
+        H = MNp.T @ MNp
+        eps = self.RIDGE * (np.trace(H) / max(1, H.shape[0]))
+        H[np.diag_indices_from(H)] += eps
+        cf = sla.cho_factor(H, lower=True, check_finite=False)
+        xN = sla.cho_solve(cf, MNp.T @ bp, check_finite=False)
+        r = MNp @ xN - bp
+        self._nfev += 1
+        return r, xN, b, (lambda V: MNp @ sla.cho_solve(cf, MNp.T @ V, check_finite=False)), MNp
+
+    def _svd_solve(self, Dc):
+        """Exact LS via SVD (rank-revealing); returns (r, xN, b, Q1)."""
+        MN, b = self.assemble(Dc)
+        if self.nQ:
+            MNp = MN - self.QQ @ (self.QQ.T @ MN); bp = b - self.QQ @ (self.QQ.T @ b)
+        else:
+            MNp, bp = MN, b
+        U, sv, Vt = np.linalg.svd(MNp, full_matrices=False)
+        rank = int(np.sum(sv > self.cond * sv[0])) if sv.size and sv[0] > 0 else 0
+        Q1 = U[:, :rank]
+        y = Q1.T @ bp
+        xN = Vt[:rank].T @ (y / sv[:rank]) if rank else np.zeros(self.nN)
+        r = -(bp - Q1 @ y)
+        self._nfev += 1
+        return r, xN, b, Q1
+
+    def resid(self, u, fast=False):
         Dc, a, na = self.D_coef(u)
-        r, xN, b, Q1 = self._qr_solve(Dc)
+        if fast:
+            r, xN, b, _, _ = self._fast_solve(Dc)
+        else:
+            r, xN, b, Q1 = self._svd_solve(Dc)
         return r, b
 
-    def resid_jac(self, u):
-        """Residual r(u) and Kaufman Jacobian dr/du (R x dimP)."""
+    def resid_jac(self, u, fast=False):
+        """Residual r(u) and Kaufman Jacobian dr/du (R x dimP); fast=True uses the ridge projector."""
         u = np.asarray(u, float)
         a_full = self.P @ u
         na = np.linalg.norm(a_full)
         a = a_full / na
         Dc = self.Borth.T @ a
-        r, xN, b, Q1 = self._qr_solve(Dc)
+        if fast:
+            r, xN, b, solve, MNp = self._fast_solve(Dc)
+        else:
+            r, xN, b, Q1 = self._svd_solve(Dc)
         R, nN, nD = self.R, self.nN, self.nD
         Xm = sp.csr_matrix((np.tile(xN, R), np.arange(R * nN, dtype=np.int64), np.arange(0, R * nN + 1, nN, dtype=np.int64)),
                            shape=(R, R * nN))
@@ -489,7 +595,10 @@ class SectorVarPro:
         JD = Y - Bp
         if self.nQ:
             JD = JD - self.QQ @ (self.QQ.T @ JD)
-        JD = JD - Q1 @ (Q1.T @ JD)
+        if fast:
+            JD = JD - solve(JD)
+        else:
+            JD = JD - Q1 @ (Q1.T @ JD)
         Ja = JD @ self.Borth.T                      # R x rankB
         Ja = (Ja - np.outer(Ja @ a, a)) / na        # normalization chain rule
         Ju = Ja @ self.P
@@ -517,7 +626,8 @@ class SectorVarPro:
             u = rng.standard_normal(self.dimP)
         u = u / np.linalg.norm(u)
         t0 = time.time()
-        r, J, b = self.resid_jac(u)
+        fast = self.use_fast
+        r, J, b = self.resid_jac(u, fast=fast)
         f = float(r @ r); bn = float(b @ b)
         lam = lam0
         it = 0; njac = 1; nres = 0
@@ -534,7 +644,7 @@ class SectorVarPro:
                     lam *= 10; continue
                 u_new = u + delta
                 u_new /= np.linalg.norm(u_new)
-                r_new, b_new = self.resid(u_new); nres += 1
+                r_new, b_new = self.resid(u_new, fast=fast); nres += 1
                 f_new = float(r_new @ r_new)
                 if f_new < f:
                     accepted = True
@@ -543,18 +653,27 @@ class SectorVarPro:
                 if lam > 1e14:
                     break
             if not accepted:
+                if fast:
+                    fast = False      # switch to the exact path once the approximate one stalls
+                    r, J, b = self.resid_jac(u, fast=False); njac += 1; f = float(r @ r); bn = float(b @ b)
+                    lam = max(lam, 1e-3)
+                    continue
                 status = 'stalled'; break
             rel_impr = (f - f_new) / max(f, 1e-300)
             u, f = u_new, f_new
             lam = max(lam / 3.0, 1e-15)
-            if math.sqrt(f / max(bn, 1e-300)) < tol:
-                status = 'converged'; 
-                r, J, b = self.resid_jac(u); njac += 1
-                break
-            r, J, b = self.resid_jac(u); njac += 1
+            if fast and math.sqrt(f / max(bn, 1e-300)) < self.switch_rel:
+                fast = False
+            r, J, b = self.resid_jac(u, fast=fast); njac += 1
             f = float(r @ r); bn = float(b @ b)
+            if not fast and math.sqrt(f / max(bn, 1e-300)) < tol:
+                status = 'converged'; break
             if rel_impr < 1e-12 and lam > 1e6:
+                if fast:
+                    fast = False; r, J, b = self.resid_jac(u, fast=False); njac += 1; f = float(r @ r); bn = float(b @ b); continue
                 status = 'flat'; break
+        if fast:   # final exact evaluation
+            r, b = self.resid(u, fast=False); f = float(r @ r); bn = float(b @ b)
         Dc, a, na = self.D_coef(u)
         rel = math.sqrt(f / max(bn, 1e-300))
         return {'seed': int(seed), 'f': f, 'bnorm2': bn, 'relres': rel, 'iters': it, 'njac': njac, 'nres': nres,
@@ -661,7 +780,7 @@ def try_reconstruct_and_confirm(fam, Dc, dens=(1, 2, 6, 12, 60, 120, 1000, 10000
     """Returns list of attempt records; a record with status 'solved' is a witness (N, Q included)."""
     out = []
     seen = set()
-    for mode in ('coef', 'basis'):
+    for mode in (('coef', 'basis') if getattr(fam, 'exact_basis', True) else ('coef',)):
         for md in dens:
             try:
                 D, err = (fam.D_exact_from_coef(Dc, md) if mode == 'coef' else fam.D_exact_from_basis_coords(Dc, md))
@@ -716,16 +835,27 @@ def build_family(F, A, q, d, c, kind, verbose=False):
     cA = oplib.char_of(A)
     gauge = gauge_polys(F, d, c)
     info = {'d': d, 'c': list(c), 'kind': kind}
+    info['exact'] = True
     if kind == 'colon':
-        basis, _, _ = exact_colon_basis(F, A, q, d, c, verbose=verbose)
+        try:
+            basis, _, _ = exact_colon_basis(F, A, q, d, c, verbose=verbose)
+        except RuntimeError as ex:
+            if verbose: print(f'[build_family] exact basis failed ({ex}); using float basis', file=sys.stderr)
+            basis, _ = float_colon_basis(F, A, q, d, c, verbose=verbose); info['exact'] = False
     elif kind == 'jac':
         gens = jacobian_generators_exact(F, d, c)
-        basis = exact_span_basis(gens, monos_char(d, c), verbose=verbose, tag=f'jac d={d} c={c}')
+        try:
+            basis = exact_span_basis(gens, monos_char(d, c), verbose=verbose, tag=f'jac d={d} c={c}')
+        except RuntimeError:
+            basis = float_span_basis(gens, monos_char(d, c)); info['exact'] = False
     elif kind.startswith('colon-vars:') or kind.startswith('vars:'):
         vs = [core.VARS.index(v) for v in kind.split(':', 1)[1].split(',')]
         fam = var_subset_family(d, c, vs)
         if kind.startswith('colon-vars:'):
-            basis, _, _ = exact_colon_basis(F, A, q, d, c, family=fam, verbose=verbose)
+            try:
+                basis, _, _ = exact_colon_basis(F, A, q, d, c, family=fam, verbose=verbose)
+            except RuntimeError:
+                basis, _ = float_colon_basis(F, A, q, d, c, family=fam, verbose=verbose); info['exact'] = False
         else:
             basis = fam
         # gauge inside this family: F*m with all variables in the subset -> only if F in the subset (never); so the
@@ -734,9 +864,15 @@ def build_family(F, A, q, d, c, kind, verbose=False):
     elif kind in ('colon-s2even', 'colon-s2odd', 'jac-s2even', 'jac-s2odd'):
         base_kind = 'colon' if kind.startswith('colon') else 'jac'
         sign = +1 if kind.endswith('even') else -1
-        b0, g0, _ = build_family(F, A, q, d, c, base_kind, verbose=verbose)
+        b0, g0, inf0 = build_family(F, A, q, d, c, base_kind, verbose=verbose)
         sym = sigma2_symmetrize(b0, sign)
-        basis = exact_span_basis(sym, monos_char(d, c), verbose=verbose, tag=kind) if sym else []
+        if inf0.get('exact', True):
+            try:
+                basis = exact_span_basis(sym, monos_char(d, c), verbose=verbose, tag=kind) if sym else []
+            except RuntimeError:
+                basis = float_span_basis(sym, monos_char(d, c)) if sym else []; info['exact'] = False
+        else:
+            basis = float_span_basis(sym, monos_char(d, c)) if sym else []; info['exact'] = False
         gauge = exact_span_basis(sigma2_symmetrize(gauge, sign), monos_char(d, c), tag='gauge-s2') if gauge else []
         gauge = _gauge_inside(basis, gauge)
     else:

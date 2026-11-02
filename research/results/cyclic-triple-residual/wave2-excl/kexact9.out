@@ -4,3 +4,19 @@ d=9: sectors with kernel (mod p dims): [((0, 0), 19), ((0, 1), 20), ((0, 2), 17)
   sector (4, 4): {'dim': 2, 'kerA_in_S': 33, 'verified': 2, 'rank_J_d': 31, 'max_abs_coeff': 164191901620857747141686237357861664838350112136595294187970220197502873565414126943509130032792825709762296031490104895414000, 't_nullspace': 55.1, 't_lll': 29.3, 'seconds': 90.9, 'e1_rows': 657, 'e1_cols': 876}
   sector (4, 2): {'dim': 3, 'kerA_in_S': 25, 'verified': 3, 'rank_J_d': 22, 'max_abs_coeff': 14402224754738299584010341758789702901306268192122599174729530661460348997144827485641369758507536274000, 't_nullspace': 37.8, 't_lll': 55.9, 'seconds': 110.2, 'e1_rows': 613, 'e1_cols': 812}
   sector (4, 0): {'dim': 3, 'kerA_in_S': 24, 'verified': 3, 'rank_J_d': 21, 'max_abs_coeff': 641367465292584455304680397689441075420890331938776861272471692916834578203462207056877234564636601573200000, 't_nullspace': 49.0, 't_lll': 45.8, 'seconds': 119.1, 'e1_rows': 616, 'e1_cols': 812}
+  sector (0, 1): {'dim': 20, 'kerA_in_S': 82, 'verified': 20, 'rank_J_d': 62, 'max_abs_coeff': 257942738949110156445413985504576000, 't_nullspace': 200.7, 't_lll': 1013.2, 'seconds': 1256.6, 'e1_rows': 1093, 'e1_cols': 1466}
+  sector (0, 5): {'dim': 19, 'kerA_in_S': 83, 'verified': 19, 'rank_J_d': 64, 'max_abs_coeff': 416655430845347157763915024181702134884000, 't_nullspace': 192.5, 't_lll': 1057.6, 'seconds': 1280.6, 'e1_rows': 1090, 'e1_cols': 1464}
+  sector (0, 2): {'dim': 17, 'kerA_in_S': 82, 'verified': 17, 'rank_J_d': 65, 'max_abs_coeff': 629459844884022032828145863012465006400, 't_nullspace': 229.9, 't_lll': 1046.1, 'seconds': 1296.8, 'e1_rows': 1087, 'e1_cols': 1460}
+  sector (0, 4): {'dim': 16, 'kerA_in_S': 83, 'verified': 16, 'rank_J_d': 67, 'max_abs_coeff': 12289981582138485499160242501346354697600000, 't_nullspace': 226.0, 't_lll': 1093.3, 'seconds': 1333.0, 'e1_rows': 1084, 'e1_cols': 1458}
+  sector (0, 0): {'dim': 19, 'kerA_in_S': 96, 'verified': 19, 'rank_J_d': 77, 'max_abs_coeff': 5998370278694434454548881230188104000, 't_nullspace': 193.9, 't_lll': 1178.1, 'seconds': 1381.5, 'e1_rows': 1150, 'e1_cols': 1550}
+  sector (0, 3): {'dim': 19, 'kerA_in_S': 95, 'verified': 19, 'rank_J_d': 76, 'max_abs_coeff': 2778256836233532621095366701008000, 't_nullspace': 161.9, 't_lll': 1219.5, 'seconds': 1391.6, 'e1_rows': 1153, 'e1_cols': 1554}
+saved kernel_exact_d9.json with 120 elements (1416.9s)
+element 4 sector [4, 2]: inconsistent mod p, not sealed rank=[1049, 1049] aug=[1050, 1050] null=[23, 23] sealed=0 114.1s
+element 5 sector [4, 2]: inconsistent mod p, not sealed rank=[1049, 1049] aug=[1050, 1050] null=[23, 23] sealed=0 114.1s
+element 0 sector [2, 5]: SEALED INCONSISTENT over Q rank=[1155, 1155] aug=[1156, 1156] null=[33, 33] sealed=33 128.1s
+element 6 sector [4, 2]: inconsistent mod p, not sealed rank=[1049, 1049] aug=[1050, 1050] null=[23, 23] sealed=0 128.4s
+element 7 sector [4, 0]: inconsistent mod p, not sealed rank=[1051, 1051] aug=[1052, 1052] null=[23, 23] sealed=0 130.5s
+element 8 sector [4, 0]: inconsistent mod p, not sealed rank=[1051, 1051] aug=[1052, 1052] null=[23, 23] sealed=0 131.7s
+element 9 sector [4, 0]: inconsistent mod p, not sealed rank=[1051, 1051] aug=[1052, 1052] null=[23, 23] sealed=0 131.9s
+element 3 sector [4, 4]: inconsistent mod p, not sealed rank=[1126, 1126] aug=[1127, 1127] null=[28, 28] sealed=0 138.0s
+element 2 sector [4, 4]: inconsistent mod p, not sealed rank=[1126, 1126] aug=[1127, 1127] null=[28, 28] sealed=0 138.2s

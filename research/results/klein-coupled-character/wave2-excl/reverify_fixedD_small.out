@@ -32,3 +32,5 @@ Y0*F_4 certified d 6 rows 1969 cols 372 rankM 340 nullity 31 farkas_rows 341 bit
 Y0*F_5 certified d 6 rows 1991 cols 372 rankM 340 nullity 31 farkas_rows 341 bits 19 40.0 s
 Y1*F_0 certified d 6 rows 2096 cols 371 rankM 339 nullity 31 farkas_rows 340 bits 53 60.0 s
 Y1*F_1 certified d 6 rows 2036 cols 360 rankM 328 nullity 31 farkas_rows 329 bits 19 189.5 s
+Y1*F_2 certified d 6 rows 2080 cols 357 rankM 325 nullity 31 farkas_rows 326 bits 48 163.6 s
+Y1*F_3 certified d 6 rows 2026 cols 372 rankM 340 nullity 31 farkas_rows 341 bits 60 36.3 s

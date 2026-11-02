@@ -27,14 +27,15 @@ def read_jsonl(path):
     return out
 
 if a.merge:
-    rl, ll = f'{a.mirror}/wave2-search.log.jsonl', f'{a.local}/wave2-search.log.jsonl'
+    ll = f'{a.local}/wave2-search.log.jsonl'
     have = set(open(ll).read().splitlines()) if os.path.exists(ll) else set()
     added = 0
-    if os.path.exists(rl):
-        with open(ll, 'a') as fh:
-            for line in open(rl).read().splitlines():
-                if line and line not in have:
-                    fh.write(line + '\n'); have.add(line); added += 1
+    for rl in (f'{a.mirror}/wave2-remote.log.jsonl', f'{a.mirror}/wave2-search.log.jsonl'):
+        if os.path.exists(rl):
+            with open(ll, 'a') as fh:
+                for line in open(rl).read().splitlines():
+                    if line and line not in have:
+                        fh.write(line + '\n'); have.add(line); added += 1
     print(f'merged {added} new log lines into {ll}')
 
 rows = read_jsonl(f'{a.local}/wave2-search.log.jsonl')

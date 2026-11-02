@@ -29,7 +29,15 @@ quadratic system in the coefficients of w (gauge w -> w + l z removed). Projecti
 * LEMMA (rigorous, local_nzd/): every nonzero l in span(X0,X1,X2) or span(Y0,Y1,Y2) is a non-zero-divisor on R_6
   (quadratic syzygies of the restricted partials: module annihilator = (1) in every chart, mod p => Qbar). Hence
   served(l D) = served(D) mod J for all D (sum principle): linear factors from these spans can be stripped.
-* d = 7 eigen sectors and the full d = 7 relaxation GB (60 vars) are running locally (local_d7/, local_d7full/).
+* d = 7, sigma-eigen sectors (mod p, msolve/Singular; local_d7/): relaxation EMPTY (rigorous) for Y-even characters
+  0,3,5,6 and Y-odd characters 1..6; NONEMPTY exactly where lifts exist: Y-even chars 1,2,4 (curves X0.C, X1.C, X2.C)
+  and Y-odd char 0 (the 3-dimensional family span(Y).C). Mod-p radical membership: V(sector) subset of the lifted
+  family (even k=1,2,4 done). Rigor caveat: containment mod p does not transfer to Q-bar (emptiness does), so the
+  containments are replayed EXACTLY over Q (msolve char 0 + Singular; local_radical_exact/): even k=1,2,4 DONE over Q
+  (exact GB size 94 each, every generator of I_L has a power in the exact ideal); odd k=0 (24 vars) running.
+  Once exact: lifted points are l.D_lambda with lambda in C, excluded by the NZD lemma + sum principle + the d=6 result
+  => no sigma-eigen denominator of degree 7 of pure Y-parity.
+* d = 7 full (non-eigen, 60 unknowns): msolve GB mod p running locally (local_d7full/); d = 8 eigen sectors running.
 
 ## Re-verification of wave 1 (so far)
 * Hilbert function of S/J in every (parity, character) sector equals the complete-intersection value mod 1000003

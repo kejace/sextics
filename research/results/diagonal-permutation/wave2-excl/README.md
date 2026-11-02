@@ -56,6 +56,13 @@ treated as a separate sector (w = w⁺ + w⁻; the odd part of Ψ is `−A(H(w�
 * Inconsistency of an inhomogeneous linear system mod p proves inconsistency over Q only together with
   `rank_p(M) = rank_Q(M)`, certified by lifting a basis of the mod-p nullspace of M to exact rational vectors
   (`w2_d8.py`, exp `d8_rankcert`).  Without that certificate a modular inconsistency is a screen (two primes = strong screen).
+* **D8 without an exact lift.**  The E1 system `u(F) = A·D8` has nullity exactly `n_K = 954` (Koszul fields with
+  quartic coefficients: 3·60 + 9·66 + 3·60) over Q and over every prime of good reduction, so `rank_p = rank_Q` for its
+  matrix.  Hence either (a) `A·D8 ∉ J` over Q (then the rational kernel of `[A]` on `R_8^+` is 0 and there is no
+  non-Jacobian degree-8 line at all), or (b) the Cramer solution on the mod-p pivot columns is a p-integral rational
+  solution `u_Q` reducing to the mod-p solution, and `Ψ(D8;u_Q) ∈ J_Q` would force `Ψ(D8;u_p) ∈ J_p` (p-integral
+  elements of `J_Q` reduce into `J_p` because the partials stay a regular sequence mod p).  So `Ψ(D8;u_p) ∉ J_p` at one
+  good prime proves that no certificate has `D = D8 + gF`; it does not identify which of (a)/(b) holds.
 * Sum principle (q = 1, prescribed-support theorem, Chapter 1 of the book): `served(D)` depends only on `X ∩ V(D)`,
   `served(D1 D2) = served(D1) + served(D2)`, and `served(D)/J_6 ⊆ Ann_6(D) := {A' ∈ R_6^- : A' D ∈ J}`.
   Hence `A ∈ served(∏ D_i) ⇒ [A] ∈ Σ Ann_6(D_i)`; `Ann_6` computed mod p is an upper bound, so this is rigorous.
@@ -82,3 +89,19 @@ msolve -f relax_d6m.ms -o out.gb -t 4 -g 2    # re-run any Groebner receipt
 ```
 Each receipt `relax_*.json` records unknowns, pair monomials, independent equations, good_reduction_2d, GB size,
 max leading degree, number of variables with a pure power among leading terms, and the verdict.
+
+## 4. Equivariant dimensions used for the sector arguments
+Graded characters `χ_g(t) = det(1 − t⁵ g)/det(1 − t g)` for `g ∈ {1, τ, (01), (01)τ}` (eigenvalues on the variables:
+`1: (1,1,1,1,1,1)`, `τ: (1,1,1,−1,−1,−1)`, `(01): (1,−1,1,1,−1,1)`, `(01)τ: (1,−1,1,−1,1,−1)`), and
+`dim R_n^{par,σ} = ¼ Σ_g (±) χ_g(n)`.  Columns: `R_n^{+,+}, R_n^{+,−}, R_n^{−,+}, R_n^{−,−}` (parity, (01)-sign):
+
+| n | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `+,+` | 118 | 174 | 255 | 322 | 398 | 434 | 461 | 434 | 398 | 322 | 255 | 174 | 118 |
+| `+,−` | 100 | 159 | 228 | 301 | 364 | 409 | 424 | 409 | 364 | 301 | 228 | 159 | 100 |
+| `−,+` | 108 | 174 | 240 | 322 | 380 | 434 | 442 | 434 | 380 | 322 | 240 | 174 | 108 |
+| `−,−` | 100 | 159 | 228 | 301 | 364 | 409 | 424 | 409 | 364 | 301 | 228 | 159 | 100 |
+
+`[A]·` maps `(par,σ)` in degree d to `(1−par, −σ)` in degree d+6.  Forced kernels: none for d ≤ 8; d = 9: 21 in `(±,+)`
+(`322 → 301`), 0 in `(±,−)`; d = 10: `(+,+) ≥ 170, (+,−) ≥ 124, (−,+) ≥ 152, (−,−) ≥ 109`; d = 11: `≥ 275 / 235` per parity;
+d = 12: `(+): ≥ 361 + 316`, `(−): ≥ 342 + 306`.  Verified against direct computation (w2_reptheory.py, e1kS receipts).

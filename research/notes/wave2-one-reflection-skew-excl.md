@@ -1,6 +1,7 @@
 # wave2 / one-reflection-skew / lens EXCLUSION-RIGOR
 
-STATUS: in progress (no witness; this lens does not search for witnesses, it certifies exclusions)
+STATUS: no witness; in progress (local job5_degree.py 7 [Y2-free strict pipeline] and remote jobs excl-ors-d7sub / excl-ors-families-f3c / excl-ors-extradirs still running at hand-off; their receipts land in wave2-excl/ and remote-*.log.jsonl)
+Best rigorous bound: deg D >= 7 (degrees <= 6 re-verified exactly over Q by an independent implementation); at degree 7 all Y2-odd mixtures excluded rigorously (independent of the thread); Y2-free/mixed even cases pending.
 
 Started 2026-11-01 ~19:00 local. Log: /tmp/hodge/results/one-reflection-skew/wave2-excl.log.jsonl
 Packet: /tmp/hodge/results/one-reflection-skew/wave2-excl/
@@ -56,6 +57,8 @@ the corresponding relaxation (5-variable Koszul corrections only) is much tighte
 * Degree-7 Y2-odd mixtures (all 40 odd directions at once): mod-J relaxation kills 23 then 12 squares (certified),
   5 survivors; strict relaxed stage: 9 quadrics, Macaulay 35/35 mod p => EXCLUDED.  Independent confirmation of the
   addendum's 'every degree-7 Y2-odd denominator is excluded, mixtures included' (remote job excl-ors-d7sub, case odd).
+  The five odd survivors are exactly Y2 * (the five diagonal degree-6 survivors), i.e. the rbajaj5 sector-0001 reduction
+  D = Y2 * sum a_i Z_i dF_i reappears, and the same nine quadrics / 35-35 Macaulay argument closes it.
 * Degree-7 pure even 2-torsion classes 0010/0100/1000 (the addendum's Groebner claims, not replayed by the dossier):
   my 6-variable relaxation leaves exactly one coordinate axis per class (Y1*Y2^6, Y0*Y2^6, X1*Y2^6 ~ the f*Z_k directions),
   with multiplicity 495/67/419; each axis is EXCLUDED-exact by the full fixed-D test.  The 6-variable relaxation cannot

@@ -286,4 +286,51 @@ theorem eval_pderivP (i : Fin 6) (p : SPoly) : eval (pderivP i p) = pderiv i (ev
 
 theorem eval_eq_of_eq {p q : SPoly} (h : p = q) : eval p = eval q := congrArg eval h
 
+/-! ### Polynomials with a global denominator (rational coefficients) -/
+
+noncomputable def evalQ (p : SPoly) (k : ℕ) : Poly := C ((k : ℂ)⁻¹) * eval p
+
+theorem evalQ_add (p q : SPoly) (k : ℕ) : evalQ p k + evalQ q k = evalQ (add p q) k := by
+  simp only [evalQ, eval_add]; ring
+
+theorem evalQ_sub (p q : SPoly) (k : ℕ) : evalQ p k - evalQ q k = evalQ (sub p q) k := by
+  simp only [evalQ, eval_sub]; ring
+
+theorem evalQ_mul (p q : SPoly) (kp kq : ℕ) :
+    evalQ p kp * evalQ q kq = evalQ (mul p q) (kp * kq) := by
+  simp only [evalQ, eval_mul, Nat.cast_mul, mul_inv, C_mul]; ring
+
+theorem evalQ_pderiv (i : Fin 6) (p : SPoly) (k : ℕ) :
+    pderiv i (evalQ p k) = evalQ (pderivP i p) k := by
+  simp only [evalQ, pderiv_C_mul, eval_pderivP]
+
+theorem evalQ_nsmul (n : ℕ) (p : SPoly) (k : ℕ) : (n : Poly) * evalQ p k = evalQ (smul n p) k := by
+  simp only [evalQ, eval_smul, Int.cast_natCast, map_natCast]; ring
+
+theorem evalQ_pow (p : SPoly) (k n : ℕ) : evalQ p k ^ n = evalQ (pow p n) (k ^ n) := by
+  induction n with
+  | zero => simp [evalQ, pow, eval_one]
+  | succ n ih =>
+    rw [pow_succ', ih, evalQ_mul]
+    show evalQ (mul p (pow p n)) (k * k ^ n) = evalQ (mul p (pow p n)) (k ^ (n + 1))
+    rw [pow_succ']
+
+/-- Two scaled polynomials are equal when the cross-multiplied integer lists coincide. -/
+theorem evalQ_eq_of_eq {p q : SPoly} {kp kq : ℕ} (hp : kp ≠ 0) (hq : kq ≠ 0)
+    (h : smul (kq : ℤ) p = smul (kp : ℤ) q) : evalQ p kp = evalQ q kq := by
+  have h' := congrArg eval h
+  rw [eval_smul, eval_smul, Int.cast_natCast, Int.cast_natCast] at h'
+  have hp' : (kp : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hp
+  have hq' : (kq : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hq
+  have e1 : (kp : ℂ)⁻¹ * (kq : ℂ)⁻¹ * (kq : ℂ) = (kp : ℂ)⁻¹ := by
+    rw [mul_assoc, inv_mul_cancel₀ hq', mul_one]
+  have e2 : (kp : ℂ)⁻¹ * (kq : ℂ)⁻¹ * (kp : ℂ) = (kq : ℂ)⁻¹ := by
+    rw [mul_comm ((kp : ℂ)⁻¹), mul_assoc, inv_mul_cancel₀ hp', mul_one]
+  simp only [evalQ]
+  calc C (kp : ℂ)⁻¹ * eval p = C ((kp : ℂ)⁻¹ * (kq : ℂ)⁻¹ * (kq : ℂ)) * eval p := by rw [e1]
+    _ = C ((kp : ℂ)⁻¹ * (kq : ℂ)⁻¹) * (C (kq : ℂ) * eval p) := by rw [C_mul, mul_assoc]
+    _ = C ((kp : ℂ)⁻¹ * (kq : ℂ)⁻¹) * (C (kp : ℂ) * eval q) := by rw [h']
+    _ = C ((kp : ℂ)⁻¹ * (kq : ℂ)⁻¹ * (kp : ℂ)) * eval q := by rw [C_mul, mul_assoc]
+    _ = C (kq : ℂ)⁻¹ * eval q := by rw [e2]
+
 end HodgeComputer.Reflect

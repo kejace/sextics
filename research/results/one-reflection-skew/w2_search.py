@@ -176,8 +176,8 @@ def main():
                           'D_float': core.to_str({m: round(float(v), 10) for m, v in zip(op.Dm, c) if abs(v) > 1e-9})})
             with open(cand_path, 'w') as fh:
                 json.dump({'Dm': [list(m) for m in op.Dm], 'cands': cands}, fh)
-            if rel < a.confirm_tol:
-                try_confirm(out)
+            if rel < a.confirm_tol and not confirmed:
+                try_confirm(out)          # one exact confirmation per job is enough (further hits are only counted)
 
     def try_confirm(out):
         c = np.asarray(out['c'], float)

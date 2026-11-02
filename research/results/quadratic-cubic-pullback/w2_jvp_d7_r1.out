@@ -1,0 +1,9 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[complement] n=5796 m=6006 rdim=744 eig[rdim-1]=3.392e-13 eig[rdim]=1.1417041812530317 max|G^T Z|=3.64e-14 (170.6s)
+[jvp d=7] K=63 (w 63) dimP=60 nout=5796 rJ=744 nc=420 nQ=636 k=620 built in 194.8s
+[stage1 d=7] restart 0: rel=1.318e-04 |B|=3.328e+01 nfev=97 (116s)
+[stage1 d=7] restart 0: rel=1.318e-04 |B|=3.328e+01 nfev=88 (145s)
+[stage1 d=7] restart 0: rel=1.357e-04 |B|=3.397e+01 nfev=152 (164s)
+[stage1 d=7] restart 0: rel=1.318e-04 |B|=3.328e+01 nfev=120 (203s)
+[stage1 d=7] restart 0: rel=1.825e-04 |B|=3.090e+01 nfev=173 (227s)
+[stage1 d=7] restart 1: rel=1.318e-04 |B|=3.328e+01 nfev=77 (272s)

@@ -15,7 +15,9 @@ Scripts: `w2pt.py` (pointwise variable projection, see §2), `w2pt_search.py` (m
 | D8 served-target space (compressed homogeneous system with 226 target columns) | served dim = 18 = `J_6^-` (only the zero class); A not served |
 | E1 kernel modulo `J(F)` at d=9, Y-even (`mult_kernel`, rows 7752, cols 10010) | **dim 21** (kernel 399 = 378 + 21): the first non-Jacobian denominators appear at **d = 9**, not 10 (duality ⇒ Y-odd kernel also 21) |
 | E1 kernel modulo `J(F)` at d=9, Y-odd | **dim 21** (computed; matches duality) |
-| Float basis of the degree-9 admissible space (SVD of the 7752×10010 E1 matrix over R, `w2_kerfam.py`) | admissible dim 399 = 378 + 21; singular-value gap 3.2e-3 / 1.5e-14; E1 residual of the kernel lifts ~3e-15 |
+| Float basis of the degree-9 admissible space (SVD of the 7752×10010 E1 matrix over R, `w2_kerfam.py`), Y-even | admissible dim 399 = 378 + 21; singular-value gap 3.2e-3 / 1.5e-14; E1 residual of the kernel lifts ~3e-15 |
+| same, Y-odd | admissible dim 399 = 378 + 21; gap 4.0e-3 / 1.7e-14 |
+| d=7 Jacobian family, pointwise varpro, 553 unrestricted restarts (j7a) | best relative residual 9.9e-2, median 0.21: no candidate; stopped to free compute (the excl agent runs the rigorous d=7 Hessian relaxation by msolve) |
 
 ## 2. Method for the joint search (reduced E2, pointwise)
 
@@ -32,8 +34,11 @@ relaxation `A·wᵀHess(F)w ∈ J(F)` (necessary; 208 quadrics in 63 unknowns at
 
 | batch | family | d | sector | restarts | best rel. residual | median | status |
 |---|---|---|---|---|---|---|---|
-| j7a | Jacobian `w(F)`, w quadratic (63 params, 3 gauge removed; 420 Koszul unknowns; r = 543 points) | 7 | all | 368 / 3200 | 9.9e-2 | 0.22 | running |
-| j8a | Jacobian `w(F)` (w cubic, 168) ⊕ D8 (169 params, 12 gauge; 954 Koszul; r = 1183) | 8 | all | started | – | – | running |
+| j7a | Jacobian `w(F)`, w quadratic (63 params, 3 gauge removed; 420 Koszul unknowns; r = 543 points) | 7 | all | 498 / 3200 | 9.9e-2 | 0.21 | running |
+| j8a | Jacobian `w(F)` (w cubic, 168) ⊕ D8 (169 params, 12 gauge; 954 Koszul; r = 1183) | 8 | all | 0 (killed: too slow under remote load ~900; no restart finished in 25 min) | – | – | replaced by j8b |
+| j8b | same family, r = 662 points (2r > dim a + dim c), maxiter 300 | 8 | all | started 01:10 UTC | – | – | running |
+| j9ep | **full admissible family at d=9, Y-even**: J_9^+ (w quartic, 378) ⊕ 21 kernel members (float E1 lifts), restricted to (01)-invariant D with (01)-anti-equivariant Koszul corrections | 9 | (01)-inv | started 01:14 UTC (8×150) | – | – | running |
+| j9op | same for **Y-odd D** (J_9^- ⊕ 21 odd kernel members), (01)-invariant sector | 9 | (01)-inv | started 01:17 UTC (8×150) | – | – | running |
 
 Relative residual = `min_c |ρ|² / |B_D(N^0)|²` at the normalized point; values ~0.1–0.3 are ordinary local minima of an
 infeasible system.  **Control** (`w2_control.py`, accepted witness `fermat-pair-rational-d4-strict`, d=4): with the exact E1

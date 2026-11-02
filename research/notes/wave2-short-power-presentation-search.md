@@ -70,6 +70,12 @@ dim Ann_d^+ = dim R_d^+ - (dim R_{18-d}^- - dim Ann_{18-d}^-), dim Ann_d^- = dim
 | 12 | (885,866) | (2223,2214) | (677,648) | duality from d=6 |
 So at d >= 10 the E1-admissible family is enormous (most of R_d), and E1 stops being a useful filter: the only
 degrees where E1 + the quadratic relaxation can classify are d <= 9.
+* K_8^+ rational description (5 primes, two-cone coordinates, K8even_twocone_reps.json): three reps are pure Y-cones Q(Y,L) with
+  L-degrees {0,2,4}; three are genuine sums P(X,M) + Q(Y,L) with M-degrees {0,2,4} and L-degrees {0,2} (+L^8, which lies in both cones).
+* Ann_R(l)_d survey (mod p; "annl" log line): Ann(L)_d^+ = 1, 3, 11, 22, 48 for d = 6,7,8,9,10 (Ann(M) similar: 1,3,11,25,48);
+  Ann(X0)_d^+ = 0,0,1,1,7 and Ann(Y0)_d^+ = 0,0,1,3,7 for d = 6..10; odd parity: Ann(X0)_9^- = 3, Ann(Y0)_9^- = 1, Ann(L)_8^- = 9.
+  Since X0 D in J => A D in J, these give explicit E1-admissible sub-families with explicit numerators N = (A/X0) w.
+* d = 9: dim K_9^+ = 18 (mod J; two primes agree); the odd kernel and the structure analysis are running.
 
 ### Tooling validated (wave 2)
 * w2lib.JRef / e1_kernel: reproduces wave-1 ranks (J_10^- = 747, kernel 0 at d=4).

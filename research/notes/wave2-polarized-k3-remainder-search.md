@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 19:54 from 88 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 20:16 from 109 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -38,8 +38,24 @@ mod p) as a system of quadrics with saturation by the spurious component.
 | 9 | even | 1001 | 378 | 623 | 378 | 0 | 248.2 |
 | 9 | odd | 1001 | 378 | 623 | 378 | 0 | 264.2 |
 | 10 | even | 1512 | 750 | 762 | 1044 | 294 | 703.6 |
+| 10 | odd | 1491 | 747 | 744 | 1008 | 261 | 743.2 |
 
 For d ≤ 9 the admissible space is exactly J(F)_d (Jacobian type); the extra kernel appears at d = 10.
+
+## 2b. Hessian relaxation in the exact (U,V)-tensor frame (`w2tensor.py`): one system for both parity sectors
+
+Cofactor cubics c_i(U,V) (K = 168 at d = 8) modulo the 21 Euler directions c_i → c_i + U_i h (which are exactly the F-multiples and the spurious g·h family of the two sectors combined; the relaxation is invariant under them: verified to 1e−11). Quotient: 147 parameters, 468 independent quadrics (the swap-symmetric part of A·Hess vanishes identically, checked to 1e−13). Theoretical check: on the pure-U piece P_8 the residual span has rank exactly 6 = dim R_{f,10}.
+
+- setup d=8: K=168, dimP=147, coords=468, Euler dirs=21, P8 quotient dim=24, pieces by cofactor V-degree {'0': 30, '1': 54, '2': 54, '3': 30}, build 8.1 s, mean f on the sphere 5.079e+05
+
+| d | deflated vs P8 | restarts | f = 0 hits | inside P8 | off P8 | f quantiles (min/10/50/90/max) |
+|---|---|---|---|---|---|---|
+| 8 | False | 10 | 8 | 6 | 2 | 1.3e-29 / 1.7e-29 / 1.2e-28 / 1.2e-08 / 1.2e-07 |
+| 8 | True | 6 | 0 | 0 | 0 | 4.4e-09 / 4.9e-08 / 6.5e-07 / 5.2e-05 / 7.9e-05 |
+
+Zero-residual points classified off P8 (distance > 1e−6; check whether they are still converging towards P8):
+- seed 1 restart 2: f=1.1e-19, grad 4.0e-11, dist to P8 3.2e-04, profile {'0': 1.0, '1': 1.02e-07, '2': 9.18e-14, '3': 6.31e-19}, tangent nullity 16
+- seed 1 restart 4: f=2.3e-23, grad 5.2e-11, dist to P8 4.9e-05, profile {'0': 1.0, '1': 2.41e-09, '2': 3.76e-16, '3': 1.58e-22}, tangent nullity 21
 
 ## 3. Exact Hessian relaxation (quadrics mod p, Singular std + saturation by the spurious component)
 

@@ -31,8 +31,21 @@ $\chi(m)=(\deg_{Y_2}m \bmod 2,\ (\deg_{Y_0}m+\deg_{Y_1}m)\bmod 2)$ of the two si
    modular rank equals the rational rank because 476 explicit rational kernel vectors $(zG,0)$, $(F m e_i,\ D\partial_im-m\partial_iD)$
    match the modular nullity. So $K_8$ is not a certificate denominator (over $\mathbb C$). Second prime and the full 40301×7497
    system agree. [Singular locus of $X\cap V(K_8)$: PENDING.]
+4. *Reductions.* All six coordinate sections $X\cap\{z_i=0\}$ are smooth sextic threefolds, so (sum principle, Ch. 3 §1.1)
+   $\mathrm{served}(z_iG)=\mathrm{served}(G)$. Monomials of character $(1,\cdot)$ have odd $Y_2$-exponent, so every pure-character
+   denominator of character $(1,0)$ or $(1,1)$ is $Y_2\cdot G$ and reduces to an even-$Y_2$-parity denominator of lower degree
+   (this re-derives the degree-7 exclusions for those two characters from degree 6, and reduces the 21 non-Jacobian degree-9
+   classes of character $(1,0)$ to the degree-8 Klein-invariant family). At degree 9 the non-Jacobian E1 kernels are
+   $21/0/21/0$ by character, at degree 10 $186/126/136/108$ (dimension-forced from here on, so E1 alone stops excluding).
 
-**Screened only (no claim of nonexistence).** [mixed-character degree 7 / degree-8 families / structured families d=7–12: PENDING]
+**Screened only (no claim of nonexistence).** (a) The affine family $K_8+J_8$: $\mathrm{ob}(K_8)\neq0$ and the linearised
+E2-mod-$J$ system over the 168-parameter $Y$-even family has rank 156 (kernel = the 12 trivial directions) with
+$\mathrm{ob}(K_8)\notin\mathrm{im}$, so no first-order correction exists; the full quadratic system (103 unknowns, 274 quadrics) [PENDING].
+(b) Structured shapes (cones with a line or plane vertex, coordinate multiples, binary/ternary forms, polynomials in squares,
+$u=Y_2^2$-polynomials, bounded $X$/$Y$-degree, the Klein-invariant subring, …), intersected with the E1-admissible space by
+character for $7\le d\le 10$: nothing outside $J$ for $d\le 8$; at $d=9,10$ the survivors are coordinate multiples (reducible
+by the lemma), bounded-degree and even-exponent families — no fixed-$D$ certificate found among the tested representatives [PENDING].
+(c) Mixed-character degree-7 denominators: joint quadratic systems for pairs/triples of characters [PENDING].
 
 **Reproduction.** Scripts and JSON receipts (primes, ranks, Hilbert functions) in the wave-2 packet
 `wave2-excl/` (README with replay commands). Engine: exact polynomial arithmetic + python-flint; msolve 0.6, Singular.

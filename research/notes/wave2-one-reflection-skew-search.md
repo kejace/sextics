@@ -53,10 +53,37 @@ directions (`ker mod J`) / `f·S_{d−6}` inside; `rk[A]` = rank of multiplicati
 Jacobian-type degrees (kernel = `J_d`): `d ≤ 6` in every sector and `d = 7` in `(1,0)`. The first non-Jacobian
 directions appear at `d = 7` (7 in the main sector `(0,0)`, 1 each in `(0,1)`, `(1,1)`). Consistency: sector sums
 reproduce wave-1's ρ-even/ρ-odd totals (47/37 at d=7, 167/143 at d=8, …). Six-variable cross-check with the
-engine's `jacobian.mult_kernel` (Y-even D): kernel 0, 3, 18, 71, 247 at d = 4..8 with J_d = 0, 3, 18, 63, 168
-(non-Jacobian 0, 0, 0, 8, 79), matching the dossier's totals (135 = 126 + 9 at d = 7 over both parities).
+engine's `jacobian.mult_kernel` (Y-even D): kernel 0, 3, 18, 71, 247, 572 at d = 4..9 with J_d = 0, 3, 18, 63, 168, 378
+(non-Jacobian 0, 0, 0, 8, 79, 194), matching the dossier's totals (135 = 126 + 9 at d = 7, 1144 = 756 + 388 at d = 9 over both parities).
 Note: `(S/J_f)_{d+6}` has dimension 255, 185, 121, 70, 35, 15 for d = 7..12, so `E1` becomes almost vacuous
 at high degree (at d = 12 only 3 conditions remain in the main sector).
+
+### Exact rational kernel bases (auto-generated; `w2lib.e1_kernel_exact`, cached in `w2cache/`)
+
+<!-- AUTO-KERNELS -->
+| d | sector | target | kernel dim | primes used | max height (bits) | seconds |
+|---|---|---|---|---|---|---|
+| 6 | (0,0) | A | 7 | 3 | 6 | 0.7 |
+| 7 | (0,0) | A | 28 | 13 | 181 | 5.5 |
+| 7 | (0,0) | Aplus | 21 | 3 | 13 | 5.4 |
+| 7 | (0,1) | A | 19 | 3 | 17 | 1.2 |
+| 7 | (0,1) | Aplus | 19 | 3 | 17 | 5.3 |
+| 7 | (1,0) | A | 18 | 3 | 11 | 1.3 |
+| 7 | (1,1) | A | 19 | 8 | 104 | 3.3 |
+| 8 | (0,0) | A | 91 | 52 | 674 | 49.5 |
+| 8 | (0,0) | Aplus | 66 | 13 | 184 | 52.0 |
+| 8 | (0,1) | A | 76 | 52 | 682 | 45.4 |
+| 8 | (0,1) | Aplus | 55 | 8 | 103 | 31.6 |
+| 8 | (1,0) | A | 67 | 28 | 415 | 25.1 |
+| 8 | (1,1) | A | 76 | 52 | 680 | 47.1 |
+| 9 | (0,0) | A | 161 | 79 | 1137 | 150.6 |
+<!-- /AUTO-KERNELS -->
+
+Symmetry breaking measured on the E1 kernel (sector (0,0), 5 variables, mod p): the undeformed
+`one-reflection` sextic has kernel 20, 46, 98, 164 at d = 6, 7, 8, 9 versus 7, 28, 91, 161 for the skew sextic.
+The skew term thus removes 13, 18, 7, 3 admissible directions; these survive numerically as near-kernel
+directions (singular values 1e-7 … 1e-15 of the float E1 operator), which is why exact kernel bases are needed
+and why a fixed-D test of a *numerically* admissible D can be misleading (E1 must be checked exactly).
 
 ## 2. Optimizer calibration (needle = accepted degree-6 witness of family-hesse-web, same target A)
 
@@ -93,6 +120,38 @@ never excluded before): full-E2 variable projection over the complete `w`-space,
 No zero anywhere (a solution shows rel ≤ 1e-10 in the calibration). A "Hessian relaxation" was unnecessary:
 the full E2 system over these tiny `w`-spaces is solved directly by the variable projection.
 
+### Full table of searches (auto-generated from `wave2-search.log.jsonl`)
+
+<!-- AUTO-SEARCH -->
+| job | instance | d | sector | family | target | K | system rows×cols | method | restarts | best rel | median rel | #<1e-8 / <1e-6 / <1e-4 | wall |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| jac-d5-r0s0 | one-reflection-skew | 5 | (0,0) | jacobian | A | 2 | ?×? | both | 160 | 3.13e-01 | 3.13e-01 | 0 / 0 / 0 | 27.5 s |
+| jac-d5-r0s1 | one-reflection-skew | 5 | (0,1) | jacobian | A | 1 | ?×? | both | 160 | 5.36e-01 | 5.36e-01 | 0 / 0 / 0 | 4.5 s |
+| jac-d5-r1s0 | one-reflection-skew | 5 | (1,0) | jacobian | A | 1 | ?×? | both | 160 | 4.55e-01 | 4.55e-01 | 0 / 0 / 0 | 4.5 s |
+| jac-d5-r1s1 | one-reflection-skew | 5 | (1,1) | jacobian | A | 1 | ?×? | both | 160 | 6.35e-01 | 6.35e-01 | 0 / 0 / 0 | 3.4 s |
+| cone-X0X1Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,Y0,Y1 | A | 3 | 1815×410 | lm | 120 | 1.88e-01 | 1.88e-01 | 0 / 0 / 0 | 135.1 s |
+| cone-X1X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X1,X2,Y0,Y1 | A | 1 | ?×? | lm | 120 | 6.31e-01 | 6.31e-01 | 0 / 0 / 0 | 7.8 s |
+| jac-d6-r0s0 | one-reflection-skew | 6 | (0,0) | jacobian | A | 7 | ?×? | both | 160 | 6.50e-02 | 7.59e-02 | 0 / 0 / 0 | 163.1 s |
+| jac-d6-r0s1 | one-reflection-skew | 6 | (0,1) | jacobian | A | 6 | ?×? | both | 160 | 3.08e-01 | 3.62e-01 | 0 / 0 / 0 | 178.7 s |
+| jac-d6-r1s0 | one-reflection-skew | 6 | (1,0) | jacobian | A | 6 | ?×? | both | 160 | 2.93e-01 | 3.85e-01 | 0 / 0 / 0 | 191.7 s |
+| jac-d6-r1s1 | one-reflection-skew | 6 | (1,1) | jacobian | A | 6 | ?×? | both | 160 | 3.09e-01 | 3.17e-01 | 0 / 0 / 0 | 212.8 s |
+| cone-X0X1Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X0,X1,Y0,Y1 | A | 6 | ?×? | lm | 80 (running) | 1.04e-01 | 1.49e-01 | 0 / 0 / 0 | 470.3 s |
+| calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 32 (running) | 4.83e-13 | 1.13e-02 | 3 / 2 / 0 | 448.5 s |
+| cone-X0X1X2-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X1X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X1Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,Y0 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X0Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X1Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X1,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
+| cone-X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
+
+Total restarts on the skew lane so far: 1600.
+<!-- /AUTO-SEARCH -->
+
 Kernel families (task 3) at d = 7 … 12 and the half-target/cone/structured runs: queued in the chains; the
 E1-kernel bases are now computed **exactly** (mod-p nullspace, canonical rref, CRT over 31-bit primes,
 rational reconstruction verified by an extra prime; heights 2^17 … 2^674 bits for d ≤ 8) because the float
@@ -106,7 +165,18 @@ was not even separable from 4 spurious directions).
 * Coordinate cones `D ∈ C[subset of variables] ∩ E1-kernel` (vertex a line or a plane; 13 subsets × degrees
   6–12, `w2-chain2`): at `d = 6` every cone family is empty (`K = 0`) except `C[X0,X1,Y0,Y1]` (`K = 3`), as
   expected since the degree-6 kernel is `J_6`. Higher degrees pending.
-* Fixed-D structured candidates (`w2_struct.py`, pending): companion pieces of the accepted `one-reflection`
+### Structured fixed-D summary (auto-generated)
+
+<!-- AUTO-STRUCT -->
+| family | d | candidates | pass E1 | served_mod_J > 0 | serves A |
+|---|---|---|---|---|---|
+| companion | 6 | 3 | 0 | 0 | 0 |
+| cone | 6 | 10 | 0 | 0 | 0 |
+
+No structured candidate serves any target beyond the trivially served Jacobian part.
+<!-- /AUTO-STRUCT -->
+
+* Fixed-D structured candidates (`w2_struct.py`): companion pieces of the accepted `one-reflection`
   certificate (`f_c`, `h`, `δ`, skew-twisted variants and products), the homogenised binary-cubic covariants
   of `P(U) = G0 U³ + cp U² + skew U + Y6` (degree 12), 3×3 Hessian minors (degree 12), 2×2 minors × invariants,
   block radial derivatives × invariants, products of the skew-adapted invariants at degrees 9–12, norm-type
@@ -122,7 +192,13 @@ point of a family of denominators. Remedy implemented (`w2lib.snap_confirm`): dr
 |coefficient| < τ (τ ladder 1e-6 … 1e-1), refit by LM inside the sub-family, rationalise
 (`limit_denominator` ladder + LLL), confirm exactly (E1 mod p, fixed-D rref mod p, CRT lift, exact 5-variable
 identity, `core.verify_witness` on the 6-variable lift). On the needle: τ = 1e-4 keeps 8 monomials, refit
-rel 4e-15, exact solve → the accepted D, verified. Skew-lane attempts: none yet (no restart below 1e-7).
+rel 4e-15, exact solve → the accepted D, verified.
+
+Skew-lane candidate/confirmation events (auto-generated):
+
+<!-- AUTO-CANDS -->
+(none: no skew-lane restart reached the 1e-7 confirmation threshold)
+<!-- /AUTO-CANDS -->
 
 ## 6. Derivation of the reduction (for the record)
 

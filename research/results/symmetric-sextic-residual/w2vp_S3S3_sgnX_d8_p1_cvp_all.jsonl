@@ -30,3 +30,4 @@
 {"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 29, "rel": 0.09426291230362856, "f": 7964.285383898332, "spurious": false, "div_rel": 1.0, "iters": 21}
 {"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 30, "rel": 0.09426291234806243, "f": 7964.285383898328, "spurious": false, "div_rel": 1.0, "iters": 20}
 {"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 31, "rel": 0.094262912289644, "f": 7964.285383898327, "spurious": false, "div_rel": 1.0, "iters": 25}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 32, "rel": 0.09426291230340388, "f": 7964.285383898328, "spurious": false, "div_rel": 1.0, "iters": 24}

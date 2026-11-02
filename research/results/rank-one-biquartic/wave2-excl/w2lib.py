@@ -299,9 +299,10 @@ class HessianFamily:
     """Per Y-parity block: E' = [ m*F_i (deg 2d) | P_kl + P_lk ], rows = monomials of degree 2d of that parity.
     A certificate lambda^T E' = (0 | target) proves target(a) in J-relaxed ideal, hence in the E2 ideal I.
     Necessary condition it encodes: the class [B_D(N_0(D))] in (S/J)_{2d} vanishes for a certificate."""
-    def __init__(self, d, basis, verbose=True, check=True):
+    def __init__(self, d, basis, verbose=True, check=True, sparse=False):
         t0 = time.time()
         self.d, self.basis = d, basis
+        self.sparse = sparse
         K = len(basis); self.K = K
         if check:
             for lab, D, N in basis:
@@ -321,12 +322,16 @@ class HessianFamily:
         self.nJ = {blk: len(self.blocks[blk]['cols']) for blk in (0, 1)}
         # aa columns: P_kl + P_lk, parity = (1 + par_k + par_l) % 2  (A is Y-odd)
         Pm = {}
-        for k in range(K):
-            for l in range(K):
-                Pm[(k, l)] = B_op(basis[k][1], basis[l][2])
+        if not sparse:
+            for k in range(K):
+                for l in range(K):
+                    Pm[(k, l)] = B_op(basis[k][1], basis[l][2])
         for k in range(K):
             for l in range(k, K):
-                poly = Pm[(k, k)] if k == l else add(Pm[(k, l)], Pm[(l, k)])
+                if sparse:
+                    poly = hess_column(basis[k], basis[l])
+                else:
+                    poly = Pm[(k, k)] if k == l else add(Pm[(k, l)], Pm[(l, k)])
                 blk = (1 + self.par[k] + self.par[l]) % 2
                 self.blocks[blk]['cols'].append(('aa', k, l)); self.blocks[blk]['colpolys'].append(poly)
         for blk in (0, 1):
@@ -415,3 +420,65 @@ def hess_certificates(HF, blk, Mr, piv, targets, p, verbose=True):
             print(f'[cert] {name} verified={ok} support={len(lam)} maxheight_digits={len(str(h))}', flush=True)
     if verbose: print(f'[cert blk{blk}] submatrix {r}x{r} build {t1-t0:.0f}s solve {t2-t1:.0f}s verify {time.time()-t2:.0f}s', flush=True)
     return out
+
+
+# ----------------------------------------------------------------------------
+# Sparse (mod-J equivalent) column representatives for the Hessian relaxation.
+# For polar basis elements D_k = dF(G_k), N_k = A G_k one has the exact identity
+#   B_{D_k}(N_l) = D_k (G_l(A) + A div G_l) - A sum_ij G_{l,i} (d_i G_{k,j}) F_j - A Hess_F(G_l, G_k),   (*)
+# whose first two terms lie in J_{2d}; hence modulo J_{2d}:  P_kl + P_lk == -A [Hess(G_k,G_l) + Hess(G_l,G_k)].
+# For a non-J element (D_l, N_l) and a polar D_k = dF(G_k):
+#   P_kl = D_k div N_l - N_l(D_k) == -Hess_F(N_l, G_k)   (mod J),     P_lk = D_l (G_k(A) + A div G_k) - A G_k(D_l).
+# A functional lambda vanishing on J_{2d} takes the same value on P_kl + P_lk and on these representatives, so the
+# exact certificates built with the representatives are valid certificates for the true E2 columns.
+# ----------------------------------------------------------------------------
+Fij = [[pderiv(Fi[i], j) for j in range(NV)] for i in range(NV)]
+
+def hess_pair(G, H):
+    """Hess_F(G, H) = sum_ij G_i H_j F_ij (exact)."""
+    out = {}
+    for i in range(NV):
+        if not G[i]: continue
+        for j in range(NV):
+            if not H[j]: continue
+            out = add(out, mul(mul(G[i], H[j]), Fij[i][j]))
+    return out
+
+def polar_field(label):
+    """block field G for a polar label ('J', i, m)."""
+    _, i, m = label
+    G = [{} for _ in range(NV)]; G[i] = mono(m)
+    return G
+
+def hess_column(bk, bl):
+    """Sparse representative (mod J_{2d}) of P_kl + P_lk for basis elements bk, bl (label, D, N)."""
+    labk, Dk, Nk = bk; labl, Dl, Nl = bl
+    if labk[0] == 'J' and labl[0] == 'J':
+        Gk, Gl = polar_field(labk), polar_field(labl)
+        if labk == labl:
+            return scale(mul(A, hess_pair(Gk, Gk)), -1)
+        return scale(mul(A, add(hess_pair(Gk, Gl), hess_pair(Gl, Gk))), -1)
+    if labk[0] == 'J' or labl[0] == 'J':
+        if labl[0] == 'J':  # swap so that k is polar
+            labk, Dk, Nk, labl, Dl, Nl = labl, Dl, Nl, labk, Dk, Nk
+        Gk = polar_field(labk)
+        Pkl = scale(hess_pair(Nl, Gk), -1)
+        Pkl = sub(Pkl, scale(mul(Dl, add(apply_field(Gk, A), mul(A, divergence(Gk)))), -1))  # + D_l (G_k(A) + A div G_k)
+        Pkl = sub(Pkl, mul(A, apply_field(Gk, Dl)))                                           # - A G_k(D_l)
+        return Pkl
+    # both non-J: exact columns
+    return add(B_op(Dk, Nl), B_op(Dl, Nk))
+
+def check_hess_identity(d, ntests=3, p=1000000007, seed=1):
+    """Sanity: (P_kl + P_lk) - hess_column(k,l) in J_{2d} (mod p) for random basis pairs."""
+    import random
+    random.seed(seed)
+    basis = polar_basis(d)
+    for _ in range(ntests):
+        bk, bl = random.choice(basis), random.choice(basis)
+        true = add(B_op(bk[1], bl[2]), B_op(bl[1], bk[2])) if bk[0] != bl[0] else B_op(bk[1], bk[2])
+        diff = sub(true, hess_column(bk, bl))
+        ok, info = jacobian.in_jacobian(F, diff, p) if diff else (True, {})
+        print(' identity check', bk[0], bl[0], 'diff in J:', ok, flush=True)
+        if not ok: return False
+    return True

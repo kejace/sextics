@@ -1,5 +1,5 @@
 """Served-target spaces (target_image mod P2) for structured irreducible-over-Q blocks of degree <= dmax; span test for A."""
-import sys, time, json
+import sys, time, json, os
 from w2lib import *
 dmax = int(sys.argv[1]) if len(sys.argv) > 1 else 5
 f0 = add(power(S0, 3), scale(mul(mul(P0, P0), S0), 2))
@@ -15,8 +15,9 @@ blocks = [('X0', X0), ('Y0', Y0), ('X1', X1), ('Y1', Y1), ('X2', X2), ('Y2', Y2)
 served_file = PK + '/served_local.json'
 try: served = json.load(open(served_file))
 except Exception: served = {}
+only = os.environ.get('ONLY', '').split(',') if os.environ.get('ONLY') else None
 for nm, D in blocks:
-    if core.degree(D) > dmax or nm in served: continue
+    if core.degree(D) > dmax or nm in served or (only and nm not in only): continue
     t0 = time.time()
     if core.parity_of(D) is None:
         log('served', D=nm, d=core.degree(D), result='skipped-mixed-parity'); continue

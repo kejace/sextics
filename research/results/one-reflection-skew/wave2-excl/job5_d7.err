@@ -1,0 +1,5 @@
+5v sector (0, 0, 1) dimK 19 dimJ 18 extra 1
+5v sector (0, 3, 4) dimK 18 dimJ 18 extra 0
+5v sector (3, 0, 4) dimK 28 dimJ 21 extra 7
+5v sector (3, 3, 1) dimK 19 dimJ 18 extra 1
+{'alive': 19, 'rank': 44, 'npairs': 184, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}

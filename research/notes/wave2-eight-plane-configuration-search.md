@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T20:07:51. 0 search restarts collected over 0 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 0 family intersections, 0 reconstruction attempts. 
+STATUS: NO WITNESS. Updated 2026-11-01T20:17:02. 3 search restarts collected over 2 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. 
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -28,6 +28,15 @@ Assembled residual equals the exact Fraction computation (max diff 2e-11 at scal
 - d = 5: excluded rigorously (Hessian condition forces a singular point), see above.
 - d = 7 (both parities, local, mod p): 63 w-variables, exactly 483 independent quadrics each (= rank of [A]: R_8^+ -> R_14^-, as predicted), dim R_14^- = 744. The spurious plane {g * Euler : g linear} lies in the variety, so emptiness of the complement cannot be certified by Macaulay ranks (degree-4 matrix ~ 10^6 x 6*10^5, dense); decided numerically instead (stage-1 searches with the spurious subspace projected out). Structured probe: 344 natural quadratic fields (linear form x {Euler, block scalings, block rotations, coordinate fields}, Q_j x constant fields, gradients of all cubic monomials and of z_a Q_j) evaluated on the exact quadrics: only the six spurious fields z_a * Euler are Hessian-admissible.
 
+- d = 10 structured families vs the E1-admissible space (kernel + J_10, exact mod p, local): G_k(Q) (par 0): dim 21, ∩admissible 0, ∩J 0; C[Q,K,H,diag] (par 0): dim 144, ∩admissible 12, ∩J 12; (Q)^4*S_2 (par 0): dim 156, ∩admissible 0, ∩J 0; (Q)^3*S_4 (par 0): dim 486, ∩admissible 18, ∩J 18; I_Pi^5 cap I_Pibar^5 (par 0): dim 231, ∩admissible 0, ∩J 0; F_i*F_j (par 0): dim 12, ∩admissible 12, ∩J 12; X-only (cone over plane curve, vertex Y-plane) (par 0): dim 66, ∩admissible 0, ∩J 0; Y-only (cone, vertex X-plane) (par 0): dim 66, ∩admissible 0, ∩J 0; oddquad*G_k(Q) (par 1): dim 135, ∩admissible 0, ∩J 0; X0Y0*C[Q,K,H,diag] (par 1): dim 72, ∩admissible 3, ∩J 3; I_Pi^5 cap I_Pibar^5 (par 1): dim 210, ∩admissible 0, ∩J 0; F_i*F_j (par 1): dim 9, ∩admissible 9, ∩J 9. **No structured family contributes an admissible direction outside J(F)**; the J-intersections are the spurious products F*(quartic) and F_i*F_j (sum principle).
+
+## Structural observations on the Hessian map (used in the searches)
+- Phi(w) := [A * Hess_F(w,w)] in R_{2d}^- satisfies Phi(w + g*Euler) = Phi(w) for every g of degree d-6, because Hess_F(Euler, v) = 5 v(F) in J and Hess_F(Euler, Euler) = 30 F in J. So the Hessian variety V_d is a cylinder over the spurious subspace Z_d = {g*Euler} (dim 0/1/3/12/28 for d = 5/6/7/8/9 per parity) and the search only has to run on the complement, which is exactly the projection used by the variable-projection code (lossless, since D and D + F g serve the same classes).
+- The same identity explains the fat Euler point at d = 6 (multiplicity 38 even, 923 mixed): the quadrics have no linear terms in the odd directions at Euler.
+- Dimension counts (per parity): #independent quadrics = rank([A]: R_{2d-6}^+ -> R_{2d}^-) = 218, 483, 468, 208 for d = 6, 7, 8, 9 (computed exactly for d = 6, 7; the d = 8, 9 values follow from the kernel theorem and Gorenstein duality R_16^- = R_8^-, R_18^- = R_6^-), against complement dimensions 17, 60, 156, 350. Generic expectation: empty for d <= 8 (confirmed exactly at d = 6), a variety of dimension >= 141 at d = 9, so d = 9 is the first Jacobian degree where the full E2 (Koszul corrections + Q) is the real test; its linear part has ~4970 unknowns against ~16.8k equations in degree 18, i.e. generically no solution unless (F, A) is special.
+- Mixed parity (w = w_+ + w_-) is a separate system; it was excluded at d = 6 (single point) and is searched numerically at d = 7, 8 (queued).
+- d = 10, ideal of the eight planes (exact mod p, local): (Q)*S_8 has dim 1311/1512 (even) and meets the admissible space in 843 dimensions (573 inside J); (Q)^2*S_6 (vanishing to order 2 along all eight planes): dim 924, meets the admissible space in 456 (237 in J); odd parity: 807/570 and 420/237. These are exactly the generic counts (1044 - codim), so the admissible space is not specially aligned with the plane arrangement; the order-2 family (456 / 420 parameters) is kept as the geometrically motivated restricted search space for d = 10. (Q)^3*S_4 meets the admissible space only inside J (18 = the F*(Q)^2-type spurious elements).
+
 
 ## 1. E1-admissible denominator spaces per degree (mod p = 2147483629)
 
@@ -51,10 +60,25 @@ rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q;
 
 | batch | family | d | par | params (free) | rows | restarts | best rel | 10% | median | worst | best r_part | <1e-6 | <1e-10 | s/restart | nfev | recon |
 |---|---|---:|:-:|---|---:|---:|---|---|---|---|---|---:|---:|---:|---:|---:|
+| local-search-d6-p0 (running) | jacobian-d6-p0 | 6 | 0 | 18 (17) | 3080 | 2 | 0.222 | 0.222 | 0.499 | 0.777 | - | 0 | 0 | 14.8 | 58.5 | 0 |
+| local-stage1-d7-p0 (stage 1 only) (running) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 1 | 0.0176 | 0.0176 | 0.0176 | 0.0176 | 0.0176 | 0 | 0 | 20.1 | 104.0 | 0 |
 
 ## 4. Structured families at d = 10 intersected with the admissible space (mod p)
 
-(pending)
+| d | par | family | #gens | dim fam | fam ∩ admissible | fam ∩ J | new directions | lifted |
+|---:|:-:|---|---:|---:|---:|---:|---:|---:|
+| 10 | 0 | (Q)^3*S_4 | 660 | 486 | 18 | 18 | 0 | 153 |
+| 10 | 0 | (Q)^4*S_2 | 180 | 156 | 0 | 0 | 0 | - |
+| 10 | 0 | C[Q,K,H,diag] | 246 | 144 | 12 | 12 | 0 | 114 |
+| 10 | 0 | F_i*F_j | 12 | 12 | 12 | 12 | 0 | 12 |
+| 10 | 0 | G_k(Q) | 21 | 21 | 0 | 0 | 0 | - |
+| 10 | 0 | I_Pi^5 cap I_Pibar^5 | 231 | 231 | 0 | 0 | 0 | - |
+| 10 | 0 | X-only (cone over plane curve, vertex Y-plane) | 66 | 66 | 0 | 0 | 0 | - |
+| 10 | 0 | Y-only (cone, vertex X-plane) | 66 | 66 | 0 | 0 | 0 | - |
+| 10 | 1 | F_i*F_j | 9 | 9 | 9 | 9 | 0 | 9 |
+| 10 | 1 | I_Pi^5 cap I_Pibar^5 | 210 | 210 | 0 | 0 | 0 | - |
+| 10 | 1 | X0Y0*C[Q,K,H,diag] | 114 | 72 | 3 | 3 | 0 | 45 |
+| 10 | 1 | oddquad*G_k(Q) | 135 | 135 | 0 | 0 | 0 | - |
 
 ## 5. Float admissible bases (d = 10)
 

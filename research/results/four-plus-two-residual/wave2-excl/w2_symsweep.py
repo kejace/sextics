@@ -33,17 +33,19 @@ def task(args):
                'consistent_modp': r['consistent'], 'nullity_modp': r['nullity']}
         if r['consistent']:
             out['result'] = 'CONSISTENT mod p -- LIFT NEEDED'
+        elif d <= 8:
+            # [RANK]: exact nullity of M from the Koszul parametrisation (restricted to the sector), compared with the modular nullity
+            kz = W.koszul_nullity_exact(D, allowed=allowed)
+            out['nullity_exact_Q'] = kz['nullity_total']
+            out['koszul'] = {k_: v_ for k_, v_ in kz.items() if k_ != 'seconds'}
+            out['result'] = 'inconsistent over C [RANK]' if kz['nullity_total'] == r['nullity'] else 'inconsistent mod p (nullity mismatch: inconclusive)'
         elif r['cols'] <= EXACT_COLS_MAX:
-            Sx = W.build_fixed_D(D, None, allowed=allowed)
-            rM = W.rank_exact(Sx['colpolys'])
-            rMb = W.rank_exact(Sx['colpolys'], extra=[Sx['rhs']])
-            out.update({'rank_M_Q': rM, 'rank_Mb_Q': rMb})
-            out['result'] = 'inconsistent over C [EXACT]' if rMb > rM else 'CONSISTENT over Q (exact) -- SOLVE NEEDED'
-        else:
             Sx = W.build_fixed_D(D, None, allowed=allowed)
             rM = W.rank_exact(Sx['colpolys'])
             out['rank_M_Q'] = rM
             out['result'] = 'inconsistent over C [RANK]' if rM == r['rank_M'] else 'inconsistent mod p (rank_Q(M) > rank_p(M): inconclusive)'
+        else:
+            out['result'] = 'inconsistent mod p [MODP]'
         out['seconds'] = round(time.time() - t0, 1)
         return out
     except Exception as ex:

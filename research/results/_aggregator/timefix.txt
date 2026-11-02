@@ -1,0 +1,1 @@
+NOTE (aggregator, 01:15 UTC): earlier versions of this file carried wrong UTC labels (the aggregator's clock drifted by +2.5 to +3.5 h); the version times above have been corrected from the work log (`/tmp/hodge/results/_aggregator/log.jsonl`, which uses the system clock). Local time = UTC − 5.

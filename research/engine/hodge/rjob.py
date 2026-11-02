@@ -18,7 +18,7 @@ CLI (run from anywhere):
                                                   # append new JSONL lines of its log.jsonl to the local lane log
   python3 -m hodge.rjob sh -- <command>           # run a short command on the remote and print its output
 
-Conventions for agents: keep local processes light (<1 CPU-minute); anything heavier goes through `submit`.
+Conventions for agents: every job is pinned to its --cpus cores (taskset) and capped at max(64 GB, 8 GB per cpu) address space; request --cpus honestly (multiprocessing pools must not exceed it). Keep local processes light (<1 CPU-minute); anything heavier goes through `submit`.
 Write per-job outputs to files named after the job inside the lane dir so pulls never collide.
 """
 from __future__ import annotations
@@ -63,32 +63,39 @@ def up(lane=None):
 
 
 def remote_capacity():
-    """(load1, avail_gb, running_jobs) on the remote."""
-    r = ssh('cut -d" " -f1 /proc/loadavg; free -g | awk "/Mem/{print \\$7}"; n=0; for p in /tmp/hodge/jobs/*.pid; do kill -0 $(cat $p) 2>/dev/null && n=$((n+1)); done; echo $n')
+    """(load1, avail_gb, running_jobs, allocated_cpus) on the remote."""
+    r = ssh('cut -d" " -f1 /proc/loadavg; free -g | awk "/Mem/{print \\$7}"; n=0; c=0; for p in /tmp/hodge/jobs/*.pid; do if kill -0 $(cat $p) 2>/dev/null; then n=$((n+1)); f=${p%.pid}.cpus; c=$((c + $(cat $f 2>/dev/null || echo 1))); fi; done; echo $n $c')
     try:
-        load, avail, n = r.stdout.split()[:3]
-        return float(load), float(avail), int(n)
+        load, avail, n, c = r.stdout.split()[:4]
+        return float(load), float(avail), int(n), int(c)
     except Exception:
-        return 0.0, 1e9, 0
+        return 0.0, 1e9, 0, 0
 
 
-def submit(lane, name, command, cpus=1, force=False, max_load=150.0, min_avail_gb=60.0, wait_s=0):
+def submit(lane, name, command, cpus=1, force=False, max_load=160.0, min_avail_gb=100.0, wait_s=0, max_alloc_cpus=150):
     """Submit, but refuse (exit code 3) when the remote is near capacity unless --force.
     With wait_s > 0, poll every 60 s up to wait_s seconds for capacity instead of refusing."""
     t0 = time.time()
     while not force:
-        load, avail, n = remote_capacity()
-        if load <= max_load and avail >= min_avail_gb:
+        load, avail, n, alloc = remote_capacity()
+        if load <= max_load and avail >= min_avail_gb and alloc + cpus <= max_alloc_cpus:
             break
-        msg = f'REMOTE BUSY: load {load:.0f} (max {max_load:.0f}), available memory {avail:.0f} GB (min {min_avail_gb:.0f}), {n} jobs running'
+        msg = f'REMOTE BUSY: load {load:.0f} (max {max_load:.0f}), available memory {avail:.0f} GB (min {min_avail_gb:.0f}), {n} jobs running with {alloc} cpus allocated (max {max_alloc_cpus})'
         if wait_s and time.time() - t0 < wait_s:
             print(msg + '; waiting 60 s', file=sys.stderr); time.sleep(60); continue
         print(msg + '; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).', file=sys.stderr)
         sys.exit(3)
     up(lane)
+    # Hard caps enforced on the remote: CPU affinity to `cpus` cores (children inherit), address-space limit
+    # 64 GB (or 8 GB per requested cpu if larger), so a runaway multiprocessing job cannot take the whole box.
+    import random as _rnd
+    start = _rnd.randint(0, max(0, 128 - cpus))
+    cpuset = f'{start}-{start + cpus - 1}' if cpus > 1 else f'{start}'
+    mem_kb = max(64, 8 * cpus) * 1024 * 1024
     remote_cmd = (f'mkdir -p /tmp/hodge/jobs {RESULTS}/{lane} && cd {RESULTS}/{lane} && '
-                  f'export PYTHONPATH={ENGINE} OMP_NUM_THREADS={cpus} OPENBLAS_NUM_THREADS={cpus} FLINT_NUM_THREADS={cpus} && '
-                  f'nohup setsid bash -c {shlex.quote(command)} > /tmp/hodge/jobs/{name}.log 2>&1 < /dev/null & '
+                  f'export PYTHONPATH={ENGINE} OMP_NUM_THREADS={cpus} OPENBLAS_NUM_THREADS={cpus} FLINT_NUM_THREADS={cpus} HODGE_JOB_CPUS={cpus} && '
+                  f'echo {cpus} > /tmp/hodge/jobs/{name}.cpus && '
+                  f'nohup setsid taskset -c {cpuset} bash -c {shlex.quote("ulimit -v " + str(mem_kb) + "; " + command)} > /tmp/hodge/jobs/{name}.log 2>&1 < /dev/null & '
                   f'echo $! > /tmp/hodge/jobs/{name}.pid; echo $!')
     r = ssh(remote_cmd)
     pid = r.stdout.strip().splitlines()[-1] if r.stdout.strip() else '?'
@@ -103,7 +110,7 @@ def status(name=None):
     if name:
         r = ssh(f'pid=$(cat /tmp/hodge/jobs/{name}.pid 2>/dev/null); if [ -n "$pid" ] && kill -0 $pid 2>/dev/null; then echo RUNNING; else echo DONE; fi; tail -3 /tmp/hodge/jobs/{name}.log 2>/dev/null')
     else:
-        r = ssh('uptime; free -g | head -2; echo "--- jobs"; for p in /tmp/hodge/jobs/*.pid; do n=$(basename $p .pid); pid=$(cat $p); if kill -0 $pid 2>/dev/null; then echo "RUNNING $n"; fi; done; echo "--- top"; ps aux --sort=-%cpu | awk "NR>1 && NR<12 {print \\$3, \\$4, \\$11, \\$12, \\$13}"')
+        r = ssh('uptime; free -g | head -2; echo "--- jobs (name cpus)"; for p in /tmp/hodge/jobs/*.pid; do n=$(basename $p .pid); pid=$(cat $p); if kill -0 $pid 2>/dev/null; then echo "RUNNING $n $(cat ${p%.pid}.cpus 2>/dev/null)"; fi; done; echo "--- top"; ps aux --sort=-%cpu | awk "NR>1 && NR<12 {print \\$3, \\$4, \\$11, \\$12, \\$13}"')
     print(r.stdout, r.stderr[-300:] if r.returncode else '')
 
 

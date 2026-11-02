@@ -80,3 +80,17 @@ proves: no certificate with deg D = 5 exists.  With K_d = 0 for d <= 4: deg D >=
 | 11 | 843, 843 | 333, 333 | 510, 510 | 1341, 1341 | 3444, 3444 |
 | 12 | 885, 866 | 208, 218 | 677, 648 | 2223, 2214 | 5230, 5248 |
 (dim K_d/J_d computed mod p is an upper bound; when it equals the Gorenstein lower bound the rational value is pinned.)
+
+### T4. Hessian relaxation (rigorous, Hilbert-certified) — the certifiable form of T3
+Since L(c,w) and F Q lie in J(F), E2 forces Phi(w) in J(F)_{2d}, and Phi(w) = -A w.grad D (mod J)
+= -A sum_{k,l} w_k w_l F_kl (mod J).  So every admissible polar w satisfies  **A (w^T Hess(F) w) in J(F)_{2d}**.
+Relaxing W_kl = w_k w_l gives a linear condition whose kernel K_H is computed mod p with the Jacobian block at its
+Hilbert rank, hence dim K_H(Q) <= dim K_H(p) rigorously (same logic as the E1 sweeps).  Script `wave2_excl_hess.py`.
+Degree 6 (p = 268435399, rank J_12^odd = 2214 = Hilbert, J_12^even = 2223 = Hilbert):
+| sector | w-coords | W-unknowns | dim K_H (upper bound) | structure |
+|---|---|---|---|---|
+| Y-even D | 18 | 171 | 36 | contains the 18 exact "fake" directions e_a (.) u (u = z/6, D = F) |
+| Y-odd D | 18 | 171 | 18 | only antisymmetric off-diagonal 2x2 minors: no diagonal W_aa => w = 0 |
+| cross (mixed parity) | 36 | 324 | 126 | coefficients +-1 |
+Full relaxation (T3, mod 4 primes): pi_W(ker) has dim 19 (even) / 18 (odd); the odd one coincides with K_H.
+msolve note: msolve silently miscomputes for primes near 2^31 ("Prime ... too large" on small inputs); use p < 2^28.

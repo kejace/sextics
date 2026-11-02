@@ -6,3 +6,4 @@ colon basis failed 11 (3, 0) colon d=11 c=(3, 0): rational reconstruction failed
 colon basis failed 12 (0, 0) colon d=12 c=(0, 0): rational reconstruction failed with 6 primes
 colon basis failed 12 (3, 0) colon d=12 c=(3, 0): rational reconstruction failed with 6 primes
 3922 tasks
+{"ts": "2026-11-02T01:12:38", "step": "served-scan", "job": "servedscan", "n": 3922, "nontrivial": 0, "by_status": {"trivial": 3922}, "sectors": ["30"], "wall": 182.5}

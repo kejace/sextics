@@ -13,8 +13,8 @@ Only an exact re-solve (charsolve.solve_char -> core.verify_witness) counts as e
 """
 from __future__ import annotations
 import os, sys, os, time, json, math, itertools
-for _v in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
-    os.environ.setdefault(_v, '1')
+for _v in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'NUMEXPR_NUM_THREADS'):
+    os.environ[_v] = '1'   # forced: parallelism is by worker processes; the runner exports cpus=8 which oversubscribes
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np

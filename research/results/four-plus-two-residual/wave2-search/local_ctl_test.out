@@ -6,3 +6,7 @@ polished 4.4110559384556165e-15
   max_den=2 err=2.5e-01 nterms=8 -> inconsistent rank=49 nullity=7 note=None verified=None
   max_den=3 err=1.6e-01 nterms=11 -> inconsistent rank=49 nullity=7 note=None verified=None
   max_den=4 err=8.4e-02 nterms=11 -> inconsistent rank=49 nullity=7 note=None verified=None
+  max_den=6 err=8.2e-02 nterms=11 -> inconsistent rank=49 nullity=7 note=None verified=None
+  max_den=7 err=5.9e-02 nterms=11 -> inconsistent rank=49 nullity=7 note=None verified=None
+old built 83.2 s; K 13 dimP 12
+old search 8 restarts: 2.6 s; rels ['4.4e-15', '7.5e-06', '9.5e-04', '1.6e-03', '3.0e-03'] iters [195, 120, 77, 105, 30]

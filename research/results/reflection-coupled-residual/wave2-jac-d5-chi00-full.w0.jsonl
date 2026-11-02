@@ -60,3 +60,16 @@
 {"restart": 59, "rel": 0.975914759012283, "f": 206.6828794035894, "iters": 10, "nfev": 12, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 611.8}
 {"restart": 60, "rel": 0.9759147588875238, "f": 206.68287940358942, "iters": 16, "nfev": 61, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 676.1}
 {"restart": 61, "rel": 0.9759147590129308, "f": 206.68287940358942, "iters": 17, "nfev": 25, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 689.9}
+{"restart": 62, "rel": 0.9757960949745704, "f": 206.59804201614114, "iters": 18, "nfev": 33, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 693.8}
+{"restart": 63, "rel": 0.9759147590725643, "f": 206.68287940358934, "iters": 17, "nfev": 34, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 702.6}
+{"restart": 64, "rel": 0.9757960949745588, "f": 206.59804201614114, "iters": 13, "nfev": 14, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 707.3}
+{"restart": 65, "rel": 0.9759147590130536, "f": 206.68287940358928, "iters": 19, "nfev": 26, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 707.6}
+{"restart": 66, "rel": 0.975914759007959, "f": 206.68287940358928, "iters": 11, "nfev": 12, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 707.7}
+{"restart": 67, "rel": 0.975796094974559, "f": 206.59804201614116, "iters": 13, "nfev": 14, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 707.8}
+{"restart": 68, "rel": 0.9757960949745668, "f": 206.5980420161411, "iters": 15, "nfev": 45, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 708.3}
+{"restart": 69, "rel": 0.9759147590130443, "f": 206.6828794035895, "iters": 16, "nfev": 21, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 708.5}
+{"restart": 70, "rel": 0.9759147590131728, "f": 206.6828794035893, "iters": 15, "nfev": 16, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 708.6}
+{"restart": 71, "rel": 0.9757960949745588, "f": 206.59804201614114, "iters": 15, "nfev": 17, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 708.8}
+{"restart": 72, "rel": 0.975796094974559, "f": 206.59804201614122, "iters": 11, "nfev": 12, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 708.9}
+{"restart": 73, "rel": 0.9759147590130403, "f": 206.68287940358934, "iters": 11, "nfev": 12, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 709.1}
+{"restart": 74, "rel": 0.9757960949745611, "f": 206.59804201614114, "iters": 18, "nfev": 35, "rank": 64, "spurious": false, "div_rel": 1.0, "seconds": 709.5}

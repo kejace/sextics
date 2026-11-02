@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 20:09:09 from 53 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 20:11:06 from 59 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -68,6 +68,12 @@ denominators of degree d and sigma-weight k; A has weight 3, Y-odd.  "rel" = squ
 | 8 | even | 5 | probe-J | 18 | 72 | 60 | 7.54e-06 | 2.89e-05 | None | - |
 | 8 | even | 6 | probe-J | 18 | 65 | 60 | 1.11e-05 | 2.87e-05 | None | - |
 | 8 | odd | 0 | probe-J | 12 | 72 | 40 | 2.95e-05 | 3.36e-05 | None | - |
+| 8 | odd | 1 | probe-J | 27 | 72 | 40 | 1.53e-06 | 9.44e-06 | None | - |
+| 8 | odd | 2 | probe-J | 27 | 57 | 40 | 2.58e-06 | 7.34e-06 | None | - |
+| 8 | odd | 3 | probe-J | 22 | 65 | 40 | 3.15e-06 | 9.63e-06 | None | - |
+| 8 | odd | 4 | probe-J | 27 | 65 | 40 | 6.39e-07 | 4.70e-06 | None | - |
+| 8 | odd | 5 | probe-J | 22 | 72 | 40 | 6.02e-06 | 2.81e-05 | None | - |
+| 8 | odd | 6 | probe-J | 22 | 65 | 40 | 7.47e-06 | 1.32e-05 | None | - |
 
 Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 

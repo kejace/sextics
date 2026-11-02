@@ -41,6 +41,20 @@ Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (+ per-job
    4-17 unknowns, 37-52 quadrics, msolve -g 1 m-primary; log exp = closure-pure-sector).  Remaining: (0,0,0,0) [29 unknowns],
    (0,0,0,1) [27], (1,1,0,0) [26], (1,1,0,1) [26] (52 quadrics each; Froeberg regularity ~5-6; queued for the remote).
 
+9. [NEW, rigorous] served-target spaces (sum principle): for the 6 coordinate hyperplanes, 11 quadrics (S0, delta, S1, S2,
+   S0+-S2, S0+S1, X0^2+X2^2, X0^2-X1^2, X1^2-Y1^2, X2^2-Y2^2), 7 quartics (GS, GP, Q1, Q2, T0, S0^2+2P0^2, X1^4+Y1^4), the six
+   polars F_Zi and f0 = S0^3 + 2 S0 P0^2: served(D) = J_6^odd (dim 18, the trivially served targets).  Span of all of them = J_6^odd,
+   A not in it => no product of these blocks (any degree) serves A.  [served_local.py; log exp = served, served-span]
+   Pending on the remote: rad_i, X1^6+Y1^6, X2^6+Y2^6, D8* (degree 6 and 8 blocks).
+
+10. [computed] Degree-9 pure sectors: (unknowns, quadrics) per sector after gauge = (38,14)x4, (15,30)x2, (53,30)x2, (19,14)x8,
+    (52,30)x2, (34,14)x4, (12,30)x2 — in 20 of 24 sectors there are fewer quadrics than unknowns, so the Hessian relaxation
+    (quadrics in R_18, dim 426 total) cannot close them (solution sets are positive-dimensional); only the four (.,.,3,.) sectors
+    can be closed by it.  From degree 9 on, exhaustive exclusion needs the full bilinear E1+E2 system.
+11. [computed] Froeberg regularity (first degree where the generic Hilbert series of m quadrics in n unknowns turns <= 0):
+    d7 full (120, 950): 5; d7 tau-even (60, 477): 4; d7 two-involutions-fixed (32, 241): 3; d8 Gamma-invariant (17, 52): 4;
+    d8 sectors (29,52): 7, (27,52): 6, (26,52): 6.  These bound the Groebner effort from below (generic case).
+
 ## Running (remote)
 * excl-reverify: E1 colon dims d<=9, d=7 parity sectors, all 24 pure G_aff sectors at d=8 and d=9 (Singular verdicts).
 * excl-fixedD: sector re-solves of D8*, Z_i*D8* at P2; engine cross-check; served-target spaces of structured blocks (sum principle).

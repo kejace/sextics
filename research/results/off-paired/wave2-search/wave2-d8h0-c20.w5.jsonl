@@ -1,0 +1,2 @@
+{"seed": 5, "f": 0.010116461777809513, "bnorm2": 1.847966123255441, "relres": 0.07398902761702685, "iters": 120, "njac": 121, "nres": 120, "status": "maxiter", "time": 272.29, "init": "gauss"}
+{"seed": 13, "f": 0.012428167287001577, "bnorm2": 1.8279649933795004, "relres": 0.08245549589966769, "iters": 63, "njac": 63, "nres": 112, "status": "stalled", "time": 84.47, "init": "gauss"}

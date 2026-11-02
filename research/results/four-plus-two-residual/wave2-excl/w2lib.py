@@ -549,7 +549,11 @@ def small_kernel_reps(P, idx, a, k, par, nprimes=3, verify=True):
     # (norm ~ m^(codim/nA)) are far above the expected heights (~2^40) of true kernel vectors
     M0, _ = build_modp([reduce_mod(c, BIGP[0]) for c in Acols + Jcols], BIGP[0])
     X0, nul0 = M0.nullspace()
-    dim0 = len([1 for kk in range(nul0) if any(int(X0[j, kk]) for j in range(nA))])
+    if nul0:
+        proj0 = nmod_mat(nA, nul0, [int(X0[j, kk]) for j in range(nA) for kk in range(nul0)], BIGP[0])
+        dim0 = int(proj0.rank())
+    else:
+        dim0 = 0
     codim = nA - dim0
     if codim == 0:
         # every D of this degree/parity is E1-admissible: reps = monomials; reps modulo J_k = standard monomials

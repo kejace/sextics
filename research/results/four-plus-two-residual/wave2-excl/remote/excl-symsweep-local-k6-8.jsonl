@@ -1,0 +1,7 @@
+{"exp": "sym-exact-reps", "d": 6, "parity": 0, "n_reps": 20, "dim_modJ": 20, "dim_J": 8, "verified_exact": true, "max_abs_coeff": 122859128690, "seconds": 2.4, "job": "excl-symsweep-local-k6-8", "ts": "2026-11-01T20:10:00"}
+{"exp": "sym-exact-reps", "d": 6, "parity": 1, "n_reps": 13, "dim_modJ": 13, "dim_J": 8, "verified_exact": true, "max_abs_coeff": 462761038893364, "seconds": 5.2, "job": "excl-symsweep-local-k6-8", "ts": "2026-11-01T20:10:03"}
+{"exp": "sym-exact-reps", "d": 7, "parity": 0, "n_reps": 30, "dim_modJ": 30, "dim_J": 20, "verified_exact": true, "max_abs_coeff": 247544203, "seconds": 15.9, "job": "excl-symsweep-local-k6-8", "ts": "2026-11-01T20:10:14"}
+{"exp": "sym-exact-reps", "d": 7, "parity": 1, "n_reps": 30, "dim_modJ": 30, "dim_J": 20, "verified_exact": true, "max_abs_coeff": 362033238, "seconds": 30.9, "job": "excl-symsweep-local-k6-8", "ts": "2026-11-01T20:10:29"}
+{"exp": "sym-exact-reps", "d": 8, "parity": 0, "n_reps": 41, "dim_modJ": 41, "dim_J": 40, "verified_exact": true, "max_abs_coeff": 4379450, "seconds": 137.7, "job": "excl-symsweep-local-k6-8", "ts": "2026-11-01T20:12:16"}
+{"exp": "sym-exact-reps", "d": 8, "parity": 1, "n_reps": 34, "dim_modJ": 34, "dim_J": 40, "verified_exact": true, "max_abs_coeff": 20977024, "seconds": 169.2, "job": "excl-symsweep-local-k6-8", "ts": "2026-11-01T20:12:47"}
+{"exp": "sym-plan", "n_tasks": 186, "workers": 1, "kmin": 6, "kmax": 8, "job": "excl-symsweep-local-k6-8", "ts": "2026-11-01T20:12:47"}

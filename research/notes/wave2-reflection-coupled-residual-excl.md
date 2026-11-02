@@ -17,6 +17,16 @@ W2LIB_SUFFIX so remote and local receipt files never share a name again).
 (c) non-Jacobian E1-kernel classes and structured families, degrees 7-12, character sectors, full E1+E2 (symmetric solver);
 (d) packet; (e) draft post.
 
+## Summary of the rigorous frontier (updated as results arrive)
+* deg D ≤ 4: impossible (E1, all characters) — re-verified at a third prime.
+* deg D = 5, 6: impossible (E1 ⇒ D ∈ J_d; Hessian relaxation zero-dimensional on W), mixed parity included.
+* deg D = 7: impossible for single-character D in characters (0,1), (1,0), (1,1) [GB]; (1,0),(1,1) also by the Y2-parity
+  reduction from degree 6; character (0,0) and mixed characters: computations running.
+* deg D = 8: the E1-admissible space is J_8 ⊕ ℂK8 (all characters); K8 itself certified excluded; (1,0),(1,1) sectors reduce
+  to degree-7 (0,·) sectors; (0,0),(0,1) sectors and the K8 family: GB computations running (remote hess8, local chain2).
+* deg D ≥ 9: E1 kernels are dimension-forced (21/0/21/0 at d = 9, 186/126/136/108 at d = 10); only fixed-D tests of
+  representatives/structured members (screens) and the reduction lemma apply.
+
 ## Results so far
 
 ### R1. Degree 5 (Hessian relaxation, local, p = 2147483587) — DONE
@@ -51,8 +61,10 @@ D ∈ J_7 (E1) of a single character χ ⇒ g ∈ V_χ, W_χ = V_χ/T_χ; the qu
 | (0,1) | 40 | 2 | 38 | 281 | 2987 | 0 | 1109 | 1,38,460,556,54,0 | V = {0} |
 | (0,0) | 45 | 3 | 42 | 274 | (running) | | | | |
 Hence (modulo the (0,0) block) **no degree-7 denominator with a single Klein character**. Mixed-character degree-7
-denominators: the joint systems (pairs 40–80 unknowns, triples 78–102, full 120) are being exported and run
-(chain `wave2-excl/chain_d7mixed.sh`; receipts `gbcheck.jsonl`).
+denominators: joint systems on ⊕W_χ — pairs (10,11): 40 unknowns/300 independent quadrics, (01,11): 56/470, (01,10): 60/479,
+(00,11): 60/468, (00,10): 64/463, (00,01): 80/…; triples 78–102 unknowns; full 120 — exported and run by msolve with bounded
+caps (`wave2-excl/chain2.sh`; receipts `gbcheck.jsonl`). **Pair (1,0)+(1,1): dim 0, mult 4399, HF 1,40,520,1543,1695,567,33,0
+(msolve 166 s) — closed** (consistent with the Y2-parity reduction, R9).
 
 ### R4. The degree-8 E1-kernel class K8 (remote job excl-rcr-k8job) — DONE: K8 rigorously excluded
 * K8 ∉ J(F): verified mod 2147483587 and 2147483579 (rank 168 vs 169); a rational polynomial outside J mod p is outside J over ℚ.
@@ -117,12 +129,44 @@ Degree 10 (kernels 186/126/136/108): the structured shapes meet the non-Jacobian
 even exponents in Y0,Y1,Y2: 179 in (0,0)); no cone with a line or plane vertex, no binary/ternary form and no polynomial
 in squares is E1-admissible outside J at degrees 8–10. These degree-10 families are screened only (no fixed-D tests).
 
+### R9. Y2-parity reduction (structural)
+Monomials of character (1,0) or (1,1) have odd Y2-exponent, hence a pure-character denominator D of such a character is
+D = Y2·G with G of character (0,0) resp. (0,1) and degree d − 1. Since X ∩ {Y2 = 0} is smooth (R8), served(D) = served(G).
+Iterating, **every pure-character denominator of odd Y2-parity reduces to one of even Y2-parity and lower degree**.
+Consequences: (i) the degree-7 exclusions for (1,0), (1,1) are implied by the degree-6 exclusion (independent cross-check of
+the GB results of R3); (ii) the degree-8 sectors (1,0), (1,1) are excluded once degree-7 characters (0,0), (0,1) are;
+(iii) the 21 non-Jacobian degree-9 classes of character (1,0) are Y2·G with G ∈ S_8^{(0,0)}: a certificate with such a
+denominator would give one with denominator G, which then must be E1-admissible, i.e. G ∈ J_8 ⊕ ℂK8 — so this whole
+sector reduces to the degree-8 Klein-invariant family (R4, R6, hess8). The surviving "hard" sectors are (0,0) and (0,1)
+(even Y2-parity) and mixed-character denominators.
+
+### R10. Positive control (Fermat sextic, local)
+On X0⁶+…+Y2⁶ with the same A, where D0 = X0⁶+X1⁶+X2⁶ ∈ J_6 is a known certificate denominator (DiamondJM's control), the
+identical degree-6 pipeline gives only 52 independent quadrics on the 35-dimensional W and a solution cone of dimension 19
+(Hilbert function 1, 35, 578, 6078, … never vanishing). So the relaxation detects known certificates and the zero-dimensional
+results for the coupled F are not artefacts of the pipeline (`wave2-excl/control-fermat/`).
+
 ### Jobs submitted (remote)
 * `excl-rcr-e1char`: E1 kernels by Klein character, d = 1..10, p = 2147483587 (+ 2147483579 for reconstruction).
 * `excl-rcr-hess`: Φ-kernel at d = 6 (two primes); Macaulay-3 rank of the quadratic system per character at d = 7;
   msolve exports of the pair/full systems at d = 7.
 * `excl-rcr-k8job`: DONE (R4, R6).
 * `excl-rcr-struct`: structured-family E1 screen d = 7..12 (R7, running).
+* (queued, needs a free slot) `job_companion.sh`: control on the same F with the served companion target X0³Y2³: E1 kernels by character d = 1..9 (where do non-Jacobian classes first appear for a target that is known to be served?).
 * `excl-rcr-hess8`: degree-8 pure-character Jacobian families (χ = 11, 10, 01) and the K8 family (1 + 102 unknowns): msolve GB checks (running).
 * `excl-rcr-ker9`: degree-9 E1-kernel representatives (21 in (0,0), plus (1,0)) fixed-D tests + random combinations; rerun of the lost degree-9 receipts.
 
+
+## Methods (rigor protocol, in one place)
+1. **E1 by character.** AD ∈ J ⇔ A·D_χ ∈ J for each Klein component (J is Klein-graded). Kernel of [A] on (S/J)_d^χ mod p with the
+   good-reduction check rank J_n^χ = dim S_n^χ − Fermat count in degrees d and d+6; then dim_ℚ ker ≤ dim_p ker.
+2. **Obstruction.** For D = g(F) with N = A·g, B_D(N) ≡ −A gᵀHess(F)g (mod J), independent of the E1 solution (Koszul corrections
+   lie in J; verified numerically), and B(zG,·) = 5[A G g(F)] = 0. Certificate ⇒ ob(g) = 0 in (S/J)_{2d}.
+3. **Modular ⇒ rational for the quadratic systems.** The modular quadrics are reductions of rational ones in the ideal (the
+   annihilator lattice of J_{2d} is saturated when reduction is good), so HF_ℚ(k) ≤ HF_p(k) for the ideal on W = V/T;
+   dim 0 mod p ⇒ HF_p(k0) = 0 ⇒ HF_ℚ(k0) = 0 ⇒ V(ob) = T over ℂ ⇒ every such D lies in (F).
+4. **Fixed-D inconsistency.** rank_p M ≤ rank_ℚ M always; an exact rational kernel of dimension equal to the modular nullity
+   (vectors (zG,0), (F m e_i, D∂_im − m∂_iD)) forces equality, so modular inconsistency is rational inconsistency.
+5. **Reductions.** Sum principle (book ch. 3 §1.1) + smoothness of X ∩ {z_i = 0} (checked mod p) ⇒ served(z_iG) = served(G);
+   odd-Y2-parity characters are Y2-multiples.
+6. **Controls.** Fermat sextic (certificates exist): the pipeline returns a 19-dimensional solution cone at degree 6.

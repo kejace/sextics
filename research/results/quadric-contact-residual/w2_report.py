@@ -191,6 +191,16 @@ if vp:
              'all minima are separated from the floor by many orders of magnitude unless stated otherwise.')
 else:
     L.append('(pending)\n')
+L.append('\n## Structure notes (from the exact E1 tables)\n')
+L.append('* (J:A)/J has exactly ONE minimal generator beyond J in degrees <= 9: D8* = 4G_S^2 - G_P^2 (= const * G_u G_v, the product of the two '
+         'reflection-contour quartics); the four degree-9 directions are D8*.X1, D8*.Y1, D8*.X2, D8*.Y2 (D8*.X0, D8*.Y0 lie in J_9). '
+         'At degree 10 only 10 of the 556 non-Jacobian directions come from D8*.S_2; the other 546 are new minimal generators of the colon ideal '
+         '(computed mod p this session). From d = 10 on E1 is essentially the Gorenstein-dual constraint codim (J:A)_d = dim R_{d+6} (minus 1 at d = 10): '
+         '950 = 951 - 1, 666, 426 for d = 10, 11, 12.')
+L.append('* Gorenstein duality (socle degree 24) pairs ker(.A: R_d -> R_{d+6}) with coker(.A: R_{18-d} -> R_{24-d}); the single kernel direction D8* at d = 8 '
+         'is dual to the single missing direction of A.R_10 in R_16, consistent with the 556 = 1506 - 950 kernel at d = 10.')
+L.append('* Sector bookkeeping: G_aff characters chi = (e0+e3, e2+e5 mod 2; e1-e4 mod 6; Y-parity); the target residue is G_aff-invariant and the identity '
+         'for a chi-eigen D lives in sector chi_A + 2 chi, so restricting all unknowns to sectors is lossless for eigen-denominators (24 sectors per degree parity).')
 L.append('\n## Errors / notes\n')
 errs = [r for r in recs if r.get('status') == 'family-error']
 for r in errs:

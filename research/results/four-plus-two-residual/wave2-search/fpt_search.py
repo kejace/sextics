@@ -18,6 +18,7 @@ ap.add_argument('--procs', type=int, default=8); ap.add_argument('--threads', ty
 ap.add_argument('--seed0', type=int, default=1000); ap.add_argument('--instance', default='four-plus-two-residual')
 ap.add_argument('--cand-rel', type=float, default=1e-8); ap.add_argument('--max-K', type=int, default=100000)
 ap.add_argument('--method', default='lbfgs', choices=['lbfgs', 'lm', 'deflate'])
+ap.add_argument('--formulation', default='koszul', choices=['koszul', 'full'])
 ap.add_argument('--init', default='gauss', choices=['gauss', 'sparse'])
 ap.add_argument('--rounds', type=int, default=4)
 args = ap.parse_args()
@@ -85,9 +86,14 @@ def build_family(spec, d, lab):
                 _cache[key] = (None, info); return _cache[key]
             if fam['K'] > args.max_K:
                 info.update({'K': fam['K'], 'dimP': -1, 'note': 'K above --max-K; skipped'}); _cache[key] = (None, info); return _cache[key]
-            svp = SectorVarPro(inst, d, lab, fam['basis'])
+            if args.formulation == 'koszul':
+                svp = KoszulVarPro(inst, d, lab, fam['basis'])
+                info.update({'formulation': 'koszul', 'nC': svp.nC, 'e1_lift_residual': svp.e1_lift_residual})
+            else:
+                svp = SectorVarPro(inst, d, lab, fam['basis'])
+                info.update({'formulation': 'full', 'full_nN': svp.full_nN, 'full_nQ': svp.full_nQ})
             info.update({'K': svp.K, 'K0': fam['K0'], 'dimP': svp.dimP, 'rows': svp.rows, 'cols': svp.ncols, 'nN': svp.nN, 'nQ': svp.nQ,
-                         'full_nN': svp.full_nN, 'full_nQ': svp.full_nQ, 'excluded_F_dim': svp.excluded_dim,
+                         'excluded_F_dim': svp.excluded_dim,
                          'sv_kept_max': fam['sv_kept_max'], 'sv_dropped_min': fam['sv_dropped_min'], 'nnz_Mstack': int(svp.MstackT.nnz)})
             obj = svp if svp.dimP > 0 else None
     except Exception as ex:
@@ -163,7 +169,7 @@ def run_task(task):
             cands = obj.search(n_restarts=args.restarts, seed=seed, maxiter=args.maxiter, init=args.init)
         else:
             cands = obj.search(n_restarts=args.restarts, seed=seed, maxiter=args.maxiter)
-        rec['mode'] = args.method + ('-' + args.init if args.init != 'gauss' else '')
+        rec['mode'] = args.method + ('-' + args.init if args.init != 'gauss' else '') + ('' if args.formulation == 'koszul' else '-full')
         rec['restarts'] = len(cands)
     rels = [c['rel'] for c in cands if not c.get('spurious', False)]
     rec['n_spurious'] = sum(1 for c in cands if c.get('spurious', False))

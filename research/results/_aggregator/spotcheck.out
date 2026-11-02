@@ -18,3 +18,4 @@
 {"lane": "off-paired", "d": 5, "parity": 0, "ann_mod_J": 2, "expected": "? (total 5)", "seconds": 134.3, "error": null}
 {"lane": "off-paired", "d": 5, "parity": 1, "ann_mod_J": 3, "expected": "? (total 5)", "seconds": 201.9, "error": null}
 {"lane": "off-paired", "d": 6, "parity": 0, "ann_mod_J": 11, "expected": "? (total 18)", "seconds": 49.4, "error": null}
+{"lane": "off-paired", "d": 6, "parity": 1, "ann_mod_J": 7, "expected": "? (total 18)", "seconds": 343.8, "error": null}

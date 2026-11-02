@@ -46,7 +46,7 @@ def candidates(which):
                 M = [[H[i][j] for j in J] for i in I]
                 D = det_poly(M)
                 if D:
-                    out.append((f'hess-minor2', f'det H[{",".join(V[i] for i in I)};{",".join(V[j] for j in J)}]', D, True))
+                    out.append((f'hess-minor2', f'det H[{",".join(V[i] for i in I)};{",".join(V[j] for j in J)}]', D, False))
     if which in ('minors3', 'all'):
         for I in itertools.combinations(range(6), 3):
             for J in itertools.combinations(range(6), 3):
@@ -116,9 +116,9 @@ def work(args):
             rec1['consistent_p2'] = rb.get('consistent'); rec1['rank_p2'] = rb.get('rank')
         W.log(**rec1)
         res.append(rec1)
-        if square:
+        if square and core.degree(D) <= 6:
             D2 = core.mul(D, D)
-            r2 = eq.test_D_fast(F, A, q, D2, fam + '^2', note=note + ' [D^2] wave2', verbose=False, do_e1=False, Dstr='(' + core.to_str(D) + ')**2')
+            r2 = eq.test_D_fast(F, A, q, D2, fam + '^2', note=note + ' [D^2] wave2', verbose=False, do_e1=True, Dstr='(' + core.to_str(D) + ')**2')
             rec2 = {'step': 'struct-sweep', 'family': fam + '^2', 'note': note + ' squared', 'D': '(' + core.to_str(D) + ')**2', 'd': core.degree(D2),
                     'e1': r2.get('e1'), 'consistent': r2.get('consistent'), 'rank': r2.get('rank'), 'nullity': r2.get('nullity'), 'cols': r2.get('cols'),
                     'order': r2.get('order'), 'p': r2.get('p'), 'seconds': r2.get('seconds')}

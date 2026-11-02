@@ -138,7 +138,7 @@ def jacobian_family(F, A, d, pts, extra=None, pD=0):
             # N^k = A m d_i : div = m d_i A + A d_i m ; N_i = A m
             divN = mval * Ai_val[i] + A_val * dm[i]
             Nval = np.zeros((NV, pts.r), dtype=complex); Nval[i] = A_val * mval
-            members.append({'D': Dk, 'Dval': pts.eval_poly(Dk), 'Dder': Dder, 'divN': divN, 'Nval': Nval, 'w': (i, m)})
+            members.append({'D': Dk, 'Dpoly': Dk, 'Dval': pts.eval_poly(Dk), 'Dder': Dder, 'divN': divN, 'Nval': Nval, 'w': (i, m)})
     K0 = len(members)
     # spurious directions: w = l * Euler (D = 6 l F), l in S_{d-6}^+ ; Koszul fields (D = 0): c_ij constants etc.
     idx = {wb: k for k, wb in enumerate(wbasis)}
@@ -171,7 +171,7 @@ def jacobian_family(F, A, d, pts, extra=None, pD=0):
             for i in range(NV):
                 divN += pts.eval_poly(pderiv(Nx[i], i))
                 Nval[i] = pts.eval_poly(Nx[i])
-            members.append({'D': Dx if all(isinstance(v, Fraction) for v in Dx.values()) else None,
+            members.append({'D': Dx if all(isinstance(v, Fraction) for v in Dx.values()) else None, 'Dpoly': Dx,
                             'Dval': pts.eval_poly(Dx), 'Dder': Dder, 'divN': divN, 'Nval': Nval, 'w': None})
     K = len(members)
     S = np.zeros((K, len(sp)))

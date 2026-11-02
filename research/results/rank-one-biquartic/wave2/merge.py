@@ -16,7 +16,7 @@ if os.path.exists(LOG):
 added = 0
 for path in sorted(glob.glob(f'{MIR}/wave2/out/*.jsonl')):
     name = os.path.basename(path)
-    if name.endswith('.restarts.jsonl') or name.endswith('.cands.jsonl') or name.startswith('smoke'):
+    if name.endswith('.restarts.jsonl') or name.endswith('.cands.jsonl') or name.startswith('smoke') or name.startswith('planted'):
         continue
     for line in open(path):
         line = line.strip()
@@ -25,6 +25,8 @@ for path in sorted(glob.glob(f'{MIR}/wave2/out/*.jsonl')):
         try:
             o = json.loads(line)
         except Exception:
+            continue
+        if str(o.get('tag', '')).startswith(('planted', 'smoke')):
             continue
         key = json.dumps(o, sort_keys=True)
         if key in have:

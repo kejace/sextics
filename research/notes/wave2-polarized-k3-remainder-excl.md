@@ -62,3 +62,15 @@ structure of Λ²V₂, so this mechanism cannot produce K3-sector (3,1)-classes.
 Remote: saturated (load 900+/128 cores, <60 GB free) -- rjob refuses submissions; queue waiting (--wait 4h). Local
 fallback chain (nice 19, one process at a time): K3 d=7 relaxation -> full d=7 replication -> E1 tables (2nd prime) ->
 K3 d=8 relaxation -> f(U)h family exact tests -> full d=8 relaxation regeneration.  Logs wave2-excl/chain*.log.
+
+### Logic note (refined): how the K3-sector exclusions feed the reducible-denominator question   [01:25]
+Let Y = X ∩ V(D) = ∪ Y_j (components Y_j = X ∩ V(D_j), Σ deg D_j ≤ deg D since Pic X = Z h).  served(D) = Σ_j served(D_j)
+(prescribed-support theorem + N_{Y1∪Y2} = N_{Y1} + N_{Y2}).  Dichotomy (needs End_Hdg(T) = Q, proven in #115): for each j,
+π_K3(N_{Y_j}) ⊇ Λ²T  or  π_{Λ²T}(N_{Y_j}) = 0.  If A_K3 ∉ served(D_j) and η ∉ NS_prim⊗C (automatic when ρ = 1), the
+Λ²T-component ω∧η_T of r_K3 is nonzero and not served, so the first alternative fails and π_K3(served(D_j)) ⊆ ω⊗NS_prim.
+Hence: if NO denominator of degree ≤ k serves A_K3, then NO product of denominators of degrees ≤ k serves A
+(else ω∧η ∈ Σ_j π_K3(served(D_j)) ⊆ ω⊗NS_prim, i.e. η ∈ NS_prim⊗C).  The hypothesis η ∉ NS_prim⊗C is exactly the one
+already needed for the equivalence theorem; no extra assumption on ρ is required.
+Status: k = 6 PROVEN above (exact).  k = 7 in progress (local chain).  The dossier's wave-1 formulation ("products of
+excluded denominators are excluded") implicitly needed this K3-sector step; the full-target degree ≤ 7 exclusion alone
+does not give it.

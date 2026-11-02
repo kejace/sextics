@@ -156,10 +156,10 @@ def worker(args, wid, conn):
         # directions with D(a) = 0 (linear dependence among members) are spurious: add them
         allm = {}
         for m in fam.members:
-            for e in m['D']: allm.setdefault(e, len(allm))
+            for e in m['Dpoly']: allm.setdefault(e, len(allm))
         Dmat = np.zeros((fam.K, len(allm)))
         for k, m in enumerate(fam.members):
-            for e, v in m['D'].items(): Dmat[k, allm[e]] = float(v)
+            for e, v in m['Dpoly'].items(): Dmat[k, allm[e]] = float(v)
         ns = sla_null_space(Dmat.T)
         if ns.shape[1]:
             fam.spurious = np.hstack([fam.spurious, ns]) if fam.spurious.size else ns
@@ -267,7 +267,7 @@ def handle_hit(args, wid, F, A, q, fam, kb, pts, vp, c, label):
         # reconstruct the polynomial D(a) directly (normalize largest coefficient to 1)
         Df = {}
         for k, m in enumerate(fam.members):
-            for e, v in m['D'].items(): Df[e] = Df.get(e, 0.0) + a[k] * float(v)
+            for e, v in m['Dpoly'].items(): Df[e] = Df.get(e, 0.0) + a[k] * float(v)
         emax = max(Df, key=lambda e: abs(Df[e])); scale_ = Df[emax]
         for md in (100, 10 ** 4, 10 ** 6):
             Dr = {e: Fraction(v / scale_).limit_denominator(md) for e, v in Df.items()}

@@ -668,6 +668,211 @@ class SectorVarPro:
         return x, float(math.sqrt(res) / max(np.linalg.norm(c), 1e-300))
 
 
+class KoszulVarPro(SectorVarPro):
+    """E2-only variable projection with the complete correction map (book Ch.5 §5.2):
+    every E1 lift is N = N0(D) + K(c), K = sum_{i<j} c_ij (F_j d_i - F_i d_j), deg c_ij = d-4 (q = 1), and E2 reads
+        D div N - N(D) = F Q,   deg Q = 2d-6,   in degree 2d (sector labA + 2 labD).
+    N0(a) = Nmat a is a linear E1 lift of the family (least squares on the sector E1 system, residual ~1e-14).
+    Residual  r(a, x) = v(a) + M(a) x_c - MQ x_Q  with  v(a) = D(a) div N0(a) - N0(a)(D(a)) = T (c kron n),
+    c = Bmat a, n = Nmat a, M(a) = sum_j c_j M^(j) (Koszul columns), so f(a) = min_x |M(a)x - b(a)|^2 with b = -v(a).
+    Same interface as SectorVarPro; systems are much smaller (rows: degree 2d instead of 2d+6; cols: 15 x #c-monomials + #Q)."""
+
+    def __init__(self, inst, d, lab, basis, exclude_F_multiples=True, verbose=False, cond=1e-9):
+        t0 = time.time()
+        F, A, q = inst.F, inst.A, inst.q
+        assert q == 1, 'KoszulVarPro implemented for q = 1'
+        self.inst, self.d, self.lab, self.q = inst, d, lab, q
+        self.F, self.A = F, A
+        self.cond = cond
+        Dm = inst.sector_monomials(d, lab); self.Dm = Dm
+        K0 = len(Dm); self.K0 = K0
+        didx = {m: j for j, m in enumerate(Dm)}
+        K = len(basis); self.K = K
+        Bmat = np.zeros((K0, K))
+        for k, B in enumerate(basis):
+            for e, v in B.items():
+                Bmat[didx[e], k] = float(v)
+        self.Bmat = Bmat
+        self.basis = [dict(B) for B in basis]
+        D0 = {Dm[0]: 1}
+        self.pD = core.parity_of(D0)
+        allowed, subg = symmetry.sector_filter(F, A, q, D0, inst.Gsub)
+        self.subgroup_size = len(subg)
+        self.pars = fixed_d.numerator_parities(D0, A)
+        degN = d + 1; degQ = 2 * d - 6; degC = d - 4
+        self.degN, self.degQ = degN, degQ
+        Fi = [pderiv(F, i) for i in range(NV)]
+        # --- E1 lift: sector N columns, equation N(F) = A D in degree d+6
+        Ncols = []
+        for i in range(NV):
+            ms = monomials(degN, self.pars[i])
+            Ncols += [(i, m) for m in symmetry.filter_monomials(ms, 'N', i, allowed)]
+        self.Ncols = Ncols; nN = len(Ncols); self.nN = nN
+        erows = {}
+        def eidx(e):
+            v = erows.get(e)
+            if v is None:
+                v = len(erows); erows[e] = v
+            return v
+        eri, eci, evals = [], [], []
+        for nu, (i, m) in enumerate(Ncols):
+            for e, v in shift(Fi[i], m, q).items():
+                eri.append(eidx(e)); eci.append(nu); evals.append(float(v))
+        RHS = [mul(A, B) for B in self.basis]
+        for P in RHS:
+            for e in P:
+                eidx(e)
+        E = sp.csr_matrix((np.array(evals), (np.array(eri, dtype=np.int64), np.array(eci, dtype=np.int64))), shape=(len(erows), nN)).toarray()
+        Rm = np.zeros((len(erows), K))
+        for k, P in enumerate(RHS):
+            for e, v in P.items():
+                Rm[erows[e], k] = float(v)
+        Nmat, *_ = sla.lstsq(E, Rm, cond=1e-12, lapack_driver='gelsd', check_finite=False)
+        self.Nmat = Nmat
+        self.e1_lift_residual = float(np.linalg.norm(E @ Nmat - Rm) / max(np.linalg.norm(Rm), 1e-300))
+        self.e1_rows, self.e1_rank = E.shape[0], int(np.linalg.matrix_rank(E, tol=1e-9 * max(np.linalg.norm(E, 2), 1e-300))) if E.size < 4e6 else -1
+        # --- rows of the E2 identity (degree 2d), column blocks
+        rows = {}
+        def ridx(e):
+            v = rows.get(e)
+            if v is None:
+                v = len(rows); rows[e] = v
+            return v
+        # T: v = sum_j sum_nu c_j n_nu [ m_j d_i(mu_nu) - mu_nu d_i(m_j) ]   (nu <-> (i, mu))
+        tri, tci, tvals = [], [], []
+        for j, mj in enumerate(Dm):
+            mjp = {mj: Fraction(1)}
+            dmj = [pderiv(mjp, i) for i in range(NV)]
+            for nu, (i, mu) in enumerate(Ncols):
+                mup = {mu: Fraction(1)}
+                P = sub(mul(mjp, pderiv(mup, i)), mul(mup, dmj[i]))
+                for e, v in P.items():
+                    tri.append(ridx(e)); tci.append(j * nN + nu); tvals.append(float(v))
+        # Koszul columns: (i<j, mu) with label(mu) = labA + labD + lab(z_i) + lab(z_j) and the right Y-parity
+        labD = lab
+        zl = [inst.label(tuple(1 if t == i else 0 for t in range(NV))) for i in range(NV)]
+        Ccols = []
+        if degC >= 0:
+            for i in range(NV):
+                for jj in range(i + 1, NV):
+                    want = inst.addlab(inst.labA, labD, zl[i], zl[jj])
+                    for mu in monomials(degC):
+                        if inst.label(mu) == want:
+                            Ccols.append((i, jj, mu))
+        self.Ccols = Ccols; nC = len(Ccols); self.nC = nC
+        # rebuild Koszul stack with column indices (same loop order): count entries per (j, col)
+        # simpler: redo loop storing col too
+        kri, kcol, kj, kvals = [], [], [], []
+        for j, mj in enumerate(Dm):
+            mjp = {mj: Fraction(1)}
+            dmj = [pderiv(mjp, t) for t in range(NV)]
+            for col, (i, jj, mu) in enumerate(Ccols):
+                mup = {mu: Fraction(1)}
+                P = sub(mul(mjp, sub(mul(pderiv(mup, i), Fi[jj]), mul(pderiv(mup, jj), Fi[i]))),
+                        mul(mup, sub(mul(Fi[jj], dmj[i]), mul(Fi[i], dmj[jj]))))
+                for e, v in P.items():
+                    kri.append(ridx(e)); kcol.append(col); kj.append(j); kvals.append(float(v))
+        # Q columns: -F mu, label(mu) = labA + 2 labD
+        labQ = inst.addlab(inst.labA, labD, labD)
+        Qcols = [mu for mu in monomials(degQ) if inst.label(mu) == labQ] if degQ >= 0 else []
+        self.Qcols = Qcols; nQ = len(Qcols); self.nQ = nQ
+        qri, qci, qvals = [], [], []
+        for jq, mu in enumerate(Qcols):
+            for e, v in shift(F, mu, -1).items():
+                qri.append(ridx(e)); qci.append(jq); qvals.append(float(v))
+        R = len(rows); self.rows = R; self.row_index = rows
+        self.T = sp.csr_matrix((np.array(tvals), (np.array(tri, dtype=np.int64), np.array(tci, dtype=np.int64))), shape=(R, K0 * nN))
+        flat = np.array(kri, dtype=np.int64) * max(nC, 1) + np.array(kcol, dtype=np.int64)
+        self.MstackT = sp.csr_matrix((np.array(kvals), (flat, np.array(kj, dtype=np.int64))), shape=(R * max(nC, 1), K0))
+        self.Mstack = self.MstackT.T.tocsr()
+        self.MQ = sp.csr_matrix((np.array(qvals), (np.array(qri, dtype=np.int64), np.array(qci, dtype=np.int64))), shape=(R, nQ)).toarray() if nQ else np.zeros((R, 0))
+        self.ncols = nC + nQ
+        # F-multiples in the sector (same as SectorVarPro)
+        self.QF = np.zeros((K0, 0)); self.excluded_dim = 0; self.P = np.eye(K)
+        if d >= 6:
+            Gm = inst.sector_monomials(d - 6, lab)
+            FM = np.zeros((K0, len(Gm)))
+            for jj, g in enumerate(Gm):
+                for e, v in shift(F, g, 1).items():
+                    FM[didx[e], jj] = float(v)
+            if len(Gm):
+                U, s, _ = np.linalg.svd(FM, full_matrices=False)
+                r = int(np.sum(s > 1e-10 * s[0]))
+                self.QF = U[:, :r]
+            if exclude_F_multiples and self.QF.shape[1]:
+                ns = sla.null_space(np.hstack([Bmat, -self.QF]))
+                S = ns[:K, :] if ns.size else np.zeros((K, 0))
+                if S.shape[1]:
+                    U, s, _ = np.linalg.svd(S, full_matrices=True)
+                    r = int(np.sum(s > 1e-10 * max(1.0, s[0])))
+                    self.P, self.excluded_dim = U[:, r:], r
+        self.dimP = self.P.shape[1]
+        self.build_time = time.time() - t0
+        self._nfev = 0
+        if verbose:
+            print(f'[koszulvarpro] d={d} lab={lab} K0={K0} K={K} dimP={self.dimP} rows={R} cols={self.ncols} (C {nC}, Q {nQ}) '
+                  f'E1 lift: nN={nN} rows={self.e1_rows} resid={self.e1_lift_residual:.1e}; nnz T={self.T.nnz} Mstack={self.MstackT.nnz} '
+                  f'excluded F-mult dim={self.excluded_dim} built in {self.build_time:.1f}s', file=sys.stderr)
+
+    def assemble(self, a):
+        c = self.Bmat @ a
+        n = self.Nmat @ a
+        M = (self.MstackT @ c).reshape(self.rows, max(self.nC, 1))[:, :self.nC]
+        if self.nQ:
+            M = np.hstack([M, self.MQ])
+        v = self.T @ np.outer(c, n).ravel()
+        return M, -v, c
+
+    def bnorm(self, a):
+        a = np.asarray(a, float); a = a / np.linalg.norm(a)
+        c = self.Bmat @ a; n = self.Nmat @ a
+        return float(np.linalg.norm(self.T @ np.outer(c, n).ravel()))
+
+    def _f_and_grad_a(self, a):
+        M, b, c = self.assemble(a)
+        n = self.Nmat @ a
+        x, *_ = sla.lstsq(M, b, cond=self.cond, lapack_driver='gelsd', check_finite=False)
+        r = M @ x - b
+        f = float(r @ r)
+        xC = x[:self.nC]
+        if self.nC:
+            gM = self.Mstack @ np.outer(r, xC).ravel()       # gM_j = r . (M^(j) x_C)
+        else:
+            gM = np.zeros(self.K0)
+        G = (self.T.T @ r).reshape(self.K0, self.nN)           # r . T(u kron w) = u^T G w ;  b = -v
+        # d(r.(Mx - b))/da = Bmat^T gM + d(r.v)/da ,  d(r.v)/da = Bmat^T (G n) + Nmat^T (G^T c)
+        g = 2.0 * (self.Bmat.T @ (gM + G @ n) + self.Nmat.T @ (G.T @ c))
+        self._nfev += 1
+        return f, g
+
+    def residual_and_jac(self, u):
+        u = np.asarray(u, float)
+        a_full = self.P @ u
+        na = np.linalg.norm(a_full)
+        a = a_full / na
+        M, b, c = self.assemble(a)
+        n = self.Nmat @ a
+        U, s, Vt = sla.svd(M, full_matrices=False, check_finite=False, lapack_driver='gesdd')
+        keep = s > self.cond * (s[0] if s.size else 1.0)
+        Ur = U[:, keep]
+        x = Vt[keep].T @ ((Ur.T @ b) / s[keep])
+        r = M @ x - b
+        xC = x[:self.nC]
+        if self.nC:
+            Kx = sp.kron(sp.eye(self.rows, format='csr'), sp.csr_matrix(xC[None, :]), format='csr')
+            Y = (Kx @ self.MstackT).toarray()
+            dMx = Y @ self.Bmat
+        else:
+            dMx = np.zeros((self.rows, self.K))
+        # dv/da = T (Bmat_k kron n + c kron Nmat_k)
+        dv = self.T @ (np.kron(self.Bmat, n[:, None]) + np.kron(c[:, None], self.Nmat))
+        V = dMx + dv                      # d(Mx - b)/da with b = -v
+        Ja = V - Ur @ (Ur.T @ V)
+        Ju = (Ja - np.outer(Ja @ a, a)) @ self.P / na
+        self._nfev += 1
+        return r, Ju
+
+
 class HessRelax:
     """Hessian relaxation on the w-space: D = sum_k a_k m_k F_{i_k}, N = A w (w_k = m_k e_{i_k}), no Koszul correction.
     E2 then reads  D div(A w) - (A w)(D) = F Q  (deg Q = 2d-6).  Residual r(a) = V(a,a) - MQ x, f(a) = min_x |r|^2.
@@ -805,34 +1010,70 @@ class HessRelax:
 # reconstruction and exact confirmation
 # ----------------------------------------------------------------------------
 
-def rational_candidates(Dfl, max_dens=(1, 2, 3, 4, 6, 7, 12, 14, 21, 42, 84, 210, 420, 10**3, 10**4, 10**5, 10**6)):
-    """Normalize D (largest |coefficient| -> 1) and propose exact rational versions with growing denominators.
-    Yields (max_den, err, Dfrac)."""
+def _pslq_integer_vector(vals, tol=1e-9, maxcoeff=10**6):
+    """Integer vector proportional to vals (PSLQ via mpmath); None if not found."""
+    try:
+        import mpmath
+        mpmath.mp.dps = 30
+        n = len(vals)
+        if n < 2:
+            return None
+        rel = mpmath.pslq([mpmath.mpf(float(v)) for v in vals], tol=mpmath.mpf(tol), maxcoeff=maxcoeff, maxsteps=5000)
+        return rel
+    except Exception:
+        return None
+
+
+def rational_candidates(Dfl, max_dens=(1, 2, 3, 4, 6, 7, 12, 14, 21, 42, 84, 210, 420, 10**3, 10**4, 10**5, 10**6), F=None):
+    """Normalize D (largest |coefficient| -> 1) and propose exact rational versions with growing denominators;
+    also try the F-gauge variants D - (c_m/F_m) F (q = 1: D + lambda F with the same N is again a certificate when
+    E1 is normalized, so a found D may differ from a 'nice' witness by an F-multiple) and PSLQ integer relations.
+    Yields (tag, err, Dfrac)."""
     if not Dfl:
         return
-    j = max(Dfl, key=lambda e: abs(Dfl[e]))
-    cj = Dfl[j]
-    Dn = {e: v / cj for e, v in Dfl.items()}
+    variants = [('plain', dict(Dfl))]
+    if F is not None and core.degree(Dfl) == core.degree(F):
+        for m, fm in F.items():
+            if m in Dfl:
+                lam = Dfl[m] / float(fm)
+                Dv = {e: Dfl.get(e, 0.0) - lam * float(F.get(e, 0)) for e in set(Dfl) | set(F)}
+                Dv = {e: v for e, v in Dv.items() if abs(v) > 1e-9 * max(abs(x) for x in Dfl.values())}
+                variants.append((f'gauge-kill-{m}', Dv))
     seen = set()
-    for md in max_dens:
-        fr = {e: Fraction(v).limit_denominator(md) for e, v in Dn.items()}
-        err = max(abs(float(fr[e]) - Dn[e]) for e in Dn)
-        key = tuple(sorted((e, f) for e, f in fr.items() if f != 0))
-        if key in seen:
+    for vname, Dv in variants:
+        if not Dv:
             continue
-        seen.add(key)
-        Dfrac = {e: f for e, f in fr.items() if f != 0}
-        yield md, err, Dfrac
-    # common-denominator scaling
-    vals = np.array([Dn[e] for e in Dn])
-    for den in range(1, 5000):
-        v = vals * den
-        if np.max(np.abs(v - np.round(v))) < 1e-6 * den:
-            Dfrac = {e: Fraction(int(round(x)), den) for e, x in zip(Dn, v) if int(round(x))}
-            key = tuple(sorted(Dfrac.items()))
-            if key not in seen:
-                yield den, float(np.max(np.abs(v - np.round(v))) / den), Dfrac
-            break
+        j = max(Dv, key=lambda e: abs(Dv[e]))
+        cj = Dv[j]
+        Dn = {e: v / cj for e, v in Dv.items()}
+        for md in max_dens:
+            fr = {e: Fraction(v).limit_denominator(md) for e, v in Dn.items()}
+            err = max(abs(float(fr[e]) - Dn[e]) for e in Dn)
+            if err > 0.02 and md < 10**3:
+                continue
+            key = tuple(sorted((e, f) for e, f in fr.items() if f != 0))
+            if key in seen:
+                continue
+            seen.add(key)
+            Dfrac = {e: f for e, f in fr.items() if f != 0}
+            yield f'{vname}:limden{md}', err, Dfrac
+        # PSLQ integer relation on the coefficient vector
+        keys = list(Dn)
+        rel = _pslq_integer_vector([Dn[e] for e in keys])
+        if rel is not None and any(rel):
+            # rel . Dn = 0 is one relation; PSLQ on (Dn, ) gives relation among coefficients, not proportionality.
+            pass
+        # common-denominator scaling
+        vals = np.array([Dn[e] for e in keys])
+        for den in range(1, 20000):
+            v = vals * den
+            if np.max(np.abs(v - np.round(v))) < 1e-7 * den:
+                Dfrac = {e: Fraction(int(round(x)), den) for e, x in zip(keys, v) if int(round(x))}
+                key = tuple(sorted(Dfrac.items()))
+                if key not in seen:
+                    seen.add(key)
+                    yield f'{vname}:scale{den}', float(np.max(np.abs(v - np.round(v))) / den), Dfrac
+                break
 
 
 def confirm_exact(inst, Dfrac, verbose=False, compressed=False):
@@ -869,10 +1110,10 @@ def save_witness(inst, D, N, Q, path=None, extra=None):
     return w
 
 
-def reconstruct_and_confirm(inst, Dfl, log_path=None, tag='', verbose=False, max_tries=20):
+def reconstruct_and_confirm(inst, Dfl, log_path=None, tag='', verbose=False, max_tries=60):
     """Try rational reconstructions of a float D of increasing height; exact re-solve each; returns list of attempt records."""
     attempts = []
-    for k, (md, err, Dfrac) in enumerate(rational_candidates(Dfl)):
+    for k, (md, err, Dfrac) in enumerate(rational_candidates(Dfl, F=inst.F)):
         if k >= max_tries:
             break
         t0 = time.time()

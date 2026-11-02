@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hessfam d=6] K=36 blocks: par0: rows 3108 cols 2700 (J 2376); par1: rows 3080 cols 2718 (J 2376) built in 1s
+[A blk0 p=1000000007] rank 2373 rank_J 2223 forms 150 (26s)
+[A blk0 p=999999937] rank 2373 rank_J 2223 forms 150 (48s)
+[A blk0 p=999999929] rank 2373 rank_J 2223 forms 150 (68s)
+[A blk1 p=1000000007] rank 2368 rank_J 2214 forms 154 (90s)

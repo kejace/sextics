@@ -279,3 +279,121 @@ def test_fixed_D5(D, name, family, p=2147483647, want_exact_dual=True, verbose=F
                cols=c, rows=r, seconds=out['seconds'], note=f"strict Y2-free reduction E1'+E2' (no Q, no F); nN={meta['nN']}")
     if verbose: print(name, {k: v for k, v in out.items() if k != 'witness'}, file=sys.stderr, flush=True)
     return out
+
+# ---------------------------------------------------------------- second-level (lifted) relaxation, strict 5-var
+def koszul5_all(d):
+    """All 5-var Koszul basis elements for deg N = d+1: list of (i, j, mon, charN)."""
+    out = []
+    for i in range(5):
+        for j in range(i + 1, 5):
+            for mon in mons5(d - 4):
+                charN = chr_add(chr_of(mon), CHI_f, chr_neg(W[i]), chr_neg(W[j]))
+                out.append((i, j, mon, charN))
+    return out
+
+def build_bank5k(fam):
+    """bank[a] = {kidx: (psi, sparse col)} of B_{D_a}(K_kidx) (nonzero ones), psi = chi_a + charN(K)."""
+    d = fam.d; n2 = 2 * d
+    Ks = koszul5_all(d)
+    bank = {}
+    for a in range(fam.n):
+        Da = fam.items[a][1]; chia = fam.chi[a]
+        cols = {}
+        for kidx, (i, j, mon, charN) in enumerate(Ks):
+            P = BD_koszul5(Da, i, j, mon)
+            if P.is_zero(): continue
+            psi = chr_add(chia, charN)
+            cols[kidx] = (psi, vec5(P, n2, psi))
+        bank[a] = cols
+    return bank, Ks
+
+def lift2_cubics5(fam, alive, bank, Ks, verbose=False, max_cols=60000):
+    """Lifted relaxation: multiply E2' by lambda_m, relax Z_{ {a,m}, K } = lambda_a lambda_m c_K (symmetric).
+    Exact left kernels per total character Psi; returns list of cubics {sorted (m,a,b): int} (den-cleared)."""
+    from fractions import Fraction
+    d = fam.d; n2 = 2 * d
+    alive = sorted(alive)
+    Psis = {chr_add(fam.chi[m], fam.chi[a], Ks[k][3]) for m in alive for a in alive for k in bank[a] if a <= m or True}
+    cubics = []
+    for Psi in sorted(Psis):
+        # row blocks
+        off = {}; nrows = 0
+        for m in alive:
+            psi_m = chr_add(Psi, chr_neg(fam.chi[m]))
+            off[m] = (nrows, psi_m); nrows += len(secmons5(n2, psi_m))
+        cols = []
+        for ia, a in enumerate(alive):
+            for m in alive[ia:]:
+                for kidx, (psi_a_k, col_a) in bank[a].items():
+                    # need chi_a + chi_m + charN(K) = Psi  <=> psi_a_k (= chi_a + charN) = Psi - chi_m
+                    if psi_a_k != off[m][1]: continue
+                    v = {off[m][0] + r: c for r, c in col_a.items()}
+                    if a != m:
+                        cm = bank[m].get(kidx)
+                        if cm is not None:
+                            psi_m_k, col_m = cm
+                            assert psi_m_k == off[a][1]
+                            for r, c in col_m.items():
+                                v[off[a][0] + r] = v.get(off[a][0] + r, 0) + c
+                    cols.append(v)
+        if nrows == 0: continue
+        if len(cols) > max_cols:
+            if verbose: print('lift2: skipping Psi', Psi, 'cols', len(cols), file=sys.stderr, flush=True)
+            continue
+        M = mat_from_cols(cols, nrows)
+        if M.ncols() == 0:
+            Yk = None
+        else:
+            Yfull, k = M.transpose().nullspace()
+        if verbose: print('lift2 Psi', Psi, 'rows', nrows, 'cols', len(cols), 'duals', (nrows if M.ncols() == 0 else k), file=sys.stderr, flush=True)
+        # cubic coefficients: for each dual y and each block m: y^{(m)} . b_ab over pairs in sector psi_m
+        pairs_by_psi = {}
+        for ia, a in enumerate(alive):
+            for b in alive[ia:]:
+                pairs_by_psi.setdefault(chr_add(fam.chi[a], fam.chi[b], CHI_A), []).append((a, b))
+        # precompute pair vectors per sector
+        pv = {}
+        for psi, prs in pairs_by_psi.items():
+            for (a, b) in prs:
+                P, sc = w2x.pair_B(fam, a, b)
+                pv[(a, b)] = (sc, vec5(P, n2, psi) if not P.is_zero() else {})
+        nd = nrows if M.ncols() == 0 else k
+        for jdx in range(nd):
+            cub = {}
+            for m in alive:
+                o, psi_m = off[m]
+                for (a, b) in pairs_by_psi.get(psi_m, []):
+                    sc, vec = pv[(a, b)]
+                    s = 0
+                    for r, c in vec.items():
+                        yv = 1 if (M.ncols() == 0 and o + r == jdx) else (int(Yfull[o + r, jdx]) if M.ncols() else 0)
+                        if yv: s += yv * c
+                    if s:
+                        key = tuple(sorted((m, a, b)))
+                        cub[key] = cub.get(key, Fraction(0)) + Fraction(s, sc)
+            cub = {kk: v for kk, v in cub.items() if v}
+            if cub:
+                L = 1
+                for v in cub.values(): L = L * v.denominator // math.gcd(L, v.denominator)
+                ic = {kk: int(v * L) for kk, v in cub.items()}
+                g = 0
+                for v in ic.values(): g = math.gcd(g, abs(v))
+                cubics.append({'Psi': Psi, 'coef': {kk: v // g for kk, v in ic.items()}})
+    return cubics
+
+def polys_to_msolve(quads, cubics, alive, path, p=1073741827):
+    alive = sorted(alive); names = [f'l{a}' for a in alive]
+    lines = []
+    for qd in w2x.restrict_quads(quads, alive):
+        terms = [f'{v % p}*l{a}*l{b}' for (a, b), v in qd['coef'].items() if v % p]
+        if terms: lines.append('+'.join(terms))
+    aset = set(alive)
+    for cb in cubics:
+        terms = []
+        for key, v in cb['coef'].items():
+            if all(x in aset for x in key) and v % p:
+                terms.append(f'{v % p}*' + '*'.join(f'l{x}' for x in key))
+        if terms: lines.append('+'.join(terms))
+    with open(path, 'w') as fh:
+        fh.write(','.join(names) + '\n' + str(p) + '\n' + ',\n'.join(lines) + '\n')
+    return len(lines), len(names)
