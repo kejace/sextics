@@ -46,3 +46,4 @@
 [subfam] X0+X1+Y0+Y1: vars 20, eqs 1454, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 1765'] (8260s)
 [subfam] X0+X1+Y0+Y2: vars 20, eqs 1454, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 1765'] (8371s)
 [subfam] X0+X1+Y0+M: vars 10, eqs 970, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 42'] (8467s)
+[subfam] X0+X1+Y1+Y2: vars 20, eqs 1465, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 1765'] (8569s)
