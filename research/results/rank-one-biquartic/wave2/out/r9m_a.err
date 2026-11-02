@@ -4,3 +4,4 @@
 [E1Family d=7 pD=0] Jm (4284, 3861) rank=3441 ring_dim=843 gap=(0.2851001123945652, 2.2741270772781353e-13) K=66 C_gap=(0.00010471528041631181, 1.736075286689533e-14) e1_rel=1.42e-14 (129.0s)
 [product_family9 kernel-mixed] {'K7': 3, 'products': 15, 'inf7': {'K': 3, 'K_full': 66, 'dim_J_d': 63, 'dim_ybase_span': 0, 'sv_gap': [0.9999999999999991, 9.189786513839878e-12]}, 'K': 15, 'sv_gap': [0.7607099266732282, None], 'time': 130.5, 'e1_rel': 5.881280694477366e-14}
 [family] kernel-mixed: {'K7': 3, 'products': 15, 'inf7': {'K': 3, 'K_full': 66, 'dim_J_d': 63, 'dim_ybase_span': 0, 'sv_gap': [0.9999999999999991, 9.189786513839878e-12]}, 'K': 15, 'sv_gap': [0.7607099266732282, None], 'time': 130.5, 'e1_rel': 5.881280694477366e-14}
+[relaxsearch] d=9 pD=0 family=kernel-mixed K=15 spurious=15 n_u=0 ring_dim(S/J)_18=208 build 15931.9s
