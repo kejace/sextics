@@ -48,3 +48,4 @@
 [op5 one-reflection-skew] d=9 sector=(0,0) rows=5096 cols=1246 nD=190 nnz=1902841 build 1.0s
 [op5 one-reflection-skew] d=9 sector=(0,0) rows=5096 cols=1246 nD=190 nnz=1902841 build 1.1s
 [op5 one-reflection-skew] d=9 sector=(0,0) rows=5096 cols=1246 nD=190 nnz=1902841 build 1.4s
+[op5 one-reflection-skew] d=9 sector=(0,0) rows=5096 cols=1246 nD=190 nnz=1902841 build 1.1s

@@ -77,3 +77,4 @@
 {"exp": "relax", "ts": "2026-11-02T02:59:49", "job": "relax7F", "family": "relax_d7o", "d": 7, "prime": 1000000007, "result": "system written", "rank": 480, "seconds": 348.1, "note": "unknowns 60, pair monomials 1830, good reduction True"}
 {"exp": "d8_served", "ts": "2026-11-02T03:21:08", "job": "d8G", "D": "D8", "d": 8, "prime": 1000000007, "result": "served_dim=18 containsA=False", "seconds": 1546.2, "note": "baseline 18 = dim J_6^- (zero class)"}
 {"exp": "relax_msolve", "ts": "2026-11-02T05:30:09", "job": "relax7F", "family": "relax_d7o", "d": 7, "prime": 1000000007, "result": "msolve failed", "seconds": 9019.6, "note": "status -9; gb size None; max lead degree None; zero_dim None"}
+{"exp": "relax", "ts": "2026-11-02T05:50:45", "job": "relax7F", "family": "relax_d7m", "d": 7, "prime": 1000000007, "result": "system written", "rank": 950, "seconds": 1211.7, "note": "unknowns 120, pair monomials 7260, good reduction True"}

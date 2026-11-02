@@ -4,3 +4,72 @@
 [sector varpro] d=8 c=(0, 0) K=83 rank=83 gauge=6 dimP=77 rows=7342 N=1286 Q=333 nnz(TN)=1740408 built in 2.5s
 [2026-11-02T05:12:05] family built: K=83 rank=83 gauge=6 dimP=77 rows=7342 N=1286 Q=333 build 2.5s
 gradient check: analytic 9.978397e-02 fd 9.978397e-02
+{
+ "ts": "2026-11-02T05:50:23",
+ "job": "d8hmix-c00",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 8,
+ "sector": [
+  0,
+  0
+ ],
+ "family": "colon",
+ "group": "h",
+ "K": 83,
+ "rank": 83,
+ "gauge": 6,
+ "dimP": 77,
+ "rows": 7342,
+ "nN": 1286,
+ "nQ": 333,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 15,
+ "best_relres": 0.0018570671337359047,
+ "median_relres": 0.0018570671337459637,
+ "hist": {
+  "lt1e-2": 10,
+  "ge1e-2": 5
+ },
+ "top_minima": [
+  [
+   "1.857e-03",
+   8
+  ],
+  [
+   "7.400e-03",
+   1
+  ],
+  [
+   "7.614e-03",
+   1
+  ],
+  [
+   "1.048e-02",
+   2
+  ],
+  [
+   "1.089e-02",
+   1
+  ],
+  [
+   "1.115e-02",
+   1
+  ],
+  [
+   "1.273e-02",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 1086.36,
+ "statuses": {
+  "stalled": 6,
+  "flat": 3,
+  "maxiter": 6
+ },
+ "wall": 2306.7,
+ "witness": false
+}
