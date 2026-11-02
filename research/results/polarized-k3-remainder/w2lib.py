@@ -13,6 +13,8 @@ Vectors live on monomial index spaces MonSpace(deg, parity).  Multiplication by 
 sparse matrix built from a precomputed index pattern (vectorised), so float and mod-p systems share code.
 """
 import sys, os, json, time, math, itertools
+for _v in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
+    os.environ.setdefault(_v, '1')   # the remote launcher sets these to --cpus; locally stay single-threaded
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 import numpy as np
 import scipy.sparse as sp
@@ -231,7 +233,7 @@ class ReducedE2:
     Provides float assembly for variable projection (with the Q-block eliminated by the X0-remainder
     map, F being monic in X0) and an exact mod-p consistency test for one D."""
 
-    def __init__(self, d, pD, family, verbose=True, build_float=True):
+    def __init__(self, d, pD, family, verbose=True, build_float=True, use_gauge=True):
         t0 = time.time()
         F, A, q = load()
         self.F, self.A, self.d, self.pD = F, A, d, pD
@@ -288,9 +290,11 @@ class ReducedE2:
         self.pat_W = mult_pattern(d, (1 - pD) % 2, d, pD)                   # (S_W elt) * (S_D)
         self.pat_Ni = [mult_pattern(d + 1, self.pars[i], d - 1, self.S_Di[i].par) for i in range(NV)]
         self.build_time = time.time() - t0
+        self.Cp = None; self.nc_eff = self.nc
         if build_float:
             self._build_reduction()
-            self._gauge()
+            if use_gauge:
+                self._gauge()
         if verbose:
             print(f'[ReducedE2] d={d} pD={pD} K={self.K} rows={self.S_B.n} nc={nc} nQ={self.S_Q.n} '
                   f'red_rows={getattr(self, "nred", None)} nc_eff={getattr(self, "nc_eff", None)} '
@@ -345,6 +349,15 @@ class ReducedE2:
             Red[:, k] = vec
         self.Red = Red
 
+    def subsample_rows(self, m, seed=0):
+        """Keep a random subset of m reduced rows (necessary-condition relaxation of E2; cheaper evaluations)."""
+        rng = np.random.default_rng(seed)
+        if m >= len(self.top):
+            return
+        S = np.sort(rng.choice(len(self.top), size=m, replace=False))
+        self.top = self.top[S]; self.Red = np.ascontiguousarray(self.Red[S, :]); self.nred = m
+        self.row_subsample = m
+
     def reduce_rows(self, M):
         """Apply the remainder map to a dense matrix/vector with rows indexed by S_B."""
         if M.ndim == 1:
@@ -392,12 +405,14 @@ class ReducedE2:
         if asm is None:
             asm = self.assemble(a)
         Mc, b0 = asm['Mc'], asm['b0']
+        if getattr(self, 'b_offset', None) is not None:
+            b0 = b0 + self.b_offset   # synthetic-consistency tests only
         Qm, Rm, piv = sla.qr(Mc, mode='economic', pivoting=True, check_finite=False)
         dg = np.abs(np.diag(Rm))
         rank = int(np.sum(dg > 1e-10 * max(dg[0], 1e-300))) if dg.size else 0
         Q1 = Qm[:, :rank]
         qb = Q1.T @ b0
-        r = -(b0 - Q1 @ qb)          # residual of  Mc c + b0 = 0  with optimal c : r = Mc c + b0
+        r = b0 - Q1 @ qb             # residual of  Mc c + b0 = 0  with optimal c : r = Mc c + b0
         # particular c (minimum over pivot columns)
         c = np.zeros(Mc.shape[1])
         if rank:
@@ -585,15 +600,21 @@ class HessianRelaxation:
     """r(a) = Z^T vec(A Hess_F(a,a)) where Z spans the complement of J(F)_{2d}^{odd}: necessary for E2.
     Pair tensor W[:, k, l] = -Z^T vec(A m_k m_l F_{i_k i_l})  (symmetrised)."""
 
-    def __init__(self, d, pD, basis=None, verbose=True, par_free=False):
+    def __init__(self, d, pD, basis=None, verbose=True, par_free=False, cofactors=None):
         t0 = time.time()
         F, A, q = load()
         self.F, self.A, self.d, self.pD = F, A, d, pD
         Fi, Fij = Fparts(F)
-        if basis is None:
+        if basis is None and cofactors is None:
             basis = jac_basis(d, pD) if not par_free else jac_basis(d, 0) + jac_basis(d, 1)
+        if cofactors is None:
+            cofactors = []
+            for (i0, m, _) in basis:
+                v = [{} for _ in range(NV)]; v[i0] = {m: Fr(1)}
+                cofactors.append(v)
         self.basis = basis
-        K = len(basis); self.K = K
+        self.cofactors = cofactors
+        K = len(cofactors); self.K = K
         self.par_free = par_free
         SB = space(2 * d, None if par_free else 1)
         self.S_B = SB
@@ -615,10 +636,15 @@ class HessianRelaxation:
         # pair tensor
         Wt = np.zeros((self.nquot, K, K))
         for k in range(K):
-            ik, mk, _ = basis[k]
+            ak = cofactors[k]
             for l in range(k, K):
-                il, ml, _ = basis[l]
-                Pk = mul(A, mul({mk: Fr(1)}, mul({ml: Fr(1)}, Fij[ik][il])))
+                al = cofactors[l]
+                Pk = {}
+                for i in range(NV):
+                    if not ak[i]: continue
+                    for j in range(NV):
+                        if not al[j]: continue
+                        Pk = add(Pk, mul(A, mul(mul(ak[i], al[j]), Fij[i][j])))
                 if not Pk:
                     continue
                 v = np.zeros(SB.n)
@@ -628,10 +654,12 @@ class HessianRelaxation:
                 if k == l:
                     Wt[:, k, k] = w
                 else:
-                    Wt[:, k, l] = w / 2; Wt[:, l, k] = w / 2
+                    Wt[:, k, l] = w; Wt[:, l, k] = w      # both (k,l) and (l,k) occur in sum_{IJ} a_I a_J F_IJ
         self.Wt = Wt
-        if par_free:
-            SF = np.concatenate([f_multiple_vectors(basis, d, 0) if False else self._fmult_parfree(basis, d)], axis=1)
+        if basis is None:
+            SF = np.zeros((K, 0))
+        elif par_free:
+            SF = self._fmult_parfree(basis, d)
         else:
             SF = f_multiple_vectors(basis, d, pD)
         self.SF = SF
@@ -757,3 +785,136 @@ def rational_candidates(a, max_den=1000, tol=1e-7):
         if c not in uniq:
             uniq.append(c)
     return uniq
+
+# ----------------------------------------------------------------------------- general exact E1 lift mod p
+def e1_particular_modp(D, p=P0, verbose=False):
+    """Solve dF(N) = A*D mod p for N (degree d+1, parities forced by D).  Returns (N0 list mod p, info) or (None, info)."""
+    from flint import nmod_mat
+    t0 = time.time()
+    F, A, q = load()
+    Fp = core.reduce_mod(F, p); Ap = core.reduce_mod(A, p); Dp = core.reduce_mod(D, p)
+    d = core.degree(D)
+    pars = fixed_d.numerator_parities(D, A)
+    degN = d + 1
+    Fi = [pderiv(Fp, i, p) for i in range(NV)]
+    cols = []
+    colpolys = []
+    for i in range(NV):
+        for m in monomials(degN, pars[i]):
+            cols.append((i, m)); colpolys.append(shift(Fi[i], m, 1, p))
+    rhs = mul(Ap, Dp, p)
+    SB = space(d + 6, 1)
+    R, C = SB.n, len(cols)
+    flat = np.zeros((R, C + 1), dtype=np.int64)
+    for j, col in enumerate(colpolys):
+        for e, v in col.items():
+            flat[SB.idx[e], j] = v
+    for e, v in rhs.items():
+        flat[SB.idx[e], C] = v
+    M = nmod_mat(R, C + 1, flat.ravel().tolist(), p)
+    Mr, rank = M.rref()
+    pivots = []
+    for i in range(rank):
+        j = 0
+        while j <= C and int(Mr[i, j]) == 0:
+            j += 1
+        pivots.append(j)
+    info = {'rank': rank, 'rows': R, 'cols': C, 'seconds': round(time.time() - t0, 1), 'p': p}
+    if pivots and pivots[-1] == C:
+        info['e1'] = False
+        return None, info
+    info['e1'] = True
+    N0 = [{} for _ in range(NV)]
+    for i, j in enumerate(pivots):
+        v = int(Mr[i, C])
+        if v:
+            ii, m = cols[j]
+            N0[ii][m] = v
+    if verbose:
+        print(f'[e1] d={d} rows={R} cols={C} rank={rank} e1=True ({info["seconds"]}s)', file=sys.stderr, flush=True)
+    return N0, info
+
+def exact_fixed_D(D, p=P0, verbose=False, lift=False, e1_only=False):
+    """Full exact (mod p) decision for one denominator via the reduced system.  Returns record dict."""
+    F, A, q = load()
+    t0 = time.time()
+    rec = {'d': core.degree(D), 'parity': core.parity_of(D), 'terms': len(D), 'p': p}
+    if rec['parity'] is None:
+        rec['note'] = 'mixed Y-parity'; return rec
+    divF, _ = jacobian.divisible_by(F, D, p)
+    rec['F_divides_D'] = bool(divF)
+    if divF:
+        rec['note'] = 'F | D (illegal)'; return rec
+    N0, info = e1_particular_modp(D, p, verbose=verbose)
+    rec['e1'] = info['e1']; rec['e1_rank'] = info['rank']; rec['e1_cols'] = info['cols']; rec['e1_seconds'] = info['seconds']
+    if N0 is None:
+        rec['consistent'] = False; rec['note'] = 'E1 fails: A*D not in J(F) mod p'
+        rec['seconds'] = round(time.time() - t0, 1); return rec
+    if e1_only:
+        rec['note'] = 'E1 only'; rec['seconds'] = round(time.time() - t0, 1); return rec
+    S = ReducedE2(rec['d'], rec['parity'], [(D, N0)], verbose=verbose, build_float=False)
+    out = S.exact_consistent(D, N0, p=p, verbose=verbose)
+    rec.update({'consistent': out['consistent'], 'rank': out['rank'], 'nullity': out['nullity'],
+                'rows': out['rows'], 'cols': out['cols'], 'e2_seconds': out['seconds'], 'solver': 'reduced-koszul-e2'})
+    if out['consistent'] and lift:
+        # lift: need exact rational N0 -> recompute N0 over Q is expensive; instead CRT over primes on the full
+        # reduced system with mod-p N0 per prime is not coherent.  Use the engine's dense solver for the lift.
+        status, data = fixed_d.solve_fixed_D(F, A, q, D, verbose=verbose)
+        rec['lift_status'] = status
+        if status == 'solved':
+            rec['witness'] = {'d': rec['d'], 'D': core.to_str(D), 'N': [core.to_str(n) for n in data['N']], 'Q': core.to_str(data['Q'])}
+    rec['seconds'] = round(time.time() - t0, 1)
+    return rec
+
+# ----------------------------------------------------------------------------- UV-bidegree pieces of the Jacobian-type family
+def uv_bidegree_family(d, pD, a):
+    """Swap-symmetric (pD=0) / antisymmetric (pD=1) Jacobian-type denominators of (U,V)-bidegree (a, d-a) + (d-a, a):
+    D = f_i(U) * m  ±  swap,  m a UV-monomial of bidegree (a-5, d-a), i = 0..2  (plus the mirror pieces when a-5 < 0
+    is handled by the caller choosing a >= 5).  Returns list of (label, D_xy, N0_xy) with N0 = A * cofactor vector."""
+    F, A, q = load()
+    f = f_ternary()
+    fi = [pderiv(f, i) for i in range(3)]
+    fam = []
+    sign = 1 if pD == 0 else -1
+    for i in range(3):
+        for mU in monomials(a - 5, None):
+            if mU[3] or mU[4] or mU[5]:
+                continue
+            for mV in monomials(d - a, None):
+                if mV[0] or mV[1] or mV[2]:
+                    continue
+                m = (mU[0], mU[1], mU[2], mV[3], mV[4], mV[5])
+                m_xy = uv_to_xy({m: Fr(1)})
+                ms_xy = uv_to_xy({(m[3], m[4], m[5], m[0], m[1], m[2]): Fr(1)})
+                term = mul(uv_to_xy(fi[i]), m_xy)
+                D = add(term, scale(mul(uv_to_xy(swapUV(fi[i])), ms_xy), sign))
+                # cofactors: f_i(U) = F_i + F_{i+3} ;  f_i(V) = F_i - F_{i+3}
+                avec = [{} for _ in range(NV)]
+                avec[i] = add(avec[i], m_xy); avec[i + 3] = add(avec[i + 3], m_xy)
+                avec[i] = add(avec[i], scale(ms_xy, sign)); avec[i + 3] = sub(avec[i + 3], scale(ms_xy, sign))
+                N0 = [mul(A, avec[j]) if avec[j] else {} for j in range(NV)]
+                fam.append((f'f_{i}(U)*{core.to_str({m: Fr(1)})}{"+" if sign > 0 else "-"}swap', D, N0, avec))
+    return fam
+
+def check_family_e1(fam):
+    """exact check dF(N0) = A D for each member (Fractions)."""
+    F, A, q = load()
+    Fi = [pderiv(F, i) for i in range(NV)]
+    bad = 0
+    for lab, D, N0 in fam:
+        s = {}
+        for i in range(NV):
+            s = add(s, mul(N0[i], Fi[i]))
+        if sub(s, mul(A, D)):
+            bad += 1
+    return bad
+
+
+def uv_bidegree_profile(D_xy, d):
+    """Fraction of the squared coefficient norm of D (XY frame) in each (U,V)-bidegree a + mirror (a <= d/2)."""
+    Duv = xy_to_uv({e: Fr(c).limit_denominator(10**9) if not isinstance(c, Fr) else c for e, c in D_xy.items()})
+    tot = 0.0; by = {}
+    for e, c in Duv.items():
+        a = e[0] + e[1] + e[2]; key = min(a, d - a)
+        v = float(c) ** 2; by[key] = by.get(key, 0.0) + v; tot += v
+    return {str(k): round(v / tot, 4) for k, v in sorted(by.items())} if tot else {}

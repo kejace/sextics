@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[subfam] skipping 80 families already done
+[subfam] X0+X1+X2+Y0+M: vars 34, eqs 734, msolve chart 'TIMEOUT', singular [] (52s)
+[subfam] X0+X1+X2+Y1+Y2: vars 24, eqs 722, msolve chart 'TIMEOUT', singular [] (100s)
+[subfam] X0+X1+X2+Y1+M: vars 34, eqs 734, msolve chart 'TIMEOUT', singular [] (152s)
+[subfam] X0+X1+X2+Y2+M: vars 34, eqs 734, msolve chart 'TIMEOUT', singular [] (207s)
+[subfam] X0+X1+Y0+Y1+Y2: vars 21, eqs 722, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 1530'] (221s)
+[subfam] X0+X2+Y0+Y1+Y2: vars 21, eqs 722, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 1530'] (232s)
+[subfam] X0+Y0+Y1+Y2+L: vars 27, eqs 671, msolve chart 'TIMEOUT', singular [] (289s)
+[subfam] X1+X2+Y0+Y1+Y2: vars 21, eqs 722, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 1530'] (305s)
+[subfam] X1+Y0+Y1+Y2+L: vars 27, eqs 715, msolve chart 'TIMEOUT', singular [] (356s)
+[subfam] X2+Y0+Y1+Y2+L: vars 27, eqs 725, msolve chart 'TIMEOUT', singular [] (407s)
+[subfam] XM+YL: vars 30, eqs 720, msolve chart 'TIMEOUT', singular [] (460s)
+{"kind": "relaxation-subfamilies", "base": "relax_d7_0_w2", "d": 7, "parity": 0, "p": 2147483647, "results": {"X0+X1+X2+Y0+M": {"n_vars": 34, "n_eqs": 734, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X0+X1+X2+Y1+Y2": {"n_vars": 24, "n_eqs": 722, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X0+X1+X2+Y1+M": {"n_vars": 34, "n_eqs": 734, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X0+X1+X2+Y2+M": {"n_vars": 34, "n_eqs": 734, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X0+X1+Y0+Y1+Y2": {"n_vars": 21, "n_eqs": 722, "msolve_chart": "[-1]:", "singular": ["dim = 0", "vdim = 1530"], "singular_rc": 0}, "X0+X2+Y0+Y1+Y2": {"n_vars": 21, "n_eqs": 722, "msolve_chart": "[-1]:", "singular": ["dim = 0", "vdim = 1530"], "singular_rc": 0}, "X0+Y0+Y1+Y2+L": {"n_vars": 27, "n_eqs": 671, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X1+X2+Y0+Y1+Y2": {"n_vars": 21, "n_eqs": 722, "msolve_chart": "[-1]:", "singular": ["dim = 0", "vdim = 1530"], "singular_rc": 0}, "X1+Y0+Y1+Y2+L": {"n_vars": 27, "n_eqs": 715, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X2+Y0+Y1+Y2+L": {"n_vars": 27, "n_eqs": 725, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "XM+YL": {"n_vars": 30, "n_eqs": 720, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}}, "seconds": 459.6, "tag": "w2b"}

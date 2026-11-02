@@ -1,0 +1,12 @@
+=== K3 d=7 start Sun Nov  1 07:58:04 PM EST 2026
+[quad] d=7 params=120 pairs=7260 in 7.3s
+[block] {"r": 0, "rows": 1926, "L_cols": 3408, "L_rank_p": 1635, "L_rank_Q": 1635, "quotient_dim_p": 291, "constraint_rank_p": 129, "seconds": 1568.0}
+[block] {"r": 1, "rows": 1926, "L_cols": 3870, "L_rank_p": 1602, "L_rank_Q": 1602, "quotient_dim_p": 324, "constraint_rank_p": 99, "seconds": 963.8}
+[block] {"r": 2, "rows": 1926, "L_cols": 3408, "L_rank_p": 1635, "L_rank_Q": 1635, "quotient_dim_p": 291, "constraint_rank_p": 129, "seconds": 633.6}
+[block] {"r": 3, "rows": 1935, "L_cols": 2442, "L_rank_p": 1464, "L_rank_Q": 1464, "quotient_dim_p": 471, "constraint_rank_p": 217, "seconds": 97.4}
+[block] {"r": 4, "rows": 1980, "L_cols": 1971, "L_rank_p": 1287, "L_rank_Q": 1287, "quotient_dim_p": 693, "constraint_rank_p": 144, "seconds": 100.8}
+[block] {"r": 5, "rows": 1935, "L_cols": 2442, "L_rank_p": 1464, "L_rank_Q": 1464, "quotient_dim_p": 471, "constraint_rank_p": 217, "seconds": 150.9}
+[result] {"d": 7, "p": 65521, "target": "k3", "gauge": true, "params": 120, "pairs": 7260, "L_generators": 17541, "blocks": [{"r": 0, "rows": 1926, "L_cols": 3408, "L_rank_p": 1635, "L_rank_Q": 1635, "quotient_dim_p": 291, "constraint_rank_p": 129, "seconds": 1568.0}, {"r": 1, "rows": 1926, "L_cols": 3870, "L_rank_p": 1602, "L_rank_Q": 1602, "quotient_dim_p": 324, "constraint_rank_p": 99, "seconds": 963.8}, {"r": 2, "rows": 1926, "L_cols": 3408, "L_rank_p": 1635, "L_rank_Q": 1635, "quotient_dim_p": 291, "constraint_rank_p": 129, "seconds": 633.6}, {"r": 3, "rows": 1935, "L_cols": 2442, "L_rank_p": 1464, "L_rank_Q": 1464, "quotient_dim_p": 471, "constraint_rank_p": 217, "seconds": 97.4}, {"r": 4, "rows": 1980, "L_cols": 1971, "L_rank_p": 1287, "L_rank_Q": 1287, "quotient_dim_p": 693, "constraint_rank_p": 144, "seconds": 100.8}, {"r": 5, "rows": 1935, "L_cols": 2442, "L_rank_p": 1464, "L_rank_Q": 1464, "quotient_dim_p": 471, "constraint_rank_p": 217, "seconds": 150.9}], "constraint_rows": 2541, "constraint_rank_p": 935, "seconds": 3558.1}
+[squares] {"remaining": 120, "rank": 935, "forced": []}
+[squares-summary] {"killed_mod_p": 0, "params": 120, "killed_Q": null}
+=== K3 d=7 done Sun Nov  1 08:58:56 PM EST 2026

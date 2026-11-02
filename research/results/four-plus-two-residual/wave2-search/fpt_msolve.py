@@ -14,6 +14,7 @@ import numpy as np, scipy.sparse as sp
 from flint import nmod_mat
 
 MSDIR = f'{LANE}/wave2-search/msolve'
+PIECES = {}
 os.makedirs(MSDIR, exist_ok=True)
 OUT = f'{LANE}/wave2-search/msolve.jsonl'
 
@@ -178,6 +179,8 @@ def build_system(inst, d, lab, p, seed=1, verbose=True):
             MQ_entries.append((ridx(e), jq, int(v)))
     R = len(rows)
     info.update({'nN': nN, 'nC': nC, 'nQ': nQ, 'rows': R, 'e1_rows': R1})
+    PIECES.clear(); PIECES.update({'Dm': Dm, 'B': B, 'Bt': Bt, 'Nmat': Nmat, 'tri': tri, 'tci': tci, 'tvals': tvals, 'Mj_entries': Mj_entries,
+                                   'MQ_entries': MQ_entries, 'R': R, 'K0': K0, 'K': K, 'nN': nN, 'nC': nC, 'nQ': nQ, 'rows': rows})
     # left null space of MQ
     if nQ:
         MQt = [[0] * R for _ in range(nQ)]

@@ -1,0 +1,1 @@
+RECEIPT {"exp": "gb-hilbert", "file": "hessK_d8_chi00_p2147483587.ms", "d": 8, "prime": 2147483587, "chis": [[0, 0]], "dim_W": 103, "n_quadrics": 274, "rank_quadrics": 274, "result": "msolve TIMEOUT", "timeout_s": 1800, "ts": "2026-11-01T21:54:47", "job": "gbcheck"}

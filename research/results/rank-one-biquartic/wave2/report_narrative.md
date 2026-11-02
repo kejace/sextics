@@ -16,6 +16,9 @@
   0.011-0.021 at |u| = 1 over all restarts of both local methods); the degree-7 landscape has a floor around
   2e-2 .. 1e-1 with no near-solutions.  (Early LM runs reported rel 2e-6, an artifact of the first metric: the
   optimizer inflated the spurious F-multiple component to |s| = 89; see the metric note in section 0.)
+* **Pure-kernel probes.**  The 3-dim degree-7 kernel (a projective plane) has no zero: 40 restarts, best absolute
+  residual 0.02.  The 9-dim degree-8 Y-even kernel: 18 L-BFGS restarts all converge to one minimum, absolute residual
+  0.121 -- no solution supported on the pure kernel directions at degree 8.  Degree-9 pure and mixed kernels: chain E.
 * **Degree 8, 9, 10** are the "prime candidate" degrees of the task statement (non-Jacobian kernel elements 9 / 27 /
   >= 294).  The relaxation can no longer exclude by rank or Groebner (468 quadrics in 177 unknowns at d=8 has
   regularity far beyond reach; at d=9 the relaxation is underdetermined, 208 equations in 405 unknowns).  Only the

@@ -2,3 +2,4 @@
 loaded: 61 unknowns, 1891 pairs, exact pairs 1891 [7s]
 [pass 0 block lam] quadrics 1 in 1 visible, m-primary True, others span 304
 [exact_dependencies] lift failed with 2 primes; continuing
+[exact_dependencies] lift failed with 3 primes; continuing

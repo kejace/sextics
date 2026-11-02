@@ -13,7 +13,7 @@ have = set()
 if os.path.exists(LOG):
     have = set(l.rstrip('\n') for l in open(LOG) if l.strip())
 new = []
-sources = [f'{MIRROR}/wave2-search.log.jsonl'] + sorted(glob.glob(f'{MIRROR}/wave2-search/*.jsonl')) + sorted(glob.glob(f'{MIRROR}/wave2-ctl*.jsonl')) + sorted(glob.glob(f'{MIRROR}/wave2-kJ*.jsonl')) + sorted(glob.glob(f'{MIRROR}/wave2-dims*.jsonl'))
+sources = [f'{MIRROR}/wave2-search.log.jsonl'] + sorted(glob.glob(f'{MIRROR}/wave2-search/*.jsonl')) + sorted(glob.glob(f'{LANE}/wave2-search/*.jsonl')) + sorted(glob.glob(f'{MIRROR}/wave2-ctl*.jsonl')) + sorted(glob.glob(f'{MIRROR}/wave2-kJ*.jsonl')) + sorted(glob.glob(f'{MIRROR}/wave2-dims*.jsonl'))
 for src in sources:
     if not os.path.exists(src):
         continue

@@ -1,0 +1,20 @@
+{
+ "prefix": "relax-k3-d7-p65521-local",
+ "p": 65521,
+ "constraint_rank": 935,
+ "params": 120,
+ "family_point_0": {
+  "all_quadrics_vanish": true,
+  "jac_rank": 36,
+  "tangent_dim_affine": 84,
+  "family_dim_affine": 6
+ },
+ "family_point_1": {
+  "all_quadrics_vanish": true,
+  "jac_rank": 36,
+  "tangent_dim_affine": 84,
+  "family_dim_affine": 6
+ },
+ "random_point_vanishes": false,
+ "linear_forms_in_saturation_deg2": 0
+}

@@ -621,6 +621,8 @@ def restricted_family(polys, G, p=P0):
 def solve_single(F, A, q, D, G, p=P0, lift=False):
     """fixed-D character-reduced solve (mod p); D may be an exact or a mod-p (int coefficient) poly."""
     t0 = time.time()
+    # symmetric representatives so that the sign-character check g.D = chi(g) D works on mod-p inputs
+    D = {e: (c - p if (isinstance(c, int) and c > p // 2) else c) for e, c in D.items()}
     ok, info = e1_char(F, A, q, D, G, p)
     if not ok:
         return {'e1': False, 'consistent': False, 'rank': info['rank'], 'nullity': info['cols'] - info['rank'],

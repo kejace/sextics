@@ -9,3 +9,13 @@ EXIT=0
 {"label": "Y0^8+Y1^8+Y2^8", "served_dim_XY": 18, "class_dim_in_R6": 0, "block_projection_dims": {"(6,0)": 0, "(5,1)": 0, "(4,2)": 0, "(3,3)": 0, "(2,4)": 0, "(1,5)": 0, "(0,6)": 0}, "K3_projection_dim": 0, "target_in_span_mod_J": false, "info": {"rows": 40326, "cols": 7723, "k": 7763, "nullity": 918, "served_dim": 18, "seconds": 349.0}, "maxrss_MB": 4015}
 EXIT=0
 ### 19:12:59 timeout 3000 /usr/bin/python3 leanimage.py fU-U0sq-sym 'X0**8 + 5*X0**7*X1/7 + 5*X0**4*X1**3*X2/7 + 15*X0**3*X2**5/7 + X0**2*X1**6 + 10*X0**2*X1**5
+[system] d=8 q=1 rows=40326 cols=7723 (N 6006, Q 1491) nnz=7505576 built in 12.1s
+[image d=8] rows=40326 cols=7723 k=7763 nullity=929 served_dim=63 compress 228.0s null 508.2s
+{"label": "fU-U0sq-sym", "served_dim_XY": 63, "class_dim_in_R6": 45, "block_projection_dims": {"(6,0)": 0, "(5,1)": 0, "(4,2)": 0, "(3,3)": 45, "(2,4)": 0, "(1,5)": 0, "(0,6)": 0}, "K3_projection_dim": 0, "target_in_span_mod_J": false, "info": {"rows": 40326, "cols": 7723, "k": 7763, "nullity": 929, "served_dim": 63, "seconds": 736.3}, "maxrss_MB": 4920}
+EXIT=0
+### 19:25:19 timeout 3000 /usr/bin/python3 leanimage.py 'M01(U)+M01(V)' '-625*X0**8/49 + 900*X0**6*X1*X2/7 + 1500*X0**5*X1**2*X2/49 + 900*X0**4*X1**4 + 6000*X0*
+[system] d=8 q=1 rows=40326 cols=7723 (N 6006, Q 1491) nnz=12730720 built in 23.6s
+[image d=8] rows=40326 cols=7723 k=7763 nullity=813 served_dim=18 compress 366.2s null 152.7s
+{"label": "M01(U)+M01(V)", "served_dim_XY": 18, "class_dim_in_R6": 0, "block_projection_dims": {"(6,0)": 0, "(5,1)": 0, "(4,2)": 0, "(3,3)": 0, "(2,4)": 0, "(1,5)": 0, "(0,6)": 0}, "K3_projection_dim": 0, "target_in_span_mod_J": false, "info": {"rows": 40326, "cols": 7723, "k": 7763, "nullity": 813, "served_dim": 18, "seconds": 518.9}, "maxrss_MB": 5814}
+EXIT=0
+IMAGES-DONE

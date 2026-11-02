@@ -382,7 +382,7 @@ class KoszulVarPro:
         out.sort(key=lambda z: z['rel'])
         return out
 
-    def search(self, n_restarts, seed, maxiter=400, verbose=False, stop_rel=1e-13, progress_path=None):
+    def search(self, n_restarts, seed, maxiter=400, verbose=False, stop_rel=1e-13, progress_path=None, init=None):
         rng = np.random.default_rng(seed)
         out = []
         t0 = time.time()
@@ -390,7 +390,10 @@ class KoszulVarPro:
             if STOP['flag']:
                 print(f'[kvp] SIGTERM/SIGINT received: stopping after {it} restarts', flush=True)
                 break
-            u0 = rng.standard_normal(self.dimP); u0 /= np.linalg.norm(u0)
+            if init is not None and it == 0:
+                u0 = self.P.T @ np.asarray(init, float); u0 /= np.linalg.norm(u0)
+            else:
+                u0 = rng.standard_normal(self.dimP); u0 /= np.linalg.norm(u0)
             res = minimize(self.value_and_grad, u0, jac=True, method='L-BFGS-B',
                            options={'maxiter': maxiter, 'gtol': 1e-13, 'ftol': 1e-16})
             c = self.P @ res.x; c /= np.linalg.norm(c)
@@ -428,6 +431,7 @@ def main(argv=None):
     ap.add_argument('--thresh', type=float, default=1e-9); ap.add_argument('--keep', type=int, default=20)
     ap.add_argument('--tag', default='')
     ap.add_argument('--exact-metric', action='store_true', help='dense QR projection instead of the sparse NF/compression')
+    ap.add_argument('--init-from', default=None, help='warm start: kvp_*.json file whose best c vector seeds the first restart')
     ap.add_argument('--opt', default='lm', choices=['lm', 'lbfgs'], help='joint LM on (c,a) [default] or L-BFGS variable projection')
     ap.add_argument('--extra-rows', type=int, default=60)
     a = ap.parse_args(argv)
@@ -447,10 +451,16 @@ def main(argv=None):
     fam = KoszulVarPro(d, pairs, reduce='exact' if a.exact_metric else 'sparse', extra_rows=extra)
     t0 = time.time()
     prog = os.path.join(HERE, f'{rcr2.CACHE_PREFIX}kvp_progress_d{d}_{a.sec}_{a.family}_s{a.seed}.jsonl')
+    init = None
+    if a.init_from:
+        best = json.load(open(a.init_from))[0]
+        init = np.array(best['c'], float)
+        print(f'[kvp] warm start from {a.init_from}: rel {best["rel"]:.3e}, K={len(init)}', flush=True)
+        assert len(init) == fam.K, 'warm-start vector length does not match the family'
     if a.opt == 'lm':
         res = fam.search_lm(a.restarts, a.seed, maxfev=a.maxiter, verbose=True, progress_path=prog)
     else:
-        res = fam.search(a.restarts, a.seed, maxiter=a.maxiter, verbose=True, progress_path=prog)
+        res = fam.search(a.restarts, a.seed, maxiter=a.maxiter, verbose=True, progress_path=prog, init=init)
     if not res:
         log_event({'event': 'kvp', 'd': d, 'secs': a.sec, 'family': a.family, 'K': fam.K, 'restarts': 0, 'note': 'stopped before the first restart finished'})
         return
@@ -463,7 +473,7 @@ def main(argv=None):
     print('[kvp] summary', rec, flush=True)
     log_event(rec)
     json.dump([{'rel': z['rel'], 'c': [float(x) for x in z['c']]} for z in res[:a.keep]],
-              open(os.path.join(HERE, f'{rcr2.CACHE_PREFIX}kvp_d{d}_{a.sec}_{a.family}_s{a.seed}.json'), 'w'))
+              open(os.path.join(HERE, f'{rcr2.CACHE_PREFIX}kvp_d{d}_{a.sec}_{a.family}_s{a.seed}{("_" + a.tag) if a.tag else ""}.json'), 'w'))
     for z in res:
         if z['rel'] > a.thresh:
             break

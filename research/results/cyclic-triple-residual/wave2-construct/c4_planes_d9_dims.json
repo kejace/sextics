@@ -1,0 +1,1442 @@
+[
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 38,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 55,
+  "dim_order4": 10
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 31,
+  "dim_order4": 31
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 62,
+  "dim_order4": 17
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 29,
+  "dim_order4": 29
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 53,
+  "dim_order4": 12
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y0"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 64,
+  "dim_order4": 43
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y0"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 57,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y0"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 55,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y0"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 66,
+  "dim_order4": 42
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y0"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 54,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y0"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 59,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 64,
+  "dim_order4": 43
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 57,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 55,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 66,
+  "dim_order4": 42
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 54,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 59,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 61,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 61,
+  "dim_order4": 41
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 56,
+  "dim_order4": 40
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 60,
+  "dim_order4": 36
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 56,
+  "dim_order4": 40
+ },
+ {
+  "plane": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 61,
+  "dim_order4": 41
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 49,
+  "dim_order4": 25
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 43,
+  "dim_order4": 20
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 40,
+  "dim_order4": 20
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 51,
+  "dim_order4": 24
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 41,
+  "dim_order4": 18
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 44,
+  "dim_order4": 22
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 49,
+  "dim_order4": 30
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 43,
+  "dim_order4": 22
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 40,
+  "dim_order4": 23
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 51,
+  "dim_order4": 28
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 41,
+  "dim_order4": 25
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 44,
+  "dim_order4": 24
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 50,
+  "dim_order4": 15
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 46,
+  "dim_order4": 30
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 42,
+  "dim_order4": 26
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 50,
+  "dim_order4": 16
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 38,
+  "dim_order4": 26
+ },
+ {
+  "plane": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 42,
+  "dim_order4": 30
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 69,
+  "dim_order4": 41
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 56,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 55,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 61,
+  "dim_order4": 44
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 55,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 59,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 61,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 58,
+  "dim_order4": 41
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 59,
+  "dim_order4": 40
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 60,
+  "dim_order4": 36
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 59,
+  "dim_order4": 40
+ },
+ {
+  "plane": [
+   "X0",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 58,
+  "dim_order4": 41
+ },
+ {
+  "plane": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 61,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 58,
+  "dim_order4": 41
+ },
+ {
+  "plane": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 59,
+  "dim_order4": 40
+ },
+ {
+  "plane": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 60,
+  "dim_order4": 36
+ },
+ {
+  "plane": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 59,
+  "dim_order4": 40
+ },
+ {
+  "plane": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 58,
+  "dim_order4": 41
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 52,
+  "dim_order4": 28
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 42,
+  "dim_order4": 19
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 39,
+  "dim_order4": 17
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 54,
+  "dim_order4": 28
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 39,
+  "dim_order4": 17
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y0"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 42,
+  "dim_order4": 19
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 52,
+  "dim_order4": 28
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 42,
+  "dim_order4": 19
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 39,
+  "dim_order4": 17
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 54,
+  "dim_order4": 28
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 39,
+  "dim_order4": 17
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 42,
+  "dim_order4": 19
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 47,
+  "dim_order4": 26
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 42,
+  "dim_order4": 23
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 41,
+  "dim_order4": 17
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 53,
+  "dim_order4": 22
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 42,
+  "dim_order4": 19
+ },
+ {
+  "plane": [
+   "X1",
+   "X2",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 43,
+  "dim_order4": 21
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 76,
+  "dim_order4": 44
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 54,
+  "dim_order4": 40
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 52,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 69,
+  "dim_order4": 41
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 51,
+  "dim_order4": 35
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 53,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 67,
+  "dim_order4": 43
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 57,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 55,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 63,
+  "dim_order4": 42
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 57,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X1",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 56,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X1",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 67,
+  "dim_order4": 43
+ },
+ {
+  "plane": [
+   "X1",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 57,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X1",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 55,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X1",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 63,
+  "dim_order4": 42
+ },
+ {
+  "plane": [
+   "X1",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 57,
+  "dim_order4": 37
+ },
+ {
+  "plane": [
+   "X1",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 56,
+  "dim_order4": 38
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 56,
+  "dim_order4": 28
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 40,
+  "dim_order4": 19
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 41,
+  "dim_order4": 18
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 50,
+  "dim_order4": 28
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 41,
+  "dim_order4": 17
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y1"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 40,
+  "dim_order4": 19
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 52,
+  "dim_order4": 24
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 41,
+  "dim_order4": 22
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 43,
+  "dim_order4": 18
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 48,
+  "dim_order4": 24
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 43,
+  "dim_order4": 20
+ },
+ {
+  "plane": [
+   "X2",
+   "Y0",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 41,
+  "dim_order4": 20
+ },
+ {
+  "plane": [
+   "X2",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 52,
+  "dim_order4": 24
+ },
+ {
+  "plane": [
+   "X2",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 41,
+  "dim_order4": 22
+ },
+ {
+  "plane": [
+   "X2",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 43,
+  "dim_order4": 20
+ },
+ {
+  "plane": [
+   "X2",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 48,
+  "dim_order4": 24
+ },
+ {
+  "plane": [
+   "X2",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 43,
+  "dim_order4": 22
+ },
+ {
+  "plane": [
+   "X2",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": true,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 41,
+  "dim_order4": 20
+ },
+ {
+  "plane": [
+   "Y0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "00",
+  "dim_E1": 96,
+  "dim_order3": 78,
+  "dim_order4": 33
+ },
+ {
+  "plane": [
+   "Y0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "01",
+  "dim_E1": 82,
+  "dim_order3": 49,
+  "dim_order4": 49
+ },
+ {
+  "plane": [
+   "Y0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "02",
+  "dim_E1": 82,
+  "dim_order3": 64,
+  "dim_order4": 28
+ },
+ {
+  "plane": [
+   "Y0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "03",
+  "dim_E1": 95,
+  "dim_order3": 52,
+  "dim_order4": 52
+ },
+ {
+  "plane": [
+   "Y0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "04",
+  "dim_E1": 83,
+  "dim_order3": 65,
+  "dim_order4": 26
+ },
+ {
+  "plane": [
+   "Y0",
+   "Y1",
+   "Y2"
+  ],
+  "in_branch_locus": false,
+  "sector": "05",
+  "dim_E1": 83,
+  "dim_order3": 47,
+  "dim_order4": 47
+ }
+]

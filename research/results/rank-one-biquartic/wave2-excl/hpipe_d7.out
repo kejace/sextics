@@ -7,3 +7,18 @@
 [A blk1 p=999999937] rank 5517 rank_J 5052 forms 465 (1485s)
 [A blk1 p=999999929] rank 5517 rank_J 5052 forms 465 (1853s)
 [A] coordinate squares in row space mod p: 0 of 123; failing: ['a0', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12', 'a13', 'a14', 'a21', 'a22', 'a23', 'a24', 'a25']
+Traceback (most recent call last):
+  File "/tmp/hodge/results/rank-one-biquartic/wave2-excl/hess_pipeline.py", line 126, in <module>
+    r = subprocess.run(['Singular', '-q', f'{PK}/{tag}.B.sing'], capture_output=True, text=True, timeout=3600)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['Singular', '-q', '/tmp/hodge/results/rank-one-biquartic/wave2-excl/hpipe_d7.B.sing']' timed out after 3600 seconds

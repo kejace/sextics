@@ -1,0 +1,32 @@
+// E1 annihilator dimensions Ann_d([A]) = dim (J:A)_d / J_d  (lens excl, lane cycle-q2), two primes.
+// Also smoothness (vdim J = 5^6) and the q=1 sibling targets of dossier A.3.
+proc run(int p)
+{
+  ring r = p, (X0,X1,X2,Y0,Y1,Y2), dp;
+  poly F2 = 2*X0^6 + X0^3*X1*Y0*Y1 + X0*X2^3*Y0*Y2 + 2*X1^6 + X1^3*X2*Y1*Y2 + 2*X2^6 + 2*Y0^6 + 2*Y1^6 + 2*Y2^6;
+  ideal J = jacob(F2);
+  J = std(J);
+  "prime", p, "vdim J =", vdim(J), "(smooth iff 15625)";
+  list T = list(list("A", X0^2*X1^2*X2^3*Y0^2*Y1^2*Y2), list("B", X0*X1^2*Y0*Y1^2), list("Bbal", X0*X1*X2*Y0*Y1*Y2), list("C1", X0^2*X2^3*Y2), list("A_cycle3", X0^3*Y0^3));
+  int t; int d;
+  for (t = 1; t <= size(T); t++)
+  {
+    poly tg = T[t][2];
+    ideal JA = quotient(J, tg);
+    JA = std(JA);
+    string s = "target " + T[t][1] + " inJ=" + string(reduce(tg, J) == 0) + " Ann_d(d=0..9):";
+    for (d = 0; d <= 9; d++)
+    {
+      int rd = size(kbase(J, d));
+      int rq = size(kbase(JA, d));
+      s = s + " " + string(d) + ":" + string(rd - rq) + "/" + string(rd);
+    }
+    s;
+  }
+  string hs = "Hilbert R_d:";
+  for (d = 0; d <= 25; d++) { hs = hs + " " + string(size(kbase(J, d))); }
+  hs;
+}
+
+run(999999937);
+quit;

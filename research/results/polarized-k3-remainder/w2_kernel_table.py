@@ -1,4 +1,7 @@
 """Job: E1-admissible denominator spaces per degree d=4..12 and parity 0/1 (mult_kernel + J(F)_d dims)."""
+import os as _os
+for _v in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
+    _os.environ.setdefault(_v, '1')
 import sys, json, time
 sys.path.insert(0, '/home/kejace/devel/sextics-work'); sys.path.insert(0, '/tmp/hodge/results/polarized-k3-remainder')
 from hodge import core, jacobian

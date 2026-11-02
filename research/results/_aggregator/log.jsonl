@@ -39,3 +39,30 @@
 {"ts":"2026-11-02T01:39:13Z","step":"status-v7.5","note":"X1 and item-9 confirmations folded; log 322/163/0"}
 {"ts":"2026-11-02T01:40:21Z","step":"status-v7.6","note":"added §6 next-wave agenda per lane; diagonal construct 13 divisors"}
 {"ts":"2026-11-02T01:41:01Z","step":"draft-audit","note":"draft-post audit added to §3 (symmetric (1,10,1) error; eight-plane WLOG; placeholders)"}
+{"ts":"2026-11-02T01:48:12Z","step":"resubmit-batch2","note":"agg-verify-2 scheduler died after 10/58 (remote load ~1130, 345 GB used); resubmitted remainder as agg-verify-2b with 3 niced workers (verify.py skips completed checks)"}
+{"ts":"2026-11-02T01:49:29Z","step":"status-v7.7","note":"cycle-q2 R6/R7/R8 folded (trivial sector decided mod p, 2-3 character unions excluded, relaxation vacuous for d>=10 at q=2); §4 items 8-9 (rjob hang, saturation)"}
+{"ts": "2026-11-02T01:54:05Z", "step": "status-v7.8", "note": "eight-plane excl (mixed d=6 closed by lens too; d=7/8 subfamilies; 140 sampled fields; 36-factor sum principle) and cycle-q2 R8 (228 certs, 23/72) folded; cross-agreement entry logged"}
+{"ts": "2026-11-02T02:01:38Z", "step": "status-v7.9-fold", "note": "folded quadric-contact items 3-5/12, reflection-coupled R3/R4/R7 + construct summary, qcp R2'/R3, short-power lens mixed d6, polarized-k3 R5-R7; colength cross-check of hess6 leading ideals vs 923"}
+{"ts": "2026-11-02T02:05:36Z", "step": "status-v8.0", "note": "cycle-q2 degree-6 state (exact trivial sector, <=4-char unions excluded, >=5 open), draft audit extended, colength cross-checks (923 x3, 924 diag) logged; totals 329/168/0"}
+{"ts": "2026-11-02T02:08:37Z", "step": "status-v8.1", "note": "off-paired excl folded (343/340, chart tables d=7,8 complete as screens, colon to d=11); short-power exact mixed d6; v8.0 label corrected to 2026-11-02T02:05:36Z"}
+{"ts": "2026-11-02T02:14:13Z", "step": "status-v8.2", "note": "rcr d7 (1,1) relaxation recheck agree; epc grad rank 406 agree; pk3 K4=9 agree; qcr item 18 folded; totals 334/171/0"}
+{"ts": "2026-11-02T02:19:54Z", "step": "status-v8.3", "note": "rcr (1,0),(0,1) rechecks agree; spp odd d8 elt 0; klein search d7 sectors; qcr open items; lean-capacity validated; totals 337/173/0"}
+{"ts": "2026-11-02T02:29:31Z", "step": "fold-02:27", "note": "BLAS oversubscription confirmed from source (engine-bugs + \u00a74 item 10); spp d7 progress; polarized EST slip; qcr7 first pair folded"}
+{"ts": "2026-11-02T02:31:17Z", "step": "fold-02:33", "note": "spp odd d8 elements 0-4 inconsistent (batch 2b 16/58); qcr7 5 pairs m-primary; totals 340/174/0"}
+{"ts": "2026-11-02T02:35:12Z", "step": "status-v8.4", "note": "epc hess7 OOM + draft fixed; pk3 R8 open; off-paired exact pipeline; klein cross-ref; qcr7 13/28; totals 341/175/0"}
+{"ts": "2026-11-02T02:40:28Z", "step": "d7checks-note", "note": "wrote wave2-aggregator-d7checks.md (rcr7 + qcr7 receipts); off-paired draft audit line"}
+{"ts": "2026-11-02T02:44:04Z", "step": "status-v8.5", "note": "qcr7 28/28 m-primary; note updated; totals 369/203/0"}
+{"ts": "2026-11-02T02:45:28Z", "step": "status-v8.6", "note": "pk3 R9 (block cones Hodge-theoretic), lean-capacity 3.1M products, search numbers"}
+{"ts": "2026-11-02T02:52:20Z", "step": "fold-batch2b-18", "note": "spp 12/12 d8 elements inconsistent; ssr d8 even elt 0 inconsistent; totals 371/203/0"}
+{"ts": "2026-11-02T02:54:53Z", "step": "status-v8.7", "note": "pk3 R10-R11, klein second prime, fpt construct restart, rcr varpro tables"}
+{"ts": "2026-11-02T02:58:12Z", "step": "section7", "note": "added \u00a77 cross-lane priorities for wave 3; pk3 R11 odd-block check recorded"}
+{"ts": "2026-11-02T03:05:52Z", "step": "status-v8.8", "note": "cycle-q2 construct resumed; pk3 consolidated; totals"}
+{"ts": "2026-11-02T03:09:43Z", "step": "consistency-fix", "note": "section headlines for diagonal, eight-plane, klein, short-power aligned with the table (stale 'best bound' lines)"}
+{"ts": "2026-11-02T03:13:33Z", "step": "fold-03:14", "note": "ssr d8 even 0-4 inconsistent (22/58); rcr construct job merged; totals 376/204/0"}
+{"ts": "2026-11-02T03:21:48Z", "step": "fold-03:21", "note": "ssr d8 even 6/6 inconsistent (23/58); totals 377/204/0"}
+{"ts": "2026-11-02T03:22:27Z", "step": "status-v8.9", "note": "cycle-q2 construct 11-point summary folded"}
+{"ts": "2026-11-02T03:28:40Z", "step": "fold-03:28", "note": "ssr d8 odd 0-2 inconsistent (26/58); totals 380/204/0"}
+{"ts": "2026-11-02T03:31:23Z", "step": "status-v9.0", "note": "cyclic-triple construct finished (h20>=67), eight-plane construct folded"}
+{"ts": "2026-11-02T03:33:35Z", "step": "sec7+memory", "note": "\u00a77 constructions item updated; memory note extended with construct-lens theorems"}
+{"ts": "2026-11-02T03:37:45Z", "step": "fold-03:38", "note": "ssr d8 odd 0-4 (29/58); rank-one d7 kernel 3; totals 383/205/0"}
+{"ts": "2026-11-02T03:42:17Z", "step": "status-v9.1", "note": "off-paired construct folded"}

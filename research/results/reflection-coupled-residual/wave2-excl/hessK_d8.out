@@ -1,0 +1,6 @@
+[reducer n=16 chi=(0, 1) p=2147483587] dim S=5676 gens=7280 rank J=5402 nul=274 fermat=274 good_reduction=True (267.0s)
+E1 solved for 1 kernel reps (82s)
+chi=(0, 0): kernel reps 1, dim V=112, dim T=10, dim W=102, total unknowns 103
+sanity L(T)=0 ok
+RECEIPT {"exp": "export-kernel-family", "d": 8, "prime": 2147483587, "chi": [0, 0], "nK": 1, "dim_W": 102, "n_quadrics": 274, "rank_quadrics": 274, "ob_K0_nonzero_coords": 274, "dim_RJ_2d_psi": 274, "good_reduction": true, "file": "/tmp/hodge/results/reflection-coupled-residual/wave2-excl/hessK_d8_chi00_p2147483587.ms", "seconds": 207.4, "ts": "2026-11-01T21:24:44", "job": "hessK"}
+HESSK DONE

@@ -1,2 +1,135 @@
-{"exp": "splitting-prime", "prime": 1000000289, "roots_of_b": [846653069, 160909254, 135295148], "sqrt_roots": [5332528, 406347494, 392080861], "seconds": 0.5, "note": "B(X2,Y2) = prod_i (X2^2 - r_i Y2^2) = prod (X2 -/+ s_i Y2) over F_p", "job": "excl-sum-local", "ts": "2026-11-01T19:35:36"}
-{"exp": "B-splits-check", "prime": 1000000289, "result": "B == product of 6 lines mod p", "job": "excl-sum-local", "ts": "2026-11-01T19:35:36"}
+{"exp": "splitting-prime", "prime": 1000000289, "roots_of_b": [846653069, 160909254, 135295148], "sqrt_roots": [5332528, 406347494, 392080861], "seconds": 0.0, "note": "B(X2,Y2) = prod_i (X2^2 - r_i Y2^2) = prod (X2 -/+ s_i Y2) over F_p", "job": "excl-sum-local", "ts": "2026-11-01T22:06:47"}
+{"exp": "B-splits-check", "prime": 1000000289, "result": "B == product of 6 lines mod p", "job": "excl-sum-local", "ts": "2026-11-01T22:06:47"}
+{"exp": "sum-plan", "n_D": 338, "workers": 1, "job": "excl-sum-local", "ts": "2026-11-01T22:33:17"}
+{"exp": "served-sector", "D": "X2", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 48, "nT": 40, "seconds": 0.0, "job": "excl-sum-local", "ts": "2026-11-01T22:33:17"}
+{"exp": "served-sector", "D": "Y2", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 48, "nT": 40, "seconds": 0.0, "job": "excl-sum-local", "ts": "2026-11-01T22:33:17"}
+{"exp": "served-sector", "D": "line_0: X2 - (994667761)*Y2 [factor of B]", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.5, "job": "excl-sum-local", "ts": "2026-11-01T22:33:18"}
+{"exp": "served-sector", "D": "line_1: X2 - (5332528)*Y2 [factor of B]", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.3, "job": "excl-sum-local", "ts": "2026-11-01T22:33:18"}
+{"exp": "served-sector", "D": "line_2: X2 - (593652795)*Y2 [factor of B]", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.8, "job": "excl-sum-local", "ts": "2026-11-01T22:33:19"}
+{"exp": "served-sector", "D": "line_3: X2 - (406347494)*Y2 [factor of B]", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.4, "job": "excl-sum-local", "ts": "2026-11-01T22:33:19"}
+{"exp": "served-sector", "D": "line_4: X2 - (607919428)*Y2 [factor of B]", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.4, "job": "excl-sum-local", "ts": "2026-11-01T22:33:20"}
+{"exp": "served-sector", "D": "line_5: X2 - (392080861)*Y2 [factor of B]", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.3, "job": "excl-sum-local", "ts": "2026-11-01T22:33:20"}
+{"exp": "served-sector", "D": "random line X2 - 255512577 Y2", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.5, "job": "excl-sum-local", "ts": "2026-11-01T22:33:20"}
+{"exp": "served-sector", "D": "random line X2 - 636343334 Y2", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.3, "job": "excl-sum-local", "ts": "2026-11-01T22:33:21"}
+{"exp": "served-sector", "D": "random line X2 - 584361684 Y2", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 166, "nT": 40, "seconds": 0.1, "job": "excl-sum-local", "ts": "2026-11-01T22:33:21"}
+{"exp": "served-sector", "D": "B", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 1.5, "job": "excl-sum-local", "ts": "2026-11-01T22:33:22"}
+{"exp": "served-sector", "D": "X2^2 - r0 Y2^2", "d": 2, "prime": 1000000289, "dim_served_sector": 8, "cols": 56, "nT": 40, "seconds": 0.0, "job": "excl-sum-local", "ts": "2026-11-01T22:33:22"}
+{"exp": "served-sector", "D": "H", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 1.1, "job": "excl-sum-local", "ts": "2026-11-01T22:33:23"}
+{"exp": "served-sector", "D": "f", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 4.5, "job": "excl-sum-local", "ts": "2026-11-01T22:33:28"}
+{"exp": "served-sector", "D": "g", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.9, "job": "excl-sum-local", "ts": "2026-11-01T22:33:31"}
+{"exp": "served-sector", "D": "K", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.1, "job": "excl-sum-local", "ts": "2026-11-01T22:33:33"}
+{"exp": "served-sector", "D": "f+g", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 1.5, "job": "excl-sum-local", "ts": "2026-11-01T22:33:35"}
+{"exp": "served-sector", "D": "X0", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 64, "nT": 40, "seconds": 0.1, "job": "excl-sum-local", "ts": "2026-11-01T22:33:35"}
+{"exp": "served-sector", "D": "Y0", "d": 1, "prime": 1000000289, "dim_served_sector": 8, "cols": 64, "nT": 40, "seconds": 0.1, "job": "excl-sum-local", "ts": "2026-11-01T22:33:35"}
+{"exp": "served-sector", "D": "X0*X1*Y0*Y1", "d": 4, "prime": 1000000289, "dim_served_sector": 8, "cols": 188, "nT": 40, "seconds": 0.2, "job": "excl-sum-local", "ts": "2026-11-01T22:33:35"}
+{"exp": "served-sector", "D": "X0^2+Y0^2", "d": 2, "prime": 1000000289, "dim_served_sector": 8, "cols": 88, "nT": 40, "seconds": 0.0, "job": "excl-sum-local", "ts": "2026-11-01T22:33:35"}
+{"exp": "served-sector", "D": "X0*X1+Y0*Y1", "d": 2, "prime": 1000000289, "dim_served_sector": 8, "cols": 88, "nT": 40, "seconds": 0.0, "job": "excl-sum-local", "ts": "2026-11-01T22:33:35"}
+{"exp": "served-sector", "D": "X0^3+Y0^3", "d": 3, "prime": 1000000289, "dim_served_sector": 8, "cols": 797, "nT": 40, "seconds": 6.3, "job": "excl-sum-local", "ts": "2026-11-01T22:33:41"}
+{"exp": "served-sector", "D": "X0^6+Y0^6", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.2, "job": "excl-sum-local", "ts": "2026-11-01T22:33:43"}
+{"exp": "served-sector", "D": "dH/dX0", "d": 5, "prime": 1000000289, "dim_served_sector": 8, "cols": 288, "nT": 40, "seconds": 1.0, "job": "excl-sum-local", "ts": "2026-11-01T22:33:44"}
+{"exp": "served-sector", "D": "dH/dY0", "d": 5, "prime": 1000000289, "dim_served_sector": 8, "cols": 288, "nT": 40, "seconds": 0.7, "job": "excl-sum-local", "ts": "2026-11-01T22:33:45"}
+{"exp": "served-sector", "D": "ker6 rep #0 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.6, "job": "excl-sum-local", "ts": "2026-11-01T22:33:48"}
+{"exp": "served-sector", "D": "ker6 rep #1 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.2, "job": "excl-sum-local", "ts": "2026-11-01T22:33:50"}
+{"exp": "served-sector", "D": "ker6 rep #2 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 1.9, "job": "excl-sum-local", "ts": "2026-11-01T22:33:52"}
+{"exp": "served-sector", "D": "ker6 rep #3 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.9, "job": "excl-sum-local", "ts": "2026-11-01T22:33:55"}
+{"exp": "served-sector", "D": "ker6 rep #4 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 1.5, "job": "excl-sum-local", "ts": "2026-11-01T22:33:56"}
+{"exp": "served-sector", "D": "ker6 rep #5 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.6, "job": "excl-sum-local", "ts": "2026-11-01T22:33:59"}
+{"exp": "served-sector", "D": "ker6 rep #6 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 5.0, "job": "excl-sum-local", "ts": "2026-11-01T22:34:04"}
+{"exp": "served-sector", "D": "ker6 rep #7 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.1, "job": "excl-sum-local", "ts": "2026-11-01T22:34:06"}
+{"exp": "served-sector", "D": "ker6 rep #8 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.1, "job": "excl-sum-local", "ts": "2026-11-01T22:34:08"}
+{"exp": "served-sector", "D": "ker6 rep #9 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.4, "job": "excl-sum-local", "ts": "2026-11-01T22:34:11"}
+{"exp": "served-sector", "D": "ker6 rep #10 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.3, "job": "excl-sum-local", "ts": "2026-11-01T22:34:13"}
+{"exp": "served-sector", "D": "ker6 rep #11 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 4.1, "job": "excl-sum-local", "ts": "2026-11-01T22:34:17"}
+{"exp": "served-sector", "D": "ker6 rep #12 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 6.2, "job": "excl-sum-local", "ts": "2026-11-01T22:34:23"}
+{"exp": "served-sector", "D": "ker6 rep #13 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.2, "job": "excl-sum-local", "ts": "2026-11-01T22:34:26"}
+{"exp": "served-sector", "D": "ker6 rep #14 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.5, "job": "excl-sum-local", "ts": "2026-11-01T22:34:28"}
+{"exp": "served-sector", "D": "ker6 rep #15 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 1.8, "job": "excl-sum-local", "ts": "2026-11-01T22:34:30"}
+{"exp": "served-sector", "D": "ker6 rep #16 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 3.4, "job": "excl-sum-local", "ts": "2026-11-01T22:34:33"}
+{"exp": "served-sector", "D": "ker6 rep #17 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.7, "job": "excl-sum-local", "ts": "2026-11-01T22:34:36"}
+{"exp": "served-sector", "D": "ker6 rep #18 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.4, "job": "excl-sum-local", "ts": "2026-11-01T22:34:39"}
+{"exp": "served-sector", "D": "ker6 rep #19 par0", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 432, "nT": 40, "seconds": 2.3, "job": "excl-sum-local", "ts": "2026-11-01T22:34:41"}
+{"exp": "served-sector", "D": "ker6 rep #0 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 2.2, "job": "excl-sum-local", "ts": "2026-11-01T22:34:43"}
+{"exp": "served-sector", "D": "ker6 rep #1 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 3.1, "job": "excl-sum-local", "ts": "2026-11-01T22:34:46"}
+{"exp": "served-sector", "D": "ker6 rep #2 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 1.6, "job": "excl-sum-local", "ts": "2026-11-01T22:34:48"}
+{"exp": "served-sector", "D": "ker6 rep #3 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 3.5, "job": "excl-sum-local", "ts": "2026-11-01T22:34:52"}
+{"exp": "served-sector", "D": "ker6 rep #4 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 3.7, "job": "excl-sum-local", "ts": "2026-11-01T22:34:55"}
+{"exp": "served-sector", "D": "ker6 rep #5 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 2.1, "job": "excl-sum-local", "ts": "2026-11-01T22:34:57"}
+{"exp": "served-sector", "D": "ker6 rep #6 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 4.9, "job": "excl-sum-local", "ts": "2026-11-01T22:35:02"}
+{"exp": "served-sector", "D": "ker6 rep #7 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 2.1, "job": "excl-sum-local", "ts": "2026-11-01T22:35:04"}
+{"exp": "served-sector", "D": "ker6 rep #8 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 3.3, "job": "excl-sum-local", "ts": "2026-11-01T22:35:08"}
+{"exp": "served-sector", "D": "ker6 rep #9 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 2.2, "job": "excl-sum-local", "ts": "2026-11-01T22:35:10"}
+{"exp": "served-sector", "D": "ker6 rep #10 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 1.6, "job": "excl-sum-local", "ts": "2026-11-01T22:35:12"}
+{"exp": "served-sector", "D": "ker6 rep #11 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 2.6, "job": "excl-sum-local", "ts": "2026-11-01T22:35:14"}
+{"exp": "served-sector", "D": "ker6 rep #12 par1", "d": 6, "prime": 1000000289, "dim_served_sector": 8, "cols": 448, "nT": 40, "seconds": 1.4, "job": "excl-sum-local", "ts": "2026-11-01T22:35:16"}
+{"exp": "served-sector", "D": "ker7 rep #0 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 7.2, "job": "excl-sum-local", "ts": "2026-11-01T22:35:23"}
+{"exp": "served-sector", "D": "ker7 rep #1 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 10.1, "job": "excl-sum-local", "ts": "2026-11-01T22:35:33"}
+{"exp": "served-sector", "D": "ker7 rep #2 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.7, "job": "excl-sum-local", "ts": "2026-11-01T22:35:39"}
+{"exp": "served-sector", "D": "ker7 rep #3 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.4, "job": "excl-sum-local", "ts": "2026-11-01T22:35:42"}
+{"exp": "served-sector", "D": "ker7 rep #4 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.5, "job": "excl-sum-local", "ts": "2026-11-01T22:35:46"}
+{"exp": "served-sector", "D": "ker7 rep #5 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.6, "job": "excl-sum-local", "ts": "2026-11-01T22:35:49"}
+{"exp": "served-sector", "D": "ker7 rep #6 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.8, "job": "excl-sum-local", "ts": "2026-11-01T22:35:55"}
+{"exp": "served-sector", "D": "ker7 rep #7 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 4.5, "job": "excl-sum-local", "ts": "2026-11-01T22:36:00"}
+{"exp": "served-sector", "D": "ker7 rep #8 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 4.1, "job": "excl-sum-local", "ts": "2026-11-01T22:36:04"}
+{"exp": "served-sector", "D": "ker7 rep #9 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.4, "job": "excl-sum-local", "ts": "2026-11-01T22:36:08"}
+{"exp": "served-sector", "D": "ker7 rep #10 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 4.5, "job": "excl-sum-local", "ts": "2026-11-01T22:36:12"}
+{"exp": "served-sector", "D": "ker7 rep #11 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.6, "job": "excl-sum-local", "ts": "2026-11-01T22:36:16"}
+{"exp": "served-sector", "D": "ker7 rep #12 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.1, "job": "excl-sum-local", "ts": "2026-11-01T22:36:19"}
+{"exp": "served-sector", "D": "ker7 rep #13 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.0, "job": "excl-sum-local", "ts": "2026-11-01T22:36:22"}
+{"exp": "served-sector", "D": "ker7 rep #14 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.1, "job": "excl-sum-local", "ts": "2026-11-01T22:36:27"}
+{"exp": "served-sector", "D": "ker7 rep #15 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.9, "job": "excl-sum-local", "ts": "2026-11-01T22:36:31"}
+{"exp": "served-sector", "D": "ker7 rep #16 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 4.8, "job": "excl-sum-local", "ts": "2026-11-01T22:36:36"}
+{"exp": "served-sector", "D": "ker7 rep #17 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 11.1, "job": "excl-sum-local", "ts": "2026-11-01T22:36:47"}
+{"exp": "served-sector", "D": "ker7 rep #18 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 9.2, "job": "excl-sum-local", "ts": "2026-11-01T22:36:57"}
+{"exp": "served-sector", "D": "ker7 rep #19 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.6, "job": "excl-sum-local", "ts": "2026-11-01T22:37:02"}
+{"exp": "served-sector", "D": "ker7 rep #20 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 13.7, "job": "excl-sum-local", "ts": "2026-11-01T22:37:16"}
+{"exp": "served-sector", "D": "ker7 rep #21 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 8.4, "job": "excl-sum-local", "ts": "2026-11-01T22:37:24"}
+{"exp": "served-sector", "D": "ker7 rep #22 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.0, "job": "excl-sum-local", "ts": "2026-11-01T22:37:30"}
+{"exp": "served-sector", "D": "ker7 rep #23 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 7.9, "job": "excl-sum-local", "ts": "2026-11-01T22:37:37"}
+{"exp": "served-sector", "D": "ker7 rep #24 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 4.3, "job": "excl-sum-local", "ts": "2026-11-01T22:37:42"}
+{"exp": "served-sector", "D": "ker7 rep #25 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.0, "job": "excl-sum-local", "ts": "2026-11-01T22:37:45"}
+{"exp": "served-sector", "D": "ker7 rep #26 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 4.3, "job": "excl-sum-local", "ts": "2026-11-01T22:37:49"}
+{"exp": "served-sector", "D": "ker7 rep #27 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.0, "job": "excl-sum-local", "ts": "2026-11-01T22:37:52"}
+{"exp": "served-sector", "D": "ker7 rep #28 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.1, "job": "excl-sum-local", "ts": "2026-11-01T22:37:55"}
+{"exp": "served-sector", "D": "ker7 rep #29 par0", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 6.4, "job": "excl-sum-local", "ts": "2026-11-01T22:38:02"}
+{"exp": "served-sector", "D": "ker7 rep #0 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.0, "job": "excl-sum-local", "ts": "2026-11-01T22:38:07"}
+{"exp": "served-sector", "D": "ker7 rep #1 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 7.6, "job": "excl-sum-local", "ts": "2026-11-01T22:38:15"}
+{"exp": "served-sector", "D": "ker7 rep #2 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.9, "job": "excl-sum-local", "ts": "2026-11-01T22:38:19"}
+{"exp": "served-sector", "D": "ker7 rep #3 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.1, "job": "excl-sum-local", "ts": "2026-11-01T22:38:24"}
+{"exp": "served-sector", "D": "ker7 rep #4 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 6.6, "job": "excl-sum-local", "ts": "2026-11-01T22:38:30"}
+{"exp": "served-sector", "D": "ker7 rep #5 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 9.9, "job": "excl-sum-local", "ts": "2026-11-01T22:38:40"}
+{"exp": "served-sector", "D": "ker7 rep #6 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 4.0, "job": "excl-sum-local", "ts": "2026-11-01T22:38:44"}
+{"exp": "served-sector", "D": "ker7 rep #7 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 8.4, "job": "excl-sum-local", "ts": "2026-11-01T22:38:53"}
+{"exp": "served-sector", "D": "ker7 rep #8 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 12.7, "job": "excl-sum-local", "ts": "2026-11-01T22:39:06"}
+{"exp": "served-sector", "D": "ker7 rep #9 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 6.1, "job": "excl-sum-local", "ts": "2026-11-01T22:39:12"}
+{"exp": "served-sector", "D": "ker7 rep #10 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 8.3, "job": "excl-sum-local", "ts": "2026-11-01T22:39:20"}
+{"exp": "served-sector", "D": "ker7 rep #11 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.0, "job": "excl-sum-local", "ts": "2026-11-01T22:39:25"}
+{"exp": "served-sector", "D": "ker7 rep #12 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.1, "job": "excl-sum-local", "ts": "2026-11-01T22:39:29"}
+{"exp": "served-sector", "D": "ker7 rep #13 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.1, "job": "excl-sum-local", "ts": "2026-11-01T22:39:32"}
+{"exp": "served-sector", "D": "ker7 rep #14 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.2, "job": "excl-sum-local", "ts": "2026-11-01T22:39:35"}
+{"exp": "served-sector", "D": "ker7 rep #15 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.2, "job": "excl-sum-local", "ts": "2026-11-01T22:39:38"}
+{"exp": "served-sector", "D": "ker7 rep #16 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.7, "job": "excl-sum-local", "ts": "2026-11-01T22:39:44"}
+{"exp": "served-sector", "D": "ker7 rep #17 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.1, "job": "excl-sum-local", "ts": "2026-11-01T22:39:47"}
+{"exp": "served-sector", "D": "ker7 rep #18 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 3.3, "job": "excl-sum-local", "ts": "2026-11-01T22:39:50"}
+{"exp": "served-sector", "D": "ker7 rep #19 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 12.1, "job": "excl-sum-local", "ts": "2026-11-01T22:40:03"}
+{"exp": "served-sector", "D": "ker7 rep #20 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 8.8, "job": "excl-sum-local", "ts": "2026-11-01T22:40:11"}
+{"exp": "served-sector", "D": "ker7 rep #21 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 8.9, "job": "excl-sum-local", "ts": "2026-11-01T22:40:21"}
+{"exp": "served-sector", "D": "ker7 rep #22 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 8.6, "job": "excl-sum-local", "ts": "2026-11-01T22:40:29"}
+{"exp": "served-sector", "D": "ker7 rep #23 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 6.8, "job": "excl-sum-local", "ts": "2026-11-01T22:40:36"}
+{"exp": "served-sector", "D": "ker7 rep #24 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 8.6, "job": "excl-sum-local", "ts": "2026-11-01T22:40:45"}
+{"exp": "served-sector", "D": "ker7 rep #25 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 12.6, "job": "excl-sum-local", "ts": "2026-11-01T22:40:57"}
+{"exp": "served-sector", "D": "ker7 rep #26 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 10.0, "job": "excl-sum-local", "ts": "2026-11-01T22:41:07"}
+{"exp": "served-sector", "D": "ker7 rep #27 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 19.6, "job": "excl-sum-local", "ts": "2026-11-01T22:41:27"}
+{"exp": "served-sector", "D": "ker7 rep #28 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 5.8, "job": "excl-sum-local", "ts": "2026-11-01T22:41:33"}
+{"exp": "served-sector", "D": "ker7 rep #29 par1", "d": 7, "prime": 1000000289, "dim_served_sector": 8, "cols": 682, "nT": 40, "seconds": 11.8, "job": "excl-sum-local", "ts": "2026-11-01T22:41:45"}
+{"exp": "served-sector", "D": "ker8 rep #0 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 23.6, "job": "excl-sum-local", "ts": "2026-11-01T22:42:09"}
+{"exp": "served-sector", "D": "ker8 rep #1 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 14.3, "job": "excl-sum-local", "ts": "2026-11-01T22:42:23"}
+{"exp": "served-sector", "D": "ker8 rep #2 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 17.2, "job": "excl-sum-local", "ts": "2026-11-01T22:42:41"}
+{"exp": "served-sector", "D": "ker8 rep #3 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 17.2, "job": "excl-sum-local", "ts": "2026-11-01T22:42:58"}
+{"exp": "served-sector", "D": "ker8 rep #4 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 9.1, "job": "excl-sum-local", "ts": "2026-11-01T22:43:07"}
+{"exp": "served-sector", "D": "ker8 rep #5 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 13.0, "job": "excl-sum-local", "ts": "2026-11-01T22:43:20"}
+{"exp": "served-sector", "D": "ker8 rep #6 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 8.9, "job": "excl-sum-local", "ts": "2026-11-01T22:43:29"}
+{"exp": "served-sector", "D": "ker8 rep #7 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 14.3, "job": "excl-sum-local", "ts": "2026-11-01T22:43:44"}
+{"exp": "served-sector", "D": "ker8 rep #8 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 20.5, "job": "excl-sum-local", "ts": "2026-11-01T22:44:04"}
+{"exp": "served-sector", "D": "ker8 rep #9 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 17.4, "job": "excl-sum-local", "ts": "2026-11-01T22:44:22"}
+{"exp": "served-sector", "D": "ker8 rep #10 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 15.8, "job": "excl-sum-local", "ts": "2026-11-01T22:44:38"}
+{"exp": "served-sector", "D": "ker8 rep #11 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 17.9, "job": "excl-sum-local", "ts": "2026-11-01T22:44:56"}

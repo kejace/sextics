@@ -1,0 +1,12 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[subfam] skipping 82 families already done
+[subfam] X0+X1+X2+Y1+M: vars 27, eqs 725, msolve chart 'TIMEOUT', singular [] (50s)
+[subfam] X0+X1+X2+Y2+M: vars 27, eqs 725, msolve chart 'TIMEOUT', singular [] (101s)
+[subfam] X0+X1+Y0+Y1+Y2: vars 24, eqs 725, msolve chart '[-1]:', singular [] (148s)
+[subfam] X0+X2+Y0+Y1+Y2: vars 24, eqs 725, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 2620'] (173s)
+[subfam] X0+Y0+Y1+Y2+L: vars 34, eqs 671, msolve chart 'TIMEOUT', singular [] (228s)
+[subfam] X1+X2+Y0+Y1+Y2: vars 24, eqs 725, msolve chart 'TIMEOUT', singular [] (277s)
+[subfam] X1+Y0+Y1+Y2+L: vars 34, eqs 715, msolve chart 'TIMEOUT', singular [] (328s)
+[subfam] X2+Y0+Y1+Y2+L: vars 34, eqs 725, msolve chart 'TIMEOUT', singular [] (381s)
+[subfam] XM+YL: vars 30, eqs 687, msolve chart 'TIMEOUT', singular [] (432s)
+{"kind": "relaxation-subfamilies", "base": "relax_d7_1_w2", "d": 7, "parity": 1, "p": 536870909, "results": {"X0+X1+X2+Y1+M": {"n_vars": 27, "n_eqs": 725, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X0+X1+X2+Y2+M": {"n_vars": 27, "n_eqs": 725, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X0+X1+Y0+Y1+Y2": {"n_vars": 24, "n_eqs": 725, "msolve_chart": "[-1]:", "singular": [], "singular_rc": "timeout"}, "X0+X2+Y0+Y1+Y2": {"n_vars": 24, "n_eqs": 725, "msolve_chart": "[-1]:", "singular": ["dim = 0", "vdim = 2620"], "singular_rc": 0}, "X0+Y0+Y1+Y2+L": {"n_vars": 34, "n_eqs": 671, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X1+X2+Y0+Y1+Y2": {"n_vars": 24, "n_eqs": 725, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X1+Y0+Y1+Y2+L": {"n_vars": 34, "n_eqs": 715, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "X2+Y0+Y1+Y2+L": {"n_vars": 34, "n_eqs": 725, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}, "XM+YL": {"n_vars": 30, "n_eqs": 687, "msolve_chart": "TIMEOUT", "singular": [], "singular_rc": "timeout"}}, "seconds": 431.7, "tag": "w2b"}

@@ -1,0 +1,2 @@
+{"exp": "cone-family", "d": 11, "chi": [0, 0], "absent": ["Y0", "Y1"], "dim_admissible": 5, "reconstructed": 0, "primes": [2147483587, 2147483579, 2147483563], "ts": "2026-11-01T21:27:57", "job": "conescreen"}
+{"exp": "cone-family", "d": 11, "chi": [0, 0], "absent": ["Y1", "Y2"], "dim_admissible": 5, "reconstructed": 0, "primes": [2147483587, 2147483579, 2147483563], "ts": "2026-11-01T21:48:50", "job": "conescreen"}

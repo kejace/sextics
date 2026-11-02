@@ -115,12 +115,24 @@ def main():
         if scheme == 'parity':
             pj = 0 if j < 3 else 1
             return 'w+' if (core.yparity(u[2]) + pj) % 2 == 0 else 'w-'
+        if scheme == 'mono':
+            return 'm' + ''.join(str(e) for e in u[2])
+        if scheme == 'fine':
+            return 'u' + ','.join(str(e) for e in u[2]) + f'_{j}'
+        if scheme == 'xtype':   # component block split by the X-degree of the monomial
+            return f'w{j}x{sum(u[2][:3])}'
+        if scheme == 'mtype':   # X/Y component group x monomial type (X-degree of m)
+            return ('X' if j < 3 else 'Y') + f'x{sum(u[2][:3])}'
         raise ValueError(scheme)
 
     blocks = {}
     for i, u in enumerate(unk):
         blocks.setdefault(blockname(u), []).append(i)
     order = sorted(blocks, key=lambda b: (b == 'lam', b))   # lam last
+    if scheme == 'fine':
+        order = sorted(blocks, key=lambda b: (b == 'lam', unk[blocks[b][0]][1] < 3, b))   # Y-components first, then X, lam last
+    if '--lam-first' in sys.argv:
+        order = sorted(blocks, key=lambda b: (b != 'lam', b))
     print('blocks:', {b: len(v) for b, v in blocks.items()}, 'order', order, flush=True)
     alive = set(range(nu))
     steps = []

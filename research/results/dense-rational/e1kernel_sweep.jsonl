@@ -16,3 +16,5 @@
 {"mode": "dual", "d": 10, "e": 8, "rankA": 468, "dimR": 762, "kernel_mod_J": 294, "rows": 5832, "cols": 6642, "seconds": 197.8}
 {"mode": "direct", "d": 8, "Kfull": 168, "dimJ": 168, "kernel_mod_J": 0, "rows": 5796, "cols": 6657, "seconds": 437.3}
 {"mode": "direct", "d": 9, "Kfull": 378, "dimJ": 378, "kernel_mod_J": 0, "rows": 7752, "cols": 10010, "seconds": 605.1}
+{"mode": "direct2", "d": 10, "parD": 0, "p": 2147483647, "rows": 10152, "cols": 14616, "rank": 10152, "nullity": 4464, "Kfull": 1044, "dimJ": 750, "kernel_mod_J": 294, "seconds": 843.1}
+{"mode": "direct2", "d": 10, "parD": 1, "p": 2147483647, "rows": 10197, "cols": 14595, "rank": 10197, "nullity": 4398, "Kfull": 1008, "dimJ": 747, "kernel_mod_J": 261, "seconds": 1011.2}

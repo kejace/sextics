@@ -47,3 +47,6 @@ orig (X2,Y2)^2 d7 [double along X∩{X2=Y2=0}] (01)-anti random combo -> d 7 e1 
 orig (X2,Y2)^2 d7 [double along X∩{X2=Y2=0}] generic random combo -> d 7 e1 True cons False served 18 268.54 s
 == orig (X0,X1,X2,Y0)^4 d7: dim 17
    S3-inv dim 7, (01)-inv dim 15, (01)-anti dim 13
+orig (X0,X1,X2,Y0)^4 d7 S3-invariant random combo -> d 7 e1 True cons False served 18 404.8 s
+orig (X0,X1,X2,Y0)^4 d7 (01)-invariant random combo -> d 7 e1 True cons False served 18 416.25 s
+orig (X0,X1,X2,Y0)^4 d7 (01)-anti random combo -> d 7 e1 True cons False served 18 369.57 s

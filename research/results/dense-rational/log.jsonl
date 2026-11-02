@@ -32,3 +32,6 @@
 {"D": "X0^2*F_X0", "d": 7, "family": "deg7x", "e1": true, "consistent": false, "rank": 4042, "nullity": 455, "seconds": 289.03, "note": "", "engine": 2}
 {"D": "X0*F_X0 + Y0*F_Y0 ... times X0? no: X0*E_X(F)", "d": 7, "family": "deg7x", "e1": true, "consistent": false, "rank": 4042, "nullity": 455, "seconds": 567.74, "note": "", "engine": 2}
 {"D": "X0^3*F_X0", "d": 8, "family": "deg8x", "e1": true, "consistent": false, "rank": 6699, "nullity": 798, "seconds": 744.98, "note": "", "engine": 2}
+{"D": "X0^3 F_X0 + Y0^3 F_Y0", "d": 8, "family": "deg8x", "e1": true, "consistent": false, "rank": 6703, "nullity": 794, "seconds": 1250.85, "note": "", "engine": 2}
+{"D": "Hess minor F_X0X0*F_Y0Y0 - F_X0Y0^2", "d": 8, "family": "deg8x", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.3, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}
+{"D": "Hess minor F_X0X0*F_X1X1 - F_X0X1^2", "d": 8, "family": "deg8x", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.25, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}

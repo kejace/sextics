@@ -1,0 +1,15 @@
+ring R = 536870909, (a(1..3)), dp;
+ideal I;
+I[size(I)+1] = 536870879*a(1)*a(1)+357913936*a(3)*a(3);
+I[size(I)+1] = 536870899*a(1)*a(1)+536870849*a(1)*a(2);
+I[size(I)+1] = 536870889*a(1)*a(2)+536870849*a(1)*a(3)+536870879*a(2)*a(2);
+I[size(I)+1] = 536870889*a(1)*a(3)+536870899*a(2)*a(2)+536870849*a(2)*a(3);
+I[size(I)+1] = 536870889*a(2)*a(3)+536870879*a(3)*a(3);
+int t = timer;
+option(redSB);
+ideal G = std(I);
+print("dim = " + string(dim(G)));
+print("vdim = " + string(vdim(G)));
+print("size GB = " + string(size(G)));
+print("time = " + string(timer - t));
+quit;

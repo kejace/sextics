@@ -1,0 +1,4 @@
+ring r = 1000000007, (c1,c2), dp;
+ideal I = 885089883*c1^2+226951257*c1*c2+266888600*c2^2,
+465980729*c1^2+533400600*c1*c2+664336085*c2^2;
+ideal G = std(I); "DIM", dim(G); if (dim(G) <= 1) { "VDIM", vdim(G); } "LEAD"; lead(G); quit;

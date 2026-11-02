@@ -1,0 +1,1 @@
+LIB "elim.lib"; ring r = 32003,(x,y,z),dp; ideal I = x*y, x*z; ideal J = x; def S = sat(I,J); typeof(S); S; list L = sat(I,J); typeof(L[1]); quit;

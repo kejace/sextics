@@ -78,3 +78,8 @@
 * Control, seed 202: hit on the 3rd restart (rel 1.5e-24); the rem_F-chart reconstruction returned a rational point of the
   1-dimensional solution set different from D*, and the exact re-solve produced a verified certificate for it
   (confirm_exact -> solved, verify_witness True).  Running tally: 3 hits in 41 random restarts (~7%) on the 18-dim control.
+* Degree-9 full sector families (kernel + J, or J alone where the kernel is zero), local LM samples of 2-4 restarts per
+  sector (43-55 s per restart for K = 50-93): best rel (9,e,0) 0.16, (9,e,1) 0.054, (9,e,2) 0.042, (9,e,3) 0.018,
+  (9,e,4) 0.56, (9,e,5) 0.012, (9,e,6) 0.050, (9,o,0) 6.3e-3 (J only, 93-dim), (9,o,1) 0.077, (9,o,2) 0.25, (9,o,3) 0.38,
+  (9,o,4) 0.13, (9,o,5) 0.48, (9,o,6) 0.054 -- a landscape survey only (a few restarts per 50-90-dim family); the
+  thousands-of-restarts runs are queued as remote jobs `w2-vp9`, `w2-vp9sparse`.

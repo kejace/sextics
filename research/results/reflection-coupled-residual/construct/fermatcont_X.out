@@ -1,0 +1,6 @@
+[fermatcont_X] base X ok
+[fermatcont_X] rows=9306 cols=1664 (D 158, N 1368, Q 138)
+[fermatcont_X] L built in 0.2s
+[fermatcont_X] rank L = 1484, nullity = 180
+[fermatcont_X] order 1: consistent=False rank_aug=1485 (34.1s)
+{"name": "fermatcont_X", "p": 2147483647, "base": "X", "rankL": 1484, "nullity": 180, "orders": [{"order": 1, "consistent": false, "rank_aug": 1485, "seconds": 34.1}], "seconds": 58.344818115234375}

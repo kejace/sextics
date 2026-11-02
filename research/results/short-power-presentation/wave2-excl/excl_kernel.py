@@ -27,21 +27,29 @@ exact = {}
 for par in [0, 1]:
     reps = []
     infos = []
-    for p in W.PRIMES30[:3]:
+    D7 = None
+    nprimes = 0
+    for p in W.PRIMES30[:6]:
         info, basis = W.e1_kernel(F, A, 7, par, p, want_basis=True)
         infos.append(info)
         assert info['hilbert_ok'] and info['kernel mod J'] == 1 and len(basis) == 1, info
         reps.append((p, basis))
-    D7 = None
-    for k in range(2, 4):
-        lifted = W.lift_polys(reps[:k])
-        if lifted is not None:
-            D7 = lifted[0]; nprimes = k
-            break
+        print(f'  parity {par}: kernel basis mod {p} done ({time.time()-t00:.0f}s)', flush=True)
+        if len(reps) >= 2:
+            lifted = W.lift_polys(reps)
+            if lifted is not None:
+                # verify the lift modulo a fresh prime before accepting
+                pchk = W.PRIMES31[0]
+                infoc, basisc = W.e1_kernel(F, A, 7, par, pchk, want_basis=True)
+                same = (reduce_mod(lifted[0], pchk) == basisc[0])
+                print(f'  parity {par}: lift with {len(reps)} primes verified mod {pchk}: {same}', flush=True)
+                if same:
+                    D7 = lifted[0]; nprimes = len(reps)
+                    break
     assert D7 is not None, 'rational reconstruction of D7 failed'
     # exact membership certificate for A*D7
     AD = mul(A, D7)
-    N7, minfo = W.exact_membership(F, AD, primes=W.PRIMES31, max_primes=5)
+    N7, minfo = W.exact_membership(F, AD, primes=W.PRIMES31 + W.PRIMES30 + W.PRIMES29, max_primes=18)
     assert N7 is not None, ('exact membership failed', minfo)
     # structural check: Y-dependence only via M (even) / X-dependence only via L (odd)
     if par == 0:

@@ -330,7 +330,7 @@ def main(argv=None):
         inits = sorted(_glob.glob(a.init_glob))
         jobs = [(10**6 + i, a.maxiter, fn) for i, fn in enumerate(inits)] + jobs
         print(f'[nvp {a.name}] {len(inits)} initial points from {a.init_glob}', file=sys.stderr, flush=True)
-    best = None; nrun = 0; rels = []
+    best = None; nrun = 0; rels = []; allw = []
     tstart = time.time()
     ctx = mp.get_context('fork')
     with ctx.Pool(a.procs, initializer=_init, initargs=(obj,)) as pool:
@@ -343,6 +343,7 @@ def main(argv=None):
                 np.save(os.path.join(LANE, f'{a.name}.seed{rec["seed"]}.w.npy'), w)
                 np.save(os.path.join(LANE, f'{a.name}.seed{rec["seed"]}.D.npy'), Dmat.T @ w)
                 rec['saved'] = True
+            allw.append((rec['rel'], rec['seed'], w))
             with open(out_path, 'a') as f:
                 f.write(json.dumps(rec) + '\n')
             if best is None or (not rec['spurious'] and rec['rel'] < best['rel']):
@@ -353,6 +354,15 @@ def main(argv=None):
             if (time.time() - tstart) / 60 > a.max_minutes:
                 pool.terminate(); break
     rels = np.array(rels)
+    # keep the 40 best converged points (w and D) for later analysis / seeding
+    allw.sort(key=lambda t: t[0])
+    keep = allw[:40]
+    if keep:
+        np.savez(os.path.join(LANE, f'{a.name}.best.npz'), rel=np.array([t[0] for t in keep]), seed=np.array([t[1] for t in keep]),
+                 W=np.array([t[2] for t in keep]), Dm=np.array([Dmat.T @ t[2] for t in keep]))
+        # cluster structure of the best points: pairwise |<w_i, w_j>| (gauge-free, unit vectors)
+        Wm = np.array([t[2] for t in keep]); Gram = np.abs(Wm @ Wm.T)
+        n_distinct = int(np.sum(np.all(Gram[:, :] < 0.999, axis=1) | (np.arange(len(keep)) == np.argmax(Gram, axis=1))))
     summary = dict(event='nvp-batch', name=a.name, d=a.d, pD=a.pD, kind=a.kind, family=lab, restarts=int(nrun),
                    maxiter=a.maxiter, outer_dim=obj.dimP, inner_dim=obj.nK, rows_modF=obj.nbot,
                    best_rel=float(best['rel']) if best else None, best_seed=best['seed'] if best else None,
@@ -360,6 +370,13 @@ def main(argv=None):
                    quantiles=[float(np.quantile(rels, t)) for t in (0.0, 0.1, 0.5, 0.9, 1.0)] if len(rels) else None,
                    n_below_1e6=int(np.sum(rels < 1e-6)), n_below_1e10=int(np.sum(rels < 1e-10)),
                    seconds=round(time.time() - tstart, 1))
+    if keep:
+        f0, x0, rt0, parts0 = obj.value_full(keep[0][2])
+        Mt = obj.NF(obj.assemble(keep[0][2])[0])
+        sv = np.linalg.svd(Mt, compute_uv=False)
+        rk = int(np.sum(sv > 1e-10 * sv[0]))
+        summary.update(best_inner_rank=rk, best_inner_nullity=int(Mt.shape[1] - rk), best_inner_rows=int(Mt.shape[0]),
+                       best_cluster_overlaps=[float(x) for x in np.sort(Gram[0])[::-1][:10]])
     log_event(**summary)
     print(json.dumps(summary), flush=True)
     # confirmation of the best candidates

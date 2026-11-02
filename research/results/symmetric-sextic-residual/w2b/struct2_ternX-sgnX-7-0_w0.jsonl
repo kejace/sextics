@@ -1,0 +1,8 @@
+{"seed": 5000, "rel": 0.6463190643762693, "iters": 6, "spurious": false}
+{"seed": 5008, "rel": 0.6674770865603523, "iters": 6, "spurious": false}
+{"seed": 5016, "rel": 0.6674770865603524, "iters": 2, "spurious": false}
+{"seed": 5024, "rel": 0.6674770865603523, "iters": 4, "spurious": false}
+{"seed": 5032, "rel": 0.6463190643733667, "iters": 5, "spurious": false}
+{"seed": 5040, "rel": 0.6463190643762694, "iters": 10, "spurious": false}
+{"seed": 5048, "rel": 0.6463190643762626, "iters": 9, "spurious": false}
+{"seed": 5056, "rel": 0.6463190643770083, "iters": 8, "spurious": false}

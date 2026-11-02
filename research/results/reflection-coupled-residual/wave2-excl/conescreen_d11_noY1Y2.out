@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+chi=(0, 0) p=2147483587: E1-admissible cones dim 5
+chi=(0, 0) p=2147483579: E1-admissible cones dim 5
+chi=(0, 0) p=2147483563: E1-admissible cones dim 5
+RECEIPT {"exp": "cone-family", "d": 11, "chi": [0, 0], "absent": ["Y1", "Y2"], "dim_admissible": 5, "reconstructed": 0, "primes": [2147483587, 2147483579, 2147483563], "ts": "2026-11-01T21:48:50", "job": "conescreen"}
+CONESCREEN DONE

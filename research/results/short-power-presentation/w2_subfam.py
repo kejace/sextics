@@ -13,7 +13,7 @@ from w2_families import form_polys, family_monomials, span_dim, ORDER
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('base'); ap.add_argument('--minr', type=int, default=2); ap.add_argument('--maxr', type=int, default=5)
     ap.add_argument('--singular-timeout', type=int, default=600); ap.add_argument('--only', default=''); ap.add_argument('--tag', default='')
-    ap.add_argument('--minvars', type=int, default=1)
+    ap.add_argument('--minvars', type=int, default=1); ap.add_argument('--skip-file', default=''); ap.add_argument('--msolve-timeout', type=int, default=900)
     a = ap.parse_args()
     meta = json.load(open(a.base + '_meta.json')); labels = meta['labels']; p = meta['p']; d = meta['d']
     par = int(meta['parspec']); vars_, p2, eqs = parse_ms(a.base + '.ms'); assert p2 == p
@@ -80,6 +80,11 @@ def main():
     families['XM+YL'] = [P for _, P in family_monomials(['X0', 'X1', 'X2', 'M'], d, par, FP)] + [P for _, P in family_monomials(['Y0', 'Y1', 'Y2', 'L'], d, par, FP)]
     if a.only:
         families = {k: v for k, v in families.items() if k in a.only.split(',')}
+    if a.skip_file and os.path.exists(a.skip_file):
+        import re
+        done = set(re.findall(r'\[subfam\] (\S+):', open(a.skip_file).read()))
+        families = {k: v for k, v in families.items() if k not in done}
+        print(f'[subfam] skipping {len(done)} families already done', file=sys.stderr, flush=True)
     quad = []
     for eq in eqs:
         e2 = {}
@@ -121,7 +126,7 @@ def main():
         rng = random.Random(1)
         chart = list(sub_eqs) + [{(): p - 1, **{(i,): rng.randrange(1, p) for i in range(rk)}}]
         write_msolve(base + '_chart.ms', chart, rk, p)
-        r1 = run_msolve(base + '_chart.ms', base + '_chart.msout', 2, timeout=a.singular_timeout)
+        r1 = run_msolve(base + '_chart.ms', base + '_chart.msout', 2, timeout=a.msolve_timeout)
         head = r1.get('out_head', '').strip()[:60]
         r2 = run_singular(base + '.sing', a.singular_timeout)
         so = r2.get('stdout', '') if isinstance(r2.get('stdout'), str) else ''

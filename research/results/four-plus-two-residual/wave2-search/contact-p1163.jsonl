@@ -21,3 +21,15 @@
 {"kind": "contact-test", "p": 1163, "D": "r_f^2 (f-sheet 1)", "family": "contact-single", "d": 6, "e1": false, "engine": 2, "seconds": 30.6, "ts": "2026-11-02T03:38:44"}
 {"kind": "contact-test", "p": 1163, "D": "r_f^2 + g (f-sheet 1)", "family": "contact-mixed", "d": 6, "e1": false, "engine": 2, "seconds": 29.1, "ts": "2026-11-02T03:39:13"}
 {"kind": "contact-test", "p": 1163, "D": "C_f^3 + g (f-sheet 1)", "family": "contact-mixed", "d": 6, "e1": false, "engine": 2, "seconds": 28.2, "ts": "2026-11-02T03:39:41"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 + r_g^2 (sheets 1,0)", "family": "contact-2a", "d": 6, "e1": false, "engine": 2, "seconds": 28.9, "ts": "2026-11-02T03:40:10"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 - r_g^2 (sheets 1,0)", "family": "contact-2a", "d": 6, "e1": false, "engine": 2, "seconds": 28.1, "ts": "2026-11-02T03:40:38"}
+{"kind": "contact-test", "p": 1163, "D": "C_f^3 + C_g^3 (sheets 1,0)", "family": "contact-2a", "d": 6, "e1": false, "engine": 2, "seconds": 29.6, "ts": "2026-11-02T03:41:07"}
+{"kind": "contact-test", "p": 1163, "D": "r_f r_g (sheets 1,0)", "family": "contact-product", "d": 6, "e1": false, "engine": 2, "seconds": 30.1, "ts": "2026-11-02T03:41:38"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 + r_g^2 + B (sheets 1,0)", "family": "contact-2a+B", "d": 6, "e1": false, "engine": 2, "seconds": 30.0, "ts": "2026-11-02T03:42:08"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 + r_g^2 + H (sheets 1,0)", "family": "contact-2a+H", "d": 6, "e1": false, "engine": 2, "seconds": 30.6, "ts": "2026-11-02T03:42:38"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 + r_g^2 (sheets 1,1)", "family": "contact-2a", "d": 6, "e1": false, "engine": 2, "seconds": 27.8, "ts": "2026-11-02T03:43:06"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 - r_g^2 (sheets 1,1)", "family": "contact-2a", "d": 6, "e1": false, "engine": 2, "seconds": 30.8, "ts": "2026-11-02T03:43:37"}
+{"kind": "contact-test", "p": 1163, "D": "C_f^3 + C_g^3 (sheets 1,1)", "family": "contact-2a", "d": 6, "e1": false, "engine": 2, "seconds": 31.1, "ts": "2026-11-02T03:44:08"}
+{"kind": "contact-test", "p": 1163, "D": "r_f r_g (sheets 1,1)", "family": "contact-product", "d": 6, "e1": false, "engine": 2, "seconds": 31.0, "ts": "2026-11-02T03:44:39"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 + r_g^2 + B (sheets 1,1)", "family": "contact-2a+B", "d": 6, "e1": false, "engine": 2, "seconds": 30.4, "ts": "2026-11-02T03:45:09"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 + r_g^2 + H (sheets 1,1)", "family": "contact-2a+H", "d": 6, "e1": false, "engine": 2, "seconds": 31.1, "ts": "2026-11-02T03:45:40"}
