@@ -1,0 +1,2 @@
+DX*DY: d=6 full-system columns checked=2602, violations=0, y.rhs=5292 (1.4s)
+VERDICT: inconsistent over Q (certificate valid)

@@ -1,0 +1,2 @@
+EX(F)-EY(F): d=6 full-system columns checked=2602, violations=0, y.rhs=157034883992992992000 (1.7s)
+VERDICT: inconsistent over Q (certificate valid)

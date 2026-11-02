@@ -7,3 +7,6 @@
 {"ts":"2026-11-02T04:16:14Z","step":"write","part":3,"content":"lanes 3.7-3.11"}
 {"ts":"2026-11-02T04:17:36Z","step":"write","part":4,"content":"lanes 3.12-3.16"}
 {"ts":"2026-11-02T04:18:52Z","step":"write","part":5,"content":"cross-lane ranking top 5"}
+{"ts":"2026-11-02T04:21:24Z","step":"new-result","lane":"one-reflection-skew","claim":"disc_beta(R) = -6912 a^4 delta^2; N(M) = -9 a^2 (3ac-b^2)^2; deg(delta,3ac-b^2,a) = (24,10,6) in (r,w,t); Hurwitz: K_{B''} >= pi^*O(17) => trivialising base cover of general type, E4 negative","script":"skew_branch.py","status":"sympy exact"}
+{"ts":"2026-11-02T04:21:24Z","step":"patch","content":"summary row + 3.9 addendum; section 4 truncated for rewrite"}
+{"ts":"2026-11-02T04:21:54Z","step":"write","part":"5-rewrite","content":"section 4 ranking rewritten: fp2, cycle-q2, off-paired, skew, polarized"}

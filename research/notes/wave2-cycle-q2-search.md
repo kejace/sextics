@@ -152,3 +152,32 @@ mean that the best Koszul correction removes only 20-80 % of the obstruction nor
 semi-invariant denominator comes close, in agreement with the exact exclusions (Farkas certificates of the EXCLUSION agent,
 and the pencil scans of chain D3).
 
+
+## Caveats, files and next steps
+
+* Hit rate: in the Fermat calibration a random LM restart lands in the basin of an existing exact zero 10-17 % of the
+  time (K = 6 complex); with 40 restarts per sector (d = 6) the probability of missing an isolated zero is < 1 %, with 10
+  (d = 7) about 20-35 %, with 5 (d = 8) and 3 (d = 9) the runs are samples of the landscape only.  Non-semi-invariant
+  denominators are outside the sector searches (the d = 5 theorem is the only statement covering them).
+* q = 1 sibling runs are only meaningful with the deflated residual (chain E3 tags `sibB*r`); the undeflated `sibB9`,
+  `sibB10` lines in the log are the trivial F-multiple solutions.
+* Every structured modular test is at p = 4194301 (and 4194287 where the E1 test passed): inconsistency mod p is
+  inconsistency over Q only if the modular rank equals the rational rank; the EXCLUSION agent's Farkas certificates
+  (`wave2-excl/`) make the d <= 6 exclusions prime-free.
+* Files: lane dir `/tmp/hodge/results/cycle-q2/` — `w2lib.py`, `w2_search.py`, `w2_e1dims.py`, `w2_hess.py`,
+  `w2_relax6.py`, `w2_pencil.py`, `w2_sweep_struct.py`, `w2_report.py`, chain scripts `w2_chainA.sh`, `w2_chainB.sh`,
+  `w2_high.sh`, `w2_sibling.sh`; logs `wave2-search.log.jsonl` (local) and `wave2-search.<remote-host>.log.jsonl`
+  (remote, mirrored to `/tmp/hodge/remote/cycle-q2/` by `python3 -m hodge.rjob pull --lane cycle-q2`); E1 dimension
+  data `w2_e1dims_d{4..12}.json` (remote mirror); job outputs `search-cycle-q2-*.out`.  `python3 w2_report.py` renders the
+  tables from all log files.
+* Remote jobs still running at the time of this report (they keep appending to the remote log): chain A5 (kernel
+  d = 7 remaining sectors -> d = 8 -> d = 9), chain B5 (structured sub-families d = 7, 8 -> kernel d = 10 -> prod6 d = 12
+  -> kernel d = 11, 12 -> cone4/mult4 d = 9, 10), chain E3 (sibling d = 10, 11, 12), chain D3 (remaining structured
+  candidates -> exact pencil scans of the nine 2-dimensional d = 6 sectors).
+* Suggested next steps: (i) redo the sibling d = 9 run and extend the deflation to r/dist^4 (the F-funnel still absorbs a
+  third of the restarts); (ii) exact Groebner decision of the d = 6 relaxation variety V(Psi) ⊂ P^61 (EXCLUSION agent's
+  `hess6`), which together with the sector tests would give deg D >= 7 for arbitrary D; (iii) for d >= 8 the sector
+  searches need ~50 restarts per sector to be conclusive about isolated zeros — about 40 CPU-hours per degree on an
+  unloaded box; (iv) the mult4 sub-families (multiplicity >= 4 at the six points of X ∩ coordinate line) have
+  consistently the smallest residuals of all structured families (median 0.09 vs 0.85 for line-vertex cones at d = 7)
+  and deserve the full-restart treatment at d = 8..10, including their mult5 and two-line variants.

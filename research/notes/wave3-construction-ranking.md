@@ -101,7 +101,7 @@ GHC statement (sources: arXiv 2203.09778, 2304.02519, 2210.02948).
 | four-plus-two-residual | core-side support via exact 5-variable reduction | `Y_H: U⁶ = −H ⊂ P⁴`, core surfaces `V(D) ∩ Y_H` | adjoint-budget design + reduced solver sweep | 0.7 | 0.04 | L-A |
 | klein-coupled-character | cone over `B = {K = 0}` (char-3 forms) | `Z = X ∩ V(g(X))`, fibres `S_y` | Gysin test of cones, base degree 9–12 | 0.6 | 0.02 | L-A |
 | off-paired | descent-through-reflection via birational `φ` of `W` | `Z = X ×_W X^φ`, `W = X/σ2` Fano | MW sections with denominators; rigidity of `W` | 0.5 | 0.03 | L-B |
-| one-reflection-skew | fqlx/benediamond twisted CM companion (E4/E5) | quartic cover `R(β) = 0`, `E_β`, base cover `B''` | κ(B̄''), monodromy of `L`, period test | 0.7 | 0.04 | L-B/L-C |
+| one-reflection-skew | fqlx/benediamond twisted CM companion; E4 now negative (base cover of general type, §3.9 addendum), E5 diagnostic | quartic cover `R(β) = 0`, `E_β`, base cover `B''` | period test E5; R3 rank-17 formulation | 0.7 | 0.02 | L-B only if a smaller uniruled carrier is found |
 | polarized-k3-remainder | Part B: `A_mix` via `W_{23,f}` (partial only) | `W_{23,f} ⊂ P(1,1,1,3,2)`, seed over `F_5` | none for `A_K3` (open GHC) | — | 0.005 | L-C (partial) |
 | quadratic-cubic-pullback | non-ACM curves / imprimitive cover `C'` | `X → C` (Fermat cubic 4-fold), degree 32 | monodromy of `φ` (E7), adjoint screening at d=10 | 0.8 | 0.02 | L-A |
 | quadric-contact-residual | cover `T² = δ` with lifted exchange; NL-transverse supports | `X̃: T² = X0² − Y0²` | averaging-ideal bookkeeping (E8) in minutes | 0.9 | 0.03 | L-B if positive |
@@ -358,6 +358,17 @@ trace to `K`), the twisted elliptic substitution through `ScalarEmbedding`-type 
 skew term (`≈ 1.4 M × 4.1 M` sparse modular system after `τ`-parity; engine-v3 `sge` on 64 cores could attempt it); gives a
 first-order family only. P(solve) 0.02.
 
+**Addendum (this synthesis, sympy-verified, `/tmp/hodge/results/wave3-construct/skew_branch.py`).** E4's optimistic branch
+is closed by a Hurwitz count: `disc_β(R) = −6912·a⁴·δ²` with `δ = disc_U(P)` (so the quartic cover `B_4 → (r,w,t)`-space is
+branched exactly along `{δ = 0}`, total degree 24, and `{a = 0}`, degree 6), and `N_{B/K}(M) = −9a²(3ac − b²)²` (so the `√M`
+twist is branched along `{3ac − b² = 0}`, degree 10, and `{a = 0}`); the `a^{1/3}` twist is branched along `{a = 0}`. For any
+Galois cover `B'' → P³` containing these, `K_{B''} = π^*(O(−4) + Σ(1 − 1/e_i)B_i) ≥ π^*O(−4 + 12 + 5 + 4) = π^*O(17)`, and the
+branch surfaces have only discriminant-type (canonical) singularities, so every smooth model of `B''` is of general type —
+**not uniruled**; the covering-curve theorem cannot be applied to `B̄''`, and `H³(B̄'')_{χ'}` is at best a GHC statement.
+Consequently the skew route is a diagnostic (E5: a nonzero transcendental period of `C_β ν` on the base cover proves that no
+rational primitive exists in the compact/companion presentation and explains the failed ansätze), not a construction, unless a
+*smaller* uniruled carrier of the `χ'`-class is found (none is in sight). Revised: P(solve) 0.02, Lean only via a new carrier.
+
 ### 3.10 polarized-k3-remainder (`A = X0X1X2Y0Y1Y2`, `F = ½(f(U) + f(V))`; `A = A_K3 + A_mix`, both nonzero mod `J`)
 
 Verified: `Aut(X) = D6 = ⟨h, τ⟩` exactly (corrected from the dossier; six planes `V = λU`, `λ⁶ = −1`); averaging-ideal
@@ -508,39 +519,42 @@ curve with a nonzero count. P(decide) 0.6, P(solve) 0.03. Lean: **L-A**.
 ## 4. Cross-lane ranking of the five best routes
 
 Criterion: P(solve) × fit to a Lean-provable argument (L-A explicit witness via the Kronecker checker, or L-B existential via
-`PolynomialCurves` + a cover/quotient layer) × decidability of the named next computation. All five are long shots
-(no route exceeds 4 %); the ordering is about where a wave of work produces either a certificate or a definite closure.
+`PolynomialCurves` + a cover/quotient layer) × decidability of the named next computation. All five are long shots (no route
+exceeds 4 %); the ordering is about where one wave of work produces either a certificate or a definite closure. The
+one-reflection-skew route, which looked strongest on paper, was demoted during this synthesis by the Hurwitz count of
+§3.9 (its auxiliary base cover is of general type).
 
 | rank | lane / route | why it ranks here | P(solve) | P(decide) | Lean |
 |---|---|---|---|---|---|
-| 1 | **one-reflection-skew — twisted CM companion, closed by E4 (geometry of the base cover `B''`) and E5 (period test)** | the only open lane with a *complete* transport identity to an auxiliary variety already in closed form (`θ = d(Sν) + (1/6)Tr_{B/K}(φ_β^*Θ_β)`, verified); the decisive geometric question (is a smooth model of the trivialising cover uniruled / is `H³(B̄'')_{χ'} ⊂ N¹`) has never been computed; if positive the route is the book's recipe on `B̄''` (seed, normal, integration, trace) and existence follows from §3.2 + quotient transfer | 0.04 | 0.7 | L-B / L-C |
-| 2 | **four-plus-two-residual — core-side support via the exact 5-variable reduction** | the cheapest decisive tests in the programme (reduced solver, seconds per `D`), an explicit design principle (adjoint budget in the `ζ6²` character of `μ6`-covers of singular core surfaces), and a payoff that is an explicit strict witness (L-A, no new library) | 0.04 | 0.7 | L-A |
-| 3 | **cycle-q2 — M\*: non-fibrewise rational primitive, decided by the twisted Gauss–Manin computation** | the remaining equation is precisely stated (`[σ] = 0` in `H²_dR(B°, V_{ω²})`, rank 12) and every other mechanism is excluded by exact computation; a rational current gives an explicit `q = 2` certificate through fqlx's adapter (L-A); the cost is one two-variable D-module computation, outside the library but well within Singular/sympy | 0.04 | 0.6 | L-A |
-| 4 | **off-paired — descent through a reflection via a birational involution `φ` of the Fano `W = X/σ2`** | a proved new sufficient criterion and the richest uniruled geometry on the same block family (`Y_∓` Fano Weierstrass fibrations, `W` Fano of index 1); first steps are cheap (MW sections with denominators); but the required `φ` probably does not exist (expected birational rigidity of `W`; no polynomial MW section at 3 primes) | 0.03 | 0.5 | L-B |
-| 5 | **polarized-k3-remainder — Part B, the `A_mix` component on `W_{23,f}`** | the only route with a verified finite-field incidence seed and a Hensel lift; it delivers a reusable `HasCertificate` component (sixth-root sector of polarized-split sextics) but cannot close the instance, whose K3 part is an open GHC statement (F8) | 0.005 (instance) | — | L-C (partial) |
+| 1 | **four-plus-two-residual — core-side support via the exact 5-variable reduction** | the cheapest decisive tests in the programme (reduced solver, seconds per `D`, validated on two accepted core-only witnesses); an explicit design principle (adjoint/irregularity budget of `μ6`-covers of singular core surfaces in the `ζ6²` character, Zariski/Libgober-type superabundance); the sector is level 2 of abelian type (GHC predicts support, no `(4,0)`); payoff = explicit strict witness, no new library | 0.04 | 0.7 | L-A |
+| 2 | **cycle-q2 — M\*: non-fibrewise rational primitive, decided by the twisted Gauss–Manin computation** | the remaining equation is precisely stated (`[σ] = 0` in `H²_dR(B°, V_{ω²})`, rank 12 over `C(c1,c2)`), every other mechanism is excluded exactly, the frames (DiamondJM's second variation, the lens's `w2c_s3.py` Weierstrass data) exist; a rational current gives an explicit `q = 2` certificate through fqlx's pole-three adapter | 0.04 | 0.6 | L-A |
+| 3 | **off-paired — descent through a reflection via a birational involution `φ` of the Fano `W = X/σ2`** | the only route with a proved *new* sufficient criterion that needs no supported quotient of `X`, on the block family where the holdout cover works; the auxiliary geometry is uniruled (`W` Fano of index 1, `Y_∓` Fano elliptic fibrations); first steps are cheap; the required `φ` probably does not exist (expected birational rigidity; no polynomial MW section at three primes), which is why it is third despite being the best recipe-shaped route | 0.03 | 0.5 | L-B |
+| 4 | **one-reflection-skew — fqlx's twisted CM companion, now as a diagnostic (E5), plus R3's rank-17 formulation** | the only lane with a complete transport identity to an auxiliary variety, but the base cover trivialising the CM local system is of general type (§3.9 addendum), so the covering-curve theorem does not apply; E5 (period test) would close or revive fqlx's compact primitive problem; a positive answer would still need a smaller uniruled carrier for Lean | 0.02 | 0.7 | L-B only with a new carrier |
+| 5 | **polarized-k3-remainder — Part B, the `A_mix` component on `W_{23,f}`** | the only verified finite-field incidence seed in the programme; delivers a reusable `HasCertificate` component (sixth-root sector of polarized-split sextics) but cannot close the instance (K3 part = open GHC, F8) | 0.005 (instance) | — | L-C (partial) |
 
 Routes that would jump the table if an in-flight check comes back positive (each ≈ 2 %): diagonal-permutation J2/J2f
-(hidden/created second reflection on the `(01)`-pencil fibres → §4.6 descent, L-B; `construct-dp-j1j2` running,
+(hidden or created second reflection on the `(01)`-pencil fibres → §4.6 descent, L-B; `construct-dp-j1j2` running,
 `construct-dp-fibre` to resubmit), reflection-coupled M1 (non-coordinate fibre reflection, `construct-rcr-all` running),
-quadric-contact E5/E8 (lifted exchange on `T² = X0² − Y0²`; minutes of character bookkeeping, never done), cyclic-triple
-E5 (the Fano variety of lines `𝓕` of `W`; hours of Gröbner; payoff L-A only), short-power vertical families (job never ran).
+cyclic-triple E5 (the Fano variety of lines `𝓕` of `W`; hours of Gröbner; payoff L-A only), short-power vertical families
+(job never ran, minutes), quadric-contact E8 bookkeeping for lifted exchanges (minutes; expected negative because any
+automorphism of a cyclic cover `T^n = g(Z)` normalises the deck group and descends to `X` — a non-descending exchange needs
+a coordinate that mixes with `T`, as `y ↔ T` does in holdout, and `F_b` offers none).
 
-What would change the ranking: (a) a positive E4 for the skew lane makes it the first open lane with an existence
-theorem and a clear Lean path — it moves to "work it to a PR"; (b) a negative E4 (κ(B̄'') ≥ 0) plus a nonzero period in E5
-closes the companion route and demotes the lane below cycle-q2; (c) any positive hidden-reflection search (J2f, rcr-all)
-immediately outranks everything (the §4.6 architecture is formalized and the seed machinery exists); (d) `Frobenius` data
-showing `End(H³(T_H)^−_χ) ⊋ Q(ζ3)` for four-plus-two would raise its P(solve) to ≈ 0.1 by naming the Prym correspondence.
+What would change the ranking: (a) any positive hidden-reflection search (J2f, rcr-all) immediately outranks everything (the
+§4.6 architecture is formalized and the seed machinery exists); (b) Frobenius data showing `End(H³(T_H)^−_χ) ⊋ Q(ζ3)` for
+four-plus-two would raise its P(solve) to ≈ 0.1 by naming the Prym correspondence; (c) a rational current in cycle-q2's
+M\* turns that lane into a pure Kronecker-checking exercise; (d) an explicit non-automorphic birational involution of
+off-paired's `W` with uniruled `Z/⟨σ,r⟩` turns off-paired into a holdout-style PR.
 
-Lanes with no construction route worth a work order: dense-rational, eight-plane-configuration (both: every universal
-object has zero (2,0)-budget; only a non-linear created reflection could help and none is suggested by the geometry),
-klein-coupled-character and symmetric-sextic-residual (cone-type supports are the only character-compatible geometry; both
-need the Hodge-bundle computation of §3.7/§3.16 before any solve), rank-one-biquartic, quadratic-cubic-pullback,
-short-power-presentation (search-type candidates only), reflection-coupled-residual (Hodge-theoretic existence at the
-generic point of the one-reflection locus at best), cyclic-triple-residual (elliptic, not rational, geometry: L-A only).
+Lanes with no construction route worth a work order: dense-rational, eight-plane-configuration (every universal object has
+zero (2,0)-budget; only a non-linear created reflection could help and the geometry suggests none), klein-coupled-character
+and symmetric-sextic-residual (cone-type supports are the only character-compatible geometry; both need the Hodge-bundle
+computations of §3.7/§3.16 before any solve), rank-one-biquartic, quadratic-cubic-pullback, short-power-presentation
+(search-type candidates only), reflection-coupled-residual (Hodge-theoretic existence at the generic point of the
+one-reflection locus at best), cyclic-triple-residual (elliptic, not rational, geometry: L-A only).
 
 Skeptic's note on the book recipe. Of the sixteen lanes, a finite-field incidence seed can be *written down* today only for
-polarized-k3's companion `W_{23,f}` (verified) and, conditionally, for off-paired's `Z/⟨σ,r⟩` (if `φ` exists) and the skew
-lane's `B̄''` (if uniruled). Every other lane fails the recipe at **dominance** (the auxiliary surface/fourfold carrying the
-character has `κ ≥ 0`: cycle-q2's `S3`, cyclic-triple's elliptic sweeps, reflection-coupled's genus-one lifts, all honest
-quotients by F2/F3), not at seed-finding or lifting. That is why the two L-A routes (four-plus-two, cycle-q2) are ranked
-alongside the recipe-shaped ones: an explicit witness needs no auxiliary uniruled variety at all.
+polarized-k3's companion `W_{23,f}` (verified) and, conditionally, for off-paired's `Z/⟨σ,r⟩` (if `φ` exists). Every other lane
+fails the recipe at **dominance** (the auxiliary variety carrying the character has `κ ≥ 0`: cycle-q2's `S3`, cyclic-triple's
+elliptic sweeps, reflection-coupled's genus-one lifts, the skew lane's base cover, all honest quotients by F2/F3), not at
+seed-finding or lifting. That is why the two L-A routes rank first: an explicit witness needs no auxiliary uniruled variety.

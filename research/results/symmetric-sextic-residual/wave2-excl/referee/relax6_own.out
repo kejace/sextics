@@ -1,0 +1,5 @@
+630 nonzero bilinear polynomials of degree 12 built in 0s
+parity 0: rank J_12 = 2223 = CI; dim R_12 = 885 (CI 885)
+parity 1: rank J_12 = 2214 = CI; dim R_12 = 866 (CI 866)
+1684 nonzero quadrics in 35 unknowns (105s)
+wrote relax6_own_p1000000009.ms

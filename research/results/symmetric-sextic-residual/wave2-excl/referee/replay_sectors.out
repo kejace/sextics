@@ -1,0 +1,12 @@
+relax_sector_triv_d7_par0_p2147483647: rc=0 0.0s vars=7 replay pure powers 7/7 (stored 7/7) identical leading ideal=True n_lead=26
+relax_sector_triv_d7_par1_p2147483647: rc=0 0.0s vars=7 replay pure powers 7/7 (stored 7/7) identical leading ideal=True n_lead=26
+relax_sector_triv_d8_par0_p2147483647: rc=0 91.2s vars=18 replay pure powers 18/18 (stored 18/18) identical leading ideal=True n_lead=2281
+relax_sector_triv_d8_par1_p2147483647: rc=0 0.1s vars=13 replay pure powers 13/13 (stored 13/13) identical leading ideal=True n_lead=211
+relax_sector_sgnX_d7_par0_p2147483647: rc=0 0.0s vars=3 replay pure powers 3/3 (stored 3/3) identical leading ideal=True n_lead=7
+relax_sector_sgnX_d7_par1_p2147483647: rc=0 0.0s vars=1 replay pure powers 1/1 (stored 1/1) identical leading ideal=True n_lead=2
+relax_sector_sgnX_d8_par0_p2147483647: rc=0 0.0s vars=6 replay pure powers 6/6 (stored 6/6) identical leading ideal=True n_lead=22
+relax_sector_sgnX_d8_par1_p2147483647: rc=0 0.0s vars=4 replay pure powers 4/4 (stored 4/4) identical leading ideal=True n_lead=11
+relax_sector_sgnY_d7_par0_p2147483647: rc=0 0.0s vars=1 replay pure powers 1/1 (stored 1/1) identical leading ideal=True n_lead=2
+relax_sector_sgnY_d7_par1_p2147483647: rc=0 0.0s vars=3 replay pure powers 3/3 (stored 3/3) identical leading ideal=True n_lead=7
+relax_sector_sgnY_d8_par0_p2147483647: rc=0 0.0s vars=6 replay pure powers 6/6 (stored 6/6) identical leading ideal=True n_lead=22
+relax_sector_sgnY_d8_par1_p2147483647: rc=0 0.0s vars=4 replay pure powers 4/4 (stored 4/4) identical leading ideal=True n_lead=11

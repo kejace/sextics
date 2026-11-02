@@ -1,0 +1,6 @@
+farkas_D7.pkl: label=D7=DX*e2(X^2) chi=sgnX terms=12 equals own construction up to scalar: True
+farkas_D7Y.pkl: label=D7Y=DY*e2(Y^2) chi=sgnY terms=12 equals own construction up to scalar: True
+farkas_DXxDY.pkl: label=DX*DY chi=sgnsgn terms=36 equals own construction up to scalar: True
+farkas_EXF.pkl: label=EX(F) chi=triv terms=39 equals own construction up to scalar: True
+farkas_EYF.pkl: label=EY(F) chi=triv terms=39 equals own construction up to scalar: True
+farkas_EXFmEYF.pkl: label=EX(F)-EY(F) chi=triv terms=42 equals own construction up to scalar: True

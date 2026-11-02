@@ -1,0 +1,8 @@
+Y-odd polynomial char triv,triv  -> residue char sgn,sgn   : (R6,R12,R18) = (17, 52, 17)
+Y-odd polynomial char sgn,sgn    -> residue char triv,triv : (R6,R12,R18) = (1, 10, 1)
+Y-odd polynomial char sgn,triv   -> residue char triv,sgn  : (R6,R12,R18) = (5, 22, 5)
+Y-odd polynomial char triv,sgn   -> residue char sgn,triv  : (R6,R12,R18) = (5, 22, 5)
+Y-even polynomial char triv,triv  -> residue char sgn,sgn   : (R6,R12,R18) = (26, 67, 26)
+Y-even polynomial char sgn,sgn    -> residue char triv,triv : (R6,R12,R18) = (0, 6, 0)
+Y-even polynomial char sgn,triv   -> residue char triv,sgn  : (R6,R12,R18) = (4, 18, 4)
+Y-even polynomial char triv,sgn   -> residue char sgn,triv  : (R6,R12,R18) = (4, 18, 4)

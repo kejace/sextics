@@ -1,0 +1,10 @@
+== test_d5_p0: ring r = 2147483647, (a1,a2,a3), dp;
+dim(std(I)) = 0 vdim = 4 time(s) = 0 
+== test_d5_p1: ring r = 2147483647, (a1,a2,a3), dp;
+dim(std(I)) = 0 vdim = 4 time(s) = 0 
+== relax_sector_triv_d7_par0_p2147483647: ring r = 2147483647, (a1,a2,a3,a4,a5,a6,a7), dp;
+dim(std(I)) = 0 vdim = 11 time(s) = 0 
+== relax_sector_triv_d8_par1_p2147483647: ring r = 2147483647, (a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13), dp;
+dim(std(I)) = 0 vdim = 112 time(s) = 0 
+== relax_sector_sgnX_d8_par1_p2147483647: ring r = 2147483647, (a1,a2,a3,a4), dp;
+dim(std(I)) = 0 vdim = 7 time(s) = 0 

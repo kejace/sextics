@@ -1,0 +1,16 @@
+p=1000000009: rank J_6^odd = 18 (CI 18), rank [J_6^odd | A] = 19 -> A notin J: True
+d=4 pD=0: rank J_10^1 = 747 (CI 747) OK; dimK=0 dimJ_d=0 (CI 0) ker_R=0  [3s]
+d=4 pD=1: rank J_10^0 = 750 (CI 750) OK; dimK=0 dimJ_d=0 (CI 0) ker_R=0  [3s]
+d=5 pD=0: rank J_11^1 = 1341 (CI 1341) OK; dimK=3 dimJ_d=3 (CI 3) ker_R=0  [12s]
+d=5 pD=1: rank J_11^0 = 1341 (CI 1341) OK; dimK=3 dimJ_d=3 (CI 3) ker_R=0  [11s]
+d=6 pD=0: rank J_12^1 = 2214 (CI 2214) OK; dimK=18 dimJ_d=18 (CI 18) ker_R=0  [37s]
+d=6 pD=1: rank J_12^0 = 2223 (CI 2223) OK; dimK=18 dimJ_d=18 (CI 18) ker_R=0  [37s]
+d=7 pD=0: rank J_13^1 = 3441 (CI 3441) OK; dimK=64 dimJ_d=63 (CI 63) ker_R=1  [93s]
+d=7 pD=1: rank J_13^0 = 3441 (CI 3441) OK; dimK=64 dimJ_d=63 (CI 63) ker_R=1  [89s]
+Koszul degree n=11 parity 0: rank d2 = 45, dim Z1 = 6-slot chains 1386 - rank J_n 1341 = 45 -> H_1 = 0: True (rank J_n CI 1341)
+Koszul degree n=11 parity 1: rank d2 = 45, dim Z1 = 6-slot chains 1386 - rank J_n 1341 = 45 -> H_1 = 0: True (rank J_n CI 1341)
+Koszul degree n=12 parity 0: rank d2 = 153, dim Z1 = 6-slot chains 2376 - rank J_n 2223 = 153 -> H_1 = 0: True (rank J_n CI 2223)
+Koszul degree n=12 parity 1: rank d2 = 162, dim Z1 = 6-slot chains 2376 - rank J_n 2214 = 162 -> H_1 = 0: True (rank J_n CI 2214)
+Koszul degree n=13 parity 0: rank d2 = 420, dim Z1 = 6-slot chains 3861 - rank J_n 3441 = 420 -> H_1 = 0: True (rank J_n CI 3441)
+Koszul degree n=13 parity 1: rank d2 = 420, dim Z1 = 6-slot chains 3861 - rank J_n 3441 = 420 -> H_1 = 0: True (rank J_n CI 3441)
+Koszul degree n=14 parity 0: rank d2 = 936, dim Z1 = 6-slot chains 6006 - rank J_n 5070 = 936 -> H_1 = 0: True (rank J_n CI 5070)

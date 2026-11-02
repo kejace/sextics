@@ -1,0 +1,3 @@
+D7=DX*e2(X^2): d=7 full-system columns checked=4497, violations=0, y.rhs=1605991464000 (1.7s)
+VERDICT: inconsistent over Q (certificate valid)
+nice -n 15 python3 wave2-excl/verify_farkas.py wave2-excl/farkas_D7.pkl  2.12s user 0.07s system 98% cpu 2.215 total

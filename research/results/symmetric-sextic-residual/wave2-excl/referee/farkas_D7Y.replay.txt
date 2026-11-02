@@ -1,0 +1,2 @@
+D7Y=DY*e2(Y^2): d=7 full-system columns checked=4497, violations=0, y.rhs=2593080 (1.6s)
+VERDICT: inconsistent over Q (certificate valid)

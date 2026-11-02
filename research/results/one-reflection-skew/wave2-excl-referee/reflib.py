@@ -19,7 +19,7 @@ def chi_neg(c):
 def mons(n, nv=NV):
     out = []
     for c in itertools.combinations_with_replacement(range(nv), n):
-        e = [0]*nv
+        e = [0]*NV
         for i in c: e[i] += 1
         out.append(tuple(e))
     return out
