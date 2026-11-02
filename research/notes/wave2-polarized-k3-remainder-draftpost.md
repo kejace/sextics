@@ -34,15 +34,26 @@ even when no factor does; to use "deg >= 8" for products one needs that no low-d
   Exact fixed-D: f(U)·U0 and f(U)·V0 fail for A_K3 (377/378).
 * Degree 8: the reducible family f(U)·h (h = U0², U0V0, V0²) lies in the K3 relaxation too (mod 65521), so the
   relaxation method cannot decide degree 8 for the K3 class either; f(U)·U0² fails exactly for both targets.
-* Degree 7: [pending].
+* Degree 7 (K3 class): open by relaxation methods (see above); the reducible family f(U)·ℓ and all tested structured members fail.
 Consequence, conditional on ρ(S_2) = 1 (via the dichotomy: End_Hdg(T) = Q makes Λ²T irreducible, so a support either
-carries no K3 (3,1)-class or all of them): no denominator whose divisor X ∩ V(D) has only components of degree <= 6·[7]
-can serve A; at degree 8 only irreducible supports remain. [adjust once degree 7 is done]
+carries no K3 (3,1)-class or all of them): no denominator whose divisor X ∩ V(D) has only components of degree <= 6 can serve A; at degree 8 only irreducible
+reduced supports remain, or supports of the form (irreducible degree-7 component carrying the K3 class) ∪ (hyperplane section).
+
+**2b. Block cones are excluded in every degree (Hodge-theoretic).** For D = g(U) (or g(V)), any plane curve g, the
+pullback of X ∩ V(D) under the book's Φ: S₆ × S₆ ⇢ X is the product divisor C_Γ × S₆ (plus the joining locus S₆ × C);
+as H¹(S₆) = 0, its Gysin image meets the K3 block only in (algebraic class)⊗V₂ ⊂ NS_prim ⊗ V₂, so it carries no Λ²T
+class. Hence no block cone serves A unless η ∈ NS_prim⊗C. This is exactly what the degree-8 relaxation restricted to
+character-0 octics leaves over: after square elimination only the 30 coefficients of cones g(U), g ∈ J(f)₈, survive
+(6 residual quadrics), so the relaxation itself could never have excluded them.
 
 **3. Screens (mod p only, no exclusion claimed).** For the K3-sector target the E1 kernel is NOT Jacobian from degree 8 on:
-[A_K3] has a 51 (Y-even) + 39 (Y-odd) dimensional kernel modulo J at degree 8 (η = [z0²z1²z2²] kills a 9-dimensional
-subspace K4 of R_{f,4}, so K4⊗K4 ⊂ R_4⊗R_4 is E1-admissible). The structured element Σ_k g_k(U)g_k(V) (exact K4 basis,
-character 4) and five further elements of K4⊗K4 all fail the full E2 system for A_K3 (μ6-restricted systems 13572×2430, rank 2206, mod 2^31−1). [random elements of the other character components / structured octic sweep for A pending compute].
+[A_K3] has a 90-dimensional kernel modulo J at degree 8, described completely in the (U,V) frame: K4⊗K4 (81 dimensions,
+V-degree 4; K4 = ker(η: R_{f,4} → R_{f,10}), η = [z0²z1²z2²], dim 9) plus the 9-dimensional block
+{ℓ(U)ℓ'(V)((U0U1U2)² + (V0V1V2)²)} (V-degree 1), the latter consisting of reducible supports (closed form verified: E1 holds for these, fails for the
+sign-flipped η(U)−η(V) control). Eight elements of K4⊗K4 (the pairing Σ_k g_k(U)g_k(V) over the exact K4 basis, an alternating pairing, a rank-2
+tensor, the rank-1 control, random symmetric tensors and random combinations) all fail the full E2 system for A_K3 (μ6-restricted systems 13572×2430, rank 2206, mod 2^31−1); a random element of the 9-dimensional character-1 block (reducible supports) fails as well. Random
+μ6-homogeneous members of J_7 and J_8 (one per character) fail exactly over Q for both targets. [structured octic/decic sweep for A
+pending remote compute].
 
 Credits: the degree bound, normalization and packet are `1337isnot1337`'s; the sector decomposition is the book's
 (Ch. 3A); the sum principle is the prescribed-support theorem (Ch. 1) plus additivity of Gysin images over components.

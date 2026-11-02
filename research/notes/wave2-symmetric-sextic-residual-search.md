@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 21:28 EST from 537 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 22:15 EST from 782 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -140,10 +140,12 @@ Per sector: admissible dimension `dimP` (= dimK − F-multiples), total restarts
 |---|---:|---:|---:|---|---:|---:|---:|---:|---:|---|---|
 | jac d=5 pD=0 | 3 | 3 (3+0) | 3 | 1491×105 | 12 | 5.81e-01 | 5.8e-01 | 0 | 0 | 0.581: 9, 0.592: 3 | local1 |
 | jac d=5 pD=1 | 3 | 3 (3+0) | 3 | 1491×105 | 12 | 6.03e-01 | 6.0e-01 | 0 | 0 | 0.603: 9, 0.656: 3 | local1 |
+| jac d=6 pD=0 | 18 | 18 (18+0) | 17 | 3080×388 | 680 | 1.80e-01 | 2.1e-01 | 0 | 0 | 0.18: 34, 0.187: 11, 0.191: 13, 0.192: 59, 0.2: 5 | jac1 |
 | triv d=7 pD=0 | 37 | 8 (8+0) | 7 | 1268×279 | 10 | 4.34e-04 | 4.3e-04 | 0 | 0 | 0.000434: 10 | local2 |
 | triv d=7 pD=1 | 37 | 8 (8+0) | 7 | 1268×279 | 12 | 1.54e-04 | 1.5e-04 | 0 | 0 | 0.000154: 12 | local2,local3 |
 | triv d=8 pD=0 | 64 | 22 (20+2) | 18 | 1858×421 | 60 | 6.39e-04 | 6.4e-04 | 0 | 0 | 0.000639: 18, 0.000641: 28, 0.0032: 8, 0.00328: 6 | vp1b |
 | triv d=8 pD=1 | 46 | 14 (14+0) | 13 | 1858×457 | 60 | 1.00e-04 | 1.0e-04 | 0 | 0 | 0.0001: 60 | vp1b |
+| triv d=9 pD=0 | 79 | 34 (33+1) | 29 | 2648×673 | 60 | 3.84e-05 | 3.8e-05 | 0 | 0 | 3.84e-05: 51, 5.76e-05: 7, 6.02e-05: 1, 0.00017: 1 | vp1b |
 | sgnX d=7 pD=0 | 12 | 3 (2+1) | 3 | 1268×279 | 12 | 1.57e-02 | 1.6e-02 | 0 | 0 | 0.0157: 9, 0.357: 3 | local1 |
 | sgnY d=7 pD=1 | 12 | 3 (2+1) | 3 | 1268×279 | 12 | 1.82e-02 | 6.1e-02 | 0 | 0 | 0.0182: 5, 0.0615: 7 | local1 |
 
@@ -153,22 +155,22 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=6 pD=0 | jac1 | 363 | 1.80e-01 | 2.1e-01 | 0 | 0 | 0.18: 21, 0.187: 7, 0.191: 7, 0.192: 29, 0.2: 2 |
-| triv d=9 pD=0 | vp1b | 22 | 3.84e-05 | 3.8e-05 | 0 | 0 | 3.84e-05: 18, 5.76e-05: 3, 0.00017: 1 |
-| triv d=10 pD=0 | vp2b | 7 | 2.07e-06 | 9.6e-06 | 0 | 0 | 2.07e-06: 3, 9.6e-06: 1, 1.17e-05: 2, 4.43e-05: 1 |
+| jac d=6 pD=1 | jac1 | 36 | 2.62e-01 | 3.5e-01 | 0 | 0 | 0.262: 1, 0.319: 8, 0.331: 1, 0.34: 4, 0.347: 6 |
+| triv d=9 pD=1 | vp1b | 11 | 1.63e-05 | 1.6e-05 | 0 | 0 | 1.63e-05: 10, 7.12e-05: 1 |
+| triv d=10 pD=0 | vp2b | 20 | 2.07e-06 | 9.6e-06 | 0 | 0 | 2.07e-06: 8, 2.94e-06: 2, 9.6e-06: 1, 1.17e-05: 7, 1.72e-05: 1 |
 
 ## 8. Single-denominator exact solves (character-reduced systems mod p, CRT lift on consistency)
 
 | family | E1 pass & consistent | E1 pass & inconsistent | E1 fails | errors |
 |---|---:|---:|---:|---:|
-| kernel-class | 0 | 194 | 0 | 0 |
-| kernel-random-combo | 0 | 27 | 0 | 0 |
-| structured-single | 0 | 8 | 5 | 0 |
+| kernel-class | 0 | 358 | 0 | 0 |
+| kernel-random-combo | 0 | 90 | 0 | 0 |
+| structured-single | 0 | 19 | 9 | 0 |
 
-Structured candidates: `DX^2*DY^2` d=12 triv: E1 fails; `EXF*EYF` d=12 triv: inconsistent (rank 1729, null 315, 6713×2044); `HXX` d=12 triv: E1 fails; `HXX+HYY` d=12 triv: E1 fails; `HXX-HYY` d=12 triv: E1 fails; `HYY` d=12 triv: E1 fails; `EXF*D7Y` d=13 sgnY: inconsistent (rank 2010, null 899, 8834×2909); `EYF*D7` d=13 sgnX: inconsistent (rank 2010, null 899, 8834×2909); `D7*D7Y` d=14 sgnsgn: inconsistent (rank 2415, null 1627, 11459×4042); `D7*T8` d=15 triv: inconsistent (rank 4434, null 944, 14672×5378); `D7*T8Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*D7Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*T8Y` d=16 sgnsgn: inconsistent (rank 4691, null 2376, 18564×7067)
+Structured candidates: `HXY` d=-1 sgnsgn: inconsistent (rank None, null None, None×None); `D7` d=7 sgnX: inconsistent (rank 136, null 143, 1268×279); `D7Y` d=7 sgnY: inconsistent (rank 136, null 143, 1268×279); `D7*e1X` d=8 sgnX: inconsistent (rank 238, null 183, 1858×421); `D7*e1Y` d=8 sgnX: inconsistent (rank 247, null 210, 1858×457); `T8=DX*(e2e3-7e1^3e2+4e1^5)` d=8 sgnX: inconsistent (rank 238, null 183, 1858×421); `T8Y` d=8 sgnY: inconsistent (rank 238, null 183, 1858×421); `e2sqX*e2sqY` d=8 triv: E1 fails; `D7*QX` d=9 sgnX: inconsistent (rank 390, null 283, 2648×673); `D7*QY` d=9 sgnX: inconsistent (rank 390, null 283, 2648×673); `e2sqX*quintY` d=9 triv: E1 fails; `quintX*e2sqY` d=9 triv: E1 fails; `D7*DX` d=10 triv: inconsistent (rank 816, null 160, 3683×976); `D7*DY` d=10 sgnsgn: inconsistent (rank 456, null 574, 3683×1030); `D7Y*DX` d=10 sgnsgn: inconsistent (rank 456, null 574, 3683×1030); `quintX*quintY` d=10 triv: E1 fails; `DX^2*DY^2` d=12 triv: E1 fails; `EXF*EYF` d=12 triv: inconsistent (rank 1729, null 315, 6713×2044); `HXX` d=12 triv: E1 fails; `HXX+HYY` d=12 triv: E1 fails; `HXX-HYY` d=12 triv: E1 fails; `HYY` d=12 triv: E1 fails; `EXF*D7Y` d=13 sgnY: inconsistent (rank 2010, null 899, 8834×2909); `EYF*D7` d=13 sgnX: inconsistent (rank 2010, null 899, 8834×2909); `D7*D7Y` d=14 sgnsgn: inconsistent (rank 2415, null 1627, 11459×4042); `D7*T8` d=15 triv: inconsistent (rank 4434, null 944, 14672×5378); `D7*T8Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*D7Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*T8Y` d=16 sgnsgn: inconsistent (rank 4691, null 2376, 18564×7067)
 
-Kernel classes / combos per sector (tested, consistent, errors): sgnX d=12 pD=0: 16/0/0; sgnX d=12 pD=1: 21/0/0; sgnY d=12 pD=0: 16/0/0; sgnY d=12 pD=1: 21/0/0; sgnsgn d=12 pD=0: 8/0/0; sgnsgn d=12 pD=1: 13/0/0; triv d=11 pD=0: 31/0/0; triv d=11 pD=1: 13/0/0; triv d=12 pD=0: 53/0/0; triv d=12 pD=1: 29/0/0
+Kernel classes / combos per sector (tested, consistent, errors): sgnX d=8 pD=1: 4/0/0; sgnX d=9 pD=0: 10/0/0; sgnX d=10 pD=0: 7/0/0; sgnX d=10 pD=1: 13/0/0; sgnX d=11 pD=0: 22/0/0; sgnX d=11 pD=1: 9/0/0; sgnX d=12 pD=0: 16/0/0; sgnX d=12 pD=1: 21/0/0; sgnY d=8 pD=1: 4/0/0; sgnY d=9 pD=1: 10/0/0; sgnY d=10 pD=0: 7/0/0; sgnY d=10 pD=1: 13/0/0; sgnY d=11 pD=0: 9/0/0; sgnY d=11 pD=1: 22/0/0; sgnY d=12 pD=0: 16/0/0; sgnY d=12 pD=1: 21/0/0; sgnsgn d=10 pD=1: 10/0/0; sgnsgn d=11 pD=0: 9/0/0; sgnsgn d=11 pD=1: 9/0/0; sgnsgn d=12 pD=0: 8/0/0; sgnsgn d=12 pD=1: 13/0/0; triv d=8 pD=0: 5/0/0; triv d=9 pD=0: 4/0/0; triv d=9 pD=1: 4/0/0; triv d=10 pD=0: 31/0/0; triv d=10 pD=1: 7/0/0; triv d=11 pD=0: 31/0/0; triv d=11 pD=1: 31/0/0; triv d=12 pD=0: 53/0/0; triv d=12 pD=1: 29/0/0
 
 ## 10. Batches logged per job
 
-`kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `single`: 234 records, 9.6 h, `vp1b`: 2 records, 0.3 h
+`jac1`: 1 records, 1.7 h, `kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `single`: 477 records, 14.7 h, `vp1b`: 3 records, 1.9 h

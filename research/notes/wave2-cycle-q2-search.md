@@ -111,4 +111,28 @@ Final job set:
   discarding any legal denominator (projecting the family onto a complement of L would).  At q = 2 F-multiples are not
   automatically consistent (D = F G needs [A][G] = 0 in R, i.e. E1 for G), and no such attractor was observed.
 
-Results: pending.
+### Results of the joint search so far (22:00; updated as jobs finish)
+
+Structured modular sweep (chain D3, two primes, sector solver `eq.test_D_fast`): 102/117 Hessian 2x2 minors tested at
+d = 8 (96 fail E1, 6 pass E1 and are inconsistent), 139/210 Hessian 3x3 minors at d = 12 (all pass E1, all inconsistent);
+subset-Euler forms, block cubics, F_i F_j and the pencil scans follow.
+
+| q | target | d | family | sectors | restarts | system (rows x unknowns) | best rel over all sectors | median of sector-best rel | candidates (rel < 1e-10) |
+|---|---|---:|---|---:|---:|---|---:|---:|---:|
+| 2 | A | 6 | kernel (all 48 nonempty sectors, K = 1..6) | 48 | 1920 | <= 492 x 304 | 7.5e-3 (key 777, K = 1: a fixed D, its least-squares defect) | 0.76 | 0 |
+| 2 | A | 6 | trivial sector D = sum a_i Z_i F_i (K = 6) | 1 | 40 + 2704 | 480 x 278 | 0.18 (median over 32 independent parts 0.24) | - | 0 |
+
+| 1 | B (sibling) | 8 | kernel, deflated (chain E3, running) | 51/72 so far | 150 per sector | <= 300 x 75 | 4.5e-7 (non-spurious) | 0.73 | 0 |
+
+Sibling note: with the deflated residual r/dist(a,L)^2, 20-40 % of the restarts in sectors containing F-multiples still
+end within 5 % of L (flagged spurious; e.g. sector 609: 51 of 150 restarts below 1e-10 are all spurious), and the best
+non-spurious values 4e-7..6e-7 (sectors 12, 609, 528) sit just outside the 5 % exclusion radius, consistent with the
+f ~ dist^4 funnel of the trivial solutions rather than with isolated certificates; no non-spurious restart reached 1e-10.
+
+Interpretation: rel = min_{c,Q} |E2 residual|^2 / |B_D(N0)|^2 on the unit sphere of the family.  Values of order 0.2-0.8
+mean that the best Koszul correction removes only 20-80 % of the obstruction norm; a true certificate gives rel ~ 1e-25
+(Fermat calibration).  The two-dimensional sectors (keys 486, 876, 1062, 96, 576, 936, 516, 822; K = 2) have minima
+0.18-0.51, the three-dimensional sector 597 has 0.54, the trivial six-dimensional sector 0.23: no degree-6
+semi-invariant denominator comes close, in agreement with the exact exclusions (Farkas certificates of the EXCLUSION agent,
+and the pencil scans of chain D3).
+

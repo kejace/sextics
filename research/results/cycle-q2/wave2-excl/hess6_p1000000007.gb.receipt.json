@@ -1,16 +1,15 @@
 {
  "exp": "groebner",
+ "gmode": 1,
  "file": "wave2-excl/hess6_p1000000007.ms",
  "nvars": 62,
  "npolys": 426,
  "prime": 1000000007,
- "msolve_rc": -15,
- "msolve_seconds": 852.5,
- "msolve_stderr_tail": "PUT DATA ---------------\n#variables                      62\n#equations                     426\n#invalid equations               0\nfield characteristic    1000000007\nhomogeneous input?               1\nsignature-based computation      0\nmonomial order                 DRL\nbasis hash table resetting     OFF\nlinear algebra option            2\ninitial hash table size     131072 (2^17)\nmax pair selection             ALL\nreduce gb                        1\n#threads                        16\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\n",
+ "msolve_rc": -9,
+ "msolve_seconds": 3342.3,
+ "msolve_stderr_tail": "PUT DATA ---------------\n#variables                      62\n#equations                     426\n#invalid equations               0\nfield characteristic    1000000007\nhomogeneous input?               1\nsignature-based computation      0\nmonomial order                 DRL\nbasis hash table resetting     OFF\nlinear algebra option            2\ninitial hash table size     131072 (2^17)\nmax pair selection             ALL\nreduce gb                        1\n#threads                        24\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\n",
  "msolve_stdout_tail": "",
  "verdict": "unknown",
- "singular_seconds": 893.2,
- "singular_out": "\nhalt 1\n",
- "seconds": 1745.7,
- "job": "excl-cycle-q2-hess6"
+ "seconds": 3342.3,
+ "job": "excl-cycle-q2-gb"
 }

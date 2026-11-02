@@ -2,8 +2,10 @@
 
 STATUS: no witness (in progress). New structural results on *where* a certificate for the residual
 (r,ρ) = (−,−) sector can come from; every published mechanism is shown to fail at a precise hypothesis;
-remote experiments (chain1: hidden-reflection search + Gauss–Manin rank; chain2: Fermat-pencil continuation +
-critical-point classification) are queued behind the saturated remote (load ≈ 1000–1300 on 128 cores, 60–100 jobs).
+the remote experiments are merged into one 6-cpu job `construct-rcr-all` (`construct/chain_all.sh`: Fermat-pencil
+continuation, critical-point classification, hidden-reflection search, Gauss–Manin rank), queued behind the saturated
+remote (load 600–1900 on 128 cores, 60–100 jobs, 250–330 cpus allocated against a 200-cpu gate) since 19:40 local;
+a retry loop resubmits every 75 s; results are pulled with `construct/finalize_pull.py`.
 
 Log (one JSON line per experiment): `/tmp/hodge/results/reflection-coupled-residual/wave2-construct.log.jsonl`
 Scripts/outputs: `/tmp/hodge/results/reflection-coupled-residual/construct/`
@@ -15,12 +17,12 @@ Conventions as in the dossier (`/tmp/hodge/notes/dossier-reflection-coupled-resi
 
 | # | mechanism (task item) | hypothesis needed | status for this `(F, A)` |
 |---|---|---|---|
-| M1 | §4.6 deck+exchange cover, `g = r`, `X/g = W` Fano | a cover `Z → X` with an involution `σ` **not** lifting an automorphism of `X`; coordinate pencils: fibre separately even in two *new* linear forms | **fails for all 6 coordinate pencils** (proved by inspection of the fibre equations, §2.1); non-coordinate fibre reflections: search queued (chain `construct-rcr-chain1`, Exp B) |
+| M1 | §4.6 deck+exchange cover, `g = r`, `X/g = W` Fano | a cover `Z → X` with an involution `σ` **not** lifting an automorphism of `X`; coordinate pencils: fibre separately even in two *new* linear forms | **fails for all 6 coordinate pencils** (proved by inspection of the fibre equations, §2.1); non-coordinate fibre reflections: search queued (job `construct-rcr-all`, Exp B) |
 | M2 | Galois closure of `X → P⁴_x` (item iii) | an intermediate quotient `Z̃/K` that is uniruled and has `(V ⊗ sgn_ρ)^K ≠ 0` | **fails**: Galois group is the full hyperoctahedral `B₃ × Z/2` [computed]; the target lives in the reflection representation `V ⊗ sgn_ρ`; the three maximal `K` reaching it give `X/τ` (κ = 0), a `(4,6)`-CI in `P(1⁶,2)` mod an involution with ≥ 9 invariant canonical forms, a degree-8 hypersurface in `P⁵` mod an involution with ≥ 9 invariant canonical forms; none uniruled (§2.2) |
 | M3 | Fano / surface-fibration companions of Klein quotients (item ii) | uniruled quotient, or fibration over a surface with `p_g = q = 0` fibres | **fails**: only `W = X/r` and `X/⟨r,ρ⟩` are Fano (target not invariant); `X/ρ`, `X/τ` have `K ≡ 0`; the natural surface fibrations of `X/τ` over `P²_Y`, `P²_X` have fibres of weighted degree 6 in `P(1,1,1,2)` with `p_g = 3` (§2.3) |
 | M4 | q-raising / Gauss–Manin from the companion (item iv) | a *family* `F + tC` on which the companion's certificate deforms, with `C` `r`-odd (to flip the character) | **fails**: `C` `r`-odd leaves the one-reflection locus, where nothing is supported; `C` `r`-even preserves the character (§2.4) |
 | M5 | twisted slices of the companion's curve family on `W` (item v) | a slice `S` of the rational-curve family on `W` whose hyperelliptic lift carries anti-invariant 2-forms, i.e. `H⁰(S, Ω¹_S ⊗ λ_hyp) ≠ 0`, with nonzero Gysin image | **the only mechanism on this variety that can produce `(−,−)` classes**; explicit integration is obstructed by `H³(S, R¹p_*L) ≠ 0` (positive-genus lifts) — exactly the period obstruction met in discussion #154; a finite-field incidence seed cannot be used because the lifted curves have genus `e − 1 ≥ 1` for every weighted degree `e ≥ 2`, and `e = 1` (weighted lines) gives `r`-invariant classes only (§3) |
-| M6 | Fermat-pencil continuation (item iv) | formal deformation of the degree-6 Fermat certificate along `F_c = Fermat + cP` | queued (chain `construct-rcr-chain2`, Exp C) |
+| M6 | Fermat-pencil continuation (item iv) | formal deformation of the degree-6 Fermat certificate along `F_c = Fermat + cP` | queued (job `construct-rcr-all`, Exp C) |
 | M8 | nonlinear polynomial Piola / finite Fano maps (§3.4; "`F = ΣQ_i³`", block maps) | `F = G(Φ)` with `Φ` polynomial of equal dimension; served sector = `det(dΦ)·B(Φ)` | **only `Φ = (x, Y2²)` exists** (density `2Y2`, the companion): `F` is not a polynomial in `(X, Y0², Y1², Y2²)` (the `Y0Y1` terms) nor in `(X, Y0Y1, q(Y0,Y1), Y2²)` for a single quadratic `q` (`Y0²Y2²` vs `2Y1²Y2²`, `Y0³Y1·X0X1` vs `Y0Y1³·X1X2` need three invariant quadrics), and `F` is not a sum of cubes of quadrics beyond the Fermat part |
 | M7 | pencil `(Y0:Y1)` and the variation `V₁₁` (new) | Abel–Jacobi/normal-function supports would need a level-one sub-variation `V' ⊂ V₁₁` | the residual sector **is** `H¹(P¹, j_*V₁₁)`, `V₁₁` of rank 186 with Hodge numbers `(3,90,90,3)` [computed]; **`V₁₁` has no level-one sub-variation** (vanishing-cycle argument, §4) ⇒ supports must be horizontal divisors carrying `(−,−)` `(2,0)`-forms, consistent with M5 and excluding the "irregular surfaces in the fibres" route |
 
@@ -195,17 +197,17 @@ the loophole `E^⊥ ≠ 0`.)
 
 * **E (local, done)**: Galois group / irreducibility checks of §1; `p_g` counts of §2.2.
 * **D (local, done)**: character-wise Hodge numbers of the pencil fibre (§4 table).
-* **B (chain `construct-rcr-chain1`, queued)**: all reflections of `X` and of generic fibres of the six
+* **B (job `construct-rcr-all`, queued)**: all reflections of `X` and of generic fibres of the six
   coordinate pencils over `F_p`, `p = 2³¹ − 1`, via the 0-dimensional system
   `{λ_i = ∂_iΦ(v); D_vΦ, D_v³Φ vanish on ker(Σλ_iz_i)}` in three charts (solved with msolve; decoder
   verifies each solution exactly and maps eigenvectors back). Control: Fermat in 5 variables must give
   `5 + 10·6 = 65` reflections (local toy in 4 variables gave the expected 40 genuine solutions).
-* **C (chain `construct-rcr-chain2`, queued)**: formal continuation of the strict Fermat certificate
+* **C (job `construct-rcr-all`, queued)**: formal continuation of the strict Fermat certificate
   `D₀ = X0⁶+X1⁶+X2⁶`, `N₀ = A·X_i/6` along `F_c`, degree 6, Klein `(+,+)` sector, orders 1–5 mod `2³¹−1`
   (also the `Y`-block base `D₀ = Y0⁶+Y1⁶+Y2⁶`).
-* **G (chain 1, after B)**: `gm_rank.py` — Griffiths–Dwork over `F_p[ε]/ε^71`, `p = 2²⁶ − 5`, rank of the `∇`-span of the
+* **G (same job, after B)**: `gm_rank.py` — Griffiths–Dwork over `F_p[ε]/ε^71`, `p = 2²⁶ − 5`, rank of the `∇`-span of the
   `(3,0)`-forms in `V₁₁` (predicted 186 by §4; any smaller value would exhibit a sub-variation unseen by the nodal fibres).
-* **F (chain 2, after C)**: `critpts.py` — the 3750 critical points of `Y0/Y1` on `X` (msolve), classified by Klein type.
+* **F (same job, after C)**: `critpts.py` — the 3750 critical points of `Y0/Y1` on `X` (msolve), classified by Klein type.
 
 ## 6b. Cross-references to the sibling lenses (same lane, same session)
 * exclusion lens (`wave2-reflection-coupled-residual-excl.md`): rigorous `deg D ≥ 7` for every denominator (E1 in

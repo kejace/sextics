@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hess_quadrics] d=7 pD=0 nW=63 pairs=2016 dim R_2d^-=744 rank(quadrics)=483 (191.9s)
+d=7 par 0 rank 483 dimR 744
+[hess_quadrics] d=7 pD=1 nW=63 pairs=2016 dim R_2d^-=744 rank(quadrics)=483 (295.1s)
+d=7 par 1 rank 483 dimR 744

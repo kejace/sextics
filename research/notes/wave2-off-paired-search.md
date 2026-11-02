@@ -50,6 +50,8 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
 
 | job | step | d | sector | grp | family | dimP | restarts | best relres | median | hits<1e-9 | distinct minima | s/restart | status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| hess-d10-c00 | hess | 10 | [0, 0] | G | ? | 66 | 186 | 8.446e-02 | 2.23e-01 | 0 | 71 | 8.6 | yes |
+| hess-d10-c30 | varpro | 10 | [3, 0] | G | ? | ? | 181 | 9.810e-02 | 4.44e-01 | 0 | 45 | 8.6 | partial |
 | fe6 | varpro | 6 | [0, 0] | G | colon | 6 | 60 | 6.229e-02 | 1.77e-01 | 0 | 8 | 4.6 | yes |
 | fe7 | varpro | 7 | [0, 0] | G | colon | 14 | 60 | 5.137e-02 | 1.04e-01 | 0 | 15 | 30.5 | yes |
 | t01d7 | varpro | 7 | [0, 0] | G | colon | 14 | 60 | 1.457e-02 | 9.83e-02 | 0 | 19 | 7.0 | yes |
@@ -65,16 +67,20 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
 | hess-d8-c20 | hess | 8 | [2, 0] | G | ? | 18 | 400 | 2.135e-01 | 2.67e-01 | 0 | 24 | 0.4 | yes |
 | d8h0b-c30 | varpro | 8 | [3, 0] | G | colon | 28 | 300 | 2.053e-02 | 8.10e-02 | 0 | 70 | 19.3 | yes |
 | hess-d8-c30 | hess | 8 | [3, 0] | G | ? | 21 | 400 | 2.115e-01 | 3.33e-01 | 0 | 45 | 0.5 | yes |
-| d8h0b-c40 | varpro | 8 | [4, 0] | G | colon | ? | 91 | 2.447e-02 | 6.64e-02 | 0 | 37 | 50.6 | partial |
+| d8h0b-c40 | varpro | 8 | [4, 0] | G | colon | 24 | 151 | 2.447e-02 | 6.64e-02 | 0 | 52 | 54.3 | yes |
 | hess-d8-c40 | hess | 8 | [4, 0] | G | ? | 18 | 400 | 1.778e-01 | 3.58e-01 | 0 | 49 | 0.7 | yes |
+| d8h0b-c50 | varpro | 8 | [5, 0] | G | colon | ? | 114 | 2.739e-02 | 9.31e-02 | 0 | 33 | 60.2 | partial |
 | hess-d8-c50 | hess | 8 | [5, 0] | G | ? | 16 | 400 | 2.311e-01 | 8.50e-01 | 0 | 39 | 0.3 | yes |
 | d9h0-c00 | varpro | 9 | [0, 0] | G | colon | 50 | 165 | 3.891e-03 | 3.93e-03 | 0 | 42 | 74.9 | yes |
 | hess-d9-c00 | hess | 9 | [0, 0] | G | ? | 37 | 400 | 1.505e-01 | 2.44e-01 | 0 | 44 | 2.2 | yes |
+| d9h0-c10 | varpro | 9 | [1, 0] | G | colon | ? | 105 | 6.851e-03 | 2.87e-02 | 0 | 39 | 94.0 | partial |
+| hess-d9-c10 | hess | 9 | [1, 0] | G | ? | 32 | 400 | 1.002e-01 | 8.33e-01 | 0 | 41 | 2.1 | yes |
 | hess-d9-c20 | hess | 9 | [2, 0] | G | ? | 32 | 400 | 1.933e-01 | 7.88e-01 | 0 | 55 | 1.9 | yes |
 | hess-d9-c30 | hess | 9 | [3, 0] | G | ? | 37 | 400 | 1.792e-01 | 2.98e-01 | 0 | 77 | 2.2 | yes |
-| hess-d9-c40 | varpro | 9 | [4, 0] | G | ? | ? | 315 | 1.700e-01 | 3.41e-01 | 0 | 52 | 3.5 | partial |
+| hess-d9-c40 | hess | 9 | [4, 0] | G | ? | 35 | 400 | 1.700e-01 | 3.41e-01 | 0 | 56 | 3.2 | yes |
+| hess-d9-c50 | hess | 9 | [5, 0] | G | ? | 35 | 400 | 1.656e-01 | 5.12e-01 | 0 | 52 | 2.2 | yes |
 
-Total restarts 5472 over 23 jobs; numerical hits (relres < 1e-9): 0.
+Total restarts 7003 over 29 jobs; numerical hits (relres < 1e-9): 0.
 
 Reading the table: 'best relres' = min over restarts of ||residual||/||A D^2|| for the complete fixed-D system (six numerators of
 degree d+1 and Q of degree 2d-6, character-restricted) at the LM endpoint; a certificate gives ~1e-13 (Fermat controls: 3e-14).
@@ -144,6 +150,11 @@ monomial alone the target direction X0^3 Y0^3 (and X0^3 Y1^3) survives and all s
 all orders: on Fermat + X0^2X1X2Y0Y2/3 the (0,0) colon space at d = 6 has dimension 7 (vs 19 on the Fermat) and 60 LM restarts on
 its 6-dimensional gauge-free sphere find no certificate (best relres 6.2e-2; job fe6). The extra term alone already destroys the
 degree-6 cone certificates, at second or higher order; at d = 7 (K = 15, dimP = 14) 60 restarts also find nothing (best 5.1e-2, job fe7).
+
+Exact served-space tracking along F_t (job servedt): for f6, g6, f6*X0^2, f6*X2Y2, g6*X0^2 the nontrivially served (3,0)-classes drop
+from 12 at t = 0 to 0 at t = 1/1000 (and 1/100, 1/10, 1/2, 1); for f6+g6 (the gauge at t = 0) from 22 to 0. Numerical path tracking
+of f6*X0^2 at d = 8 (job hom8) lifts off at the first step (relres 1.2e-3 at t = 0.025). Multi-start tracking of random t = 0 solutions
+at d = 8, 9, 10 (hom8m/hom9m/hom10m) is running.
 
 ## 9. Structural remarks
 

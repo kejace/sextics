@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-01 21:22:16.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-01 22:12:17.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -93,13 +93,16 @@ Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-typ
 | tag | d | parity | family dim K | n_c | rows_red | restarts | best rel | median rel | #rel<1e-3 | #rel<1e-6 | #rel<1e-8 | generic rank/nullity of T_D | time s |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | d7k_a | 7 | even | 3 | 420 | 5160 | 40 | 2.268e-02 | 7.835e-02 | 0 | 0 | 0 | 360/60 | 361 |
+| d7o_a | 7 | odd | 63 | 420 | 5160 | 16 | 1.440e-02 | 4.123e-02 | 0 | 0 | 0 | 360/60 | 2082 |
 
-Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02
+Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02; d=7 odd (K=63): 16 restarts, best rel 1.440e-02
 
 ### Residual landscape (per-restart files)
-* `d7e_b0`: n=37, min 6.311e-03, 10% 1.563e-02, median 3.485e-02, 90% 5.373e-02, max 1.228e-01
+* `d7e_b0`: n=53, min 6.287e-03, 10% 1.563e-02, median 3.531e-02, 90% 5.306e-02, max 1.228e-01
 * `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
-* `d8k_a`: n=8, min 6.222e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
+* `d7o_a`: n=16, min 1.440e-02, 10% 1.822e-02, median 4.123e-02, 90% 7.103e-02, max 8.815e-02
+* `d8e_b0`: n=3, min 3.038e-03, 10% 3.038e-03, median 4.052e-03, 90% 5.693e-03, max 5.693e-03
+* `d8k_a`: n=20, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
 
 ## 4. Structured families vs the E1-admissible space (exact mod p)
 dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not already in J_d.
@@ -472,11 +475,29 @@ dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not alread
 | 9 | odd | vars[X2Y0Y1] | 30 | 0 |  |  |
 | 9 | odd | vars[X2Y0Y2] | 30 | 0 |  |  |
 | 9 | odd | vars[X2Y1Y2] | 30 | 0 |  |  |
+| 10 | even | Ybase P(X)M^a g^b | 183 | 136 | 121 | 15 |
+| 10 | even | Xbase Q(Y)L^a f^b | 183 | 121 | 121 | 0 |
+| 10 | even | vars[X0X1X2Y0Y2] | 511 | 101 | 101 | 0 |
+| 10 | even | vars[X0X1Y0Y1Y2] | 511 | 98 | 95 | 3 |
+| 10 | even | vars[X0X2Y0Y1Y2] | 511 | 98 | 95 | 3 |
+| 10 | even | vars[X1X2Y0Y1Y2] | 511 | 98 | 95 | 3 |
+| 10 | even | vars[X0X1X2Y0Y1] | 511 | 95 | 95 | 0 |
+| 10 | even | vars[X0X1X2Y1Y2] | 511 | 95 | 95 | 0 |
+| 10 | even | bideg(2,8) | 270 | 90 | 90 | 0 |
+| 10 | even | bideg(8,2) | 270 | 90 | 90 | 0 |
 | 10 | even | vars[X0X1X2Y0] | 161 | 53 | 53 | 0 |
 | 10 | even | vars[X0X1X2Y1] | 161 | 53 | 53 | 0 |
 | 10 | even | vars[X0X1X2Y2] | 161 | 53 | 53 | 0 |
+| 10 | even | vars[X0Y0Y1Y2] | 161 | 53 | 53 | 0 |
+| 10 | even | vars[X1Y0Y1Y2] | 161 | 53 | 53 | 0 |
+| 10 | even | vars[X2Y0Y1Y2] | 161 | 53 | 53 | 0 |
+| 10 | even | bideg(4,6) | 420 | 45 | 45 | 0 |
+| 10 | even | bideg(6,4) | 420 | 45 | 45 | 0 |
+| 10 | even | bideg(0,10) | 66 | 35 | 35 | 0 |
+| 10 | even | bideg(10,0) | 66 | 35 | 35 | 0 |
 | 10 | even | vars[X0X1X2] | 66 | 35 | 35 | 0 |
 | 10 | even | vars[Y0Y1Y2] | 66 | 35 | 35 | 0 |
+| 10 | even | monomials(f,g,L,M) | 12 | 6 | 6 | 0 |
 | 10 | even | vars[X0X1Y0Y1] | 146 | 0 |  |  |
 | 10 | even | vars[X0X1Y0Y2] | 146 | 0 |  |  |
 | 10 | even | vars[X0X1Y0] | 36 | 0 |  |  |
@@ -484,13 +505,18 @@ dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not alread
 | 10 | even | vars[X0X1Y1] | 36 | 0 |  |  |
 | 10 | even | vars[X0X1Y2] | 36 | 0 |  |  |
 | 10 | even | vars[X0X2Y0Y1] | 146 | 0 |  |  |
+| 10 | even | vars[X0X2Y0Y2] | 146 | 0 |  |  |
 | 10 | even | vars[X0X2Y0] | 36 | 0 |  |  |
+| 10 | even | vars[X0X2Y1Y2] | 146 | 0 |  |  |
 | 10 | even | vars[X0X2Y1] | 36 | 0 |  |  |
 | 10 | even | vars[X0X2Y2] | 36 | 0 |  |  |
 | 10 | even | vars[X0Y0Y1] | 36 | 0 |  |  |
 | 10 | even | vars[X0Y0Y2] | 36 | 0 |  |  |
 | 10 | even | vars[X0Y1Y2] | 36 | 0 |  |  |
+| 10 | even | vars[X1X2Y0Y1] | 146 | 0 |  |  |
+| 10 | even | vars[X1X2Y0Y2] | 146 | 0 |  |  |
 | 10 | even | vars[X1X2Y0] | 36 | 0 |  |  |
+| 10 | even | vars[X1X2Y1Y2] | 146 | 0 |  |  |
 | 10 | even | vars[X1X2Y1] | 36 | 0 |  |  |
 | 10 | even | vars[X1X2Y2] | 36 | 0 |  |  |
 | 10 | even | vars[X1Y0Y1] | 36 | 0 |  |  |
@@ -499,6 +525,50 @@ dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not alread
 | 10 | even | vars[X2Y0Y1] | 36 | 0 |  |  |
 | 10 | even | vars[X2Y0Y2] | 36 | 0 |  |  |
 | 10 | even | vars[X2Y1Y2] | 36 | 0 |  |  |
+| 10 | odd | vars[X0X1X2Y0Y2] | 490 | 86 | 86 | 0 |
+| 10 | odd | vars[X0X1Y0Y1Y2] | 490 | 83 | 80 | 3 |
+| 10 | odd | vars[X0X2Y0Y1Y2] | 490 | 83 | 80 | 3 |
+| 10 | odd | vars[X1X2Y0Y1Y2] | 490 | 83 | 80 | 3 |
+| 10 | odd | bideg(3,7) | 360 | 80 | 80 | 0 |
+| 10 | odd | bideg(7,3) | 360 | 80 | 80 | 0 |
+| 10 | odd | vars[X0X1X2Y0Y1] | 490 | 80 | 80 | 0 |
+| 10 | odd | vars[X0X1X2Y1Y2] | 490 | 80 | 80 | 0 |
+| 10 | odd | bideg(1,9) | 165 | 72 | 72 | 0 |
+| 10 | odd | bideg(9,1) | 165 | 72 | 72 | 0 |
+| 10 | odd | vars[X0X1X2Y0] | 125 | 32 | 32 | 0 |
+| 10 | odd | vars[X0X1X2Y1] | 125 | 32 | 32 | 0 |
+| 10 | odd | vars[X0X1X2Y2] | 125 | 32 | 32 | 0 |
+| 10 | odd | vars[X0Y0Y1Y2] | 125 | 32 | 32 | 0 |
+| 10 | odd | vars[X1Y0Y1Y2] | 125 | 32 | 32 | 0 |
+| 10 | odd | vars[X2Y0Y1Y2] | 125 | 32 | 32 | 0 |
+| 10 | odd | bideg(5,5) | 441 | 15 | 0 | 15 |
+| 10 | odd | vars[X0X1Y0Y1] | 140 | 0 |  |  |
+| 10 | odd | vars[X0X1Y0Y2] | 140 | 0 |  |  |
+| 10 | odd | vars[X0X1Y0] | 30 | 0 |  |  |
+| 10 | odd | vars[X0X1Y1Y2] | 140 | 0 |  |  |
+| 10 | odd | vars[X0X1Y1] | 30 | 0 |  |  |
+| 10 | odd | vars[X0X1Y2] | 30 | 0 |  |  |
+| 10 | odd | vars[X0X2Y0Y1] | 140 | 0 |  |  |
+| 10 | odd | vars[X0X2Y0Y2] | 140 | 0 |  |  |
+| 10 | odd | vars[X0X2Y0] | 30 | 0 |  |  |
+| 10 | odd | vars[X0X2Y1Y2] | 140 | 0 |  |  |
+| 10 | odd | vars[X0X2Y1] | 30 | 0 |  |  |
+| 10 | odd | vars[X0X2Y2] | 30 | 0 |  |  |
+| 10 | odd | vars[X0Y0Y1] | 30 | 0 |  |  |
+| 10 | odd | vars[X0Y0Y2] | 30 | 0 |  |  |
+| 10 | odd | vars[X0Y1Y2] | 30 | 0 |  |  |
+| 10 | odd | vars[X1X2Y0Y1] | 140 | 0 |  |  |
+| 10 | odd | vars[X1X2Y0Y2] | 140 | 0 |  |  |
+| 10 | odd | vars[X1X2Y0] | 30 | 0 |  |  |
+| 10 | odd | vars[X1X2Y1Y2] | 140 | 0 |  |  |
+| 10 | odd | vars[X1X2Y1] | 30 | 0 |  |  |
+| 10 | odd | vars[X1X2Y2] | 30 | 0 |  |  |
+| 10 | odd | vars[X1Y0Y1] | 30 | 0 |  |  |
+| 10 | odd | vars[X1Y0Y2] | 30 | 0 |  |  |
+| 10 | odd | vars[X1Y1Y2] | 30 | 0 |  |  |
+| 10 | odd | vars[X2Y0Y1] | 30 | 0 |  |  |
+| 10 | odd | vars[X2Y0Y2] | 30 | 0 |  |  |
+| 10 | odd | vars[X2Y1Y2] | 30 | 0 |  |  |
 
 (0 three-variable cone families with zero intersection omitted from the table.)
 
@@ -518,6 +588,13 @@ dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not alread
 | e1kernel_d8_p0.json#6 | 8 | 0 | True | False | 2273 | 172 | 10152x2445 | 174.1 |
 | e1kernel_d8_p0.json#7 | 8 | 0 | True | False | 2273 | 172 | 10152x2445 | 122.9 |
 | e1kernel_d8_p0.json#8 | 8 | 0 | True | False | 2273 | 172 | 10152x2445 | 151.0 |
+| e1kernel_d8_p1.json#0 | 8 | 1 | True | False | 2271 | 156 | 10152x2427 | 168.0 |
+| e1kernel_d8_p1.json#1 | 8 | 1 | True | False | 2264 | 163 | 10152x2427 | 176.4 |
+| e1kernel_d8_p1.json#2 | 8 | 1 | True | False | 2264 | 163 | 10152x2427 | 171.7 |
+| e1kernel_d8_p1.json#3 | 8 | 1 | True | False | 2271 | 156 | 10152x2427 | 183.2 |
+| e1kernel_d8_p1.json#6 | 8 | 1 | True | False | 2271 | 156 | 10152x2427 | 194.6 |
+| e1kernel_d8_p1.json#7 | 8 | 1 | True | False | 2264 | 163 | 10152x2427 | 177.4 |
+| e1kernel_d8_p1.json#8 | 8 | 1 | True | False | 2264 | 163 | 10152x2427 | 158.7 |
 
 ## 5. Candidates with residual < 1e-8 and exact confirmation attempts
 None so far: no restart reached rel < 1e-8 on this instance (see landscape above).
@@ -527,7 +604,7 @@ None so far: no restart reached rel < 1e-8 on this instance (see landscape above
 * planted witness search (solved instance coupled-pair-rational-d4-strict, d=4, K=5): 9/12 random restarts converged to rel<4e-11; rational reconstruction gave D = X0^4 - X0^2 Y0^2 + Y0^4; exact fixed-D solve + verify_witness succeeded (strict, Q=0). End-to-end pipeline (search -> reconstruct -> exact confirm) validated; 3/12 restarts stuck at a local minimum rel=0.35
 
 ## 7. Jobs
-* `chainA.log`: chainA start Mon Nov  2 00:47:55 UTC 2026 / relax 5,6 done Mon Nov  2 00:48:43 UTC 2026 / e1spaces 4-10 done Mon Nov  2 01:58:14 UTC 2026 / relax 5-7 done Mon Nov  2 02:02:24 UTC 2026 / d5,d6 searches done Mon Nov  2 02:02:27 UTC 2026
+* `chainA.log`: chainA start Mon Nov  2 00:47:55 UTC 2026 / relax 5,6 done Mon Nov  2 00:48:43 UTC 2026 / e1spaces 4-10 done Mon Nov  2 01:58:14 UTC 2026 / relax 5-7 done Mon Nov  2 02:02:24 UTC 2026 / d5,d6 searches done Mon Nov  2 02:02:27 UTC 2026 / structured 6-10 done Mon Nov  2 02:32:57 UTC 2026
 * `chainB.log`: chainB start Mon Nov  2 00:47:54 UTC 2026
 * `chainC.log`: chainC start Mon Nov  2 00:47:55 UTC 2026
 * `chainD.log`: chainD start Mon Nov  2 00:47:58 UTC 2026
@@ -550,13 +627,23 @@ None so far: no restart reached rel < 1e-8 on this instance (see landscape above
   0.011-0.021 at |u| = 1 over all restarts of both local methods); the degree-7 landscape has a floor around
   2e-2 .. 1e-1 with no near-solutions.  (Early LM runs reported rel 2e-6, an artifact of the first metric: the
   optimizer inflated the spurious F-multiple component to |s| = 89; see the metric note in section 0.)
+* **Pure-kernel probes.**  The 3-dim degree-7 kernel (a projective plane) has no zero: 40 restarts, best absolute
+  residual 0.02.  The 9-dim degree-8 Y-even kernel: 18 L-BFGS restarts all converge to one minimum, absolute residual
+  0.121 -- no solution supported on the pure kernel directions at degree 8.  Degree-9 pure and mixed kernels: chain E.
 * **Degree 8, 9, 10** are the "prime candidate" degrees of the task statement (non-Jacobian kernel elements 9 / 27 /
   >= 294).  The relaxation can no longer exclude by rank or Groebner (468 quadrics in 177 unknowns at d=8 has
   regularity far beyond reach; at d=9 the relaxation is underdetermined, 208 equations in 405 unknowns).  Only the
   full normalized-E2 search applies there; under the current machine load (load average ~1000 on 128 cores) the
   throughput is ~10x below nominal, so the restart counts in section 3 are what could be done, not what was planned.
 * **Structured families** (block subrings, 3/4/5-variable cones, bidegree pieces, base-type P(X)M^a g^b and
-  Q(Y)L^a f^b, (f,g,L,M)-monomials, Hessian minors): see section 4 for the exact intersections with the admissible
-  space; anything that intersects outside J is tested exactly (section 4, e2exact rows).
+  Q(Y)L^a f^b, (f,g,L,M)-monomials, Hessian minors; section 4).  Through degree 9 every structured family meets the
+  admissible space only inside J_d, except the Y-base-type class P(X)M^a g^b (the packet's compact-Y class), which
+  contains the whole degree-7 kernel (3), the whole degree-8 kernel (9) and 12 of the 27 degree-9 kernel dimensions.
+  Hence the first E1-admissible denominators outside the packet's obstruction class are the 15 remaining degree-9
+  kernel directions, spanned by K_7 . (S_2(Y) mod M) = {P_7(X) + L M beta_3(X)} x {Y-quadrics not proportional to M}
+  modulo J + base type.  These are the target of the focused `kernel-mixed` searches (chain E).  At degree 10 new
+  structured admissible directions appear: a 15-dimensional space of Y-odd bihomogeneous (5,5) denominators entirely
+  outside J (pulled back from P^2 x P^2, i.e. still base type in the packet's sense), 3 new directions in each
+  5-variable cone ring C[X_a X_b Y0 Y1 Y2], and 15 Y-base-type directions; members are tested exactly (e2exact).
 * **No candidate** with residual below 1e-8 appeared on this instance; the only sub-1e-10 residuals of the whole
   run were the planted-witness validation on a solved instance.

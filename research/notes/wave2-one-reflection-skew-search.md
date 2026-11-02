@@ -1,18 +1,30 @@
 # Wave 2 — `one-reflection-skew` joint search (report rewritten after every batch)
 
-STATUS: NO WITNESS FOUND (so far). Searches are running on the remote under extreme contention (box load
-900–1300 from ~60 other jobs; capacity gate at load 150 never opened, so one 4-process chain was forced
-through and a second one followed; two more chains remain queued). Pipeline validated end-to-end on an accepted
-witness (family-hesse-web): exact 6→5 reduction, operator (rel 2.6e-15 at the known D), LM variable projection
-finds the known D from random starts (≈15–50 % of restarts at K = 32), snap-to-rational + exact confirm
-recovers exactly the accepted denominator and verifies the 6-variable lift (`core.verify_witness`).
+STATUS: NO WITNESS FOUND. State at hand-off (02:45 UTC): remote chains still running detached —
+`w2-chain1b` (d = 7 kernel search `ker-d7-r0s0`, K = 28, 32+ restarts, best rel 4.65e-2; then sectors (0,1),(1,0),(1,1)
+and d = 8), `w2-chain2` (d = 8–12 cone families, then the structured fixed-D sweep), `w2-chain3` (d = 9–12 kernel
+searches; `ker-d9-r0s0` K = 161, 128+ restarts, best rel 1.86e-3), `w2-kernels-exact` (exact bases d = 10–12).
+Refresh the tables any time with `python3 /tmp/hodge/results/one-reflection-skew/w2_fill_report.py` after
+`python3 -m hodge.rjob pull --lane one-reflection-skew` and `python3 w2_report.py --merge`; per-job status in
+`<job>.status.json`, per-restart records in `<job>.restarts.jsonl` (mirror `/tmp/hodge/remote/one-reflection-skew/`).
+Chains 4 and 5 (half-target A⁺, solved-neighbour control, correctly configured xtype calibration, deflated-LM
+diversity runs) are written (`chains/chain4.sh`, `chains/chain5.sh`) and queued behind the capacity gate.
 
-Summary of results so far (details below): (1) exact E1-admissible dimensions for all four (ρ,σ) sectors at
-d = 4..12 (table §1; non-Jacobian directions first appear at d = 7); (2) the Jacobian-type degrees d = 5, 6
-(6-variable denominators (w·∇f)² of degree 10/12) are excluded numerically in every sector (global minima of
-the variable-projection objective ≥ 6.5e-2 over tiny families, found 70–124 times out of 160 restarts);
-(3) degree-6/7 coordinate-cone families are empty or without zeros; (4) kernel-family searches at d = 7–12,
-structured candidates at d = 6–12, the half-target A⁺ and the solved-neighbour control are in progress.
+Pipeline validated end-to-end on an accepted witness (family-hesse-web): exact 6→5 reduction, operator
+(rel 2.6e-15 at the known D), LM variable projection finds the known D from random starts (0.15 per restart at
+K = 32, 400-restart calibration), snap-to-rational + exact confirm recovers exactly the accepted denominator and
+verifies the 6-variable lift (`core.verify_witness`).
+
+Results: (1) exact E1-admissible dimensions for all four (ρ,σ) sectors at d = 4..12 (§1; non-Jacobian directions
+first appear at d = 7: 7/1/0/1); exact rational kernel bases (CRT, heights up to 2^1137 at d = 9) because float
+kernels are unreliable here (near-kernel directions inherited from the undeformed sextic); (2) the Jacobian-type
+degrees d = 5, 6 (6-variable denominators (w·∇f)² of degree 10/12) are excluded numerically in every sector
+(global minima of the variable-projection objective ≥ 6.5e-2 over tiny families, found 70–124 times out of 160
+restarts); (3) coordinate-cone families at d = 6–8 are empty or have no zero (fully covered landscapes); (4) the
+d = 7 kernel family (K = 28) and the d = 9 kernel family (K = 161) show only ordinary local minima (4.7e-2 … 9.8e-2
+and 1.9e-3 … 1.7e-2) in the restarts completed so far; (5) the one-reflection companion pieces (h, f_c, variants)
+fail E1 exactly on the skew sextic; (6) a design flaw in the engine's varpro (`exclude_F_multiples` removes
+legitimate solutions) is recorded in `engine-bugs.md`. ≈ 2,200 skew-lane restarts logged so far.
 
 ## 0. Setting (exact reduction used throughout)
 
@@ -162,6 +174,12 @@ d = 10 ≈ 5 min; d = 12 ≈ 20 min (11594×2975). On the shared remote (load 90
 were 2–4× longer. Calibration hit rate at K = 32 (family-hesse-web needle): LM ≈ 15–50 % per restart,
 L-BFGS ≈ 5–10 % (final numbers in the table).
 
+Early observation at d = 7 (`ker-d7-r0s0`, K = 28, exact kernel basis, 4 processes, started 02:29 UTC): the
+first 9 LM restarts end at rel 4.7e-2 … 9.8e-2 with recurring attractors (6.12e-2 ×3, 5.85e-2 ×2, 9.84e-2 ×2) —
+the same picture as at d ≤ 6: a handful of local minima, nothing within ten orders of magnitude of a zero;
+≈ 90 s per restart under load, so the 2-hour cap will yield ≈ 300 restarts (≈ 20–40 independent descents per
+attractor; at the calibrated hit rate 0.15 a needle of comparable basin would be missed with probability < 1e-20).
+
 Early observation at d = 9 (`ker-d9-r0s0`, K = 161, 8 processes): the first 16 LM restarts end at rel
 1.9e-3 … 1.7e-2 with a recurring attractor at rel ≈ 2.4e-3 (6/16) — an order of magnitude below the best
 minima at d ≤ 8 (6.5e-2 … 0.6), as expected from the larger family, but still seven orders of magnitude
@@ -184,11 +202,12 @@ away from a zero; ~40 % of the restarts hit the 150-evaluation cap (≈ 2 min pe
 | jac-d6-r1s1 | one-reflection-skew | 6 | (1,1) | jacobian | A | 6 | ?×? | both | 160 | 3.09e-01 | 3.17e-01 | 0 / 0 / 0 | 212.8 s |
 | cone-X0X1Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X0,X1,Y0,Y1 | A | 6 | ?×? | lm | 120 | 1.04e-01 | 1.49e-01 | 0 / 0 / 0 | 667.6 s |
 | cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 120 | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 1400.9 s |
+| ker-d7-r0s0 | one-reflection-skew | 7 | (0,0) | kernel | A | 28 | 2640×615 | lm | 32 (running) | 4.65e-02 | 6.14e-02 | 0 / 0 / 0 | 755.8 s |
 | cone-X0X1X2-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2 | A | 1 | 3718×890 | lm | 120 | 6.14e-01 | 6.14e-01 | 0 / 0 / 0 | 154.5 s |
 | cone-X0X1X2Y0-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2,Y0 | A | 11 | 3718×890 | lm | 34 | 2.47e-01 | 2.53e-01 | 0 / 0 / 0 | 1500.9 s |
-| cone-X0X1X2Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2,Y1 | A | 11 | 3718×890 | lm | 16 (running) | 3.13e-01 | 3.60e-01 | 0 / 0 / 0 | 750.0 s |
+| cone-X0X1X2Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2,Y1 | A | 11 | 3718×890 | lm | 30 | 3.13e-01 | 3.60e-01 | 0 / 0 / 0 | 1515.0 s |
 | cone-X0Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,Y0,Y1 | A | 1 | 3718×890 | lm | 120 | 5.96e-01 | 5.96e-01 | 0 / 0 / 0 | 169.9 s |
-| ker-d9-r0s0 | one-reflection-skew | 9 | (0,0) | kernel | A | 161 | 5096×1246 | lm | 96 (running) | 1.86e-03 | 3.52e-03 | 0 / 0 / 0 | 2044.9 s |
+| ker-d9-r0s0 | one-reflection-skew | 9 | (0,0) | kernel | A | 161 | 5096×1246 | lm | 128 (running) | 1.86e-03 | 3.52e-03 | 0 / 0 / 0 | 2775.0 s |
 | calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 400 | 2.51e-14 | 2.25e-02 | 12 / 33 / 3 | 3454.7 s |
 | calib-xtype-d6 | xtype-strict-rational-113 | 6 | (0,1) | kernel | A | 28 | 1815×410 | lm | 200 | 4.30e-03 | 7.29e-03 | 0 / 0 / 0 | 1358.4 s |
 | cone-X0X1X2-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2 | A | 0 | | | 0 | — | — | | empty family |
@@ -209,7 +228,7 @@ away from a zero; ~40 % of the restarts hit the 150-evaluation cap (≈ 2 min pe
 | cone-X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X2Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 
-Total restarts on the skew lane so far: 2146.
+Total restarts on the skew lane so far: 2224.
 <!-- /AUTO-SEARCH -->
 
 Kernel families (task 3) at d = 7 … 12 and the half-target/cone/structured runs: queued in the chains; the

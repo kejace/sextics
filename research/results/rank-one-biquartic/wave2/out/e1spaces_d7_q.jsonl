@@ -1,1 +1,2 @@
 {"d": 7, "parity": 0, "rows": 4284, "cols": 4257, "nD": 396, "nJgens": 3861, "nullity": 486, "e1_dim": 66, "J_dim": 63, "kernel_mod_J": 3, "ring_dim": 333, "t_build": 10.0, "t_null": 23.1, "t_lifts": 37.8, "p": 1073741789, "batch": "e1spaces", "ts": "2026-11-02T00:58:36"}
+{"d": 7, "parity": 0, "rows": 4284, "cols": 4257, "nD": 396, "nJgens": 3861, "nullity": 486, "e1_dim": 66, "J_dim": 63, "kernel_mod_J": 3, "ring_dim": 333, "t_build": 7.8, "t_null": 27.7, "t_lifts": 41.1, "p": 1073741789, "batch": "e1spaces", "ts": "2026-11-02T03:11:11"}

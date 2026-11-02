@@ -78,9 +78,12 @@ independent — also confirmed computationally.)
   w = (arbitrary quadratic X-components, 33 coefficients) + Σ_k a_k(X)·Y_k∂_{Y_k} (a_k linear in X, 9 coefficients):
   fields that are "diagonal in Y with X-linear coefficients". Random linear
   slices of the residual up to codimension 11 (P^30 ⊂ P^41) are all empty (exploratory, not a proof); msolve's F4 on the
-  full residual reaches degree 4 with 7581 new basis elements (139915 × 116404 matrix) and needs degree ≥ 5 — running
-  locally in the background (3 threads); the remote job exclB-spp-blocks repeats everything with exact certificates once
-  the exact D7^± are available.
+  full residual: degree 3 (9680 × 13222), degree 4 (139915 × 116404, 7581 new, 897 s with 16 threads on the remote),
+  degree 5 (959426 × 685669, in progress). The local attempt was OOM-killed (brunos has no free memory). Singular `std`
+  on the same residual runs on the remote as a backup. The remote job exclB-spp-blocks repeated the d = 7 even chain (same
+  block steps) but its residual msolve died under memory pressure; the standalone 16-thread msolve on the residual is
+  the live attempt. Exact certificates for the eliminating steps (λ, w3, w4, w5) are being produced by the replay job
+  exclB-spp-certify7e (`excl_certify.py`: dim_Q span(other pairs mod J_14) = dim_p, rational dependency certificates).
 
 ## 2. Wave-1 claims: re-verification status
 1. E1 kernel dims (p = 2^31−1): d ≤ 3 confirmed with p = 1073741789; d = 4..10 queued (job excl-spp-e1k).
@@ -123,8 +126,8 @@ independent — also confirmed computationally.)
    231 quadrics under Gröbner (local msolve; remote exclB-spp-blocks with exact certificates).
 3. E1 kernel: dim K_7^±/J = 1 exactly (exact rational D7^± with exact numerator certificates N7^± over Q, both parities,
    remote job exclB-spp-kernel2; the odd rref representative has 324 terms and is not itself a cone, the class has a cone
-   representative in Q[Y,L] per the search lens); K_8^+/J = 6 of which S_1·K_7 spans 4 (this session, p = 1073741789,
-   agreeing with the search lens);
+   representative in Q[Y,L] per the search lens); K_8^+/J = 6 of which S_1·K_7 spans 4, and K_8^-/J = 6 = S_1·K_7 exactly (this
+   session, p = 1073741789, job exclB-spp-kernel2, agreeing with the search lens);
    D7^+ ∈ Q[X0,X1,X2,M] (cone over the line {X = M = 0} = pullback from the base of the plane-sextic fibration),
    D7^- ∈ Q[Y0,Y1,Y2,L]; K_8^- = S_1·K_7, K_8^+ = 6 with L·D7^+ ∈ J_8, M·D7^- ∈ J_8 (search lens).
 4. Methods: (R1) Hilbert-series prime check, (R2) modular rank inequality, (R3) E2 relaxation with the Euler slice,

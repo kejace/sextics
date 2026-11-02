@@ -30,3 +30,25 @@ for o in sorted(out, key=lambda o: (o['pg_fibre_quotient'], -o['order_Kb'])):
     print(o)
 json.dump(out, open('/tmp/hodge/results/cyclic-triple-residual/wave2-construct/c3_fibration_pg.json','w'), indent=1)
 print('minimum p_g over all equivariant linear P^2-fibrations:', min(o['pg_fibre_quotient'] for o in out))
+
+# ---- P^1 x P^1 bases: two disjoint coordinate pairs; fibre coords lambda, mu (pair scalings) + the 2 remaining
+out2 = []
+pairs = list(itertools.combinations(range(6), 2))
+for P1 in pairs:
+    for P2 in pairs:
+        if P1 < P2 and not set(P1) & set(P2):
+            rest = [i for i in range(6) if i not in P1 and i not in P2]
+            Kb = [k for k in range(6) if len({(s[i]*k)%6 for i in P1})==1 and len({(s[i]*k)%6 for i in P2})==1]
+            def wt(k, c):
+                return (s[P1[0]]*k)%6 if c==0 else (s[P2[0]]*k)%6 if c==1 else (s[rest[c-2]]*k)%6
+            pg=0
+            for m in itertools.combinations_with_replacement(range(4),2):
+                ok=True
+                for k in Kb:
+                    vol = sum(wt(k,c) for c in range(4))%6
+                    if (wt(k,m[0])+wt(k,m[1])+vol)%6: ok=False; break
+                if ok: pg+=1
+            out2.append({'base': [[names[i] for i in P1],[names[i] for i in P2]], 'K_b_exponents': Kb, 'order_Kb': len(Kb), 'pg_fibre_quotient': pg})
+for o in sorted(out2, key=lambda o:(o['pg_fibre_quotient'], -o['order_Kb']))[:6]: print(o)
+print('minimum p_g over P^1xP^1 bases:', min(o['pg_fibre_quotient'] for o in out2))
+json.dump({'P2_bases': out, 'P1xP1_bases': out2}, open('/tmp/hodge/results/cyclic-triple-residual/wave2-construct/c3_fibration_pg.json','w'), indent=1)

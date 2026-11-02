@@ -16,7 +16,7 @@ This continues `fqlx`'s 20 October packet (same set-up: $E_1$: $N(F)=AD$, $E_2$:
 **Bookkeeping fixes to earlier drafts.** The wave-1 statement that the degree-$7$ $\tau$-pure exclusion was rigorous is withdrawn (those msolve runs never finished). "A legal degree-$7$ $D$ is squarefree" should read: by the prescribed-support theorem (book, Ch. 1) one may take $D$ squarefree, and then $\tau$-stable support is equivalent to $\tau$-pure $D$. "Not F4-decidable" is a Fröberg-count heuristic, not a theorem. The mod-$p\to\mathbb{C}$ transfer for the $E_1$ sweep also needs the generator matrix of $J_{d+6}$ to keep its rank mod $p$; this holds in every logged line.
 
 **Reproduction.** Packet (agent's scripts, msolve inputs/outputs, JSON receipts, referee replays in `referee/`, and `README-referee.md` with the replay recipe and the gaps a stranger must fill: hard-coded paths, pinned python-flint 0.9.0 / msolve 0.6.5 / Singular 4.3.2):
-https://github.com/kejace/sextics/tree/d7bdfc1840e3263e89c83676ad3059ef2cf23159/research/results/dense-rational/wave2-excl
-Exclusion report: https://github.com/kejace/sextics/tree/d7bdfc1840e3263e89c83676ad3059ef2cf23159/research/notes/wave2-dense-rational-excl.md
-Referee report (claim-by-claim verdicts, soundness of the transfer arguments): https://github.com/kejace/sextics/tree/d7bdfc1840e3263e89c83676ad3059ef2cf23159/research/results/dense-rational/wave2-excl/referee/referee-report.md
+https://github.com/kejace/sextics/tree/52da011e0d09730d7489afe243253b055927391c/research/results/dense-rational/wave2-excl
+Exclusion report: https://github.com/kejace/sextics/tree/52da011e0d09730d7489afe243253b055927391c/research/notes/wave2-dense-rational-excl.md
+Referee report (claim-by-claim verdicts, soundness of the transfer arguments): https://github.com/kejace/sextics/tree/52da011e0d09730d7489afe243253b055927391c/research/results/dense-rational/wave2-excl/referee/referee-report.md
 Prior results credited: `fqlx` (packet of 20 October: $\deg D\ge 7$, Piola exclusion, quotient-pole limits, degree-$7$ reduction to $951$ quadrics in $120$ unknowns). No claim of nonexistence of a certificate.

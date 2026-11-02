@@ -1,6 +1,6 @@
 # Wave 2 search report: quadratic-cubic-pullback
 
-STATUS: NO WITNESS FOUND.  (Report regenerated 2026-11-01 21:28 EST by w2_report.py from wave2-search.log.jsonl; 1041 records.)
+STATUS: NO WITNESS FOUND.  (Report regenerated 2026-11-01 22:02 EST by w2_report.py from wave2-search.log.jsonl; 1648 records.)
 
 Lane: F = sum_{i=0}^5 Q_i^3 (six Y-even quadrics), q = 1, A = X0^3 Y0^3.  Diagonal symmetry group of F: only Z/2 = {1, tau}
 (Y-parity), so the only character sectors are the two Y-parities of D (a mixed-parity D can be replaced by D*tau(D)).
@@ -111,7 +111,43 @@ d = 12 (if present):
 
 | family W | dim W | dim W cap K_12 | dim mod J | generic |
 |---|---|---|---|---|
-| (pending) | | | | |
+| C[Q]_6 (pullbacks of degree-6 hypersurface sections of the cubic) | 462 | 254 | 198 | 254 |
+| C[Q_0,Q_1,Q_2]_a * C[Q_3,Q_4,Q_5]_b bihomogeneous products (a+b=6) | 406 | 198 | 162 | 198 |
+| delta * S_6^odd | 226 | 54 | 0 | 18 |
+| C[z_(0, 1, 2, 3)]_d (cone, vertex line z_4=z_5=0) | 252 | 44 | 44 | 44 |
+| C[z_(0, 1, 2, 4)]_d (cone, vertex line z_3=z_5=0) | 252 | 44 | 44 | 44 |
+| C[z_(0, 1, 2, 5)]_d (cone, vertex line z_3=z_4=0) | 252 | 44 | 44 | 44 |
+| C[z_(0, 3, 4, 5)]_d (cone, vertex line z_1=z_2=0) | 252 | 44 | 44 | 44 |
+| C[z_(0, 1, 3, 4)]_d (cone, vertex line z_2=z_5=0) | 231 | 23 | 23 | 23 |
+| C[z_(0, 1, 3, 5)]_d (cone, vertex line z_2=z_4=0) | 231 | 23 | 23 | 23 |
+| C[z_(0, 1, 4, 5)]_d (cone, vertex line z_2=z_3=0) | 231 | 23 | 23 | 23 |
+| C[z_(0, 2, 3, 4)]_d (cone, vertex line z_1=z_5=0) | 231 | 23 | 23 | 23 |
+| C[z_(0, 2, 3, 5)]_d (cone, vertex line z_1=z_4=0) | 231 | 23 | 23 | 23 |
+| C[z_(0, 2, 4, 5)]_d (cone, vertex line z_1=z_3=0) | 231 | 23 | 23 | 23 |
+| C[z_(1, 2, 3, 4)]_d (cone, vertex line z_0=z_5=0) | 231 | 23 | 23 | 23 |
+| C[Q_S]_6 S=(0, 1, 2) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 1, 3) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 1, 4) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 1, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 2, 3) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 2, 4) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 2, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 3, 4) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 3, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(0, 4, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(1, 2, 3) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(1, 2, 4) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(1, 2, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(1, 3, 4) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(1, 3, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(1, 4, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(2, 3, 4) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(2, 3, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(2, 4, 5) | 28 | 0 | 0 | 0 |
+| C[Q_S]_6 S=(3, 4, 5) | 28 | 0 | 0 | 0 |
+| C[X0,X1,X2]_d (cones, vertex the Y-plane) | 91 | 0 | 0 | 0 |
+| C[Y0,Y1,Y2]_d (cones, vertex the X-plane) | 91 | 0 | 0 | 0 |
+| delta^2 * S_{d-12}^even | 1 | 0 | 0 | 0 |
 
 d = 11 (if present):
 
@@ -145,6 +181,8 @@ msolve (F4 mod p = 2147483629):
 | 6 | even | 2147483629 | 135 forms in 17 vars | affine chart l(v)=1 | no solution in the random affine chart (GB = [1]) | 0.0 s |
 | 6 | odd | 2147483629 | 153 forms in 18 vars | affine chart l(v)=1 | no solution in the random affine chart (GB = [1]) | 0.0 s |
 | 6 | odd | 2147483629 | 153 forms in 18 vars | homogeneous, -g 2 | EMPTY projective zero set (pure power of every variable in the leading ideal) | 0.1 s |
+| 7 | even | 2147483629 | 483 forms in 60 vars | affine chart l(v)=1 | msolve killed (SIGKILL, exit -9) after 6728 s at ~22 GB RSS on the saturated box: no verdict; degree | 6728.4 s |
+| 7 | even | 2147483629 | 483 forms in 60 vars | affine chart l(v)=1 | see file | 6728.4 s |
 
 ## Batch 4 + 6 (items 2/3, numerical joint search; jobs jvp-d678, d10, jvp-d89): residual landscape
 rel = ||residual||^2 / ||B_D(N0)||^2 at the converged point (0 would be a certificate).  F-multiples and the Koszul gauge
@@ -157,6 +195,7 @@ d = 10 real kernel (job d10): dim K = 1044, dim J = 750, non-J part 294; singula
 | 6 | even | stage 1 (Hessian relaxation, LM) | n=361 min=1.890e-02 q10=2.303e-02 median=3.463e-02 max=4.660e-02 | 23 | 27 s |
 | 7 | even | stage 1 (Hessian relaxation, LM) | n=80 min=1.318e-04 q10=1.318e-04 median=1.318e-04 max=1.843e-04 | 2 | 316 s |
 | 6 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=34 min=1.635e-02 q10=1.972e-02 median=2.418e-02 max=3.052e-02 | 27 | 303 s |
+| 7 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=2 min=2.412e-03 q10=2.412e-03 median=3.623e-03 max=3.623e-03 | 2 | 2936 s |
 
 ## What remains open after wave 2
 * Degree 7 (both parities): stage 1 is 483 quadrics in 60 variables; the degree-3 Macaulay matrix cannot be full (28980 < 37820

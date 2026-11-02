@@ -66,7 +66,8 @@ Family D = Σ g_i F_i (the whole E1-admissible space at these degrees). Quadrics
 | 6 | 00 / 01 / 10 / 11 | 14 / 12 / 6 / 4 | 296 / 294 / 234 / 66 | empty / empty / empty / empty |
 | 6 | Y-even mixed (00⊕11) / Y-odd mixed (01⊕10) | 18 / 18 | 418 / 473 | empty / empty |
 (sector 00 at d=6 first returned the Euler direction g = z/6, D = 6F — correctly flagged spurious by the exact pipeline; killed thereafter.)
-d = 7: sector (1,1): K = 18, 426 polys, **empty** (0.2 s). Sector (0,0) did not finish in 100 s locally; remaining sectors queued (remote job `search-rcr-relaxlo`, 2 h timeouts).
+d = 7: sector (1,1): K = 18, 426 polys, **empty** (0.2 s; also empty for the generalised family relaxation, 426 polys); sector (1,0): K = 23, 427 polys, **empty**. Sectors (0,0) (45 unknowns, 429 polys) and (0,1) (40, 428) and the mixed families e/o (63, 744) did not finish in the local budget (exports `relax_d7_*.ms`; remote job `search-rcr-relaxlo`, 2 h timeouts).
+Cross-check (aggregator status note v8.8, `wave2-status.md` §2.14): the excl lens closed the characters (1,1), (1,0) **and (0,1)** at p = 2147483587 (colengths 85 / 239 / 1109) and the mixed pair (1,0)+(1,1) (mult 4399), re-derived by the aggregator at 998244353 with identical quadric counts and colengths; the (0,0) block (42 unknowns after killing the spurious directions, 274 quadrics) was still running there. Our (1,1)/(1,0) closures are a third independent derivation (random affine chart, 2^31−1).
 
 ### R2a. Full E2 (Koszul varpro, sparse metric) over the complete degree-7 families — local batch B
 E1 forces D ∈ J_7 in every sector (R1), so these families are everything at degree 7.
@@ -108,25 +109,42 @@ No degree-8 sector shows any descent below rel 0.1 (earlier dense-metric and LM 
 | 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | 0.7676 | 0.7676 | joint LM (≤60 evaluations), seed 43: poor local minimum |
 | 10 | ker(21) ⊕ J_9(150) | 171 | 161 | 9306 | 850 | 1764 | 1 | 0.0214 | 0.0214 | L-BFGS 300 it., seed 44 |
 | 10 | ker(21) ⊕ J_9(150) | 171 | 161 | 9306 | 850 | 1764 | 1 | 0.0256 | 0.0256 | L-BFGS 300 it., seed 45 |
-Floors ≈ 0.02 in both kernel-bearing sectors after 300 iterations (vs 0.1–0.2 at degree 8); a 900-iteration run from the best
-sector-00 seed is in progress to see whether the landscape keeps descending.
+| 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | **0.0075** | 0.0075 | L-BFGS **900 it.**, seed 41 (1288.4 s) |
+| 10 | ker(21) ⊕ J_9(150) | 171 | 161 | 9306 | 850 | 1764 | 1 | **0.0131** | 0.0131 | L-BFGS **900 it.**, seed 51 (721.2 s, tag localF) |
+Floors ≈ 0.02 in both kernel-bearing sectors after 300 iterations (vs 0.1–0.2 at degree 8), and both landscapes keep
+descending slowly with more iterations (sector 00: 0.018 → 0.0075; sector 10: 0.021 → 0.013 at 900 iterations; not converged). Whether this approaches zero or a
+positive floor is the key open numerical question; a 1500-iteration run is queued (the logged seed-41 entry with rel 4.36 is a
+diagnostic 3-iteration run, not a search result).
 
 ### R3. K8 (unique non-Jacobian degree-8 Y-even E1 class, Klein-invariant): full fixed-D test — remote job `search-rcr-k8full`
 E1 confirmed (rank 5052 = rank_aug). Sector-restricted compressed system 22016 × 4256 (of 7497 unrestricted): **inconsistent** (rank 3781, nullity 475, 36 s).
-Unrestricted compressed system 40301 × 7497: **inconsistent** (rank 6703, nullity 794, 195 s). K8 alone is not a denominator; the affine family K8 + J_8 is attacked by the affine relaxation (queued).
+Unrestricted compressed system 40301 × 7497: **inconsistent** (rank 6703, nullity 794, 195 s). K8 alone is not a denominator; the affine family K8 + J_8 is attacked by the affine relaxation (queued). The excl lens made the K8 exclusion rigorous (`A·K8 ∈ J` exactly over ℚ by a CRT-lifted E1 lift; rank_ℚ = rank_p certified by 482 a-priori kernel vectors; aggregator agrees at 10⁹+7) and found that no first-order correction inside the E1 family K8 + Σ g_iF_i removes K8's obstruction (linearised obstruction rank 156, augmented 157) — consistent with our 2.75e-3 relaxation floor on that family.
 
 **Consequence:** no certificate with a pure-Y-parity denominator of degree 5 or 6 exists (mod-p evidence; the relaxation is a necessary condition and E1 forces D ∈ J there). With the rigorous d ≤ 4 exclusion: deg D ≥ 7.
 
 ## Running summary (kept current; the final 10-line summary is derived from it)
-1. No witness found. 2. deg D ≤ 4: rigorous; d = 5, 6: all E1-admissible D lie in J(F) and the Hessian relaxation is empty
-in every Klein sector and both mixed parities (msolve mod p) → no pure-parity certificate of degree ≤ 6. 3. d = 7: E1 forces
-D ∈ J_7 in all four sectors (45/40/23/18); relaxation empty in sectors 10, 11 (exact), sectors 00/01 and mixed need >175 s
-(queued remotely); full-E2 varpro (12 restarts/sector) finds no descent below rel 0.5. 4. d = 8: the only non-Jacobian E1
-class in any sector is K8 (sector 00); K8 alone is inconsistent (restricted and full systems); the family K8 ⊕ J_8 has a
-relaxation floor 2.75e-3 (40 LM restarts) and full-E2 floors 0.08–1 (few restarts); exact msolve of the family queued.
-5. New tools validated on positive controls (Fermat): sector-aware E1 spaces, Hessian relaxation (exact + LM), Koszul-reduced
-full-E2 varpro with sparse quotient and joint LM. 6. Remote box saturated all evening (load 240–940, 150–200 jobs): the
-d ≥ 9 kernel families, the 8-seed searches and the structured/served sweeps are queued (scripts ready).
+1. NO WITNESS FOUND. The exact and numerical searches below leave every tested family without a certificate denominator.
+2. deg D ≤ 4: rigorous (E1 space zero). d = 5, 6: every E1-admissible D lies in J(F) in all four Klein sectors and the Hessian
+   relaxation A·gᵀHess(F)g ∈ J is EMPTY in every sector and both mixed parities (msolve mod 2^31−1, spurious directions killed)
+   → no pure-parity certificate of degree ≤ 6 (mod-p evidence; extends the rigorous ≤ 4 bound).
+3. d = 7: E1 forces D ∈ J_7 in all sectors (45/40/23/18); relaxation empty in sectors 10, 11 (exact, ours); sectors 00/01 and the
+   mixed families exceed the local msolve budget (queued remotely) — the excl lens and the aggregator independently closed (1,1), (1,0),
+   (0,1) and the mixed pair (1,0)+(1,1), leaving only the (0,0) block (and the other mixed pairs) open at degree 7; full-E2 Koszul
+   varpro over all six degree-7 families (12 restarts each) never descends below rel 0.5, consistent with those closures.
+4. d = 8: the only non-Jacobian E1 class in any sector is K8 (sector 00); K8 alone is inconsistent (restricted and full
+   systems; made rigorous over ℚ by the excl lens); the family K8 ⊕ J_8 has a relaxation floor 2.75e-3 (40 LM restarts; the excl
+   lens's linearisation shows no first-order correction exists) and full-E2 floors 0.08–0.16 (L-BFGS and joint LM); the J-only
+   families in sectors 01/10/11 stay at 0.16–0.34.
+5. d = 9 (new): E1 spaces computed in all sectors — 21 non-Jacobian classes in sector 00 and 21 in sector 10 (exactly the
+   forced minimum dim R_9 − dim R_15), none in 01/11. Full-E2 Koszul varpro over the kernel ⊕ J_9 families: floors
+   ≈ 0.02 after 300 L-BFGS iterations, descending slowly with longer runs (00: 0.018 → 0.0075 at 900 it.; 10: 0.021 → 0.013);
+   a 1500-iteration run is in progress; no candidate below 1e-9, nothing to reconstruct.
+6. Tools (all validated on Fermat controls that recover exact witnesses): sector-aware E1 spaces with float bases, Hessian
+   relaxation (exact msolve export + LM), generalised family relaxation, Koszul-reduced full-E2 variable projection with sparse
+   quotient-mod-F and random compression (L-BFGS and joint LM), served-space profiler, structured-candidate screen.
+7. Remote box saturated all evening (load 240–1900, 150–230 jobs, free memory down to 0 GB): the 8-seed searches, the exact
+   msolve of the degree-7/8 families, d = 10–12 kernels and the structured/served sweeps are queued (scripts ready in the lane
+   dir: job_relax_lo.sh, job_kvp_lo.sh, job_kvp_d9.sh, job_kvp_d10.sh, job_screen.sh, job_served.py) behind the capacity gate.
 
 ## Auto-generated tables
 Regenerated from the log by `python3 summarize_log.py` into `wave2-reflection-coupled-residual-tables.md` (same directory).

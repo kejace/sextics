@@ -1,6 +1,6 @@
 # Wave 2 — lane `off-paired` — lens EXCLUSION / RIGOR
 
-STATUS: no witness; last update 2026-11-01 21:32; 1800 logged experiments.
+STATUS: no witness; last update 2026-11-01 21:33; 1803 logged experiments.
 
 Packet: `/tmp/hodge/results/off-paired/wave2-excl/` (README.md there explains every receipt and how to replay). Log: `/tmp/hodge/results/off-paired/wave2-excl.log.jsonl`. Wave-2 primes 2147483629 / 2147483587 (fixed-D), 2147483647 (msolve).
 
@@ -14,15 +14,15 @@ Packet: `/tmp/hodge/results/off-paired/wave2-excl/` (README.md there explains ev
 
 | family | exp | results |
 |---|---|---|
-| block-product | e1 | PROVEN-E1-fail: 132, e1-pass-modp: 280 |
-| block-product | fixedD | PROVEN-inconsistent: 552, inconsistent-modp(kernel-lift-incomplete): 8 |
+| block-product | e1 | PROVEN-E1-fail: 132, e1-pass-modp: 281 |
+| block-product | fixedD | PROVEN-inconsistent: 554, inconsistent-modp(kernel-lift-incomplete): 8 |
 | colon-quartic | e1 | e1-pass-modp: 2 |
 | colon-quartic | fixedD | PROVEN-inconsistent: 4 |
 | fermat-cone | e1 | PROVEN-E1-fail: 4 |
 | partial*monomial | e1 | e1-pass-modp: 2 |
 | partial*monomial | fixedD | PROVEN-inconsistent: 2, inconsistent-modp(nullity>explicit): 2 |
 
-Distinct denominators tested: 349; PROVEN excluded (rational rank sandwich): 345; excluded modulo p only: 4; solvable mod p: []
+Distinct denominators tested: 350; PROVEN excluded (rational rank sandwich): 346; excluded modulo p only: 4; solvable mod p: []
 
 ## Bilinear sector systems (D free in a character sector; msolve on charts)
 
@@ -165,8 +165,12 @@ Distinct denominators tested: 349; PROVEN excluded (rational rank sandwich): 345
   exact pipeline works with HOMOGENEOUS ideals in t only.
 
 ### Pending / how to pick up
-* Remote jobs: `excl-off-paired-batch1` (running), `excl-off-paired-chain` (queued behind the load guard: deltat full solve, exact rigor
-  d=7/8 all sectors, degree-9 chart sweep, re-certification, kernel dims d=12).  After they run: `python3 w2_sync.py && python3 w2_report.py
+* Remote jobs: `excl-off-paired-batch1` (running at session end; 346/680 block products done, then the 621 wave-1 denominators and 213
+  Hessian minors follow automatically).  The combined chain (deltat full solve, exact rigor d=7/8 all sectors with 2-hour Singular caps,
+  degree-9 chart sweep, multi-prime re-certification, kernel dims d=12) could NOT be submitted: the remote stayed above the runner's load
+  guard (load > 150, < 60 GB free) for the whole session.  To launch it when capacity frees:
+  `cd /home/kejace/devel/sextics-work && python3 -m hodge.rjob submit --lane off-paired --name excl-off-paired-chain --cpus 56 --wait 7200 -- 'bash /tmp/hodge/results/off-paired/wave2-excl/w2_chain.sh'`
+  (run `python3 wave2-excl/w2_sync.py` first so the local log is a superset of the remote one; the chain writes per-process logs).  After they run: `python3 w2_sync.py && python3 w2_report.py
   report_notes.md` regenerates this report; receipts land in `/tmp/hodge/remote/off-paired/wave2-excl/receipts_*.jsonl`.
 * Open at the end of this session: degree 7 unrestricted (mixed characters) — not attacked (dense 171-variable relaxation; the
   Hessian/Jacobian relaxation alone is not m-primary at degree 7); degree 9+ single character (modular, in progress); Delta_t (degree 18,

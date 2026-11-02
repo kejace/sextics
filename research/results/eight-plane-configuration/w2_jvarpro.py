@@ -9,7 +9,7 @@ import sys, os, json, time, math, argparse
 ap = argparse.ArgumentParser()
 ap.add_argument('--family', default='jacobian')
 ap.add_argument('--d', type=int, required=True)
-ap.add_argument('--par', type=int, required=True)
+ap.add_argument('--par', default='0', help='0, 1 or mixed')
 ap.add_argument('--restarts', type=int, default=100)
 ap.add_argument('--seed', type=int, default=1)
 ap.add_argument('--nproc', type=int, default=8)
@@ -28,8 +28,10 @@ for _v in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
     os.environ[_v] = str(args.threads)
 sys.path.insert(0, '/tmp/hodge/results/eight-plane-configuration')
 from w2lib import *
+from w2lib import _col, _dense
 import multiprocessing as mp
 
+PAR = None if str(args.par) == 'mixed' else int(args.par)
 TAG = args.tag or f'search-{args.family}-d{args.d}-p{args.par}-s{args.seed}'
 OUT = f'{WD}/{TAG}.jsonl'
 BEST = f'{WD}/{TAG}.best.json'
@@ -42,9 +44,9 @@ def get_family():
     global _fam
     if _fam is None:
         if args.family == 'jacobian':
-            _fam = JacobianFamily(args.d, args.par, verbose=True, want_C=need_C, cond=args.cond)
+            _fam = JacobianFamily(args.d, PAR, verbose=True, want_C=need_C, cond=args.cond)
         else:
-            _fam = KernelFamily(args.d, args.par, args.npz, verbose=True, want_C=need_C, cond=args.cond)
+            _fam = KernelFamily(args.d, PAR, args.npz, verbose=True, want_C=need_C, cond=args.cond)
     return _fam
 
 
@@ -68,7 +70,7 @@ def work(seed):
             rel = info['rel']
         info['family'] = fam.name; info['d'] = fam.d; info['par'] = fam.pD; info['tag'] = TAG
         info['a_top'] = [float(x) for x in np.sort(np.abs(a))[::-1][:5]]
-        if rel < 1e-6:
+        if rel < 1e-6 or (args.stage1_only and fam.K <= 400):
             info['a'] = [float(x) for x in a]
         if rel < args.recon_rel and not args.stage1_only:
             info['reconstruction'] = fam.confirm_rational(a, log_path=OUT, note=f'{TAG} seed {seed}')

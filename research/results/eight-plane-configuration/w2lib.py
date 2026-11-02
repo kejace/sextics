@@ -166,11 +166,11 @@ class E2Family:
                  threads_note=''):
         t0 = time.time()
         self.d, self.pD, self.name, self.cond = d, pD, name, cond
-        self.pars = [(pA - pD - (0 if i < 3 else 1)) % 2 for i in range(NV)]
+        self.pars = [None if pD is None else (pA - pD - (0 if i < 3 else 1)) % 2 for i in range(NV)]
         self.Ds = Space(d, pD)
         self.Ns = [Space(d + 1, self.pars[i]) for i in range(NV)]
-        self.Rs = Space(2 * d, 1)
-        self.Qs = Space(2 * d - 6, pA)
+        self.Rs = Space(2 * d, None if pD is None else 1)
+        self.Qs = Space(2 * d - 6, None if pD is None else pA)
         self.rows = self.Rs.n
         self.pat = OmegaPattern(self.Ds, self.Ns, self.Rs)
         self.nN = self.pat.ncols
@@ -181,8 +181,8 @@ class E2Family:
         kr, kc, kv = [], [], []
         for i in range(NV):
             for j in range(i + 1, NV):
-                pc = (self.pars[i] - (0 if j < 3 else 1)) % 2
-                assert pc == (self.pars[j] - (0 if i < 3 else 1)) % 2
+                pc = None if pD is None else (self.pars[i] - (0 if j < 3 else 1)) % 2
+                assert pD is None or pc == (self.pars[j] - (0 if i < 3 else 1)) % 2
                 Cs = Space(d - 4, pc)
                 self.Cs[(i, j)] = (cbase, Cs)
                 if Cs.n:
@@ -234,13 +234,13 @@ class E2Family:
     # ------------------------------------------------------------------ exact-ish helpers
     def r_projector(self, cache=True):
         """Orthonormal basis C (rows x dim R_{2d}^-) of the orthogonal complement of J(F)_{2d}^- (floats)."""
-        path = f'{WD}/w2_Cproj_d{self.d}.npy'
+        path = f'{WD}/w2_Cproj_d{self.d}' + ('_mixed' if self.pD is None else '') + '.npy'
         if cache and os.path.exists(path):
             return np.load(path)
         t0 = time.time()
         gens = []
         for i in range(NV):
-            pm = (1 - (0 if i < 3 else 1)) % 2
+            pm = None if self.pD is None else (1 - (0 if i < 3 else 1)) % 2
             Ms = Space(2 * self.d - 5, pm)
             gens.append(mul_matrix(Fi[i], Ms, self.Rs))
         G = sp.hstack(gens).tocsr()
@@ -269,7 +269,13 @@ class E2Family:
             B = (Om @ self.Kmat)
             B = B.toarray() if sp.issparse(B) else B
             Bt = B - self.U @ (self.U.T @ B) if self.U is not None else B
-            Ub, s, Vt = sla.svd(Bt, full_matrices=False, check_finite=False, lapack_driver='gesdd')
+            try:
+                Ub, s, Vt = sla.svd(Bt, full_matrices=False, check_finite=False, lapack_driver='gesdd')
+            except Exception:
+                try:
+                    Ub, s, Vt = sla.svd(Bt, full_matrices=False, check_finite=False, lapack_driver='gesvd')
+                except Exception:
+                    Ub = np.zeros((self.rows, 0)); s = np.zeros(0); Vt = np.zeros((0, self.nc))
             k = int(np.sum(s > self.cond * s[0])) if s.size else 0
             Ubk = Ub[:, :k]
             coef = Ubk.T @ bt
@@ -447,12 +453,12 @@ class JacobianFamily(E2Family):
         wb = 0
         self.wbase = []
         for i in range(NV):
-            pw = (pD - (0 if i < 3 else 1)) % 2
+            pw = None if pD is None else (pD - (0 if i < 3 else 1)) % 2
             Ws = Space(d - 5, pw)
             self.Ws.append(Ws); self.wbase.append(wb); wb += Ws.n
         self.nW = wb
         Ds = Space(d, pD)
-        pars = [(pA - pD - (0 if i < 3 else 1)) % 2 for i in range(NV)]
+        pars = [None if pD is None else (pA - pD - (0 if i < 3 else 1)) % 2 for i in range(NV)]
         Ns = [Space(d + 1, pars[i]) for i in range(NV)]
         dcols, acols = [], []
         for i in range(NV):
@@ -460,7 +466,7 @@ class JacobianFamily(E2Family):
             acols.append(mul_matrix(A, self.Ws[i], Ns[i]))
         Dfull = sp.hstack(dcols).tocsr()
         Nfull = sp.block_diag(acols).tocsr()
-        super().__init__(d, pD, Dfull, Nfull, name=f'jacobian-d{d}-p{pD}', verbose=verbose, **kw)
+        super().__init__(d, pD, Dfull, Nfull, name=f'jacobian-d{d}-p{"mixed" if pD is None else pD}', verbose=verbose, **kw)
         self.is_jacobian = True
 
     def w_to_D(self, fr):

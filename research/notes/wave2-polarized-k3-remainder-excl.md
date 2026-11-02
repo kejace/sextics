@@ -1,17 +1,18 @@
 # Wave 2 — `polarized-k3-remainder` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness (exclusion lens). Running summary (02:00 EST):
-* Best rigorous bound for A (full target): deg D >= 8 (thread, degrees <= 6 now independently REPLICATED exactly; degree 7 replication running).
+STATUS: in progress — no witness (exclusion lens). Running summary (03:00 EST):
+* Best rigorous bound for A (full target): deg D >= 8 (thread); degrees <= 6 independently REPLICATED exactly (p = 65521 and Q);
+  E1 injectivity of [A] through d = 9 RE-VERIFIED at a second prime (2^31-19), both parities; degree-7 modular replication queued;
+  degree-8 point f(U)U0^2 exact in all 3 blocks; 6 random structured degree-7 members of J exact-inconsistent (both targets).
 * NEW exact theorem: the K3-sector target A_K3 has no denominator of degree <= 6 (E1 injective through 7; degree 5 killed; degree 6
-  reduces to D ~ f(U) which fails exactly); f(U), U0, V0 have zero K3-class projection of their full served space (exact over Q).
-* Consequence (needs End_Hdg(T)=Q [thread] and eta not in NS_prim⊗C, automatic if rho=1): no product of denominators of degree <= 6 serves A;
-  once degree 7 is done, a legal octic must have X ∩ V(D) irreducible and reduced (so the thread's spurious relaxation points f(U)h are all dead).
-* Degree-8 fixed-D exact re-verification: f(U)U0^2 inconsistent in all 3 blocks (756/757 = thread, 828/829, 516/517), also for A_K3.
-* Non-Jacobian K3 kernel at d=8: 51+39 dims; structured pairing over ker(eta|R_4) inconsistent (mod p, mu6-restricted 13572x2430).
-* Remote saturated all night (load 700-1700 on 128 cores): everything above was computed locally; remote queue pending.
-
-Started 2026-11-01 ~23:59 EST. Lane dir `/tmp/hodge/results/polarized-k3-remainder/`, packet dir `wave2-excl/`,
-log `wave2-excl.log.jsonl` (one JSON line per experiment).
+  reduces to D ~ f(U), which fails exactly). served(f(U)), served(U0), served(V0) have zero K3-class projection EXACTLY over Q.
+* Degree 7 for the K3 class is OPEN by relaxation methods (single- and 19-target L-relaxations too weak: ranks 935/1092 of 7260,
+  no squares); the reducible family f(U)·ℓ is excluded by the sum principle; f(U)U0, f(U)V0 and random J_7 members fail exactly.
+* Consequence (End_Hdg(T) = Q [thread] + η ∉ NS_prim⊗C, automatic if ρ = 1): no product of degree-<=6 supports serves A; a legal
+  octic has X ∩ V(D) irreducible and reduced, or = (irreducible degree-7 K3-carrying support) ∪ (hyperplane section).
+  The thread's spurious degree-8 relaxation points f(U)h are all dead.
+* Non-Jacobian K3 kernel at d = 8: 51 + 39 dims; 6 elements of the K4⊗K4 block inconsistent (mod p, μ6-restricted 13572×2430).
+* Remote saturated all night (load 600-1800 / 128 cores, < 60 GB free): everything above computed locally; 7 remote jobs queued.
 
 ## Plan
 (a) adversarial re-verification of wave-1 / thread claims (second prime, independent implementation);
@@ -119,47 +120,65 @@ served K3-projections lie in ω⊗NS_prim), hence D is irreducible over C and no
 and by Ch. 3 §3.1 it has a non-normal or non-rational-singular component.  The thread's degree-8 relaxation points
 D = f(U)h are all reducible, so they are excluded by this argument without any further computation.
 
-## DRAFT FINAL SUMMARY (to be finalized; numbers in [] pending)
-1. Best rigorous bound for the instance target A: deg D >= 8 (thread); degrees <= 6 independently replicated exactly
-   (p = 65521 and Q), degree 7 replicated [modular blocks + emptiness pending], degree-8 point f(U)U0^2 exact (3 blocks).
-2. NEW: the K3-sector class A_K3 = P_0(A) has no denominator of degree <= 6 — exact theorem (E1 injective through 7;
-   degree 5 killed; degree 6 ↦ D ~ f(U), which fails exactly 136/137). Degree 7: [relaxation survivors = f(U)·ℓ family
-   (reducible) + ?; exact Q run queued].
-3. The served space of f(U), U0, V0 has zero K3-class projection (exact over Q) — the join of the two copies of C
-   carries no K3 class, as Ch. 3A predicts.
-4. Logic repaired: additivity of served spaces over components means products can serve A even when no factor does; with
-   the dichotomy (End_Hdg(T) = Q) and η ∉ NS_prim⊗C, items 2–3 exclude every product of degree-<=6 supports, and after
-   degree 7: a legal octic must have X ∩ V(D) irreducible, reduced, singular, non-rational/non-normal.
-5. Thread's degree-8 spurious family f(U)h: confirmed to lie in the relaxation (mod p) for both targets; all its members
-   are reducible supports hence dead by item 4 (and f(U)U0^2 exact).
-6. Non-Jacobian K3 kernel at d = 8: 51 + 39 dims (K4 = ker(η|R_4) has dim 9, large height); structured pairing
-   Σ g_k(U)g_k(V) inconsistent (mod p, μ6-restricted 13572×2430); [more elements pending].
-7. μ6-homogeneous octics (characters 0,1,2,3,5; <= 108 params): relaxation components = [pending] (goal: all reducible
-   => no μ6-homogeneous legal octic, rigorous).
-8. E1 tables re-verified at a second prime [pending chain3]; sum principle restated with its exact hypotheses.
-9. Compute: remote saturated all night (load 700–1750 / 128 cores); all results above local; 4 remote jobs queued.
-10. Packet: /tmp/hodge/results/polarized-k3-remainder/wave2-excl/ (README, 9 scripts, JSON receipts); draft post:
-    /tmp/hodge/notes/wave2-polarized-k3-remainder-draftpost.md.
-Update (02:30): five elements of the character-4 block K4⊗K4 of the non-Jacobian K3 kernel (symmetric and alternating
-pairings over the exact K4 basis, a symmetrized rank-2 tensor, the rank-1 control g0(U)g0(V), a random symmetric tensor)
-are all INCONSISTENT for A_K3 (μ6-restricted systems 13572 × 2430, rank 2206, nullity 224 each; mod 2^31−1).
-Also: the single-target K3 relaxation at degree 7 is too weak (rank 935, zero set of tangent dimension 84 along the
-family f(U)·ℓ, no squares); the 19-target K3-block relaxation (valid under the dichotomy with ρ = 1; zero-class check
-passed) is running at degree 7; at degree 6 it still leaves exactly the f(U) line (stacked rank 326).
+## DRAFT FINAL SUMMARY v2 (04:25; [] = pending)
+1. Best rigorous bound for the instance target A: deg D >= 8 (thread). Independently replicated exactly: degrees <= 6 (own code,
+   p = 65521 and Q: identical block ranks 603/558/396/260/396/558, constraint rank 437, two-step square elimination); E1 injectivity of
+   [A] through d = 9 at a second prime (2^31-19, both parities); the degree-8 point f(U)U0^2 exact in all 3 blocks (756/757, 828/829,
+   516/517); degree 7 [modular replication pending in chain3; L-ranks over Q = mod p already confirmed: 1635/1602/1635/1464/1287/1464].
+2. NEW exact theorem: the K3-sector class A_K3 = P_0(A) has no denominator of degree <= 6 (E1 injective through 7 at two primes;
+   degree 5 killed; degree 6 ↦ D ~ f(U) via residual quadrics (c0-c2)^2, (c0-c2)(c1-c2), (c1-c2)^2; f(U) fails exactly 136/137).
+3. Exact served-space statements: f(U), U0, V0 have zero K3-class projection over Q (the join of the two copies of C carries no K3 class).
+4. Repaired logic: served spaces add over components (N_{Y1∪Y2} = N_{Y1}+N_{Y2}), so "deg >= 8" alone does not exclude products.
+   With End_Hdg(T) = Q (thread) and η ∉ NS_prim⊗C (the equivalence-theorem hypothesis; automatic if ρ = 1): no product of degree-<=6
+   supports serves A; a legal octic has X ∩ V(D) irreducible and reduced, or = (irreducible degree-7 support carrying the K3 class) ∪
+   (hyperplane section). All of the thread's spurious degree-8 relaxation points f(U)h are reducible and hence dead.
+5. Block cones g(U), g(V), and products g(U)h(V) are excluded in every degree (product divisors C_Γ × S₆ under Φ; H¹(S₆) = 0), which is
+   exactly what the character-0 degree-8 sector leaves over (30 cone coefficients, 6 residual quadrics). Caveat: Hodge-theoretic, to be
+   double-checked (exceptional divisor over C × C) before posting as a theorem.
+6. Degree 7 for the K3 class is OPEN by relaxation methods: single-target rank 935/7260, 19-target rank 1092 (every K3 class imposes the
+   same constraints), no squares, zero set with 84-dimensional tangent spaces along the (excluded) family f(U)·ℓ.
+7. Non-Jacobian K3 kernel at degree 8 completely described: K4⊗K4 (81, char 4; K4 = ker(η|R_{f,4}), dim 9, exact LLL basis) ⊕
+   {ℓ(U)ℓ'(V)((U0U1U2)²+(V0V1V2)²)} (9, char 1, reducible). Eight elements of K4⊗K4 fail E2 for A_K3 (μ6-restricted 13572×2430, rank 2206,
+   mod 2^31-1) and the K4 pairing serves no K3-block class; [char-1 random tests pending].
+8. Exact structured screens: 6 random homogeneous members of J_7 and 5 of J_8 (chars 0,1,2,3,5; 22 runs) fail for both targets with rank gap 1; degree 9 running.
+   μ6-homogeneous octic sectors: char 0 done (cones); [chars 1,2,3,5 and K3 sectors pending].
+9. Compute: the 128-core remote was saturated all night (load 580-1800, often < 60 GB free); rjob refused every submission; all results
+   above were computed locally (one nice'd process at a time where possible); 7 remote jobs remain queued (sweeps of the 26 wave-1
+   structured octics/decics, exact degree-7 K3 relaxation, degree-8 relaxations, kernel tests).
+10. Packet: /tmp/hodge/results/polarized-k3-remainder/wave2-excl/ (README with replay recipe, 15 scripts, JSON/JSONL receipts, log
+    wave2-excl.log.jsonl with ~60 entries); draft post: /tmp/hodge/notes/wave2-polarized-k3-remainder-draftpost.md.
+Update (04:35): the character-1 block is confirmed computationally (U0·V0·(η(U)+η(V)) ∉ J, E1 for A_K3 holds with rank 5052 =
+augmented rank), and a random element of it fails the full E2 system for A_K3 (μ6-restricted 13464 rows, rank 2322, nullity 324,
+mod 2^31−1) — as it must, being a reducible support.  So every tested element of the complete degree-8 non-Jacobian K3 kernel
+(8 of K4⊗K4, 1 of the character-1 block) fails E2.
 
-### Fallback statement if degree 7 stays open for the K3 class (02:45)
-The 19-target K3 relaxation at degree 7 shows strongly overlapping constraints across targets (after 6 of 19 targets the
-stacked rank is 1092 of 7260 and grows slowly), so it may also fail to force squares.  In that case the rigorous
-structural statement at degree 8 reads: a legal octic D has X ∩ V(D) either irreducible and reduced, or of the form
-Y_7 ∪ Y_1 with Y_7 = X ∩ V(D_7) an irreducible degree-7 support carrying the K3 class (ω∧η_T ∈ π_{Λ²T} N_{Y_7}) and
-Y_1 a hyperplane section (serving the mixed sector); all other decompositions (6+2, 6+1+1, 5+3, 4+4, ...) only involve
-factors of degree ≤ 6 and are excluded by R2 + the dichotomy (under η ∉ NS_prim⊗C).  In particular every point of the
-thread's degree-8 relaxation family f(U)·h (= Y_6 ∪ Y_2 or Y_6 ∪ Y_1 ∪ Y_1) is excluded.
+### Remote queue status (04:40)
+rjob refused every submission since 00:20 (load 580–1800 on 128 cores; free memory often < 60 GB).  Two sequential queue
+scripts are waiting: `wave2-excl/submit_queue.sh` (jobs excl-polarized-k3-remainder-{relaxfull, relaxk3, e1table}; the first two
+are now redundant with the local runs, the third was done locally) and `submit_queue2.sh` (k3d7exact = exact-Q degree-7 K3
+relaxation; relaxd8 = degree-8 relaxations K3 + full regenerated at p = 65521; sweep = the 26 wave-1 structured octics/decics
+through hodge.sweep (mod p); k3kernel = remaining kernel tests).  If the remote frees up they submit automatically (≤ 3 running);
+results land in /tmp/hodge/results/polarized-k3-remainder/wave2-excl/ on the remote and must be pulled with
+`python3 -m hodge.rjob pull --lane polarized-k3-remainder`.
+Final kernel bookkeeping (04:50): closed form of the character-1 block verified with a control — U0V0(η(U)+η(V)) and
+(U0+2U1)(V1−V2)(η(U)+η(V)) satisfy E1 for A_K3 (rank 5052 = augmented) and are not in J, while the sign-flipped
+U0V0(η(U)−η(V)) fails E1 (5052/5053) exactly as the tensor identity predicts.  All ten tested elements of the degree-8
+non-Jacobian K3 kernel (8 in K4⊗K4, 2 in the character-1 block) fail the full E2 system for A_K3 (mod 2^31−1).
+Second-prime E1 table for A_K3 (2^31−19): injective for d ≤ 7 (both parities so far), kernel 51 at (8, Y-even) as at the
+first prime, and 153 at (9, Y-even) — the non-Jacobian K3 kernel grows quickly with the degree (K4⊗R_1-type and
+K5⊗K4-type blocks), so from degree 9 on the K3 class has a large E1-admissible non-Jacobian candidate space that only E2
+can decide.
+Character 1 (full target, 99 gauged parameters: a_i of V-degree 1 for i<3, V-degree 2 for i≥3): constraint rank only 180 on 4950
+quadratic monomials, no squares — the L-relaxation is essentially empty in this sector (its zero set has dimension ≥ 80), so no
+universal statement follows for character-1 octics; the only rigorous information there is the exact failure of random
+members of J_8 of character 1 (R12).  This mirrors the K3-target degree-7 situation: the relaxation is sharp only when the
+target monomials and the sector together produce many independent quotient coordinates.  (Chars 2, 3, 5 and the K3 sectors
+still running.)
 
-### R8. Degree 7 for the K3 class: relaxation methods exhausted (02:55)
-Single-target L-relaxation: rank 935/7260, no squares, zero set with 84-dimensional tangent spaces along f(U)·ℓ.
-19-target relaxation: the cumulative rank freezes at 1092 after 6 targets (identical after 15) — every K3-block class
-imposes the same constraints (B_D(T_B a) = T_B·B_D(a) + D·a(T_B), and L ⊂ J makes all these linear relaxations weaker
-than L).  So "no degree-7 D serves A_K3" is OPEN by these methods; what IS proven for degree 7: the whole reducible
-family f(U)·ℓ is excluded (sum principle: π_{Λ²T}(served f(U)) = 0 exactly, π_{Λ²T}(served ℓ) = 0 by E1 at d = 1 +
-dichotomy), and f(U)·U0, f(U)·V0 fail exactly.  The fallback degree-8 statement above therefore applies.
+### R13. Degree-7 exclusion for A: replication at p = 65521 (block level)   [05:15]
+Own implementation, prime 65521: L-ranks 1635/1602/1635/1464/1287/1464 per character block (= thread's ranks over Q and F_101;
+and = Q-ranks computed in the K3 run, same L), constraint ranks 291/318/291/470/688/470 (= thread's augmented ranks
+1926/1920/1926/1934/1975/1934 minus the L-ranks), 2528 constraint rows in total (thread: 2,528 rows).  Combined rank and the
+chart-wise projective emptiness (thread's charts k = 0..8, square reduction to 42 variables, zero-dimensional cone) are being
+replayed with `d7_charts.py` at this second prime; together with the equal Q/F_p L-ranks this re-establishes the thread's
+"deg D >= 8" by the same flatness argument at an independent prime and with independent code.

@@ -1344,3 +1344,7 @@
 {"name": "Y2*cq*f", "d": 10, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1822, "rank_aug": 1823, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 371.06}
 {"name": "Y2*c1*f", "d": 10, "chi": [3, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 1822, "rank_aug": 1823, "nN": 1515, "nQ": 498, "rows": 3456, "seconds": 520.44}
 {"name": "v*v*f", "d": 10, "chi": [0, 0, 4], "e1": true, "status": "EXCLUDED-exact", "rank": 2587, "rank_aug": 2588, "nN": 2118, "nQ": 879, "rows": 4980, "seconds": 889.44}
+{"name": "Y1*cq*f", "d": 10, "chi": [3, 0, 1], "e1": true, "status": "EXCLUDED-exact", "rank": 2703, "rank_aug": 2704, "nN": 2118, "nQ": 879, "rows": 4980, "seconds": 964.64}
+{"name": "Y1*c1*f", "d": 10, "chi": [3, 0, 1], "e1": true, "status": "EXCLUDED-exact", "rank": 2703, "rank_aug": 2704, "nN": 2118, "nQ": 879, "rows": 4980, "seconds": 1067.29}
+{"name": "X1*c1*f", "d": 10, "chi": [0, 3, 1], "e1": true, "status": "EXCLUDED-exact", "rank": 2679, "rank_aug": 2680, "nN": 2118, "nQ": 879, "rows": 4980, "seconds": 1073.17}
+{"name": "Y1*q2*f", "d": 10, "chi": [3, 0, 1], "e1": true, "status": "EXCLUDED-exact", "rank": 2697, "rank_aug": 2698, "nN": 2118, "nQ": 879, "rows": 4980, "seconds": 1123.5}

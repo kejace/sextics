@@ -60,7 +60,7 @@ for rec in readj(f'{MIR}/kernel.jsonl'):
         kern_pred = rec
 # --- hessian relaxation
 for tag in ('hessA', 'hessB'):
-    for rec in readj(f'{MIR}/{tag}.jsonl'):
+    for rec in readj(f'{MIR}/{tag}.jsonl') + (readj(f'{WD}/hess6local.jsonl') if tag == 'hessA' else []):
         if rec.get('event') == 'hess':
             hess.append(rec)
             emit(f"hess-{rec['d']}-{rec['par']}", {'family': 'hessian-relaxation-quadrics', **{k: rec[k] for k in rec if k != 'event'}})
@@ -69,14 +69,14 @@ for rec in readj(f'{MIR}/k10prep.jsonl'):
     prep.append(rec)
     emit(f"k10prep-{rec['d']}-{rec['par']}", {'family': 'kernel-float-basis', **{k: rec[k] for k in rec if k != 'event'}})
 # --- fam10
-for rec in readj(f'{MIR}/fam10.jsonl'):
+for rec in readj(f'{MIR}/fam10.jsonl') + readj(f'{WD}/fam10local.jsonl'):
     if rec.get('event') == 'family':
         fams.append(rec)
         emit(f"fam-{rec['d']}-{rec['par']}-{rec['family']}", {'family': 'structured-family-intersection', **{k: rec[k] for k in rec if k != 'event'}})
     elif rec.get('event') == 'adm':
         emit(f"adm-{rec['d']}-{rec['par']}", {'family': 'admissible-space', **{k: rec[k] for k in rec if k != 'event'}})
 # --- searches
-for path in sorted(glob.glob(f'{MIR}/search-*.jsonl') + glob.glob(f'{MIR}/stage1-*.jsonl')):
+for path in sorted(glob.glob(f'{MIR}/search-*.jsonl') + glob.glob(f'{MIR}/stage1-*.jsonl') + glob.glob(f'{WD}/local-*.jsonl')):
     tag = os.path.basename(path)[:-6]
     recs = readj(path)
     start = next((r for r in recs if r.get('event') == 'start'), None)
@@ -104,7 +104,9 @@ for path in sorted(glob.glob(f'{MIR}/search-*.jsonl') + glob.glob(f'{MIR}/stage1
             'n_below_1e-6': sum(1 for v in vals if v < 1e-6), 'n_below_1e-10': sum(1 for v in vals if v < 1e-10),
             'mean_seconds': round(statistics.mean(float(r.get('seconds', 0)) for r in rr), 1),
             'mean_nfev': round(statistics.mean(float(r.get('nfev', 0)) for r in rr), 1),
-            'reconstructions': len(rc), 'start': start, 'done': any(r.get('event') == 'end' for r in recs)}
+            'reconstructions': len(rc), 'start': start, 'done': any(r.get('event') == 'end' for r in recs),
+            'rankB_min': min((r['rankB'] for r in rr if r.get('rankB') is not None), default=None),
+            'rankB_max': max((r['rankB'] for r in rr if r.get('rankB') is not None), default=None)}
     searches[tag] = summ
     last = state['search_counts'].get(tag, 0)
     if len(rr) > last:
@@ -159,13 +161,13 @@ else:
     lines.append('(pending)')
 lines.append('\n## 3. Full-E2 variable-projection searches (residual landscape)\n')
 lines.append('rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q; r_part = component outside J(F)_{2d}.\n')
-lines.append('| batch | family | d | par | params (free) | rows | restarts | best rel | 10% | median | worst | best r_part | <1e-6 | <1e-10 | s/restart | nfev | recon |')
-lines.append('|---|---|---:|:-:|---|---:|---:|---|---|---|---|---|---:|---:|---:|---:|---:|')
+lines.append('| batch | family | d | par | params (free) | rows | c+Q unknowns (Koszul-block rank) | restarts | best rel | 10% | median | worst | best r_part | <1e-6 | <1e-10 | s/restart | nfev | recon |')
+lines.append('|---|---|---:|:-:|---|---:|---|---:|---|---|---|---|---|---:|---:|---:|---:|---:|')
 for tag, s in sorted(searches.items()):
     if s.get('n', 0) == 0:
-        lines.append(f"| {tag} | {s.get('start', {}).get('family')} | | | | | 0 (started) | | | | | | | | | | |")
+        lines.append(f"| {tag} | {s.get('start', {}).get('family')} | | | | | | 0 (started) | | | | | | | | | | |")
         continue
-    lines.append(f"| {tag}{' (stage 1 only)' if s['stage1_only'] else ''}{'' if s['done'] else ' (running)'} | {s['family']} | {s['d']} | {s['par']} | {s['K']} ({s['dimP']}) | {s['rows']} | {s['n']} | {fmt(s['best'])} | {fmt(s['q10'])} | {fmt(s['median'])} | {fmt(s['worst'])} | {fmt(s['best_r_part_rel'])} | {s['n_below_1e-6']} | {s['n_below_1e-10']} | {s['mean_seconds']} | {s['mean_nfev']} | {s['reconstructions']} |")
+    lines.append(f"| {tag}{' (stage 1 only)' if s['stage1_only'] else ''}{'' if s['done'] else ' (running)'} | {s['family']} | {s['d']} | {s['par']} | {s['K']} ({s['dimP']}) | {s['rows']} | {s['nc']}+{s['nQ']} ({s.get('rankB_min')}-{s.get('rankB_max')}) | {s['n']} | {fmt(s['best'])} | {fmt(s['q10'])} | {fmt(s['median'])} | {fmt(s['worst'])} | {fmt(s['best_r_part_rel'])} | {s['n_below_1e-6']} | {s['n_below_1e-10']} | {s['mean_seconds']} | {s['mean_nfev']} | {s['reconstructions']} |")
 lines.append('\n## 4. Structured families at d = 10 intersected with the admissible space (mod p)\n')
 if fams:
     lines.append('| d | par | family | #gens | dim fam | fam ∩ admissible | fam ∩ J | new directions | lifted |')

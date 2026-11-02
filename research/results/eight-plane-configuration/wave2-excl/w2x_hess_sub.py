@@ -93,6 +93,22 @@ def subfamily(name, d, par, p):
             for m in monomials(deg, (par + (0 if i < 3 else 1)) % 2):
                 if allowed(m):
                     w = [{} for _ in range(NV)]; w[i] = {m: 1}; fields.append(w)
+    elif name.startswith('comp:'):
+        i = int(name[5:])
+        for m in monomials(deg, (par + (0 if i < 3 else 1)) % 2):
+            w = [{} for _ in range(NV)]; w[i] = {m: 1}; fields.append(w)
+    elif name.startswith('hamrand:'):
+        seed = int(name[8:]); random.seed(seed)
+        pG = seed % 2
+        G = {m: random.randint(1, p - 1) for m in monomials(deg + 1, pG)}
+        Gi = [pderiv(G, i, p) for i in range(NV)]
+        for i in range(NV):
+            for j in range(i + 1, NV):
+                ok_i = ((pG + (1 if j >= 3 else 0)) % 2) == ((par + (1 if i >= 3 else 0)) % 2)
+                ok_j = ((pG + (1 if i >= 3 else 0)) % 2) == ((par + (1 if j >= 3 else 0)) % 2)
+                if ok_i and ok_j:
+                    w = [{} for _ in range(NV)]; w[i] = Gi[j]; w[j] = scale(Gi[i], p - 1, p)
+                    if any(w): fields.append(w)
     elif name.startswith('rand:'):
         k = int(name[5:]); random.seed(k)
         B = field_basis(d, par)
