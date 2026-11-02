@@ -1,3 +1,5 @@
 [07:13:57] start d9h0b-c00 (eff 50) elapsed 0s
    -> best 3.891e-03 median 4.013e-03 restarts 52 dimP 50 t/restart 241.05 witness False
 [07:41:15] start d9h0b-c10 (eff 43) elapsed 1638s
+   -> best 6.851e-03 median 2.865e-02 restarts 52 dimP 43 t/restart 241.23 witness False
+[08:08:09] start d9h0b-c20 (eff 43) elapsed 3252s
