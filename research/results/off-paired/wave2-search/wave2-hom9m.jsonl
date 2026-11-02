@@ -37,3 +37,12 @@
 {"stage": "multi-path", "sol": 0, "t": 0.461, "relres": 0.013054955830504304, "iters": 42}
 {"stage": "multi-path", "sol": 0, "t": 0.51, "relres": 0.014251421041510786, "iters": 46}
 {"stage": "multi-path", "sol": 0, "t": 0.559, "relres": 0.015408083536780625, "iters": 47}
+{"stage": "multi-path", "sol": 0, "t": 0.6080000000000001, "relres": 0.01652510187663267, "iters": 48}
+{"stage": "multi-path", "sol": 0, "t": 0.657, "relres": 0.01760281093032154, "iters": 46}
+{"stage": "multi-path", "sol": 0, "t": 0.7060000000000001, "relres": 0.018641705784682144, "iters": 46}
+{"stage": "multi-path", "sol": 0, "t": 0.755, "relres": 0.019642435002196697, "iters": 48}
+{"stage": "multi-path", "sol": 0, "t": 0.804, "relres": 0.020605792878167165, "iters": 51}
+{"stage": "multi-path", "sol": 0, "t": 0.8530000000000001, "relres": 0.02153270120904902, "iters": 51}
+{"stage": "multi-path", "sol": 0, "t": 0.902, "relres": 0.022424176847396816, "iters": 52}
+{"stage": "multi-path", "sol": 0, "t": 0.9510000000000001, "relres": 0.02328128819552359, "iters": 47}
+{"stage": "multi-path", "sol": 0, "t": 1.0, "relres": 0.024105107748765512, "iters": 49}

@@ -70,3 +70,8 @@
 {"seed": 50081, "mode": "complex", "f": 2.443956654008656e-07, "iters": 136, "seconds": 157.21, "name": "hr8oc", "d": 8, "sector": "1"}
 {"seed": 50082, "mode": "complex", "f": 0.0001102055005777098, "iters": 227, "seconds": 278.1, "name": "hr8oc", "d": 8, "sector": "1"}
 {"seed": 50083, "mode": "complex", "f": 2.9996097937734832e-05, "iters": 238, "seconds": 225.7, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50060, "mode": "complex", "f": 0.00012411571809271975, "iters": 500, "seconds": 681.85, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50061, "mode": "complex", "f": 4.681622755973893e-05, "iters": 207, "seconds": 266.2, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50062, "mode": "complex", "f": 1.8492553559663982e-07, "iters": 277, "seconds": 313.78, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50063, "mode": "complex", "f": 7.220113306665067e-05, "iters": 489, "seconds": 505.6, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50084, "mode": "complex", "f": 3.174325116335798e-05, "iters": 272, "seconds": 361.03, "name": "hr8oc", "d": 8, "sector": "1"}

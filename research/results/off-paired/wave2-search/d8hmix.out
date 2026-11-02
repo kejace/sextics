@@ -9,3 +9,5 @@
 [07:33:08] start d8hmix-c05 (eff None) elapsed 8473s
    -> best 1.309e-02 median 4.013e-02 restarts 24 dimP 46 t/restart 537.16 witness False
 [08:03:38] start d8hmix-c35 (eff None) elapsed 10302s
+   -> best 9.397e-03 median 5.237e-02 restarts 21 dimP 45 t/restart 642.44 witness False
+batch done
