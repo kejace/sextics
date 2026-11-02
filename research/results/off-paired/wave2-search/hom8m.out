@@ -3,3 +3,6 @@ family d=8 c=(0, 0): nD=57 dimP=55 rows=2494 N=450 Q=117
 t=0 start f6*X0^2: relres 5.239e-16
 stage-1 colon family of F0: K=46 dimP=44
   t=0 solution 1 at seed 11
+  t=0 solution 2 at seed 18
+  t=0 solution 3 at seed 19
+  t=0 solution 4 at seed 25

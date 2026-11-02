@@ -6,3 +6,6 @@
 [gmrank_sep] degree 7: dim R_d^ee = 90, rank J = 30, inverse built (0s)
 [gmrank_sep] degree 13: dim R_d^ee = 90, rank J = 666, inverse built (3s)
 [gmrank_sep] degree 19: dim R_d^ee = 3, rank J = 2637, inverse built (113s)
+[gmrank_sep] degree 25: dim R_d^ee = 0, rank J = 6825, inverse built (1746s)
+[gmrank_sep] Hodge-type dimensions {1: 3, 7: 90, 13: 90, 19: 3, 25: 0}
+[gmrank_sep] basis size 186

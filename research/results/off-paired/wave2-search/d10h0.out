@@ -5,3 +5,7 @@
 [03:56:12] start d10h0-c20 (eff 77) elapsed 3608s
    -> best 2.945e-03 median 1.198e-02 restarts 24 dimP 77 t/restart 560.29 witness False
 [04:25:30] start d10h0-c30 (eff 82) elapsed 5365s
+   -> best 1.510e-03 median 1.510e-03 restarts 18 dimP 82 t/restart 684.43 witness False
+[04:57:30] start d10h0-c40 (eff 76) elapsed 7286s
+   -> no summary: [Errno 2] No such file or directory: 'wave2-d10h0-c40.summary.json'
+[04:57:39] start d10h0-c50 (eff 75) elapsed 7294s
