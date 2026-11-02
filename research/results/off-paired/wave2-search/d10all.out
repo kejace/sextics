@@ -23,3 +23,5 @@
 [10:55:16] start d10all-c51 (eff 60) elapsed 6712s
    -> best 9.909e-03 median 2.484e-02 restarts 23 dimP 60 t/restart 200.31 witness False
 [11:05:37] start d10all-c11 (eff 59) elapsed 7333s
+   -> best 6.455e-03 median 2.678e-02 restarts 10 dimP 59 t/restart 381.14 witness False
+[11:16:14] start d10all-c15 (eff 59) elapsed 7970s
