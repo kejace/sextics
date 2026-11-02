@@ -1,3 +1,5 @@
 [08:39:47] start d8gmix-c00 (eff None) elapsed 0s
    -> best 1.317e-02 median 5.507e-02 restarts 8 dimP 86 t/restart 6001.69 witness False
 [10:35:53] start d8gmix-c30 (eff None) elapsed 6966s
+   -> best 2.057e-02 median 8.430e-02 restarts 8 dimP 84 t/restart 3513.88 witness False
+[11:53:37] start d8gmix-c20 (eff None) elapsed 11630s
