@@ -79,7 +79,7 @@
  "nK": 0,
  "n_equations": 100,
  "kernel_files": [],
- "build_seconds": 27.3,
+ "build_seconds": 29.9,
  "ring_dims_2d": {
   "0": 762,
   "1": 744

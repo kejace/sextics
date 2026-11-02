@@ -256,3 +256,8 @@
 {"d": 11, "chi": [0, 3], "dimR": 110, "dimE1": 94, "gauge": 5, "jac_mod_gauge": 52, "ker": 37, "jac_total_with_gauge": 57, "seconds": 7.29, "parity": 0}
 {"d": 11, "chi": [0, 4], "dimR": 116, "dimE1": 99, "gauge": 6, "jac_mod_gauge": 59, "ker": 34, "jac_total_with_gauge": 65, "seconds": 6.03, "parity": 0}
 {"d": 11, "chi": [0, 5], "dimR": 134, "dimE1": 115, "gauge": 9, "jac_mod_gauge": 79, "ker": 27, "jac_total_with_gauge": 88, "seconds": 9.42, "parity": 0}
+{"d": 11, "chi": [2, 0], "dimR": 154, "dimE1": 133, "gauge": 13, "jac_mod_gauge": 96, "ker": 24, "jac_total_with_gauge": 109, "seconds": 189.33, "parity": 0}
+{"d": 11, "chi": [2, 1], "dimR": 122, "dimE1": 106, "gauge": 7, "jac_mod_gauge": 73, "ker": 26, "jac_total_with_gauge": 80, "seconds": 175.08, "parity": 0}
+{"d": 11, "chi": [2, 2], "dimR": 104, "dimE1": 89, "gauge": 4, "jac_mod_gauge": 52, "ker": 33, "jac_total_with_gauge": 56, "seconds": 22.37, "parity": 0}
+{"d": 11, "chi": [2, 3], "dimR": 98, "dimE1": 84, "gauge": 3, "jac_mod_gauge": 45, "ker": 36, "jac_total_with_gauge": 48, "seconds": 79.28, "parity": 0}
+{"d": 11, "chi": [2, 4], "dimR": 104, "dimE1": 89, "gauge": 4, "jac_mod_gauge": 52, "ker": 33, "jac_total_with_gauge": 56, "seconds": 185.96, "parity": 0}

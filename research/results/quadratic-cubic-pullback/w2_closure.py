@@ -104,37 +104,47 @@ rec = {'lane': LANE, 'item': 'closure', 'd': d, 'parity': parD, 'n_w': n, 'spuri
        'fermat_control': bool(a.fermat)}
 print(json.dumps(rec), flush=True)
 if not full2 and a.kmax >= 3:
-    # Macaulay matrix in degree 3: rows = (variable j) x (nonzero form rows r), columns = cubic monomials in nq vars
-    # forms as sparse rows
-    rows_forms = []
+    import numpy as np
+    # reduced forms as sparse rows over pairs
     Cr, rk2 = Cm.rref()
-    for i in range(rk2):
-        rows_forms.append({pairs[j]: int(Cr[i, j]) for j in range(len(pairs)) if int(Cr[i, j])})
-    trip = {}
-    def tidx(t):
-        t = tuple(sorted(t))
-        if t not in trip:
-            trip[t] = len(trip)
-        return trip[t]
-    ncub = len(list(itertools.combinations_with_replacement(range(nq), 3)))
-    for t in itertools.combinations_with_replacement(range(nq), 3):
-        tidx(t)
-    R = len(rows_forms) * nq
-    print(f'[closure] Macaulay degree 3: {R} x {ncub} (rank needed {ncub})', flush=True)
-    flat = [0] * (R * ncub)
-    r = 0
-    for fr in rows_forms:
-        for j in range(nq):
-            base = r * ncub
-            for (a_, b_), c in fr.items():
-                flat[base + tidx((a_, b_, j))] = (flat[base + tidx((a_, b_, j))] + c) % p
-            r += 1
-    t2 = time.time()
-    M3 = nmod_mat(R, ncub, flat, p)
-    del flat
-    r3 = M3.rank()
-    rec.update({'deg3_rank': r3, 'deg3_dim': ncub, 'closed_at_k': 3 if r3 == ncub else None, 't_deg3': round(time.time() - t2, 1)})
-    print(json.dumps(rec), flush=True)
+    rows_forms = [{pairs[j]: int(Cr[i, j]) for j in range(len(pairs)) if int(Cr[i, j])} for i in range(rk2)]
+    for k in range(3, a.kmax + 1):
+        monk = list(itertools.combinations_with_replacement(range(nq), k))
+        kidx = {t: i for i, t in enumerate(monk)}
+        monk2 = list(itertools.combinations_with_replacement(range(nq), k - 2))
+        R, Cn = len(rows_forms) * len(monk2), len(monk)
+        print(f'[closure] Macaulay degree {k}: {R} x {Cn} (full column rank needed)', flush=True)
+        if R < Cn:
+            print('[closure] fewer rows than columns: cannot be full rank; stop', flush=True); break
+        t2 = time.time()
+        ri, ci, vals = [], [], []
+        r = 0
+        for fr in rows_forms:
+            for mu in monk2:
+                for (a_, b_), c in fr.items():
+                    ri.append(r); ci.append(kidx[tuple(sorted((a_, b_) + mu))]); vals.append(c)
+                r += 1
+        import scipy.sparse as sp
+        M = sp.csr_matrix((np.array(vals, dtype=np.int64), (np.array(ri), np.array(ci))), shape=(R, Cn))
+        M.sum_duplicates()
+        M.data %= p
+        if R * Cn <= 4e8:
+            dense = M.toarray()
+            Mk = nmod_mat(R, Cn, dense.ravel().tolist(), p)
+            del dense
+        else:
+            # random row compression to (Cn + 40) rows, exact mod p
+            from hodge.fixed_d import _compress
+            Cm_ = _compress(M, p, Cn + 40, seed=k)
+            Mk = nmod_mat(Cn + 40, Cn, Cm_.ravel().tolist(), p)
+            del Cm_
+        rk = Mk.rank()
+        del Mk
+        rec[f'deg{k}_rank'] = rk; rec[f'deg{k}_dim'] = Cn; rec[f't_deg{k}'] = round(time.time() - t2, 1)
+        print(json.dumps(rec), flush=True)
+        if rk == Cn:
+            rec['closed_at_k'] = k
+            break
 rec['seconds'] = round(time.time() - t0, 1); rec['ts'] = time.strftime('%Y-%m-%dT%H:%M:%S')
 with open(f'/tmp/hodge/results/{LANE}/w2_closure.jsonl', 'a') as f:
     f.write(json.dumps(rec) + '\n')

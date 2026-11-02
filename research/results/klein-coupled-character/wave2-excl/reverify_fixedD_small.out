@@ -1,1 +1,13 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+Jhat certified d 9 rows 7902 cols 1633 rankM 1454 nullity 178 farkas_rows 1455 bits 788 726.0 s
+F_0 certified d 5 rows 1217 cols 204 rankM 188 nullity 15 farkas_rows 189 bits 22 27.2 s
+F_1 certified d 5 rows 1191 cols 197 rankM 181 nullity 15 farkas_rows 182 bits 11 17.5 s
+F_2 certified d 5 rows 1214 cols 194 rankM 178 nullity 15 farkas_rows 179 bits 14 19.1 s
+F_3 certified d 5 rows 1171 cols 205 rankM 189 nullity 15 farkas_rows 190 bits 23 16.3 s
+F_4 certified d 5 rows 1142 cols 205 rankM 189 nullity 15 farkas_rows 190 bits 10 32.9 s
+F_5 certified d 5 rows 1172 cols 205 rankM 189 nullity 15 farkas_rows 190 bits 18 13.6 s
+X0*F_0 certified d 6 rows 2119 cols 372 rankM 340 nullity 31 farkas_rows 341 bits 41 92.1 s
+X0*F_1 certified d 6 rows 1971 cols 397 rankM 354 nullity 42 farkas_rows 355 bits 9 125.0 s
+X0*F_2 certified d 6 rows 2013 cols 316 rankM 297 nullity 18 farkas_rows 298 bits 96 33.1 s
+X0*F_3 certified d 6 rows 1817 cols 360 rankM 328 nullity 31 farkas_rows 329 bits 39 7.7 s
+X0*F_4 certified d 6 rows 1839 cols 360 rankM 328 nullity 31 farkas_rows 329 bits 32 34.9 s

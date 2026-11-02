@@ -1,2 +1,4 @@
 {"exp": "D8-fixedD-compressed", "d": 8, "p": 2147483647, "consistent": false, "rank": 6703, "nullity": 794, "rows": 40326, "cols": 7497, "seconds": 393.4, "engine": 2, "ts": "2026-11-02T00:14:47"}
 {"exp": "D8-fixedD-compressed", "d": 8, "p": 2147483629, "consistent": false, "rank": 6703, "nullity": 794, "rows": 40326, "cols": 7497, "seconds": 669.6, "engine": 2, "ts": "2026-11-02T00:25:57"}
+{"exp": "D8-served-targets", "served_dim": 18, "containsA": false, "info": {"rows": 40326, "cols": 7723, "k": 7763, "t_build": 736.1, "t_null": 185.4}, "seconds": 925.5, "engine": 2, "ts": "2026-11-02T00:41:23"}
+{"exp": "mult_kernel", "d": 9, "parity": 0, "dim_mod_J": 21, "kernel_dim": 399, "jacobian_dim": 378, "ring_dim": 623, "rows": 7752, "cols": 10010, "seconds": 277.0, "engine": 2, "ts": "2026-11-02T00:46:00"}

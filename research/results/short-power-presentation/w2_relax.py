@@ -1,158 +1,123 @@
-"""E2-mod-J (Hessian) relaxation over the full E1-admissible family K_d^par = J_d^par + <kernel reps>, mod p.
-Unknowns u = (w_{j,m} for m in S_{d-5}^{parD+par(j)}, t_1..t_k).  D = w(F) + sum t_l D0_l,  N = A w + sum t_l N0_l,
-G = sum t_l G0_l (F G0_l = A D0_l - N0_l(F)).  Condition: R = D G + D div N - N(D) in J_{2d}^{parA}  (homogeneous
-quadratic system).  Writes Singular and msolve input files.  Usage: python3 w2_relax.py d parD [p]"""
-import sys, time, json
+"""E2-mod-J quadratic relaxation over the E1-admissible family K_d + J(F)_d (gauge-fixed), solved by msolve/Singular.
+Usage: python3 w2_relax.py <d> <parspec: 0|1|m> [--p P] [--threads T] [--solver msolve|singular|both] [--no-kernel]
+       [--chart] [--tag name]
+Reads kernel_d{d}_p{par}.json (rational basis preferred; else mod-p basis for the same prime).
+Writes relax_d{d}_{parspec}.ms/.sing (homogeneous) and relax_d{d}_{parspec}_chart.ms (random affine chart), runs the
+solver(s), stores raw outputs, logs a summary line."""
+import sys, os, json, time, argparse, random, subprocess, re
 sys.path.insert(0, '/tmp/hodge/results/short-power-presentation')
 from w2lib import *
 
-def solve_linear_modp(cols, rhs, p):
-    """Find x with sum x_j cols[j] = rhs (polys mod p); returns dict j->x_j or None."""
-    rows = {}
-    for c in cols:
-        for e in c: rows.setdefault(e, len(rows))
-    for e in rhs: rows.setdefault(e, len(rows))
-    R, C = len(rows), len(cols)
-    flat = [0] * (R * (C + 1))
-    for j, c in enumerate(cols):
-        for e, v in c.items(): flat[rows[e] * (C + 1) + j] = v
-    for e, v in rhs.items(): flat[rows[e] * (C + 1) + C] = v
-    M = nmod_mat(R, C + 1, flat, p)
-    Mr, rank = M.rref()
-    x = {}
-    for i in range(rank):
-        j = 0
-        while j <= C and int(Mr[i, j]) == 0: j += 1
-        if j == C: return None
-        v = int(Mr[i, C])
-        if v: x[j] = v
-    return x
+def load_kernel(d, par, p):
+    path = os.path.join(RES, f'kernel_d{d}_p{par}.json')
+    if not os.path.exists(path):
+        return None, 'missing'
+    J = json.load(open(path))
+    if J.get('basis_rational'):
+        return [reduce_mod(core.parse(s), p) for s in J['basis_rational']], 'rational'
+    if str(p) in J.get('basis_modp', {}):
+        return [modp_poly_from_json(o) for o in J['basis_modp'][str(p)]], f'modp-{p}'
+    return None, f'no basis for prime {p} (have {list(J.get("basis_modp", {}))})'
 
-def particular_N0(Fp, Ap, D0, d, p):
-    pars = fixed_d.numerator_parities(D0, Ap)
-    Fi = [core.pderiv(Fp, i, p) for i in range(6)]
-    cols, meta = [], []
-    for i in range(6):
-        for m in core.monomials(d + 1, pars[i]):
-            cols.append(core.shift(Fi[i], m, 1, p)); meta.append((i, m))
-    rhs = core.mul(Ap, D0, p)
-    x = solve_linear_modp(cols, rhs, p)
-    assert x is not None, 'E1 inconsistent'
-    N0 = [{} for _ in range(6)]
-    for j, v in x.items():
-        i, m = meta[j]; N0[i][m] = v
-    chk = {}
-    for i in range(6): chk = core.add(chk, core.mul(N0[i], Fi[i], p), p)
-    assert core.sub(chk, rhs, p) == {}
-    return N0
+def gauge_indices(fam):
+    idx = []
+    pos = {(mem['j'], mem['m']): k for k, mem in enumerate(fam.members) if mem['tag'] == 'J'}
+    for parD in fam.parities:
+        for h in monomials(fam.d - 6, parD):
+            key = (5, mon_add(h, (0, 0, 0, 0, 0, 1)))
+            if key in pos:
+                idx.append(pos[key])
+    return sorted(set(idx))
 
-def divide_by_F(Fp, P, deg, par, p):
-    """G with F*G = P (deg G = deg)."""
-    mons = core.monomials(deg, par)
-    cols = [core.shift(Fp, m, 1, p) for m in mons]
-    x = solve_linear_modp(cols, P, p)
-    assert x is not None, 'not divisible by F'
-    return {mons[j]: v for j, v in x.items()}
-
-def build(d, parD, p, reps):
-    F, A, q, rec = load()
-    Fp = core.reduce_mod(F, p); Ap = core.reduce_mod(A, p)
-    parA = core.parity_of(Ap)
-    Fi = [core.pderiv(Fp, i, p) for i in range(6)]
-    Hess = [[core.pderiv(Fi[j], l, p) for l in range(6)] for j in range(6)]
-    Ai = [core.pderiv(Ap, i, p) for i in range(6)]
-    # w basis
-    wb = []
-    for j in range(6):
-        pj = 0 if j < 3 else 1
-        for m in core.monomials(d - 5, (parD + pj) % 2):
-            wb.append((j, m))
-    nw = len(wb); k = len(reps)
+def run_msolve(path, out, threads):
     t0 = time.time()
-    # kernel data
-    N0s, G0s, HN = [], [], []
-    for D0 in reps:
-        N0 = particular_N0(Fp, Ap, D0, d, p)
-        NF = {}
-        for i in range(6): NF = core.add(NF, core.mul(N0[i], Fi[i], p), p)
-        rhs = core.sub(core.mul(Ap, D0, p), NF, p)
-        G0 = divide_by_F(Fp, rhs, d, (parA + parD) % 2, p) if rhs else {}
-        N0s.append(N0); G0s.append(G0)
-        H = [{} for _ in range(6)]
-        for j in range(6):
-            for i in range(6): H[j] = core.add(H[j], core.mul(N0[i], Hess[i][j], p), p)
-        HN.append(H)
-    print(f'kernel data for {k} reps ({time.time()-t0:.0f}s)', flush=True)
-    e = 2 * d
-    red = Reducer(Fp, e, parA, p, verbose=True)
-    n = len(red.mons)
-    terms = {}
-    # w-w block: T(a,b)+T(b,a) = -2 A m m' F_jl  (a<b);  T(a,a) = -A m^2 F_jj
-    for a in range(nw):
-        j, m = wb[a]
-        for b in range(a, nw):
-            l, m2 = wb[b]
-            mm = tuple(x + y for x, y in zip(m, m2))
-            t = core.shift(core.mul(Ap, Hess[j][l], p), mm, (p - 1) if a == b else (p - 2), p)
-            if t: terms[(a, b)] = t
-    # w-t block: T(w_a,t_l)+T(t_l,w_a) = -m HN_l,j + D0_l (A_j m + A d_j m) - A m d_j D0_l
-    for l in range(k):
-        D0 = reps[l]; D0i = [core.pderiv(D0, i, p) for i in range(6)]
-        for a in range(nw):
-            j, m = wb[a]
-            t = core.shift(HN[l][j], m, p - 1, p)
-            t = core.add(t, core.shift(core.mul(D0, Ai[j], p), m, 1, p), p)
-            dm = core.pderiv({m: 1}, j, p)
-            if dm:
-                t = core.add(t, core.mul(core.mul(Ap, D0, p), dm, p), p)
-            t = core.sub(t, core.shift(core.mul(Ap, D0i[j], p), m, 1, p), p)
-            if t: terms[(a, nw + l)] = t
-    # t-t block
-    def T(l, l2):
-        D0 = reps[l]; N = N0s[l2]; G = G0s[l2]
-        divN = {}
-        for i in range(6): divN = core.add(divN, core.pderiv(N[i], i, p), p)
-        out = core.mul(D0, core.add(G, divN, p), p)
-        for i in range(6): out = core.sub(out, core.mul(N[i], core.pderiv(D0, i, p), p), p)
-        return out
-    for l in range(k):
-        for l2 in range(l, k):
-            t = T(l, l2) if l == l2 else core.add(T(l, l2), T(l2, l), p)
-            if t: terms[(nw + l, nw + l2)] = t
-    print(f'{len(terms)} nonzero quadratic coefficient vectors ({time.time()-t0:.0f}s)', flush=True)
-    keys = list(terms)
-    U = red.nf_rows([terms[key] for key in keys])
-    nonpiv = [j for j in range(n) if j not in set(red.pivots)]
-    eqs = []
-    for c in nonpiv:
-        eq = {}
-        for i, key in enumerate(keys):
-            v = int(U[i, c])
-            if v: eq[key] = v
-        if eq: eqs.append(eq)
-    nu = nw + k
-    base = f'{RES}/w2/relax_d{d}_p{parD}'
-    with open(base + '.sing', 'w') as f:
-        f.write(f'ring R = {p}, (a(1..{nu})), dp;\nideal I;\n')
-        for eq in eqs:
-            f.write('I[size(I)+1] = ' + '+'.join(f'{v}*a({a+1})*a({b+1})' for (a, b), v in eq.items()) + ';\n')
-        f.write('int t = timer;\nideal G = std(I);\nprint("dim = " + string(dim(G)));\nprint("vdim = " + string(vdim(G)));\n')
-        f.write('print("time = " + string(timer - t));\nprint("size GB = " + string(size(G)));\n')
-        f.write('if (dim(G) >= 0) { LIB "primdec.lib"; list L = minAssGTZ(G); print("ncomp = " + string(size(L))); int ii; for (ii=1; ii<=size(L); ii++) { print("component " + string(ii) + " dim " + string(dim(std(L[ii]))) + " ngens " + string(size(L[ii]))); if (size(L[ii]) < 400) { L[ii]; } } }\nquit;\n')
-    with open(base + '.ms', 'w') as f:
-        f.write(','.join(f'a{i+1}' for i in range(nu)) + '\n' + f'{p}\n')
-        f.write(',\n'.join('+'.join(f'{v}*a{a+1}*a{b+1}' for (a, b), v in eq.items()) for eq in eqs) + '\n')
-    info = {'d': d, 'parD': parD, 'p': p, 'n_w': nw, 'n_t': k, 'unknowns': nu, 'equations': len(eqs),
-            'dim_R_2d': n - red.rank, 'seconds': round(time.time() - t0, 1)}
-    print(info, flush=True)
-    json.dump({'info': info, 'wbasis': [(j, list(m)) for j, m in wb]}, open(base + '.json', 'w'))
-    wlog(batch='relaxation-build', family='K_d+J_d Hessian/E2-mod-J', degree=d, parity=parD, **{k2: v for k2, v in info.items() if k2 not in ('d', 'parD')})
-    return base
+    r = subprocess.run(['msolve', '-t', str(threads), '-v', '1', '-f', path, '-o', out], capture_output=True, text=True)
+    res = open(out).read() if os.path.exists(out) else ''
+    return {'rc': r.returncode, 'stderr': r.stderr[-3000:], 'stdout': r.stdout[-3000:], 'out_head': res[:600],
+            'out_len': len(res), 'seconds': round(time.time() - t0, 1)}
+
+def run_singular(path, timeout):
+    t0 = time.time()
+    try:
+        r = subprocess.run(['Singular', '-q', path], capture_output=True, text=True, timeout=timeout)
+        return {'rc': r.returncode, 'stdout': r.stdout[-6000:], 'stderr': r.stderr[-2000:], 'seconds': round(time.time() - t0, 1)}
+    except subprocess.TimeoutExpired:
+        return {'rc': 'timeout', 'seconds': round(time.time() - t0, 1)}
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('d', type=int); ap.add_argument('parspec')
+    ap.add_argument('--p', type=int, default=PGB[0]); ap.add_argument('--threads', type=int, default=4)
+    ap.add_argument('--solver', default='msolve'); ap.add_argument('--no-kernel', action='store_true')
+    ap.add_argument('--tag', default=''); ap.add_argument('--singular-timeout', type=int, default=3600)
+    ap.add_argument('--no-gauge', action='store_true'); ap.add_argument('--seed', type=int, default=1)
+    a = ap.parse_args()
+    set_threads(a.threads)
+    F, A, q, rec = load()
+    d, p = a.d, a.p
+    pars = [0, 1] if a.parspec == 'm' else [int(a.parspec)]
+    t0 = time.time()
+    reps, nums, srcs = [], [], {}
+    if not a.no_kernel:
+        for par in pars:
+            K, src = load_kernel(d, par, p)
+            srcs[par] = src
+            if K is None:
+                print(f'[relax] kernel d={d} par={par}: {src}', file=sys.stderr)
+                if src == 'missing' and d <= 6:
+                    continue
+                sys.exit(2)
+            if K:
+                N = particular_numerators(F, A, K, p)
+                assert all(n is not None for n in N), 'kernel rep has no numerator (not E1-admissible mod p?)'
+                reps += K; nums += N
+    fam = Family(F, A, d, kernel_reps=reps, kernel_nums=nums, parities=pars)
+    nK = len(reps)
+    terms = relaxation_terms(fam, p)
+    eqs, jrefs = reduce_terms(fam, terms, p)
+    K = fam.K
+    gidx = [] if a.no_gauge else gauge_indices(fam)
+    keep = [k for k in range(K) if k not in set(gidx)]
+    ren = {k: i for i, k in enumerate(keep)}
+    eqs2 = []
+    for eq in eqs:
+        e2 = {}
+        for (k, l), v in eq.items():
+            if k in ren and l in ren:
+                e2[(ren[k], ren[l])] = v
+        if e2:
+            eqs2.append(e2)
+    n = len(keep)
+    labels = [fam.members[k]['label'] for k in keep]
+    base = os.path.join(RES, f'relax_d{d}_{a.parspec}' + (f'_{a.tag}' if a.tag else ''))
+    write_msolve(base + '.ms', eqs2, n, p)
+    write_singular(base + '.sing', eqs2, n, p, extra='if (dim(G) >= 1 and dim(G) <= 3) { LIB "primdec.lib"; list L = minAssGTZ(G); print("ncomp = " + string(size(L))); L; }\n')
+    # random affine chart
+    rng = random.Random(a.seed)
+    chart = list(eqs2) + [{(): p - 1, **{(i,): rng.randrange(1, p) for i in range(n)}}]
+    write_msolve(base + '_chart.ms', chart, n, p)
+    write_singular(base + '_chart.sing', chart, n, p, extra='if (dim(G) == 0) { LIB "solve.lib"; print("vdim0 = " + string(vdim(G))); }\n')
+    with open(base + '_meta.json', 'w') as f:
+        json.dump({'d': d, 'parspec': a.parspec, 'p': p, 'K': K, 'nK': nK, 'gauge_removed': len(gidx), 'n': n,
+                   'labels': labels, 'n_equations': len(eqs2), 'kernel_sources': srcs}, f)
+    logrec = {'kind': 'relaxation', 'd': d, 'parspec': a.parspec, 'p': p, 'K_total': K, 'n_kernel': nK,
+              'gauge_removed': len(gidx), 'n_vars': n, 'n_equations': len(eqs2), 'kernel_sources': srcs,
+              't_build': round(time.time() - t0, 1), 'tag': a.tag}
+    print(json.dumps(logrec), flush=True)
+    if a.solver in ('msolve', 'both'):
+        r1 = run_msolve(base + '_chart.ms', base + '_chart.msout', a.threads)
+        logrec['msolve_chart'] = r1
+        print('[msolve chart]', json.dumps(r1)[:800], flush=True)
+        r0 = run_msolve(base + '.ms', base + '.msout', a.threads)
+        logrec['msolve_hom'] = r0
+        print('[msolve hom]', json.dumps(r0)[:800], flush=True)
+    if a.solver in ('singular', 'both'):
+        r2 = run_singular(base + '.sing', a.singular_timeout)
+        logrec['singular_hom'] = r2
+        print('[singular hom]', json.dumps(r2)[:1500], flush=True)
+    logrec['seconds'] = round(time.time() - t0, 1)
+    w2log(logrec)
+    print(json.dumps(logrec, default=str)[:3000], flush=True)
 
 if __name__ == '__main__':
-    d = int(sys.argv[1]); parD = int(sys.argv[2])
-    p = int(sys.argv[3]) if len(sys.argv) > 3 else PRIMES[0]
-    path = f'{RES}/w2/kernel_d{d}_p{parD}_mod{p}.json'
-    reps = [core.reduce_mod(core.parse(s), p) for s in json.load(open(path))['reps']] if os.path.exists(path) else []
-    print(f'd={d} parD={parD} p={p}: {len(reps)} kernel reps', flush=True)
-    build(d, parD, p, reps)
+    main()

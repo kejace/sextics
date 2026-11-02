@@ -467,7 +467,9 @@ class SectorVP:
             z = np.zeros(0); rp = -bp
         f = float(rp @ rp)
         self.nfev += 1
-        return f, z, rp, float(np.linalg.norm(bp)), N0a + (self.Knull @ z if self.dimK else 0.0), E
+        # scale of the problem: |E2_{D(a)}|_F * |N0(a)| (never ~0 for D(a) != 0), used for the relative residual
+        scale = math.sqrt(E.multiply(E).sum()) * float(np.linalg.norm(N0a)) + float(np.linalg.norm(bp))
+        return f, z, rp, scale, N0a + (self.Knull @ z if self.dimK else 0.0), E
 
     def value_and_grad(self, u):
         a_full = self.P @ u
@@ -484,6 +486,7 @@ class SectorVP:
         return f, self.P.T @ g_full
 
     def rel(self, a):
+        """relative residual sqrt(f)/scale with scale = |E2_D|_F |N0(a)| + |b_proj|; returns (rel, f, scale)."""
         f, z, rp, bn, Nfull, E = self.value_full(a)
         return math.sqrt(f) / max(bn, 1e-300), f, bn
 

@@ -1,6 +1,6 @@
 # Wave 2 — `dense-rational` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness (this lens does not search for witnesses; nothing found by any test so far).
+STATUS: no witness — HANDOFF 2026-11-01 ~20:05 local (forced structured-output return). Rigorous so far: deg D >= 7 re-proved in all sectors at new primes; deg D >= 8 for tau-stable supports is PENDING on the two remote msolve jobs `excl-dense-rational-d7even` / `-d7odd` (p = 1073741789, F4 degree-4 step in progress, remote load ~600). The rigorous chain `excl-dense-rational-rig` (kernel sweep d = 7..10 both parities at p = 2147483587, E1-dual served-target test, 38 more degree-7 mixed families, 10 degree-8 families, then modular/numerical screens) is queued by a local `rjob submit --wait 14400` shell (log `wave2-excl/submit_rig.log`); when it has run, `python3 -m hodge.rjob pull --lane dense-rational` mirrors results to `/tmp/hodge/remote/dense-rational/wave2-excl/` and merges the log. To finish: run `python3 wave2_excl_ltcheck.py` on `wave2-excl/quadsys_d7_{even,odd}_p1073741789.g1.out` (done automatically by the job), fill T5 in `wave2-excl/README.md` and §3 of the draft post, then optionally submit `wave2_excl_chain_d7p2.sh` (second prime).
 Started 2026-11-01 19:05. Log: `/tmp/hodge/results/dense-rational/wave2-excl.log.jsonl`.
 Packet: `/tmp/hodge/results/dense-rational/wave2-excl/` (scripts `wave2_excl_*.py/.sh` in the lane dir, receipts in the packet dir).
 
@@ -20,6 +20,7 @@ Packet: `/tmp/hodge/results/dense-rational/wave2-excl/` (scripts `wave2_excl_*.p
 * R-a. A not in J_6 (two large primes + packet's mod-101 minor).
 * R-b. (J:A)_d = J_d for d <= 6 in both parities (p = 2147483587; agrees with p = 2147483647 / packet).
 * R-c. No degree-5 denominator at all: exact kernel computation above (new; closes the "only six directions" gap in the summary of packet R2).
+* R-e. Relaxation identity B_D(Aw) = -A w^T Hess(F) w (mod J) checked exactly on a random quadratic field: still running at handoff (background local process; result line "relaxation-sign-check" will appear in wave2-excl.log.jsonl).
 * R-d. No degree-6 denominator in any parity sector (msolve leading ideals, three sectors): `deg D >= 7` for every certificate, re-proved by a route independent of the packet (relies on T1 at d = 6, both parities, and the projective-emptiness argument; receipts `wave2-excl/quadsys_d6_*_ltcheck.json`).
 
 ## 2. Running / planned
@@ -34,5 +35,18 @@ Generator `wave2_excl_quadsys_fam.py` restricts the Hessian relaxation to a line
 (D = w(F)); for d = 8 the quotient is by (J:A)_10^+ (kernel basis from the sweep, same prime). A legal D = w(F) with
 w in W_fam (+ F S_{d-6}) is excluded over C when the leading ideal contains a pure power of every variable.
 Families: blockdiag (w_X in C[X], w_Y in C[Y]), cross, xonly/yonly, weuler (w_i = z_i g_i), gradient (w = grad g),
-pair-i-j (two nonzero components).  Results are appended to the log as `msolve-leading-ideal-check` with `job`
-`local-d7-mixed-*` or `rig-d{7,8}-*`.
+pair-i-j / comp-i-j-k (two / three nonzero components).  Results are appended to the log as `msolve-leading-ideal-check`
+with `job` `local-d7-mixed-*` or `rig-d{7,8}-*`.
+
+| d | sector | family | unknowns (after gauge) | quadrics | leading ideal | result |
+|---|---|---|---|---|---|---|
+| 7 | mixed | weuler (w_i = z_i l_i, l_i linear) | 30 | 951 | 315 quadratic lead monomials, every c_a^2 | EMPTY: rigorous |
+| 7 | mixed | blockdiag (w_X in C[X]_2, w_Y in C[Y]_2) | 36 | 951 | 562, max degree 4, every c_a^2 | EMPTY: rigorous |
+| 7 | mixed | cross (w_X in C[Y]_2, w_Y in C[X]_2) | 36 | 951 | 562, max degree 4, every c_a^2 | EMPTY: rigorous |
+| 7 | mixed | gradient (w = grad g, g cubic, both parities) | 52 | 951 | pure powers of all variables (196 s locally) | EMPTY: rigorous (outputs to be regenerated on the remote) |
+| 7 | mixed | xonly / yonly (63), 15 pairs (42), 20 triples (63) | | | remote chain `excl-dense-rational-rig` | pending |
+| 8 | even | blockdiag (60), weuler (60), gradient (65), xonly/yonly (84) | | 468 | remote chain | pending |
+| 8 | odd | cross (60), weuler (45), gradient (60), xonly/yonly (84) | | 468 | remote chain | pending |
+
+Note: "mixed" at d = 7 means the field w has components of both Y-parities, i.e. D = D_even + D_odd with both parts
+nonzero (non-tau-stable support).  For a mixed family the quotient is by J_8 in both parities (951 equations).

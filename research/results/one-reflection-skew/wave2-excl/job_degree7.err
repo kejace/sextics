@@ -17,3 +17,35 @@ sector (3, 0, 3) dimK 6 extra 0
 sector (3, 0, 4) dimK 28 extra 7
 sector (3, 0, 5) dimK 3 extra 0
 sector (3, 3, 0) dimK 6 extra 0
+sector (3, 3, 1) dimK 19 extra 1
+sector (3, 3, 2) dimK 3 extra 0
+sector (3, 3, 3) dimK 0 extra 0
+sector (3, 3, 4) dimK 0 extra 0
+sector (3, 3, 5) dimK 1 extra 0
+{'alive': 129, 'rank': 748, 'npairs': 5754, 'nquads': 1019, 'squares_modp': 0, 'squares_certified': 0, 'monos': 56}
+relaxed sector (0, 0, 0) rows 537 cols 2802 duals 89
+relaxed sector (0, 0, 1) rows 669 cols 6675 duals 62
+relaxed sector (0, 0, 2) rows 933 cols 10498 duals 53
+relaxed sector (0, 0, 3) rows 183 cols 4940 duals 0
+relaxed sector (0, 0, 4) rows 288 cols 813 duals 105
+relaxed sector (0, 0, 5) rows 366 cols 788 duals 160
+relaxed sector (0, 3, 0) rows 183 cols 4937 duals 0
+relaxed sector (0, 3, 1) rows 261 cols 799 duals 92
+relaxed sector (0, 3, 2) rows 366 cols 790 duals 158
+relaxed sector (0, 3, 3) rows 498 cols 2816 duals 77
+relaxed sector (0, 3, 4) rows 669 cols 6680 duals 62
+relaxed sector (0, 3, 5) rows 879 cols 10573 duals 44
+relaxed sector (3, 0, 0) rows 201 cols 4955 duals 0
+relaxed sector (3, 0, 1) rows 261 cols 799 duals 92
+relaxed sector (3, 0, 2) rows 393 cols 782 duals 195
+relaxed sector (3, 0, 3) rows 498 cols 2816 duals 77
+relaxed sector (3, 0, 4) rows 708 cols 6672 duals 69
+relaxed sector (3, 0, 5) rows 879 cols 10573 duals 44
+relaxed sector (3, 3, 0) rows 498 cols 2817 duals 78
+relaxed sector (3, 3, 1) rows 669 cols 6675 duals 62
+relaxed sector (3, 3, 2) rows 879 cols 10576 duals 44
+relaxed sector (3, 3, 3) rows 183 cols 4940 duals 0
+relaxed sector (3, 3, 4) rows 261 cols 799 duals 92
+relaxed sector (3, 3, 5) rows 366 cols 788 duals 161
+relaxed: correction columns 105016
+{'alive': 129, 'rank': 757, 'npairs': 5764, 'nquads': 1094, 'squares_modp': 0, 'squares_certified': 0, 'monos': 57}

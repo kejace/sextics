@@ -181,24 +181,32 @@ def main():
 
     def try_confirm(out):
         c = np.asarray(out['c'], float)
-        rats = W.rationalize(c)
-        W.log_event({'event': 'candidate', 'job': a.job, 'd': a.d, 'rho': a.rho, 'sigma': sD, 'family': a.family,
-                     'target': a.target, 'seed': out['seed'], 'rel': out['rel'], 'n_rational_candidates': len(rats)})
-        for fr in rats[:6]:
-            Dc = W.poly_from_vec(op.Dm, fr)
-            st, inf = W.exact_confirm(prob, Dc, a.rho, sD, T)
-            rec = {'event': 'exact-confirm', 'job': a.job, 'd': a.d, 'rho': a.rho, 'sigma': sD, 'family': a.family,
-                   'target': a.target, 'seed': out['seed'], 'rel': out['rel'], 'status': st, 'D': core.to_str(Dc),
-                   'rank': inf.get('rank'), 'nullity': inf.get('nullity'), 'secs': inf.get('secs')}
-            W.log_event(rec)
-            print(json.dumps(rec)[:400], flush=True)
-            if st == 'solved':
-                ok = W.save_witness_candidate(prob, inf['D6'], inf['N6'], {}, extra={'job': a.job, 'D5': core.to_str(Dc),
-                                             'N5': [core.to_str(n) for n in inf['N5']], 'target': a.target})
-                confirmed.append({'D5': core.to_str(Dc), 'verified6': ok, 'seed': out['seed']})
-                W.log_event({'event': 'WITNESS', 'job': a.job, 'd': a.d, 'D5': core.to_str(Dc), 'verified6': ok, 'target': a.target})
-                print('!!!!!!!! WITNESS FOUND (5-var -> 6-var verified=%s) !!!!!!!!' % ok, flush=True)
-                break
+        try:
+            zdim, svals = W.zero_set_dim(VP, c)
+        except Exception:
+            zdim, svals = None, None
+        W.log_event({'event': 'candidate', 'job': a.job, 'inst': a.inst, 'd': a.d, 'rho': a.rho, 'sigma': sD, 'family': a.family,
+                     'target': a.target, 'seed': out['seed'], 'rel': out['rel'], 'zero_set_dim_est': zdim, 'J_svals_tail': svals})
+
+        def logger(rec):
+            r2 = dict(rec); r2.update({'event': 'exact-confirm', 'job': a.job, 'inst': a.inst, 'd': a.d, 'rho': a.rho, 'sigma': sD,
+                                        'family': a.family, 'target': a.target, 'seed': out['seed'], 'rel_num': out['rel']})
+            W.log_event(r2)
+            print(json.dumps(r2)[:400], flush=True)
+        st, inf = W.snap_confirm(VP, prob, c, a.rho, sD, T, logger=logger)
+        if st == 'solved':
+            Dc = inf['D5']
+            path = f'{W.WD}/witness-candidate.json' if a.inst == W.LANE else f'{W.WD}/{a.job}.witness.json'
+            ok = W.save_witness_candidate(prob, inf['D6'], inf['N6'], {}, path=path,
+                                          extra={'job': a.job, 'D5': core.to_str(Dc), 'N5': [core.to_str(n) for n in inf['N5']], 'target': a.target})
+            confirmed.append({'D5': core.to_str(Dc), 'verified6': ok, 'seed': out['seed']})
+            W.log_event({'event': 'WITNESS' if a.inst == W.LANE else 'witness-other-instance', 'job': a.job, 'inst': a.inst, 'd': a.d,
+                         'D5': core.to_str(Dc), 'verified6': ok, 'target': a.target, 'path': path})
+            print(('!!!!!!!! WITNESS FOUND (5-var -> 6-var verified=%s) !!!!!!!!' % ok) if a.inst == W.LANE else
+                  f'(calibration instance {a.inst}: exact solution recovered, verified={ok})', flush=True)
+        else:
+            W.log_event({'event': 'unconfirmed-candidate', 'job': a.job, 'inst': a.inst, 'd': a.d, 'seed': out['seed'], 'rel': out['rel'],
+                         'attempts': inf.get('attempts', [])[-6:]})
 
     ctx = mp.get_context('fork')
     with ctx.Pool(a.procs) as pool:

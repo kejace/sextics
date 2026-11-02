@@ -68,3 +68,4 @@ d= 9 e1=False cons=False rank=None/None 553.1s pieces-9               Z'*H'
 d= 9 e1=False cons=False rank=None/None 573.3s pieces-9               C^3  
 d= 9 e1=False cons=False rank=None/None 566.9s pieces-9               Z'^3  
 d= 9 e1=False cons=False rank=None/None 584.6s pieces-9               C^2*Z'  
+d= 9 e1=False cons=False rank=None/None 582.0s pieces-9               C*Z'^2  

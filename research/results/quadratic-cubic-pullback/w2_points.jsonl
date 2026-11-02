@@ -1,0 +1,2 @@
+{"lane": "quadratic-cubic-pullback", "item": "points", "d": 6, "parity": 0, "char": 2147483629, "n_forms": 135, "nq": 17, "msolve_seconds": 0.0, "out": "/tmp/hodge/results/quadratic-cubic-pullback/w2_points_d6_p0_c2147483629.out", "ts": "2026-11-01T19:41:41", "out_head": "[-1]:\n"}
+{"lane": "quadratic-cubic-pullback", "item": "points", "d": 6, "parity": 1, "char": 2147483629, "n_forms": 153, "nq": 18, "msolve_seconds": 0.0, "out": "/tmp/hodge/results/quadratic-cubic-pullback/w2_points_d6_p1_c2147483629.out", "ts": "2026-11-01T19:42:43", "out_head": "[-1]:\n"}

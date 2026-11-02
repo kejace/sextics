@@ -158,14 +158,19 @@ def _rref_rows(Pr, rk, K):
     return pivots, vals
 
 
-def sector_kernel(I, d, key, parity=0, nprimes=2, max_primes=5, verbose=False):
-    """Exact rational basis of K_d^key (see module docstring).  Returns dict."""
+def sector_kernel(I, d, key, parity=0, nprimes=2, exact_try=True, verbose=False):
+    """Basis of K_d^key (see module docstring).  Dimensions from two primes; the basis is exact rational
+    (CRT + rational reconstruction, verified at a third prime) when the heights are small, otherwise a float
+    orthonormal basis (SVD) -- the rational rref bases typically have ~170-digit entries in this lane.
+    Returns dict with keys d, key, nmons, kernel_dim, jac_dim, nonjac_dim, ring_dim, basis (list of polys),
+    exact (bool), mons, pivots, primes, shape, seconds."""
     t0 = time.time()
     Dm = I.sector_monomials(d, parity, key)
     K = len(Dm)
     out = {'d': d, 'key': list(key), 'nmons': K, 'kernel_dim': 0, 'jac_dim': 0, 'nonjac_dim': 0,
-           'ring_dim': K, 'basis': [], 'mons': Dm, 'pivots': [], 'primes': []}
+           'ring_dim': K, 'basis': [], 'exact': True, 'mons': Dm, 'pivots': [], 'primes': [], 'shape': [0, 0]}
     if K == 0:
+        out['seconds'] = round(time.time() - t0, 2)
         return out
     tkey = I.kadd(I.keyA, key); tpar = (I.pA + parity) % 2
     gens = []
@@ -179,80 +184,92 @@ def sector_kernel(I, d, key, parity=0, nprimes=2, max_primes=5, verbose=False):
         for m in I.sector_monomials(d - 5, mpar, mkey):
             jg.append((i, m))
     Dindex = {m: j for j, m in enumerate(Dm)}
-    per_prime = {}
+    cols_exact = [shift(I.A, m, 1) for m in Dm] + [shift(I.Fi[i], m, 1) for (i, m) in gens]
+    rows = {}
+    for col in cols_exact:
+        for e in col:
+            rows.setdefault(e, len(rows))
+    R, C = len(rows), len(cols_exact)
 
     def compute(p):
-        Ap = reduce_mod(I.A, p); Fip = [reduce_mod(I.Fi[i], p) for i in range(NV)]
-        cols = [shift(Ap, m, 1, p) for m in Dm] + [shift(Fip[i], m, 1, p) for (i, m) in gens]
-        M, rows = _nmod_from_cols(cols, p)
+        flat = [0] * (R * C)
+        for j, col in enumerate(cols_exact):
+            for e, v in col.items():
+                flat[rows[e] * C + j] = (v.numerator * pow(v.denominator, -1, p)) % p
+        M = nmod_mat(R, C, flat, p)
         X, nullity = M.nullspace()
         if nullity == 0:
             pivots, vals = [], []
         else:
-            flat = [int(X[j, k]) for k in range(nullity) for j in range(K)]
-            proj = nmod_mat(nullity, K, flat, p)
+            flat2 = [int(X[j, k]) for k in range(nullity) for j in range(K)]
+            proj = nmod_mat(nullity, K, flat2, p)
             Pr, rk = proj.rref()
             pivots, vals = _rref_rows(Pr, rk, K)
         if jg:
-            jcols = [shift(Fip[i], m, 1, p) for (i, m) in jg]
+            jcols = [shift(reduce_mod(I.Fi[i], p), m, 1, p) for (i, m) in jg]
             JM, _ = _nmod_from_cols(jcols, p, rows=dict(Dindex))
             jrank = JM.rank()
         else:
             jrank = 0
-        return pivots, vals, jrank, (M.nrows(), M.ncols())
+        return pivots, vals, jrank
 
-    np_ = nprimes
-    while True:
-        for p in PRIMES[:np_ + 1]:
-            if p not in per_prime:
-                per_prime[p] = compute(p)
-        ps = PRIMES[:np_ + 1]
-        piv0 = per_prime[ps[0]][0]
-        ok = all(per_prime[p][0] == piv0 for p in ps)
-        if not ok:
-            # drop primes with deviating pivot structure (unlucky prime), require agreement of the majority
-            if np_ + 1 >= max_primes:
-                raise RuntimeError(f'pivot structure disagrees across primes at d={d} key={key}')
-            np_ += 1
-            continue
-        rk = len(piv0)
-        jrank = per_prime[ps[0]][2]
-        # CRT over the first np_ primes, verify with the last
-        basis_rows = []
-        fail = False
-        for r in range(rk):
-            vals_frac = []
-            for j in range(K):
-                a, m = per_prime[ps[0]][1][r][j], ps[0]
-                for p in ps[1:np_]:
-                    a, m = core.crt_pair(a, m, per_prime[p][1][r][j], p)
-                fr = core.ratrecon(a, m)
-                if fr is None:
-                    fail = True; break
-                vals_frac.append(fr)
-            if fail:
-                break
-            basis_rows.append(vals_frac)
-        if not fail:
-            pv = ps[np_]
+    ps = PRIMES[:nprimes + 1]
+    per = {p: compute(p) for p in ps[:nprimes]}
+    dims = [len(per[p][0]) for p in ps[:nprimes]]
+    jr = [per[p][2] for p in ps[:nprimes]]
+    agree = (len(set(dims)) == 1 and len(set(jr)) == 1 and all(per[p][0] == per[ps[0]][0] for p in ps[:nprimes]))
+    rk = min(dims); jrank = min(jr)
+    basis = []; exact = False
+    if exact_try and rk > 0 and agree:
+        try:
+            basis_rows = []
+            ok = True
             for r in range(rk):
+                vals_frac = []
                 for j in range(K):
-                    fr = basis_rows[r][j]
-                    if (fr.numerator * pow(fr.denominator, -1, pv)) % pv != per_prime[pv][1][r][j] % pv:
-                        fail = True; break
-                if fail:
+                    a, m = per[ps[0]][1][r][j], ps[0]
+                    for p in ps[1:nprimes]:
+                        a, m = core.crt_pair(a, m, per[p][1][r][j], p)
+                    fr = core.ratrecon(a, m)
+                    if fr is None:
+                        ok = False; break
+                    vals_frac.append(fr)
+                if not ok:
                     break
-        if not fail:
-            break
-        if np_ + 1 >= max_primes:
-            raise RuntimeError(f'rational reconstruction failed at d={d} key={key} with {np_} primes')
-        np_ += 1
-    basis = [{Dm[j]: v for j, v in enumerate(row) if v != 0} for row in basis_rows]
+                basis_rows.append(vals_frac)
+            if ok:
+                pv = ps[nprimes]
+                per[pv] = compute(pv)
+                ok = per[pv][0] == per[ps[0]][0]
+                for r in range(rk):
+                    if not ok:
+                        break
+                    for j in range(K):
+                        fr = basis_rows[r][j]
+                        if (fr.numerator * pow(fr.denominator, -1, pv)) % pv != per[pv][1][r][j] % pv:
+                            ok = False; break
+            if ok:
+                basis = [{Dm[j]: v for j, v in enumerate(row) if v != 0} for row in basis_rows]
+                exact = True
+        except Exception:
+            exact = False
+    if rk > 0 and not exact:
+        Mf = np.zeros((R, C))
+        for j, col in enumerate(cols_exact):
+            for e, v in col.items():
+                Mf[rows[e], j] = float(v)
+        Nf = sla.null_space(Mf)
+        if Nf.shape[1]:
+            U, s, _ = np.linalg.svd(Nf[:K, :], full_matrices=False)
+            r = int(np.sum(s > 1e-9 * max(1.0, s[0])))
+            if r != rk:
+                out['warning'] = f'float kernel rank {r} != modular {rk}'
+            basis = [{Dm[j]: float(U[j, i]) for j in range(K) if abs(U[j, i]) > 1e-14} for i in range(min(r, rk) if r >= rk else r)]
     out.update({'kernel_dim': rk, 'jac_dim': jrank, 'nonjac_dim': rk - jrank, 'ring_dim': K - jrank,
-                'basis': basis, 'pivots': piv0, 'primes': ps[:np_], 'n_jgens': len(gens),
-                'shape': per_prime[ps[0]][3], 'seconds': round(time.time() - t0, 2)})
+                'basis': basis, 'exact': exact, 'pivots': per[ps[0]][0], 'primes': list(per.keys()),
+                'n_jgens': len(gens), 'shape': [R, C], 'agree': agree, 'seconds': round(time.time() - t0, 2)})
     if verbose:
-        print(f'[kernel] d={d} key={keystr(key)} mons={K} ker={rk} J={jrank} nonJ={rk - jrank} '
+        print(f'[kernel] d={d} key={keystr(key)} mons={K} ker={rk} J={jrank} nonJ={rk - jrank} exact={exact} '
               f'shape={out["shape"]} ({out["seconds"]}s)', file=sys.stderr)
     return out
 
@@ -263,7 +280,10 @@ def kernel_path(d, key, parity=0):
 
 def save_kernel(kd, parity=0):
     rec = dict(kd)
-    rec['basis'] = [{core.to_str({m: Fraction(1)}): str(v) for m, v in B.items()} for B in kd['basis']]
+    if kd['exact']:
+        rec['basis'] = [{core.to_str({m: Fraction(1)}): str(v) for m, v in B.items()} for B in kd['basis']]
+    else:
+        rec['basis'] = [{core.to_str({m: Fraction(1)}): float(v) for m, v in B.items()} for B in kd['basis']]
     rec['mons'] = [list(m) for m in kd['mons']]
     with open(kernel_path(kd['d'], tuple(kd['key']), parity), 'w') as f:
         json.dump(rec, f)
@@ -278,7 +298,7 @@ def load_kernel(I, d, key, parity=0, compute=True, **kw):
             P = {}
             for ms, v in B.items():
                 e = next(iter(core.parse(ms)))
-                P[e] = Fraction(v)
+                P[e] = Fraction(v) if rec['exact'] else float(v)
             basis.append(P)
         rec['basis'] = basis
         rec['mons'] = [tuple(m) for m in rec['mons']]
@@ -302,46 +322,29 @@ def wspace_basis(I, d, keyD, parity=0):
 
 
 def cone_subbasis(kd, variables):
-    """Sub-family of a kernel basis: elements supported on the given variable subset (exact)."""
+    """Sub-family of span(basis) supported on the given variable subset (float orthonormal basis)."""
     vs = set(variables)
-    # subspace of span(basis) with support in vs: solve linear conditions on coefficients
     basis = kd['basis']; mons = kd['mons']
     if not basis:
         return []
     bad = [m for m in mons if any(m[i] for i in range(NV) if i not in vs)]
     if not bad:
         return list(basis)
-    # coefficient matrix: rows = bad monomials, cols = basis elements; nullspace over Q (fmpq)
-    from flint import fmpq_mat, fmpq
-    R, C = len(bad), len(basis)
-    M = fmpq_mat(R, C)
+    Bm = np.zeros((len(bad), len(basis)))
     for r, m in enumerate(bad):
         for c, B in enumerate(basis):
-            v = B.get(m, 0)
-            if v:
-                M[r, c] = fmpq(v.numerator, v.denominator)
-    # nullspace via rref of M^T? flint fmpq_mat has .rref(); build augmented
-    Mt = M.transpose()  # C x R: want x with M x = 0 -> x in left nullspace of Mt... simpler: rref(M)
-    Rr, rk = M.rref()
-    pivots = []
-    free = []
-    for i in range(rk):
-        piv = next(j for j in range(C) if Rr[i, j] != 0)
-        pivots.append(piv)
-    pset = set(pivots)
-    free = [j for j in range(C) if j not in pset]
+            Bm[r, c] = float(B.get(m, 0))
+    ns = sla.null_space(Bm)
     out = []
-    for fcol in free:
-        x = [Fraction(0)] * C
-        x[fcol] = Fraction(1)
-        for i, piv in enumerate(pivots):
-            v = Rr[i, fcol]
-            x[piv] = -Fraction(int(v.p), int(v.q))
+    for i in range(ns.shape[1]):
         D = {}
         for c, B in enumerate(basis):
-            if x[c]:
-                D = add(D, scale(B, x[c]))
-        out.append(D)
+            if abs(ns[c, i]) > 1e-14:
+                for e, v in B.items():
+                    D[e] = D.get(e, 0.0) + ns[c, i] * float(v)
+        D = {e: v for e, v in D.items() if abs(v) > 1e-13}
+        if D:
+            out.append(D)
     return out
 
 

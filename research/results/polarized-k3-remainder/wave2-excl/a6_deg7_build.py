@@ -34,7 +34,7 @@ lines = ['ring r = 0,(U0,U1,U2,V0,V1,V2),dp;', 'option(redSB);', f'poly G = {spo
          'L = std(L);', 'int ne = size(L); print("GB size " + string(ne));',
          'intvec hv = hilb(L,1); print("hilbert numerator computed");',
          f'ideal KB = kbase(L,{2*d}); print("std monomials in degree {2*d}: " + string(size(KB)));',
-         f'write(":w {W}/deg7_kbase.txt", string(KB));'.replace('{W}', os.getcwd()),
+         f'write(":w {os.getcwd()}/deg7_kbase.txt", string(KB));',
          f'link fh = ":w {os.getcwd()}/deg7_nf.txt";', 'poly t; poly n;']
 for k in keys:
     lines.append(f't = {spoly(Tpolys[k])}; n = reduce(t, L); write(fh, "{k[0]},{k[1]}:" + string(n));')

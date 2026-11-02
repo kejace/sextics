@@ -24,13 +24,14 @@ Fz_p = {e: v % p for e, v in S.Fz.items()}
 Fz_rest = {e: v for e, v in Fz_p.items() if e[2] < 6}      # Fz - 7 X2^6
 
 def reduce_F(P):
-    """Reduce P (dict, int coeffs) modulo F over F_p: result has X2-exponent <= 5."""
+    """Reduce P (dict, int coeffs) modulo F over F_p: result has X2-exponent <= 5.  (7 F = 7 X2^6 + rest.)"""
     P = {e: v % p for e, v in P.items() if v % p}
     while True:
-        hi = [(e, v) for e, v in P.items() if e[2] >= 6]
+        hi = sorted((e for e in P if e[2] >= 6), key=lambda e: -e[2])
         if not hi: return P
-        for e, v in hi:
-            del P[e]
+        for e in hi:
+            v = P.pop(e, None)
+            if v is None: continue
             c = (v * p7inv) % p
             m = (e[0], e[1], e[2] - 6, e[3], e[4], e[5])
             for e2, v2 in Fz_rest.items():
@@ -38,7 +39,6 @@ def reduce_F(P):
                 nv = (P.get(k, 0) - c * v2) % p
                 if nv: P[k] = nv
                 else: P.pop(k, None)
-
 def pmul(a, b): return imul(a, b)
 def padd(a, b): return core.add(a, b)
 def psub(a, b): return core.sub(a, b)

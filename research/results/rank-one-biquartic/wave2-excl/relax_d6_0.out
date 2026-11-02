@@ -1,0 +1,2 @@
+family all d=6 par=0 p=1000000007: dim K cap V = 17, dim J_d = 18, dim J_d cap V = 17
+running Singular on relax_d6_0_all_1000000007

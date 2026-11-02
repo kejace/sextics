@@ -1,0 +1,11 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hess_quadrics] d=6 pD=0 nW=18 pairs=171 dim R_2d^-=866 rank(quadrics)=135 (21.2s)
+[macaulay] d=6 par=0 deg=2 rank=135 of 171 (135 rows) -> Hilbert function 36
+[macaulay] d=6 par=0 deg=3 rank=1136 of 1140 (2430 rows) -> Hilbert function 4
+{"event": "hess", "d": 6, "par": 0, "p": 2147483629, "nW": 18, "npairs": 171, "dimR_2d_odd": 866, "rank_quadrics": 135, "expected_conditions_note": "rank <= min(dim Sym^2 W, rank of A: R_{2d-6}^+ -> R_{2d}^-)", "t_quadrics": 21.4, "msolve_file": "/tmp/hodge/results/eight-plane-configuration/hess6local-quadrics-d6-p0.ms", "seconds": 24.2}
+{"2": {"rank": 135, "rows": 135, "cols": 171, "full": false, "codim_hilbert": 36, "seconds": 0.0}, "3": {"rank": 1136, "rows": 2430, "cols": 1140, "full": false, "codim_hilbert": 4, "seconds": 2.8}}
+[hess_quadrics] d=6 pD=1 nW=18 pairs=171 dim R_2d^-=866 rank(quadrics)=153 (15.1s)
+[macaulay] d=6 par=1 deg=2 rank=153 of 171 (153 rows) -> Hilbert function 18
+[macaulay] d=6 par=1 deg=3 rank=1138 of 1140 (2754 rows) -> Hilbert function 2
+{"event": "hess", "d": 6, "par": 1, "p": 2147483629, "nW": 18, "npairs": 171, "dimR_2d_odd": 866, "rank_quadrics": 153, "expected_conditions_note": "rank <= min(dim Sym^2 W, rank of A: R_{2d-6}^+ -> R_{2d}^-)", "t_quadrics": 15.2, "msolve_file": "/tmp/hodge/results/eight-plane-configuration/hess6local-quadrics-d6-p1.ms", "seconds": 17.9}
+{"2": {"rank": 153, "rows": 153, "cols": 171, "full": false, "codim_hilbert": 18, "seconds": 0.0}, "3": {"rank": 1138, "rows": 2754, "cols": 1140, "full": false, "codim_hilbert": 2, "seconds": 2.6}}

@@ -2,3 +2,6 @@ d=8 p=1073741789 |G|=18 chiA=(0, 3) allowed D characters: [(0, 0), (0, 2), (0, 4
   kernel element D8 char (0, 4) terms 25 lift terms 35
 unknowns: 1 kernel + 91 vector-field coordinates (gauge removed 9) = 92
 J_16: rank mod p = 19398, CI value = 19398  (157.5s)  dim R_16 = 951
+quadratic form: 4278 nonzero coefficient polys, 163 nonzero quadrics mod p (345.0s)
+sanity (direct B_D(N) reduction at random point agrees with quadrics): True
+E1 at random point: True

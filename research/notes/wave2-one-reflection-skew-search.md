@@ -1,9 +1,11 @@
 # Wave 2 — `one-reflection-skew` joint search (report rewritten after every batch)
 
-STATUS: NO WITNESS FOUND (remote chains queued behind the shared-box capacity gate; load ~400 from ~50
-other jobs). Pipeline validated end-to-end on an accepted witness (family-hesse-web): exact 6→5 reduction,
-operator (rel 2.6e-15 at the known D), LM variable projection finds the known D from random starts in 4/8
-restarts (full E1-kernel family), exact confirm verifies the 6-variable lift.
+STATUS: NO WITNESS FOUND (searches running on the remote; the shared box is saturated by ~65 other jobs,
+load ~520 on 128 cores, so one 4-CPU chain was forced through the capacity gate and three 8-CPU chains are
+queued behind it). Pipeline validated end-to-end on an accepted witness (family-hesse-web): exact 6→5
+reduction, operator (rel 2.6e-15 at the known D), LM variable projection finds the known D from random
+starts (4/8 restarts, full E1-kernel family), snap-to-rational + exact confirm recovers exactly the accepted
+denominator and verifies the 6-variable lift (`core.verify_witness`).
 
 ## 0. Setting (exact reduction used throughout)
 
@@ -57,7 +59,14 @@ non-Jacobian directions 0, 0, 8, 78, 129, 165, 171.)
 
 ## 5. Rational reconstruction attempts (task 5)
 
-(none yet: no restart below the 1e-7 threshold)
+Finding from the calibration needle: a numerical zero (rel 2e-13) does **not** rationalise directly — the
+zero set is positive-dimensional (LM Jacobian at D* has two near-null directions beyond scaling, singular
+values 2.7e-10 and 7.9e-6; e.g. direction `X0⁴X1² − X1²Y0⁴`), so a generic numerical zero is an irrational
+point of a family of denominators. Remedy implemented (`w2lib.snap_confirm`): drop monomials with
+|coefficient| < τ (τ ladder 1e-6 … 1e-1), refit by LM inside the sub-family, rationalise
+(`limit_denominator` ladder + LLL), confirm exactly (E1 mod p, fixed-D rref mod p, CRT lift, exact 5-variable
+identity, `core.verify_witness` on the 6-variable lift). On the needle: τ = 1e-4 keeps 8 monomials, refit
+rel 4e-15, exact solve → the accepted D, verified. Skew-lane attempts: none yet (no restart below 1e-7).
 
 ## 6. Derivation of the reduction (for the record)
 

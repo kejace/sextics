@@ -1,2 +1,9 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 [realkernel d=10] G (10152, 13104) nnz 340704, MA (10152, 1512); built 1.2s
+[realkernel] svd 632.7s; s[0]=5.629e+01
+[realkernel] rJ=468 rank=9684: s[rank-1]=5.628e-01 s[rank]=5.943e-14 s[-1]=1.038e-14
+[realkernel] dim K_d = 1044 (ZM sv: [0.00240162 0.00191283 0.00178474 0.00130582 0.00104566])
+[realkernel] dim J_d = 750; nonJ part dim = 294; sc around cut: [1.00000000e+00 1.00000000e+00 1.00000000e+00 1.15379093e-12
+ 9.71202926e-13 7.29384783e-13]
+[realkernel] E1 lift residuals: max 1.47e-14 median 1.29e-14
+{"lane": "quadratic-cubic-pullback", "item": "realkernel", "d": 10, "dimK": 1044, "dimJ": 750, "dim_nonJ": 294, "s_rank_minus1": 0.5627755626592854, "s_rank": 5.943316115573844e-14, "s_min": 1.0382627658881142e-14, "lift_relres_max": 1.472284941384562e-14, "seconds": 660.2, "ts": "2026-11-02T00:42:33"}

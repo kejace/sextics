@@ -46,6 +46,8 @@ def main():
         tag = spec if spec in ('all', 'alleven', 'allodd') else ','.join(cstr(c) for c in CD)
         t0 = time.time()
         try:
+            if cmd in ('hess', 'koszul') and not jac_C_basis(d, CD):
+                wlog(kind='batch', family=cmd, d=d, sector=tag, note='empty Jacobian-type family (K=0)'); continue
             if cmd == 'hess':
                 fam = HessRelax(d, CD, verbose=True)
                 family = 'hess-relax'

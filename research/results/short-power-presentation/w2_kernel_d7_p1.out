@@ -1,0 +1,8 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[JRef] e=13 par=0 p=2147483647: gens=3861 mons=4284 rank=3441 dimR=843 (build 7s, rref 30s)
+[JRef] e=7 par=1 p=2147483647: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
+[e1_kernel] d=7 par=1 p=2147483647: kernel incl J = 64, J_d = 63, mod J = 1 (39s)
+[JRef] e=13 par=0 p=2147483629: gens=3861 mons=4284 rank=3441 dimR=843 (build 6s, rref 24s)
+[JRef] e=7 par=1 p=2147483629: gens=63 mons=396 rank=63 dimR=333 (build 0s, rref 0s)
+[e1_kernel] d=7 par=1 p=2147483629: kernel incl J = 64, J_d = 63, mod J = 1 (32s)
+[kernel] reconstruction with 2 primes: failed {'reason': 'ratrecon failed at vector 0 monomial (4, 0, 0, 0, 1, 2)', 'modulus_bits': 62}

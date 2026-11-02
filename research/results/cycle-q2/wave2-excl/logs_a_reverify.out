@@ -11,3 +11,4 @@ Grad2=X2F_X2+Y2F_Y2 deg6-J d 6 inconsistent-Q-certified [[611, 612], [611, 612]]
 X0*F_X0 deg6-J-ZjFi d 6 inconsistent-Q-certified [[595, 596], [595, 596]] {'size': 596, 'verified': True, 'seconds': 18.0, 'ell_digits': 226} 108.65s
 X0*F_X1 deg6-J-ZjFi d 6 inconsistent-Q-certified [[592, 593], [592, 593]] {'size': 593, 'verified': True, 'seconds': 43.14, 'ell_digits': 144} 121.39s
 X0*F_X2 deg6-J-ZjFi d 6 inconsistent-Q-certified [[589, 590], [589, 590]] {'size': 590, 'verified': True, 'seconds': 69.97, 'ell_digits': 70} 95.47s
+X0*F_Y0 deg6-J-ZjFi d 6 inconsistent-Q-certified [[596, 597], [596, 597]] {'size': 597, 'verified': True, 'seconds': 87.22, 'ell_digits': 81} 142.9s

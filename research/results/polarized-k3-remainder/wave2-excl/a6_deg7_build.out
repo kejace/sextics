@@ -1,8 +1,4 @@
-[relax d=7] params=126 (a 126) E2 monomials=9181 built 19.0s
+[relax d=7] params=126 (a 126) E2 monomials=9181 built 2.1s
 params 126 gauge-fixed 6 remaining 120
 quadratic monomials after gauge: 7260
-Traceback (most recent call last):
-  File "/tmp/hodge/results/polarized-k3-remainder/wave2-excl/a6_deg7_build.py", line 37, in <module>
-    f'write(":w {W}/deg7_kbase.txt", string(KB));'.replace('{W}', os.getcwd()),
-                 ^
-NameError: name 'W' is not defined
+wrote deg7_nf.sing 8501 KB 3.6s

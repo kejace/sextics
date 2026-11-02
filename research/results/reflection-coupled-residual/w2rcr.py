@@ -559,7 +559,7 @@ class ReducedFamily:
             # f = |W^T B|^2 (sign of b irrelevant); d f = 2 ob . W^T dB = 2 r . dB
             gD = self.B_adjoint_D(r, N)
             gN = self.B_adjoint_N(r, D)
-            g = 2.0 * (self.Mk @ gD + sum(self.Nk[i] @ gN[i] for i in range(NV)))
+            g = -2.0 * (self.Mk @ gD + sum(self.Nk[i] @ gN[i] for i in range(NV)))   # b = -B
         else:
             M = self.kos_matrix(D)
             if self.nQ:
@@ -582,9 +582,7 @@ class ReducedFamily:
         a = np.asarray(a, float); a = a / np.linalg.norm(a)
         D, N = self._DN(a)
         b = self.B(D, N)
-        if self.mode == 'ob':
-            return float(np.linalg.norm(self.W.T @ b))
-        return float(np.linalg.norm(b))
+        return float(np.linalg.norm(b))      # rel = |residual| / |B_D(N)| in both modes
 
     def is_spurious(self, a, tol=1e-8):
         if self.d < 6:

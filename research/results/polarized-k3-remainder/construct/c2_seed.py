@@ -116,7 +116,8 @@ random.seed(int(sys.argv[5]) if len(sys.argv)>5 else 1)
 found=[]; tried=0; t0=time.time()
 maxdeg=max(deg.values())
 free_per_degree={j:[(c,j) for c in (1,2,3,4) if j<=deg[c]] for j in range(1,maxdeg+1)}
-while len(found)<nseeds and time.time()-t0<float(sys.argv[6]) if len(sys.argv)>6 else len(found)<nseeds:
+TLIM=float(sys.argv[6]) if len(sys.argv)>6 else 1e9
+while len(found)<nseeds and time.time()-t0<TLIM:
     k=tuple(random.randrange(p) for _ in range(3))
     # endpoint: z0=0,z1=c0,z2=k0,s=k1,t=k2 on H=0
     for c0 in range(p):

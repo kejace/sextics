@@ -2,3 +2,4 @@
 {"p": 1000003, "sector": 0, "rows": 3080, "cols": 2601, "nS": 225, "rank": 2421, "nullity": 180, "S_block_kernel_dim": 18, "euler_span_dim": 18, "S_kernel_equals_euler_span": false, "seconds": 63.9}
 {"p": 1000003, "sector": 1, "rows": 3108, "cols": 2592, "nS": 216, "rank": 2421, "nullity": 171, "S_block_kernel_dim": 18, "euler_span_dim": 18, "S_kernel_equals_euler_span": false, "seconds": 60.5}
 {"p": 1000003, "sector": 0, "rows": 3080, "cols": 2601, "nS": 225, "rank": 2421, "nullity": 180, "S_block_kernel_dim": 18, "euler_span_dim": 18, "S_kernel_equals_euler_span": true, "seconds": 22.7}
+{"p": 1000003, "sector": 1, "rows": 3108, "cols": 2592, "nS": 216, "rank": 2421, "nullity": 171, "S_block_kernel_dim": 18, "euler_span_dim": 18, "S_kernel_equals_euler_span": true, "seconds": 158.2}

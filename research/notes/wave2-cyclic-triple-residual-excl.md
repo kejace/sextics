@@ -40,7 +40,20 @@ Target: F = Fermat sextic + (5/7)(six couplings), A = X0^3 Y0^3, q = 1.
   (per-form Rabinowitsch tests, 35/35 empty) and the gauge-fixed ideal (35 unknowns) is m-primary (pure powers of all 35
   variables in the leading ideal; msolve -g 1, 4 s).  => NO DENOMINATOR OF DEGREE 6 (rigorous).  Receipts:
   wave2-excl/relax_d6_p1000003{,_g}*.json, *_gauge_lead.txt.
-* d = 7, 8: running (job excl-ctr-relax78).
+* d = 7, 8: running (job excl-ctr-relax78; d = 7: 126 unknowns, 1441 quadrics, msolve GB in progress since 00:36 UTC).
+* Diagnostic (wave2-excl/wspan.py, p = 1000003, random family members): the degree-0 Koszul relaxation (functionals killing
+  F*S and every Koszul image D div(S.gradF) - (S.gradF)(D)) has 2543 functionals at d = 6 versus 1751 for the Hessian
+  relaxation, but only <= 1615 versus 1506 at d = 7 (Koszul span rank 8726 vs pi(J) rank 8835 in the 10341-dim quotient).
+  So for d >= 7 the Hessian relaxation is essentially the whole degree-0 relaxation; the remaining strength of E2 sits in
+  the theta-dependent part (full bilinear system).  Consequence for d = 9: the Hessian relaxation has only dim R_18 = 426
+  quadrics for 876 unknowns, so degree-9 exclusions need the full parametric system (sector by sector) — see (c).
+
+### (c) Degree 9+: exact kernel elements and sector families
+* CRT/rational reconstruction of the canonical (rref) kernel basis fails at d = 9 for most sectors even with 6 primes
+  (heights too large; job excl-ctr-kernel9, killed).  Replaced by exact integer nullspace + LLL (w2lib.kernel_exact_lll):
+  small-height exact representatives with exact E1 lifts; reproduces D8 at d = 8 (max |coeff| 740880, verified).
+  Job excl-ctr-kexact9: all 120 degree-9 kernel elements exactly, each tested with the sector system (modular ranks +
+  exact null vectors, exact fmpz rank fallback).
 * Note: a parallel excl-lens session running directly on the remote box (files lib.py, b2_hessian.py, receipts/ in the same
   packet dir) has the Y-EVEN-restricted Hessian relaxation at d = 5, 6 (m-primary, p = 1073741789) and is running d = 7
   Y-even; the runs here are for ALL parities (a general D need not be Y-even: the parity reduction D -> (D tau D)_red doubles

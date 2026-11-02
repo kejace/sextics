@@ -20,7 +20,14 @@ F, A, q = load()
 G = full_group(F, A); S = Sect(F, A, G)
 Fp = core.reduce_mod(F, p); Ap = core.reduce_mod(A, p)
 Fi = [pderiv(Fp, i, p) for i in range(6)]
+restrict = len(sys.argv) > 5 and sys.argv[5] == 'restrict'
 W = [(i, m) for i in range(6) for m in core.monomials(d - 5, (par + (0 if i < 3 else 1)) % 2)]
+# spurious locus L = {l Z/6 : l in S_{d-6}} (D = l F); V(q) is invariant under translation by L (gauge), so restricting
+# to the complement W' = {coordinates (0, m) with X0 | m vanish} is lossless: V(q) = L + (V(q) cap W').
+n_dropped = 0
+if restrict and d >= 6:
+    W2 = [(i, m) for (i, m) in W if not (i == 0 and m[0] >= 1)]
+    n_dropped = len(W) - len(W2); W = W2
 nW = len(W)
 Dk = [core.shift(Fi[i], m, 1, p) for (i, m) in W]
 wchar = [sect.cadd(S.chi(m), tuple((-x) % 6 for x in S.chiE[i])) for (i, m) in W]   # chi(D_j) = chi(m) - chi(e_i)
@@ -102,10 +109,10 @@ for c, cols in kidx_by_char.items():
     rk = nmod_mat(R_, C_, flat, p).rank()
     blocks[c] = {'rows': R_, 'cols': C_, 'rank': rk, 'HF': C_ - rk}
 HFk = sum(b['HF'] for b in blocks.values())
-res = {'batch': 'macaulay-blocks', 'd': d, 'parity': par, 'k': kdeg, 'p': p, 'nW': nW, 'n_quadrics': nq, 'quadric_span_rank': quad_rank, 'n_pairs': len(pairs), 'dim_R2d_odd': C - rank,
+res = {'batch': 'macaulay-blocks', 'd': d, 'parity': par, 'k': kdeg, 'p': p, 'nW': nW, 'restricted_to_complement_of_spurious': restrict, 'n_dropped_coords': n_dropped, 'n_quadrics': nq, 'quadric_span_rank': quad_rank, 'n_pairs': len(pairs), 'dim_R2d_odd': C - rank,
        'blocks': {csec(c): b for c, b in sorted(blocks.items())}, 'HF_k_total': HFk, 'rigorous_exclusion': HFk == 0,
        'note': f'degree-{kdeg} Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-{kdeg} forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = {d}, Y-parity {par}',
        't_pairs': round(t1 - t0, 1), 't_reduce': round(t2 - t1, 1), 'seconds': round(time.time() - t0, 1)}
-print(json.dumps({k: v for k, v in res.items() if k != 'blocks'}), flush=True)
+print(json.dumps({k: v for k, v in res.items() if k not in ('blocks', 'note')}), flush=True)
 print('blocks:', {csec(c): (b['rows'], b['cols'], b['HF']) for c, b in sorted(blocks.items())}, flush=True)
 w2log(res)

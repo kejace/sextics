@@ -9,3 +9,6 @@ exact gauge identity checks: 0 checked, 0 failed
   block par=1 ch=2: 24 classes, rank 20 in R (dim 123), dimJ=336  [14.0s]
   block par=1 ch=3: 27 classes, rank 15 in R (dim 123), dimJ=313  [15.0s]
   block par=1 ch=4: 24 classes, rank 20 in R (dim 123), dimJ=336  [24.6s]
+  block par=1 ch=5: 24 classes, rank 20 in R (dim 123), dimJ=313  [33.9s]
+  block par=1 ch=6: 24 classes, rank 20 in R (dim 123), dimJ=313  [35.4s]
+RESULT d=6 parmode=1: tensors 171 (zero polys 0), rank of classes 135, dim W = 36, dim(G o V) = 0 -> NOT decisive (W larger than gauge)

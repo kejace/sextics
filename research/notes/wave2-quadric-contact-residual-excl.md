@@ -1,6 +1,6 @@
 # Wave 2 — quadric-contact-residual — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness; rigorous bound so far: deg D >= 7 (fqlx, now independently replayed at d <= 6); degree-7 full closure running.
+STATUS: in progress — no witness; rigorous bound: deg D >= 7 (fqlx; d<=6 independently replayed at P2). NEW at d=7: every subfamily with two of the three involution characters (sigma0, sigma2, tau_Y) fixed is excluded (12 subfamilies, msolve -g 1, m-primary). Full mixing at d=7 is beyond Groebner reach (Froeberg regularity >= 5 for 950 quadrics in 120 unknowns).
 
 Lane: q = 1, A = X0^3 Y0^3, F = quadric-contact sextic (see dossier).  New prime P2 = 2147483629 (wave 1: 2147483647; dossier: 1000000009; Singular: 32003).
 Code: /tmp/hodge/results/quadric-contact-residual/wave2-excl/{w2lib.py, family.py, reverify.py, fixedD_batch.py, d7mixed.py, msverdict.py}
@@ -22,6 +22,16 @@ Log: /tmp/hodge/results/quadric-contact-residual/wave2-excl.log.jsonl (+ per-job
    (exactly the off-diagonal m_ij except (0,3),(3,0)), Singular dim 0 -> EXCLUDED over C.  msolve -g 1: m-primary leading ideal.
 3. [tooling] msolve misparses `c*c` squares (see /tmp/hodge/notes/engine-bugs.md); wave-1 msolve verdicts in this lane
    (closure_quads_d8*.ms, dossier d7_system.ms) were computed on misparsed systems and must be discarded; Singular runs unaffected.
+
+4. [NEW, rigorous] d = 7, the 12 subfamilies in which two of (b0, b2, y) are fixed (all six h1-characters and the third
+   involution character mixed): 24-32 unknowns, 227-258 quadrics each, msolve -g 1 leading ideal m-primary (max pure power 3-4)
+   => only c = 0 => EXCLUDED over C (log: exp = sub-closure-msolve, tags d7_b00b20 ... d7_b21y1).  Consequence: a degree-7
+   denominator must mix both values of at least two of the three characters sigma0, sigma2, tau_Y.
+5. [computed] full d = 7 system (120 unknowns): exactly 950 independent quadrics (= dim R_8 - 1 = 951 - 1, via the degree-8
+   formulation C^T Hess F C in (J:A)_8 = J_8 + <D8*>), no square c_a^2 in I_2, only 8 product monomials c_a c_b in I_2;
+   branch-and-kill on I_2 does not cascade.  Froeberg count for 950 quadrics / 120 vars: HS(S/I) = 1, 120, 6310, 181240,
+   2.9e6, <0  => a Nullstellensatz certificate needs degree >= 5 (Macaulay matrices ~2.8e8 x 2.3e8): infeasible.
+6. [tooling check] target_image (served-target space, sum principle) validated on collision-h3 and hesse-triangle (A in served(D_witness)).
 
 ## Running (remote)
 * excl-reverify: E1 colon dims d<=9, d=7 parity sectors, all 24 pure G_aff sectors at d=8 and d=9 (Singular verdicts).

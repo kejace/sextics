@@ -1,22 +1,16 @@
 |G| Fermat 7776 chiA (0, 3, 0, 0, 3)
-fermat d6 sector (0, 0, 0, 0, 0) {'d': 6, 'c': [0, 0, 0, 0, 0], 'dim_S': 6, 'dimJ': 6, 'kerA_in_S': 6, 'ker_mod_J': 0, 'seconds': 0.06} 0.1 s
+fermat d6 sector (0, 0, 0, 0, 0) {'d': 6, 'c': [0, 0, 0, 0, 0], 'dim_S': 6, 'dimJ': 6, 'kerA_in_S': 6, 'ker_mod_J': 0, 'seconds': 0.05} 0.0 s
 [svp] d=6 c=(0, 0, 0, 0, 0) K=6 (rank 6) relax=False n1=6 n2=6 nN=6 nQ=1 rank1=6 dimK=0 e1_resid=0.0e+00 excludedF=1 dimP=5 built 0.2s
-mode relax=False rel at D0 direction (1.0, 3.2419820730518475e-33, 5.693840595812151e-17)
-[svp] restart 0: f=1.341e-02 rel=1.000e+00 iters=21 (1.4s)
-[svp] restart 1: f=1.341e-02 rel=1.000e+00 iters=18 (6.3s)
-[svp] restart 2: f=6.706e-27 rel=1.000e+00 iters=18 (10.8s)
-[svp] restart 3: f=2.175e-26 rel=1.000e+00 iters=17 (13.1s)
-[svp] restart 4: f=1.341e-02 rel=1.000e+00 iters=17 (15.3s)
-[svp] restart 5: f=1.341e-02 rel=1.000e+00 iters=14 (16.9s)
-best rel 1.0 a [-0.34714   0.928207 -0.527022  1.       -0.527022 -0.527022]
-confirm (Fraction(-2355, 6784), Fraction(2728, 2939), Fraction(-4398, 8345), Fraction(1, 1), Fraction(-4398, 8345), Fraction(-4398, 8345)) -> inconsistent {'rank': 7, 'rank_aug': 8, 'verified': None}
-[svp] d=6 c=(0, 0, 0, 0, 0) K=6 (rank 6) relax=True n1=6 n2=6 nN=6 nQ=1 rank1=6 dimK=0 e1_resid=0.0e+00 excludedF=1 dimP=5 built 2.1s
-mode relax=True rel at D0 direction (1.0, 5.187171316882956e-32, 2.2775362383248605e-16)
-[svp] restart 0: f=4.828e-01 rel=1.000e+00 iters=21 (0.5s)
-[svp] restart 1: f=4.828e-01 rel=1.000e+00 iters=19 (1.5s)
-[svp] restart 2: f=2.496e-25 rel=1.000e+00 iters=18 (2.3s)
-[svp] restart 3: f=8.302e-25 rel=1.000e+00 iters=17 (3.0s)
-[svp] restart 4: f=4.828e-01 rel=1.000e+00 iters=15 (4.2s)
-[svp] restart 5: f=4.828e-01 rel=1.000e+00 iters=16 (5.0s)
-best rel 1.0 a [-0.34714   0.928207 -0.527022  1.       -0.527022 -0.527022]
-confirm (Fraction(-2355, 6784), Fraction(2728, 2939), Fraction(-4398, 8345), Fraction(1, 1), Fraction(-4398, 8345), Fraction(-4398, 8345)) -> inconsistent {'rank': 7, 'rank_aug': 8, 'verified': None}
+mode relax=False rel at D0 direction (4.9310106010724454e-17, 3.2419820730518475e-33, 1.154700538379252)
+[svp] restart 0: f=1.341e-02 rel=9.323e-02 iters=21 (0.1s)
+[svp] restart 1: f=1.341e-02 rel=9.323e-02 iters=18 (0.2s)
+[svp] restart 2: f=6.706e-27 rel=7.092e-14 iters=18 (0.4s)
+best rel 7.09200060304762e-14 a [ 1.  1. -1. -1. -1.  1.]
+confirm (Fraction(-1, 1), Fraction(-1, 1), Fraction(1, 1), Fraction(1, 1), Fraction(1, 1), Fraction(-1, 1)) -> solved {'rank': 7, 'rank_aug': 7, 'verified': True}
+[svp] d=6 c=(0, 0, 0, 0, 0) K=6 (rank 6) relax=True n1=6 n2=6 nN=6 nQ=1 rank1=6 dimK=0 e1_resid=0.0e+00 excludedF=1 dimP=5 built 0.6s
+mode relax=True rel at D0 direction (3.287340400714964e-17, 5.187171316882956e-32, 6.9282032302755105)
+[svp] restart 0: f=4.828e-01 rel=9.323e-02 iters=21 (1.6s)
+[svp] restart 1: f=4.828e-01 rel=9.323e-02 iters=19 (6.7s)
+[svp] restart 2: f=2.496e-25 rel=7.210e-14 iters=18 (8.5s)
+best rel 7.210490395902286e-14 a [ 1.  1. -1. -1. -1.  1.]
+confirm (Fraction(-1, 1), Fraction(-1, 1), Fraction(1, 1), Fraction(1, 1), Fraction(1, 1), Fraction(-1, 1)) -> solved {'rank': 7, 'rank_aug': 7, 'verified': True}

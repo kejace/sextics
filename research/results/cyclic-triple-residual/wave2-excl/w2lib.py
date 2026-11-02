@@ -273,7 +273,7 @@ def parse_msolve_gb(path):
 # ---------------------------------------------------------------------------------------------
 # Sealed fixed-D exclusion: modular ranks + exact rational null vectors (modular-rank argument)
 # ---------------------------------------------------------------------------------------------
-def sealed_exclusion(F, A, q, D, primes=(1000003, 2147483587), max_primes=4, verbose=False):
+def sealed_exclusion(F, A, q, D, primes=(1000003, 2147483587), max_primes=4, verbose=False, exact_fallback=True):
     """Sector-reduced fixed-D system (sect.Sys).  Returns a dict with modular ranks at two primes, the number of
     exactly verified rational null vectors (lower bound on nullity_Q => upper bound on rank_Q), and the conclusion:
       sealed inconsistent over Q  iff  verified_null == nullity_p  and  rank_aug_p > rank_p.
@@ -313,6 +313,14 @@ def sealed_exclusion(F, A, q, D, primes=(1000003, 2147483587), max_primes=4, ver
     out['verified_null'] = sealed
     out['consistent_mod_p'] = (ra1 == Sy.ncols - n1) or (ra2 == Sy.ncols - n2)
     out['sealed_inconsistent'] = (sealed == n1) and (ra1 > Sy.ncols - n1) and (ra2 > Sy.ncols - n2)
+    out['method'] = 'modular-rank+exact-null-vectors'
+    if not out['sealed_inconsistent'] and not out['consistent_mod_p'] and exact_fallback and Sy.nrows * Sy.ncols <= 12_000_000:
+        # exact fallback: fmpz ranks over Q of the system and of the augmented system
+        t1 = time.time()
+        rQ = Sy.dense(None, aug=False).rank(); raQ = Sy.dense(None, aug=True).rank()
+        out.update(rank_exact=rQ, rank_aug_exact=raQ, t_exact=round(time.time() - t1, 1), method='exact-fmpz-rank')
+        out['sealed_inconsistent'] = raQ > rQ
+        out['consistent_exact'] = (raQ == rQ)
     out['seconds'] = round(time.time() - t0, 1)
     return out
 
@@ -449,4 +457,137 @@ def kernel_exact(S, d, c, primes, verbose=False):
     info = {'dim': k, 'reconstructed': sum(1 for r in results if r is not None),
             'verified': sum(1 for r in results if r is not None and r.get('verified')), 'seconds': round(time.time() - t0, 1),
             'e1_rows': R, 'e1_cols': C}
+    return results, info
+
+# ---------------------------------------------------------------------------------------------
+# Exact E1-kernel elements via exact integer nullspace + LLL (small-height representatives)
+# ---------------------------------------------------------------------------------------------
+def kernel_exact_lll(S, d, c, verbose=False):
+    """Exact basis (small integer coefficients) of {D in S_d^c : A D in J_{d+6}} modulo J_d^c, with exact E1 lifts.
+    Steps: exact nullspace of [A-columns | J_{d+6}-columns] (fmpz_mat), projection to the A-coordinates, exact
+    reduction modulo J_d^c (fmpq rref), LLL on the integer lattice of representatives, exact E1 solve for lifts.
+    Returns (list of {'Kz','Pz','L','verified'}, info)."""
+    t0 = time.time()
+    Dm = [m for m in mons(d) if S.chi(m) == c]; nA = len(Dm)
+    target = cadd(S.chiA, c)
+    cols = [imul(S.Az, {m: 1}) for m in Dm]
+    meta = []
+    for i in range(6):
+        ci = cadd(target, S.chiE[i])
+        for m in mons(d + 1):
+            if S.chi(m) != ci: continue
+            cols.append(imul({m: 1}, S.dF[i])); meta.append((i, m))
+    rows = {}
+    for col in cols:
+        for e in col: rows.setdefault(e, len(rows))
+    R, C = len(rows), len(cols)
+    flat = [0] * (R * C)
+    for j, col in enumerate(cols):
+        for e, v in col.items(): flat[rows[e] * C + j] += v
+    M = fmpz_mat(R, C, flat)
+    X, nullity = M.nullspace()
+    t1 = time.time()
+    # projection to A-coordinates
+    proj = [[int(X[j, k]) for j in range(nA)] for k in range(nullity)]
+    proj = [r for r in proj if any(r)]
+    if not proj:
+        return [], {'dim': 0, 'seconds': round(time.time() - t0, 1)}
+    Pm = fmpz_mat(proj)
+    # exact rref to get a basis of the projection (rank = kerA_in_S)
+    Pr = fmpq_mat(Pm).rref()[0]; rk = fmpq_mat(Pm).rref()[1]
+    basis = []
+    for i in range(rk):
+        row = [Pr[i, j] for j in range(nA)]
+        L = 1
+        for x in row: L = L * int(x.q) // math.gcd(L, int(x.q))
+        basis.append([int(x * L) for x in row])
+    # reduce modulo J_d^c exactly: rref of J generators, eliminate pivot coordinates
+    gensJ = jac_gens(S, d, c)
+    idx = {m: i for i, m in enumerate(Dm)}
+    stdcoords = list(range(nA)); Jpiv = []
+    if gensJ:
+        flatJ = [0] * (len(gensJ) * nA)
+        for r, P_ in enumerate(gensJ):
+            for e, v in P_.items(): flatJ[r * nA + idx[e]] += v
+        Jr, rJ = fmpq_mat(fmpz_mat(len(gensJ), nA, flatJ)).rref()
+        for i in range(rJ):
+            j = 0
+            while j < nA and Jr[i, j] == 0: j += 1
+            Jpiv.append(j)
+        red = []
+        for b in basis:
+            v = [fmpq(x) for x in b]
+            for i, pj in enumerate(Jpiv):
+                if v[pj] != 0:
+                    f = v[pj] / Jr[i, pj]
+                    for j in range(nA):
+                        if Jr[i, j] != 0: v[j] -= f * Jr[i, j]
+            L = 1
+            for x in v: L = L * int(x.q) // math.gcd(L, int(x.q))
+            vi = [int(x * L) for x in v]
+            if any(vi): red.append(vi)
+    else:
+        rJ = 0; red = basis
+    if not red:
+        return [], {'dim': 0, 'seconds': round(time.time() - t0, 1), 'rank_J': rJ}
+    # basis of the span of red (exact), then LLL
+    Rr, rk2 = fmpq_mat(fmpz_mat(red)).rref()
+    bas = []
+    for i in range(rk2):
+        row = [Rr[i, j] for j in range(nA)]
+        L = 1
+        for x in row: L = L * int(x.q) // math.gcd(L, int(x.q))
+        bas.append([int(x * L) for x in row])
+    B = fmpz_mat(bas).lll()
+    elems_ = []
+    for i in range(B.nrows()):
+        row = [int(B[i, j]) for j in range(nA)]
+        g = 0
+        for x in row: g = math.gcd(g, abs(x))
+        if g > 1: row = [x // g for x in row]
+        elems_.append({Dm[j]: row[j] for j in range(nA) if row[j]})
+    t2 = time.time()
+    # exact E1 lifts (same as kernel_exact)
+    mT = [m for m in mons(d + 6) if S.chi(m) == target]; iT = {m: i for i, m in enumerate(mT)}
+    colsE = []; metaE = []
+    for i in range(6):
+        ci = cadd(target, S.chiE[i])
+        for m in mons(d + 1):
+            if S.chi(m) != ci: continue
+            colsE.append(imul({m: 1}, S.dF[i])); metaE.append((i, m))
+    RE, CE, K = len(mT), len(colsE), len(elems_)
+    flatE = [0] * (RE * (CE + K))
+    for j, P_ in enumerate(colsE):
+        for e, v in P_.items(): flatE[iT[e] * (CE + K) + j] += v
+    for kk, Kz in enumerate(elems_):
+        for e, v in imul(S.Az, Kz).items(): flatE[iT[e] * (CE + K) + CE + kk] += v
+    Mr, rkE = fmpq_mat(fmpz_mat(RE, CE + K, flatE)).rref()
+    piv = []
+    for i in range(rkE):
+        j = 0
+        while j < CE + K and Mr[i, j] == 0: j += 1
+        piv.append(j)
+    rankM = sum(1 for j in piv if j < CE)
+    results = []
+    for kk, Kz in enumerate(elems_):
+        colj = CE + kk
+        ok = all(Mr[i, colj] == 0 for i in range(rankM, rkE))
+        if not ok:
+            results.append({'Kz': Kz, 'Pz': None, 'verified': False}); continue
+        xs = [Fraction(0)] * CE
+        for i, j in enumerate(piv[:rankM]):
+            v = Mr[i, colj]; xs[j] = Fraction(int(v.p), int(v.q))
+        L = 1
+        for x in xs: L = L * x.denominator // math.gcd(L, x.denominator)
+        Pz = [dict() for _ in range(6)]
+        for (i, m), x in zip(metaE, xs):
+            if x: Pz[i][m] = int(x * L)
+        Kzz = {e: v * L for e, v in Kz.items()}
+        lhs = {}
+        for i in range(6): lhs = core.add(lhs, imul(Pz[i], S.dF[i]))
+        results.append({'Kz': Kzz, 'Pz': Pz, 'L': L, 'verified': (lhs == imul(S.Az, Kzz))})
+    info = {'dim': len(elems_), 'verified': sum(1 for r in results if r['verified']), 'rank_J_d': rJ,
+            'max_abs_coeff': max((abs(v) for r in results for v in r['Kz'].values()), default=0),
+            't_nullspace': round(t1 - t0, 1), 't_lll': round(t2 - t1, 1), 'seconds': round(time.time() - t0, 1), 'e1_rows': R, 'e1_cols': C}
+    if verbose: print(f'[kernel_exact_lll d={d} c={c}] {info}', file=sys.stderr, flush=True)
     return results, info

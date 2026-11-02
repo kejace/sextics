@@ -69,34 +69,40 @@ def D_of(wvec, wb):
     return D
 
 
-def build(d, par):
+def build(d, par, p=None):
+    """p=None: exact Fractions; p given: all arithmetic mod p (fast, screening / rank only)."""
     wb, cb, qb = setup(d, par)
     nw, nc, nq = len(wb), len(cb), len(qb)
+    Fp = core.reduce_mod(F, p) if p else F
+    Ap = core.reduce_mod(A, p) if p else A
+    Fip = [pderiv(Fp, i, p) for i in range(NV)]
+    Aip = [pderiv(Ap, i, p) for i in range(NV)]
+    mono_ = (lambda m: {tuple(m): 1}) if p else mono
     # polar basis D_a = m_a F_{i_a}, and its partials
-    Da = [shift(Fi[i], m, 1) for (i, m) in wb]
-    Dai = [[pderiv(D, k) for k in range(NV)] for D in Da]
+    Da = [shift(Fip[i], m, 1, p) for (i, m) in wb]
+    Dai = [[pderiv(D, k, p) for k in range(NV)] for D in Da]
     cols = []   # (kind, index tuple, poly)
     # W columns (a <= b): Phi_ab + Phi_ba
     def Phi(a, b):
         ib, mb = wb[b]
-        mbp = mono(mb)
-        t = mul(Da[a], add(mul(Ai[ib], mbp), mul(A, pderiv(mbp, ib))))    # D_a (dA.e_b + A div e_b)
-        t = sub(t, mul(A, mul(mbp, Dai[a][ib])))                          # - A e_b . grad D_a
+        mbp = mono_(mb)
+        t = mul(Da[a], add(mul(Aip[ib], mbp, p), mul(Ap, pderiv(mbp, ib, p), p), p), p)    # D_a (dA.e_b + A div e_b)
+        t = sub(t, mul(Ap, mul(mbp, Dai[a][ib], p), p), p)                                # - A e_b . grad D_a
         return t
     for a in range(nw):
         for b in range(a, nw):
-            t = Phi(a, b) if a == b else add(Phi(a, b), Phi(b, a))
+            t = Phi(a, b) if a == b else add(Phi(a, b), Phi(b, a), p)
             cols.append(('W', (a, b), t))
     # V columns (gamma, a): L(e_gamma, e_a)
     for g, (i, j, m) in enumerate(cb):
-        mp_ = mono(m)
-        dmi, dmj = pderiv(mp_, i), pderiv(mp_, j)
+        mp_ = mono_(m)
+        dmi, dmj = pderiv(mp_, i, p), pderiv(mp_, j, p)
         for a in range(nw):
-            t = mul(Fi[j], sub(mul(dmi, Da[a]), mul(mp_, Dai[a][i])))
-            t = sub(t, mul(Fi[i], sub(mul(dmj, Da[a]), mul(mp_, Dai[a][j]))))
+            t = mul(Fip[j], sub(mul(dmi, Da[a], p), mul(mp_, Dai[a][i], p), p), p)
+            t = sub(t, mul(Fip[i], sub(mul(dmj, Da[a], p), mul(mp_, Dai[a][j], p), p), p), p)
             cols.append(('V', (g, a), t))
     for m in qb:
-        cols.append(('Q', m, scale(shift(F, m, 1), -1)))
+        cols.append(('Q', m, scale(shift(Fp, m, 1, p), -1, p)))
     rows = {}
     for _, _, P_ in cols:
         for e in P_:
@@ -150,30 +156,34 @@ def D_of_w(wvec, wb, i):
 def main():
     t0 = time.time()
     d, par = D_DEG, PAR
-    wb, cb, qb, cols, rows = build(d, par)
+    wb, cb, qb, cols, rows = build(d, par, None if EXACT else P)
     nw, nc, nq = len(wb), len(cb), len(qb)
     nW = nw * (nw + 1) // 2
     nV = nc * nw
     R, C = len(rows), len(cols)
-    ok = selftest(d, par, wb, cb)
+    ok = selftest(d, par, wb, cb) if d <= 5 or EXACT else 'skipped'
+    tb = time.time() - t0
     rec = dict(exp='relax', d=d, parity=par, nw=nw, nc=nc, nq=nq, nW=nW, nV=nV, rows=R, cols=C, selftest_E_eq_F_PhiL=ok, job=JOB)
     print(json.dumps(rec), flush=True)
     # modular ranks first
+    def rp(v):
+        return (v.numerator * pow(v.denominator, -1, P)) % P if isinstance(v, Fraction) else int(v) % P
     flat = [0] * (R * C)
     for j, (_, _, P_) in enumerate(cols):
         for e, v in P_.items():
-            flat[rows[e] * C + j] = (v.numerator * pow(v.denominator, -1, P)) % P
+            flat[rows[e] * C + j] = rp(v)
     Mp = nmod_mat(R, C, flat, P)
     rank_full = Mp.rank()
+    del Mp
     # VQ block
     flatVQ = [0] * (R * (C - nW))
     for j in range(nW, C):
         for e, v in cols[j][2].items():
-            flatVQ[rows[e] * (C - nW) + (j - nW)] = (v.numerator * pow(v.denominator, -1, P)) % P
+            flatVQ[rows[e] * (C - nW) + (j - nW)] = rp(v)
     rank_VQ = nmod_mat(R, C - nW, flatVQ, P).rank()
     del flatVQ
     dimW_p = nW - (rank_full - rank_VQ)
-    rec.update(prime=P, rank_full_modp=rank_full, rank_VQ_modp=rank_VQ, dim_piW_ker_modp=dimW_p, seconds_modp=round(time.time() - t0, 1))
+    rec.update(prime=P, rank_full_modp=rank_full, rank_VQ_modp=rank_VQ, dim_piW_ker_modp=dimW_p, seconds_build=round(tb, 1), seconds_modp=round(time.time() - t0, 1))
     print(json.dumps({k: rec[k] for k in ('rank_full_modp', 'rank_VQ_modp', 'dim_piW_ker_modp')}), flush=True)
     logline(LOG, dict(rec, stage='modular'))
     if EXACT:

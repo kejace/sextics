@@ -1,463 +1,428 @@
-"""Reduced variable-projection search over an E1-admissible linear family (q = 1).
+"""Reduced variable-projection search over an E1-admissible family (kernel reps + Jacobian generators), q = 1.
 
-D(a) = sum_k a_k M_k (pure Y-parity parD, degree d).  For each family member a particular E1 lift N0_k
-(N0_k(F) = A M_k - F G0_k) is fixed: for Jacobian generators M = m F_j: N0 = A m e_j, G0 = 0; for kernel reps:
-float least squares.  The complete E2 residual (book ch. 5.2 'full correction map') is
-    r(a, c, Q) = D G + D div N - N(D) - F Q,   N = N0(a) + K(c) grad F,  K antisymmetric, deg c_ij = d - 4,
-linear in (c, Q), quadratic in a.  f(a) = min_{c,Q} |r|^2 (Tikhonov-regularized) with analytic gradient
-(Golub-Pereyra), minimized by L-BFGS over the unit sphere of a restricted to the complement of F-multiples.
-"""
-import sys, os, time, json, argparse
+For D(a) = sum_k a_k G_k with particular numerators P_k (P_k(F) = A G_k), every E1 solution is
+N = sum_k a_k P_k + K_c (K_c Koszul: (K_c)_i = sum_j c_ij F_j, c antisymmetric), and the certificate condition is
+    B(a) + L_c(a) c + F*Q = 0,   B(a) = D div(P(a)) - P(a)(D) = sum_{k<=l} a_k a_l v_kl   (degree 2d).
+For fixed a the unknowns (c, Q) enter linearly; f(a) = min_{c,Q} |B(a) + L_c(a) c + F Q|^2 on the unit sphere of the
+gauge-fixed a-space (F-multiple directions removed).  Gradient by the Golub-Pereyra formula.
+Usage: python3 w2_varpro.py <d> <par> --restarts N --procs P --seed S [--maxiter 400] [--tag T] [--no-kernel]
+       [--confirm-top k] [--confirm-tol 1e-9]
+Rational kernel reps + numerators are read from kernel_d{d}_p{par}.json (numerators_rational required)."""
+import sys, os, json, time, argparse, math
 sys.path.insert(0, '/tmp/hodge/results/short-power-presentation')
 from w2lib import *
 import numpy as np
 import scipy.sparse as sps
 import scipy.linalg as sla
 from scipy.optimize import minimize
-from fractions import Fraction
 
-PAR = [0, 0, 0, 1, 1, 1]
+def mon_index(deg, par):
+    ms = monomials(deg, par)
+    return ms, {m: i for i, m in enumerate(ms)}
 
-class Space:
-    def __init__(self, deg, par):
-        self.deg, self.par = deg, par
-        self.mons = core.monomials(deg, par) if deg >= 0 else []
-        self.idx = {m: i for i, m in enumerate(self.mons)}
-        self.n = len(self.mons)
-        self.E = np.array(self.mons, dtype=np.int64).reshape(self.n, 6)
-        self.keys = self.E @ (31 ** np.arange(6, dtype=np.int64))
-        order = np.argsort(self.keys)
-        self.skeys, self.sorder = self.keys[order], order
-    def lookup(self, keys):
-        pos = np.searchsorted(self.skeys, keys)
-        pos = np.clip(pos, 0, self.n - 1)
-        ok = self.skeys[pos] == keys
-        return self.sorder[pos], ok
-    def vec(self, P):
-        v = np.zeros(self.n)
-        for e, c in P.items():
-            v[self.idx[e]] = float(c)
-        return v
-    def poly(self, v, tol=0.0):
-        return {m: float(v[i]) for i, m in enumerate(self.mons) if abs(v[i]) > tol}
+def poly_vec(P, idx, n):
+    v = np.zeros(n)
+    for e, c in P.items():
+        v[idx[e]] += float(c)
+    return v
 
-_space_cache = {}
-def space(deg, par):
-    k = (deg, par)
-    if k not in _space_cache: _space_cache[k] = Space(deg, par)
-    return _space_cache[k]
+def mult_matrix(P, deg_in, par_in, deg_out, par_out):
+    """Sparse matrix of multiplication by P: S_{deg_in}^{par_in} -> S_{deg_out}^{par_out}."""
+    mi, ii = mon_index(deg_in, par_in); mo, io = mon_index(deg_out, par_out)
+    ri, ci, vals = [], [], []
+    for e, c in P.items():
+        fc = float(c)
+        for k, m in enumerate(mi):
+            ri.append(io[mon_add(m, e)]); ci.append(k); vals.append(fc)
+    return sps.csr_matrix((vals, (ri, ci)), shape=(len(mo), len(mi)))
 
-class PairMap:
-    """All products Sa x Sb -> Sc (parities must match)."""
-    def __init__(self, Sa, Sb, Sc):
-        assert (Sa.par + Sb.par) % 2 == Sc.par and Sa.deg + Sb.deg == Sc.deg
-        ia = np.repeat(np.arange(Sa.n), Sb.n); ib = np.tile(np.arange(Sb.n), Sa.n)
-        keys = Sa.keys[ia] + Sb.keys[ib]
-        ic, ok = Sc.lookup(keys)
-        assert ok.all()
-        self.ia, self.ib, self.ic = ia, ib, ic
-        self.Sa, self.Sb, self.Sc = Sa, Sb, Sc
-    def prod(self, x, y):
-        return np.bincount(self.ic, weights=x[self.ia] * y[self.ib], minlength=self.Sc.n)
-    def corr_a(self, r, y):
-        return np.bincount(self.ia, weights=r[self.ic] * y[self.ib], minlength=self.Sa.n)
-    def corr_b(self, r, x):
-        return np.bincount(self.ib, weights=r[self.ic] * x[self.ia], minlength=self.Sb.n)
-    def shift_matrix(self, y):
-        """dense matrix (Sc.n x Sa.n) with column m = m * y  (y in Sb)."""
-        return sps.coo_matrix((y[self.ib], (self.ic, self.ia)), shape=(self.Sc.n, self.Sa.n)).toarray()
+def deriv_matrix(i, deg_in, par_in):
+    mi, ii = mon_index(deg_in, par_in)
+    par_out = (par_in - (1 if i >= 3 else 0)) % 2
+    mo, io = mon_index(deg_in - 1, par_out)
+    ri, ci, vals = [], [], []
+    for k, m in enumerate(mi):
+        if m[i]:
+            e = list(m); e[i] -= 1
+            ri.append(io[tuple(e)]); ci.append(k); vals.append(float(m[i]))
+    return sps.csr_matrix((vals, (ri, ci)), shape=(len(mo), len(mi))), par_out
 
-def mult_matrix(P, Sa, Sc):
-    """sparse (Sc.n x Sa.n) matrix of multiplication by the poly P (float dict)."""
-    rows, cols, vals = [], [], []
-    PE = np.array(list(P.keys()), dtype=np.int64).reshape(-1, 6)
-    Pv = np.array([float(v) for v in P.values()])
-    Pk = PE @ (31 ** np.arange(6, dtype=np.int64))
-    for t in range(len(Pk)):
-        ic, ok = Sc.lookup(Sa.keys + Pk[t])
-        assert ok.all()
-        rows.append(ic); cols.append(np.arange(Sa.n)); vals.append(np.full(Sa.n, Pv[t]))
-    if not rows: return sps.csr_matrix((Sc.n, Sa.n))
-    return sps.csr_matrix((np.concatenate(vals), (np.concatenate(rows), np.concatenate(cols))), shape=(Sc.n, Sa.n))
-
-def deriv_matrix(i, Sa, Sc):
-    e = Sa.E[:, i]
-    nz = np.nonzero(e)[0]
-    keys = Sa.keys[nz] - 31 ** i
-    ic, ok = Sc.lookup(keys)
-    assert ok.all()
-    return sps.csr_matrix((e[nz].astype(float), (ic, nz)), shape=(Sc.n, Sa.n))
-
-def fpoly(P):
-    return {e: float(v) for e, v in P.items()}
+def shift_index(deg_in, par_in, m, mo_idx):
+    mi = monomials(deg_in, par_in)
+    return np.array([mo_idx[mon_add(e, m)] for e in mi], dtype=np.int64)
 
 class ReducedVarPro:
-    def __init__(self, F, A, members, lam=1e-12, verbose=True):
-        """members: list of dicts {'M': exact poly, 'tag': str, 'kind': 'J'|'kernel', 'N0': [6 float polys] or None, 'G0': float poly or None}"""
+    def __init__(self, F, A, d, parD, kernel_reps=(), kernel_nums=(), verbose=True, include_jacobian=True):
         t0 = time.time()
-        self.F, self.A = F, A
-        self.members = members
-        K = len(members); self.K = K
-        d = core.degree(members[0]['M']); self.d = d
-        parD = core.parity_of(members[0]['M']); self.parD = parD
-        parA = core.parity_of(A); self.parA = parA
-        self.parN = [(parA + parD + PAR[i]) % 2 for i in range(6)]
-        self.lam = lam
-        Ff = fpoly(F); Af = fpoly(A)
-        Fi = [fpoly(core.pderiv(F, i)) for i in range(6)]
-        # spaces
-        self.SD = space(d, parD)
-        self.SDi = [space(d - 1, (parD + PAR[i]) % 2) for i in range(6)]
-        self.SN = [space(d + 1, self.parN[i]) for i in range(6)]
-        self.SG = space(d, (parA + parD) % 2)          # G, div N
-        self.SR = space(2 * d, parA)                    # residual
-        self.SQ = space(2 * d - 6, parA)
-        self.Sc = {}                                     # c-spaces by parity
-        for pi in (0, 1): self.Sc[pi] = space(d - 4, pi)
-        self.SP = {}                                     # P_i spaces: S_{2d-5}^{pi}
-        for pi in (0, 1): self.SP[pi] = space(2 * d - 5, pi)
-        # product maps
-        self.pm1 = PairMap(self.SD, self.SG, self.SR)
-        self.pm2 = [PairMap(self.SN[i], self.SDi[i], self.SR) for i in range(6)]
-        # c-block structure: pairs (i<j), parity pi_ij of c_ij
-        self.cblocks = []
-        for i in range(6):
-            for j in range(i + 1, 6):
-                pij = (parA + parD + PAR[i] + PAR[j]) % 2
-                self.cblocks.append((i, j, pij))
-        self.nK = sum(self.Sc[pij].n for (_, _, pij) in self.cblocks)
-        self.nQ = self.SQ.n
-        # shift maps for P_i^{(pi)}: S_{d-4}^{pi} x S_d^{parD} -> S_{2d-4}^{pi+parD} then d_i -> S_{2d-5}^{pi+parD+par(i)};
-        # and S_{d-4}^{pi} x S_{d-1}^{parD+par(i)} -> S_{2d-5}^{pi+parD+par(i)}
-        self.Pmaps = {}
-        for i in range(6):
-            for pi in (0, 1):
-                if not any((ii == i or jj == i) and pij == pi for (ii, jj, pij) in self.cblocks): continue
-                Sm = self.Sc[pi]
-                S_mD = space(2 * d - 4, (pi + parD) % 2)
-                S_out = self.SP[(pi + parD + PAR[i]) % 2]
-                self.Pmaps[(i, pi)] = (PairMap(Sm, self.SD, S_mD), deriv_matrix(i, S_mD, S_out),
-                                       PairMap(Sm, self.SDi[i], S_out))
-        # multiplication by F_j: S_{2d-5}^{pi} -> S_{2d}^{parA} (pi = parA + par(j)) and S_{d-4}^{pi} -> S_{d+1}^{parN_i}
-        self.MF_big = {}
-        self.MF_small = {}
-        for j in range(6):
-            pi = (parA + PAR[j]) % 2
-            self.MF_big[j] = mult_matrix(Fi[j], self.SP[pi], self.SR)
-        for (i, j, pij) in self.cblocks:
-            # V_i += c_ij F_j ; V_j -= c_ij F_i
-            self.MF_small[(i, j)] = mult_matrix(Fi[j], self.Sc[pij], self.SN[i])
-            self.MF_small[(j, i)] = mult_matrix(Fi[i], self.Sc[pij], self.SN[j])
-        self.Dmaps_N = [deriv_matrix(i, self.SN[i], self.SG) for i in range(6)]   # div of N
-        # Q columns: F * S_{2d-6}^{parA} -> S_{2d}^{parA}
-        self.FQ = mult_matrix(Ff, self.SQ, self.SR).tocsc()
-        G = (self.FQ.T @ self.FQ).toarray() + lam * np.eye(self.nQ)
-        self.cho_Q = sla.cho_factor(G)
-        # family matrices
-        self.UD = np.zeros((self.SD.n, K))
-        self.UDi = [np.zeros((self.SDi[i].n, K)) for i in range(6)]
-        self.UN = [np.zeros((self.SN[i].n, K)) for i in range(6)]
-        self.UdivN = np.zeros((self.SG.n, K))
-        self.UG = np.zeros((self.SG.n, K))
-        for k, mem in enumerate(members):
-            M = mem['M']
-            self.UD[:, k] = self.SD.vec(M)
-            for i in range(6): self.UDi[i][:, k] = self.SDi[i].vec(core.pderiv(M, i))
-            if mem['kind'] == 'J':
-                j, m = mem['j'], mem['m']
-                N0 = [{} for _ in range(6)]; N0[j] = core.shift(A, m, 1)
-                G0 = {}
+        self.F, self.A, self.d, self.parD = F, A, d, parD
+        pA = core.parity_of(A)
+        fam = Family(F, A, d, kernel_reps=kernel_reps, kernel_nums=kernel_nums, parities=(parD,), include_jacobian=include_jacobian)
+        self.fam = fam; K = fam.K; self.K = K
+        # normalize generators
+        self.scale = []
+        for mem in fam.members:
+            nrm = math.sqrt(sum(float(c) ** 2 for c in mem['G'].values()))
+            self.scale.append(nrm)
+        self.rows_par = pA  # parity of B = A D^2
+        e = 2 * d
+        self.R_mons, self.R_idx = mon_index(e, pA); R = len(self.R_mons); self.R = R
+        # ---- V tensor: v_kl for k<=l (symmetrized T_kl) exactly, then float
+        terms = relaxation_terms(fam, None, verbose=False) if False else None
+        # exact rational T_kl via the same structure as relaxation_terms but with p=None
+        self.pairs = [(k, l) for k in range(K) for l in range(k, K)]
+        Vt = np.zeros((len(self.pairs), R))
+        mem = fam.members
+        Fi = [pderiv(F, i) for i in range(NV)]
+        Fij = [[pderiv(Fi[i], j) for j in range(NV)] for i in range(NV)]
+        Ai = [pderiv(A, i) for i in range(NV)]
+        FA = [[mul(Fi[j], Ai[jp]) for jp in range(NV)] for j in range(NV)]
+        AF = [mul(A, Fi[j]) for j in range(NV)]
+        AH = [[mul(A, Fij[j][jp]) for jp in range(NV)] for j in range(NV)]
+        def jac_T(k, l):
+            j, m = mem[k]['j'], mem[k]['m']; jp, mp = mem[l]['j'], mem[l]['m']
+            mm = mon_add(m, mp)
+            out = shift(FA[j][jp], mm, 1)
+            if mp[jp]:
+                ee = list(mp); ee[jp] -= 1
+                out = add(out, shift(AF[j], mon_add(m, tuple(ee)), mp[jp]))
+            if m[jp]:
+                ee = list(m); ee[jp] -= 1
+                out = sub(out, shift(AF[j], mon_add(mp, tuple(ee)), m[jp]))
+            out = sub(out, shift(AH[j][jp], mm, 1))
+            return out
+        for pi, (k, l) in enumerate(self.pairs):
+            if mem[k]['tag'] == 'J' and mem[l]['tag'] == 'J':
+                t = jac_T(k, l)
+                if l != k: t = add(t, jac_T(l, k))
             else:
-                N0, G0 = mem['N0'], mem['G0']
-            for i in range(6):
-                self.UN[i][:, k] = self.SN[i].vec(N0[i])
-                self.UdivN[:, k] += self.Dmaps_N[i] @ self.UN[i][:, k]
-            self.UG[:, k] = self.SG.vec(G0)
-        self.UGdiv = self.UG + self.UdivN
-        # complement of F-multiples in a-space
-        SFm = space(d - 6, parD)
-        if SFm.n > 0:
-            MFm = mult_matrix(Ff, SFm, self.SD).toarray()
-            Mbig = np.hstack([self.UD, -MFm])
-            # nullspace
-            u, s, vt = np.linalg.svd(Mbig, full_matrices=True)
-            tol = s[0] * 1e-10
-            rank = int((s > tol).sum())
-            null = vt[rank:].T          # (K + nFm) x nullity
-            aF = null[:K]                # a-components of F-multiples inside family
-            # orthonormal basis of a-directions to exclude
-            if aF.shape[1] > 0:
-                qF, _ = np.linalg.qr(aF)
-                self.nF = qF.shape[1]
-                # complement
-                u2, s2, vt2 = np.linalg.svd(qF.T, full_matrices=True)
-                self.P = vt2[self.nF:].T    # K x (K - nF)
-            else:
-                self.nF = 0; self.P = np.eye(K)
-            self.MFm = MFm
+                t = T_kl(mem[k]['G'], mem[l]['P'])
+                if l != k: t = add(t, T_kl(mem[l]['G'], mem[k]['P']))
+            s = 1.0 / (self.scale[k] * self.scale[l])
+            for ee, c in t.items():
+                Vt[pi, self.R_idx[ee]] += float(c) * s
+        self.Vt = Vt
+        # pair index helpers for gradient: for each k, list of (pair index, l, factor)
+        self.pair_pos = {pr: i for i, pr in enumerate(self.pairs)}
+        t1 = time.time()
+        # ---- generator vectors in S_d
+        self.D_mons, self.D_idx = mon_index(d, parD); nD = len(self.D_mons)
+        Gmat = np.zeros((K, nD))
+        for k, mm in enumerate(mem):
+            for ee, c in mm['G'].items():
+                Gmat[k, self.D_idx[ee]] += float(c) / self.scale[k]
+        self.Gmat = Gmat
+        # ---- Koszul column structure
+        # c_ij parity = 1 + parD + par_i + par_j ; mu of degree d-4
+        self.cpairs = []   # (i, j, mu)
+        self.cmons = {}
+        for i in range(NV):
+            for j in range(i + 1, NV):
+                pc = (pA + parD + (i >= 3) + (j >= 3)) % 2
+                for mu in monomials(d - 4, pc):
+                    self.cpairs.append((i, j, mu))
+        self.nc = len(self.cpairs)
+        # multiplication maps: F_j: S_d -> S_{d+5};  F_j: S_{d-1}^{par'} -> S_{d+4}; derivative maps on S_d
+        self.MF_d = [mult_matrix(Fi[j], d, parD, d + 5, (parD + (j >= 3)) % 2) for j in range(NV)]
+        self.dD = []; self.dD_par = []
+        for i in range(NV):
+            Mi, po = deriv_matrix(i, d, parD); self.dD.append(Mi); self.dD_par.append(po)
+        self.MF_dm1 = [[None] * NV for _ in range(NV)]  # [j][i]: F_j * (S_{d-1}^{par of d_i D}) -> S_{d+4}
+        for i in range(NV):
+            for j in range(NV):
+                po = self.dD_par[i]
+                self.MF_dm1[j][i] = mult_matrix(Fi[j], d - 1, po, d + 4, (po + (j >= 3)) % 2)
+        # index maps for scatters: S_{d+5}^{par} shifted by nu (deg d-5) -> rows ; S_{d+4}^{par} shifted by mu (deg d-4) -> rows
+        self.shift_d5 = {}; self.shift_d4 = {}
+        for i, j, mu in self.cpairs:
+            for t in (i, j):
+                if mu[t]:
+                    nu = list(mu); nu[t] -= 1; nu = tuple(nu)
+                    pn = (self.rows_par - 0) % 2
+                    key = (nu, (parD + (j >= 3)) % 2) if t == i else (nu, (parD + (i >= 3)) % 2)
+                    if key not in self.shift_d5:
+                        self.shift_d5[key] = shift_index(d + 5, key[1], nu, self.R_idx)
+            po = (self.dD_par[i] + (j >= 3)) % 2  # parity of F_j d_i D
+            key = (mu, po)
+            if key not in self.shift_d4:
+                self.shift_d4[key] = shift_index(d + 4, po, mu, self.R_idx)
+        # ---- Q block: columns -F * nu, nu of degree 2d-6 parity pA
+        self.Q_mons = monomials(2 * d - 6, pA); nQ = len(self.Q_mons); self.nQ = nQ
+        LQ = np.zeros((R, nQ))
+        for qi, nu in enumerate(self.Q_mons):
+            for ee, c in F.items():
+                LQ[self.R_idx[mon_add(ee, nu)], qi] += float(c)
+        self.LQ = LQ
+        # ---- gradient helpers: Koszul field maps.  K_c,i = sum_j c_ij F_j (S_{d-4} -> S_{d+1});
+        self.c_blocks = {}   # (i,j) -> (col slice indices, mult matrix of F_j on S_{d-4}^{pc} -> S_{d+1}^{par N_i}, parity)
+        self.parN = [(pA + parD + (i >= 3)) % 2 for i in range(NV)]
+        self.N_mons = [mon_index(d + 1, self.parN[i]) for i in range(NV)]
+        col = 0
+        self.cslices = []
+        for i in range(NV):
+            for j in range(i + 1, NV):
+                pc = (pA + parD + (i >= 3) + (j >= 3)) % 2
+                n_mu = len(monomials(d - 4, pc))
+                self.cslices.append((i, j, pc, col, col + n_mu))
+                col += n_mu
+        self.MF_c = {}
+        for (i, j, pc, c0, c1) in self.cslices:
+            self.MF_c[(i, j)] = (mult_matrix(Fi[j], d - 4, pc, d + 1, self.parN[i]),   # contributes to K_i
+                                 mult_matrix(Fi[i], d - 4, pc, d + 1, self.parN[j]))   # contributes to K_j (minus)
+        self.dN = [deriv_matrix(i, d + 1, self.parN[i])[0] for i in range(NV)]     # d_i K_i : S_{d+1} -> S_d^{parD}
+        # products needed in the gradient: F_j * divK (S_d^{parD} -> S_{d+5}) [= MF_d], F_ji * K_i (S_{d+1}^{parN_i} -> S_{d+5}^{..}),
+        # F_j * K_i (S_{d+1}^{parN_i} -> S_{d+6})
+        self.pK = (pA + parD) % 2
+        self.MF_dK = [mult_matrix(Fi[j], d, self.pK, d + 5, (self.pK + (j >= 3)) % 2) for j in range(NV)]
+        self.MFij_N = [[mult_matrix(Fij[j][i], d + 1, self.parN[i], d + 5, (self.pK + (j >= 3)) % 2) for i in range(NV)] for j in range(NV)]
+        self.MFj_N = [[mult_matrix(Fi[j], d + 1, self.parN[i], d + 6, (self.parN[i] + (j >= 3)) % 2) for i in range(NV)] for j in range(NV)]
+        # index maps for Jacobian members: shift of S_{d+5}^{par(F_j)+parD} by m (deg d-5) and of S_{d+6}^{..} by d_i m (deg d-6)
+        self.jac_idx = []
+        for k, mm in enumerate(mem):
+            if mm['tag'] != 'J':
+                self.jac_idx.append(None); continue
+            j, m = mm['j'], mm['m']
+            pj = (self.pK + (j >= 3)) % 2
+            idx_m = shift_index(d + 5, pj, m, self.R_idx)
+            dlist = []
+            for i in range(NV):
+                if m[i]:
+                    nu = list(m); nu[i] -= 1; nu = tuple(nu)
+                    pz = (self.parN[i] + (j >= 3)) % 2
+                    dlist.append((i, float(m[i]), shift_index(d + 6, pz, nu, self.R_idx)))
+            self.jac_idx.append((j, idx_m, dlist))
+        # kernel members: dense multiplication maps for G_k and d_i G_k
+        self.ker_maps = {}
+        for k, mm in enumerate(mem):
+            if mm['tag'] == 'K':
+                MG = mult_matrix(mm['G'], d, (pA + parD) % 2, 2 * d, pA)
+                MdG = [mult_matrix(pderiv(mm['G'], i), d + 1, self.parN[i], 2 * d, pA) for i in range(NV)]
+                self.ker_maps[k] = (MG, MdG)
+        # ---- gauge: complement of the spurious subspace
+        sv = fam.spurious_vectors()
+        if sv:
+            S = np.array([[float(x) * self.scale[k] for k, x in enumerate(v)] for v in sv]).T  # K x s (in scaled coords)
+            U, s, _ = np.linalg.svd(S, full_matrices=True)
+            r = int(np.sum(s > 1e-10 * max(1.0, s[0])))
+            self.P = U[:, r:]
         else:
-            self.nF = 0; self.P = np.eye(K); self.MFm = None
+            self.P = np.eye(K)
         self.dimP = self.P.shape[1]
-        self.rows = self.SR.n
-        self.nevals = 0
+        self.nfev = 0
+        rng0 = np.random.default_rng(12345)
+        bb = []
+        for _ in range(8):
+            v = rng0.standard_normal(K); v /= np.linalg.norm(v); bv = self.bvec(v); bb.append(float(bv @ bv))
+        self.scale0 = float(np.mean(bb))
+        self.build_time = time.time() - t0
         if verbose:
-            print(f'[rvp] d={d} parD={parD} K={K} (F-multiple directions excluded: {self.nF}, dimP={self.dimP}) '
-                  f'rows={self.rows} nK={self.nK} nQ={self.nQ} setup {time.time()-t0:.1f}s', file=sys.stderr, flush=True)
+            print(f'[rvp] d={d} par={parD} K={K} (kernel {fam.nK}) rows={R} nc={self.nc} nQ={nQ} dimP={self.dimP} scale0={self.scale0:.3e} '
+                  f'(V {t1-t0:.0f}s, total {self.build_time:.0f}s)', file=sys.stderr, flush=True)
 
     # ------------------------------------------------------------------
-    def build_CK(self, D, Di):
-        blocks = []
-        Pcache = {}
-        for (i, j, pij) in self.cblocks:
-            for ii in (i, j):
-                key = (ii, pij)
-                if key not in Pcache:
-                    pmD, Der, pmDi = self.Pmaps[key]
-                    Pcache[key] = Der @ pmD.shift_matrix(D) - 2.0 * pmDi.shift_matrix(Di[ii])
-            blocks.append(self.MF_big[j] @ Pcache[(i, pij)] - self.MF_big[i] @ Pcache[(j, pij)])
-        return np.hstack(blocks)
+    def Dvec(self, a):
+        return a @ self.Gmat
 
-    def V_from_c(self, c):
-        V = [np.zeros(self.SN[i].n) for i in range(6)]
-        off = 0
-        for (i, j, pij) in self.cblocks:
-            n = self.Sc[pij].n
-            cij = c[off:off + n]; off += n
-            V[i] += self.MF_small[(i, j)] @ cij
-            V[j] -= self.MF_small[(j, i)] @ cij
-        return V
+    def koszul_matrix(self, a):
+        """R x nc matrix L_c(a)."""
+        Dv = self.Dvec(a)
+        DF = [self.MF_d[j] @ Dv for j in range(NV)]
+        dDv = [self.dD[i] @ Dv for i in range(NV)]
+        L = np.zeros((self.R, self.nc))
+        col = 0
+        for (i, j, pc, c0, c1) in self.cslices:
+            Psi = self.MF_dm1[j][i] @ dDv[i] - self.MF_dm1[i][j] @ dDv[j]   # F_j d_i D - F_i d_j D  (deg d+4)
+            po = (self.dD_par[i] + (j >= 3)) % 2
+            for mu in monomials(self.d - 4, pc):
+                colv = np.zeros(self.R)
+                if mu[i]:
+                    nu = list(mu); nu[i] -= 1; nu = tuple(nu)
+                    idx = self.shift_d5[(nu, (self.parD + (j >= 3)) % 2)]
+                    np.add.at(colv, idx, mu[i] * DF[j])
+                if mu[j]:
+                    nu = list(mu); nu[j] -= 1; nu = tuple(nu)
+                    idx = self.shift_d5[(nu, (self.parD + (i >= 3)) % 2)]
+                    np.add.at(colv, idx, -mu[j] * DF[i])
+                idx = self.shift_d4[(mu, po)]
+                np.add.at(colv, idx, -Psi)
+                L[:, col] = colv; col += 1
+        return L
 
-    def evaluate(self, a, want_grad=True):
-        self.nevals += 1
-        D = self.UD @ a
-        Di = [self.UDi[i] @ a for i in range(6)]
-        N0 = [self.UN[i] @ a for i in range(6)]
-        Gd = self.UGdiv @ a                      # G + div N0
-        b = self.pm1.prod(D, Gd)
-        for i in range(6): b -= self.pm2[i].prod(N0[i], Di[i])
-        CK = self.build_CK(D, Di)
-        # project out Q-range: W = P_perp CK, bp = P_perp b
-        def Pperp(X):
-            Y = self.FQ.T @ X
-            Y = sla.cho_solve(self.cho_Q, Y)
-            return X - self.FQ @ Y
-        W = Pperp(CK); bp = Pperp(b)
-        Gram = W.T @ W + self.lam * np.eye(self.nK)
-        c = -np.linalg.solve(Gram, W.T @ bp)
-        qv = -sla.cho_solve(self.cho_Q, self.FQ.T @ (b + CK @ c))
-        r = b + CK @ c + self.FQ @ qv
-        f = float(r @ r)
-        bn2 = float(b @ b)
-        V = self.V_from_c(c)
-        divV = np.zeros(self.SG.n)
-        for i in range(6): divV += self.Dmaps_N[i] @ V[i]
-        Gd_tot = Gd + divV
-        N = [N0[i] + V[i] for i in range(6)]
-        scale = float(D @ D) * (float(Gd_tot @ Gd_tot) + sum(float(N[i] @ N[i]) for i in range(6)))
-        out = {'f': f, 'b2': bn2, 'rel': f / max(scale, 1e-300), 'relb': f / max(bn2, 1e-300), 'c': c, 'q': qv, 'r': r, 'D': D}
-        if want_grad:
-            u1 = self.pm1.corr_a(r, Gd_tot)          # in SD
-            u2 = self.pm1.corr_b(r, D)               # in SG
-            g = self.UD.T @ u1 + self.UGdiv.T @ u2
-            for i in range(6):
-                u3 = self.pm2[i].corr_a(r, Di[i])    # in SN_i
-                u4 = self.pm2[i].corr_b(r, N[i])     # in SDi
-                g -= self.UN[i].T @ u3 + self.UDi[i].T @ u4
-            out['grad'] = 2.0 * g
+    def bvec(self, a):
+        pa = np.array([a[k] * a[l] for (k, l) in self.pairs])
+        return pa @ self.Vt
+
+    def dbvec(self, a):
+        """K x R: d b / d a_k."""
+        out = np.zeros((self.K, self.R))
+        for pi, (k, l) in enumerate(self.pairs):
+            if k == l:
+                out[k] += 2 * a[k] * self.Vt[pi]
+            else:
+                out[k] += a[l] * self.Vt[pi]; out[l] += a[k] * self.Vt[pi]
         return out
 
+    def solve(self, a):
+        L = np.hstack([self.koszul_matrix(a), self.LQ])
+        b = self.bvec(a)
+        x, *_ = sla.lstsq(L, -b, cond=1e-10, lapack_driver='gelsy', check_finite=False)
+        r = L @ x + b
+        self.nfev += 1
+        return float(r @ r), x, r, b
+
+    def grad(self, a, x, r):
+        c = x[:self.nc]
+        # Koszul field K_c
+        Kc = [np.zeros(len(self.N_mons[i][0])) for i in range(NV)]
+        for (i, j, pc, c0, c1) in self.cslices:
+            Mi, Mj = self.MF_c[(i, j)]
+            Kc[i] += Mi @ c[c0:c1]; Kc[j] -= Mj @ c[c0:c1]
+        divK = sum(self.dN[i] @ Kc[i] for i in range(NV))
+        Y = [self.MF_dK[j] @ divK - sum(self.MFij_N[j][i] @ Kc[i] for i in range(NV)) for j in range(NV)]
+        Z = [[self.MFj_N[j][i] @ Kc[i] for i in range(NV)] for j in range(NV)]
+        db = self.dbvec(a)
+        g = np.zeros(self.K)
+        for k in range(self.K):
+            if self.jac_idx[k] is not None:
+                j, idx_m, dlist = self.jac_idx[k]
+                val = float(Y[j] @ r[idx_m])
+                for (i, coef, idx) in dlist:
+                    val -= coef * float(Z[j][i] @ r[idx])
+                val /= self.scale[k]
+            else:
+                MG, MdG = self.ker_maps[k]
+                vk = MG @ divK - sum(MdG[i] @ Kc[i] for i in range(NV))
+                val = float(vk @ r) / self.scale[k]
+            g[k] = 2.0 * (val + float(db[k] @ r))
+        return g
+
     def value_and_grad(self, u):
-        nu = np.linalg.norm(u)
-        a = self.P @ (u / nu)
-        ev = self.evaluate(a)
-        ga = ev['grad']
-        # chain rule: a = P u/|u|
-        gu = self.P.T @ ga
-        gu = (gu - (u / nu) * float(gu @ (u / nu))) / nu
-        return ev['f'], gu
+        af = self.P @ u; na = np.linalg.norm(af); a = af / na
+        f, x, r, b = self.solve(a)
+        g = self.grad(a, x, r)
+        g_full = (g - float(g @ a) * a) / na
+        return f, self.P.T @ g_full
 
-    def is_spurious(self, a, tol=1e-8):
-        D = self.UD @ a
-        if self.MFm is None or self.MFm.shape[1] == 0: return False, 1.0
-        g, res, rk, s = np.linalg.lstsq(self.MFm, D, rcond=None)
-        rel = np.linalg.norm(D - self.MFm @ g) / max(np.linalg.norm(D), 1e-300)
-        return rel < tol, float(rel)
+    def rel(self, a):
+        f, x, r, b = self.solve(a)
+        return f / max(self.scale0, 1e-300), f, float(b @ b)
 
-    def search(self, n_restarts=10, seed=0, maxiter=400, gtol=1e-12, verbose=False, log_path=None, tag=''):
+    def search(self, n_restarts, seed, maxiter=400, verbose=False, stop_rel=1e-14):
         rng = np.random.default_rng(seed)
         out = []
         for it in range(n_restarts):
             t0 = time.time()
             u0 = rng.standard_normal(self.dimP); u0 /= np.linalg.norm(u0)
             res = minimize(self.value_and_grad, u0, jac=True, method='L-BFGS-B',
-                           options={'maxiter': maxiter, 'gtol': gtol, 'ftol': 1e-18, 'maxcor': 30})
-            a = self.P @ (res.x / np.linalg.norm(res.x))
-            ev = self.evaluate(a, want_grad=False)
-            spur, srel = self.is_spurious(a)
-            cand = {'restart': it, 'seed': seed, 'rel': ev['rel'], 'relb': ev['relb'], 'f': ev['f'], 'iters': int(res.nit),
-                    'spurious': spur, 'div_rel': srel, 'seconds': round(time.time() - t0, 1), 'a': a.tolist(), 'tag': tag}
+                           options={'maxiter': maxiter, 'gtol': 1e-12, 'ftol': 1e-18})
+            a = self.P @ res.x; a /= np.linalg.norm(a)
+            rel, f, bb = self.rel(a)
+            cand = {'rel': rel, 'f': f, 'bnorm2': bb, 'a': a.tolist(), 'iters': int(res.nit), 'restart': it,
+                    'seed': seed, 'seconds': round(time.time() - t0, 1)}
             out.append(cand)
             if verbose:
-                print(f'[rvp] restart {it}: rel={ev["rel"]:.3e} f={ev["f"]:.3e} relb={ev["relb"]:.2e} iters={res.nit} spur={spur} ({cand["seconds"]}s)', file=sys.stderr, flush=True)
-            if log_path:
-                with open(log_path, 'a') as fh:
-                    fh.write(json.dumps({k: v for k, v in cand.items()}) + '\n')
-        out.sort(key=lambda c: (c['spurious'], c['rel']))
+                print(f'[rvp] seed={seed} restart {it}: rel={rel:.3e} f={f:.3e} iters={res.nit} ({time.time()-t0:.0f}s)',
+                      file=sys.stderr, flush=True)
+            if rel < stop_rel:
+                break
         return out
 
     # ------------------------------------------------------------------
     def D_exact(self, frac):
         D = {}
-        for k, mem in enumerate(self.members):
-            if frac[k] == 0: continue
-            D = core.add(D, core.scale(mem['M'], Fraction(frac[k])))
+        for k, mem in enumerate(self.fam.members):
+            if frac[k]:
+                D = add(D, scale(mem['G'], Fraction(frac[k]) / Fraction(self.scale[k]).limit_denominator(10**12)))
         return D
 
-    def reconstruct(self, a, max_den=1000, tol=1e-7):
+    def reconstruct(self, a, max_dens=(10, 100, 1000, 10000, 100000), tol=1e-7):
         a = np.asarray(a, float)
         j = int(np.argmax(np.abs(a))); a = a / a[j]
         cands = []
-        for md in (10, 100, max_den):
+        for md in max_dens:
             fr = [Fraction(float(v)).limit_denominator(md) for v in a]
-            if max(abs(float(f) - v) for f, v in zip(fr, a)) < tol:
-                cands.append(tuple(fr)); break
-        for den in range(1, max_den + 1):
-            v = a * den
-            if np.max(np.abs(v - np.round(v))) < tol * den:
-                t = tuple(Fraction(int(round(x)), den) for x in v)
-                if t not in cands: cands.append(t)
-                break
+            err = max(abs(float(f) - v) for f, v in zip(fr, a))
+            cands.append((err, md, tuple(fr)))
         return cands
 
-    def confirm(self, frac, verbose=False):
-        D = self.D_exact(frac)
-        if not D: return 'inconsistent', {'note': 'D=0'}
-        ok, info = fixed_d.e1_solvable(self.F, self.A, 1, D)
-        if not ok: return 'inconsistent', {'note': 'e1 fails', 'e1': info, 'D': D}
-        out = fixed_d.solve_fixed_D_fast(self.F, self.A, 1, D, verbose=verbose)
-        if not out['consistent']:
-            return 'inconsistent', {'rank': out['rank'], 'nullity': out['nullity'], 'D': D}
-        if out.get('exact'):
-            return 'solved', {'N': out['N'], 'Q': out['Q'], 'D': D}
-        return 'lift-failed', {'D': D}
-
-# ----------------------------------------------------------------------
-def e1_particular(F, A, D0, d, parD):
-    """float least-squares E1 lift N0 and quotient G0 for a kernel rep D0 (exact or float poly)."""
-    parA = core.parity_of(A)
-    parN = [(parA + parD + PAR[i]) % 2 for i in range(6)]
-    St = space(d + 6, (parA + parD) % 2)
-    cols, meta = [], []
-    Fi = [fpoly(core.pderiv(F, i)) for i in range(6)]
-    blocks = []
-    for i in range(6):
-        Sn = space(d + 1, parN[i])
-        blocks.append(mult_matrix(Fi[i], Sn, St))
-    Mat = sps.hstack(blocks).toarray()
-    rhs = St.vec(core.mul(A, D0))
-    x, res, rk, s = np.linalg.lstsq(Mat, rhs, rcond=1e-13)
-    resid = np.linalg.norm(Mat @ x - rhs) / np.linalg.norm(rhs)
-    N0 = []
-    off = 0
-    for i in range(6):
-        Sn = space(d + 1, parN[i])
-        N0.append(Sn.poly(x[off:off + Sn.n])); off += Sn.n
-    # G0 = (A D0 - N0(F)) / F  -- exact A D0 - N0(F) is F*G0 only if N0 exact; use lstsq
-    SG = space(d, (parA + parD) % 2)
-    MF = mult_matrix(fpoly(F), SG, St).toarray()
-    rhs2 = rhs - Mat @ x
-    g, _, _, _ = np.linalg.lstsq(MF, rhs2, rcond=1e-13)
-    resid2 = np.linalg.norm(MF @ g - rhs2) / max(np.linalg.norm(rhs2), 1e-300)
-    return N0, SG.poly(g), float(resid), float(resid2), float(np.linalg.norm(rhs2) / np.linalg.norm(rhs))
-
-def J_members(F, A, d, parD):
-    mems = []
-    for j in range(6):
-        for m in core.monomials(d - 5, (parD + PAR[j]) % 2):
-            mems.append({'M': core.shift(core.pderiv(F, j), m, 1), 'kind': 'J', 'j': j, 'm': m, 'tag': f'm*F_{j}'})
-    return mems
-
-def kernel_members(F, A, d, parD, reps, verbose=True):
-    mems = []
-    for k, D0 in enumerate(reps):
-        N0, G0, r1, r2, gn = e1_particular(F, A, D0, d, parD)
-        if verbose: print(f'[rvp] kernel rep {k}: E1 lstsq resid {r1:.2e}, G resid {r2:.2e}, |FG|/|AD| {gn:.2e}', file=sys.stderr, flush=True)
-        mems.append({'M': D0, 'kind': 'kernel', 'N0': N0, 'G0': G0, 'tag': f'kernel{k}'})
-    return mems
+def worker(args):
+    (d, par, kfile, seed, n_restarts, maxiter, no_kernel) = args
+    F, A, q, rec = load()
+    reps, nums = [], []
+    if not no_kernel and kfile and os.path.exists(kfile):
+        J = json.load(open(kfile))
+        if J.get('basis_rational') and J.get('numerators_rational'):
+            reps = [core.parse(s) for s in J['basis_rational']]
+            nums = [[core.parse(c) for c in P] for P in J['numerators_rational']]
+    rvp = ReducedVarPro(F, A, d, par, reps, nums, verbose=(seed % 1000 == 0))
+    res = rvp.search(n_restarts, seed, maxiter=maxiter, verbose=True)
+    return res
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--instance', default='short-power-presentation')
-    ap.add_argument('--d', type=int, required=True)
-    ap.add_argument('--par', type=int, default=0)
-    ap.add_argument('--family', default='J+kernel', help='J | kernel | J+kernel | file:<json list of D strings>')
-    ap.add_argument('--kernel-file', default=None)
-    ap.add_argument('--restarts', type=int, default=10)
-    ap.add_argument('--seed', type=int, default=0)
-    ap.add_argument('--procs', type=int, default=1)
-    ap.add_argument('--maxiter', type=int, default=400)
-    ap.add_argument('--out', default=None)
-    ap.add_argument('--tag', default='')
-    ap.add_argument('--confirm-rel', type=float, default=1e-9)
-    ap.add_argument('--lam', type=float, default=1e-12)
-    args = ap.parse_args()
-    F, A, q, rec = core.load_instance(args.instance)
-    assert q == 1
-    d, parD = args.d, args.par
-    mems = []
-    if 'J' in args.family.split('+'):
-        mems += J_members(F, A, d, parD)
-    if 'kernel' in args.family.split('+'):
-        path = args.kernel_file or f'{RES}/w2/kernel_d{d}_p{parD}_rational.json'
-        reps = [core.parse(it['D']) for it in json.load(open(path))]
-        mems += kernel_members(F, A, d, parD, reps)
-    if args.family.startswith('file:'):
-        items = json.load(open(args.family[5:]))
-        reps = [core.parse(it['D'] if isinstance(it, dict) else it) for it in items]
-        mems += kernel_members(F, A, d, parD, reps)
-    fam = ReducedVarPro(F, A, mems, lam=args.lam)
-    out = args.out or f'{RES}/w2/vp_d{d}_p{parD}_{args.tag or "run"}_s{args.seed}.jsonl'
+    ap.add_argument('d', type=int); ap.add_argument('par', type=int)
+    ap.add_argument('--restarts', type=int, default=8); ap.add_argument('--procs', type=int, default=1)
+    ap.add_argument('--seed', type=int, default=0); ap.add_argument('--maxiter', type=int, default=400)
+    ap.add_argument('--tag', default=''); ap.add_argument('--no-kernel', action='store_true')
+    ap.add_argument('--confirm-top', type=int, default=2); ap.add_argument('--confirm-tol', type=float, default=1e-9)
+    a = ap.parse_args()
     t0 = time.time()
-    if args.procs > 1:
+    kfile = os.path.join(RES, f'kernel_d{a.d}_p{a.par}.json')
+    per = max(1, a.restarts // a.procs)
+    jobs = [(a.d, a.par, kfile, a.seed + 1000 * i, per, a.maxiter, a.no_kernel) for i in range(a.procs)]
+    if a.procs > 1:
         import multiprocessing as mp
-        per = args.restarts // args.procs
-        def worker(w):
-            fam.search(n_restarts=per, seed=args.seed * 1000 + w, maxiter=args.maxiter, log_path=out, tag=args.tag)
-        ps = [mp.Process(target=worker, args=(w,)) for w in range(args.procs)]
-        for p_ in ps: p_.start()
-        for p_ in ps: p_.join()
-        cands = [json.loads(l) for l in open(out)]
-        cands.sort(key=lambda c: (c['spurious'], c['rel']))
+        with mp.get_context('fork').Pool(a.procs) as pool:
+            results = pool.map(worker, jobs)
     else:
-        cands = fam.search(n_restarts=args.restarts, seed=args.seed, maxiter=args.maxiter, verbose=True, log_path=out, tag=args.tag)
-    rels = sorted(c['rel'] for c in cands if not c['spurious'])
+        results = [worker(jobs[0])]
+    cands = [c for r in results for c in r]
+    cands.sort(key=lambda c: c['rel'])
+    rels = np.array([c['rel'] for c in cands])
     hist = {}
     for r in rels:
-        b = int(np.floor(np.log10(max(r, 1e-300))))
+        b = int(math.floor(math.log10(max(r, 1e-300))))
         hist[b] = hist.get(b, 0) + 1
-    summary = {'batch': 'varpro', 'family': args.family, 'degree': d, 'parity': parD, 'K': fam.K, 'dimP': fam.dimP,
-               'nK': fam.nK, 'nQ': fam.nQ, 'rows': fam.rows, 'restarts': len(cands), 'seed': args.seed,
-               'best_rel': rels[0] if rels else None, 'median_rel': rels[len(rels)//2] if rels else None,
-               'hist_log10': {str(k): v for k, v in sorted(hist.items())}, 'n_spurious': sum(c['spurious'] for c in cands),
-               'seconds': round(time.time() - t0, 1), 'out': out, 'tag': args.tag}
-    print(json.dumps(summary), flush=True)
-    # confirmation attempts
+    out_path = os.path.join(RES, f'rvp_d{a.d}_p{a.par}_s{a.seed}' + (f'_{a.tag}' if a.tag else '') + '.json')
+    with open(out_path, 'w') as f:
+        json.dump({'d': a.d, 'par': a.par, 'seed': a.seed, 'restarts': len(cands), 'maxiter': a.maxiter,
+                   'candidates': cands[:50]}, f)
+    logrec = {'kind': 'varpro-reduced', 'd': a.d, 'parity': a.par, 'family': 'K_d + J(F)_d (gauge-fixed)',
+              'restarts': len(cands), 'procs': a.procs, 'seed': a.seed, 'maxiter': a.maxiter,
+              'best_rel': float(rels[0]) if len(rels) else None, 'median_rel': float(np.median(rels)) if len(rels) else None,
+              'hist_log10': {str(k): v for k, v in sorted(hist.items())}, 'out': out_path, 'tag': a.tag,
+              'seconds': round(time.time() - t0, 1)}
+    # exact confirmation of the best few
+    F, A, q, rec = load()
+    J = json.load(open(kfile)) if os.path.exists(kfile) and not a.no_kernel else {}
+    reps = [core.parse(s) for s in J['basis_rational']] if J.get('basis_rational') and J.get('numerators_rational') else []
+    nums = [[core.parse(c) for c in P] for P in J['numerators_rational']] if reps else []
+    rvp = ReducedVarPro(F, A, a.d, a.par, reps, nums, verbose=False)
     confirmed = []
-    for c in cands[:20]:
-        if c['spurious'] or c['rel'] > args.confirm_rel: continue
-        for fr in fam.reconstruct(c['a']):
-            status, data = fam.confirm(fr)
-            print(f'[rvp] confirm restart {c["restart"]} rel {c["rel"]:.2e}: {status}', flush=True)
-            wlog(batch='varpro-confirm', degree=d, parity=parD, rel=c['rel'], status=status, a=[str(x) for x in fr])
-            if status == 'solved':
-                W = {'d': d, 'D': core.to_str(data['D']), 'N': [core.to_str(n) for n in data['N']], 'Q': core.to_str(data['Q'])}
-                json.dump(W, open(f'{RES}/witness-candidate.json', 'w'))
-                print('!!! WITNESS FOUND (exact) — saved witness-candidate.json', flush=True)
-                confirmed.append(W)
+    for c in cands[:a.confirm_top]:
+        if c['rel'] > a.confirm_tol:
+            break
+        for err, md, fr in rvp.reconstruct(c['a']):
+            D = rvp.D_exact(fr)
+            if not D: continue
+            ok, info = fixed_d.e1_solvable(F, A, 1, D)
+            res = {'rel': c['rel'], 'max_den': md, 'recon_err': err, 'e1': bool(ok)}
+            if ok:
+                out = fixed_d.solve_fixed_D_fast(F, A, 1, D, verbose=False, want_exact=True)
+                res.update({'consistent': bool(out['consistent']), 'rank': out['rank'], 'nullity': out['nullity']})
+                if out.get('exact'):
+                    okv, _ = core.verify_witness(F, A, 1, D, out['N'], out['Q'])
+                    res['WITNESS'] = bool(okv)
+                    if okv:
+                        with open(os.path.join(RES, 'witness-candidate.json'), 'w') as f:
+                            json.dump({'instance': IID, 'd': a.d, 'D': core.to_str(D), 'N': [core.to_str(n) for n in out['N']],
+                                       'Q': core.to_str(out['Q']), 'family': 'varpro-reduced'}, f, indent=1)
+                        print('!!! WITNESS FOUND', file=sys.stderr, flush=True)
+            confirmed.append(res)
+            if res.get('consistent'):
                 break
-        if confirmed: break
-    summary['confirmed'] = len(confirmed)
-    wlog(**summary)
+    logrec['confirm'] = confirmed
+    w2log(logrec)
+    print(json.dumps(logrec, default=str), flush=True)
 
 if __name__ == '__main__':
     main()

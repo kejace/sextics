@@ -99,7 +99,7 @@ if __name__ == '__main__':
         for par in (0, 1):
             info, basis = e1_ladder(d, par, p)
             print(json.dumps(info), flush=True)
-            with open(f'{PK}/e1ladder.{p}.jsonl', 'a') as f: f.write(json.dumps(info) + '\n')
+            with open(f'{PK}/e1ladder.{p}' + (f'.{tag}' if tag else '') + '.jsonl', 'a') as f: f.write(json.dumps(info) + '\n')
             if basis:
                 with open(f'{PK}/annA_d{d}_par{par}.p{p}.pkl', 'wb') as f: pickle.dump(basis, f)
             wlog({'exp': 'a2-e1ladder-nf', 'd': d, 'parD': par, 'prime': p, 'result': f"kermodJ={info['kermodJ']} (forced>={info['forced_lower_bound']}) hilbert_ok={info['hilbert_ok']}", 'rank': info['rank_p_J_target'], 'seconds': round(sum(info[k] for k in ('t_rrefJ','t_nf','t_kernel','t_quot')),1), 'job': tag or 'local', 'note': 'normal-form method, independent of wave-1 nullspace code'}, fn=f'{PK}/wave2-excl-remote-{tag}.jsonl' if tag else None)

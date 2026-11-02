@@ -1,9 +1,8 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report rewritten after every batch).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 19:48 EST from 301 log records).
 
-Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch).
-Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2lib.py` and `w2_*.py` (remote jobs via `hodge.rjob`).
+Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
 ## 0. Corrections to the wave-1 record
 
@@ -64,18 +63,52 @@ therefore concentrated on `triv` (both parities), the unrestricted w-space at d 
 (S2×S2, S3×S2, S2×S3) types, which probe invariant denominators of much higher degree (orbit products).
 The sign sectors are still run at low cost as consistency checks of the principle.
 
-## 4. Results so far (local light runs; remote batches appended as they land)
+## 6. Concurrent agent on this lane (cross-check, not our work)
 
-| family | sector | nD | dimK (=J+ker) | dimP | restarts | best rel | minima | verdict |
-|---|---|---:|---:|---:|---:|---:|---|---|
-| w-space (unrestricted) | jac d=5 pD=0 (`Σ c_i F_{X_i}`) | 3 | 3 | 3 | 12 | 0.58 | 0.581 (9), 0.592 (3) | no solution |
-| w-space (unrestricted) | jac d=5 pD=1 (`Σ c_j F_{Y_j}`) | 3 | 3 | 3 | 12 | 0.60 | 0.603 (9), 0.656 (3) | no solution |
-| w-space (unrestricted) | jac d=6 pD=0 (K = 18) | 18 | 18 | 17 | 3 | 0.205 | 0.213/0.205/0.207 | remote batch pending |
-| invariant | triv d=6 pD=0 (`J^G_6`) | 30 | 4 | 3 | 12 | 8.3e-3 | single | no solution |
-| invariant | triv d=7 pD=0 (`J^G_7`) | 37 | 8 | 7 | 10 | 4.3e-4 | single bowl | no solution (stable under cond 1e-14) |
-| invariant | triv d=7 pD=1 (`J^G_7`) | 37 | 8 | 7 | 12 | 1.5e-4 | single bowl | no solution; rationalised point fails E1 |
-| sgnX | d=7 pD=0 (`D7 + J^{sgnX}_7`) | 12 | 3 | 3 | 12 | 1.6e-2 | 0.0157 (9), 0.357 (3) | no solution (as predicted by §3) |
-| sgnY | d=7 pD=1 (`D7Y + J^{sgnY}_7`) | 12 | 3 | 3 | 12 | 1.8e-2 | 0.0182 (5), 0.0615 (7) | no solution |
+Another process submits jobs named `search-symmetric-sextic-residual-{dims,dims2,struct,vp-d8triv0,vp-d8sgnX1}` and
+`excl-ssr-relax1` (its scripts `w2x_*.py`, `w2_test2.py`, outputs `w2struct.jsonl`, `w2vp_*.jsonl`, `wave2-excl/` live
+only on the remote lane dir). From its outputs (pulled 19:50 EST): its own character-reduced varpro ("cvp") on
+`triv d=8 pD=0` (6 restarts) reached rel 8.7e-5 and on `sgnX d=8 pD=1` (22 restarts) rel 0.094 — consistent with
+our landscape (invariant minima ≈ 1e-4 at d = 7–8, no zero); its structured E1 scan tested 1014 products of
+symmetric functions at d = 6–8 (26 pass E1, none full-solved in that file). Our jobs use the prefix
+`search-symmetric-sextic-residual-w2b-*` and the `w2b/` directory to avoid name collisions.
 
-Remote jobs (hodge-sextics, force-submitted at load ≈ 400 because the runner's capacity gate was never
-satisfied while ~50 jobs of other agents were running): `search-symmetric-sextic-residual-{kernels,vp1,vp2,single}`.
+
+## 5. E1-admissible denominator spaces (job `kernels`, mod p = 2^31−1)
+
+`dimK / dimJ / beyond` = dim{D of this type : A·D ∈ J(F)} / dim J(F)_d inside the type / kernel classes modulo J.
+
+| sector (χ, pD) | d=4 | d=5 | d=6 | d=7 | d=8 | d=9 | d=10 | d=11 | d=12 | d=13 | d=14 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| triv, pD=0 | 0/0/0 | 1/1/0 | 4/4/0 | 8/8/0 | 22/20/2 | 34/33/1 | 92/64/28 | 122/94/28 | 206/156/50 | 254/211/43 | 370/316/54 |
+| triv, pD=1 | 0/0/0 | 1/1/0 | 2/2/0 | 8/8/0 | 14/14/0 | 34/33/1 | 55/51/4 | 122/94/28 | 158/132/26 | 254/211/43 | 310/276/34 |
+| sgnX, pD=0 | 0/0/0 | 0/0/0 | 1/1/0 | 3/2/1 | 6/6/0 | 19/12/7 | 26/22/4 | 59/40/19 | 74/61/13 | 123/100/23 | 150/136/14 |
+| sgnX, pD=1 | 0/0/0 | 0/0/0 | 0/0/0 | 1/1/0 | 4/3/1 | 8/8/0 | 28/18/10 | 37/31/6 | 75/57/18 | 93/82/11 | 150/132/18 |
+| sgnY, pD=0 | 0/0/0 | 0/0/0 | 1/1/0 | 1/1/0 | 6/6/0 | 8/8/0 | 26/22/4 | 37/31/6 | 74/61/13 | 93/82/11 | 150/136/14 |
+| sgnY, pD=1 | 0/0/0 | 0/0/0 | 0/0/0 | 3/2/1 | 4/3/1 | 19/12/7 | 28/18/10 | 59/40/19 | 75/57/18 | 123/100/23 | 150/132/18 |
+| sgnsgn, pD=0 | 0/0/0 | 0/0/0 | 0/0/0 | 0/0/0 | 0/0/0 | 1/1/0 | 2/2/0 | 14/8/6 | 18/13/5 | 37/30/7 | 46/42/4 |
+| sgnsgn, pD=1 | 0/0/0 | 0/0/0 | 0/0/0 | 0/0/0 | 0/0/0 | 1/1/0 | 11/4/7 | 14/8/6 | 30/20/10 | 37/30/7 | 64/56/8 |
+
+Subgroup types at d = 10 (`dimK/dimJ/beyond`): S22_++ pD=0: 400/282/118; S22_++ pD=1: 321/260/61; S22_+- pD=0: 252/182/70; S22_+- pD=1: 251/182/69; S22_-+ pD=0: 252/182/70; S22_-+ pD=1: 251/182/69; S22_-- pD=0: 146/104/42; S22_-- pD=1: 191/123/68; S2S3_++ pD=0: 195/138/57; S2S3_++ pD=1: 134/116/18; S2S3_+- pD=0: 47/38/9; S2S3_+- pD=1: 64/38/26; S2S3_-+ pD=0: 129/96/33; S2S3_-+ pD=1: 107/83/24; S2S3_-- pD=0: 23/18/5; S2S3_-- pD=1: 47/24/23; S3S2_++ pD=0: 195/138/57; S3S2_++ pD=1: 134/116/18; S3S2_+- pD=0: 129/96/33; S3S2_+- pD=1: 107/83/24; S3S2_-+ pD=0: 47/38/9; S3S2_-+ pD=1: 64/38/26; S3S2_-- pD=0: 23/18/5; S3S2_-- pD=1: 47/24/23.
+
+* Served-target check at 2 random admissible points per sector (d ≤ 10): 16 sectors, points serving something beyond `J(F)_6^G`: **0**.
+* **Fermat deformation** `F_t = p6X + p6Y + t·e2X e2Y (e2X + 2e2Y)`, t ∈ {0, 5/7, 1, 2, 1/3, −1, 7/5, 3/11, −5/7}: beyond-J kernels identical for all t ≠ 0: **True**; they jump only at t = 0. Examples (t=0 vs t≠0): ('triv', 6, 0): 8 vs 0; ('triv', 6, 1): 2 vs 0; ('triv', 7, 0): 9 vs 0; ('triv', 7, 1): 9 vs 0; ('triv', 8, 0): 21 vs 2; ('triv', 8, 1): 10 vs 0; ('triv', 9, 0): 22 vs 1; ('triv', 9, 1): 22 vs 1; ('triv', 10, 0): 38 vs 28; ('triv', 10, 1): 23 vs 4. So 5/7 is not special for E1.
+
+## 7. Joint (varpro) search landscape — all batches so far
+
+Per sector: admissible dimension `dimP` (= dimK − F-multiples), total restarts (all jobs/seeds), best and median relative residual, number of restarts below 1e-6 / 1e-10, and the distinct minima values (rounded, count). A solution has rel ≤ 1e-16.
+
+| sector | nD | dimK (J+ker) | dimP | rows×cols | restarts | best rel | median | <1e-6 | <1e-10 | minima (value: count) | jobs |
+|---|---:|---:|---:|---|---:|---:|---:|---:|---:|---|---|
+| jac d=5 pD=0 | 3 | 3 (3+0) | 3 | 1491×105 | 12 | 5.81e-01 | 5.8e-01 | 0 | 0 | 0.581: 9, 0.592: 3 | local1 |
+| jac d=5 pD=1 | 3 | 3 (3+0) | 3 | 1491×105 | 12 | 6.03e-01 | 6.0e-01 | 0 | 0 | 0.603: 9, 0.656: 3 | local1 |
+| triv d=7 pD=0 | 37 | 8 (8+0) | 7 | 1268×279 | 10 | 4.34e-04 | 4.3e-04 | 0 | 0 | 0.000434: 10 | local2 |
+| triv d=7 pD=1 | 37 | 8 (8+0) | 7 | 1268×279 | 12 | 1.54e-04 | 1.5e-04 | 0 | 0 | 0.000154: 12 | local2,local3 |
+| sgnX d=7 pD=0 | 12 | 3 (2+1) | 3 | 1268×279 | 12 | 1.57e-02 | 1.6e-02 | 0 | 0 | 0.0157: 9, 0.357: 3 | local1 |
+| sgnY d=7 pD=1 | 12 | 3 (2+1) | 3 | 1268×279 | 12 | 1.82e-02 | 6.1e-02 | 0 | 0 | 0.0182: 5, 0.0615: 7 | local1 |
+
+Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witnesses: 0.
+
+## 10. Batches logged per job
+
+`kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h

@@ -1,0 +1,50 @@
+hodge-sextics.us-east1-b.c.gluck-proof.internal
+/usr/bin/msolve
+/usr/bin/Singular
+
+msolve library for polynomial system solving
+implemented by J. Berthomieu, C. Eder, M. Safey El Din
+
+Basic call:
+	 ./msolve -f [FILE1] -o [FILE2]
+
+FILE1 and FILE2 are respectively the input and output files
+
+Standard options
+
+-f FILE  File name (mandatory).
+
+-h       Prints this help.
+-o FILE  Name of output file.
+-t THR   Number of threads to be used.
+         Default: 1.
+-v n     Level of verbosity, 0 - 2
+         0 - no output (default).
+         1 - global information at the start and
+             end of the computation.
+         2 - detailed output for each step of the
+             algorithm, e.g. matrix sizes, #pairs, ...
+Input file format:
+	 - first line: variables separated by a comma
+	 - second line: characteristic of the field
+	 - next lines provide the polynomials (one per line),
+	   separated by a comma
+	   (no comma after the final polynomial)
+
+Output file format: 
+When there is no solution in an algebraic closure of the base field
+[-1]:
+Where there are infinitely many solutions in 
+an algebraic closure of the base field: 
+[1, nvars, -1,[]]:
+Else:
+Over prime fields: a rational parametrization of the solutions
+When input coefficients are rational numbers: 
+real solutions to the input system (see the -P flag to recover a parametrization of the solutions)
+Singular for x86_64-Linux version 4.3.2 (4330, 64 bit) Apr  1 2024 04:44:00
+with
+	GMP(6.3.0),NTL(11.5.1),FLINT(3.0.1),
+128
+ 00:23:32 up 55 min, 23 users,  load average: 262.19, 162.45, 73.65
+ 
+exit 0

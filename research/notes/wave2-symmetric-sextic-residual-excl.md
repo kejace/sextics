@@ -1,6 +1,6 @@
 # Wave 2 — `symmetric-sextic-residual` — lens EXCLUSION / RIGOR
 
-STATUS: no witness (in progress; last rewrite 2026-11-01 19:40). Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-excl.log.jsonl`. Packet: `/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/` (library `w2x_lib.py`, jobs `w2x_*_job.py` in the lane dir).
+STATUS: no witness (session handed off 2026-11-01 ~19:50 with detached local chains still running: d=7 full pure-parity relaxation (61 unknowns each, `local_chain1.sh`), E1 kernels at p2, then `local_chain2.sh` (kernel structure, exact Farkas certificates, sector screening d=8–10) and `local_chain3.sh` (d=9 sectors, exact-Q kernel d≤3, d=6 at p2); remote submissions `excl-ssr-relax1/relax7mixed/e1kernel/reverify` are queued with --wait (remote load ≈ 500). Receipts land in `wave2-excl.log.jsonl` and `wave2-excl/*.json`. Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-excl.log.jsonl`. Packet: `/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/` (library `w2x_lib.py`, jobs `w2x_*_job.py` in the lane dir).
 
 ## Best rigorous bound so far
 
@@ -16,7 +16,11 @@ mixed parity) has leading ideal containing `a_k²` for every variable (msolve, g
 (triv: dimK 8 = J-part, V={0}, vdim 11; sgnX even: ⟨D7⟩ ⊕ J (dimK 3), V={0}; sgnY odd: ⟨D7Y⟩ ⊕ J, V={0}; the other sectors
 have dimK ≤ 1 and close too; sgn⊗sgn: no E1-admissible element at all). Folded-reducer ranks at degree 14 equal the
 Molien–Koszul values (276, ring 46).
-Running locally now (remote saturated): d = 8 sectors, d = 7 full pure parity (61 unknowns each), E1 kernels at p = 2147483629.
+**No `S3×S3×⟨τ⟩`-semi-invariant denominator of degree 8** [P]: all eight sector families at d = 8 close (triv even: 22-dim family
+(2 non-J classes + 20 J), 18 unknowns after the 4 radial directions, 32 quadrics (= dim R_16^{G,odd}), leading ideal has a_k²
+for every k, quotient dimension 1731; triv odd: 13 unknowns, vdim 112; sgnX/sgnY: 6 and 4 unknowns; sgn⊗sgn: no E1-admissible
+element). Folded-reducer ranks at degree 16 equal the Molien–Koszul values in every run (checked in the receipts).
+Running locally now (remote saturated): d = 7 full pure parity (61 unknowns each), E1 kernels at p = 2147483629; then d = 9 sectors.
 
 ## 1. The Hessian relaxation (what is proved)
 
@@ -71,7 +75,8 @@ The check that V(I) = {0} is done by msolve's leading ideal (`-g 1`): a pure pow
 | relaxation | all E1-admissible D (D7 ⊕ J_7 / D7Y ⊕ J_7), per parity, 61 unknowns | 7 | 2^31−1, 2147483629 | queued (`excl-ssr-relax1`) | |
 | relaxation | mixed parity, 124 unknowns | 7 | 2^31−1 | queued (`excl-ssr-relax7mixed`) | may not finish |
 | relaxation | sectors (triv, sgnX, sgnY, sgnsgn) × parity | 7 | 2^31−1 | **all V={0} / empty** (msolve + Singular agree) | rigorous: no semi-invariant D of degree 7 |
-| relaxation | sectors × parity | 8, 9 | 2^31−1 (+p2 at d=8) | running locally (d=8) / remote queue (d=9) | |
+| relaxation | sectors × parity | 8 | 2^31−1 | **all V={0} / empty** (msolve; Singular agrees where it finished) | rigorous: no semi-invariant D of degree 8 |
+| relaxation | sectors × parity | 9 | 2^31−1 | queued locally (`local_chain3.sh`) | triv has 17 equations vs ≈29 unknowns: expected open |
 | E1 kernels, all characters, isotypic decomposition | — | 1–10 | p2 (1–10), p1 (9,10) | queued | |
 | screening (twisted E1+E2, random + basis points) | sectors | 8–12 | p1, p2 | to submit | |
 | Farkas exact certificates | D7, D7Y, E_X(F), E_Y(F), Δ_XΔ_Y·…, D7·e1X, Δ_X·(e2e3−7e1³e2+4e1⁵) | 6–8 | exact | to submit | |

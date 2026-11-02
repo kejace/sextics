@@ -1,0 +1,553 @@
+{"d": 6, "chi": [0, 0], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X2", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X2", "Y1", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 16, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 10, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [0, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 6, "chi": [4, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 14, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 0, "non_jacobian": 1}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X2", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 21, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 1}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X0", "X2", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X2", "Y1", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 11, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 7, "chi": [0, 1], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 20, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 7, "chi": [2, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [4, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 19, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 20, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 1}
+{"d": 7, "chi": [1, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [1, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X2", "Y1", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 21, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X0", "X2", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X2", "Y1", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 11, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [3, 5], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 7, "chi": [5, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 19, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 0, "non_jacobian": 1}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 29, "dim_cap_E1": 7, "dim_cap_gauge": 0, "net": 7, "dim_cap_jac_plus_gauge": 6, "non_jacobian": 1}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 17, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 1], "vars": ["X0", "X2", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 1], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 1], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 14, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 14, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 2], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 14, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 4], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 5], "vars": ["X2", "Y1", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 5], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 14, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 5], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [0, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [0, 5], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 28, "dim_cap_E1": 6, "dim_cap_gauge": 0, "net": 6, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 2}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 1], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 1], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 1], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [2, 1], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 28, "dim_cap_E1": 6, "dim_cap_gauge": 0, "net": 6, "dim_cap_jac_plus_gauge": 5, "non_jacobian": 1}
+{"d": 8, "chi": [4, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [4, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 5], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 5], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 5], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [4, 5], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 26, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 1}
+{"d": 8, "chi": [1, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 1], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 1], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 1], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [1, 1], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X2", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X2", "Y1", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 28, "dim_cap_E1": 6, "dim_cap_gauge": 0, "net": 6, "dim_cap_jac_plus_gauge": 5, "non_jacobian": 1}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 16, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 1], "vars": ["X2", "Y1", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 1], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 14, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 1], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [3, 1], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 5], "vars": ["X0", "X2", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 5], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 5], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 5], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 14, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [3, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 26, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 8, "chi": [5, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [5, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 5], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 5], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 5], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 8, "chi": [5, 5], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 8, "chi": [5, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X2", "Y1", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 15, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 38, "dim_cap_E1": 12, "dim_cap_gauge": 0, "net": 12, "dim_cap_jac_plus_gauge": 11, "non_jacobian": 1}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 15, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 21, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 10, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 19, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 1], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 2], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 2], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 2], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 2], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 2], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 2], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 2], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 17, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 17, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 3], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 4], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 4], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 4], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 4], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 4], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 4], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 17, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 4], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 19, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [0, 5], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 36, "dim_cap_E1": 10, "dim_cap_gauge": 0, "net": 10, "dim_cap_jac_plus_gauge": 9, "non_jacobian": 1}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 1], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 2], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 2], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 2], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 2], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 2], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 2], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 2], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 4], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 4], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 4], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 4], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 4], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 4], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 4], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [2, 5], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [2, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 36, "dim_cap_E1": 10, "dim_cap_gauge": 0, "net": 10, "dim_cap_jac_plus_gauge": 8, "non_jacobian": 2}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [4, 1], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 5], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [4, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 36, "dim_cap_E1": 11, "dim_cap_gauge": 0, "net": 11, "dim_cap_jac_plus_gauge": 9, "non_jacobian": 2}
+{"d": 9, "chi": [1, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [1, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 1], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 2], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 2], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 2], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 2], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 2], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 2], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 2], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 4], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 4], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 4], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 4], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 4], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 4], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 4], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [1, 5], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X2", "Y2"], "dim_V": 4, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 38, "dim_cap_E1": 13, "dim_cap_gauge": 0, "net": 13, "dim_cap_jac_plus_gauge": 11, "non_jacobian": 2}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 15, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 10, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 21, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 15, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 19, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 1], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 2], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 2], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 2], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 2], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 17, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 2], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 2], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 2], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 17, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 3], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 4], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 4], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 4], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 17, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 4], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 4], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 4], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 4], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X0", "X2", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X2", "Y1", "Y2"], "dim_V": 5, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 19, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [3, 5], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 36, "dim_cap_E1": 11, "dim_cap_gauge": 0, "net": 11, "dim_cap_jac_plus_gauge": 8, "non_jacobian": 3}
+{"d": 9, "chi": [5, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 9, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 12, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [5, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 1], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 1], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 1], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 8, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 7, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 9, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 9, "chi": [5, 5], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 6, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X2", "Y2"], "dim_V": 2, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X2", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X1", "X2", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X2", "Y0", "Y2"], "dim_V": 3, "dim_cap_E1": 1, "dim_cap_gauge": 0, "net": 1, "dim_cap_jac_plus_gauge": 1, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X2", "Y1", "Y2"], "dim_V": 7, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y0"], "dim_V": 15, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y1"], "dim_V": 18, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X1", "X2", "Y2"], "dim_V": 14, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y1"], "dim_V": 50, "dim_cap_E1": 23, "dim_cap_gauge": 0, "net": 23, "dim_cap_jac_plus_gauge": 19, "non_jacobian": 4}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X1", "Y0", "Y2"], "dim_V": 15, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X1", "Y1", "Y2"], "dim_V": 18, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y1"], "dim_V": 18, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X2", "Y0", "Y2"], "dim_V": 11, "dim_cap_E1": 2, "dim_cap_gauge": 0, "net": 2, "dim_cap_jac_plus_gauge": 2, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "X2", "Y1", "Y2"], "dim_V": 28, "dim_cap_E1": 7, "dim_cap_gauge": 0, "net": 7, "dim_cap_jac_plus_gauge": 7, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X0", "Y0", "Y1", "Y2"], "dim_V": 18, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X1", "X2", "Y0", "Y1"], "dim_V": 15, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X1", "X2", "Y0", "Y2"], "dim_V": 12, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X1", "X2", "Y1", "Y2"], "dim_V": 11, "dim_cap_E1": 4, "dim_cap_gauge": 0, "net": 4, "dim_cap_jac_plus_gauge": 4, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X1", "Y0", "Y1", "Y2"], "dim_V": 15, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}
+{"d": 10, "chi": [0, 0], "vars": ["X2", "Y0", "Y1", "Y2"], "dim_V": 14, "dim_cap_E1": 3, "dim_cap_gauge": 0, "net": 3, "dim_cap_jac_plus_gauge": 3, "non_jacobian": 0}

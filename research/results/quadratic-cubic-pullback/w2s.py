@@ -480,6 +480,83 @@ class PointVarPro:
         r = float(np.linalg.norm(Fcols @ x - Dv) / max(np.linalg.norm(Dv), 1e-300))
         return r < tol, r
 
+    # --------------------------------------------------------------------------------------------------
+    # joint Levenberg-Marquardt on (u, c): residual [Re P; Im P; mu (|u|^2 - 1)], a = P u
+    # --------------------------------------------------------------------------------------------------
+    def _joint_residual_jac(self, x, mu, want_jac=True):
+        dimP = self.dimP
+        uu = x[:dimP]; cf = x[dimP:]
+        a = self.P @ uu
+        D, dD, u, divu = self._state(a)
+        p0 = D * divu - sum(u[i] * dD[i] for i in range(NV))
+        E = self._Ematrix(D, dD)
+        if self.cP is not None:
+            E = E @ self.cP
+        Pres = E @ cf + p0
+        res = np.concatenate([Pres.real, Pres.imag, [mu * (uu @ uu - 1.0)]])
+        if not want_jac:
+            return res, None
+        c = cf if self.cP is None else self.cP @ cf
+        g = [np.zeros(self.S, dtype=complex) for _ in range(NV)]
+        h = np.zeros(self.S, dtype=complex)
+        TF = self.TF
+        for b, ((i, j), par, n) in enumerate(self.cblocks):
+            o = self.coff[b]
+            cv = c[o:o + n]
+            cij = self.Tc[par] @ cv
+            dci = self.Tdc[par][i] @ cv
+            dcj = self.Tdc[par][j] @ cv
+            g[i] += cij * TF[j]; g[j] -= cij * TF[i]
+            h += TF[j] * dci - TF[i] * dcj
+        dPda = (self.TM * (divu + h)[None, :] + self.Tdivu * D[None, :]
+                - sum(self.Tu[i] * dD[i][None, :] for i in range(NV))
+                - sum(self.TdM[i] * (u[i] + g[i])[None, :] for i in range(NV))).T   # S x K
+        dPdu = dPda @ self.P                                                          # S x dimP
+        J = np.zeros((2 * self.S + 1, dimP + E.shape[1]))
+        J[:self.S, :dimP] = dPdu.real; J[self.S:2 * self.S, :dimP] = dPdu.imag
+        J[:self.S, dimP:] = E.real; J[self.S:2 * self.S, dimP:] = E.imag
+        J[2 * self.S, :dimP] = 2.0 * mu * uu
+        return res, J
+
+    def search_lm(self, n_restarts=10, seed=0, max_nfev=200, verbose=False, stop_rel=1e-13, init=None,
+                  callback=None, mu=None):
+        """Random-restart joint LM.  Returns candidates sorted by relative residual."""
+        from scipy.optimize import least_squares
+        rng = np.random.default_rng(seed)
+        out = []
+        t0 = time.time()
+        for it in range(n_restarts):
+            if init is not None and it == 0:
+                u0 = self.P.T @ np.asarray(init, float)
+            else:
+                u0 = rng.standard_normal(self.dimP)
+            u0 /= np.linalg.norm(u0)
+            a0 = self.P @ u0
+            # scale of the residual at a0 with c = 0, to weight the sphere constraint
+            f0, c0, Pres0, st = self.solve_c(a0)
+            mu_ = mu if mu is not None else max(math.sqrt(f0), 1e-6)
+            x0 = np.concatenate([u0, c0 if self.cP is None else (self.cP.T @ c0)])
+            r = least_squares(lambda x: self._joint_residual_jac(x, mu_, False)[0], x0,
+                              jac=lambda x: self._joint_residual_jac(x, mu_, True)[1],
+                              method='lm', max_nfev=max_nfev, xtol=1e-15, ftol=1e-15, gtol=1e-15)
+            uu = r.x[:self.dimP]
+            a = self.P @ uu; a /= np.linalg.norm(a)
+            rel, f, c = self.rel(a)
+            spur, srel = self.is_spurious(a)
+            cand = {'value': f, 'rel': rel, 'a': a, 'spurious': spur, 'div_rel': srel, 'iters': int(r.nfev),
+                    'restart': it, 'nfev': int(r.nfev), 'status': int(r.status),
+                    'seconds': round(time.time() - t0, 1)}
+            out.append(cand)
+            if verbose:
+                print(f'[w2s-lm] {self.fam.name} restart {it}: f={f:.3e} rel={rel:.3e} nfev={r.nfev} '
+                      f'spurious={spur} ({time.time() - t0:.1f}s)', file=sys.stderr, flush=True)
+            if callback:
+                callback(cand)
+            if rel < stop_rel and not spur:
+                break
+        out.sort(key=lambda c: (c['spurious'], c['rel']))
+        return out
+
     def search(self, n_restarts=10, seed=0, maxiter=500, gtol=1e-12, verbose=False, stop_rel=1e-13,
                init=None, callback=None):
         rng = np.random.default_rng(seed)

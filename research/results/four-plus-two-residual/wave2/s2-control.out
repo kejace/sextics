@@ -22,3 +22,16 @@ LBFGS seed 5 {'relres': 0.06676966284308124, 'iters': 39, 'time': 8.2}
    LM polish {'relres': 0.06676966284329465, 'iters': 5, 'status': 'flat', 'time': 0.07}
 hits 0 rels [0.06611249935360175, 0.002737969429606322, 0.0027379694295566444, 0.030815656016165923, 0.0027379694281811037, 0.06676966284329465]
 === block-q2
+[sector basis] d=6 c=(0, 0, 0, 0, 0) nD=8 adm=8 rankJ=63 rankT=0 (7.87s)
+block-q2 q 2 group DiagonalGroup(size=2592, order=6) stabilizer size 2592 gens [(0, 0, 0, 0, 1, 0), (4, 0, 0, 1, 0, 0), (0, 0, 1, 0, 0, 0), (0, 1, 0, 0, 0, 0), (3, 0, 0, 0, 0, 0)] A X0*Y0**11 - 610*X0*Y0**5*Y2**6/87 cA (0, 3, 0, 0, 3) witness d 6 char (0, 0, 0, 0, 0)
+modp dims {'nD': 8, 'adm': 8, 'jac': 6, 'nonjac': 2, 'rows': 63, 'rankJ': 63, 'rankT': 63}
+{'nD': 8, 'adm': 8, 'rows': 63, 'rankJ': 63, 'rankT': 0, 'sv_gap': None, 'smin_kept': None, 'smax_dropped': 1.8538245237523287e-15, 'time': 7.87}
+witness in span: rel err 1.853013210420596e-16
+Traceback (most recent call last):
+  File "/tmp/hodge/results/four-plus-two-residual/s2_control.py", line 20, in <module>
+    fam = fplib.SectorVarPro(F, A, q, B, Dm, c, ch, verbose=True, tag=iid)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/four-plus-two-residual/fplib.py", line 394, in __init__
+    assert len(A) == 1, 'A must be a monomial'
+           ^^^^^^^^^^^
+AssertionError: A must be a monomial

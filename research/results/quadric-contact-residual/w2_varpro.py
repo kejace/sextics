@@ -31,14 +31,14 @@ def _worker(args):
              'div_rel': c['div_rel'], 'iters': c['iters'], 'seed': seed, 'restart': c['restart']} for c in out]
 
 
-def run_sector(d, c, parity, mixed, mode, vars_mask, restarts, procs, seed, maxiter, tag, recon, keep, time_limit):
+def run_sector(d, c, parity, mixed, mode, vars_mask, restarts, procs, seed, maxiter, tag, recon, keep, time_limit, per_dim=6, min_restarts=16, sym=False):
     global VP
     t0 = time.time()
     chi_s = 'mixed' if (c is None and parity is None) else (f'par{parity}' if c is None else W.chi_str(c))
-    base = {'task': 'varpro', 'd': d, 'chi': chi_s, 'mode': mode, 'tag': tag,
+    base = {'task': 'varpro', 'd': d, 'chi': chi_s, 'mode': mode + ('+sym' if sym else ''), 'tag': tag,
             'vars': None if vars_mask is None else ''.join(v for v, m in zip(W.core.VARS, vars_mask) if m)}
     try:
-        members, info, fam = W.build_family(d, c, parity=parity, vars_mask=vars_mask, mode=mode, verbose=True)
+        members, info, fam = W.build_family(d, c, parity=parity, vars_mask=vars_mask, mode=mode, verbose=True, sym=sym)
     except Exception as ex:
         W.log_line({**base, 'status': 'family-error', 'error': str(ex)[:300]})
         return
@@ -58,22 +58,32 @@ def run_sector(d, c, parity, mixed, mode, vars_mask, restarts, procs, seed, maxi
         return
     # timing probe
     tp = time.time(); VP.value_and_grad(np.ones(VP.dimP)); rec['t_eval'] = round(time.time() - tp, 4)
-    # distribute restarts
-    procs = max(1, min(procs, restarts))
-    per = [restarts // procs + (1 if i < restarts % procs else 0) for i in range(procs)]
-    jobs = [(seed + 1000 * i, n, maxiter, recon * 1e-2) for i, n in enumerate(per) if n > 0]
+    # adaptive number of restarts: per_dim * dimP clamped to [min_restarts, restarts]
+    n_restarts = restarts if per_dim <= 0 else max(min_restarts, min(restarts, per_dim * VP.dimP))
+    rec['restarts_planned'] = n_restarts
+    procs = max(1, min(procs, n_restarts))
+    jobs = [(seed + 7919 * i, 1, maxiter, recon * 1e-2) for i in range(n_restarts)]
     cands = []
+    timed_out = False
     if procs == 1:
-        cands = _worker(jobs[0])
+        for jb in jobs:
+            cands.extend(_worker(jb))
+            if time_limit and time.time() - t0 > time_limit:
+                timed_out = True; break
     else:
         ctx = mp.get_context('fork')
-        with ctx.Pool(processes=len(jobs)) as pool:
+        pool = ctx.Pool(processes=procs)
+        try:
             for res in pool.imap_unordered(_worker, jobs):
                 cands.extend(res)
                 if time_limit and time.time() - t0 > time_limit:
-                    print('time limit reached; terminating pool', flush=True)
-                    pool.terminate()
+                    print(f'time limit reached after {len(cands)} restarts; terminating pool', flush=True)
+                    timed_out = True
                     break
+            pool.close()
+        finally:
+            pool.terminate(); pool.join()
+    rec['timed_out'] = timed_out
     cands.sort(key=lambda c: (c['spurious'], c['rel']))
     rels = np.array([c['rel'] for c in cands if not c['spurious']]) if cands else np.array([])
     rec.update({'restarts_done': len(cands), 'n_spurious': int(sum(1 for c in cands if c['spurious'])),
@@ -121,7 +131,10 @@ def main():
     ap.add_argument('--recon', type=float, default=1e-10)
     ap.add_argument('--keep', type=int, default=10)
     ap.add_argument('--time-limit', type=float, default=0.0, help='seconds per sector batch (0 = none)')
+    ap.add_argument('--per-dim', type=int, default=6, help='restarts = per_dim * dimP clamped to [min-restarts, restarts]; 0 = always --restarts')
+    ap.add_argument('--min-restarts', type=int, default=16)
     ap.add_argument('--skip-parity', type=int, default=None, help='skip sectors of this Y-parity')
+    ap.add_argument('--sym', action='store_true', help='restrict to <s0,r1>-invariant denominators (sector 0000 only is meaningful)')
     a = ap.parse_args()
     vars_mask = None
     if a.vars:
@@ -137,8 +150,13 @@ def main():
         sectors = [(W.parse_chi(s), None) for s in a.chi.split(',')]
     print(f'{len(sectors)} sector(s) to run', flush=True)
     for c, par in sectors:
-        run_sector(a.d, c, par, a.mixed, a.mode, vars_mask, a.restarts, a.procs, a.seed, a.maxiter, a.tag, a.recon,
-                   a.keep, a.time_limit)
+        try:
+            run_sector(a.d, c, par, a.mixed, a.mode, vars_mask, a.restarts, a.procs, a.seed, a.maxiter, a.tag, a.recon,
+                       a.keep, a.time_limit, a.per_dim, a.min_restarts, a.sym)
+        except Exception as ex:
+            import traceback; traceback.print_exc()
+            W.log_line({'task': 'varpro', 'd': a.d, 'chi': 'mixed' if c is None and par is None else (W.chi_str(c) if c is not None else f'par{par}'),
+                        'tag': a.tag, 'status': 'family-error', 'error': str(ex)[:300]})
 
 
 if __name__ == '__main__':

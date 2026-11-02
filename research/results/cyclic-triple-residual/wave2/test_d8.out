@@ -7,3 +7,5 @@
 [   63.6s] rel random: 0.8703706965980444
 [   63.7s] rel random: 0.9199856266226121
 [   64.7s] rel random: 0.942719926992853
+[svp] restart 0: f=2.017e-03 rel=6.218e-01 iters=60 (287.8s)
+[svp] restart 1: f=2.017e-03 rel=6.218e-01 iters=62 (500.8s)

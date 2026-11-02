@@ -143,7 +143,7 @@ if __name__ == '__main__':
         rk = write_msolve(d, par, p, NF, pairs, n, path)
         info['msolve_input'] = path; info['n_quadrics_written'] = rk
     print(json.dumps(info), flush=True)
-    with open(f'{PK}/hess.jsonl', 'a') as f: f.write(json.dumps(info) + '\n')
+    with open(f'{PK}/hess' + ('' if tag == 'local' else f'.{tag}') + '.jsonl', 'a') as f: f.write(json.dumps(info) + '\n')
     wlog({'exp': 'b-hessian-relaxation', 'family': f'J_{d} (D = w(F)), parity {par}', 'd': d, 'prime': p,
           'result': ('V\'={0} by linearization (rigorous: modular rank = dim Sym^2)' if info['linearization_proves_empty'] else f"linearization rank {info['rank_linearization']} < {info['dimSym2']}; quadric system written for msolve"),
           'rank': info['rank_linearization'], 'seconds': info['t_build'], 'job': tag,

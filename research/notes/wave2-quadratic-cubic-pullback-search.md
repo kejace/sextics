@@ -33,3 +33,87 @@ already closed in wave 1 (K_d = J_d).  New (this batch):
 Conclusions: every E1-admissible denominator of degree <= 9 (both parities) lies in J(F) = (F_0..F_5); the first
 non-Jacobian degree is d = 10 with exactly the Gorenstein-duality numbers (294 Y-even, 261 Y-odd).  d = 11, 12 pending.
 
+### Batch 2 (item 4, linear part): structured subspaces W of S_10^even against the exact K_10 (job struct10, mod p)
+E1 for D is exactly D in K_10, so dim(W cap K_10) counts the family members passing E1; the last column is the part not in J(F).
+
+| family W | dim W | dim W cap K_10 | dim mod J |
+|---|---|---|---|
+| C[Q]_5 (pullbacks of degree-5 hypersurface sections of the cubic) | 252 | 21 | 0 |
+| F_i F_j * S_{d-10} (products of two polars) | 12 | 12 | 0 |
+| C[Q_0,Q_1,Q_2]_a * C[Q_3,Q_4,Q_5]_b bihomogeneous products (a+b=5) | 210 | 9 | 0 |
+| A * S_4^odd | 60 | 0 | 0 |
+| C[Q_S]_5 S=(0, 1, 2) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 1, 3) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 1, 4) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 1, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 2, 3) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 2, 4) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 2, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 3, 4) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 3, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(0, 4, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(1, 2, 3) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(1, 2, 4) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(1, 2, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(1, 3, 4) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(1, 3, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(1, 4, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(2, 3, 4) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(2, 3, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(2, 4, 5) | 21 | 0 | 0 |
+| C[Q_S]_5 S=(3, 4, 5) | 21 | 0 | 0 |
+| C[X0,X1,X2]_d (cones, vertex the Y-plane) | 66 | 0 | 0 |
+| C[Y0,Y1,Y2]_d (cones, vertex the X-plane) | 66 | 0 | 0 |
+| C[z_(0, 1, 2, 3)]_d (cone, vertex line z_4=z_5=0) | 161 | 0 | 0 |
+| C[z_(0, 1, 2, 4)]_d (cone, vertex line z_3=z_5=0) | 161 | 0 | 0 |
+| C[z_(0, 1, 2, 5)]_d (cone, vertex line z_3=z_4=0) | 161 | 0 | 0 |
+| C[z_(0, 1, 3, 4)]_d (cone, vertex line z_2=z_5=0) | 146 | 0 | 0 |
+| C[z_(0, 1, 3, 5)]_d (cone, vertex line z_2=z_4=0) | 146 | 0 | 0 |
+| C[z_(0, 1, 4, 5)]_d (cone, vertex line z_2=z_3=0) | 146 | 0 | 0 |
+| C[z_(0, 2, 3, 4)]_d (cone, vertex line z_1=z_5=0) | 146 | 0 | 0 |
+| C[z_(0, 2, 3, 5)]_d (cone, vertex line z_1=z_4=0) | 146 | 0 | 0 |
+| C[z_(0, 2, 4, 5)]_d (cone, vertex line z_1=z_3=0) | 146 | 0 | 0 |
+| C[z_(0, 3, 4, 5)]_d (cone, vertex line z_1=z_2=0) | 161 | 0 | 0 |
+| C[z_(1, 2, 3, 4)]_d (cone, vertex line z_0=z_5=0) | 146 | 0 | 0 |
+| C[z_(1, 2, 3, 5)]_d (cone, vertex line z_0=z_4=0) | 146 | 0 | 0 |
+| C[z_(1, 2, 4, 5)]_d (cone, vertex line z_0=z_3=0) | 146 | 0 | 0 |
+| C[z_(1, 3, 4, 5)]_d (cone, vertex line z_0=z_2=0) | 161 | 0 | 0 |
+| C[z_(2, 3, 4, 5)]_d (cone, vertex line z_0=z_1=0) | 161 | 0 | 0 |
+| bidegree (0,10) monomials | 66 | 0 | 0 |
+| bidegree (10,0) monomials | 66 | 0 | 0 |
+| bidegree (2,8) monomials | 270 | 0 | 0 |
+| bidegree (4,6) monomials | 420 | 0 | 0 |
+| bidegree (6,4) monomials | 420 | 0 | 0 |
+| bidegree (8,2) monomials | 270 | 0 | 0 |
+| delta * S_4^odd | 60 | 0 | 0 |
+
+Result: the only intersections are F * C[Q]_2 (21) and F * {Q_a Q_b} (9) -- spurious F-multiples.  No pullback of a quintic
+section of the cubic, no cone with vertex a plane or a line, no bigraded (X-degree, Y-degree) piece, no delta * quartic,
+no A * quartic, and no product of two polars (mod J) passes E1 at degree 10.
+
+### Batch 3 (item 2, exact closure of Jacobian-type degrees): stage-1 quadratic forms (w2_closure.py, w2_points.py)
+At degrees with K_d = J_d every E1-admissible D is sum_l w_l F_l and E2 implies q(w) := [D div N0 - N0(D)] = 0 in R_{2d}^odd
+(N0 = A w), a system of rJ quadratic forms in the w-coordinates, invariant under the spurious translations D -> D + F G.
+Full column rank of a degree-k Macaulay matrix (exact mod p) certifies that the forms have no common projective zero over C,
+i.e. NO denominator of that degree/parity admits a certificate.  msolve (F4 mod p, random affine chart l(v)=1) gives
+the same conclusion when it returns the Groebner basis [1].
+
+| d | parity | n_w | spurious | n_q | rJ | deg-2 rank | higher Macaulay ranks | closed at k |
+|---|---|---|---|---|---|---|---|---|
+| 5 | even | 3 | 0 | 3 | 744 | 6/6 |  | 2 |
+| 5 | odd | 3 | 0 | 3 | 744 | 6/6 |  | 2 |
+| 6 | even | 18 | 1 | 17 | 866 | 135/153 |  | None |
+| 6 | even (Fermat control) | 18 | 1 | 17 | 866 | 8/153 |  | None |
+| 6 | odd | 18 | 0 | 18 | 866 | 153/171 |  | None |
+
+msolve (exact, mod p = 2147483629):
+
+| d | parity | char | system | GB / solutions | time |
+|---|---|---|---|---|---|
+| 6 | even | 2147483629 | 135 forms in 17 vars | [-1]: (no solution) | 0.0 s |
+| 6 | odd | 2147483629 | 153 forms in 18 vars | [-1]: (no solution) | 0.0 s |
+
+Conclusions so far: d = 5 (both parities, rank-2 certificate) and d = 6 (both parities: msolve GB = [1]; Macaulay-4 certificate
+running on the remote) admit NO certificate for A.  Combined with K_d = J_d for d <= 9, every certificate has deg D >= 7;
+d = 7, 8 msolve/Macaulay running (job closure678).
+

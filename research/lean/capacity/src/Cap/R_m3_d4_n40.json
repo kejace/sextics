@@ -1,0 +1,33 @@
+{
+ "F": 22,
+ "A": 18,
+ "q": 1,
+ "D": 40,
+ "N": [
+  40,
+  40,
+  0,
+  40,
+  40,
+  0
+ ],
+ "Q": 0,
+ "d": 4,
+ "e1_pairs": 1840,
+ "e1_monos": 669,
+ "e2_pairs": 4000,
+ "e2_monos": 0,
+ "e1_ok": true,
+ "e2_ok": true,
+ "pairs_total": 5840,
+ "monos_total": 669,
+ "label": "R_m3_d4_n40",
+ "Fid": "m3-coupled",
+ "which": [
+  "e1",
+  "e2"
+ ],
+ "seed": 0,
+ "route": "reflect",
+ "bytes": 10435
+}

@@ -63,3 +63,7 @@ Y1*F_Y0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over 
 Y1*F_X1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 579 (M) / 580 (aug) of 727 cols certified 33.1
 Y2*F_X0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 598 (M) / 599 (aug) of 732 cols certified 16.3
 Y1*F_Y2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 596 (M) / 597 (aug) of 721 cols certified 19.0
+Y1*F_Y1 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 601 (M) / 602 (aug) of 736 cols certified 43.6
+Y2*F_Y0 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 591 (M) / 592 (aug) of 712 cols certified 30.3
+Y2*F_X2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 585 (M) / 586 (aug) of 718 cols certified 39.2
+X0^2X1^2X2^2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 519 (M) / 520 (aug) of 736 cols certified 26.4

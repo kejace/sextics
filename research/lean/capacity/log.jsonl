@@ -2,3 +2,4 @@
 {"ts":"2026-11-01T19:13:23","step":"submit","jobs":["cap-base-m3","cap-base-contact"],"note":"baseline accepted Witness.lean modules, taskset 2 cores each, lean -j 2 -M 14336 + leanchecker"}
 {"ts": "2026-11-02T00:26:53", "step": "job_done", "note": "label=m3_d4_n40 cpuset=106,107 rc= None wall= None rss= None krc= None kwall= None"}
 {"ts": "2026-11-02T00:34:02", "step": "job_done", "note": "label=dense_d2_n10 cpuset=108,109 rc= None wall= None rss= None krc= None kwall= None"}
+{"ts": "2026-11-02T00:42:49", "step": "job_done", "note": "label=dense_d2_n21 cpuset=110,111 rc= None wall= None rss= None krc= None kwall= None"}

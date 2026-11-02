@@ -1,6 +1,6 @@
 # Wave 2 — quadric-contact-residual — SEARCH lens (joint (D,N,Q) search)
 
-STATUS: NO WITNESS. Updated 2026-11-01 19:28 local. Batches logged: 10 (0 varpro sector batches, 1 Hessian-relaxation batches, 6 E1 profiles, 0 structured candidates); random restarts so far: 4; best full-E2 relative residual: -.
+STATUS: NO WITNESS. Updated 2026-11-01 19:48 local. Batches logged: 12 (0 varpro sector batches, 1 Hessian-relaxation batches, 6 E1 profiles, 0 structured candidates); random restarts so far: 4; best full-E2 relative residual: -.
 
 Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residue character trivial on G_aff (order 48), odd under s0 (X0<->Y0) and r1 (X1<->Y1). Prior rigorous exclusions (fqlx #125, replicated in wave 1): deg D <= 6; deg 7 in every pure parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.
 
@@ -16,7 +16,9 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
 ## Jobs (remote hodge-sextics, 128 cores shared with ~50 agents)
 
 * `excl-reverify` (submitted 2026-11-01T19:28:24): `cd wave2-excl && HODGE_W2LOG=/tmp/hodge/results/quadric-contact-residual/wave2-excl/excl-reverify.log.jsonl python3 reverify.py 1 2 3 4 5`
-  - search-quadric-contact-residual-e1prof.log: last line: `{"task": "e1-profile", "d": 9, "n_sectors": 24, "tot_dimS": 2002, "tot_dimJ": 756, "tot_kernel": 760, "tot_extra": 4, "tot_gauge": 56, "per_sector_extra": {"001`
+  - search-quadric-contact-residual-e1prof.log: last line: `{"task": "e1-profile", "d": 10, "n_sectors": 24, "tot_dimS": 3003, "tot_dimJ": 1497, "tot_kernel": 2053, "tot_extra": 556, "tot_gauge": 126, "per_sector_extra":`
+  - search-quadric-contact-residual-pipeA.log: last line: `=== 2026-11-02 00:40:29 w2_varpro.py --d 8 --chi all --restarts 300 --per-dim 10 --min-restarts 24 --procs 8 --seed 12000 --tag w2b --time-limit 1800`
+  - search-quadric-contact-residual-pipeB.log: last line: `=== 2026-11-02 00:47:52 w2_hess.py --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e`
   - search-quadric-contact-residual-vp-d8.log: last line: `[koszul-varpro] d=8 chi=0000 K=33 rows=1002 cols=303 (K 130, Q 173) Mstack nnz=155331 Vstack nnz=43948 dimP=29 excluded=4 built 0.7s`
 
 ## (1) E1-admissible denominator spaces per degree and character sector (exact over Q)
@@ -33,6 +35,7 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
 Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian directions:
 * d=8: 0000: 87/32/33/1
 * d=9: 0010: 95/41/42/1; 0051: 95/41/42/1; 0100: 117/58/59/1; 0101: 117/58/59/1
+* d=10: 0000: 180/108/128/20; 0001: 173/103/119/16; 0020: 120/48/83/35; 0021: 113/49/70/21; 0040: 120/48/83/35; 0041: 113/49/70/21; 0110: 131/73/92/19; 0111: 131/73/92/19; 0130: 102/36/66/30; 0131: 102/36/66/30; 0150: 131/73/92/19; 0151: 131/73/92/19; 1010: 131/73/92/19; 1011: 131/73/92/19; 1030: 102/36/66/30; 1031: 102/36/66/30; 1050: 131/73/92/19; 1051: 131/73/92/19; 1100: 160/98/114/16; 1101: 160/98/114/16; 1120: 102/42/68/26; 1121: 102/42/68/26; 1140: 102/42/68/26; 1141: 102/42/68/26
 
 ### Cone / coordinate-subspace families (D supported on a coordinate variable subset, per sector)
 

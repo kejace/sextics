@@ -1,0 +1,23 @@
+NCOMP 1
+COMP 1 primedim 1 primedeg // dimension (proj.)  = 0
+// degree (proj.)   = 1 primarydeg // dimension (proj.)  = 0
+// degree (proj.)   = 38 ngens 17
+GENS
+P[1]=w17
+P[2]=w16
+P[3]=w14
+P[4]=w13-w15
+P[5]=w12
+P[6]=w11-w15
+P[7]=w10
+P[8]=w9
+P[9]=w8
+P[10]=w7
+P[11]=w6-w15
+P[12]=w5
+P[13]=w4-w15
+P[14]=w3
+P[15]=w2-w15
+P[16]=w1
+P[17]=w0
+

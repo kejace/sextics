@@ -5,6 +5,18 @@ STATUS: in progress (no witness; this lens does not search for witnesses, it cer
 Started 2026-11-01 ~19:00 local. Log: /tmp/hodge/results/one-reflection-skew/wave2-excl.log.jsonl
 Packet: /tmp/hodge/results/one-reflection-skew/wave2-excl/
 
+### (b) degree 7 (in progress)
+* Stage A (exact, local): gauge-fixed E1 kernel K_7/F.S_1 = 129 = 120 (Jacobian) + 9 (non-Jacobian), per fine sector
+  (24 characters of the diagonal group Z/6 x Z/2 x Z/2); agrees with the thread (135 = 126 + 9 before the 6 F-gauges).
+  Non-Jacobian directions live in sectors (0,0,1):1, (3,0,4):7, (3,3,1):1 (all Y2-even; 2-torsion classes 0010, 1110, 1000).
+  Sector table (fine char -> e5 mod 6, 2-torsion class, dim K): wave2-excl/d7_sector_table.json, d7_stageB.json.
+* Stage B (mod-J Hessian relaxation, exact duals): 1019 quadrics, rank 748 on 5754 nonzero pair-monomials; NO square in
+  the span (so no coordinate is killed at this stage, unlike d=5,6); 56 off-diagonal pair-monomials in the span
+  (all between different fine sectors; involve 35 Jacobian + all 9 extra directions).
+* Stage C (relaxed mod-F with all-character Koszul corrections on the full 129-dim family): running locally.
+* Remote job excl-ors-d7sub: relaxed quadrics + msolve zero-dimensionality for the sub-families odd (all Y2-odd mixtures),
+  tor:0010, tor:0100, tor:1000, tor:1110 (pure 2-torsion classes), even (all Y2-even mixtures), full.
+
 ## Plan
 (a) re-verify rigorous claims of dossier + wave-1 (different primes / methods, remote)
 (b) push rigorous lower bound on deg D (currently deg D >= 7 from the thread; degree 7 open in even mixed sectors)

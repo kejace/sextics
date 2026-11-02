@@ -279,8 +279,16 @@ def _init(obj):
 
 
 def _run(args):
-    seed, maxiter = args
-    return _G['obj'].search_one(seed, maxiter=maxiter)
+    seed, maxiter, init_file = args
+    init = None
+    if init_file is not None:
+        init = np.load(init_file)
+        if init.shape[0] != _G['obj'].K:
+            init = None
+    rec = _G['obj'].search_one(seed, maxiter=maxiter, init=init)
+    if init_file is not None:
+        rec['init_file'] = os.path.basename(init_file)
+    return rec
 
 
 def main(argv=None):
@@ -299,6 +307,7 @@ def main(argv=None):
     ap.add_argument('--gradcheck', action='store_true')
     ap.add_argument('--rel-save', type=float, default=1e-6)
     ap.add_argument('--confirm-rel', type=float, default=1e-10)
+    ap.add_argument('--init-glob', default=None, help='glob of .w.npy files (K-dim w vectors) used as initial points for the first restarts')
     a = ap.parse_args(argv)
     F, A, q = load()
     t0 = time.time()
@@ -315,11 +324,17 @@ def main(argv=None):
               rel_at_random=rel0, label=lab)
     print(f'[nvp {a.name}] one evaluation {t_eval:.3f}s; rel at random point {rel0:.3e}', file=sys.stderr, flush=True)
     seeds = list(range(a.seed0, a.seed0 + a.restarts))
+    jobs = [(s, a.maxiter, None) for s in seeds]
+    if a.init_glob:
+        import glob as _glob
+        inits = sorted(_glob.glob(a.init_glob))
+        jobs = [(10**6 + i, a.maxiter, fn) for i, fn in enumerate(inits)] + jobs
+        print(f'[nvp {a.name}] {len(inits)} initial points from {a.init_glob}', file=sys.stderr, flush=True)
     best = None; nrun = 0; rels = []
     tstart = time.time()
     ctx = mp.get_context('fork')
     with ctx.Pool(a.procs, initializer=_init, initargs=(obj,)) as pool:
-        for rec in pool.imap_unordered(_run, [(s, a.maxiter) for s in seeds], chunksize=1):
+        for rec in pool.imap_unordered(_run, jobs, chunksize=1):
             nrun += 1
             w = rec.pop('w')
             rels.append(rec['rel'])

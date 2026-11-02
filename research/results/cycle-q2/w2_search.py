@@ -68,6 +68,37 @@ def family_basis(S, d, kappa, kind, q=2):
         return Dm, np.eye(nD), info
     if kind == 'kernel':
         return Dm, Kb, info
+    if kind.startswith('prod'):
+        # products of E1-kernel elements of degree d1 (sector kappa1) and d2 = d - d1 (sector kappa2 = kappa - kappa1):
+        # relaxation of {D1*D2} and in particular of the squares {D1^2} (d1 = d2, kappa1 = kappa2 = kappa/2)
+        d1 = int(kind[4:]) if len(kind) > 4 else d // 2
+        d2 = d - d1
+        cols = []
+        for kappa1 in S.all_keys(d1):
+            kappa2 = S.add(kappa, S.neg(kappa1))
+            if d1 == d2 and kappa2 < kappa1:
+                continue
+            Dm1, K1, _ = W.e1_kernel_numeric(S, d1, kappa1, q)
+            if K1.size == 0 or K1.shape[1] == 0:
+                continue
+            Dm2, K2, _ = W.e1_kernel_numeric(S, d2, kappa2, q)
+            if K2.size == 0 or K2.shape[1] == 0:
+                continue
+            idx = {tuple(int(x) for x in m): j for j, m in enumerate(Dm)}
+            P1 = [W.dict_from_vec(Dm1, K1[:, a]) for a in range(K1.shape[1])]
+            P2 = [W.dict_from_vec(Dm2, K2[:, b]) for b in range(K2.shape[1])]
+            for Pa in P1:
+                for Pb in P2:
+                    prod = core.mul(Pa, Pb)
+                    v = np.zeros(nD)
+                    for e, c in prod.items():
+                        v[idx[e]] += float(c)
+                    cols.append(v)
+        if not cols:
+            return Dm, np.zeros((nD, 0)), info
+        B = W.orth_basis(np.array(cols).T)
+        info['n_products'] = len(cols)
+        return Dm, B, info
     if kind == 'jac':
         jb = W.jac_basis(S, d, kappa)
         if not jb:

@@ -207,7 +207,10 @@ def dense_finish(M, p, with_rhs=True, extra=40, seed=1, want_nullspace=False, ve
         ns = np.eye(ncol_unk, dtype=np.int64) if want_nullspace else None
         return {'consistent': True, 'rank': 0, 'x': x, 'pivots': [], 'nullspace': ns, 'compressed': False, 'k': 0}
     t0 = time.time()
-    if nr > ncol_unk + extra:
+    # direct rref costs ~ nr*nc^2; compression costs ~ k*nnz + k^2*nc with k = nc+extra.  Prefer the
+    # deterministic direct path when it is cheap (narrow remainders after the sparse phase).
+    direct_budget = 2e10
+    if nr > ncol_unk + extra and nr * float(nc) * nc > direct_budget:
         _check_colweights(M)
         k = ncol_unk + extra
         Dm = compress_rows(M, p, k, seed)
@@ -353,3 +356,36 @@ def solve_sparse_system(M, p, with_rhs=True, stop_cols=400, max_cost=None, max_n
     out['t_total'] = round(time.time() - t0, 2)
     del E
     return out
+
+
+# ----------------------------------------------------------------------------
+# convenience entry points on a FixedDSystem (usable even if fixed_d lacks solve_sparse)
+# ----------------------------------------------------------------------------
+
+def set_threads(n=None):
+    """flint.ctx.threads = n (default: FLINT_NUM_THREADS env, else 1).  Dense rref gets ~4x at 8 threads."""
+    import os
+    import flint
+    if n is None:
+        try:
+            n = int(os.environ.get('FLINT_NUM_THREADS', '1'))
+        except ValueError:
+            n = 1
+    n = max(1, int(n))
+    flint.ctx.threads = n
+    return n
+
+
+def solve_fixed_system(S, stop_cols=400, verbose=False, want_nullspace=False, seed=1, **kw):
+    """Sparse elimination solve of a fixed_d.FixedDSystem (same schema as fixed_d.solve_compressed +
+    sparse statistics; see solve_sparse_system).  fixed_d.solve_sparse is an alias of this."""
+    from .fixed_d import _sparse_matrix
+    t0 = time.time()
+    M = _sparse_matrix(S)
+    r = solve_sparse_system(M, S.p, with_rhs=True, stop_cols=stop_cols, seed=seed, verbose=verbose,
+                            want_nullspace=want_nullspace, **kw)
+    r.update({'rows': S.nrows, 'cols': S.ncols, 't_matrix': round(time.time() - t0 - r.get('t_total', 0), 2)})
+    if verbose:
+        print(f'[sparse p={S.p}] consistent={r["consistent"]} rank={r["rank"]} nullity={r["nullity"]} '
+              f'(sparse {r["t_sparse"]}s, dense {r.get("t_dense")}s, total {r["t_total"]}s)', file=sys.stderr)
+    return r

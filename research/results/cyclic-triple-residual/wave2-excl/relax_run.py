@@ -16,6 +16,22 @@ if d == 8:
     P = [{tuple(map(int, k.split(','))): v for k, v in Pi.items()} for Pi in dat['Pz']]
 t0 = time.time()
 th, quads, info = relaxation_quadrics(S, d, p, P=P, D8=D8)
+SECTOR = os.environ.get('SECTOR')
+if SECTOR:
+    sec = tuple(int(x) for x in SECTOR.split(','))
+    def chi_theta(t):
+        if t[0] == 'c': return S.chi_poly(D8)
+        return cadd(S.chi(t[1]), S.cneg(S.chiE[t[0]]))     # character of m * F_i
+    keepv = [k for k, t in enumerate(th) if chi_theta(t) == sec]
+    kmap = {k: i for i, k in enumerate(keepv)}
+    th = [th[k] for k in keepv]
+    q2 = []
+    for q in quads:
+        qq = {(kmap[a], kmap[b]): v for (a, b), v in q.items() if a in kmap and b in kmap}
+        if qq: q2.append(qq)
+    quads = q2
+    tag = tag + f'_s{sec[0]}{sec[1]}'
+    print(f'sector {sec}: {len(th)} unknowns, {len(quads)} quadrics', flush=True)
 names = [f't{k}' for k in range(len(th))]
 base = f'{PK}/relax_d{d}_p{p}{tag}'
 polys = [quad_str(q, names, p) for q in quads]

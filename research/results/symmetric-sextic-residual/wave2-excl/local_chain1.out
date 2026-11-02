@@ -1,0 +1,46 @@
+[SectorFamily] chi=triv d=8 pD=0 p=2147483647 rows=322 nN=324 nD=64 dimK=22 dimJd=20 ker=2 radial=4 0.3s
+[{"pD": 0, "rows": 322, "nN": 324, "nD": 64, "dimK": 22, "dimJd": 20, "ker_R": 2, "radial": 4, "complement": 18, "rankM": 318}]
+products done 0.7s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 18 unknowns (1.7s)
+{"msolve_rc": 0, "msolve_seconds": 32.6, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1, "a7": 1, "a8": 1, "a9": 1, "a10": 1, "a11": 1, "a12": 1, "a13": 1, "a14": 1, "a15": 1, "a16": 1, "a17": 1, "a18": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "halt 1", "singular_seconds": 231.7}
+[SectorFamily] chi=triv d=8 pD=1 p=2147483647 rows=376 nN=360 nD=46 dimK=14 dimJd=14 ker=0 radial=1 0.2s
+[{"pD": 1, "rows": 376, "nN": 360, "nD": 46, "dimK": 14, "dimJd": 14, "ker_R": 0, "radial": 1, "complement": 13, "rankM": 348}]
+products done 0.3s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 13 unknowns (1.2s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1, "a7": 1, "a8": 1, "a9": 1, "a10": 1, "a11": 1, "a12": 1, "a13": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 112 time(s) = 0", "singular_seconds": 2.7}
+[SectorFamily] chi=sgnX d=8 pD=0 p=2147483647 rows=151 nN=324 nD=15 dimK=6 dimJd=6 ker=0 radial=0 0.3s
+[{"pD": 0, "rows": 151, "nN": 324, "nD": 15, "dimK": 6, "dimJd": 6, "ker_R": 0, "radial": 0, "complement": 6, "rankM": 141}]
+products done 0.0s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 6 unknowns (0.9s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 10 time(s) = 0", "singular_seconds": 0.0}
+[SectorFamily] chi=sgnX d=8 pD=1 p=2147483647 rows=151 nN=360 nD=15 dimK=4 dimJd=3 ker=1 radial=0 0.3s
+[{"pD": 1, "rows": 151, "nN": 360, "nD": 15, "dimK": 4, "dimJd": 3, "ker_R": 1, "radial": 0, "complement": 4, "rankM": 147}]
+products done 0.0s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.4s
+quadrics: 32 in 4 unknowns (0.9s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 7 time(s) = 0", "singular_seconds": 0.0}
+[SectorFamily] chi=sgnY d=8 pD=0 p=2147483647 rows=151 nN=324 nD=15 dimK=6 dimJd=6 ker=0 radial=0 0.3s
+[{"pD": 0, "rows": 151, "nN": 324, "nD": 15, "dimK": 6, "dimJd": 6, "ker_R": 0, "radial": 0, "complement": 6, "rankM": 141}]
+products done 0.0s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 6 unknowns (1.0s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 10 time(s) = 0", "singular_seconds": 0.0}
+[SectorFamily] chi=sgnY d=8 pD=1 p=2147483647 rows=151 nN=360 nD=15 dimK=4 dimJd=3 ker=1 radial=0 0.3s
+[{"pD": 1, "rows": 151, "nN": 360, "nD": 15, "dimK": 4, "dimJd": 3, "ker_R": 1, "radial": 0, "complement": 4, "rankM": 147}]
+products done 0.0s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 4 unknowns (1.0s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 7 time(s) = 0", "singular_seconds": 0.0}
+[SectorFamily] chi=sgnsgn d=8 pD=0 p=2147483647 rows=64 nN=324 nD=1 dimK=0 dimJd=0 ker=0 radial=0 0.3s
+[{"pD": 0, "rows": 64, "nN": 324, "nD": 1, "dimK": 0, "dimJd": 0, "ker_R": 0, "radial": 0, "complement": 0, "rankM": 57}]
+products done 0.0s
+quadrics: 0 in 0 unknowns (0.3s)
+{"verdict": "empty family"}
+[SectorFamily] chi=sgnsgn d=8 pD=1 p=2147483647 rows=46 nN=360 nD=4 dimK=0 dimJd=0 ker=0 radial=0 0.3s
+[{"pD": 1, "rows": 46, "nN": 360, "nD": 4, "dimK": 0, "dimJd": 0, "ker_R": 0, "radial": 0, "complement": 0, "rankM": 46}]
+products done 0.0s
+quadrics: 0 in 0 unknowns (0.3s)
+{"verdict": "empty family"}

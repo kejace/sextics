@@ -20,3 +20,4 @@
 {"check": "claim", "claim": "at d=8 the E1 kernel mod J is 1 in character (0,0) and 0 in (0,1),(1,0),(1,1): K8 is the only non-Jacobian E1 class of degree 8 in ANY character", "source": "new (dossier 4.2 left Y-odd d=8 open)", "verdict": "CONFIRMED/EXTENDED", "evidence": "v_e1.py p=1000000007 d=8 all chars, hilbert_ok", "ts": "2026-11-02T00:36:22Z"}
 {"check": "singular-fullstd", "p": 1000003, "size_GB": 2051, "vdim": 15625, "note": "vdim 5^6 confirms F_i regular sequence mod 1000003", "ts": "2026-11-02T00:36:22Z"}
 {"check": "shapes", "p": 999999937, "n_shapes": 56, "any_solvable": true, "all_rigorous": false, "ts": "2026-11-02T00:36:27Z"}
+{"check": "hess5", "p": 1000000007, "zero_entries": [[2, 5]], "n_classes": 20, "rank_modJ": 20, "independent": true, "hilbert_ok": true, "ts": "2026-11-02T00:46:33Z"}

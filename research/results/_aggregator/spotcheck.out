@@ -6,3 +6,6 @@
 {"lane": "symmetric-sextic-residual", "d": 7, "parity": 0, "ann_mod_J": 1, "expected": "1 (D7)", "seconds": 309.6, "error": null}
 {"lane": "symmetric-sextic-residual", "d": 7, "parity": 1, "ann_mod_J": 1, "expected": "1 (D7Y)", "seconds": 375.2, "error": null}
 {"lane": "short-power-presentation", "d": 7, "parity": 0, "ann_mod_J": 1, "expected": "1 (wave-1)", "seconds": 284.3, "error": null}
+{"lane": "rank-one-biquartic", "d": 6, "parity": 0, "ann_mod_J": 0, "expected": "0", "seconds": 168.4, "error": null}
+{"lane": "rank-one-biquartic", "d": 6, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 355.2, "error": null}
+{"lane": "rank-one-biquartic", "d": 7, "parity": 0, "ann_mod_J": 3, "expected": "3", "seconds": 413.0, "error": null}

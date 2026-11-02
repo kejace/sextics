@@ -9,14 +9,19 @@ sector = tuple(int(x) for x in sys.argv[5].split(',')) if len(sys.argv) > 5 else
 S = Setup()
 p7inv = pow(7, -1, p); Fz_rest = {e: v % p for e, v in S.Fz.items() if e[2] < 6}
 def reduce_F(P):
+    """Reduce P (dict, int coeffs) modulo F over F_p: result has X2-exponent <= 5.  (7 F = 7 X2^6 + rest.)"""
     P = {e: v % p for e, v in P.items() if v % p}
     while True:
-        hi = [(e, v) for e, v in P.items() if e[2] >= 6]
+        hi = sorted((e for e in P if e[2] >= 6), key=lambda e: -e[2])
         if not hi: return P
-        for e, v in hi:
-            del P[e]; c = (v * p7inv) % p; m = (e[0], e[1], e[2] - 6, e[3], e[4], e[5])
+        for e in hi:
+            v = P.pop(e, None)
+            if v is None: continue
+            c = (v * p7inv) % p
+            m = (e[0], e[1], e[2] - 6, e[3], e[4], e[5])
             for e2, v2 in Fz_rest.items():
-                k = tuple(a + b for a, b in zip(m, e2)); nv = (P.get(k, 0) - c * v2) % p
+                k = (m[0]+e2[0], m[1]+e2[1], m[2]+e2[2], m[3]+e2[3], m[4]+e2[4], m[5]+e2[5])
+                nv = (P.get(k, 0) - c * v2) % p
                 if nv: P[k] = nv
                 else: P.pop(k, None)
 # family basis mod p: Jacobian part + kernel elements (mod p, canonical)

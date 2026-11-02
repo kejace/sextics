@@ -30,7 +30,7 @@ from flint import nmod_mat
 
 LANE = '/tmp/hodge/results/off-paired'
 PK = LANE + '/wave2-excl'
-LOG = LANE + '/wave2-excl.log.jsonl'
+LOG = os.environ.get('W2LOG', LANE + '/wave2-excl.log.jsonl')   # remote jobs log to their own file via W2LOG
 IID = 'off-paired'
 P1, P2 = 2147483629, 2147483587      # wave-2 primes; wave 1 used 1000003 / 2147483647 / 1073741827 (msolve)
 WG = (0, 2, 0, 1, 3, 3)              # generator g (sixth-root weights)

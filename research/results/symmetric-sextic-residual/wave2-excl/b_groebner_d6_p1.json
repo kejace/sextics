@@ -1,0 +1,11 @@
+{
+ "experiment": "b:groebner",
+ "d": 6,
+ "par": 1,
+ "p": 2147483629,
+ "kernel": "none",
+ "tool": "msolve",
+ "seconds": 4.9,
+ "output_head": "",
+ "stderr": "\n--------------- INPUT DATA ---------------\n#variables                      18\n#equations                     104\n#invalid equations               0\nfield characteristic    2147483629\nhomogeneous input?               1\nsignature-based computation      0\nmonomial order                 DRL\nbasis hash table resetting     OFF\nlinear algebra option            2\ninitial hash table size     131072 (2^17)\nmax pair selection             ALL\nreduce gb                        1\n#threads                         4\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\nDimension of quotient: 1\nPrime 2147483629 is too large.\nOne needs to use updated linear algebra fglm functions\n"
+}

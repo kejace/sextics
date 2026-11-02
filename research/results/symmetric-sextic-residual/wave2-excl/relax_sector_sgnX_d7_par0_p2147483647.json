@@ -1,0 +1,52 @@
+{
+ "exp": "hessian-relaxation",
+ "kind": "sector",
+ "d": 7,
+ "par": "0",
+ "chi": "sgnX",
+ "prime": 2147483647,
+ "job": "sector_sgnX_d7_par0_p2147483647",
+ "family": [
+  {
+   "pD": 0,
+   "rows": 97,
+   "nN": 233,
+   "nD": 12,
+   "dimK": 3,
+   "dimJd": 2,
+   "ker_R": 1,
+   "radial": 0,
+   "complement": 3,
+   "rankM": 91
+  }
+ ],
+ "n_unknowns": 3,
+ "reducers": {
+  "1": {
+   "rank_modp": 276,
+   "rank_CI": 276,
+   "ring_dim": 46,
+   "ring_CI": 46
+  }
+ },
+ "n_quadrics": 46,
+ "files": {
+  "msolve": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_sector_sgnX_d7_par0_p2147483647.ms",
+  "singular": "/tmp/hodge/results/symmetric-sextic-residual/wave2-excl/relax_sector_sgnX_d7_par0_p2147483647.sing"
+ },
+ "result": {
+  "msolve_rc": 0,
+  "msolve_seconds": 0.0,
+  "pure_powers": {
+   "a1": 2,
+   "a2": 1,
+   "a3": 1
+  },
+  "missing_pure_power": [],
+  "verdict": "V={0} (only trivial solution)",
+  "max_pure_power": 2,
+  "singular_out": "dim(std(I)) = 0 vdim = 4 time(s) = 0",
+  "singular_seconds": 0.0
+ },
+ "seconds": 0.7
+}

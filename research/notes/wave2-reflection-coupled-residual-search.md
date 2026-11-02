@@ -27,7 +27,7 @@ Hessian-relaxation tensors + LM search, msolve export, sector-restricted VarPro,
 | 6 | 14 = J (R_6 = 144) | 12 = J (R_6 = 126) | 6 = J | 4 = J | 0 |
 (dim R_{10}: 460/426/318/302; dim R_{11}: 505/480/363/338; dim R_12^{(0,1)} = 492, consistent with the dossier.)
 | 7 | 45 = J (R_7 = 213) | 40 = J (R_7 = 198) | 23 = J (R_7 = 135) | 18 = J (R_7 = 120) | 0 — **E1 forces D ∈ J_7 in every sector** |
-| 8 | 113 = J(112) + 1 (K8) | (running) | (running) | (running) | 1 Y-even (K8) |
+| 8 | 113 = J(112) + 1 (K8), R_8 = 301 | 104 = J (R_8 = 274) | 64 = J (R_8 = 194) | 56 = J (R_8 = 182) | **1 in all sectors: K8** (sector 00) |
 d = 9..12: remote jobs `search-rcr-e1lo` / `search-rcr-e1hi` (queued; remote at capacity).
 
 ### R2. Hessian relaxation at d = 5, 6 — EXACT (msolve, mod p, random affine chart), spurious directions killed

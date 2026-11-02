@@ -1,6 +1,6 @@
 # Draft discussion comment — dense-rational (#59) — exclusion / rigor update (wave 2)
 
-**No certificate found; no Lean claim.** This note reports (i) an independent re-verification of the published
+**No certificate found; no Lean claim.** (Draft at handoff: items marked PENDING await the remote msolve jobs; do not post before T5 is filled in.) This note reports (i) an independent re-verification of the published
 degree bound, (ii) a new rigorous degree bound for tau-stable supports [PENDING: fill in once msolve finishes],
 (iii) rigorous exclusions of structured polar-divisor families at degrees 7-8, and (iv) modular/numerical screens.
 Scripts and receipts: `/tmp/hodge/results/dense-rational/wave2-excl/` (to be attached as a packet).

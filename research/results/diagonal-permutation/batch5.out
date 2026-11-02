@@ -9,3 +9,6 @@ sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#0 -> d 7 e1 True cons F
 sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#1 -> d 7 e1 True cons False served 18 260.91 s
 sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#2 -> d 7 e1 True cons False served 18 216.92 s
 sigma (r,s)^3 d7 [triple along (01)-fixed surface] sum of basis -> d 7 e1 True cons False served 18 238.96 s
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] difference of basis -> d 7 e1 True cons False served 18 247.68 s
+== sigma (p,q,b)^3 d7: dim 2
+sigma (p,q,b)^3 d7 basis#0 -> d 7 e1 True cons False served 18 194.64 s

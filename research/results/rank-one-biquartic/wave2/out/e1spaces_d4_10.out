@@ -1,0 +1,6 @@
+{"d": 4, "parity": 0, "rows": 1488, "cols": 822, "nD": 66, "nJgens": 756, "nullity": 9, "e1_dim": 0, "J_dim": 0, "kernel_mod_J": 0, "ring_dim": 66, "t_build": 0.7, "t_null": 0.5, "p": 2147483647, "batch": "e1spaces"}
+{"d": 4, "parity": 1, "rows": 1505, "cols": 816, "nD": 60, "nJgens": 756, "nullity": 6, "e1_dim": 0, "J_dim": 0, "kernel_mod_J": 0, "ring_dim": 60, "t_build": 0.7, "t_null": 0.6, "p": 2147483647, "batch": "e1spaces"}
+{"d": 5, "parity": 0, "rows": 2181, "cols": 1512, "nD": 126, "nJgens": 1386, "nullity": 48, "e1_dim": 3, "J_dim": 3, "kernel_mod_J": 0, "ring_dim": 123, "t_build": 1.8, "t_null": 2.3, "p": 2147483647, "batch": "e1spaces"}
+{"d": 5, "parity": 1, "rows": 2184, "cols": 1512, "nD": 126, "nJgens": 1386, "nullity": 48, "e1_dim": 3, "J_dim": 3, "kernel_mod_J": 0, "ring_dim": 123, "t_build": 1.7, "t_null": 2.2, "p": 2147483647, "batch": "e1spaces"}
+{"d": 6, "parity": 0, "rows": 3080, "cols": 2612, "nD": 236, "nJgens": 2376, "nullity": 180, "e1_dim": 18, "J_dim": 18, "kernel_mod_J": 0, "ring_dim": 218, "t_build": 4.2, "t_null": 8.1, "p": 2147483647, "batch": "e1spaces"}
+{"d": 6, "parity": 1, "rows": 3108, "cols": 2602, "nD": 226, "nJgens": 2376, "nullity": 171, "e1_dim": 18, "J_dim": 18, "kernel_mod_J": 0, "ring_dim": 208, "t_build": 4.7, "t_null": 7.6, "p": 2147483647, "batch": "e1spaces"}

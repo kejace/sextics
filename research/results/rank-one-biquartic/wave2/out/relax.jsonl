@@ -1,0 +1,4 @@
+{"batch": "relax", "d": 5, "pD": 0, "p": 2147483647, "family_J": 3, "family_kernel": 0, "K": 3, "rankD": 3, "npairs": 6, "ring_dim_2d": 744, "rank_Phi": 6, "excluded_over_Fp": true, "time_s": 2.6, "ts": "2026-11-02T00:47:58"}
+{"batch": "relax", "d": 6, "pD": 0, "p": 2147483647, "family_J": 18, "family_kernel": 0, "K": 18, "rankD": 18, "npairs": 171, "ring_dim_2d": 866, "rank_Phi": 82, "excluded_over_Fp": false, "time_s": 20.0, "ts": "2026-11-02T00:48:19"}
+{"batch": "relax", "d": 5, "pD": 1, "p": 2147483647, "family_J": 3, "family_kernel": 0, "K": 3, "rankD": 3, "npairs": 6, "ring_dim_2d": 744, "rank_Phi": 6, "excluded_over_Fp": true, "time_s": 2.6, "ts": "2026-11-02T00:48:22"}
+{"batch": "relax", "d": 6, "pD": 1, "p": 2147483647, "family_J": 18, "family_kernel": 0, "K": 18, "rankD": 18, "npairs": 171, "ring_dim_2d": 866, "rank_Phi": 108, "excluded_over_Fp": false, "time_s": 20.2, "ts": "2026-11-02T00:48:43"}

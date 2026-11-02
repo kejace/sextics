@@ -184,7 +184,7 @@ def not_div_X06(e):
     return e[0] < 6
 
 
-def e1_family(R, Fp, Ap, Fi, d, pD, dpred=None, verbose=True):
+def e1_family(R, Fp, Ap, Fi, d, pD, dpred=None, verbose=True, dbasis=None):
     """All D of degree d and Y-parity pD (None = mixed) with D monomials restricted by dpred, such that
     A D in J(F); returns basis [(D, n)] with n(F) = A D (n = list of 6 polys), plus rank data.
 
@@ -194,8 +194,13 @@ def e1_family(R, Fp, Ap, Fi, d, pD, dpred=None, verbose=True):
     p = R.p
     prow = None if pD is None else (1 + pD) % 2
     rows = Index(d + 6, prow)
-    Dmons = monomials(d, pD, dpred)
-    cols = [Ap * R.mono(e) for e in Dmons]
+    if dbasis is not None:
+        Dmons = list(range(len(dbasis)))          # abstract coordinates
+        Dpolys = list(dbasis)
+    else:
+        Dmons = monomials(d, pD, dpred)
+        Dpolys = [R.mono(e) for e in Dmons]
+    cols = [Ap * P for P in Dpolys]
     ncols_n = []
     for i in range(NV):
         pi = None if pD is None else num_parities(pD)[i]
@@ -220,8 +225,15 @@ def e1_family(R, Fp, Ap, Fi, d, pD, dpred=None, verbose=True):
     for r, j in enumerate(piv):
         if j >= nD:
             break
-        Dd = {Dmons[k]: int(Xr[r, k]) for k in range(nD) if int(Xr[r, k])}
-        D = R.ctx.from_dict(Dd)
+        if dbasis is not None:
+            D = R.zero()
+            for k in range(nD):
+                v = int(Xr[r, k])
+                if v:
+                    D += Dpolys[k] * v
+        else:
+            Dd = {Dmons[k]: int(Xr[r, k]) for k in range(nD) if int(Xr[r, k])}
+            D = R.ctx.from_dict(Dd)
         n = []
         off = nD
         for i in range(NV):
@@ -240,7 +252,7 @@ def e1_family(R, Fp, Ap, Fi, d, pD, dpred=None, verbose=True):
     return info
 
 
-def jacobian_dim(R, Fi, d, pD, dpred=None):
+def jacobian_dim(R, Fi, d, pD, dpred=None, dbasis=None):
     """dim of J(F)_d (parity pD) intersected with the span of monomials satisfying dpred:
     computed as dim J_d - dim(J_d projected...) -- simpler: rank of generators restricted to those columns?
     We compute dim (J_d cap V) = dim J_d + dim V - dim(J_d + V) via ranks."""
@@ -255,9 +267,9 @@ def jacobian_dim(R, Fi, d, pD, dpred=None):
         return 0, 0
     J = build_mat(gens, allidx, p)
     rJ = J.rank()
-    if dpred is None:
+    if dpred is None and dbasis is None:
         return rJ, rJ
-    Vm = [R.mono(e) for e in monomials(d, pD, dpred)]
+    Vm = list(dbasis) if dbasis is not None else [R.mono(e) for e in monomials(d, pD, dpred)]
     JV = build_mat(gens + Vm, allidx, p)
     rJV = JV.rank()
     return rJ, rJ + len(Vm) - rJV
@@ -494,3 +506,21 @@ def load_any(p, F, A):
     Fp, Ap = R.from_dict(F), R.from_dict(A)
     Fi = [Fp.derivative(i) for i in range(NV)]
     return R, Fp, Ap, Fi
+
+
+def in_J(R, Fi, P):
+    """Membership of a homogeneous P in J(F)_deg (mod p): returns (bool, rank data)."""
+    p = R.p
+    deg = P.total_degree()
+    par = R.parity(P)
+    rows = Index(deg, par)
+    gens = []
+    for i in range(NV):
+        pi = None if par is None else (par - (0 if i < 3 else 1)) % 2
+        for e in monomials(deg - 5, pi):
+            gens.append(Fi[i] * R.mono(e))
+    M = build_mat(gens, rows, p, rhs=P)
+    r_aug = M.rank()
+    M0 = build_mat(gens, rows, p)
+    r0 = M0.rank()
+    return r_aug == r0, dict(rank_J=r0, rank_aug=r_aug, rows=rows.n, gens=len(gens))

@@ -1,6 +1,6 @@
 # Wave 2 — lane `off-paired` — lens EXCLUSION / RIGOR
 
-STATUS: no witness; last update 2026-11-01 19:34; 997 logged experiments.
+STATUS: no witness; last update 2026-11-01 19:40; 1387 logged experiments.
 
 Packet: `/tmp/hodge/results/off-paired/wave2-excl/` (README.md there explains every receipt and how to replay). Log: `/tmp/hodge/results/off-paired/wave2-excl.log.jsonl`. Wave-2 primes 2147483629 / 2147483587 (fixed-D), 2147483647 (msolve).
 
@@ -14,15 +14,15 @@ Packet: `/tmp/hodge/results/off-paired/wave2-excl/` (README.md there explains ev
 
 | family | exp | results |
 |---|---|---|
-| block-product | e1 | PROVEN-E1-fail: 114, e1-pass-modp: 218 |
-| block-product | fixedD | PROVEN-inconsistent: 430, inconsistent-modp(kernel-lift-incomplete): 6 |
+| block-product | e1 | PROVEN-E1-fail: 120, e1-pass-modp: 244 |
+| block-product | fixedD | PROVEN-inconsistent: 482, inconsistent-modp(kernel-lift-incomplete): 6 |
 | colon-quartic | e1 | e1-pass-modp: 2 |
 | colon-quartic | fixedD | PROVEN-inconsistent: 4 |
 | fermat-cone | e1 | PROVEN-E1-fail: 4 |
 | partial*monomial | e1 | e1-pass-modp: 2 |
 | partial*monomial | fixedD | PROVEN-inconsistent: 2, inconsistent-modp(nullity>explicit): 2 |
 
-Distinct denominators tested: 278; PROVEN excluded (rational rank sandwich): 275; excluded modulo p only: 3; solvable mod p: []
+Distinct denominators tested: 307; PROVEN excluded (rational rank sandwich): 304; excluded modulo p only: 3; solvable mod p: []
 
 ## Bilinear sector systems (D free in a character sector; msolve on charts)
 
@@ -66,6 +66,27 @@ Distinct denominators tested: 278; PROVEN excluded (rational rank sandwich): 275
 | 7 | [5, 3] | sector | all | 0 | 7 | None | 1 | 0 | None:empty-t-space | 0 |
 | 7 | [5, 4] | sector | all | 2 | 10 | 102 | 2 | 2 |  | 0 |
 | 7 | [5, 5] | sector | all | 5 | 33 | 253 | 5 | 5 |  | 0 |
+| 8 | [0, 0] | sector | all | 28 | 94 | 587 | 28 | 28 |  | 2 |
+| 8 | [0, 1] | sector | all | 18 | 70 | 495 | 18 | 18 |  | 1 |
+| 8 | [0, 2] | sector | all | 9 | 37 | 388 | 9 | 9 |  | 0 |
+| 8 | [0, 3] | sector | all | 5 | 28 | 498 | 5 | 5 |  | 0 |
+| 8 | [0, 4] | sector | all | 9 | 37 | 377 | 9 | 9 |  | 0 |
+| 8 | [0, 5] | sector | all | 17 | 70 | 494 | 17 | 17 |  | 1 |
+| 8 | [1, 0] | sector | all | 23 | 85 | 552 | 23 | 23 |  | 1 |
+| 8 | [1, 1] | sector | all | 15 | 62 | 455 | 15 | 15 |  | 1 |
+| 8 | [1, 2] | sector | all | 5 | 32 | 361 | 5 | 5 |  | 0 |
+| 8 | [1, 3] | sector | all | 3 | 24 | 418 | 3 | 3 |  | 0 |
+| 8 | [1, 4] | sector | all | 5 | 32 | 402 | 5 | 5 |  | 0 |
+| 8 | [1, 5] | sector | all | 13 | 68 | 457 | 13 | 13 |  | 0 |
+| 8 | [2, 0] | sector | all | 25 | 83 | 552 | 25 | 25 |  | 2 |
+| 8 | [2, 1] | sector | all | 14 | 62 | 462 | 14 | 14 |  | 0 |
+| 8 | [2, 2] | sector | all | 6 | 36 | 380 | 6 | 6 |  | 0 |
+| 8 | [2, 3] | sector | all | 3 | 24 | 401 | 3 | 3 |  | 0 |
+| 8 | [2, 4] | sector | all | 6 | 36 | 446 | 6 | 6 |  | 0 |
+| 8 | [2, 5] | sector | all | 14 | 68 | 462 | 14 | 14 |  | 0 |
+| 8 | [3, 0] | sector | all | 28 | 84 | 574 | 28 | 28 |  | 3 |
+| 8 | [4, 0] | sector | all | 24 | 83 | 554 | 24 | 24 |  | 2 |
+| 8 | [5, 0] | sector | all | 22 | 85 | 554 | 22 | 22 |  | 2 |
 
 ## Colon / non-Jacobian E1-kernel dimensions (colon mod p = upper bound for Q; dim J exact by Koszul)
 

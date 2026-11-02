@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[relax] no kernel file /tmp/hodge/results/rank-one-biquartic/wave2/out/e1kernel_d5_p0.json; using J-type family only
+[relax] d=5 pD=0 family: 3 J-type + 0 kernel = 3; rank of D-span = 3
+[relax] J_10^1: gens 756 rank 747 ring_dim 744 (3s)
+  pair 0/6 (0s)
+[relax] wrote 6 quadrics in 3 variables to wave2/out/relax_d5_p0.ms

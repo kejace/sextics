@@ -811,3 +811,73 @@ def save_witness_candidate(prob, D6, N6, Q, path=f'{WD}/witness-candidate.json',
     with open(path, 'w') as fh:
         json.dump(w, fh, indent=1)
     return ok
+
+
+# ----------------------------------------------------------------------------
+# snapping a numerical zero to a rational point (zero sets are often positive-dimensional)
+# ----------------------------------------------------------------------------
+
+def zero_set_dim(vp, c, tol=1e-6):
+    """Estimated local dimension of the zero set at c: near-null directions of the LM Jacobian beyond scaling."""
+    u = vp.B.T @ (np.asarray(c, float) / np.linalg.norm(c))
+    J = vp.jacobian(u, True)
+    s = np.linalg.svd(J, compute_uv=False)
+    k = int(np.sum(s < tol * s[0]))
+    return max(k - 1, 0), [float(x) for x in s[-6:]]
+
+
+def snap_confirm(vp, prob, c, pD, sD, T, taus=(0.0, 1e-6, 1e-5, 1e-4, 1e-3, 3e-3, 1e-2, 3e-2, 1e-1), maxiter=150,
+                 rel_ok=1e-7, verbose=False, logger=None):
+    """Try to turn a numerical zero into an exact witness: rationalise; if that fails, sparsify (drop monomials
+    with |coefficient| < tau), refit by LM inside the sub-family, rationalise again, confirm exactly.
+    Returns (status, info); status 'solved' carries D5/N5/D6/N6."""
+    op, B = vp.op, vp.B
+    c = np.asarray(c, float)
+    c = c / c[int(np.argmax(np.abs(c)))]
+    tried = set()
+    attempts = []
+    for tau in taus:
+        if tau == 0.0:
+            c2, rel2, kept = c, vp.exact_residual(c)[0], op.nD
+        else:
+            keep = [i for i in range(op.nD) if abs(c[i]) > tau]
+            if not keep or len(keep) == op.nD:
+                continue
+            Bc = np.zeros((op.nD, len(keep)))
+            for j, i in enumerate(keep):
+                Bc[i, j] = 1.0
+            Bs = intersect(B, Bc)
+            if Bs.shape[1] == 0:
+                continue
+            vps = VarPro5(op, Bs)
+            try:
+                o2 = vps.restart_lm(1, maxiter=maxiter, u0=Bs.T @ c)
+            except Exception as ex:
+                attempts.append({'tau': tau, 'error': str(ex)[:80]})
+                continue
+            c2 = o2['c']; c2 = c2 / c2[int(np.argmax(np.abs(c2)))]
+            rel2, kept = o2['rel'], len(keep)
+            if rel2 > rel_ok:
+                attempts.append({'tau': tau, 'kept': kept, 'rel': rel2, 'note': 'sparsification breaks the zero'})
+                break
+        rats = rationalize(c2)
+        attempts.append({'tau': tau, 'kept': kept, 'rel': rel2, 'n_rational': len(rats)})
+        for fr in rats[:6]:
+            key = tuple(fr)
+            if key in tried:
+                continue
+            tried.add(key)
+            Dc = poly_from_vec(op.Dm, fr)
+            st, inf = exact_confirm(prob, Dc, pD, sD, T)
+            rec = {'tau': tau, 'kept': kept, 'rel': rel2, 'status': st, 'D': core.to_str(Dc)[:200], 'terms': len(Dc),
+                   'rank': inf.get('rank'), 'nullity': inf.get('nullity')}
+            attempts.append(rec)
+            if logger:
+                logger(rec)
+            if verbose:
+                print('[snap]', json.dumps(rec)[:300], file=sys.stderr)
+            if st == 'solved':
+                inf['D5'] = Dc
+                inf['attempts'] = attempts
+                return 'solved', inf
+    return 'unconfirmed', {'attempts': attempts}

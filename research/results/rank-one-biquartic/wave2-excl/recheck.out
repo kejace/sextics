@@ -1,0 +1,23 @@
+{
+ "R1_decomposition_F=f+g+tL2M": true,
+ "R1_M_equals_L_of_Y": true,
+ "R1_g_relation": true,
+ "R2_nonpure_coeffs_in_5Z/7": true,
+ "R3_diagonal_group_order": 2,
+ "R3_support_preserving_permutations": [
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ ],
+ "R7_RX=6f+4tL2M": true,
+ "R7_RY=6g+2tL2M": true,
+ "R7_E1_RX": true,
+ "R7_B_RX(AX)=8tAL2M": true,
+ "R7_B_RY(AY)=8tAL2M": true,
+ "R8_Fi-F0i_in_(L)": true
+}

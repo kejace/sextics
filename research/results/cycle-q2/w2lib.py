@@ -795,7 +795,7 @@ def _kvp_residual_and_jac(kvp, a):
 
 
 def search_lm(kvp, n_restarts=10, seed=0, max_nfev=200, complex_mode=True, verbose=False, stop_rel=1e-13,
-              callback=None, time_budget=None, scale_pen=1.0):
+              callback=None, time_budget=None, scale_pen=1.0, sparse_frac=0.3):
     """random-restart Levenberg-Marquardt on the real-ified residual with sphere normalization."""
     from scipy.optimize import least_squares
     rng = np.random.default_rng(seed)
@@ -832,7 +832,16 @@ def search_lm(kvp, n_restarts=10, seed=0, max_nfev=200, complex_mode=True, verbo
     for it in range(n_restarts):
         if time_budget and time.time() - t0 > time_budget:
             break
-        z0 = rng.standard_normal(dim); z0 /= np.linalg.norm(z0)
+        z0 = rng.standard_normal(dim)
+        if sparse_frac > 0 and rng.random() < sparse_frac and K > 2:
+            # sparse start: 1..3 random basis directions (structured solutions tend to be sparse in a reduced basis)
+            nz = int(rng.integers(1, min(3, K) + 1))
+            idx = rng.choice(K, size=nz, replace=False)
+            z0 = np.zeros(dim)
+            z0[idx] = rng.standard_normal(nz)
+            if complex_mode:
+                z0[K + idx] = rng.standard_normal(nz) * 0.3
+        z0 /= np.linalg.norm(z0)
         try:
             res = least_squares(fun, z0, jac=jac, method='lm', max_nfev=max_nfev, xtol=1e-15, ftol=1e-15, gtol=1e-15)
             z = res.x

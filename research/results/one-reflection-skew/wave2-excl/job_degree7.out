@@ -1,0 +1,5 @@
+A done 129 {'J': 120, 'extra': 9} 203.5
+B done 129 [{'alive': 129, 'rank': 748, 'npairs': 5754, 'nquads': 1019, 'squares_modp': 0, 'squares_certified': 0, 'monos': 56}] 268.4
+C done 129 [{'alive': 129, 'rank': 757, 'npairs': 5764, 'nquads': 1094, 'squares_modp': 0, 'squares_certified': 0, 'monos': 57}] 482.4
+D wrote leaf inputs 1094 quadrics 129 vars
+ALL DONE 483.5

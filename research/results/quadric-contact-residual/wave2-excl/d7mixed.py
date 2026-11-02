@@ -114,11 +114,8 @@ log('d7mixed-I3', d=7, dim_S3=sum(v['cols'] for v in hilb3.values()), dim_I3=sum
 neq, nv = write_systems(quads, n, OUT + '/d7mixed')
 log('d7mixed-export', n_eqs=neq, n_vars=nv, files=[OUT + '/d7mixed.ms', OUT + '/d7mixed.sing'])
 t2 = time.time()
-cmd = ['timeout', str(msolve_timeout), 'msolve', '-v', '2', '-t', str(threads), '-f', OUT + '/d7mixed.ms', '-o', OUT + '/d7mixed.ms.out']
-print('running', ' '.join(cmd), file=sys.stderr, flush=True)
-with open(OUT + '/d7mixed.msolve.log', 'w') as lf:
-    r = subprocess.run(cmd, stdout=lf, stderr=subprocess.STDOUT)
-txt = open(OUT + '/d7mixed.ms.out').read()[:300] if os.path.exists(OUT + '/d7mixed.ms.out') else ''
-log('d7mixed-msolve', rc=r.returncode, threads=threads, seconds=round(time.time() - t2, 1), out_head=txt.replace('\n', ' '),
-    note='msolve on the full 120-unknown quadric system; rc=124 means timeout')
+from msverdict import verdict
+v = verdict(OUT + '/d7mixed.ms', threads=threads, timeout=msolve_timeout, verbose=2, logfile=OUT + '/d7mixed.msolve.log')
+log('d7mixed-msolve', threads=threads, **{k: val for k, val in v.items() if k != 'log_tail'},
+    note='msolve -g 1 (leading ideal, grevlex) on the full 120-unknown quadric system; ONLY-ORIGIN <=> every variable has a pure power among the leading monomials; rc=124 means timeout')
 print('DONE', file=sys.stderr)

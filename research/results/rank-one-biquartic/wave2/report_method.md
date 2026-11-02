@@ -29,3 +29,12 @@
   witness from 9 random starts and confirmed it exactly (strict).  On this lane `B_{eps_X F}(A X) = 8 t A L^2 M`
   is reproduced exactly and `D = eps_X F` is inconsistent (reduced rel 0.60, unreduced 0.091); d=6 family
   dimension 18 = dim J_6^+ and d=7 dimension 66 = 63 + 3 agree with the exact profile.
+* Rigor of the exact exclusions.  All exact computations are modulo p = 2^31-1 (= `core.PRIMES[0]`); the Jacobian
+  ring dimensions found there ((S/J)_10^- = 744, (S/J)_12^- = 866, (S/J)_14^- = 744, ...) equal the regular-sequence
+  values, so every J-rank mod p equals its rank over Q.  Consequently (i) the Q-space of E1-admissible denominators
+  reduces into the mod-p space, (ii) p-integral lifts reduce to lifts, (iii) normal forms modulo J commute with
+  reduction.  If the relaxation map Phi: Sym^2(family) -> (S/J)_{2d} has full column rank mod p, its matrix over Q
+  (in a saturated p-integral basis) has full column rank, so Phi(a (x) a) != 0 for every nonzero a over C: no
+  denominator in that family passes E2.  For d <= 6 the family is the complete set of E1-admissible Y-even
+  denominators (proved over C in the dossier), so a full-rank result there is an unconditional exclusion of that
+  degree.  Numerical search results are evidence only; a failed multistart search excludes nothing.

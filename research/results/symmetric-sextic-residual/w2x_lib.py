@@ -841,3 +841,59 @@ def quadrics_from_coords(keys, C):
         if len(nz) == 0: continue
         quads.append({keys[i]: int(col[i]) for i in nz})
     return quads
+
+# ---------------------------------------------------------------- analysis of a leading (monomial) ideal from msolve -g 1
+def parse_leading_ideal(leadfile, names):
+    import re
+    txt = open(leadfile).read()
+    body = txt[txt.index('['):] if '[' in txt else ''
+    mons = []
+    for tok in re.split(r'[,\n\[\]]', body):
+        tok = tok.strip().rstrip(':')
+        if not tok: continue
+        supp = {}
+        ok = True
+        for fac in tok.split('*'):
+            m = re.fullmatch(r'(\d+)?\s*([A-Za-z_]\w*)(\^(\d+))?', fac.strip())
+            if not m:
+                if re.fullmatch(r'\d+', fac.strip()): continue
+                ok = False; break
+            v = m.group(2); k = int(m.group(4)) if m.group(4) else 1
+            supp[v] = supp.get(v, 0) + k
+        if ok and supp: mons.append(supp)
+    return mons
+def krull_dim_monomial(mons, names):
+    """Krull dimension of k[names]/(monomial ideal) = max size of a variable set S such that no generator has support inside S."""
+    supports = [frozenset(m.keys()) for m in mons]
+    if any(len(s) == 0 for s in supports): return -1
+    best = [0]
+    names = list(names)
+    # branch and bound: choose S greedily with pruning
+    def rec(i, S):
+        if len(S) + (len(names) - i) <= best[0]: return
+        if i == len(names):
+            best[0] = max(best[0], len(S)); return
+        v = names[i]
+        S2 = S | {v}
+        if all(not (s <= S2) for s in supports if v in s):
+            rec(i + 1, S2)
+        rec(i + 1, S)
+    rec(0, frozenset())
+    return best[0]
+def dehomogenize_msolve(msfile, outfile, var_index, p):
+    """write the chart a_{var_index} = 1 version of a homogeneous msolve input (substitute the variable by 1)."""
+    lines = open(msfile).read().splitlines()
+    names = lines[0].split(',')
+    v = names[var_index]
+    rest = [n for n in names if n != v]
+    import re
+    polys = lines[2:]
+    def sub(poly):
+        poly = re.sub(rf'\*{v}\^\d+', '', poly); poly = re.sub(rf'\*{v}(?![\w])', '', poly)
+        poly = re.sub(rf'(?<![\w]){v}\^\d+\*', '', poly); poly = re.sub(rf'(?<![\w]){v}\*', '', poly)
+        poly = re.sub(rf'(?<![\w]){v}\^\d+(?![\w])', '1', poly); poly = re.sub(rf'(?<![\w]){v}(?![\w])', '1', poly)
+        return poly
+    with open(outfile, 'w') as f:
+        f.write(','.join(rest) + '\n' + f'{p}\n')
+        f.write('\n'.join(sub(pl) for pl in polys) + '\n')
+    return rest

@@ -36,6 +36,30 @@ parity included), given E1 ⇒ D ∈ J_6 in all characters (dossier mod 32003; r
 Files `wave2-excl/hess_d6_W00011011_p2147483587.{ms,json,lt,gb}`, `hess_d6_singular_minass.txt`.
 Proof that B(T,·)=0 exactly: B(zG, g) = [A G Σ_j g_j Σ_i z_i F_ij] = 5[A G g(F)] = 0 since g(F) ∈ J.
 
+
+### R3. Degree 7, pure Klein characters (Hessian relaxation + msolve/Singular, local, p = 2147483587) — 3 of 4 DONE
+D ∈ J_7 (E1) of a single character χ ⇒ g ∈ V_χ, W_χ = V_χ/T_χ; the quadrics live in (S/J)_14^{(0,1)} (dim 426).
+| χ | dim V | dim T | dim W | indep. quadrics | GB size | dim | mult | HF | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| (1,1) | 18 | 0 | 18 | 117 | 135 | 0 | 85 | 1,18,54,12,0 | V = {0} |
+| (1,0) | 23 | 1 | 22 | 132 | 301 | 0 | 239 | 1,22,121,83,12,0 | V = {0} |
+| (0,1) | 40 | 2 | 38 | 281 | 2987 | 0 | 1109 | 1,38,460,556,54,0 | V = {0} |
+| (0,0) | 45 | 3 | 42 | 274 | (running) | | | | |
+Hence (modulo the (0,0) block) **no degree-7 denominator with a single Klein character**. Mixed-character degree-7
+denominators: the joint systems (pairs 40–80 unknowns, triples 78–102, full 120) are being exported and run
+(chain `wave2-excl/chain_d7mixed.sh`; receipts `gbcheck.jsonl`).
+
+### R4. The degree-8 E1-kernel class K8 (remote job excl-rcr-k8job) — DONE: K8 rigorously excluded
+* K8 ∉ J(F): verified mod 2147483587 and 2147483579 (rank 168 vs 169); a rational polynomial outside J mod p is outside J over ℚ.
+* A·K8 ∈ J(F) **exactly over ℚ**: the character-restricted E1 system (3276 × 3388, rank 2850) was solved mod two primes,
+  CRT-lifted (62 bits, max denominator 18 bits) and the identity Σ N_i ∂_iF = A·K8 verified exactly (`wave2-excl/K8_E1_exact.json`,
+  N-term counts 28/65/42/56/23/0). So the wave-1 class is a genuine rational E1-admissible non-Jacobian denominator.
+* Fixed-D certificate test (rigorfix protocol): Klein-invariant-sector system 22016 × 4256 (of 7497 unrestricted columns,
+  stabiliser order 4): **inconsistent mod p**, rank_p M = 3780, nullity 476; the 482 a-priori rational kernel vectors
+  (zG, 0) and (F m e_i, D ∂_i m − m ∂_i D) have rank 476 = nullity, hence rank_ℚ M = rank_p M and the inconsistency holds
+  over ℚ (and ℂ). Second prime agrees; the full unrestricted system (40301 × 7497) is also inconsistent mod p (rank 6703).
+  **K8 itself is not a certificate denominator.** (427 s.) The affine family K8 + J_8 is treated in R6.
+
 ### Jobs submitted (remote)
 * `excl-rcr-e1char`: E1 kernels by Klein character, d = 1..10, p = 2147483587 (+ 2147483579 for reconstruction).
 * `excl-rcr-hess`: Φ-kernel at d = 6 (two primes); Macaulay-3 rank of the quadratic system per character at d = 7;
