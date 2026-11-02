@@ -40,3 +40,4 @@
 [subfam] Y1+L+M: vars 6, eqs 459, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (10302s)
 [subfam] Y2+L+M: vars 6, eqs 459, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (10388s)
 [subfam] X0+X1+X2+Y0: vars 26, eqs 459, msolve chart 'TIMEOUT', singular [] (11069s)
+[subfam] X0+X1+X2+Y1: vars 26, eqs 459, msolve chart 'TIMEOUT', singular [] (11783s)

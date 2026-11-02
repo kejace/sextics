@@ -19,3 +19,4 @@ DONE vert 15 1 fam 24 kernel 16 16 J-part 16 interesting 0 0 hilbert True True F
 DONE vert 16 0 fam 30 kernel 21 21 J-part 21 interesting 0 0 hilbert True True Fdiv [] 225s
 DONE vert 16 1 fam 24 kernel 16 16 J-part 16 interesting 0 0 hilbert True True Fdiv [] 224s
 DONE vert 17 0 fam 30 kernel 27 27 J-part 21 interesting 6 6 hilbert True True Fdiv [False, False, False, False, False, False] 806s
+DONE vert 17 1 fam 30 kernel 27 27 J-part 21 interesting 6 6 hilbert True True Fdiv [False, False, False, False, False, False] 875s
