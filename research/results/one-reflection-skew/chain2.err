@@ -60,3 +60,4 @@
 [op5 one-reflection-skew] d=10 sector=(0,0) rows=6825 cols=1701 nD=266 nnz=3666467 build 1.9s
 [op5 one-reflection-skew] d=10 sector=(0,0) rows=6825 cols=1701 nD=266 nnz=3666467 build 1.7s
 [op5 one-reflection-skew] d=10 sector=(0,0) rows=6825 cols=1701 nD=266 nnz=3666467 build 1.6s
+[op5 one-reflection-skew] d=10 sector=(0,0) rows=6825 cols=1701 nD=266 nnz=3666467 build 1.9s

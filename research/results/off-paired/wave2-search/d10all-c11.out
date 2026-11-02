@@ -1,0 +1,7 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+[2026-11-02T11:05:38] job d10all-c11: d=10 c=(1, 1) kind=colon F=offpaired restarts=60 workers=8
+[build_family] exact basis failed (colon d=10 c=(1, 1): rational reconstruction failed with 6 primes); using float basis
+[float colon basis d=10 c=(1, 1)] dim 62 (modular 62)
+[sector varpro] d=10 c=(1, 1) K=62 rank=62 gauge=3 dimP=59 rows=4556 N=760 Q=290 nnz(TN)=526980 built in 2.3s
+[2026-11-02T11:05:46] family built: K=62 rank=62 gauge=3 dimP=59 rows=4556 N=760 Q=290 build 2.3s
+gradient check: analytic 6.667274e-02 fd 6.667274e-02

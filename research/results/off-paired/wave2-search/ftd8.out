@@ -5,3 +5,5 @@
 [10:30:16] start ftd8-c20 (eff 25) elapsed 1625s
    -> best 5.466e-03 median 1.329e-02 restarts 20 dimP 25 t/restart 276.79 witness False
 [10:43:00] start ftd8-c30 (eff 28) elapsed 2390s
+   -> best 5.994e-03 median 9.563e-03 restarts 16 dimP 28 t/restart 527.99 witness False
+[11:01:27] start ftd8-c40 (eff 24) elapsed 3497s
