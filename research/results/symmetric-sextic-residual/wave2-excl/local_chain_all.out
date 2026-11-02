@@ -120,3 +120,9 @@ products done 0.2s
 [FoldedReducer] deg=18 par=1 p=2147483647 orbits=838 gens=1206 rank=821 (CI 821) ring=17 (CI 17) 2.3s
 quadrics: 17 in 8 unknowns (4.0s)
 {"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1, "a7": 1, "a8": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2}
+[SectorFamily] chi=sgnY d=9 pD=1 p=2147483647 rows=184 nN=489 nD=30 dimK=19 dimJd=12 ker=7 radial=1 1.0s
+[{"pD": 1, "rows": 184, "nN": 489, "nD": 30, "dimK": 19, "dimJd": 12, "ker_R": 7, "radial": 1, "complement": 18, "rankM": 184}]
+products done 18.4s
+[FoldedReducer] deg=18 par=1 p=2147483647 orbits=838 gens=1206 rank=821 (CI 821) ring=17 (CI 17) 1.9s
+quadrics: 17 in 18 unknowns (23.7s)
+{"msolve_rc": 124, "msolve_seconds": 1800.5, "verdict": "msolve failed/timeout"}

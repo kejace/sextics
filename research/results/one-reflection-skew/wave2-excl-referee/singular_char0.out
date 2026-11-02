@@ -392,3 +392,8 @@ Command exited with non-zero status 124
 1059.73user 3.57system 20:00.04elapsed 88%CPU (0avgtext+0avgdata 120584maxresident)k
 344inputs+0outputs (35major+417025minor)pagefaults 0swaps
 ### ref5v_tor_1000
+
+halt 1
+Command exited with non-zero status 124
+542.83user 1.77system 20:00.13elapsed 45%CPU (0avgtext+0avgdata 96352maxresident)k
+3384inputs+0outputs (0major+290578minor)pagefaults 0swaps

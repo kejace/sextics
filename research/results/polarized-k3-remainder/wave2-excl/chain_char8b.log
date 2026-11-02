@@ -41,3 +41,5 @@ params 30 killed 0 survivors 30
 residual constraint rank 114 on 465 quadratic monomials in 30 variables
 DIM=0 DEG=4979 SIZE=2868
 === target=full char=5 Sun Nov  1 11:41:40 PM EST 2026
+[result] {"d": 8, "p": 65521, "target": "full", "gauge": true, "char": 5, "params": 30, "pairs": 465, "L_generators": 55473, "blocks": [{"r": 0, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "quotient_dim_p": 129, "constraint_rank_p": 93, "seconds": 123.0}, {"r": 1, "rows": 3438, "L_cols": 9711, "L_rank_p": 3258, "quotient_dim_p": 180, "constraint_rank_p": 0, "seconds": 164.9}, {"r": 2, "rows": 3465, "L_cols": 10188, "L_rank_p": 3240, "quotient_dim_p": 225, "constraint_rank_p": 114, "seconds":
+[squares-summary] {"killed_mod_p": 0, "params": 30, "killed_Q": null}

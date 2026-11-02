@@ -15,3 +15,9 @@
 {'alive': 28, 'rank': 44, 'npairs': 400, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
 5v relaxed sector (3, 3, 2) rows 756 cols 2492 duals 44
 {'alive': 28, 'rank': 44, 'npairs': 400, 'nquads': 44, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+{'alive': 84, 'rank': 185, 'npairs': 3465, 'nquads': 185, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+5v relaxed sector (0, 3, 5) rows 756 cols 7362 duals 44
+5v relaxed sector (3, 3, 2) rows 756 cols 7368 duals 44
+5v relaxed sector (0, 0, 2) rows 792 cols 7308 duals 53
+5v relaxed sector (3, 0, 5) rows 756 cols 7362 duals 44
+{'alive': 84, 'rank': 185, 'npairs': 3465, 'nquads': 185, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}

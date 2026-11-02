@@ -1,0 +1,2 @@
+{"case": "diag", "j": 0, "class": "finite", "seconds": 0.0, "n_eqs": 141, "deg_ideal": 2, "elim_degree": 2, "n_roots_Fp": 2, "solutions": [{"g_M_rows": [[1, 0, 0], [0, 1, 0], [0, 0, -1]], "verified_mod_p": true}, {"g_M_rows": [[1, 0, 0], [0, 1, 0], [0, 0, 1]], "verified_mod_p": true}]}
+{"case": "diag", "j": 1, "class": "empty", "seconds": 0.0, "n_eqs": 142}

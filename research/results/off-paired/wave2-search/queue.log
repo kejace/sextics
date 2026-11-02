@@ -112,3 +112,5 @@ submit search-off-paired-s2-ft-d9h0: launch ssh timed out after 120 s (job may s
 23:53:46 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
 23:56:21 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
 23:58:56 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:01:30 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:04:05 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
