@@ -19,3 +19,4 @@
 {'alive': 84, 'rank': 185, 'npairs': 3055, 'nquads': 185, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
 {'alive': 84, 'rank': 185, 'npairs': 3055, 'nquads': 185, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
 {'alive': 129, 'rank': 748, 'npairs': 5754, 'nquads': 1019, 'squares_modp': 0, 'squares_certified': 0, 'monos': 56}
+{'alive': 129, 'rank': 757, 'npairs': 5764, 'nquads': 1094, 'squares_modp': 0, 'squares_certified': 0, 'monos': 57}
