@@ -1,0 +1,556 @@
+ℹ [3687/3805] Replayed HodgeComputer.Reflection.KroneckerTest
+info: HodgeComputer/Reflection/KroneckerTest.lean:445:0: 'HodgeComputer.Kronecker.soundN' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:446:0: 'HodgeComputer.Kronecker.sound4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:447:0: 'HodgeComputer.Kronecker.matchW_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:448:0: 'HodgeComputer.KroneckerTest.small' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:449:0: 'HodgeComputer.KroneckerTest.e1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:450:0: 'HodgeComputer.KroneckerTest.e2' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3688/3805] Built HodgeTestbed (25s)
+⚠ [3690/3805] Built HodgeComputer.Constructions.TransitiveCubic.Cubic (29s)
+warning: HodgeComputer/Constructions/TransitiveCubic/Cubic.lean:10:17: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3691/3805] Built HodgeComputer.Constructions.HoldoutCover.PolynomialFieldMap (34s)
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialFieldMap.lean:60:0: 'HoldoutConstruction.polynomial_family_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3692/3805] Built HodgeComputer.Constructions.TransitiveCubic.SignedExpressions (33s)
+warning: HodgeComputer/Constructions/TransitiveCubic/SignedExpressions.lean:96:31: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pairPow, pairMul, Prod.snd, pow_succ']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/SignedExpressions.lean:96:40: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pairPow, pairMul, Prod.fst, pow_succ']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/SignedExpressions.lean:109:42: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [splitEval, pairMul, ringEval, Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/SignedExpressions.lean:109:51: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [splitEval, pairMul, ringEval, Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: HodgeComputer/Constructions/TransitiveCubic/SignedExpressions.lean:119:0: 'TransitiveSignedExpressions.splitEval_difference' depends on axioms: [propext, Quot.sound]
+ℹ [3693/3805] Built HodgeComputer.Constructions.AlgebraicSpecialization (37s)
+info: HodgeComputer/Constructions/AlgebraicSpecialization.lean:77:0: 'AlgebraicSpecialization.eval_ne_zero_of_coalescing_root_specialization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: HodgeComputer/Constructions/AlgebraicSpecialization.lean:78:0: 'AlgebraicSpecialization.eval_ne_zero_of_double_root_specialization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3694/3805] Built HodgeComputer.Constructions.HoldoutCover.EvaluationMatrix (40s)
+info: HodgeComputer/Constructions/HoldoutCover/EvaluationMatrix.lean:91:0: 'HoldoutConstruction.endpoint_evaluation_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/EvaluationMatrix.lean:92:0: 'HoldoutConstruction.polynomial_evaluation_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3695/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverCoordinateDerivatives (39s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinateDerivatives.lean:100:0: 'HoldoutConstruction.fermat_cover_time_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinateDerivatives.lean:101:0: 'HoldoutConstruction.fermat_cover_beta_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinateDerivatives.lean:102:0: 'HoldoutConstruction.fermat_cover_alpha_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinateDerivatives.lean:103:0: 'HoldoutConstruction.fermat_cover_passive_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinateDerivatives.lean:104:0: 'HoldoutConstruction.fermat_cover_sum_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinateDerivatives.lean:105:0: 'HoldoutConstruction.fermat_cover_product_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3696/3805] Built HodgeComputer.Constructions.ResidueTransport.NormalChange (39s)
+ℹ [3697/3805] Built HodgeComputer.Constructions.HoldoutCover.Piola (50s)
+info: HodgeComputer/Constructions/HoldoutCover/Piola.lean:163:0: 'HoldoutConstruction.derivation_det_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/Piola.lean:164:0: 'HoldoutConstruction.piola_divergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/Piola.lean:279:0: 'HoldoutConstruction.residue_piola' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/Piola.lean:280:0: 'HoldoutConstruction.residue_solution_of_antiderivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/Piola.lean:281:0: 'HoldoutConstruction.exists_polynomial_antiderivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3698/3805] Built HodgeComputer.Constructions.AveragingProjectors (52s)
+info: HodgeComputer/Constructions/AveragingProjectors.lean:109:0: 'HodgeAveragingProjectors.smul_mem_of_mem_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/AveragingProjectors.lean:110:0: 'HodgeAveragingProjectors.apply_mem_of_mem_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/AveragingProjectors.lean:111:0: 'HodgeAveragingProjectors.subgroupAverage_apply_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3699/3805] Built HodgeComputer.Constructions.TransitiveCubic.PolynomialDigitCheck (51s)
+info: HodgeComputer/Constructions/TransitiveCubic/PolynomialDigitCheck.lean:68:0: 'TransitivePolynomialDigits.eval_injective_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3700/3805] Built HodgeComputer.Constructions.HoldoutCover.DeckTrace (51s)
+info: HodgeComputer/Constructions/HoldoutCover/DeckTrace.lean:73:0: 'HoldoutConstruction.normalizedTrace_eigen_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/DeckTrace.lean:74:0: 'HoldoutConstruction.normalizedTrace_inv_fourth_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/DeckTrace.lean:75:0: 'HoldoutConstruction.normalizedTrace_deck_correction' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3701/3805] Built HodgeComputer.Constructions.HoldoutCover.PolynomialNormal (57s)
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialNormal.lean:148:0: 'HoldoutConstruction.polynomial_linear_combination_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialNormal.lean:149:0: 'HoldoutConstruction.full_polynomial_combination_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialNormal.lean:150:0: 'HoldoutConstruction.polynomial_normal_from_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3702/3805] Built HodgeComputer.Constructions.HoldoutCover.HomogeneousOrder (55s)
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousOrder.lean:179:0: 'HoldoutConstruction.component_mul_initial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousOrder.lean:180:0: 'HoldoutConstruction.pderiv_component' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3703/3805] Built HodgeComputer.Constructions.HigherResidues.SourceDensityAlgebra (64s)
+info: HodgeComputer/Constructions/HigherResidues/SourceDensityAlgebra.lean:29:0: 'SplitSourceDensityAlgebra.source_jets' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3704/3805] Built HodgeComputer.Constructions.TransitiveCubic.Kronecker (65s)
+warning: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:26:21: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weights, Fin.sum_univ_succ, Matrix.cons_val_zero, Matrix.cons_val_succ, Fin.reduceSucc,
+    Matrix.cons_val, Finset.univ_eq_empty, Finset.sum_empty, Prod.smul_mk, Prod.mk_add_mk, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:26:41: This simp argument is unused:
+  Matrix.cons_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weights, Fin.sum_univ_succ, Matrix.cons_val_zero, Matrix.cons_val_succ, Fin.reduceSucc,
+    Matrix.cons_val_one, Finset.univ_eq_empty, Finset.sum_empty, Prod.smul_mk, Prod.mk_add_mk, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:27:6: This simp argument is unused:
+  Prod.smul_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weights, Fin.sum_univ_succ, Matrix.cons_val_zero, Matrix.cons_val_succ, Fin.reduceSucc,
+    Matrix.cons_val_one, Matrix.cons_val, Finset.univ_eq_empty, Finset.sum_empty, Prod.mk_add_mk, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:27:19: This simp argument is unused:
+  Prod.mk_add_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weights, Fin.sum_univ_succ, Matrix.cons_val_zero, Matrix.cons_val_succ, Fin.reduceSucc,
+    Matrix.cons_val_one, Matrix.cons_val, Finset.univ_eq_empty, Finset.sum_empty, Prod.smul_mk, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:63:6: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:63:6: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:92:54: This simp argument is unused:
+  mul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [encode, MvPolynomial.eval₂Hom_monomial, Finsupp.prod_fintype, Fin.prod_univ_succ, code, pow_add,
+    pow_mul, mul_assoc, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:92:63: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [encode, MvPolynomial.eval₂Hom_monomial, Finsupp.prod_fintype, Fin.prod_univ_succ, code, pow_add,
+    pow_mul, mul_assoc, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: HodgeComputer/Constructions/TransitiveCubic/Kronecker.lean:127:0: 'TransitiveCubicKronecker.encode_injective_on_grade' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3705/3805] Built HodgeComputer.Constructions.TransitiveCubic.Shear (41s)
+⚠ [3706/3805] Built HodgeComputer.Constructions.HoldoutCover.PolynomialCalculus (78s)
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialCalculus.lean:61:0: 'HoldoutConstruction.pderiv_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialCalculus.lean:62:0: 'HoldoutConstruction.integerPartials_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+warning: HodgeComputer/Constructions/HoldoutCover/PolynomialCalculus.lean:110:63: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [MvPolynomial.pderiv_X, Pi.single_apply, apply_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialCalculus.lean:116:0: 'HoldoutConstruction.derivation_eval₂_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3707/3805] Built HodgeComputer.Constructions.HoldoutCover.HypersurfaceDomain (83s)
+info: HodgeComputer/Constructions/HoldoutCover/HypersurfaceDomain.lean:192:0: 'HoldoutConstruction.adjoinRoot_map_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HypersurfaceDomain.lean:193:0: 'HoldoutConstruction.irreducible_power_add_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HypersurfaceDomain.lean:194:0: 'HoldoutConstruction.quotient_adjoinRoot_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HypersurfaceDomain.lean:195:0: 'HoldoutConstruction.fermatCurve_adjoinRoot_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3708/3805] Built HodgeComputer.Constructions.TransitiveCubic.BivariateExpressions (53s)
+info: HodgeComputer/Constructions/TransitiveCubic/BivariateExpressions.lean:89:0: 'TransitiveBivariateExpressions.multiply_denote' depends on axioms: [propext]
+ℹ [3709/3805] Built HodgeComputer.Constructions.HoldoutCover.ResiduePiolaPullback (43s)
+info: HodgeComputer/Constructions/HoldoutCover/ResiduePiolaPullback.lean:111:0: 'HoldoutConstruction.residue_piola_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResiduePiolaPullback.lean:112:0: 'HoldoutConstruction.residue_solution_piola_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResiduePiolaPullback.lean:113:0: 'HoldoutConstruction.residueDivergence_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResiduePiolaPullback.lean:114:0: 'HoldoutConstruction.residueDivergence_append_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3710/3805] Built HodgeComputer.Constructions.ResidueTransport.FirstJets (92s)
+info: HodgeComputer/Constructions/ResidueTransport/FirstJets.lean:182:0: 'ResidueFirstJets.ring_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/FirstJets.lean:183:0: 'ResidueFirstJets.invariant_from_cleared' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/FirstJets.lean:184:0: 'ResidueFirstJets.curve_from_syzygy' depends on axioms: [propext, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/FirstJets.lean:185:0: 'ResidueFirstJets.curve_from_syzygy27' depends on axioms: [propext, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/FirstJets.lean:186:0: 'ResidueFirstJets.squareZeroEval' depends on axioms: [propext, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/FirstJets.lean:187:0: 'ResidueFirstJets.curve_first_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/FirstJets.lean:188:0: 'ResidueFirstJets.differential_first_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/FirstJets.lean:189:0: 'ResidueFirstJets.differential_jet_from_cleared' depends on axioms: [propext, Quot.sound]
+ℹ [3711/3805] Built HodgeComputer.Constructions.HoldoutCover.ResidueClearing (98s)
+info: HodgeComputer/Constructions/HoldoutCover/ResidueClearing.lean:184:0: 'HoldoutConstruction.residue_common_representatives' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResidueClearing.lean:185:0: 'HoldoutConstruction.residue_fractionMap_kernel' depends on axioms: [propext, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResidueClearing.lean:186:0: 'HoldoutConstruction.cleared_normal_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResidueClearing.lean:187:0: 'HoldoutConstruction.legal_of_residue_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResidueClearing.lean:188:0: 'HoldoutConstruction.residue_divergence_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResidueClearing.lean:189:0: 'HoldoutConstruction.residue_solution_clearing' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3712/3805] Built HodgeComputer.Constructions.HoldoutCover.NormalDensity (52s)
+info: HodgeComputer/Constructions/HoldoutCover/NormalDensity.lean:303:0: 'HoldoutConstruction.normal_matrix_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/NormalDensity.lean:304:0: 'HoldoutConstruction.tangentInverse_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/NormalDensity.lean:305:0: 'HoldoutConstruction.tangentInverse_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/NormalDensity.lean:306:0: 'HoldoutConstruction.normal_density_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3713/3805] Built HodgeComputer.Constructions.HoldoutCover.HomogeneousIdeal (51s)
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousIdeal.lean:127:0: 'HoldoutConstruction.component_dvd_of_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousIdeal.lean:128:0: 'HoldoutConstruction.exists_legal_initial_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3714/3805] Built HodgeComputer.Constructions.HoldoutCover.FiniteDifferentials (109s)
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:149:0: 'HoldoutConstruction.FieldValuedFraction.extend_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:150:0: 'HoldoutConstruction.FieldValuedFraction.extend_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:151:0: 'HoldoutConstruction.FieldValuedFraction.extend_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:233:0: 'HoldoutConstruction.extendFiniteDerivation_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:234:0: 'HoldoutConstruction.finite_derivation_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:235:0: 'HoldoutConstruction.extendFiniteDerivation_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:404:0: 'HoldoutConstruction.extendRingDerivation_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:405:0: 'HoldoutConstruction.curveTime_coefficient_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:406:0: 'HoldoutConstruction.curveCoefficientDerivation_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+warning: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:481:0: automatically included section variable(s) unused in theorem `HoldoutConstruction.derivations_ext_finite_quotient_fraction`:
+  [IsDomain B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:503:0: 'HoldoutConstruction.derivations_agree_quotient_fraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:504:0: 'HoldoutConstruction.derivations_ext_finite_quotient_fraction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteDifferentials.lean:565:0: 'HoldoutConstruction.derivation_intertwines_quotient_fraction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3715/3805] Built HodgeComputer.Constructions.HoldoutCover.FiniteTrace (66s)
+info: HodgeComputer/Constructions/HoldoutCover/FiniteTrace.lean:126:0: 'HoldoutConstruction.trace_derivation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteTrace.lean:127:0: 'HoldoutConstruction.normalizedTrace_derivation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteTrace.lean:128:0: 'HoldoutConstruction.normalizedTrace_firstOrder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteTrace.lean:129:0: 'HoldoutConstruction.normalizedTrace_strict_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteTrace.lean:219:0: 'HoldoutConstruction.finiteNormalizedTrace_derivation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteTrace.lean:220:0: 'HoldoutConstruction.finiteNormalizedTrace_firstOrder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteTrace.lean:283:0: 'HoldoutConstruction.finiteNormalizedTrace_residue_solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteTrace.lean:284:0: 'HoldoutConstruction.residue_solution_descends_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3716/3805] Built HodgeComputer.Constructions.TransitiveCubic.GradeCheck (52s)
+info: HodgeComputer/Constructions/TransitiveCubic/GradeCheck.lean:155:0: 'TransitiveCubicGradeCheck.grade_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3717/3805] Built HodgeComputer.Constructions.ResidueTransport.Density (31s)
+info: HodgeComputer/Constructions/ResidueTransport/Density.lean:51:0: 'CycleResidueTransport.piola_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3718/3805] Built HodgeComputer.Constructions.ResidueTransport.CoordinateIndependence (50s)
+warning: HodgeComputer/Constructions/ResidueTransport/CoordinateIndependence.lean:15:0: automatically included section variable(s) unused in theorem `ResidueCoordinateIndependence.pderiv_degree_lt`:
+  [CharZero k]
+  [Fintype σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero k] [Fintype σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+info: HodgeComputer/Constructions/ResidueTransport/CoordinateIndependence.lean:90:0: 'ResidueCoordinateIndependence.injective_of_coordinate_derivations' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3719/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverScalars (81s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverScalars.lean:67:0: 'HoldoutConstruction.physical_cover_jacobian' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverScalars.lean:68:0: 'HoldoutConstruction.cover_source_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverScalars.lean:69:0: 'HoldoutConstruction.cover_normal_source_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverScalars.lean:135:0: 'HoldoutConstruction.coverResidueJacobian_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverScalars.lean:136:0: 'HoldoutConstruction.coverResidueJacobian_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3720/3805] Built HodgeComputer.Constructions.HoldoutCover.PolynomialFamily (36s)
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialFamily.lean:114:0: 'HoldoutConstruction.residue_solution_of_polynomial_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3721/3805] Built HodgeComputer.Constructions.TransitiveCubic.BivariateDifferentiation (51s)
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:34:23: This simp argument is unused:
+  denote
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dx, pderiv_mul, pderiv_pow, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:34:30: This simp argument is unused:
+  pderiv_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dx, denote, pderiv_pow, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:34:41: This simp argument is unused:
+  pderiv_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dx, denote, pderiv_mul, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:34:52: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dx, denote, pderiv_mul, pderiv_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:36:42: This simp argument is unused:
+  pderiv_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dx, denote, ringEval, ringEval_C, pderiv_pow, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:36:53: This simp argument is unused:
+  pderiv_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dx, denote, ringEval, ringEval_C, pderiv_mul, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:36:64: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dx, denote, ringEval, ringEval_C, pderiv_mul, pderiv_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:48:23: This simp argument is unused:
+  denote
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dy, pderiv_mul, pderiv_pow, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:48:30: This simp argument is unused:
+  pderiv_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dy, denote, pderiv_pow, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:48:41: This simp argument is unused:
+  pderiv_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dy, denote, pderiv_mul, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:48:52: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dy, denote, pderiv_mul, pderiv_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:50:42: This simp argument is unused:
+  pderiv_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dy, denote, ringEval, ringEval_C, pderiv_pow, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:50:53: This simp argument is unused:
+  pderiv_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dy, denote, ringEval, ringEval_C, pderiv_mul, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/TransitiveCubic/BivariateDifferentiation.lean:50:64: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dy, denote, ringEval, ringEval_C, pderiv_mul, pderiv_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [3722/3805] Built HodgeComputer.Constructions.ResidueTransport.MovingMap (49s)
+info: HodgeComputer/Constructions/ResidueTransport/MovingMap.lean:96:0: 'CycleMovingMap.moving_weierstrass_jet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/MovingMap.lean:97:0: 'CycleMovingMap.residue_source_from_jet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/ResidueTransport/MovingMap.lean:98:0: 'CycleMovingMap.moving_weierstrass_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3723/3805] Built HodgeComputer.Constructions.HoldoutCover.CommonCoverDomain (63s)
+info: HodgeComputer/Constructions/HoldoutCover/CommonCoverDomain.lean:101:0: 'HoldoutConstruction.commonCoverPolynomial_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CommonCoverDomain.lean:102:0: 'HoldoutConstruction.commonCover_adjoinRoot_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3724/3805] Built HodgeComputer.Constructions.HoldoutCover.CurveSeed (147s)
+info: HodgeComputer/Constructions/HoldoutCover/CurveSeed.lean:249:0: 'HoldoutConic.exists_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CurveSeed.lean:250:0: 'HoldoutConic.parameter_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CurveSeed.lean:251:0: 'HoldoutConic.exists_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CurveSeed.lean:252:0: 'HoldoutConic.Seed.base_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CurveSeed.lean:253:0: 'HoldoutConic.Seed.curve' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3725/3805] Built HodgeComputer.Constructions.HoldoutCover.EndpointFields (70s)
+info: HodgeComputer/Constructions/HoldoutCover/EndpointFields.lean:116:0: 'HoldoutConstruction.endpoint_adjoinRoot_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/EndpointFields.lean:117:0: 'HoldoutConstruction.endpointRoot_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/EndpointFields.lean:118:0: 'HoldoutConstruction.endpoint_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/EndpointFields.lean:190:0: 'HoldoutConstruction.endpointMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/EndpointFields.lean:191:0: 'HoldoutConstruction.endpointFieldMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3726/3805] Built HodgeComputer.Constructions.HoldoutCover.ResidueDerivatives (51s)
+info: HodgeComputer/Constructions/HoldoutCover/ResidueDerivatives.lean:141:0: 'HoldoutConstruction.factorDerivation_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResidueDerivatives.lean:142:0: 'HoldoutConstruction.residueTangent_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResidueDerivatives.lean:251:0: 'HoldoutConstruction.residue_derivations_commute_of_compatible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/ResidueDerivatives.lean:252:0: 'HoldoutConstruction.residueTangent_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3727/3805] Built HodgeComputer.Constructions.HoldoutCover.HypersurfaceCoordinates (78s)
+info: HodgeComputer/Constructions/HoldoutCover/HypersurfaceCoordinates.lean:172:0: 'HoldoutConstruction.weightedHypersurface_quotient_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HypersurfaceCoordinates.lean:173:0: 'HoldoutConstruction.holdoutSextic_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HypersurfaceCoordinates.lean:174:0: 'HoldoutConstruction.holdoutSextic_quotient_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3728/3805] Built HodgeComputer.Constructions.HoldoutCover.HomogeneousField (52s)
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousField.lean:223:0: 'HoldoutConstruction.denominator_replacement_divergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousField.lean:224:0: 'HoldoutConstruction.homogeneous_data_from_initial_denominator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3729/3805] Built HodgeComputer.Constructions.TransitiveCubic.EncodingCheck (41s)
+info: HodgeComputer/Constructions/TransitiveCubic/EncodingCheck.lean:120:0: 'TransitiveCubicEncodingCheck.identity_of_encoding' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3730/3805] Built HodgeComputer.Constructions.ResidueTransport (22s)
+⚠ [3731/3805] Built HodgeComputer.Constructions.HoldoutCover.AlgebraicFields (87s)
+warning: HodgeComputer/Constructions/HoldoutCover/AlgebraicFields.lean:36:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: HodgeComputer/Constructions/HoldoutCover/AlgebraicFields.lean:37:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+info: HodgeComputer/Constructions/HoldoutCover/AlgebraicFields.lean:42:0: 'HoldoutConstruction.finite_of_same_finite_trdeg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/AlgebraicFields.lean:166:0: 'HoldoutConstruction.monic_hypersurface_field_trdeg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/AlgebraicFields.lean:167:0: 'HoldoutConstruction.polynomial_fractionRing_trdeg' depends on axioms: [propext, Classical.choice, Quot.sound]
+warning: HodgeComputer/Constructions/HoldoutCover/AlgebraicFields.lean:199:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+info: HodgeComputer/Constructions/HoldoutCover/AlgebraicFields.lean:217:0: 'HoldoutConstruction.monic_root_embedding_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3732/3805] Built HodgeComputer.Constructions.HigherResidues.NormalTaylor (174s)
+warning: HodgeComputer/Constructions/HigherResidues/NormalTaylor.lean:24:0: automatically included section variable(s) unused in theorem `SplitNormalTaylor.normal_zero_coordinate`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/NormalTaylor.lean:65:4: This simp argument is unused:
+  Fin.sum_univ_four
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [secondJet, advect, restrictedHessian, Fin.sum_univ_succ, Fin.sum_univ_zero, hE, map_sub,
+    Derivation.leibniz, Derivation.leibniz_div, hEb, hEg, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: HodgeComputer/Constructions/HigherResidues/NormalTaylor.lean:77:0: 'SplitNormalTaylor.first_jet_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HigherResidues/NormalTaylor.lean:78:0: 'SplitNormalTaylor.second_jet_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3733/3805] Built HodgeComputer.Constructions.HoldoutCover.FermatFields (94s)
+info: HodgeComputer/Constructions/HoldoutCover/FermatFields.lean:90:0: 'HoldoutConstruction.fermat_base_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FermatFields.lean:91:0: 'HoldoutConstruction.fermat_base_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FermatFields.lean:92:0: 'HoldoutConstruction.baseAlpha_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FermatFields.lean:135:0: 'HoldoutConstruction.polynomialMap_injective_of_dense_evaluations' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FermatFields.lean:212:0: 'HoldoutConstruction.physicalCoverCoefficientMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FermatFields.lean:341:0: 'HoldoutConstruction.fermatBaseScaleEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FermatFields.lean:342:0: 'HoldoutConstruction.fermatBase_ringHom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FermatFields.lean:410:0: 'HoldoutConstruction.scaleLastVariableEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3734/3805] Built HodgeComputer.Constructions.HoldoutCover.GenericIncidence (177s)
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:128:0: 'HoldoutConstruction.jacobian_localized_etale' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:129:0: 'HoldoutConstruction.square_system_jacobian_etale' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:130:0: 'HoldoutConstruction.squareSystemEtaleEval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:131:0: 'HoldoutConstruction.square_system_jacobian_nontrivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:188:0: 'HoldoutConstruction.genericEtale_nontrivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:189:0: 'HoldoutConstruction.genericEtale_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:190:0: 'HoldoutConstruction.genericEtale_exists_fieldFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:302:0: 'HoldoutConstruction.squareGeneric_solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:303:0: 'HoldoutConstruction.squareGeneric_jacobian' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/GenericIncidence.lean:304:0: 'HoldoutConstruction.squareGeneric_exists_fieldFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3735/3805] Built HodgeComputer.Constructions.HoldoutCover.PolynomialFamilyBridge (43s)
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialFamilyBridge.lean:254:0: 'HoldoutConstruction.tangentInverse_full_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialFamilyBridge.lean:255:0: 'HoldoutConstruction.finite_quotient_tangent_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PolynomialFamilyBridge.lean:256:0: 'HoldoutConstruction.residue_solution_from_polynomial_curve' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3736/3805] Built HodgeComputer.Constructions.HoldoutCover.FiniteResidueClearing (30s)
+info: HodgeComputer/Constructions/HoldoutCover/FiniteResidueClearing.lean:207:0: 'HoldoutConstruction.finiteNormalizedTrace_residue_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteResidueClearing.lean:208:0: 'HoldoutConstruction.finiteNormalizedTrace_residue_equation_value' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteResidueClearing.lean:209:0: 'HoldoutConstruction.finite_residue_solution_clearing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteResidueClearing.lean:210:0: 'HoldoutConstruction.finite_residue_solution_clearing_canonical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FiniteResidueClearing.lean:211:0: 'HoldoutConstruction.finite_residue_solution_clearing_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3737/3805] Built HodgeComputer.Constructions.HoldoutCover.HomogeneousCertificate (32s)
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousCertificate.lean:142:0: 'HoldoutConstruction.denominator_congruence_divergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousCertificate.lean:143:0: 'HoldoutConstruction.homogeneous_data_of_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousCertificate.lean:236:0: 'HoldoutConstruction.hasCertificate_of_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/HomogeneousCertificate.lean:237:0: 'HoldoutConstruction.holdout_hasCertificate_of_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3738/3805] Built HodgeComputer.Constructions.PolynomialCurves.ArithmeticLifting (29s)
+warning: HodgeComputer/Constructions/PolynomialCurves/ArithmeticLifting.lean:50:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: HodgeComputer/Constructions/PolynomialCurves/ArithmeticLifting.lean:62:0: automatically included section variable(s) unused in theorem `ReflectionCoupledFano.anchored_constantCoeff`:
+  [IsDomain S]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain S] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+info: HodgeComputer/Constructions/PolynomialCurves/ArithmeticLifting.lean:105:0: 'ReflectionCoupledFano.square_system_generic_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/PolynomialCurves/ArithmeticLifting.lean:106:0: 'ReflectionCoupledFano.anchored_polynomial_family_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3739/3805] Built HodgeComputer.Constructions.HoldoutCover.EndpointDerivations (45s)
+info: HodgeComputer/Constructions/HoldoutCover/EndpointDerivations.lean:188:0: 'HoldoutConstruction.endpoint_normal_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/EndpointDerivations.lean:189:0: 'HoldoutConstruction.endpointTangents_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/EndpointDerivations.lean:190:0: 'HoldoutConstruction.endpointTangent_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3740/3805] Built HodgeComputer.Constructions.HoldoutCover.CurveFamily (206s)
+ℹ [3741/3805] Built HodgeComputer.Constructions.HoldoutCover.PhysicalCoverEmbedding (34s)
+info: HodgeComputer/Constructions/HoldoutCover/PhysicalCoverEmbedding.lean:97:0: 'HoldoutConstruction.holdoutPolynomial_commonCover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PhysicalCoverEmbedding.lean:98:0: 'HoldoutConstruction.physicalCommonCoverMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PhysicalCoverEmbedding.lean:99:0: 'HoldoutConstruction.fermatCommonCover_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3742/3805] Built HodgeComputer.Constructions.HoldoutCover.QuotientCoverEmbedding (36s)
+info: HodgeComputer/Constructions/HoldoutCover/QuotientCoverEmbedding.lean:143:0: 'HoldoutConstruction.quadratic_cover_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/QuotientCoverEmbedding.lean:144:0: 'HoldoutConstruction.quotientCoverCoefficientMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/QuotientCoverEmbedding.lean:145:0: 'HoldoutConstruction.quotientCommonCoverMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3743/3805] Built HodgeComputer.Constructions.HoldoutCover.ConicNormal (26s)
+info: HodgeComputer/Constructions/HoldoutCover/ConicNormal.lean:122:0: 'HoldoutConicIncidence.exists_polynomial_normal' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3744/3805] Built HodgeComputer.Constructions.HoldoutCover.CommonCoverBaseChange (24s)
+info: HodgeComputer/Constructions/HoldoutCover/CommonCoverBaseChange.lean:131:0: 'HoldoutConstruction.commonCoverBaseChange_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CommonCoverBaseChange.lean:132:0: 'HoldoutConstruction.physicalGenericCoverMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3745/3805] Built HodgeComputer.Constructions.PolynomialCurves.ComplexPoint (61s)
+warning: HodgeComputer/Constructions/PolynomialCurves/ComplexPoint.lean:31:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: HodgeComputer/Constructions/PolynomialCurves/ComplexPoint.lean:33:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: HodgeComputer/Constructions/PolynomialCurves/ComplexPoint.lean:34:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3746/3805] Built HodgeComputer.Constructions.PolynomialCurves.NormalizedCertificate (47s)
+warning: HodgeComputer/Constructions/PolynomialCurves/NormalizedCertificate.lean:102:8: This simp argument is unused:
+  map_div₀
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ρ, finiteQuotientEvaluation, RingHom.comp_apply, map_sub, map_mul, map_pow, integerPartial_apply,
+    residueDivergence, fieldDivergence, Finset.sum_sub_distrib, div_eq_mul_inv, map_inv₀, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/PolynomialCurves/NormalizedCertificate.lean:93:10: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: HodgeComputer/Constructions/PolynomialCurves/NormalizedCertificate.lean:104:54: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: HodgeComputer/Constructions/PolynomialCurves/NormalizedCertificate.lean:93:10: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: HodgeComputer/Constructions/PolynomialCurves/NormalizedCertificate.lean:104:54: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: HodgeComputer/Constructions/PolynomialCurves/NormalizedCertificate.lean:100:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: HodgeComputer/Constructions/PolynomialCurves/NormalizedCertificate.lean:120:0: 'ReflectionCoupledFano.normalized_data_from_polynomial_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

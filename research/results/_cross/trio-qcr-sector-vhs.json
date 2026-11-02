@@ -1,0 +1,40 @@
+{
+ "lane": "quadric-contact-residual",
+ "n_Def": 26,
+ "chiA": [
+  0,
+  0,
+  0,
+  3
+ ],
+ "1000003": {
+  "p": 1000003,
+  "dims": {
+   "R6_diag_sector": 30,
+   "R12_diag_sector": 76,
+   "R18_diag_sector": 30
+  },
+  "dim_eps_S6": 0,
+  "dim_eps_R6": 0,
+  "dim_Def_xi_in_R12": 22,
+  "dim_Def2_xi_in_R18": 22,
+  "dim_ker_in_eps_S6": 0,
+  "dim_K_annihilated_by_Def_in_R6eps": 0,
+  "seconds": 8.7
+ },
+ "998244353": {
+  "p": 998244353,
+  "dims": {
+   "R6_diag_sector": 30,
+   "R12_diag_sector": 76,
+   "R18_diag_sector": 30
+  },
+  "dim_eps_S6": 0,
+  "dim_eps_R6": 0,
+  "dim_Def_xi_in_R12": 22,
+  "dim_Def2_xi_in_R18": 22,
+  "dim_ker_in_eps_S6": 0,
+  "dim_K_annihilated_by_Def_in_R6eps": 0,
+  "seconds": 7.7
+ }
+}

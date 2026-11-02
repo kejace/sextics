@@ -3,3 +3,4 @@
 - [Subagents must log incrementally](feedback-subagent-incremental-logging.md) — append-as-you-go logs and running reports; a crash lost unsaved agent work
 - [Keep one session](feedback-single-session.md) — check for a live `claude --resume` before resuming workflows; two copies duplicate agents
 - [Hodge Lean capacity](hodge-lean-capacity.md) — verifier limits, kernel facts, Kronecker big-integer checker + proposal generator (2026-11-02)
+- [Hodge collaborators](hodge-collaborators.md) — who fqlx/benediamond/DiamondJM/hodgepodgeconjecture are, where their cited work lives (pin DiamondJM sweep to commit af0589e)

@@ -19,8 +19,8 @@ Computation (unknowns p in a chart, auxiliary m with H_ij(p) = F_i(p) m_j + m_i 
    in Y over k(X) with Gram determinant 2abc = 2(5/14)(5/7)(15/14) x^4 y^4 z^4 != 0 (rank 3), so M is divisible by no
    linear form in Y; 2.7's "mixed term = s * (linear in u'')" fails for EVERY linear form s(Y). On the X side the pure
    block K has no sixth power of a linear form at all (K has no point p with F(p) != 0 satisfying (DP): charts x,y,z empty).
- => RIGOROUS (mod p now, exact pending): no 2.7-type cover with a linear exchange exists for F, for any coordinate pairing
-    or non-coordinate linear form, with any complement and any base form N.
+ => RIGOROUS (exact over Qbar in five charts, mod p in chart s): no 2.7-type cover with a linear exchange exists for F,
+    for any coordinate pairing or non-coordinate linear form, with any complement and any base form N.
 
 ## 2.2 Fibrewise automorphisms of the Y-ratio fibrations (base-change / dihedral mechanism of part 1.3)
 A base-change cover Z = X x_B B' with an exchange not defined over k(B) requires Aut(geometric generic fibre) to be
@@ -40,18 +40,19 @@ Results:
    automorphisms for non-ruled smooth fibres) => Aut(S_eta-bar) = <sigma,tau> for the geometric generic fibre of X -> P^2_Y.
    THEOREM: the P^2_Y fibration carries no exchange (linear or birational) over any base cover; mechanism 1.3 is impossible there.
  * THREEFOLD FIBRE V_(1,2) (smooth): EXACT over Qbar: charts x,y,z: one point each; chart t: exactly 6 points
-   (t^6 = -65 T^6, irreducible sextic over Q), ideal length 4 each; chart T: running (mod p: the same 6 points).
+   (t^6 = -65 T^6, irreducible sextic over Q), ideal length 4 each; chart T: exactly the same 6 points.
    So Sigma(V) = 9 points, Aut(V) = Z/14 (monomial group Z/14, no permutations), and by Matsusaka-Mumford the geometric
    generic fibre of X -> P^1_{[r:s]} has Aut = <sigma,tau>: no exchange. Pairings [t:r], [t:s] (V2_(1,2), V3_(1,2)):
    monomial groups Z/14 (hand count + permutation test); Sigma computations detached (chart x of V2 exact: one point).
  * FOURFOLD X: Sigma(X) = {e_x,e_y,e_z} (ideal length 4 each) + 18 Fermat hyperflex points {x=y=z=0, one of t,r,s = 0,
    ratio a 12th root of unity with 6th power -1} (12 points per chart t,r,s, length 22 each). EXACT over Qbar: charts
-   x,y,z: one point each; charts t,r: 12 points each (elim polynomial factors of degrees 2,2,4,4 = the two families
-   r^6 = -1, s^6 = -1 over Q); chart s: running (mod p: 12). With the multiplicity separation (3 vs 4) and the monomial
-   classification this gives Aut(X) = Z/14, closing dossier 1.5's open item "complete classification of finite
-   non-diagonal linear automorphisms" (modulo the last chart, which by the t <-> r <-> s structure cannot differ).
+   x,y,z: one point each; charts t,r,s: 12 points each (elim polynomial factors of degrees 2,2,4,4 = the two families
+   with sixth power -1 over Q). So Sigma(X)_Qbar = exactly these 21 points. With the multiplicity separation (3 vs 4,
+   sympy-verified), the block-monomial argument, Aut(Fermat sextic curve) = (mu_6)^2 x| S_3 and the monomial
+   classification: THEOREM  Aut(X) = <sigma,tau> = Z/14  (closes dossier 1.5's open item).
  * EXCHANGE DIRECTIONS (2.1) EXACT: off-X chart x: empty over Qbar; chart t: exactly one point (e_t) over Qbar
-   (ideal length 117); charts y,z,r,s: mod p only (detached char-0 runs logged as detached-char0-run).
+   (ideal length 117); charts y,z: empty; chart r: exactly one point (e_r); chart s: mod p one point (char-0 run
+   detached, logged as detached-char0-run). So the (DP) points off X are exactly e_t, e_r, e_s: 2.1 is EXACT.
 
 ## 2.3 Hodge-theoretic facts used for the fibrations (hand, from the Jacobian rings of the fibres)
  * S_Y: H^{2,0} = R_2 = all 10 quadrics in (x,y,z,lambda); sigma-weights x:1,y:2,z:4,lambda:0 => the zeta^3-eigenspace of

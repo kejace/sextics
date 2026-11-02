@@ -122,11 +122,13 @@ The only "consistent" line of the whole wave is the expected trivial one: the su
 is 6F, so its square D = 36 F^2 is consistent (D = F G is automatically consistent at q = 2 whenever [A][G] = 0 in R;
 here G = F in J) and illegal (F | D).  It is not a witness.
 
-Structured modular sweep (chain D3, two primes, sector solver `eq.test_D_fast`): 110/117 Hessian 2x2 minors tested at
-d = 8 (104 fail E1, 6 pass E1 and are inconsistent, ranks 909-1062), 201/210 Hessian 3x3 minors at d = 12 (199 pass E1,
-all inconsistent, ranks 2614-3510), 24/63 subset-Euler forms E_I(F) at d = 6 (all pass E1, all inconsistent, ranks
-595-629) and 16 of their squares at d = 12 (inconsistent, ranks 2818-3003); block cubics, F_i F_j and the pencil scans
-follow.
+Structured modular sweep (chain D3, two primes, sector solver `eq.test_D_fast`), 23:27: all 63 subset-Euler forms
+E_I(F) at d = 6 (all pass E1, all inconsistent, ranks 448-629) and all 63 squares at d = 12 (inconsistent, ranks
+1678-3025, the single consistent one being 36 F^2), 110 Hessian 2x2 minors at d = 8 (104 fail E1, 6 inconsistent),
+201/210 Hessian 3x3 minors at d = 12 (2 fail E1, rest inconsistent, ranks 2614-3510), all 21 products F_i F_j at d = 10
+(inconsistent, ranks 1690-1997), the block-q2 cubics P(X_i^2, Y_i^2) and X_i^6 - Y_i^6 (fail E1) and their squares
+(inconsistent), the three pair-Fermat products (X_i^6+Y_i^6)(X_j^6+Y_j^6) (inconsistent).  The exact pencil scans of
+the nine 2-dimensional d = 6 sectors run after the sweep.
 
 | q | target | d | family | sectors | restarts | system (rows x unknowns) | best rel over all sectors | median of sector-best rel | candidates (rel < 1e-10) |
 |---|---|---:|---|---:|---:|---|---:|---:|---:|
@@ -135,10 +137,11 @@ follow.
 
 | 1 | B (sibling) | 8 | kernel, deflated (chain E3, finished) | 72 | 10800 | <= 297 x 79 | 4.5e-7 (best non-spurious) | 0.73 | 0 |
 | 1 | B (sibling) | 9 | kernel, deflated (chain E3; run cut short at 22:47 by a mistaken process kill, 16 of 72 sectors sampled) | 16 | 725 | <= 492 x 150 | 9.2e-7 (non-spurious) | 4.4e-6 | 0 |
-| 2 | A | 7 | kernel (chain A4 sample; A5 completes the other 40 sectors) | 32 of 72 | 320 | <= 766 x 458 | 1.2e-3 | 0.040 | 0 |
-| 2 | A | 7 | mult4 sub-families (mult >= 4 at X ∩ coordinate line; chain B5) | 65 | 885 | <= 766 x 458 | 9.9e-4 | 0.097 | 0 |
-| 2 | A | 7 | cone4 sub-families (line-vertex cones; chain B5) | 42 | 531 | <= 766 x 454 | 0.26 | 0.86 | 0 |
-| 2 | A | 8 | cone4 sub-families (chain B5, running) | 19 | 285 | <= 1152 x 690 | 0.17 | 0.51 | 0 |
+| 1 | B (sibling) | 10 | kernel, deflated (chain E3, running) | 16 of 72 | 320 | <= 766 x 279 | 1.9e-7 (non-spurious) | 1.2e-6 | 0 |
+| 2 | A | 7 | kernel (chains A4/A5; 10 restarts per sector) | 45 of 72 | 450 | <= 766 x 458 | 4.8e-4 | 0.038 | 0 |
+| 2 | A | 7 | mult4 sub-families (mult >= 4 at X ∩ coordinate line; chain B5) | 109 | 1149 | <= 766 x 458 | 9.9e-4 | 0.097 | 0 |
+| 2 | A | 7 | cone4 sub-families (line-vertex cones; chain B5) | 45 | 549 | <= 766 x 454 | 0.26 | 0.86 | 0 |
+| 2 | A | 8 | cone4 sub-families (chain B5, running) | 23 | 345 | <= 1152 x 690 | 0.17 | 0.51 | 0 |
 
 Sibling note: with the deflated residual r/dist(a,L)^2, 20-40 % of the restarts in sectors containing F-multiples still
 end within 5 % of L (flagged spurious; e.g. sector 609: 51 of 150 restarts below 1e-10 are all spurious), and the best
