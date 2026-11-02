@@ -13,3 +13,5 @@
 [10:07:33] start d10all-c01 (eff 66) elapsed 3849s
    -> best 3.618e-03 median 3.618e-03 restarts 11 dimP 66 t/restart 362.79 witness False
 [10:17:37] start d10all-c35 (eff 66) elapsed 4453s
+   -> best 3.618e-03 median 3.618e-03 restarts 16 dimP 66 t/restart 251.45 witness False
+[10:27:07] start d10all-c05 (eff 65) elapsed 5022s
