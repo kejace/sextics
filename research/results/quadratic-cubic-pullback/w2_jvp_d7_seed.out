@@ -1,1 +1,11 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[jvp d=7] K=63 (w 63) dimP=60 nout=5796  nc=420 nQ=636 k=620 built in 51.3s
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/w2_jvp.py", line 657, in <module>
+    main()
+  File "/tmp/hodge/results/quadratic-cubic-pullback/w2_jvp.py", line 622, in main
+    _worker(a, a.seed, a.restarts, a.restarts2, out)
+  File "/tmp/hodge/results/quadratic-cubic-pullback/w2_jvp.py", line 641, in _worker
+    for line in open(path):
+                ^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'w2_jvp_d7_even_r1_s7005.jsonl'

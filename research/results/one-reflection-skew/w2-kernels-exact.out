@@ -19,3 +19,5 @@
 {"event": "exact-kernel", "inst": "one-reflection-skew", "d": 10, "rho": 0, "sigma": 0, "target": "A", "kerD": 250, "primes_used": 122, "max_height_bits": 1526, "cached": false, "secs": 412.5}
 {"event": "exact-kernel", "inst": "one-reflection-skew", "d": 10, "rho": 0, "sigma": 0, "target": "Aplus", "kerD": 237, "primes_used": 79, "max_height_bits": 1110, "cached": false, "secs": 2274.3}
 {"event": "exact-kernel", "inst": "one-reflection-skew", "d": 10, "rho": 0, "sigma": 1, "target": "A", "kerD": 229, "primes_used": 122, "max_height_bits": 1523, "cached": false, "secs": 806.7}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 10, "rho": 0, "sigma": 1, "target": "Aplus", "kerD": 216, "primes_used": 79, "max_height_bits": 1092, "cached": false, "secs": 2356.6}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 10, "rho": 1, "sigma": 0, "target": "A", "kerD": 223, "primes_used": 98, "max_height_bits": 1375, "cached": false, "secs": 384.2}

@@ -50,12 +50,20 @@ else:
 w2lib.append_json(out, {'t': 0.0, 'relres': float(fam.relres(u)), 'start': args.start})
 if args.multi:
     # Stage 1: many t=0 solutions; Stage 2: first-order survival at t1; Stage 3: continue the best path(s)
+    # Stage 1 in the (smaller) colon family of F0 -- much higher hit rate than the full monomial family
+    cb, cg, cinfo = w2lib.build_family(F0, A, q, args.d, c, 'colon')
+    cfam = w2lib.SectorVarPro(F0, A, q, cb, c, gauge=cg)
+    print(f'stage-1 colon family of F0: K={cfam.K} dimP={cfam.dimP}', flush=True)
     sols = []
     seed = 0
-    while len(sols) < args.multi and seed < 20 * args.multi:
-        r = fam.lm_from(seed, maxiter=args.maxiter); seed += 1
+    while len(sols) < args.multi and seed < 12 * args.multi:
+        r = cfam.lm_from(seed, maxiter=args.maxiter); seed += 1
         if r['relres'] < 1e-10:
-            sols.append(r['Dc'])
+            Dc_full = np.zeros(fam.nD)
+            for i, mmon in enumerate(cfam.Dm):
+                Dc_full[mons.index(mmon)] = r['Dc'][i]
+            sols.append(Dc_full)
+            print(f'  t=0 solution {len(sols)} at seed {seed-1}', flush=True)
     print(f't=0: found {len(sols)} solutions in {seed} restarts', flush=True)
     fam1, Ft1 = family_at(args.t1)
     surv = []

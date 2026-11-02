@@ -83,3 +83,4 @@
 [stage1 d=7] restart 10: rel=1.825e-04 |B|=3.090e+01 nfev=172 (3249s)
 [stage2 d=7] start 0: rel=3.623e-03 (stage1 2.71e-02) nit=83 (2916s)
 [stage2 d=7] start 0: rel=2.412e-03 (stage1 1.19e-02) nit=93 (2956s)
+[stage2 d=7] start 0: rel=2.996e-03 (stage1 1.93e-02) nit=99 (3778s)

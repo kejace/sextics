@@ -1,0 +1,41 @@
+// Smoothness of the Galois closure Zt = {X2^3 + Xb^3 + t*C = 0, X2^3*Xb^3 - H = 0} in P^6, t = 5/7, char p.
+LIB "primdec.lib";
+ring R = 32003, (X0,X1,X2,Xb,Y0,Y1,Y2), dp;
+number t = 5/7;
+poly C = X0^3 + X0*Y1*Y2 + X1*Y0*Y1;
+poly H = X0^6 + X1^6 + Y0^6 + Y1^6 + Y2^6 + t*(X0^3*X1*Y0*Y1 + X0^2*Y0*Y1*Y2^2 + X0*X1*Y1^3*Y2);
+poly f1 = X2^3 + Xb^3 + t*C;
+poly f2 = X2^3*Xb^3 - H;
+ideal I = f1, f2;
+matrix J = jacob(I);
+ideal S = I + minor(J, 2);
+S = std(S);
+print("dim of singular locus (affine cone; 1 means empty projectively):");
+print(dim(S));
+// also the sigma-quotient Zt/sigma = {s1^3 - 3 s1 s2 + tC = 0, s2^3 = H} in P(1,1,1,1,1,1,2): check its singular
+// locus on the ambient weighted space (quasi-smoothness via the affine cone minus the origin)
+ring R2 = 32003, (X0,X1,Y0,Y1,Y2,s1,s2), wp(1,1,1,1,1,1,2);
+number t = 5/7;
+poly C = X0^3 + X0*Y1*Y2 + X1*Y0*Y1;
+poly H = X0^6 + X1^6 + Y0^6 + Y1^6 + Y2^6 + t*(X0^3*X1*Y0*Y1 + X0^2*Y0*Y1*Y2^2 + X0*X1*Y1^3*Y2);
+ideal I2 = s1^3 - 3*s1*s2 + t*C, s2^3 - H;
+matrix J2 = jacob(I2);
+ideal S2 = std(I2 + minor(J2, 2));
+print("dim of singular locus of the affine cone over Zt/sigma (1 = quasi-smooth):");
+print(dim(S2));
+// Y = {s2^3 = H} in P(1^5,2): quasi-smooth?
+ring R3 = 32003, (X0,X1,Y0,Y1,Y2,s2), wp(1,1,1,1,1,2);
+number t = 5/7;
+poly H = X0^6 + X1^6 + Y0^6 + Y1^6 + Y2^6 + t*(X0^3*X1*Y0*Y1 + X0^2*Y0*Y1*Y2^2 + X0*X1*Y1^3*Y2);
+ideal I3 = s2^3 - H;
+ideal S3 = std(I3 + jacob(I3));
+print("dim sing cone of Y = {u^3 = H} (1 = quasi-smooth):");
+print(dim(S3));
+// the branch 3-fold B = {H = 0} in P^4: smooth?
+ring R4 = 32003, (X0,X1,Y0,Y1,Y2), dp;
+number t = 5/7;
+poly H = X0^6 + X1^6 + Y0^6 + Y1^6 + Y2^6 + t*(X0^3*X1*Y0*Y1 + X0^2*Y0*Y1*Y2^2 + X0*X1*Y1^3*Y2);
+ideal S4 = std(ideal(H) + jacob(H));
+print("dim sing cone of B = {H=0} in P^4 (1 = smooth):");
+print(dim(S4));
+quit;

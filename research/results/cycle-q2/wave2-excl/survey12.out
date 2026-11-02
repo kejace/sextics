@@ -45,3 +45,33 @@ d=12: 72 sectors, dimS_d=6188
 [3, 0, 4] dimS 87 K 87 J 63 | dim K = 1: single element tested above (complement 24) | [] 54.0
 [3, 1, 0] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 49.4
 [3, 1, 2] dimS 87 K 87 J 63 | dim K = 1: single element tested above (complement 24) | [] 33.2
+[3, 1, 1] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 52.8
+[3, 1, 3] dimS 87 K 87 J 64 | dim K = 1: single element tested above (complement 23) | [] 49.3
+[3, 1, 4] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 45.7
+[3, 2, 2] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 26.8
+[3, 1, 5] dimS 84 K 84 J 61 | dim K = 1: single element tested above (complement 23) | [] 55.2
+[3, 2, 0] dimS 84 K 84 J 61 | dim K = 1: single element tested above (complement 23) | [] 54.5
+[3, 2, 1] dimS 90 K 90 J 64 | dim K = 1: single element tested above (complement 26) | [] 47.5
+[3, 2, 3] dimS 90 K 90 J 64 | dim K = 1: single element tested above (complement 26) | [] 52.3
+[3, 2, 4] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 53.3
+[3, 3, 1] dimS 81 K 81 J 58 | dim K = 1: single element tested above (complement 23) | [] 38.8
+[3, 3, 0] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 48.1
+[3, 3, 2] dimS 81 K 81 J 58 | dim K = 1: single element tested above (complement 23) | [] 42.9
+[3, 2, 5] dimS 90 K 90 J 66 | dim K = 1: single element tested above (complement 24) | [] 63.0
+[3, 3, 3] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 42.0
+[3, 3, 5] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 37.7
+[3, 4, 0] dimS 81 K 81 J 58 | dim K = 1: single element tested above (complement 23) | [] 36.1
+[3, 4, 1] dimS 86 K 86 J 60 | dim K = 1: single element tested above (complement 26) | [] 47.4
+[3, 3, 4] dimS 84 K 84 J 61 | dim K = 1: single element tested above (complement 23) | [] 65.5
+[3, 4, 4] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 32.2
+[3, 4, 2] dimS 81 K 81 J 58 | dim K = 1: single element tested above (complement 23) | [] 59.9
+[3, 5, 0] dimS 81 K 81 J 58 | dim K = 1: single element tested above (complement 23) | [] 31.3
+[3, 4, 5] dimS 90 K 89 J 64 | dim K = 1: single element tested above (complement 25) | [] 48.8
+[3, 4, 3] dimS 90 K 90 J 64 | dim K = 1: single element tested above (complement 26) | [] 57.2
+[3, 5, 2] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 33.5
+[3, 5, 1] dimS 81 K 81 J 58 | dim K = 1: single element tested above (complement 23) | [] 43.4
+[3, 5, 5] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 18.0
+[3, 5, 3] dimS 87 K 87 J 63 | dim K = 1: single element tested above (complement 24) | [] 37.4
+[3, 5, 4] dimS 87 K 87 J 64 | dim K = 1: single element tested above (complement 23) | [] 29.3
+TOTAL dim K_12 = 6187, dim J_12 = 4437, non-Jacobian = 1750
+SURVEY DONE

@@ -1,0 +1,5 @@
+ring r = 999999937,(u0),dp;
+ideal I = 1*u0^2;
+option(redSB); I = std(I);
+print(dim(I)); print(vdim(I));
+quit;

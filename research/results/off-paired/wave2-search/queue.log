@@ -53,3 +53,9 @@
 21:50:49 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
 21:53:24 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
 21:56:00 submitting d10h0 (cpus 8); running now: ['search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']
+up: done ['off-paired']
+submit search-off-paired-s2-d10h0: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d10h0)
+21:58:25 d10h0 confirmed submitted
+21:59:00 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+22:01:34 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+22:04:11 submitting d11c00c30 (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']

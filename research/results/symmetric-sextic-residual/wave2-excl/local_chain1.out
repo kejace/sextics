@@ -56,3 +56,26 @@ products done 5.2s
 [Reducer] deg=14 par=1 p=2147483647 mons=5796 gens=6006 rank=5052 (CI 5052) ring=744 309.5s
 quadrics: 741 in 61 unknowns (651.9s)
 {"msolve_rc": -9, "msolve_seconds": 3347.6, "verdict": "msolve failed/timeout"}
+[E1Family] d=1 pD=0 p=2147483629 rows=396 nA=3 nJ=63 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.0s
+{"exp": "e1-kernel", "d": 1, "pD": 0, "prime": 2147483629, "rows": 396, "nA": 3, "nJ": 63, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 63, "rankJtop_CI": 63, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.1}
+[E1Family] d=1 pD=1 p=2147483629 rows=396 nA=3 nJ=63 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.0s
+{"exp": "e1-kernel", "d": 1, "pD": 1, "prime": 2147483629, "rows": 396, "nA": 3, "nJ": 63, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 63, "rankJtop_CI": 63, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.1}
+[E1Family] d=2 pD=0 p=2147483629 rows=636 nA=12 nJ=168 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.1s
+{"exp": "e1-kernel", "d": 2, "pD": 0, "prime": 2147483629, "rows": 636, "nA": 12, "nJ": 168, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 168, "rankJtop_CI": 168, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.2}
+[E1Family] d=2 pD=1 p=2147483629 rows=651 nA=9 nJ=168 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.1s
+{"exp": "e1-kernel", "d": 2, "pD": 1, "prime": 2147483629, "rows": 651, "nA": 9, "nJ": 168, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 168, "rankJtop_CI": 168, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.2}
+[E1Family] d=3 pD=0 p=2147483629 rows=1001 nA=28 nJ=378 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.5s
+{"exp": "e1-kernel", "d": 3, "pD": 0, "prime": 2147483629, "rows": 1001, "nA": 28, "nJ": 378, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 378, "rankJtop_CI": 378, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.9}
+[E1Family] d=3 pD=1 p=2147483629 rows=1001 nA=28 nJ=378 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.4s
+{"exp": "e1-kernel", "d": 3, "pD": 1, "prime": 2147483629, "rows": 1001, "nA": 28, "nJ": 378, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 378, "rankJtop_CI": 378, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.9}
+[E1Family] d=4 pD=0 p=2147483629 rows=1491 nA=66 nJ=756 nullity=9 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 1.5s
+{"exp": "e1-kernel", "d": 4, "pD": 0, "prime": 2147483629, "rows": 1491, "nA": 66, "nJ": 756, "nullity": 9, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 747, "rankJtop_CI": 747, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 2.9}
+[E1Family] d=4 pD=1 p=2147483629 rows=1512 nA=60 nJ=756 nullity=6 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 1.7s
+{"exp": "e1-kernel", "d": 4, "pD": 1, "prime": 2147483629, "rows": 1512, "nA": 60, "nJ": 756, "nullity": 6, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 750, "rankJtop_CI": 750, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 3.1}
+[E1Family] d=5 pD=0 p=2147483629 rows=2184 nA=126 nJ=1386 nullity=48 dimK=3 dimJd=3 ker_R=0 (CI dimJd 3) 5.3s
+{"exp": "e1-kernel", "d": 5, "pD": 0, "prime": 2147483629, "rows": 2184, "nA": 126, "nJ": 1386, "nullity": 48, "dimK": 3, "dimJd": 3, "ci_dimJd": 3, "ker_R": 0, "rankJtop_modp": 1341, "rankJtop_CI": 1341, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 18.6}
+[E1Family] d=5 pD=1 p=2147483629 rows=2184 nA=126 nJ=1386 nullity=48 dimK=3 dimJd=3 ker_R=0 (CI dimJd 3) 13.3s
+{"exp": "e1-kernel", "d": 5, "pD": 1, "prime": 2147483629, "rows": 2184, "nA": 126, "nJ": 1386, "nullity": 48, "dimK": 3, "dimJd": 3, "ci_dimJd": 3, "ker_R": 0, "rankJtop_modp": 1341, "rankJtop_CI": 1341, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 17.7}
+[E1Family] d=6 pD=0 p=2147483629 rows=3080 nA=236 nJ=2376 nullity=180 dimK=18 dimJd=18 ker_R=0 (CI dimJd 18) 29.5s
+{"exp": "e1-kernel", "d": 6, "pD": 0, "prime": 2147483629, "rows": 3080, "nA": 236, "nJ": 2376, "nullity": 180, "dimK": 18, "dimJd": 18, "ci_dimJd": 18, "ker_R": 0, "rankJtop_modp": 2214, "rankJtop_CI": 2214, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 63.1}
+[E1Family] d=6 pD=1 p=2147483629 

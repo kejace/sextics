@@ -1,0 +1,252 @@
+[
+ {
+  "base": [
+   "X0",
+   "X1",
+   "X2"
+  ],
+  "K_b_exponents": [
+   0,
+   3
+  ],
+  "order_Kb": 2,
+  "pg_fibre_quotient": 3
+ },
+ {
+  "base": [
+   "X0",
+   "X1",
+   "Y0"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X0",
+   "X1",
+   "Y1"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X0",
+   "X1",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X0",
+   "X2",
+   "Y0"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X0",
+   "X2",
+   "Y1"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X0",
+   "X2",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X0",
+   "Y0",
+   "Y1"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X0",
+   "Y0",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X0",
+   "Y1",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X1",
+   "X2",
+   "Y0"
+  ],
+  "K_b_exponents": [
+   0,
+   2,
+   4
+  ],
+  "order_Kb": 3,
+  "pg_fibre_quotient": 4
+ },
+ {
+  "base": [
+   "X1",
+   "X2",
+   "Y1"
+  ],
+  "K_b_exponents": [
+   0,
+   2,
+   4
+  ],
+  "order_Kb": 3,
+  "pg_fibre_quotient": 4
+ },
+ {
+  "base": [
+   "X1",
+   "X2",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X1",
+   "Y0",
+   "Y1"
+  ],
+  "K_b_exponents": [
+   0,
+   2,
+   4
+  ],
+  "order_Kb": 3,
+  "pg_fibre_quotient": 4
+ },
+ {
+  "base": [
+   "X1",
+   "Y0",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X1",
+   "Y1",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X2",
+   "Y0",
+   "Y1"
+  ],
+  "K_b_exponents": [
+   0,
+   2,
+   4
+  ],
+  "order_Kb": 3,
+  "pg_fibre_quotient": 4
+ },
+ {
+  "base": [
+   "X2",
+   "Y0",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "X2",
+   "Y1",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0
+  ],
+  "order_Kb": 1,
+  "pg_fibre_quotient": 10
+ },
+ {
+  "base": [
+   "Y0",
+   "Y1",
+   "Y2"
+  ],
+  "K_b_exponents": [
+   0,
+   3
+  ],
+  "order_Kb": 2,
+  "pg_fibre_quotient": 3
+ }
+]

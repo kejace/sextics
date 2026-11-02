@@ -1,0 +1,16 @@
+{"check": "fixedD", "label": "X1*D0*FX2", "d": 10, "char": [2, 5], "field": "F_1000000009", "rows": 4541, "cols": 1046, "nN": 756, "nQ": 290, "rank_M": 920, "rank_aug": 921, "nullity": 126, "explicit_kernel": 126, "inconsistent": true, "seconds": 13.6, "verdict": "MODULAR inconsistent; rank sandwich HOLDS (nullity == explicit kernel) => exact exclusion"}
+{"check": "E1", "label": "X0*H*C", "d": 11, "char": [3, 0], "field": "F_1000000009", "rows": 862, "cols": 1253, "rank_J": 835, "rank_aug": 836, "e1_passes": false, "seconds": 2.7, "verdict": "A*D NOT in J(F) (modular only)"}
+{"check": "E1", "label": "X0*H*C", "d": 11, "char": [3, 0], "field": "Q", "rows": 862, "cols": 1253, "rank_J": 835, "rank_aug": 836, "e1_passes": false, "seconds": 4.2, "verdict": "A*D NOT in J(F) (exact over Q)"}
+{"check": "colon-sector", "d": 7, "char": [1, 2], "colon_dim": 1, "syz_dim": 15, "gauge_dim": 0, "nt": 1}
+  unique D (up to scalar): -36*X0^4*X2^2*Y0 - 9*X0*X1*X2^2*Y0^2*Y1 - 4*X1*X2^3*Y0^2*Y2
+{"check": "fixedD", "label": "sector d7 (1, 2) unique D", "d": 7, "char": [1, 2], "field": "Q", "rows": 1250, "cols": 206, "nN": 179, "nQ": 27, "rank_M": 188, "rank_aug": 189, "nullity": 18, "explicit_kernel": 18, "inconsistent": true, "seconds": 0.4, "verdict": "EXACT: no certificate with this denominator"}
+{"check": "colon-sector", "d": 7, "char": [2, 2], "colon_dim": 1, "syz_dim": 15, "gauge_dim": 0, "nt": 1}
+  unique D (up to scalar): -36*X0^4*X1*X2^2 - 9*X0*X1^2*X2^2*Y0*Y1 - 4*X1^2*X2^3*Y0*Y2
+{"check": "fixedD", "label": "sector d7 (2, 2) unique D", "d": 7, "char": [2, 2], "field": "Q", "rows": 1213, "cols": 206, "nN": 179, "nQ": 27, "rank_M": 188, "rank_aug": 189, "nullity": 18, "explicit_kernel": 18, "inconsistent": true, "seconds": 0.4, "verdict": "EXACT: no certificate with this denominator"}
+{"check": "colon-sector", "d": 7, "char": [1, 4], "colon_dim": 1, "syz_dim": 15, "gauge_dim": 0, "nt": 1}
+  unique D (up to scalar): -36*X0^4*Y0*Y2^2 - 9*X0*X1*Y0^2*Y1*Y2^2 - 4*X1*X2*Y0^2*Y2^3
+{"check": "fixedD", "label": "sector d7 (1, 4) unique D", "d": 7, "char": [1, 4], "field": "Q", "rows": 1250, "cols": 206, "nN": 179, "nQ": 27, "rank_M": 188, "rank_aug": 189, "nullity": 18, "explicit_kernel": 18, "inconsistent": true, "seconds": 0.4, "verdict": "EXACT: no certificate with this denominator"}
+{"check": "colon-sector", "d": 7, "char": [2, 4], "colon_dim": 1, "syz_dim": 15, "gauge_dim": 0, "nt": 1}
+  unique D (up to scalar): -36*X0^4*X1*Y2^2 - 9*X0*X1^2*Y0*Y1*Y2^2 - 4*X1^2*X2*Y0*Y2^3
+{"check": "fixedD", "label": "sector d7 (2, 4) unique D", "d": 7, "char": [2, 4], "field": "Q", "rows": 1213, "cols": 206, "nN": 179, "nQ": 27, "rank_M": 188, "rank_aug": 189, "nullity": 18, "explicit_kernel": 18, "inconsistent": true, "seconds": 0.4, "verdict": "EXACT: no certificate with this denominator"}
+{"check": "colon-sector", "d": 7, "char": [0, 3], "colon_dim": 2, "syz_dim": 9, "gauge_dim": 0, "nt": 2}

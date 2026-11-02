@@ -1,0 +1,6 @@
+elements: 120 verified flags: 120
+sealed by agent (exact fallback): [([2, 5], 0), ([4, 1], 0), ([0, 0], 1), ([0, 3], 0)]
+  sector (0, 0) #1: terms 46, height 11 digits, char {(0, 0)}, K in J_9: (False, 77, 78), A*K in J_15: (True, 1071, 1071), genuine kernel element: True (116.4s)
+  sector (0, 1) #6: terms 151, height 34 digits, char {(0, 1)}, K in J_9: (False, 62, 63), A*K in J_15: (True, 1024, 1024), genuine kernel element: True (163.1s)
+  sector (0, 2) #11: terms 154, height 37 digits, char {(0, 2)}, K in J_9: (False, 65, 66), A*K in J_15: (True, 1015, 1015), genuine kernel element: True (175.3s)
+  sector (0, 3) #0: terms 67, height 9 digits, char {(0, 3)}, K in J_9: (False, 76, 77), A*K in J_15: (True, 1075, 1075), genuine kernel element: True (146.3s)

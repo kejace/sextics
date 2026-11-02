@@ -1,0 +1,2 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[complement] n=10152 m=13104 rdim=468 eig[rdim-1]=2.162e-13 eig[rdim]=0.3167163339264585 max|G^T Z|=2.01e-14 (570.9s)

@@ -84,3 +84,6 @@
 {"ts": "2026-11-01T21:52:53", "step": "varpro", "job": "d9h0-c10 (interim)", "d": 9, "sector": [1, 0], "dimP": 43, "restarts": 105, "best_relres": 0.006851, "median_relres": 0.0287, "hits": 0}
 {"ts": "2026-11-01T21:52:53", "step": "varpro", "job": "d8h0b-c50 (interim)", "d": 8, "sector": [5, 0], "dimP": 22, "restarts": 114, "best_relres": 0.02739, "median_relres": 0.0931, "hits": 0}
 {"ts": "2026-11-01T21:52:53", "step": "homotopy", "job": "hom8 (final)", "d": 8, "sector": [0, 0], "start": "f6*X0^2", "path_end": [[0.025, 0.0012], [0.95, 0.0389], [1.0, 0.0406]], "note": "the tracked Fermat cone path drifts to a 4% local minimum (D ~ X0^4Y0^3Y1 + ...) at t = 1, worse than the global best 1.3e-2 found by random restarts"}
+{"ts": "2026-11-01T22:02:46", "step": "varpro", "job": "d8h0b-c50 (final)", "d": 8, "sector": [5, 0], "dimP": 22, "restarts": 132, "best_relres": 0.02739, "median_relres": 0.0924, "hits": 0}
+{"ts": "2026-11-01T22:02:46", "step": "varpro", "job": "d9h0-c10 (final)", "d": 9, "sector": [1, 0], "dimP": 43, "restarts": 120, "best_relres": 0.006851, "median_relres": 0.0287, "hits": 0}
+{"ts": "2026-11-01T22:02:46", "step": "hess", "d": 10, "sectors": ["20", "30"], "best_relres": {"20": 0.0936, "30": 0.0981}, "restarts": [325, 188]}

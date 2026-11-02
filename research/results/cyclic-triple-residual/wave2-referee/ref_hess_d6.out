@@ -1,0 +1,5 @@
+  d=6 sector=None: 36 unknowns, 1472 coordinate quadrics spanning 301; rank J_12 = 4437 (c.i. 4437)
+  -> {'d': 6, 'sector': 'None', 'mode': 'mod 999999937', 'slice': 'X0', 'n_theta': 36, 'n_removed': 1, 'n_vars': 35, 'n_quadrics': 301, 'rankJ_2d': 4437, 'ci_dimJ_2d': 4437, 'ci_ok': True, 'singular': {'rc': 0, 'dim': '0', 'vdim': '1068', 'seconds': 13.8}, 'm_primary_singular': True, 'msolve': {'rc': 0, 'lead_size': 1272, 'pure_powers': 35, 'seconds': 7.7}, 'm_primary_msolve': True, 'seconds': 35.2}
+  d=6 sector=None: 36 unknowns, 1472 coordinate quadrics spanning 301; rank J_12 = 4437 (c.i. 4437)
+  -> {'d': 6, 'sector': 'None', 'mode': 'mod 999999937', 'slice': 'Y2', 'n_theta': 36, 'n_removed': 1, 'n_vars': 35, 'n_quadrics': 301, 'rankJ_2d': 4437, 'ci_dimJ_2d': 4437, 'ci_ok': True, 'singular': {'rc': 0, 'dim': '0', 'vdim': '1068', 'seconds': 10.0}, 'm_primary_singular': True, 'msolve': {'rc': 0, 'lead_size': 1137, 'pure_powers': 35, 'seconds': 17.2}, 'm_primary_msolve': True, 'seconds': 38.9}
+done

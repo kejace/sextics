@@ -3,3 +3,11 @@
 [E1Family d=7 pD=1] Jm (4284, 3861) rank=3441 ring_dim=843 gap=(0.12954455462396636, 2.2315890149601652e-13) K=63 C_gap=(0.00025964266433188945, 5.454966451034333e-15) e1_rel=8.38e-15 (129.5s)
 [search] d=7 pD=1 K=63 spurious=3 n_u=60 n_c=420 rows_red=5160 rows=5796 build 129.6s
 [search] generic reduced Koszul rank {'Mred_shape': [5160, 420], 'rank': 360, 'nullity': 60, 'sv_min_kept': 17.83980265819252, 'sv_next': 7.222487107997691e-12, 'sv_max': 75542.1079234607}
+[search] STOP file for d7o_a: ending batch early after 2 restarts in this worker
+[search] STOP file for d7o_a: ending batch early after 2 restarts in this worker
+[search] STOP file for d7o_a: ending batch early after 2 restarts in this worker
+[search] STOP file for d7o_a: ending batch early after 2 restarts in this worker
+[search] STOP file for d7o_a: ending batch early after 2 restarts in this worker
+[search] STOP file for d7o_a: ending batch early after 2 restarts in this worker
+[search] STOP file for d7o_a: ending batch early after 2 restarts in this worker
+[search] STOP file for d7o_a: ending batch early after 2 restarts in this worker

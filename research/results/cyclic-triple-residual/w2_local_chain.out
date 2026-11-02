@@ -1,0 +1,3 @@
+[19:57:11] d6 even k=5 restricted (vectorized)
+{"batch": "macaulay-blocks", "d": 6, "parity": 0, "k": 5, "p": 1073741827, "nW": 17, "restricted_to_complement_of_spurious": true, "n_dropped_coords": 1, "n_quadrics": 266, "quadric_span_rank": 102, "n_pairs": 153, "dim_R2d_odd": 866, "HF_k_total": 0, "rigorous_exclusion": true, "t_pairs": 0.1, "t_reduce": 117.7, "seconds": 4956.0}
+blocks: {'00': (36581, 3045, 0), '02': (36005, 2914, 0), '04': (36468, 2914, 0), '20': (26066, 1931, 0), '22': (26100, 1931, 0), '24': (25784, 1876, 0), '40': (23479, 1931, 0), '42': (23475, 1876, 0), '44': (23796, 1931, 0)}
