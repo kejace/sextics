@@ -14,3 +14,6 @@
 {"ts":"2026-11-02T00:06:50","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_V2_on_c1.ms","output":"sigmaQP_V2_on_c1.out","exit":0,"head":"[0, [0,  10,  4,  ['x', 'z', 's', 'T', 'm0', 'm1', 'm2', 'm3"}
 {"ts":"2026-11-02T00:06:58","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_V2_on_c2.ms","output":"sigmaQP_V2_on_c2.out","exit":0,"head":"[0, [0,  9,  1,  ['x', 'y', 's', 'T', 'm0', 'm1', 'm2', 'm3'"}
 {"ts":"2026-11-02T00:38:23","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_V2_on_c3.ms","output":"sigmaQP_V2_on_c3.out","exit":0,"head":"[0, [0,  10,  24,  ['x', 'y', 'z', 'T', 'm0', 'm1', 'm2', 'm"}
+{"ts":"2026-11-02T00:53:03","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_V2_on_c4.ms","output":"sigmaQP_V2_on_c4.out","exit":0,"head":"[0, [0,  10,  24,  ['x', 'y', 'z', 's', 'm0', 'm1', 'm2', 'm"}
+{"ts":"2026-11-02T00:53:10","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_V3_on_c0.ms","output":"sigmaQP_V3_on_c0.out","exit":0,"head":"[0, [0,  9,  1,  ['y', 'z', 'r', 'T', 'm0', 'm1', 'm2', 'm3'"}
+{"ts":"2026-11-02T00:53:18","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_V3_on_c1.ms","output":"sigmaQP_V3_on_c1.out","exit":0,"head":"[0, [0,  9,  1,  ['x', 'z', 'r', 'T', 'm0', 'm1', 'm2', 'm3'"}
