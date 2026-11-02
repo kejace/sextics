@@ -28,7 +28,7 @@ PLAUSIBLE = modular evidence only / not replayed; UNSUPPORTED = no receipt or co
 | 12 | wave-1 re-verifications (symmetry group, characters `39+31+69·std` etc., Hilbert function) | `reptheory.json`, verify lens rows 1–6, 18–19 | parity-refined Koszul series reproduced (`ref_common.koszul_series`) | VERIFIED | keep |
 | 13 | "What is screened only" list in the draft (`[pending]`) | — | — | — | replace by: 7b, 7d above; families d = 8..12 and degree-9 members **not run** |
 
-Counts: VERIFIED 10 (rows 1, 2, 3, 4, 5, 7a, 8, 9, 10, 11, 12 → 11 rows, with 7c counted separately), PLAUSIBLE 2 (7b, 7d), UNSUPPORTED/open 2 (6, 7e); row 7c: VERIFIED (scope: canonical representative + F-multiples only).
+Counts: VERIFIED 12 (rows 1, 2, 3, 4, 5, 7a, 7c, 8, 9, 10, 11, 12), PLAUSIBLE 2 (7b, 7d), UNSUPPORTED/open 2 (6, 7e).  Strongest verified statement: no certificate with deg D <= 6 for any homogeneous D (all Y-parities, over C).
 
 ## Reconciliation with the verify lens (`wave2-diagonal-permutation-verify.md`, 00:40 UTC)
 

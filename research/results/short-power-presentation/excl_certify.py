@@ -37,7 +37,7 @@ blocks = {}
 for i, u in enumerate(unk):
     b = 'lam' if u[0] == 'lam' else f'w{u[1]}'
     blocks.setdefault(b, []).append(i)
-order = sorted(blocks, key=lambda b: (b == 'lam', b))
+order = sorted(blocks, key=lambda b: (b != 'lam', b))   # lam FIRST: its certificate needs only w-pair dependencies
 alive = set(range(nu))
 certs = []
 for ps in range(passes):
@@ -87,7 +87,7 @@ for ps in range(passes):
         # exact certificate: dim_Q span(others mod J) == rO
         t1 = time.time()
         polys = [exact_pairs[k] for k in others]
-        dep = W.exact_dependencies(F, polys, 2 * d, 1, primes=W.PRIMES31 + W.PRIMES30, max_primes=6)
+        dep = W.exact_dependencies(F, polys, 2 * d, 1, primes=W.PRIMES31 + W.PRIMES30 + W.PRIMES29, max_primes=12)
         ok = dep.get('exact_equals_modp', False) and dep.get('rank_modp_span_mod_J') == rO
         certs.append({'pass': ps, 'block': b, 'eliminated': len(visible), 'others': len(others), 'rank_modp': rO, 'dep': {k: v for k, v in dep.items() if k != 'primes'}, 'ok': ok})
         W.wlog(exp='block-elimination-exact-certificate', d=d, pars=parsarg, scheme='comp', block=b, pass_=ps, prime=dep.get('primes'),

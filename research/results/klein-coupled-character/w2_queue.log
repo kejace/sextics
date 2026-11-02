@@ -88,3 +88,4 @@
 22:21:13 gate closed for w2-control: 0), available memory 158 GB (min 110), 65 jobs running with 326 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:22:47 gate closed for w2-control: 0), available memory 172 GB (min 110), 62 jobs running with 322 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:24:21 gate closed for w2-control: 0), available memory 168 GB (min 110), 62 jobs running with 322 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:25:55 gate closed for w2-control: 0), available memory 165 GB (min 110), 61 jobs running with 320 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).

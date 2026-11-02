@@ -10,3 +10,20 @@ HF S/(J:A) degrees 0..19:
 1,6,21,56,126,246,426,663,933,1192,933,663,426,246,126,56,21,6,1,0
 HF S/J degrees 0..24:
 1,6,21,56,126,246,426,666,951,1246,1506,1686,1751,1686,1506,1246,951,666,426,246,126,56,21,6,1
+minimal generators of (J:A): 468
+degree counts (deg: count)
+5 6
+6 0
+7 3
+8 3
+9 0
+10 456
+11 0
+12 0
+non-J generators of degree 7 and 8 (leading monomials):
+7 X1^5*X2^2 inJ 0 nterms 208
+7 X0*X1^4*X2^2 inJ 0 nterms 208
+7 X0^3*X1^2*X2^2 inJ 0 nterms 208
+8 X1^3*X2^5 inJ 0 nterms 351
+8 X0*X1^2*X2^5 inJ 0 nterms 351
+8 X0^2*X1*X2^5 inJ 0 nterms 351
