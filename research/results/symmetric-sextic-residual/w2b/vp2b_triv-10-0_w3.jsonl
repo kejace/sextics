@@ -2,3 +2,4 @@
 {"seed": 2011, "rel": 2.074252425374679e-06, "iters": 252, "nfev": 263, "spurious": false, "div_rel": 0.9991243367122415, "sparse_init": false}
 {"seed": 2019, "rel": 1.1657811306910132e-05, "iters": 326, "nfev": 344, "spurious": false, "div_rel": 0.9995281850808733, "sparse_init": false}
 {"seed": 2027, "rel": 9.59917204732778e-06, "iters": 186, "nfev": 236, "spurious": false, "div_rel": 0.9766482220832216, "sparse_init": true}
+{"seed": 2035, "rel": 1.165781218401774e-05, "iters": 364, "nfev": 392, "spurious": false, "div_rel": 0.9995281848519908, "sparse_init": false}

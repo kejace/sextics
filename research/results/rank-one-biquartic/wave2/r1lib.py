@@ -588,6 +588,8 @@ def restricted_family(prob, fam, kind):
        'kernel-mixed' : kernel directions orthogonal to the Y-base-type span P(X) M^a g^b as well
     """
     d, pD = prob.d, prob.pD
+    if d == 9 and kind in ('kernel', 'kernel-mixed'):
+        return product_family9(prob, kind)
     gens = []
     for i in range(NV):
         par = (pD - par_idx(i)) % 2
@@ -617,4 +619,96 @@ def restricted_family(prob, fam, kind):
     Nbasis = (fam.Nbasis.T @ coords).T
     info = {'K': int(rk), 'K_full': fam.K, 'dim_J_d': int(rJ), 'dim_ybase_span': int(rU),
             'sv_gap': [float(s[rk - 1]) if rk else None, float(s[rk]) if rk < len(s) else None]}
+    return Dbasis, Nbasis, info
+
+
+def _shift_vec(v, src, dst, m):
+    """vector over src (Space) -> vector over dst (Space) of the product by monomial m."""
+    out = np.zeros(dst.n)
+    for k, mono in enumerate(src.mons):
+        if v[k] != 0.0:
+            s = tuple(mono[t] + m[t] for t in range(6))
+            out[dst.idx[s]] += v[k]
+    return out
+
+
+def product_family9(prob, kind, rcond=1e-9, verbose=True):
+    """Degree-9 restricted families built algebraically from the degree-7 and degree-8 pure kernels (float, well
+    conditioned): K_9 = K_7 . S_2 + K_8 . S_1 modulo J_9, lifts multiply along (N(K m) = m N(K)).
+       kind = 'kernel'       : pure degree-9 kernel (27 dims mod J; returned as the complement of J_9 in that span)
+       kind = 'kernel-mixed' : K_7 . (S_2(Y) mod M)  (15 dims: the directions outside J + Y-base type)
+    """
+    F, A, pD = prob.F, prob.A, prob.pD
+    assert prob.d == 9
+    t0 = time.time()
+    prob7 = E2Float(F, A, 7, pD, verbose=False, want_reduction=False)
+    fam7 = E1Family(prob7, rcond=rcond, verbose=verbose)
+    K7D, K7N, inf7 = restricted_family(prob7, fam7, 'kernel')
+    vecsD, vecsN = [], []
+
+    def add_products(KD, KN, probk, mons):
+        for r in range(KD.shape[0]):
+            for m in mons:
+                vecsD.append(_shift_vec(KD[r], probk.SD, prob.SD, m))
+                Nv = np.zeros(prob.nN)
+                for i in range(NV):
+                    Nv[prob.Noff[i]:prob.Noff[i + 1]] = _shift_vec(KN[r][probk.Noff[i]:probk.Noff[i + 1]], probk.SN[i], prob.SN[i], m)
+                vecsN.append(Nv)
+    if kind == 'kernel-mixed':
+        Hs = [m for m in monomials(2, 0) if m[0] == m[1] == m[2] == 0 and m != (0, 0, 0, 0, 0, 2)]  # Y0^2,Y0Y1,Y0Y2,Y1^2,Y1Y2
+        add_products(K7D, K7N, prob7, Hs)
+        info = {'K7': int(K7D.shape[0]), 'products': len(vecsD), 'inf7': inf7}
+    else:
+        add_products(K7D, K7N, prob7, monomials(2, 0))
+        prob8 = E2Float(F, A, 8, pD, verbose=False, want_reduction=False)
+        fam8 = E1Family(prob8, rcond=rcond, verbose=verbose)
+        K8D, K8N, inf8 = restricted_family(prob8, fam8, 'kernel')
+        add_products(K8D, K8N, prob8, monomials(1, 0))
+        info = {'K7': int(K7D.shape[0]), 'K8': int(K8D.shape[0]), 'products': len(vecsD), 'inf7': inf7, 'inf8': inf8}
+    G = np.array(vecsD).T                      # SD.n x nprod
+    Ls = np.array(vecsN).T                     # nN x nprod
+    if kind == 'kernel':
+        # remove the J_9 component, keep the pure kernel span
+        gens = []
+        for i in range(NV):
+            par = (pD - par_idx(i)) % 2
+            Sm = Space(prob.d - 5, par)
+            if Sm.n:
+                gens.append(mult_op(prob.Fi[i], Sm, prob.SD).toarray())
+        GJ = np.hstack(gens)
+        QJ, sJ, _ = sla.svd(GJ, full_matrices=False)
+        rJ = int((sJ > 1e-9 * sJ[0]).sum()); QJ = QJ[:, :rJ]
+        Gp = G - QJ @ (QJ.T @ G)
+    else:
+        Gp = G
+    U, s, Vt = sla.svd(Gp, full_matrices=False)
+    rk = int((s > 1e-6 * s[0]).sum())
+    Dbasis = U[:, :rk].T                                       # orthonormal rows
+    # lifts for the orthonormal basis: express each basis vector in terms of the products (least squares on G or Gp)
+    Y = np.linalg.lstsq(Gp, Dbasis.T, rcond=None)[0]           # nprod x rk
+    Nbasis = (Ls @ Y).T
+    if kind == 'kernel':
+        # the basis vectors are products minus J-components; the J-component change must be reflected in the lifts:
+        # D_basis = G Y - QJ QJ^T G Y ; the removed J part  J_part = QJ QJ^T G Y  has lift A w (Jacobian type) -> recompute:
+        Jpart = QJ @ (QJ.T @ (G @ Y))                          # SD.n x rk
+        # solve Jpart = sum_i (m F_i) w_{i,m} exactly in the least-squares sense and lift with A m e_i
+        W = np.linalg.lstsq(GJ, Jpart, rcond=None)[0]           # ngenJ x rk
+        col = 0
+        Nj = np.zeros((prob.nN, rk))
+        for i in range(NV):
+            par = (pD - par_idx(i)) % 2
+            Sm = Space(prob.d - 5, par)
+            for m in Sm.mons:
+                Am = prob.SN[i].vec(shift(A, m, 1))
+                Nj[prob.Noff[i]:prob.Noff[i + 1], :] += np.outer(Am, W[col]); col += 1
+        Nbasis = Nbasis - Nj.T
+    info.update({'K': int(rk), 'sv_gap': [float(s[rk - 1]) if rk else None, float(s[rk]) if rk < len(s) else None], 'time': round(time.time() - t0, 1)})
+    # E1 check of the lifts
+    ST = Space(prob.d + 6, (prob.pA + pD) % 2)
+    Jm = sp.hstack([mult_op(prob.Fi[i], prob.SN[i], ST) for i in range(NV)])
+    AM = mult_op(A, prob.SD, ST)
+    res = Jm @ Nbasis.T - AM @ Dbasis.T
+    info['e1_rel'] = float(np.linalg.norm(res) / max(np.linalg.norm(AM @ Dbasis.T), 1e-300))
+    if verbose:
+        print(f'[product_family9 {kind}] {info}', file=sys.stderr, flush=True)
     return Dbasis, Nbasis, info

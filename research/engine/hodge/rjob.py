@@ -9,7 +9,7 @@ CLI (run from anywhere):
   python3 -m hodge.rjob up --lane <lane>          # push engine + one lane dir (never overwrites newer remote files)
   python3 -m hodge.rjob notes                     # mirror /tmp/hodge/notes both ways (--update)
   python3 -m hodge.rjob submit --lane <lane> --name <job> [--cpus N] [--wait SECS] [--force] -- <command ...>
-        # refuses (exit 3) when the remote is near capacity (allocated cores > 200, < 110 GB free, or load > 700; jobs are core-pinned so load overstates contention); --wait polls for capacity
+        # refuses (exit 3) when the remote is near capacity (allocated cores > 200, < 110 GB free, or load > 300: cpusets are random ranges and overlap, so load counts real contention); --wait polls for capacity
         # runs `cd /tmp/hodge/results/<lane> && <command>` on the remote, log in /tmp/hodge/jobs/<job>.log
         # the command may use python3 with the engine on sys.path (/home/kejace/devel/sextics-work), msolve, Singular
   python3 -m hodge.rjob status [--name <job>]     # running jobs, load average, free memory
@@ -73,16 +73,22 @@ def notes(direction='both'):
 
 
 def remote_capacity():
-    """(load1, avail_gb, running_jobs, allocated_cpus) on the remote."""
-    r = ssh('cut -d" " -f1 /proc/loadavg; free -g | awk "/Mem/{print \\$7}"; n=0; c=0; for p in /tmp/hodge/jobs/*.pid; do if kill -0 $(cat $p) 2>/dev/null; then n=$((n+1)); f=${p%.pid}.cpus; c=$((c + $(cat $f 2>/dev/null || echo 1))); fi; done; echo $n $c')
-    try:
-        load, avail, n, c = r.stdout.split()[:4]
-        return float(load), float(avail), int(n), int(c)
-    except Exception:
-        return 0.0, 1e9, 0, 0
+    """(load1, avail_gb, running_jobs, allocated_cpus) on the remote.
+    Fails CLOSED: if the check itself fails twice (ssh timeout under load, parse error) the remote is reported as busy,
+    so a broken check can never admit a job (the old fail-open path is how the box reached 350 allocated cores)."""
+    err = None
+    for attempt in range(2):
+        try:
+            r = ssh('cut -d" " -f1 /proc/loadavg; free -g | awk "/Mem/{print \\$7}"; n=0; c=0; for p in /tmp/hodge/jobs/*.pid; do if kill -0 $(cat $p) 2>/dev/null; then n=$((n+1)); f=${p%.pid}.cpus; c=$((c + $(cat $f 2>/dev/null || echo 1))); fi; done; echo $n $c', timeout=90)
+            load, avail, n, c = r.stdout.split()[:4]
+            return float(load), float(avail), int(n), int(c)
+        except Exception as e:
+            err = e; time.sleep(15)
+    print(f'capacity check failed twice ({err!r}); treating the remote as BUSY', file=sys.stderr)
+    return 1e9, 0.0, 0, 10**6
 
 
-def submit(lane, name, command, cpus=1, force=False, max_load=700.0, min_avail_gb=110.0, wait_s=0, max_alloc_cpus=200, blas=1):
+def submit(lane, name, command, cpus=1, force=False, max_load=300.0, min_avail_gb=110.0, wait_s=0, max_alloc_cpus=200, blas=1):
     """BLAS/OpenMP threads default to 1 (python multiprocessing jobs otherwise spawn cpus x workers threads); pass --blas-threads N for single-process numpy-heavy jobs."""
     """Submit, but refuse (exit code 3) when the remote is near capacity unless --force.
     With wait_s > 0, poll every 60 s up to wait_s seconds for capacity instead of refusing."""
