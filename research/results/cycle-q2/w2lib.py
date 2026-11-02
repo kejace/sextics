@@ -530,6 +530,19 @@ class KoszulVarPro:
                   f'nnz(T)={nnz} e1res={self.e1_residual:.1e} built {self.build_time:.1f}s', file=sys.stderr)
 
     # ------------------------------------------------------------------
+    def subfamily(self, C):
+        """cheap view of the sub-family with basis Bmat @ C (C: K x k): lifts and W transform linearly"""
+        import copy
+        C = np.asarray(C, dtype=float)
+        sub = copy.copy(self)
+        sub.Bmat = self.Bmat @ C
+        sub.K = C.shape[1]
+        sub.N0 = self.N0 @ C
+        sub.W = np.einsum('rmk,kj->rmj', self.W, C)
+        sub._nfev = 0
+        return sub
+
+    # ------------------------------------------------------------------
     def assemble(self, a):
         """dense complex M(a) (R x ncols) and b(a)"""
         at = self.Bmat @ a                     # nD complex

@@ -17,3 +17,4 @@ sigma (p,q,b)^3 d7 sum of basis -> d 7 e1 True cons False served 18 347.05 s
 sigma (p,q,b)^3 d7 difference of basis -> d 7 e1 True cons False served 18 365.92 s
 == sigma (r,s,a)^3 d7 [elliptic cone along curve X∩{X0=X1,Y0=Y1,X2=0}]: dim 6
    S3-inv dim 2, (01)-inv dim 2, (01)-anti dim 4
+sigma (r,s,a)^3 d7 [elliptic cone along curve X∩{X0=X1,Y0=Y1,X2=0}] S3-invariant random combo -> d 7 e1 True cons False served 18 520.49 s

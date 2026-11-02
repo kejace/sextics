@@ -1,0 +1,2 @@
+test-d4-X0Y0	X0**4 + Y0**4
+test-d4-Y2cone	X1**4 + X2**4 + Y0**4 + Y2**4

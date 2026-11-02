@@ -1,2 +1,3 @@
 {"batch": "relax", "d": 6, "pD": 0, "p": 1073741789, "family_J": 18, "family_kernel": 0, "K": 18, "rankD": 18, "npairs": 171, "ring_dim_2d": 866, "rank_Phi": 82, "excluded_over_Fp": false, "time_s": 19.1, "ts": "2026-11-02T00:52:15"}
 {"batch": "relax", "d": 6, "pD": 1, "p": 1073741789, "family_J": 18, "family_kernel": 0, "K": 18, "rankD": 18, "npairs": 171, "ring_dim_2d": 866, "rank_Phi": 108, "excluded_over_Fp": false, "time_s": 22.5, "ts": "2026-11-02T00:52:39"}
+{"batch": "relax", "d": 7, "pD": 0, "p": 1073741789, "family_J": 63, "family_kernel": 3, "K": 66, "rankD": 66, "npairs": 2211, "ring_dim_2d": 744, "rank_Phi": 432, "excluded_over_Fp": false, "time_s": 114.0, "ts": "2026-11-02T01:00:41"}

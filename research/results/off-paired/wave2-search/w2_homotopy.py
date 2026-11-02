@@ -18,6 +18,8 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--d', type=int, default=8); ap.add_argument('--c', default='0,0'); ap.add_argument('--steps', type=int, default=40)
 ap.add_argument('--job', required=True); ap.add_argument('--start', default='f6'); ap.add_argument('--tmax', type=float, default=1.0)
 ap.add_argument('--maxiter', type=int, default=200); ap.add_argument('--restarts0', type=int, default=20)
+ap.add_argument('--multi', type=int, default=0, help='multi-start: find this many t=0 solutions, test each at t1, continue the best')
+ap.add_argument('--t1', type=float, default=0.02)
 args = ap.parse_args()
 c = tuple(int(x) for x in args.c.split(','))
 F, A, q = w2lib.load()
@@ -46,6 +48,44 @@ else:
         if best is None or r['relres'] < best['relres']: best = r
     u = best['u']; print(f't=0 random start: best relres {best["relres"]:.3e}', flush=True)
 w2lib.append_json(out, {'t': 0.0, 'relres': float(fam.relres(u)), 'start': args.start})
+if args.multi:
+    # Stage 1: many t=0 solutions; Stage 2: first-order survival at t1; Stage 3: continue the best path(s)
+    sols = []
+    seed = 0
+    while len(sols) < args.multi and seed < 20 * args.multi:
+        r = fam.lm_from(seed, maxiter=args.maxiter); seed += 1
+        if r['relres'] < 1e-10:
+            sols.append(r['Dc'])
+    print(f't=0: found {len(sols)} solutions in {seed} restarts', flush=True)
+    fam1, Ft1 = family_at(args.t1)
+    surv = []
+    for i, Dc0 in enumerate(sols):
+        a = fam1.Borth @ Dc0; u0 = fam1.P.T @ a
+        rel_w = fam1.relres(u0)
+        r1 = fam1.lm_from(0, maxiter=args.maxiter, init=u0)
+        surv.append((r1['relres'], i, r1['Dc'], rel_w))
+        w2lib.append_json(out, {'stage': 'multi-t1', 't1': args.t1, 'sol': i, 'relres_warm': float(rel_w), 'relres_after_LM': float(r1['relres'])})
+    surv.sort(key=lambda x: x[0])
+    rels = [s_[0] for s_ in surv]
+    print(f't={args.t1}: relres after LM over {len(surv)} tracked solutions: min {rels[0]:.3e} median {rels[len(rels)//2]:.3e}', flush=True)
+    w2lib.append_json('wave2-search.remote.log.jsonl', {'ts': w2lib.now(), 'step': 'homotopy-multi', 'job': args.job, 'd': args.d, 'sector': list(c),
+                      'n_t0_solutions': len(sols), 't1': args.t1, 'relres_t1_min': rels[0], 'relres_t1_median': rels[len(rels)//2],
+                      'relres_t1_all': [float(f'{x:.3e}') for x in rels]})
+    # continue the best 2 paths to t = tmax
+    for rel1, i, Dc1, _ in surv[:2]:
+        Dc = Dc1
+        path = [(args.t1, rel1)]
+        for t in np.linspace(args.t1, args.tmax, args.steps + 1)[1:]:
+            famt, Ft = family_at(float(t))
+            a = famt.Borth @ Dc; u0 = famt.P.T @ a
+            r = famt.lm_from(0, maxiter=args.maxiter, init=u0); Dc = r['Dc']
+            path.append((float(t), float(r['relres'])))
+            w2lib.append_json(out, {'stage': 'multi-path', 'sol': i, 't': float(t), 'relres': float(r['relres']), 'iters': r['iters']})
+        w2lib.append_json('wave2-search.remote.log.jsonl', {'ts': w2lib.now(), 'step': 'homotopy-multi-path', 'job': args.job, 'd': args.d, 'sol': i,
+                          'relres_path': [(round(t_, 4), float(f'{x:.3e}')) for t_, x in path]})
+        print(f'path from solution {i}: ' + ' '.join(f'{t_:.2f}:{x:.1e}' for t_, x in path), flush=True)
+    sys.exit(0)
+
 # the u-coordinates refer to the gauge complement of F_t which changes with t; carry D coefficients instead
 Dc = fam.D_coef(u)[0]
 ts = np.linspace(0, args.tmax, args.steps + 1)[1:]

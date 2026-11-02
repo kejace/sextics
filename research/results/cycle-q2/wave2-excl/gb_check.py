@@ -33,16 +33,16 @@ def leading_pure_powers(gbtext, vars_):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('msfile'); ap.add_argument('--threads', type=int, default=16); ap.add_argument('--singular', action='store_true')
-    ap.add_argument('--tag', default=None)
+    ap.add_argument('--tag', default=None); ap.add_argument('--gmode', type=int, default=1, help='msolve -g mode: 1 = leading ideal only (low memory), 2 = reduced GB')
     a = ap.parse_args()
     vars_, p, polys = parse_ms(a.msfile)
     tag = a.tag or os.path.basename(a.msfile).replace('.ms', '')
     out = a.msfile.replace('.ms', '.gb')
     t0 = time.time()
-    cmd = ['msolve', '-v', '1', '-t', str(a.threads), '-g', '2', '-f', a.msfile, '-o', out]
+    cmd = ['msolve', '-v', '1', '-t', str(a.threads), '-g', str(a.gmode), '-f', a.msfile, '-o', out]
     r = subprocess.run(cmd, capture_output=True, text=True)
     t1 = time.time()
-    res = {'exp': 'groebner', 'file': a.msfile, 'nvars': len(vars_), 'npolys': len(polys), 'prime': p, 'msolve_rc': r.returncode,
+    res = {'exp': 'groebner', 'gmode': a.gmode, 'file': a.msfile, 'nvars': len(vars_), 'npolys': len(polys), 'prime': p, 'msolve_rc': r.returncode,
            'msolve_seconds': round(t1 - t0, 1), 'msolve_stderr_tail': r.stderr[-600:], 'msolve_stdout_tail': r.stdout[-600:]}
     verdict = 'unknown'
     if r.returncode == 0 and os.path.exists(out):

@@ -127,3 +127,24 @@ if __name__=='__main__':
             tup=(D[('h31',r,et)],D[('h22',r,et)],D[('h13',r,et)])
             if any(tup):
                 print(f"  ({r:4},{'+' if et>0 else '-'})  {tup}")
+
+def verify_A_character():
+    # A = X0X1X2Y0Y1Y2 = monomial (1,1,1,1,1,1). Residue action of g=(pX,pY,tau):
+    # det(g)*poly(g on A). poly on A: A invariant under any perm; sign = prod sign^1 = (-1)^(3tau).
+    # det = sgn(pX)sgn(pY)*(-1)^(3tau). product = sgn(pX)sgn(pY). Independent of tau => char (sgn,sgn,+).
+    import itertools
+    for pX in itertools.permutations(range(3)):
+        for pY in itertools.permutations(range(3)):
+            for tau in (0,1):
+                perm=[0]*6;sign=[1]*6
+                for i in range(3):perm[i]=pX[i]
+                for i in range(3):perm[3+i]=3+pY[i]
+                for i in range(3,6):sign[i]=-1 if tau else 1
+                det=det_signed(perm,sign)
+                polyA=(-1)**(3*tau)  # sign factor on A
+                resA=det*polyA
+                want=chiS3(pX,'sgn')*chiS3(pY,'sgn')  # (sgn,sgn), tau-trivial
+                assert resA==want,(pX,pY,tau,resA,want)
+    print("VERIFIED: residue character of A = X0X1X2Y0Y1Y2 is exactly (sgn_X (x) sgn_Y, tau:+).")
+    print("=> target lives in sector (sgn,sgn,+) = (17,52,17).")
+    print("   Delta_X*Delta_Y has residue char (triv,triv,+) = (1,10,1) [served by symmetric Fano].")

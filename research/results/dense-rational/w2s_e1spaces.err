@@ -17,3 +17,5 @@
 [K_full d=8 par=0] dim S=651 rank[A]=483 (target R dim 744) dim K_full=168 gap (np.float64(2.2375384229121855e-07), np.float64(1.225096639404815e-15))
 [svd J_14^0] shape (5832, 6006) rank 5070 (sv[r-1]/s0=6.97e-01, sv[r]/s0=2.49e-15) 241.4s
 [K_full d=8 par=1] dim S=636 rank[A]=468 (target R dim 762) dim K_full=168 gap (np.float64(2.7857316373919853e-07), np.float64(1.5652050621115595e-15))
+[svd J_15^1] shape (7752, 9009) rank 7129 (sv[r-1]/s0=5.72e-01, sv[r]/s0=1.89e-15) 808.2s
+[K_full d=9 par=0] dim S=1001 rank[A]=622 (target R dim 623) dim K_full=379 gap (np.float64(6.957467311042178e-09), np.float64(3.5155604079349375e-10))

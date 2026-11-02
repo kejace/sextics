@@ -17,3 +17,14 @@
 [  161.4s] mult_kernel {'p': 2147483629, 'd': 7, 'par': 0, 'dim_ker_mod_J': 1, 'kernel_dim': 64, 'jacobian_dim': 63, 'ring_dim': 333, 'ci_ring_dim': 333, 'rows': 4284, 'cols': 4257, 'seconds': 97.69}
 [  221.3s] mult_kernel {'p': 2147483629, 'd': 7, 'par': 1, 'dim_ker_mod_J': 1, 'kernel_dim': 64, 'jacobian_dim': 63, 'ring_dim': 333, 'ci_ring_dim': 333, 'rows': 4284, 'cols': 4257, 'seconds': 59.89}
 [  944.6s] mult_kernel {'p': 2147483629, 'd': 8, 'par': 0, 'dim_ker_mod_J': 6, 'kernel_dim': 174, 'jacobian_dim': 168, 'ring_dim': 483, 'ci_ring_dim': 483, 'rows': 5796, 'cols': 6657, 'seconds': 723.14}
+[ 2581.7s] mult_kernel {'p': 2147483629, 'd': 8, 'par': 1, 'dim_ker_mod_J': 6, 'kernel_dim': 174, 'jacobian_dim': 168, 'ring_dim': 468, 'ci_ring_dim': 468, 'rows': 5832, 'cols': 6642, 'seconds': 1637.03}
+[ 2581.8s] mult_kernel {'p': 1000000007, 'd': 1, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 3, 'ci_ring_dim': 3, 'rows': 312, 'cols': 66, 'seconds': 0.04}
+[ 2581.8s] mult_kernel {'p': 1000000007, 'd': 1, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 3, 'ci_ring_dim': 3, 'rows': 312, 'cols': 66, 'seconds': 0.03}
+[ 2582.9s] mult_kernel {'p': 1000000007, 'd': 2, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 12, 'ci_ring_dim': 12, 'rows': 600, 'cols': 180, 'seconds': 1.0}
+[ 2583.0s] mult_kernel {'p': 1000000007, 'd': 2, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 9, 'ci_ring_dim': 9, 'rows': 576, 'cols': 177, 'seconds': 0.07}
+[ 2583.3s] mult_kernel {'p': 1000000007, 'd': 3, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 28, 'ci_ring_dim': 28, 'rows': 973, 'cols': 406, 'seconds': 0.31}
+[ 2583.6s] mult_kernel {'p': 1000000007, 'd': 3, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 28, 'ci_ring_dim': 28, 'rows': 973, 'cols': 406, 'seconds': 0.32}
+[ 2631.4s] mult_kernel {'p': 1000000007, 'd': 4, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 66, 'ci_ring_dim': 66, 'rows': 1491, 'cols': 822, 'seconds': 47.74}
+[ 2633.9s] mult_kernel {'p': 1000000007, 'd': 4, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 0, 'jacobian_dim': 0, 'ring_dim': 60, 'ci_ring_dim': 60, 'rows': 1500, 'cols': 816, 'seconds': 2.26}
+[ 2638.4s] mult_kernel {'p': 1000000007, 'd': 5, 'par': 0, 'dim_ker_mod_J': 0, 'kernel_dim': 3, 'jacobian_dim': 3, 'ring_dim': 123, 'ci_ring_dim': 123, 'rows': 2181, 'cols': 1512, 'seconds': 4.39}
+[ 2758.0s] mult_kernel {'p': 1000000007, 'd': 5, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 3, 'jacobian_dim': 3, 'ring_dim': 123, 'ci_ring_dim': 123, 'rows': 2181, 'cols': 1512, 'seconds': 115.3}

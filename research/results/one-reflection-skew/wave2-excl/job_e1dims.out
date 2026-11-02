@@ -7,3 +7,4 @@
 {"d": 11, "dimK_total": 3711, "dimJ_total": 2682, "extra_total": 1029, "dimK_gauged_total": 3459, "dimS_d": 4368, "seconds": 139.3, "exact": true}
 {"d": 12, "dimK_total": 5762, "dimJ_total": 4437, "extra_total": 1325, "dimK_gauged_total": 5300, "dimS_d": 6188, "seconds": 203.0, "exact": true}
 {"d": 13, "dimK_total": 8322, "dimJ_total": 6882, "extra_total": 1440, "dimK_gauged_total": 7530, "dimS_d": 8568, "seconds": 317.9, "exact": true}
+{"d": 14, "dimK_total": 11502, "dimJ_total": 10122, "extra_total": 1380, "dimK_gauged_total": 10215, "dimS_d": 11628, "seconds": 482.2, "exact": true}

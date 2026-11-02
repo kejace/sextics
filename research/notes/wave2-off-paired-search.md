@@ -77,3 +77,14 @@ Full table: /tmp/hodge/results/off-paired/wave2-search/dims.md (and dims.json).
 * L-BFGS-B from 8 random starts: 0 successes (local minima at relres 0.0155 (x4), 0.125, 0.129, 0.185).
 * Levenberg-Marquardt (Kaufman VarPro Jacobian) from 12 random starts: 1 success (seed 6: relres 7e-14 in 22 iterations, exact f6 reconstructed and re-solved),
   11 stalls at the same local minima. LM is the production optimizer; the landscape needs many restarts per family.
+
+## Landscape note (d = 8, sector (0,0), colon family, K = 30, gauge 2, dimP = 28)
+
+The best local minimum found so far (relres 1.3173e-2, reached by several independent restarts; reproduced locally from seed 0)
+is essentially a binary octic in (X0, Y1), even in both variables:
+D ~ -0.654 X0^4 Y1^4 + 0.489 X0^2 Y1^6 + 0.381 X0^6 Y1^2 - 0.259 Y1^8 - 0.169 X0^8 + small corrections
+(sigma2-even, 74 % of its norm in J_8). Geometrically this is a union of eight hyperplanes X0 = c_i Y1 through the P^3
+{X0 = Y1 = 0}; such unions cannot support (3,1)-classes (book ch. 3), so the dominant attractor of the landscape is a known
+non-solution type that merely minimizes the defect (20 % of the residual sits on five degree-22 monomials
+X0^2 X1 Y0^4 Y1^9 * {Y0^6, Y1^4, Y2^6, X2^6, X1^6}). Consequence: genuine structured solutions, if any, have small basins;
+restart counts must be large, and the free-target variant (any served class) is the more sensitive probe.

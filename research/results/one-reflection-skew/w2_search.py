@@ -40,8 +40,8 @@ def _work(task):
 def build_family(prob, op, fam, d, pD, sD, T, exclude_fmult=False):
     info = {}
     if fam in ('kernel', 'kernel+jac') or fam.startswith('cone:'):
-        Kb, kinfo = W.e1_kernel(prob, d, pD, sD, T=T)
-        info['kernel'] = kinfo
+        Kb, kinfo = W.e1_kernel_exact(prob, d, pD, sD, T=T)
+        info['kernel'] = {k: v for k, v in kinfo.items() if k != 'exact_basis'}
         B = Kb
         if fam.startswith('cone:'):
             vars_ = fam.split(':', 1)[1].split(',')

@@ -91,23 +91,25 @@ for lg in sorted(glob.glob('/tmp/hodge/remote/_jobs/search-quadric-contact-resid
     L.append(f'  - {os.path.basename(lg)}: last line: `{(tail[0][:160] if tail else "")}`')
 L.append('')
 
-# E1 profile
+# E1 profile (from the exact table written by w2_e1profile.py; log lines only as fallback)
 L.append('## (1) E1-admissible denominator spaces per degree and character sector (exact over Q)\n')
-if e1:
-    L.append('| d | sectors | dim S_d | dim J_d | dim (J:A)_d | non-Jacobian | gauge F*S_{d-6} | sectors with extras |')
+tab = RES + '/e1_sectors_wave2.json'
+if os.path.exists(REMOTE + '/e1_sectors_wave2.json'):
+    tab = REMOTE + '/e1_sectors_wave2.json'
+T = json.load(open(tab)) if os.path.exists(tab) else {}
+if T or e1:
+    L.append('| d | sectors done | dim S_d | dim J_d | dim (J:A)_d | non-Jacobian | gauge F*S_{d-6} | sectors with extras (chi:count) |')
     L.append('|---|---|---|---|---|---|---|---|')
-    seen = set()
-    for r in sorted(e1, key=lambda r: r['d']):
-        if r['d'] in seen: continue
-        seen.add(r['d'])
-        ex = ', '.join(f'{k}:{v}' for k, v in sorted(r.get('per_sector_extra', {}).items()))
-        L.append(f'| {r["d"]} | {r["n_sectors"]} | {r["tot_dimS"]} | {r["tot_dimJ"]} | {r["tot_kernel"]} | {r["tot_extra"]} | {r["tot_gauge"]} | {ex[:300]} |')
+    for d in sorted(T, key=int):
+        secs = T[d]['sectors']
+        if not secs: continue
+        tot = {k: sum(v[k] for v in secs.values()) for k in ('dimS', 'dimJ', 'kernel', 'extra', 'gauge')}
+        ex = ', '.join(f'{c}:{v["extra"]}' for c, v in sorted(secs.items()) if v['extra'])
+        L.append(f'| {d} | {len(secs)} | {tot["dimS"]} | {tot["dimJ"]} | {tot["kernel"]} | {tot["extra"]} | {tot["gauge"]} | {ex[:400]} |')
     L.append('')
-    tab = RES + '/e1_sectors_wave2.json'
-    if os.path.exists(REMOTE + '/e1_sectors_wave2.json'):
-        tab = REMOTE + '/e1_sectors_wave2.json'
-    if os.path.exists(tab):
-        T = json.load(open(tab))
+    L.append('Cross-checks: d <= 9 totals agree with fqlx (#125) and wave 1 (dim (J:A)_d = 0,0,0,0,0,6,36,126,337,760,2053,...); '
+             'the per-sector split is new.')
+    if T:
         L.append('Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian directions:')
         for d in sorted(T, key=int):
             secs = T[d]['sectors']

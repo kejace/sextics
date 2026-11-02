@@ -50,3 +50,15 @@ Results: D = f(U): class dim 0 (served K3 monomials = 17 trivial J-classes).  D 
 This is the statement needed for the sum principle (N_{Y1∪Y2} = N_{Y1} + N_{Y2}): a product D1·D2 can only serve
 the K3 part of A if some factor has a NONZERO K3-projection; "A_K3 ∉ served(D_j)" alone is not enough.
 Controls: D = G (illegal, divisible by F) passes the exact Koszul checker for both targets.
+
+### R4. Degree-8 fixed-D exact re-verification   [01:05]
+D = f(U)·U0² (the thread's single excluded octic): exact Koszul-normalized test (own code, p = 65521 and over Q):
+char-0 block 3366 × 888, rank 756, augmented 757 => inconsistent, for the FULL target (thread: identical numbers over
+Q and F_101 -- REPLICATED) and ALSO for the K3-sector target A_K3 (new; identical ranks).
+Tangent-hyperplane probe: hyperplanes λ·U through the plane {V=0} tangent to X (λ = tangent line of C at an F_p-point) have
+a non-rational singularity t² + f(V) whose exceptional divisor is the K3 S₂ itself; nevertheless their served K3-class
+projection is 0 (as forced by E1-injectivity at d = 1).  The copy of T(S₂)(−1) such a section carries is not a sub-Hodge
+structure of Λ²V₂, so this mechanism cannot produce K3-sector (3,1)-classes.
+Remote: saturated (load 900+/128 cores, <60 GB free) -- rjob refuses submissions; queue waiting (--wait 4h). Local
+fallback chain (nice 19, one process at a time): K3 d=7 relaxation -> full d=7 replication -> E1 tables (2nd prime) ->
+K3 d=8 relaxation -> f(U)h family exact tests -> full d=8 relaxation regeneration.  Logs wave2-excl/chain*.log.

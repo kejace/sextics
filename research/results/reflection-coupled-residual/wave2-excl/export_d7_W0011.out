@@ -1,0 +1,4 @@
+nonzero Hessian pairs: 20 zero pairs: [(2, 5)]
+chi=(0, 0): dim V=45 dim T=3 dim W=42
+chi=(1, 1): dim V=18 dim T=0 dim W=18
+total W dim 60

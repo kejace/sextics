@@ -15,7 +15,15 @@ S3. Degree 5: for D = sum c_i F_i the E2-mod-J obstruction ob = -[A sum c_i c_j 
 S4. Degree 6: on W = (S_1^6)/(C z) (35 unknowns, all characters jointly) the quadratic system ob(g) = 0 is
     zero-dimensional mod p (dim 0, mult 1060, HF(0..7) = 1,35,285,477,225,36,1,0) => I_Q contains S_7(W) =>
     V(ob) = T over C => D = g(F) in (F).  [gbcheck / hess_d6_* files, hess_d6_singular_minass.txt]
-S5. Degree 7, pure characters: see gbcheck.jsonl (hess_d7_W<chi>_* files).
+S5. Degree 7, single Klein character chi: on W_chi = V_chi/T_chi the quadratic system ob(g)=0 is zero-dimensional mod p:
+    chi=(1,1): 18 unknowns, 117 quadrics, HF 1,18,54,12,0 ; chi=(1,0): 22 unknowns, 132 quadrics, HF 1,22,121,83,12,0 ;
+    chi=(0,1): 38 unknowns, 281 quadrics, HF 1,38,460,556,54,0 ; chi=(0,0): 42 unknowns, 274 quadrics: see gbcheck.jsonl.
+    => no degree-7 denominator of a single character (for the finished blocks).  [gbcheck.jsonl, hess_d7_W<chi>_* files]
+S6. K8 (the unique non-Jacobian degree-8 E1 class, character (0,0)): A*K8 in J exactly over Q (K8_E1_exact.json); the fixed-D
+    system is inconsistent over Q (rigorfix.jsonl: restricted 22016x4256, rank 3780, nullity 476 = rank of 482 a-priori rational
+    kernel vectors; second prime and full 40301x7497 system agree).  K8 not in J (two primes).
+S7. Degree 8: the E1-admissible space is J_8 (+) C K8 in all characters (e1char.jsonl, d=8 rows); no structured shape of the
+    48-shape list meets it outside J_8 (structscreen.jsonl).
 (further statements appended as experiments finish)
 
 ## Why the modular computations are proofs

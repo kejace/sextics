@@ -1,6 +1,10 @@
 # Wave-2 joint search — lane `reflection-coupled-residual` (q=1, A = X0^3 Y0^3)
 
 STATUS: NO WITNESS FOUND (search running; report rewritten after every batch). Started 2026-11-01 19:05 local.
+Remote box saturated since ~19:25 (load 240–500 on 128 cores, 22–97 jobs); submissions `search-rcr-e1lo`, `search-rcr-relaxlo`,
+`search-rcr-e1hi` wait for capacity (runner gate); low-degree work done locally within the light-compute budget.
+Queued next (scripts ready in the lane dir): `job_kvp_lo.sh` (full-E2 Koszul varpro d=7,8, 8 seeds), `job_kvp_d9.sh`, `job_kvp_d10.sh`,
+`job_screen.sh` (structured candidates, E1 screen + exact solve), `job_served.py` (served-space profiling of 121 denominators).
 
 Log: `/tmp/hodge/results/reflection-coupled-residual/wave2-search.log.jsonl` (one JSON line per batch; remote lines merged by pull).
 Library: `/tmp/hodge/results/reflection-coupled-residual/rcr2.py` (sector-aware E1 spaces, float cokernel projectors,
@@ -24,7 +28,13 @@ Hessian-relaxation tensors + LM search, msolve export, sector-restricted VarPro,
   once; sparse index arrays make each evaluation + analytic gradient cheap (0.05–0.3 s at d = 8–9 in one sector).
   Validated: assembly vs brute force (1e-13); finite-difference gradient (6e-10); **positive controls** — Fermat sextic with
   A = X0³Y0³, d=6 J-family: residual 4e-22 → reconstruction → exact witness verified (D = X0⁶+X1⁶+X2⁶-type);
-  `fermat-pair-rational-d4-strict` (d=4 kernel family, 13 classes): zeros found, known witness recovered.
+  `fermat-pair-rational-d4-strict` (d=4 kernel family, 13 classes): zeros found, exact witness recovered and verified
+  (also with the sparse NF-mod-F + random-compression metric used for the large degrees: rel 1.7e-16 → verified witness).
+
+* Scope: denominators of pure Y-parity (τ-eigenvectors), the engine's and the dossier's convention. A mixed-parity D of
+  degree d gives the Y-even denominator D·τ(D) of degree 2d (X∖V(Dτ(D)) ⊂ X∖V(D)), so pure-parity searches up to degree
+  2d cover mixed-parity denominators up to degree d. Within pure parity, both Klein-eigen (4 sectors) and Klein-mixed
+  ('e' = 00⊕11, 'o' = 01⊕10) families are searched.
 
 ## Results so far
 
@@ -33,7 +43,7 @@ Hessian-relaxation tensors + LM search, msolve export, sector-restricted VarPro,
 |---|---|---|---|---|---|
 | 4 | 0/48 | 0/38 | 0/22 | 0/18 | 0 (rigorous: no certificate of degree ≤ 4) |
 | 5 | 3 = J | 2 = J | 1 = J | 0 | 0 |
-| 6 | 14 = J (R_6 = 144) | 12 = J (R_6 = 126) | 6 = J | 4 = J | 0 |
+| 6 | 14 = J (R_6 = 144) | 12 = J (R_6 = 126) | 6 = J (R_6 = 82) | 4 = J (R_6 = 74) | 0 (recomputed, `e1_6_*.json`) |
 (dim R_{10}: 460/426/318/302; dim R_{11}: 505/480/363/338; dim R_12^{(0,1)} = 492, consistent with the dossier.)
 | 7 | 45 = J (R_7 = 213) | 40 = J (R_7 = 198) | 23 = J (R_7 = 135) | 18 = J (R_7 = 120) | 0 — **E1 forces D ∈ J_7 in every sector** |
 | 8 | 113 = J(112) + 1 (K8), R_8 = 301 | 104 = J (R_8 = 274) | 64 = J (R_8 = 194) | 56 = J (R_8 = 182) | **1 in all sectors: K8** (sector 00) |

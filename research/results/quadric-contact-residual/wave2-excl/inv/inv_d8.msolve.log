@@ -1,6 +1,6 @@
 
 --------------- INPUT DATA ---------------
-#variables                      31
+#variables                      17
 #equations                      52
 #invalid equations               0
 field characteristic    2147483629
@@ -16,3 +16,32 @@ reduce gb                        1
 info level                       1
 generate pbm files               0
 ------------------------------------------
+Dimension of quotient: 595
+------------------------------------------------------------------------------------
+msolve overall time           2.79 sec (elapsed) /  5.30 sec (cpu)
+------------------------------------------------------------------------------------
+
+---------------- TIMINGS ---------------
+overall(elapsed)        2.77 sec
+overall(cpu)            5.27 sec
+select                  0.18 sec   6.4%
+symbolic prep.          0.06 sec   2.0%
+update                  0.58 sec  21.1%
+convert                 0.01 sec   0.3%
+linear algebra          1.93 sec  69.5%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                  1049
+#terms in basis              127925
+#pairs reduced                14817
+#GM criterion                589633
+#redundant elements              51
+#rows reduced                 30683
+#zero reductions              13769
+max. matrix data              19042 x 7583 (1.516%)
+max. symbolic hash table size  2^13
+max. basis hash table size     2^18
+-----------------------------------------
+

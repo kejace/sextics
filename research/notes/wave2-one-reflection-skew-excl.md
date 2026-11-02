@@ -17,6 +17,18 @@ Packet: /tmp/hodge/results/one-reflection-skew/wave2-excl/
 * Remote job excl-ors-d7sub: relaxed quadrics + msolve zero-dimensionality for the sub-families odd (all Y2-odd mixtures),
   tor:0010, tor:0100, tor:1000, tor:1110 (pure 2-torsion classes), even (all Y2-even mixtures), full.
 
+### Y2-free reduction (proved here; used for the t-free sectors)
+Lemma. Let D != 0 be Y2-free homogeneous of degree d and A Y2-free. A certificate (D,N,Q) for (F = f + Y2^6, A, q=1)
+exists iff there is a Y2-free N' in Q[x]^5 of degree d+1 with  N'(f) = A D  and  D div N' - N'(D) = 0.
+Proof sketch. (<=) N = (N',0), Q = 0 satisfies the cleared identity. (=>) average the certificate over mu6 acting on
+Y2 (F, A, D invariant): N_i (i<5) become polynomials in x and s = Y2^6, N_5 = Y2 a(x,s), Q = Q(x,s). Euler-normalize
+(N(F) = A D exactly; this keeps the shape). Both E1 and E2 (B_D(N) = (f+s) Q) are then polynomial identities in s.
+Specialize s -> -f: with N~_i = N_i(x,-f), a~ = a(x,-f) one gets N~(f) = A D + 6 f a~ and (using d/ds of E1 at s=-f)
+B_D(N~) = 5 a~ D.  Finally N' = N~ - a~ E' (E' = five-variable Euler field) gives N'(f) = A D and B_D(N') = 0.
+Consequence: Y2-free denominators are tested by a strict 5-variable system with NO quotient Q and NO F-multiples;
+the corresponding relaxation (5-variable Koszul corrections only) is much tighter than the 6-variable one.
+(The strict form is the one fringewidth stated; the dossier could not reproduce it - the derivation above does.)
+
 ## Plan
 (a) re-verify rigorous claims of dossier + wave-1 (different primes / methods, remote)
 (b) push rigorous lower bound on deg D (currently deg D >= 7 from the thread; degree 7 open in even mixed sectors)
@@ -35,3 +47,16 @@ Packet: /tmp/hodge/results/one-reflection-skew/wave2-excl/
 * wave-1 log: 318 experiments, all 5-variable fixed-D screens mod one prime (P1 = 2^31-1), engine 2; no rigorous
   claims beyond E1-kernel dimensions (5-var: d=7 par0 47=39+8, par1 37=36+1 -> total 84 = 75 + 9, consistent with the
   thread's (J_f:A)_7 = 84).  Nothing to retract; those screens are evidence, not proofs (single prime, no dual certificate).
+* E1-kernel dimension table of the dossier (mod 32003 there) re-computed EXACTLY over Q (fmpz nullspace, sector by
+  sector; remote job excl-ors-e1dims; receipts wave2-excl/e1dims_d<d>.json, bases e1basis_d<d>.pkl):
+  d=5..14: dim K_d = 6, 36, 135, 480, 1144, 2196, 3711, 5762, 8322, 11502; dim J_d = 6, 36, 126, 336, 756, 1497, 2682,
+  4437, 6882, 10122; non-Jacobian = 0, 0, 9, 144, 388, 699, 1029, 1325, 1440, 1380.  All agree with the dossier.
+* Degree-7 E1 form of fqlx's addendum (D = h + t l.grad f + t^2 c.grad f + 6 t^5 R2, 84+25+5+15 = 129 after the six
+  F-gauges) confirmed exactly by the Y2-degree decomposition of my gauge-fixed kernel.
+* Degree-7 Y2-odd mixtures (all 40 odd directions at once): mod-J relaxation kills 23 then 12 squares (certified),
+  5 survivors; strict relaxed stage: 9 quadrics, Macaulay 35/35 mod p => EXCLUDED.  Independent confirmation of the
+  addendum's 'every degree-7 Y2-odd denominator is excluded, mixtures included' (remote job excl-ors-d7sub, case odd).
+* Degree-7 pure even 2-torsion classes 0010/0100/1000 (the addendum's Groebner claims, not replayed by the dossier):
+  my 6-variable relaxation leaves exactly one coordinate axis per class (Y1*Y2^6, Y0*Y2^6, X1*Y2^6 ~ the f*Z_k directions),
+  with multiplicity 495/67/419; each axis is EXCLUDED-exact by the full fixed-D test.  The 6-variable relaxation cannot
+  close these classes alone (see (b)); the Y2-free reduction below does the job on the t-free part.

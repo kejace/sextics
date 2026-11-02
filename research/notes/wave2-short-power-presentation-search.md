@@ -41,6 +41,36 @@ Scripts: /tmp/hodge/results/short-power-presentation/w2_*.py (remote jobs run th
   the relaxation computes numerators mod p and the varpro uses float least-squares numerators, which is exact-equivalent since
   Koszul corrections span the particular-solution ambiguity).
 
+### d = 8 structure (wave 2, exact mod p = 536870909, 536870879)
+* K_8^- mod J_8 = 6 = S_1 * K_7 (Y_i D7, X_i D7'): nothing new in odd degree 8.
+* K_8^+ mod J_8 = 6; the six products X_i D7, Y_i D7' span only 4 dimensions mod J_8 (two linear relations between
+  the X-cone and Y-cone multiples modulo J), and there are 2 NEW even kernel elements at d=8 which lie in no subring
+  family (all 2..5-subsets of {X0,X1,X2,Y0,Y1,Y2,L,M}).
+* Named candidates: all 2x2 minors of Hess(F) (99 even, 72 odd) fail E1; E_X(F), E_Y(F) times quadrics are in J_8.
+* The two relations are exactly L*D7 in J_8 and M*D7' in J_8: the degree-7 cones are residuals of reducible polar divisors
+  (w(F) = L*D7, w'(F) = M*D7' for cubic vector fields w, w').  The two new even d=8 elements are sums P(X,M) + Q(Y,L) of a cone
+  over {X=M=0} and a cone over {Y=L=0} (verified: K_8^+ ⊂ NF(C[X,M]_8) + NF(C[Y,L]_8) mod J_8), neither summand admissible alone.
+* Polar residuals (exact mod p): for a linear form l let PR_l(d) = (J_{d+1} ∩ l S_d)/l mod J_d.  At d=7 (even): PR_L = 3-dim and contains
+  K_7^+ = <D7> (so D7 is THE E1-admissible residual of a polar divisor through {L=0}); PR_M (even) = 3-dim with PR_M ∩ K_7^+ = 0;
+  PR_{X_i} = PR_{Y_i} = 0.  (The odd mirror: D7' ∈ PR_M(7)^-.)
+* K_8^+ ⊂ C[X,M]_8 + C[Y,L]_8 entirely (composite family screen: kernel part rank 6 of 6).
+
+### E1-kernel dimensions in all degrees (Gorenstein duality, exact given the d <= 8 computations)
+The E1 kernel is the annihilator ideal Ann_R(A) of the Jacobian ring R (Gorenstein, socle degree 24, A Y-odd):
+dim Ann_d^+ = dim R_d^+ - (dim R_{18-d}^- - dim Ann_{18-d}^-), dim Ann_d^- = dim R_d^- - (dim R_{18-d}^+ - dim Ann_{18-d}^+).
+
+| d | dim R_d (+,-) | dim J_d (+,-) | dim Ann_d (+,-) mod J | source |
+|---|---|---|---|---|
+| 1..6 | ... | ... | (0,0) | direct (wave 1, two primes) |
+| 7 | (333,333) | (63,63) | (1,1) | direct; D7 in C[X,M], D7' in C[Y,L] |
+| 8 | (483,468) | (168,168) | (6,6) | direct; odd = S_1 K_7; even = 4 + 2 new |
+| 9 | (623,623) | (378,378) | ? (self-dual degree; direct computation running) | |
+| 10 | (762,744) | (750,747) | (300,267) | duality from d=8 |
+| 11 | (843,843) | (1341,1341) | (511,511) | duality from d=7 |
+| 12 | (885,866) | (2223,2214) | (677,648) | duality from d=6 |
+So at d >= 10 the E1-admissible family is enormous (most of R_d), and E1 stops being a useful filter: the only
+degrees where E1 + the quadratic relaxation can classify are d <= 9.
+
 ### Tooling validated (wave 2)
 * w2lib.JRef / e1_kernel: reproduces wave-1 ranks (J_10^- = 747, kernel 0 at d=4).
 * w2_varpro (reduced variable projection: unknowns = Koszul corrections c_ij (deg d-4) + Q; rows = degree-2d monomials):

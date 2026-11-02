@@ -15,3 +15,6 @@
 {"lane": "one-reflection-skew", "d": 6, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 459.6, "error": null}
 {"lane": "off-paired", "d": 4, "parity": 0, "ann_mod_J": 1, "expected": "1 (D0)", "seconds": 1.2, "error": null}
 {"lane": "off-paired", "d": 4, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 75.7, "error": null}
+{"lane": "off-paired", "d": 5, "parity": 0, "ann_mod_J": 2, "expected": "? (total 5)", "seconds": 134.3, "error": null}
+{"lane": "off-paired", "d": 5, "parity": 1, "ann_mod_J": 3, "expected": "? (total 5)", "seconds": 201.9, "error": null}
+{"lane": "off-paired", "d": 6, "parity": 0, "ann_mod_J": 11, "expected": "? (total 18)", "seconds": 49.4, "error": null}

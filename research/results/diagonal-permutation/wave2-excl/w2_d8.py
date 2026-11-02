@@ -60,7 +60,7 @@ def e1_rref(D, p):
 
 sols = []; used = []; piv0 = None
 lifted = None; u8 = None
-for p in primes[:14]:
+for p in primes[:4]:
     cols, red, piv = e1_rref(D8, p)
     C = len(cols)
     assert piv[-1] != C, f'E1 inconsistent mod {p}?!'

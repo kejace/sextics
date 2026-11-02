@@ -343,8 +343,16 @@ class Red:
         return (V[:, self.std] - matmul_mod(Vp, self.Jr_std, self.p)) % self.p
 
     def nf_polys(self, polys):
-        V = polys_to_mat([self.sec.project(P, self.p) for P in polys], self.sec.idx, self.sec.C, self.p)
+        V = np.zeros((len(polys), self.sec.C), dtype=np.int64)
+        for r, P in enumerate(polys):
+            V[r] = self.sec.coords(self.sec.project(P, self.p), self.p)
         return self.nf_rows(V)
+
+    def basis_poly(self, j):
+        """The j-th standard basis element of R_n^{par,sigma} as a polynomial (orbit sum for sigma sectors)."""
+        v = np.zeros(self.sec.C, dtype=np.int64)
+        v[self.std[j]] = 1
+        return self.sec.poly(v, self.p)
 
     def nf(self, P):
         return self.nf_polys([P])[0]
@@ -365,8 +373,8 @@ def e1_kernel(d, p, par=0, sigma=None, verbose=False, red=None, redA=None):
     if redA is None:
         redA = Red(d + 6, p, 1 - par, sig2, verbose)
     Ap = reduce_mod(A, p)
-    prods = [shift(Ap, m, 1, p) for m in red.std_mons]
-    M = redA.nf_polys(prods)                 # rows: images of standard monomials
+    prods = [mul(Ap, red.basis_poly(j), p) for j in range(len(red.std))]
+    M = redA.nf_polys(prods)                 # rows: images of the standard basis elements (orbit sums in sectors)
     rank = rank_np(M, p)
     ker = nullspace_np(np.ascontiguousarray(M.T), p)   # left kernel: rows = coefficient vectors over red.std_mons
     basis = [vec_to_poly(v, red.std_mons) for v in ker]

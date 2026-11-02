@@ -18,7 +18,42 @@ from hodge.core import NV, monomials, shift, mul, add, sub, scale, pderiv, power
 from flint import nmod_mat
 import oplib
 
-char, cadd, cneg, VARCHAR = oplib.char, oplib.cadd, oplib.cneg, oplib.VARCHAR
+cadd, cneg = oplib.cadd, oplib.cneg
+
+
+def char(e):
+    return oplib.char(e)
+
+
+class _VC:
+    def __getitem__(self, i):
+        return oplib.VARCHAR[i]
+
+
+VARCHAR = _VC()
+GROUP = 'G'
+
+
+def set_group(name):
+    """Restrict character bookkeeping to a subgroup of G = <g,h>: 'G' (both, 36 sectors), 'g' (<g> only: sectors (a,0), h-mixing
+    allowed), 'h' (<h> and parity: sectors (0|3, b), g-mixing allowed except parity), 'tau' (parity only: (0,0) even, (3,0) odd)."""
+    global GROUP
+    WG, WH = oplib.WG, oplib.WH
+    if name == 'G':
+        f = lambda e: (sum(a * b for a, b in zip(WG, e)) % 6, sum(a * b for a, b in zip(WH, e)) % 6)
+    elif name == 'g':
+        f = lambda e: (sum(a * b for a, b in zip(WG, e)) % 6, 0)
+    elif name == 'h':
+        f = lambda e: (3 * ((e[3] + e[4] + e[5]) % 2), sum(a * b for a, b in zip(WH, e)) % 6)
+    elif name == 'tau':
+        f = lambda e: (3 * ((e[3] + e[4] + e[5]) % 2), 0)
+    else:
+        raise ValueError(name)
+    oplib.char = f
+    oplib.VARCHAR = [f(tuple(1 if j == i else 0 for j in range(NV))) for i in range(NV)]
+    oplib.GROUP = name
+    GROUP = name
+    return f
 P0 = core.PRIMES[0]
 BK = 64
 POW = np.array([BK ** i for i in range(6)], dtype=np.int64)
@@ -460,9 +495,26 @@ class SectorVarPro:
         Ju = Ja @ self.P
         return r, Ju, b
 
-    def lm_from(self, seed, maxiter=150, init=None, tol=1e-13, verbose=False, lam0=1e-3):
+    def init_sparse(self, rng, kmax=6):
+        """Random sparse D (2..kmax nonzero basis elements), projected to the gauge complement."""
+        k = int(rng.integers(2, kmax + 1))
+        idx = rng.choice(self.K, size=min(k, self.K), replace=False)
+        Dc = np.zeros(self.nD)
+        for i in idx:
+            Dc += rng.standard_normal() * self.Bex[i]
+        u = self.P.T @ (self.Borth @ Dc)
+        if np.linalg.norm(u) < 1e-12:
+            u = rng.standard_normal(self.dimP)
+        return u / np.linalg.norm(u)
+
+    def lm_from(self, seed, maxiter=150, init=None, tol=1e-13, verbose=False, lam0=1e-3, init_mode='gauss'):
         rng = np.random.default_rng(seed)
-        u = rng.standard_normal(self.dimP) if init is None else np.asarray(init, float)
+        if init is not None:
+            u = np.asarray(init, float)
+        elif init_mode == 'sparse':
+            u = self.init_sparse(rng)
+        else:
+            u = rng.standard_normal(self.dimP)
         u = u / np.linalg.norm(u)
         t0 = time.time()
         r, J, b = self.resid_jac(u)
@@ -507,6 +559,62 @@ class SectorVarPro:
         rel = math.sqrt(f / max(bn, 1e-300))
         return {'seed': int(seed), 'f': f, 'bnorm2': bn, 'relres': rel, 'iters': it, 'njac': njac, 'nres': nres,
                 'status': status, 'time': round(time.time() - t0, 2), 'u': u, 'Dc': Dc}
+
+    # --- deflated LM: push away from known local minima (Farrell-type deflation on the sphere) -------------------
+    def _defl(self, u, minima, sigma=1.0, power=2):
+        """eta(u) = prod_j (1 + sigma / |u - uj|^power) over known minima (both signs); returns (eta, grad eta)."""
+        eta = 1.0; g = np.zeros_like(u)
+        for uj in minima:
+            for sgn in (1.0, -1.0):
+                dvec = u - sgn * uj; d2 = float(dvec @ dvec) + 1e-12
+                fac = 1.0 + sigma / d2 ** (power / 2)
+                eta *= fac
+                g += (-sigma * (power / 2) * d2 ** (-(power / 2) - 1) * 2 * dvec) / fac
+        return eta, eta * g
+
+    def lm_deflated(self, seed, minima, maxiter=150, tol=1e-13, sigma=1.0, lam0=1e-3):
+        rng = np.random.default_rng(seed)
+        u = rng.standard_normal(self.dimP); u /= np.linalg.norm(u)
+        t0 = time.time()
+
+        def rj(u):
+            r, J, b = self.resid_jac(u)
+            eta, ge = self._defl(u, minima, sigma)
+            return eta * r, eta * J + np.outer(r, ge), b, r
+
+        def rr(u):
+            r, b = self.resid(u)
+            eta, _ = self._defl(u, minima, sigma)
+            return eta * r, b, r
+        rd, Jd, b, r = rj(u); f = float(rd @ rd); lam = lam0; it = 0; status = 'maxiter'
+        while it < maxiter:
+            it += 1
+            g = Jd.T @ rd; H = Jd.T @ Jd; dH = np.diag(H).copy(); dH[dH < 1e-300] = 1e-300
+            accepted = False
+            for _ in range(30):
+                try:
+                    delta = np.linalg.solve(H + lam * np.diag(dH), -g)
+                except np.linalg.LinAlgError:
+                    lam *= 10; continue
+                un = u + delta; un /= np.linalg.norm(un)
+                rdn, bn_, rn = rr(un); fn = float(rdn @ rdn)
+                if fn < f:
+                    accepted = True; break
+                lam *= 4.0
+                if lam > 1e14: break
+            if not accepted:
+                status = 'stalled'; break
+            impr = (f - fn) / max(f, 1e-300); u, f = un, fn; lam = max(lam / 3.0, 1e-15)
+            rd, Jd, b, r = rj(u); f = float(rd @ rd)
+            true_rel = math.sqrt(float(r @ r) / max(float(b @ b), 1e-300))
+            if true_rel < tol:
+                status = 'converged'; break
+            if impr < 1e-12 and lam > 1e6:
+                status = 'flat'; break
+        r, b = self.resid(u)
+        Dc, a, na = self.D_coef(u)
+        return {'seed': int(seed), 'f': float(r @ r), 'bnorm2': float(b @ b), 'relres': math.sqrt(float(r @ r) / max(float(b @ b), 1e-300)),
+                'iters': it, 'status': status, 'time': round(time.time() - t0, 2), 'u': u, 'Dc': Dc}
 
     # --- exact confirmation --------------------------------------------------------------------------------
     def D_exact_from_coef(self, Dc, max_den):

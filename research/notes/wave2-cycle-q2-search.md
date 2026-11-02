@@ -64,7 +64,28 @@ The non-Jacobian dimensions reproduce the annihilator dimensions of the dossier 
 dim R_d - dim R_{d+12}, i.e. multiplication by [A] is surjective onto R_{d+12} for d >= 8).  From d = 8 on, E1 is almost
 vacuous (codimension 126, 56, 21, 6 in S_d), so the per-sector search spaces are 16-66 dimensional.
 
+### Rank / obstruction statistics of the reduced E2 systems (generic point of the sector kernel family; `rank-stats` log lines)
+
+| d | sector key | family dim K | rows | unknowns (c_ij + Q) | rank | Koszul gauge nullity | linear obstructions (rows - rank) |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 6 | 0 (trivial, = J part) | 6 | 480 | 271 + 7 | 245 | 32 | 235 |
+| 6 | 96 | 2 | 492 | 271 + 9 | 247 | 32 | 245 |
+| 6 | 597 | 3 | 471 | 265 + 6 | 237 | 34 | 234 |
+| 7 | 6 | 10 | 750 | 409 + 18 | 380 | 46 | 370 |
+
+So at d = 6 the right-hand side -B_D(N0) must satisfy ~240 independent linear conditions while the family has <= 6
+parameters: a solution needs a genuine geometric reason (this quantifies why every tested D fails with rank/aug = +1).
+The Koszul unknowns carry a 32-34 dimensional gauge (second syzygies), handled by the rank-revealing least squares.
+
 ### Steps 2-5: joint numerical search (remote jobs, running)
+
+Mid-course correction (20:00): the box reached load > 1000 (69 agent sessions), so the first chains (300/150/60 restarts
+per sector at d = 6/7/8, 50 structured sub-family invocations per degree) were killed after ~1 h of near-zero progress and
+resubmitted with 16 worker processes, fewer restarts (100/60/30/12 at d = 6/7/8/9; 1000 extra restarts on the d = 6
+trivial sector), and a `multi` mode that builds each sector system once and searches all structured sub-families
+(cone4, mult4, cone3) on it through linear sub-family views (`KoszulVarPro.subfamily`).  A fifth chain searches the q = 1
+sibling (F, B = X0 X1^2 Y0 Y1^2) at d = 8..12 (systems ~300 x 75 at d = 8): a lambda-family of sibling certificates
+differentiates to a q = 2 certificate for A = M1 B with denominator D^2 (dossier P2 / A.7).
 
 * chain A `search-cycle-q2-chainA`: e1dims (done to d = 11) -> kernel d = 6, all sectors, 300 LM restarts each -> d = 7
   (150) -> d = 8 (60).

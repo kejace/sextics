@@ -57,6 +57,25 @@ therefore concentrated on `triv` (both parities), the unrestricted w-space at d 
 (S2×S2, S3×S2, S2×S3) types, which probe invariant denominators of much higher degree (orbit products).
 The sign sectors are still run at low cost as consistency checks of the principle.
 
+## 3a. What the joint search can and cannot establish
+
+* Every family searched is the *complete* E1-admissible space of its type and degree (kernel of `[A]·` on the
+  character sector, including `J(F)_d`, minus the F-multiples), so a zero of the varpro functional is equivalent to
+  the existence of a certificate with a denominator of that type and degree (up to the numerical/rational
+  reconstruction step, which is always followed by an exact re-solve). Conversely, a nonzero global minimum is
+  numerical evidence of non-existence for that type and degree, not a proof: multistart L-BFGS can miss narrow
+  basins. The number of restarts, the distribution of the minima found, and the fraction of restarts reaching the
+  best minimum are therefore recorded per sector (§7), so a reader can judge the coverage.
+* Dimension count: a fixed-D system of the invariant sector at d = 10 has ≈ 2.6k equations and ≈ 0.9k unknowns, so
+  consistency imposes ≈ 1.7k conditions on the ≈ 80 admissible parameters; a solution can only exist for a geometric
+  reason (a divisor with the right (2,0)-forms), never by counting. The search is a necessary check of the low
+  degrees, not an expectation.
+* By the orbit-product argument (§3), a certificate with an arbitrary denominator of degree d implies one with a
+  G-invariant denominator of degree ≤ 36·d; the subgroup-type and unrestricted w-space sectors are probes of
+  invariant denominators of degrees far beyond direct reach.
+* The sum principle also shows that products of tested denominators need no separate test: if no single admissible
+  D of the listed types serves [A], no product of them does either (served(D₁D₂) = served(D₁) + served(D₂)).
+
 ## 6. Concurrent agent on this lane (cross-check, not our work)
 
 Another process submits jobs named `search-symmetric-sextic-residual-{dims,dims2,struct,vp-d8triv0,vp-d8sgnX1}` and
@@ -66,3 +85,7 @@ only on the remote lane dir). From its outputs (pulled 19:50 EST): its own chara
 our landscape (invariant minima ≈ 1e-4 at d = 7–8, no zero); its structured E1 scan tested 1014 products of
 symmetric functions at d = 6–8 (26 pass E1, none full-solved in that file). Our jobs use the prefix
 `search-symmetric-sextic-residual-w2b-*` and the `w2b/` directory to avoid name collisions.
+The 26 E1-passing candidates of that scan are all `{EXF, EYF, D7, D7Y} × (symmetric factor of degree ≤ 2)`; the
+`EXF/EYF` multiples lie in `J(F)_d^G` (d ≤ 8) and the `D7/D7Y` multiples reduce by §3 to invariant denominators of
+degree ≤ 5, so they are inside the invariant varpro families `triv d = 6..8` (both parities) searched jointly below.
+

@@ -39,7 +39,7 @@ for k, B in enumerate(basis):
     for e in B: bidx[e] = k
 def coords(P):
     v = [0] * nb
-    for e, c in P.items(): v[bidx[e]] = (v[bidx[e]] + c) % p
+    for e, c in P.items(): v[bidx[e]] = c % p   # coefficient of the orbit sum (P must be Gamma-invariant)
     return v
 S6 = sector(d + 6, CHI_A)
 NF = S6.nf_matrix([S6.vec(mul(Ap, B, p)) for B in basis])

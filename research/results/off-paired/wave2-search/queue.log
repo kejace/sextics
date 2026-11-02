@@ -1,1 +1,4 @@
 19:57:05 submitting d9all (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00', 'search-off-paired-s2-d8h0']
+20:07:05 submit call timed out (ssh hang); verifying via pid file
+20:07:27 d9all confirmed submitted
+20:08:04 submitting servedscan (cpus 4); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00', 'search-off-paired-s2-d8h0']

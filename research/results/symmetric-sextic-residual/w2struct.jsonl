@@ -1102,3 +1102,50 @@
 {"label": "s2X^2*s2Y*p3Y", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 0.63}
 {"label": "s2X^2*s2Y*p3X", "d": 9, "pD": 0, "chi": "triv", "e1": false, "seconds": 0.43}
 {"label": "EYF*p3Y", "d": 9, "pD": 1, "chi": "triv", "e1": true, "seconds": 95.39, "F_divides_D": false, "status": "inconsistent", "rank": 566, "nullity": 107, "rows": 2648, "cols": 673}
+{"label": "EYF*p3X", "d": 9, "pD": 0, "chi": "triv", "e1": true, "seconds": 76.76, "F_divides_D": false, "status": "inconsistent", "rank": 566, "nullity": 107, "rows": 2648, "cols": 673}
+{"label": "EXF*p3Y", "d": 9, "pD": 1, "chi": "triv", "e1": true, "seconds": 12.3, "F_divides_D": false, "status": "inconsistent", "rank": 566, "nullity": 107, "rows": 2648, "cols": 673}
+{"label": "EXF*p3X", "d": 9, "pD": 0, "chi": "triv", "e1": true, "seconds": 19.46, "F_divides_D": false, "status": "inconsistent", "rank": 566, "nullity": 107, "rows": 2648, "cols": 673}
+{"label": "D7Y*s2Y", "d": 9, "pD": 1, "chi": "sgnY", "e1": true, "seconds": 55.15, "F_divides_D": false, "status": "inconsistent", "rank": 390, "nullity": 283, "rows": 2648, "cols": 673}
+{"label": "D7Y*s2X", "d": 9, "pD": 1, "chi": "sgnY", "e1": true, "seconds": 37.92, "F_divides_D": false, "status": "inconsistent", "rank": 389, "nullity": 284, "rows": 2648, "cols": 673}
+{"label": "D7*s2Y", "d": 9, "pD": 0, "chi": "sgnX", "e1": true, "seconds": 2.42, "F_divides_D": false, "status": "inconsistent", "rank": 389, "nullity": 284, "rows": 2648, "cols": 673}
+{"label": "D7*s2X", "d": 9, "pD": 0, "chi": "sgnX", "e1": true, "seconds": 7.46, "F_divides_D": false, "status": "inconsistent", "rank": 390, "nullity": 283, "rows": 2648, "cols": 673}
+{"label": "DY*p3Y^2", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 0.92}
+{"label": "DY*p3X*p3Y", "d": 9, "pD": 0, "chi": "sgnY", "e1": false, "seconds": 2.01}
+{"label": "DY*p3X^2", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 1.22}
+{"label": "DY*p6Y", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 1.12}
+{"label": "DY*p6X", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 0.65}
+{"label": "DY*s2X*s2Y^2", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 1.6}
+{"label": "DY*s2X^2*s2Y", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 2.78}
+{"label": "DY*EYF", "d": 9, "pD": 1, "chi": "sgnY", "e1": true, "seconds": 2.63, "F_divides_D": false, "status": "inconsistent", "rank": 390, "nullity": 283, "rows": 2648, "cols": 673}
+{"label": "DY*EXF", "d": 9, "pD": 1, "chi": "sgnY", "e1": true, "seconds": 36.75, "F_divides_D": false, "status": "inconsistent", "rank": 390, "nullity": 283, "rows": 2648, "cols": 673}
+{"label": "DY^2*p3Y", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 0.58}
+{"label": "DY^2*p3X", "d": 9, "pD": 0, "chi": "triv", "e1": false, "seconds": 0.42}
+{"label": "DY^3", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 0.21}
+{"label": "DX*p3Y^2", "d": 9, "pD": 0, "chi": "sgnX", "e1": false, "seconds": 0.21}
+{"label": "DX*p3X*p3Y", "d": 9, "pD": 1, "chi": "sgnX", "e1": false, "seconds": 0.24}
+{"label": "DX*p3X^2", "d": 9, "pD": 0, "chi": "sgnX", "e1": false, "seconds": 0.21}
+{"label": "DX*p6Y", "d": 9, "pD": 0, "chi": "sgnX", "e1": false, "seconds": 0.21}
+{"label": "DX*p6X", "d": 9, "pD": 0, "chi": "sgnX", "e1": false, "seconds": 0.21}
+{"label": "DX*s2X*s2Y^2", "d": 9, "pD": 0, "chi": "sgnX", "e1": false, "seconds": 0.21}
+{"label": "DX*s2X^2*s2Y", "d": 9, "pD": 0, "chi": "sgnX", "e1": false, "seconds": 0.24}
+{"label": "DX*EYF", "d": 9, "pD": 0, "chi": "sgnX", "e1": true, "seconds": 34.86, "F_divides_D": false, "status": "inconsistent", "rank": 390, "nullity": 283, "rows": 2648, "cols": 673}
+{"label": "DX*EXF", "d": 9, "pD": 0, "chi": "sgnX", "e1": true, "seconds": 85.88, "F_divides_D": false, "status": "inconsistent", "rank": 390, "nullity": 283, "rows": 2648, "cols": 673}
+{"label": "DX*DY*p3Y", "d": 9, "pD": 0, "chi": "sgnsgn", "e1": false, "seconds": 0.16}
+{"label": "DX*DY*p3X", "d": 9, "pD": 1, "chi": "sgnsgn", "e1": false, "seconds": 0.14}
+{"label": "DX*DY^2", "d": 9, "pD": 0, "chi": "sgnX", "e1": false, "seconds": 0.58}
+{"label": "DX^2*p3Y", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 0.51}
+{"label": "DX^2*p3X", "d": 9, "pD": 0, "chi": "triv", "e1": false, "seconds": 0.41}
+{"label": "DX^2*DY", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 1.75}
+{"label": "DX^3", "d": 9, "pD": 0, "chi": "sgnX", "e1": false, "seconds": 0.31}
+{"label": "e3Y*p3Y^2", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 0.4}
+{"label": "e3Y*p3X*p3Y", "d": 9, "pD": 0, "chi": "triv", "e1": false, "seconds": 0.4}
+{"label": "e3Y*p3X^2", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 0.4}
+{"label": "e3Y*p6Y", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 1.67}
+{"label": "e3Y*p6X", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 18.21}
+{"label": "e3Y*s2X*s2Y^2", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 14.11}
+{"label": "e3Y*s2X^2*s2Y", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 10.17}
+{"label": "e3Y*EYF", "d": 9, "pD": 1, "chi": "triv", "e1": true, "seconds": 129.8, "F_divides_D": false, "status": "inconsistent", "rank": 566, "nullity": 107, "rows": 2648, "cols": 673}
+{"label": "e3Y*EXF", "d": 9, "pD": 1, "chi": "triv", "e1": true, "seconds": 42.5, "F_divides_D": false, "status": "inconsistent", "rank": 566, "nullity": 107, "rows": 2648, "cols": 673}
+{"label": "e3Y*DY*p3Y", "d": 9, "pD": 1, "chi": "sgnY", "e1": false, "seconds": 0.21}
+{"label": "e3Y*DY*p3X", "d": 9, "pD": 0, "chi": "sgnY", "e1": false, "seconds": 15.48}
+{"label": "e3Y*DY^2", "d": 9, "pD": 1, "chi": "triv", "e1": false, "seconds": 21.07}

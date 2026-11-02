@@ -19,6 +19,10 @@ IID = 'reflection-coupled-residual'
 WORK = f'/tmp/hodge/results/{IID}'
 OUT = f'{WORK}/wave2-excl'
 F, A, q, rec = core.load_instance(IID)
+if os.environ.get('W2LIB_F'):          # positive-control override (e.g. the Fermat sextic); A, q unchanged
+    F = core.parse(os.environ['W2LIB_F'])
+    OUT = f'{WORK}/wave2-excl/control-' + os.environ.get('W2LIB_TAG', 'alt')
+    os.makedirs(OUT, exist_ok=True)
 PRIMES = core.PRIMES
 CHARS = [(0, 0), (0, 1), (1, 0), (1, 1)]
 CHI_Z = [(0, 0), (0, 0), (0, 0), (0, 1), (0, 1), (1, 0)]
@@ -53,7 +57,7 @@ def receipt(job, **kw):
     kw.setdefault('job', job)
     line = json.dumps(kw, default=str)
     os.makedirs(OUT, exist_ok=True)
-    with open(f'{OUT}/{job}.jsonl', 'a') as f:
+    with open(f'{OUT}/{job}{os.environ.get("W2LIB_SUFFIX", "")}.jsonl', 'a') as f:
         f.write(line + '\n')
     print('RECEIPT', line, flush=True)
 

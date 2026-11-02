@@ -1,0 +1,3 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+3 reps from /tmp/hodge/results/reflection-coupled-residual/wave2-excl/e1reps_d9_chi00_Q.json (rational)
+[restricted system] d=9 q=1 rows=32214 cols=6804 (of 12089 unrestricted; N 5040, Q 1764) nnz=4875043 built in 13.7s

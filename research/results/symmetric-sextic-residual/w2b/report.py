@@ -67,6 +67,29 @@ if V:
         out.append(f"| {key[0]} d={key[1]} pD={key[2]} | {r0.get('nD')} | {r0.get('dimK')} ({r0.get('dimJ')}+{r0.get('ker_beyond_J')}) | {r0.get('dimP')} | {r0.get('rows')}×{(r0.get('nN') or 0) + (r0.get('nQ') or 0)} | {n} | {best:.2e} | {med:.1e} | {b6} | {b10} | {mtxt} | {','.join(sorted(set(r['job'] for r in rs)))} |")
     conf = [r for r in V if r.get('confirmations')]
     out.append(f'\nCandidates with rel < 1e-10 submitted to exact confirmation: {sum(len(r["confirmations"]) for r in conf)}; verified witnesses: {sum(1 for r in conf for c in r["confirmations"] if c.get("ok"))}.')
+# ---- partial (in-progress) sectors from worker files
+import glob, re
+done_keys = set((r['chi'], r['d'], r['pD'], r['job']) for r in V) if V else set()
+wf = collections.defaultdict(list)
+for pat in (f'{W2B}/*_w*.jsonl', f'/tmp/hodge/remote/{LANE}/w2b/*_w*.jsonl'):
+    for fn in glob.glob(pat):
+        m = re.match(r'.*/(\w+)_([A-Za-z0-9+\-]+)-(\d+)-(\d)_w\d+\.jsonl$', fn)
+        if not m: continue
+        job, chi, d, pD = m.group(1), m.group(2), int(m.group(3)), int(m.group(4))
+        if job.startswith('local'): continue
+        for line in open(fn):
+            try: wf[(chi, d, pD, job)].append(json.loads(line))
+            except Exception: pass
+partial = {k: v for k, v in wf.items() if k not in done_keys and v}
+if partial:
+    out.append('\n### 7a. Sectors still running (partial worker output, deduplicated by file)\n')
+    out.append('| sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |')
+    out.append('|---|---|---:|---:|---:|---:|---:|---|')
+    for k in sorted(partial, key=lambda k: (k[0], k[1], k[2])):
+        rs = partial[k]; rels = sorted(r['rel'] for r in rs if not r.get('spurious')) or sorted(r['rel'] for r in rs)
+        mins = collections.Counter(f'{r:.3g}' for r in rels)
+        mtxt = ', '.join(f'{v}: {c}' for v, c in sorted(mins.items(), key=lambda kv: float(kv[0]))[:5])
+        out.append(f"| {k[0]} d={k[1]} pD={k[2]} | {k[3]} | {len(rs)} | {rels[0]:.2e} | {rels[len(rels)//2]:.1e} | {sum(1 for r in rels if r < 1e-6)} | {sum(1 for r in rels if r < 1e-10)} | {mtxt} |")
 # ---- single solves
 Sg = [r for r in recs if r.get('family') in ('kernel-class', 'kernel-random-combo', 'structured-single')]
 if Sg:

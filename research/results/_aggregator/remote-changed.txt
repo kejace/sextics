@@ -1,0 +1,16 @@
+wave2-cycle-q2-excl.md
+wave2-cyclic-triple-residual-excl.md
+wave2-cyclic-triple-residual-verify.md
+wave2-dense-rational-draftpost.md
+wave2-dense-rational-excl.md
+wave2-diagonal-permutation-excl.md
+wave2-diagonal-permutation-search.md
+wave2-polarized-k3-remainder-search.md
+wave2-quadratic-cubic-pullback-search.md
+wave2-quadratic-cubic-pullback-verify.md
+wave2-quadric-contact-residual-search.md
+wave2-reflection-coupled-residual-construct.md
+wave2-reflection-coupled-residual-draftpost.md
+wave2-reflection-coupled-residual-excl.md
+wave2-symmetric-sextic-residual-search.md
+wave2-verification.log.jsonl

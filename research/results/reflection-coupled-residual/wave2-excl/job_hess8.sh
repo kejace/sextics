@@ -1,6 +1,7 @@
 #!/bin/bash
 # degree-8 pure-character Jacobian families (chi = 01, 10, 11; the (0,0) family with K8 is handled by hessK locally/remotely)
 cd /tmp/hodge/results/reflection-coupled-residual/wave2-excl
+export W2LIB_SUFFIX=.r3
 P=2147483587
 for c in 11 10 01; do
   python3 hess.py export 8 $P $c > export_d8_W$c.out 2>&1

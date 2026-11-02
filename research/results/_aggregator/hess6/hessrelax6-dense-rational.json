@@ -1,0 +1,25 @@
+{
+ "lane": "dense-rational",
+ "p": 1000000007,
+ "e1_kernel_d6": {
+  "0": {
+   "dim": 0,
+   "ring_dim": 218,
+   "jacobian_dim": 18
+  },
+  "1": {
+   "dim": 0,
+   "ring_dim": 208,
+   "jacobian_dim": 18
+  }
+ },
+ "hilbert_ok": true,
+ "ring_dims": {
+  "0": 218,
+  "1": 208
+ },
+ "n_vars": 35,
+ "n_quadrics": 426,
+ "gauge": "c5_5 = 0 (Euler direction removed)",
+ "ts": "2026-11-01T20:04:46"
+}

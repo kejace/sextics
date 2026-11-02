@@ -1,0 +1,1 @@
+{"exp": "separate-evenness", "result": {"odd_exponents": {"a": false, "b": false, "c": false, "d": false}}, "note": "F_b separately even in a=X0-Y0,b=X0+Y0,c=X1-Y1,d=X1+Y1; A=((v-u)/4)^3", "ts": "2026-11-02T01:09:47", "lens": "construct", "engine": 2}

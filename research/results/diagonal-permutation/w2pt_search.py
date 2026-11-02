@@ -128,16 +128,20 @@ def worker(args, wid, conn):
             extra = [symmetrize_pair(D, N, args.sector) for (D, N) in extra]
             extra = [(D, N) for (D, N) in extra if D]
         t0 = time.time()
-        # provisional family to know K
-        K0 = sum(len(monomials(d - 5, (args.pD + PAR[i]) % 2)) for i in range(NV))
+        # dimensions of the search variety (sphere in a) x (Koszul unknowns), sector-aware, to choose the point count:
+        # with complex points each point gives 2 real equations; need 2r > dim(a) - 1 + dim(c) (no false zeros), plus margin
+        wb0 = [(i, m) for i in range(NV) for m in monomials(d - 5, (args.pD + PAR[i]) % 2)]
+        K0 = len(wb0)
         Kx = len(extra) if extra else 0
-        # Koszul count
         pA = core.parity_of(A)
-        nK = 0
-        for i in range(NV):
-            for j in range(i + 1, NV):
-                nK += len(monomials(d - 4, ((pA - args.pD - PAR[i]) % 2 - PAR[j]) % 2))
-        r = K0 + Kx + nK + args.margin
+        cols0 = [(i, j, m) for i in range(NV) for j in range(i + 1, NV) for m in monomials(d - 4, ((pA - args.pD - PAR[i]) % 2 - PAR[j]) % 2)]
+        nK = len(cols0)
+        if args.sector:
+            dim_a = w_sector_matrix(wb0, args.sector).shape[1] + Kx
+            dim_c = c_sector_matrix(cols0, -args.sector).shape[1]
+        else:
+            dim_a, dim_c = K0 + Kx, nK
+        r = (dim_a + dim_c + 1) // 2 + args.margin
         pts = Points(F, r, seed=args.seed * 7919 + wid)
         fam = jacobian_family(F, A, d, pts, extra=extra, pD=args.pD)
         kb = KoszulBlock(F, A, d, pts, pD=args.pD)
@@ -299,7 +303,7 @@ def main():
     ap.add_argument('--extra', default='', help='comma list of extra members, e.g. D8')
     ap.add_argument('--sub', default='', help='file.json:key with exact Jacobian-type D strings spanning a sub-family')
     ap.add_argument('--maxiter', type=int, default=400)
-    ap.add_argument('--margin', type=int, default=60)
+    ap.add_argument('--margin', type=int, default=100, help='extra complex points beyond (dim a + dim c)/2')
     ap.add_argument('--hit', type=float, default=1e-9)
     ap.add_argument('--pD', type=int, default=0, help='Y-parity of D (0 even, 1 odd)')
     ap.add_argument('--sector', type=int, default=0, help='(01)-sector: +1 D invariant (N anti-equivariant), -1 D anti-invariant, 0 none')

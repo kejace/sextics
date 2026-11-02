@@ -4,3 +4,6 @@
 [op5 one-reflection-skew] d=5 sector=(1,1) rows=1200 cols=260 nD=30 nnz=59194 build 0.1s
 [op5 one-reflection-skew] d=6 sector=(0,0) rows=1815 cols=410 nD=60 nnz=189530 build 0.3s
 [op5 one-reflection-skew] d=6 sector=(0,1) rows=1815 cols=410 nD=50 nnz=158894 build 0.3s
+[op5 one-reflection-skew] d=6 sector=(1,0) rows=1815 cols=420 nD=50 nnz=163221 build 0.3s
+[op5 one-reflection-skew] d=6 sector=(1,1) rows=1815 cols=410 nD=50 nnz=158894 build 0.3s
+[op5 family-hesse-web] d=6 sector=(0,0) rows=1815 cols=410 nD=60 nnz=118083 build 0.2s

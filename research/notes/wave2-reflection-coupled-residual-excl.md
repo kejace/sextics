@@ -76,8 +76,10 @@ rational one from above and the zeros are theorems.
 | 6 | 158, 144, 14, **0** | 138, 126, 12, **0** | 88, 82, 6, **0** | 78, 74, 4, **0** |
 | 7 | 258, 213, 45, **0** | 238, 198, 40, **0** | 158, 135, 23, **0** | 138, 120, 18, **0** |
 | 8 | 413, 301, 113, **1** (= K8, two primes, rational lift agrees with wave 1) | 378, 274, 104, **0** | 258, 194, 64, **0** | 238, 182, 56, **0** |
-| 9 | 623, 381, 263, **21** | (receipts lost to an rsync clobber; rerun queued; reps files show kernel 0 for (0,1),(1,1) and > 0 for (1,0)) | | |
-| 10 | —, 460, 650, **186** (dimension-forced: 460 → 274) | (running) | | |
+| 9 | 623, 381, 263, **21** | 360, 228, **0** | 263, 171, **21** | 242, 136, **0** |
+| 10 | 460, 650, **186** | 426, 568, **126** | 318, 441, **136** | 302, 394, **108** |
+(d = 9 rows re-run with suffix `.r2`; d ≥ 9 kernels are dimension-forced: (S/J)_9 → (S/J)_15 and (S/J)_10 → (S/J)_16 have
+target dimensions 360/381/242/263 and 274/301/182/194 by the socle duality (S/J)_n ≅ (S/J)_{24−n}^∨.)
 Agreement with wave 1 (Y-even sector, primes 2^31−1, 2^31−19) and the dossier (all characters mod 32003, d ≤ 6): complete.
 New: the Y-odd characters at d = 7, 8 have no non-Jacobian E1-admissible class either, so at degree 8 the whole
 E1-admissible space is J_8 ⊕ ℂ·K8 (mixed characters allowed).
@@ -91,9 +93,36 @@ polynomial in squares, u = Y2²-polynomial, … of degree 7 passes E1. Degree 8:
 inside J_8: **no structured shape contains a member of the K8 family** (extends wave-1's 55-shape test). Degrees 9–12: running
 (survivors outside J are saved as `struct_d<d>_<shape>_chi<ab>.json` for fixed-D tests).
 
+### R6. The degree-8 family K8 + J_8 (remote job excl-rcr-k8job; wave-1 `e2lin.py` completed)
+ob(K8) ≠ 0 in (S/J)_16^odd (dim 468). Linearisation over the Y-even family D = K8 + Σ g_i F_i (168 parameters):
+rank L = 156 (kernel = the 12 trivial directions zG), rank [L | ob(K8)] = 157 ⇒ **no first-order correction inside the
+E1 family removes the obstruction** (687 s, p = 2147483647). This is a screen (the obstruction is quadratic in g); the
+full quadratic system on the Klein-invariant sector (1 + 102 unknowns, 274 quadrics) is exported by `hessK.py` and run by
+msolve in the local chain (receipt pending). Fixed-D test of K8 itself: certified inconsistent (R4).
+
+### R8. Reduction lemma (local, Singular p = 32003) and the degree-9 structured survivors
+All six coordinate sections X ∩ {z_i = 0} are smooth (Jacobian ideal zero-dimensional mod p ⇒ smooth over ℚ). A smooth
+threefold hypersurface has H^{2,0} = 0, so its (3,1)-served space is zero; by the sum principle (served(D1D2) =
+served(D1) + served(D2), book ch. 3 §1.1 "finite sums: union of supports") **served(z_i·G) = served(G)**: any denominator
+divisible by a coordinate serves exactly what its cofactor serves. Consequences: every degree-7 denominator divisible by a
+coordinate is excluded (degree 6 is excluded outright); the degree-9 structured E1 survivors `multiple-of-X0/X1/X2` (one
+non-Jacobian class each, = X_i·K8) reduce to K8 (excluded, R4); the 21 non-Jacobian `multiple-of-Y2` classes of character
+(1,0) at degree 9 reduce to degree-8 cofactors (Y2·G with A·Y2·G ∈ J but A·G ∉ J in general — their cofactors are not
+E1-admissible, so they cannot serve A: a certificate with denominator Y2·G would give one with denominator G by the lemma,
+contradicting E1 for G unless G ∈ J_8 ⊕ ℂK8).
+Remaining degree-9 structured survivors outside J (receipts `structscreen.jsonl`): 11 classes with even Y0,Y1,Y2
+exponents and 3 + 11 classes inside (X0,X1,Y0,Y1)^4, all among the 21 + 21 kernel classes being tested by `excl-rcr-ker9`.
+Degree 10 (kernels 186/126/136/108): the structured shapes meet the non-Jacobian E1 space in large families
+(multiples of a coordinate: 292–296 classes each, reducible to degree 9 by the lemma; Y-degree ≤ 4: 184; X-degree ≤ 4: 132;
+even exponents in Y0,Y1,Y2: 179 in (0,0)); no cone with a line or plane vertex, no binary/ternary form and no polynomial
+in squares is E1-admissible outside J at degrees 8–10. These degree-10 families are screened only (no fixed-D tests).
+
 ### Jobs submitted (remote)
 * `excl-rcr-e1char`: E1 kernels by Klein character, d = 1..10, p = 2147483587 (+ 2147483579 for reconstruction).
 * `excl-rcr-hess`: Φ-kernel at d = 6 (two primes); Macaulay-3 rank of the quadratic system per character at d = 7;
   msolve exports of the pair/full systems at d = 7.
-* `excl-rcr-k8job`: rigorous fixed-D test of K8 (restricted + full), K8 ∉ J, exact E1 lift, e2lin.
+* `excl-rcr-k8job`: DONE (R4, R6).
+* `excl-rcr-struct`: structured-family E1 screen d = 7..12 (R7, running).
+* `excl-rcr-hess8`: degree-8 pure-character Jacobian families (χ = 11, 10, 01) and the K8 family (1 + 102 unknowns): msolve GB checks (running).
+* `excl-rcr-ker9`: degree-9 E1-kernel representatives (21 in (0,0), plus (1,0)) fixed-D tests + random combinations; rerun of the lost degree-9 receipts.
 

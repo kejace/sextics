@@ -38,6 +38,39 @@ WD = f'/tmp/hodge/results/{LANE}'
 W2LOG = f'{WD}/wave2-search.log.jsonl'
 PR = core.PRIMES
 SIXFIFTH = 1.2
+
+
+def _is_prime(n):
+    if n < 2:
+        return False
+    for q in (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37):
+        if n % q == 0:
+            return n == q
+    dd, r = n - 1, 0
+    while dd % 2 == 0:
+        dd //= 2; r += 1
+    for a in (2, 3, 5, 7, 11, 13, 17):
+        x = pow(a, dd, n)
+        if x in (1, n - 1):
+            continue
+        for _ in range(r - 1):
+            x = x * x % n
+            if x == n - 1:
+                break
+        else:
+            return False
+    return True
+
+
+def primes31(count, start=2147483647):
+    """`count` primes below 2^31, descending from `start` (deterministic)."""
+    out = []
+    n = start
+    while len(out) < count:
+        if _is_prime(n):
+            out.append(n)
+        n -= 2 if n % 2 else 1
+    return out
 DEFL_RUNS = 10
 DEFL_PERTURB = 0.0
 
@@ -247,12 +280,15 @@ class Operator5:
 # linear families of D (orthonormal bases in monomial coordinates)
 # ----------------------------------------------------------------------------
 
-def orthonormalize(V, tol=1e-9):
+def orthonormalize(V, tol=1e-9, rank=None):
     V = np.asarray(V, float)
     if V.size == 0 or V.shape[1] == 0:
         return np.zeros((V.shape[0], 0))
     U, s, _ = np.linalg.svd(V, full_matrices=False)
-    r = int(np.sum(s > tol * s[0])) if s.size else 0
+    if rank is not None:
+        r = min(int(rank), U.shape[1])
+    else:
+        r = int(np.sum(s > tol * s[0])) if s.size else 0
     return U[:, :r]
 
 
@@ -374,16 +410,25 @@ def jacobian_family(prob, d, pD, sD):
             vecs.append(vec_from_poly(Dm, shift(prob.fi[i], g, 1)))
     if not vecs:
         return np.zeros((len(Dm), 0))
-    return orthonormalize(np.array(vecs).T)
+    polys = []
+    for i in range(5):
+        rp = (pD - (1 if i >= 3 else 0)) % 2
+        spp = ((sD - (1 if i in (1, 4) else 0)) % 2) if use_s else None
+        for g in mons5(d - 5, rp, spp):
+            polys.append(shift(prob.fi[i], g, 1))
+    rk = _modp_rank(Dm, polys)
+    return orthonormalize(np.array(vecs).T, rank=rk)
 
 
 def fmult_family(prob, d, pD, sD):
     Dm = prob.Dmons(d, pD, sD)
     use_s = prob.use_sigma and sD is not None
-    vecs = [vec_from_poly(Dm, shift(prob.f, g, 1)) for g in mons5(d - 6, pD, sD if use_s else None)]
+    gs = mons5(d - 6, pD, sD if use_s else None)
+    vecs = [vec_from_poly(Dm, shift(prob.f, g, 1)) for g in gs]
     if not vecs:
         return np.zeros((len(Dm), 0))
-    return orthonormalize(np.array(vecs).T)
+    rk = _modp_rank(Dm, [shift(prob.f, g, 1) for g in gs])
+    return orthonormalize(np.array(vecs).T, rank=rk)
 
 
 def monomial_subfamily(prob, d, pD, sD, pred):
@@ -884,3 +929,139 @@ def snap_confirm(vp, prob, c, pD, sD, T, taus=(0.0, 1e-6, 1e-5, 1e-4, 1e-3, 3e-3
                 inf['attempts'] = attempts
                 return 'solved', inf
     return 'unconfirmed', {'attempts': attempts}
+
+
+# ----------------------------------------------------------------------------
+# exact E1 kernel (mod p nullspace -> canonical rref -> CRT -> rational reconstruction)
+# ----------------------------------------------------------------------------
+
+def _kernel_rref_modp(prob, d, pD, sD, T, p):
+    A = {e: Fraction(v) for e, v in T.items()}
+    rT_, sT_ = parity_of(A, rpar), parity_of(A, spar)
+    rAD = (rT_ + pD) % 2
+    use_s = prob.use_sigma and sD is not None and sT_ is not None
+    sAD = ((sT_ + sD) % 2) if use_s else None
+    Dm = prob.Dmons(d, pD, sD)
+    rows = mons5(d + 6, rAD, sAD)
+    gens = []
+    for i in range(5):
+        rp = (rAD - (1 if i >= 3 else 0)) % 2
+        spp = ((sAD - (1 if i in (1, 4) else 0)) % 2) if use_s else None
+        for mm in mons5(d + 1, rp, spp):
+            gens.append(shift(prob.fi[i], mm, 1))
+    Acols = [shift(A, mm, 1) for mm in Dm]
+    ridx = {e: k for k, e in enumerate(rows)}
+    R, nD, C = len(rows), len(Dm), len(Dm) + len(gens)
+    flat = [0] * (R * C)
+    for j, P in enumerate(Acols + gens):
+        for e, v in core.reduce_mod(P, p).items():
+            flat[ridx[e] * C + j] = v
+    M = nmod_mat(R, C, flat, p)
+    X, nullity = M.nullspace()
+    if nullity == 0:
+        return [], 0, Dm, {'rows': R, 'nJgens': len(gens)}
+    proj = nmod_mat(nullity, nD, [int(X[j, k]) for k in range(nullity) for j in range(nD)], p)
+    Pr, rk = proj.rref()
+    basis = [[int(Pr[i, j]) for j in range(nD)] for i in range(rk)]
+    return basis, rk, Dm, {'rows': R, 'nJgens': len(gens)}
+
+
+def e1_kernel_exact(prob, d, pD, sD, T=None, primes=None, verbose=False, max_primes=400):
+    """Exact rational rref basis of {c : T D(c) in J_f} (T = A by default) in sector (pD, sD), by CRT over 31-bit primes
+    with rational reconstruction, verified against one further prime.  Returns (B_float_orthonormal (nD x k), info);
+    info['exact_basis'] holds the rational rows (Fractions)."""
+    t0 = time.time()
+    T = prob.A if T is None else T
+    # cache (exact bases are expensive at high degree: heights of hundreds/thousands of bits)
+    import hashlib
+    th = hashlib.sha1(core.to_str(T).encode()).hexdigest()[:8]
+    cache_dir = f'{WD}/w2cache'
+    os.makedirs(cache_dir, exist_ok=True)
+    cpath = f'{cache_dir}/kernel-{prob.name}-d{d}-r{pD}s{sD}-{th}.json'
+    if os.path.exists(cpath):
+        try:
+            cj = json.load(open(cpath))
+            rat = [[Fraction(x) for x in row] for row in cj['basis']]
+            Dm = prob.Dmons(d, pD, sD)
+            k0 = len(rat)
+            info = dict(cj['info']); info['cached'] = True
+            if not rat:
+                return np.zeros((len(Dm), 0)), dict(info, exact_basis=[])
+            Bf = np.array([[float(v) for v in row] for row in rat]).T
+            B = orthonormalize(Bf, rank=k0)
+            info['exact_basis'] = rat
+            return B, info
+        except Exception:
+            pass
+    primes = primes or primes31(max_primes)
+    acc = None; mod = None; k0 = None; Dm = None; meta = {}
+    rat = None; verified = False; used = 0
+    next_try = 2
+    for p in primes[:max_primes]:
+        basis, rk, Dm, meta = _kernel_rref_modp(prob, d, pD, sD, T, p)
+        used += 1
+        if k0 is None:
+            k0 = rk
+        elif rk != k0:
+            raise RuntimeError(f'kernel dimension differs between primes ({k0} vs {rk}) at d={d} sector ({pD},{sD})')
+        if rk == 0:
+            rat = []; verified = True
+            break
+        if rat is not None:
+            ok = True
+            for ra, rb in zip(rat, basis):
+                for a, b in zip(ra, rb):
+                    if (a.numerator * pow(a.denominator, -1, p) - b) % p:
+                        ok = False; break
+                if not ok:
+                    break
+            if ok:
+                verified = True
+                break
+        if acc is None:
+            acc, mod = basis, p
+        else:
+            acc = [[core.crt_pair(a, mod, b, p)[0] for a, b in zip(ra, rb)] for ra, rb in zip(acc, basis)]
+            mod *= p
+        if used >= next_try:
+            cand = []
+            okall = True
+            for row in acc:
+                r2 = []
+                for a in row:
+                    v = core.ratrecon(a, mod)
+                    if v is None:
+                        okall = False; break
+                    r2.append(v)
+                if not okall:
+                    break
+                cand.append(r2)
+            rat = cand if okall else None
+            if rat is None:
+                next_try = used + max(1, used // 4)   # geometric cadence of reconstruction attempts
+        else:
+            rat = None
+    if not verified:
+        raise RuntimeError(f'exact kernel not reconstructed/verified after {used} primes (d={d}, sector ({pD},{sD}), modulus {mod.bit_length() if mod else 0} bits)')
+    nD = len(Dm)
+    info = {'d': d, 'pD': pD, 'sD': sD, 'nD': nD, 'kerD': k0, 'primes_used': used, 'secs': round(time.time() - t0, 1),
+            'max_height_bits': (max((max(abs(v.numerator), v.denominator) for row in rat for v in row), default=1)).bit_length() if rat else 0}
+    info.update(meta)
+    if not rat:
+        try:
+            with open(cpath, 'w') as fh:
+                json.dump({'info': info, 'basis': []}, fh)
+        except Exception:
+            pass
+        return np.zeros((nD, 0)), dict(info, exact_basis=[])
+    Bf = np.array([[float(v) for v in row] for row in rat]).T          # nD x k
+    B = orthonormalize(Bf, rank=k0)
+    info['exact_basis'] = rat
+    try:
+        with open(cpath, 'w') as fh:
+            json.dump({'info': {k: v for k, v in info.items() if k != 'exact_basis'}, 'basis': [[str(v) for v in row] for row in rat]}, fh)
+    except Exception:
+        pass
+    if verbose:
+        print(f'[e1ker-exact {prob.name}] d={d} sector=({pD},{sD}) kerD={k0} primes={used} heights<=2^{info["max_height_bits"]} ({info["secs"]}s)', file=sys.stderr)
+    return B, info

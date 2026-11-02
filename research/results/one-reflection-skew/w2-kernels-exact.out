@@ -1,0 +1,12 @@
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 7, "rho": 0, "sigma": 0, "target": "A", "kerD": 28, "primes_used": 13, "max_height_bits": 181, "cached": false, "secs": 5.5}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 7, "rho": 0, "sigma": 0, "target": "Aplus", "kerD": 21, "primes_used": 3, "max_height_bits": 13, "cached": false, "secs": 5.4}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 7, "rho": 0, "sigma": 1, "target": "A", "kerD": 19, "primes_used": 3, "max_height_bits": 17, "cached": false, "secs": 1.2}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 7, "rho": 0, "sigma": 1, "target": "Aplus", "kerD": 19, "primes_used": 3, "max_height_bits": 17, "cached": false, "secs": 5.3}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 7, "rho": 1, "sigma": 0, "target": "A", "kerD": 18, "primes_used": 3, "max_height_bits": 11, "cached": false, "secs": 1.3}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 7, "rho": 1, "sigma": 1, "target": "A", "kerD": 19, "primes_used": 8, "max_height_bits": 104, "cached": false, "secs": 3.3}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 8, "rho": 0, "sigma": 0, "target": "A", "kerD": 91, "primes_used": 52, "max_height_bits": 674, "cached": false, "secs": 49.5}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 8, "rho": 0, "sigma": 0, "target": "Aplus", "kerD": 66, "primes_used": 13, "max_height_bits": 184, "cached": false, "secs": 52.1}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 8, "rho": 0, "sigma": 1, "target": "A", "kerD": 76, "primes_used": 52, "max_height_bits": 682, "cached": false, "secs": 45.5}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 8, "rho": 0, "sigma": 1, "target": "Aplus", "kerD": 55, "primes_used": 8, "max_height_bits": 103, "cached": false, "secs": 31.7}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 8, "rho": 1, "sigma": 0, "target": "A", "kerD": 67, "primes_used": 28, "max_height_bits": 415, "cached": false, "secs": 25.2}
+{"event": "exact-kernel", "inst": "one-reflection-skew", "d": 8, "rho": 1, "sigma": 1, "target": "A", "kerD": 76, "primes_used": 52, "max_height_bits": 680, "cached": false, "secs": 47.1}

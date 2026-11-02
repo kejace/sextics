@@ -30,9 +30,9 @@ from hodge.core import NV, monomials, shift, mul, add, sub, scale, pderiv
 
 
 class KoszulVarPro:
-    def __init__(self, d, pairs, verbose=True, cond=1e-10):
+    def __init__(self, d, pairs, verbose=True, cond=1e-10, reduce='sparse', extra_rows=60, seed=12345):
         F, A, q, Fi, Hs = instance()
-        self.d = d; self.pairs = pairs; self.K = len(pairs); self.cond = cond
+        self.d = d; self.pairs = pairs; self.K = len(pairs); self.cond = cond; self.reduce = reduce
         K = self.K
         t0 = time.time()
         dsecs = sorted({chi(e) for p in pairs for e in p[0]})
@@ -137,8 +137,14 @@ class KoszulVarPro:
         for jq, col in enumerate(Fcols):
             for e, v in col.items():
                 Fm[rows_of(np.array([e], dtype=np.int64))[0], jq] = v
-        self.QF = np.linalg.qr(Fm, mode='reduced')[0] if len(Fcols) else np.zeros((R, 0))
         self.nQ = len(Fcols)
+        if reduce == 'sparse':
+            self.QF = None
+            self.C = self._sparse_reduction(F, outmons, rows_of, n_a, extra_rows, seed)   # (k x R) sparse: compression o NF mod F
+            self.CT = self.C.T.tocsr()
+        else:
+            self.QF = np.linalg.qr(Fm, mode='reduced')[0] if len(Fcols) else np.zeros((R, 0))
+            self.C = None
         # --- spurious complement
         self.Dmat, self.Nmat, self.nD, self.nN, self.n_a, self.R = Dmat, Nmat, nD, nN, n_a, R
         self.P, self.dimZ = self._complement(F)
@@ -148,7 +154,61 @@ class KoszulVarPro:
         if verbose:
             print(f'[kvp] d={d} secs={[sec_str(s) for s in dsecs]} K={K} rows={R} n_a={n_a} nQ={self.nQ} nN={nN} '
                   f'quad entries={len(self.QC)} L entries={len(self.LV)} spurious={self.dimZ} search dim={self.dimP} '
-                  f'built in {self.build_time:.1f}s', flush=True)
+                  f'reduce={reduce}' + (f' k={self.k_rows} nnz(C)={self.C.nnz} nnz(NF)={self.nnz_NF}' if self.C is not None else '') +
+                  f' built in {self.build_time:.1f}s', flush=True)
+
+    def _sparse_reduction(self, F, outmons, rows_of, n_a, extra_rows, seed):
+        """Sparse matrix C = G * NF_F:  NF_F (R' x R) = normal form modulo F (leading monomial X0^6, standard monomials
+        = those not divisible by X0^6), G (k x R') a sparse random compression with k = n_a + extra_rows.
+        Zeros of the compressed residual coincide with zeros of the exact one with probability 1 (false zeros are
+        caught by the exact confirmation)."""
+        import scipy.sparse as sp
+        R = len(outmons)
+        Ff = {e: float(v) for e, v in F.items()}
+        rest = {e: -v for e, v in Ff.items() if e != (6, 0, 0, 0, 0, 0)}   # X0^6 = rest (mod F)
+        midx = {m: i for i, m in enumerate(outmons)}
+        std = [i for i, m in enumerate(outmons) if m[0] < 6]
+        sidx = {i: r for r, i in enumerate(std)}
+        memo = {}
+
+        def nf(m):
+            """normal form of monomial m as {standard monomial index: coeff}."""
+            if m in memo:
+                return memo[m]
+            if m[0] < 6:
+                out = {sidx[midx[m]]: 1.0}
+            else:
+                base = (m[0] - 6,) + m[1:]
+                out = {}
+                for e, v in rest.items():
+                    m2 = tuple(a + b for a, b in zip(base, e))
+                    for j, c in nf(m2).items():
+                        out[j] = out.get(j, 0.0) + v * c
+                out = {j: c for j, c in out.items() if c != 0.0}
+            memo[m] = out
+            return out
+        rows, cols, vals = [], [], []
+        for i, m in enumerate(outmons):
+            for j, c in nf(m).items():
+                rows.append(j); cols.append(i); vals.append(c)
+        NF = sp.csr_matrix((vals, (rows, cols)), shape=(len(std), R))
+        self.nnz_NF = NF.nnz
+        k = n_a + extra_rows
+        rng = np.random.default_rng(seed)
+        Rp = len(std)
+        if k >= Rp:
+            G = sp.identity(Rp, format='csr'); k = Rp
+        else:
+            # each reduced coordinate feeds 4 random compressed rows with random signs/weights
+            per = 4
+            gr = rng.integers(0, k, size=Rp * per)
+            gc = np.repeat(np.arange(Rp), per)
+            gv = rng.standard_normal(Rp * per)
+            G = sp.csr_matrix((gv, (gr, gc)), shape=(k, Rp))
+        self.k_rows = k
+        C = (G @ NF).tocsr()
+        C.sum_duplicates()
+        return C
 
     def _complement(self, F):
         K = self.K
@@ -185,19 +245,27 @@ class KoszulVarPro:
         return dvec, nvec, quad, L
 
     def project(self, X):
+        if self.C is not None:
+            return self.C @ X
         if self.nQ == 0:
             return X
         return X - self.QF @ (self.QF.T @ X)
 
     def value_full(self, c):
-        """Returns f, a, r, dvec, nvec for normalised c."""
+        """Returns f, a, r (pulled back to the output monomial space), dvec, nvec, scale for normalised c."""
         c = np.asarray(c, float); c = c / np.linalg.norm(c)
         dvec, nvec, quad, L = self.assemble(c)
         Lp = self.project(L); qp = self.project(quad)
         a, *_ = sla.lstsq(Lp, qp, cond=self.cond, lapack_driver='gelsd', check_finite=False)
         r = Lp @ a - qp
+        if self.C is not None:
+            r = self.CT @ r          # adjoint pull-back for the gradient passes (f itself is |r_compressed|^2)
+            f = float((Lp @ a - qp) @ (Lp @ a - qp))
+        else:
+            f = float(r @ r)
         self._nfev += 1
-        return float(r @ r), a, r, dvec, nvec, float(qp @ qp)
+        # scale for the relative residual: |D|^2 |N0|^2, the natural magnitude of quad = B(D, N0) (c normalised)
+        return f, a, r, dvec, nvec, float(dvec @ dvec) * float(nvec @ nvec)
 
     def value_and_grad(self, u):
         c_full = self.P @ u
@@ -250,6 +318,8 @@ def main(argv=None):
     ap.add_argument('--seed', type=int, default=0); ap.add_argument('--maxiter', type=int, default=400)
     ap.add_argument('--thresh', type=float, default=1e-9); ap.add_argument('--keep', type=int, default=20)
     ap.add_argument('--tag', default='')
+    ap.add_argument('--exact-metric', action='store_true', help='dense QR projection instead of the sparse NF/compression')
+    ap.add_argument('--extra-rows', type=int, default=60)
     a = ap.parse_args(argv)
     d = a.d
     secs = sectors_of(parse_sec(a.sec))
@@ -263,7 +333,7 @@ def main(argv=None):
         print('[kvp] empty family', flush=True)
         log_event({'event': 'kvp', 'd': d, 'secs': a.sec, 'family': a.family, 'K': 0, 'note': 'empty family'})
         return
-    fam = KoszulVarPro(d, pairs)
+    fam = KoszulVarPro(d, pairs, reduce='exact' if a.exact_metric else 'sparse', extra_rows=a.extra_rows)
     t0 = time.time()
     res = fam.search(a.restarts, a.seed, maxiter=a.maxiter, verbose=True)
     rels = np.array([z['rel'] for z in res])
@@ -271,7 +341,7 @@ def main(argv=None):
     rec = {'event': 'kvp', 'd': d, 'secs': a.sec, 'family': a.family, 'K': fam.K, 'dimZ': fam.dimZ, 'dimP': fam.dimP,
            'rows': fam.R, 'n_a': fam.n_a, 'nQ': fam.nQ, 'restarts': len(res), 'seed': a.seed, 'best_rel': float(rels.min()),
            'median_rel': float(np.median(rels)), 'hist': hist, 'nfev': fam._nfev, 'seconds': round(time.time() - t0, 1),
-           'build_seconds': round(fam.build_time, 1), 'tag': a.tag}
+           'build_seconds': round(fam.build_time, 1), 'tag': a.tag, 'reduce': fam.reduce, 'k_rows': getattr(fam, 'k_rows', None)}
     print('[kvp] summary', rec, flush=True)
     log_event(rec)
     json.dump([{'rel': z['rel'], 'c': [float(x) for x in z['c']]} for z in res[:a.keep]],

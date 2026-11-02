@@ -2,3 +2,5 @@
 [0.2s] core kernel k=6 par=1: dim 13 mod p = exact dim (certified equal)
 [0.2s] d=6 mode=odd p=2147483629: unknowns 31 = 13 kernel + 18 Jacobian
 [131.3s] E1 particular solutions for parity 1: 13 rhs, rank 2223
+[375.7s] NormalFormer deg 12: 3080 monomials, rank J = 2214 (certified), std = 866
+[379.2s] products beta=0/31

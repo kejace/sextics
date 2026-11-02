@@ -1,6 +1,6 @@
 # Wave 2 search report: `cyclic-triple-residual` (q = 1, A = X0^3 Y0^3)
 
-STATUS (2026-11-01 19:54 local): **No witness found so far.** Rigorous so far (this wave): no certificate with deg D <= 4 (no E1-admissible D); none with deg D = 5 (both parities, HF_3 = 0); none with deg D = 6 and Y-odd D (HF_4 = 0); for deg 6 Y-even the relaxation variety modulo the F-gauge is at most ONE projective point (HF_4 = 1), being identified (E_X(F) is NOT it: Bil(E_X F, A X) is not in J_12). Structured sweep: 61/102 candidates done, none consistent (all degree-6 structured candidates fail E1). Remote: job `aux` (sweep) running; `jac`, `sec8`, `sec9`, `served` queued behind the capacity gate (remote load ~700 on 128 cores from other agents).
+STATUS (2026-11-01 20:02 local): **No witness found.** Rigorous this wave: no certificate with deg D <= 5 (d <= 4: no E1-admissible D; d = 5: relaxation quadrics span all quadratic forms in both parities); no Y-odd denominator of degree 6 (HF_4 = 0); for Y-even degree 6 the relaxation variety modulo the F-gauge is at most ONE projective point (HF_4 = 1 on the complement of the Euler line; E_X(F) is not it), identification (HF_5 + numerical search + exact tests) was running locally when the session was closed. E1-admissible spaces d = 4..10 computed exactly per G-sector (bases saved as `w2-e1space-d*-c*.json` in the remote mirror). Structured sweep: 70/102 candidates finished, none consistent (every degree-6 structured candidate fails E1; the Jacobian-type degree-8 pieces pass E1 and fail E2 exactly). Remote joint searches (Fermat calibration, Jacobian-type d = 5..7, sector searches d = 8, 9, served-space sum-principle test) were written, tested, and queued but did not start: the shared 128-core box ran at load 700-940 from other agents and the runner refuses submissions above load 150; the follow-up submission scripts (`w2_submit3.sh`, `w2_submit_served.sh`, `w2_submit_next.sh`) are in the lane dir and resume the plan unchanged.
 
 Code (all in `/tmp/hodge/results/cyclic-triple-residual/`): `w2core.py` (exact E1-admissible spaces per G-sector via fmpz nullspace; Koszul-reduced, sector-restricted variable-projection search; mod-J relaxation; reconstruction + exact confirmation through the wave-1 sector solver `sect.py`), `w2run.py` (multiprocessing driver), jobs `w2_e1space.py`, `w2_jac.py` (+ `w2_jacjob.sh`), `w2_sector.py`, `w2_sweep.py`, `w2_served.py` (served target spaces / sum principle), `w2_macblocks.py` (rigorous relaxation exclusion by G-graded block Macaulay ranks), `w2_macaulay.py` + `w2_hilb.py` (msolve cross-check), `w2_report.py`/`w2_mkreport.py` (this report). Canonical log: `/tmp/hodge/results/cyclic-triple-residual/wave2-search.log.jsonl` (merged from per-process `w2log-*.jsonl` files by `w2_pull.sh`; remote mirror `/tmp/hodge/remote/cyclic-triple-residual/`).
 
@@ -49,6 +49,9 @@ Vectorized residual vs direct evaluation: 1.3e-16. Gradient FD check: 8e-10 / 1.
 | 6 | 1 | False | 18 | 134 | 4 | 0 | YES | 53.3s |
 | 6 | 0 | True | 17 | 102 | 3 | 11 | no | 18.2s |
 | 6 | 0 | True | 17 | 102 | 4 | 1 | no | 49.9s |
+| 6 | 1 | False | 18 | 134 | 3 | 2 | no | 29.0s |
+
+- relaxation-point-d6: {"d": 6, "parity": 0, "Bil_EX_in_J12_modp": false, "Bil_EX_in_J12_exactQ": false, "Bil_EX_terms": 5, "Bil_EX_degree": 12, "exact_ranks": "J_12 sector generators rank 365, with Bil(E_X F, A X) 366 (fmpz exact)", "relax_rel_at_EX": 0.10121255560322683, "fullE2_rel_at_EX_numerical": 0.20922440273498893, "note": "d=6 Y-even: relaxation variety modulo the F-gauge line is at most one projective point (HF_4 = 1, Macaulay bound); E_X(F) = sum X_i dF/dX_i (gauge-equivalent to E_Y(F)) is NOT that point: Bil(E_X F, A X) = A * (five mixed couplings) is not in J_12 (exactly over Q). Values recorded from the printed output of the local check (the logging call was cut by the 110 s local timeout)."}
 
 ### Rational reconstructions tested exactly
 
@@ -126,6 +129,15 @@ Vectorized residual vs direct evaluation: 1.3e-16. Gradient FD check: 8e-10 / 1.
 | pieces-8 | X2^2*H | 8 | 8 | False | False | False | None/None (None) | None | 181.6s |
 | pieces-8 | X2^2*C^2 | 8 | 6 | False | False | False | None/None (None) | None | 180.9s |
 | pieces-8 | X2^2*Z'^2 | 8 | 10 | False | True | False | 685/686 (698) | True | 188.0s |
+| D8-products | X2*D8 | 9 | None | None | True | False | 1155/1156 (None) | None | 565.6s |
+| pieces-9 | X2^3*H | 9 | None | None | False | False | None/None (None) | None | 538.7s |
+| pieces-9 | X2^3*H' | 9 | None | None | True | False | 1738/1739 (None) | None | 576.7s |
+| pieces-9 | C*H' | 9 | None | None | False | False | None/None (None) | None | 558.8s |
+| pieces-9 | Z'*H' | 9 | None | None | False | False | None/None (None) | None | 553.1s |
+| pieces-9 | C^3 | 9 | None | None | False | False | None/None (None) | None | 573.3s |
+| pieces-9 | Z'^3 | 9 | None | None | False | False | None/None (None) | None | 566.9s |
+| pieces-9 | C^2*Z' | 9 | None | None | False | False | None/None (None) | None | 584.6s |
+| pieces-9 | C*Z'^2 | 9 | None | None | False | False | None/None (None) | None | 582.0s |
 
 ### Other log entries
 
@@ -144,3 +156,6 @@ Vectorized residual vs direct evaluation: 1.3e-16. Gradient FD check: 8e-10 / 1.
 - macaulay-blocks degree-4 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-4 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 1
 - macaulay-blocks degree-3 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-3 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 0
 - macaulay-blocks degree-4 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-4 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 0
+- note remote capacity: load 700-770 on 128 cores, 130-140 jobs from other agents; the runner refuses submissions above load 150; jobs jac (rigorous d=7 exclusion + Fermat calibration + Jacobian-type searches), sec8, sec9, served are queued with --wait; local work restricted to single niced processes (rigorous relaxation exclusions at d=5,6 done locally).
+- macaulay-blocks degree-3 Macaulay matrix of the relaxation quadrics, block-diagonal by G-character of w; HF_k = 0 means all degree-3 forms in w lie in the ideal mod p, hence over Q: no certificate with deg D = 6, Y-parity 1
+- relaxation-point-d6 d=6 Y-even: relaxation variety modulo the F-gauge line is at most one projective point (HF_4 = 1, Macaulay bound); E_X(F) = sum X_i dF/dX_i (gauge-equivalent to E_Y(F)) is NOT that point: Bil(E_X F, A X) = A * (five mixed couplings) is not in J_12 (exactly over Q). Values recorded from the printed output of the local check (the logging call was cut by the 110 s local timeout).

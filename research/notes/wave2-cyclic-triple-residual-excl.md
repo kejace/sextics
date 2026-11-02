@@ -23,6 +23,12 @@ Target: F = Fermat sextic + (5/7)(six couplings), A = X0^3 Y0^3, q = 1.
 * Exact over Q (fmpz/fmpq): D8 is not in J(F)_8 (rank 39 -> 40 with D8 adjoined); A*D8 is in J(F)_14 with an explicit integer
   solution P (sum_i P_i d_i(7F) = A*D8, verified exactly; saved wave2-excl/e1_d8_exact.json).  Hence the degree-8 kernel is
   exactly one-dimensional over Q (<= 1 modular, >= 1 exact).  AGREES with wave 1 and sharpens it (wave 1 had only the modular bound).
+* D8 exclusion re-verified by two methods independent of wave 1 (job excl-ctr-chainA, wave2-excl/d8full2.py): sector system
+  2357 x 1188 (N 939, Q 249): nullity 33 at p = 1000003 and p = 2147483587, all 33 null vectors rationally reconstructed
+  (CRT) and verified exactly over Q, so rank_Q = 1155 exactly; augmented rank 1156 at both primes, so rank_Q(aug) >= 1156:
+  INCONSISTENT over Q (modular-rank argument, sealed).  Exact fmpq rref of the augmented system: rank 1156, inconsistent.
+  AGREES with wave 1 (fmpz rank 1155 / 1156).  The unrestricted 40303 x 7497 modular rank (d8full.py stage (i)) was
+  abandoned (dense rank too slow under load ~900); not needed.
 * Consequence (rigorous): no denominator of degree <= 4 exists; every denominator of degree 5, 6, 7 lies in J(F)
   (D = G(F) for a vector field G of degree d-5); every denominator of degree 8 is c*D8 + G(F).
 
@@ -53,6 +59,9 @@ Target: F = Fermat sextic + (5/7)(six couplings), A = X0^3 Y0^3, q = 1.
 * Control (W2_FERMAT=1, log entries with job 'excl-ctr-relax6_fermat'): on the Fermat sextic F0 = sum Z_i^6, where the
   join-type sums X0^6+X1^6+X2^6 etc. are legal degree-6 denominators serving A, the same d = 6 pipeline gives only 52
   quadrics and pure powers for 12/35 variables, i.e. NOT m-primary — the test does not trivially report exclusion.
+* d = 7, SEMI-INVARIANT denominators (local run, SECTOR mode of relax_run.py, p = 1000003): for every character sector
+  the gauge-fixed Hessian-relaxation ideal is m-primary (sectors (0,0)..(2,2): 4-18 unknowns, 43-94 quadrics, all pure
+  powers present; remaining sectors see hsector_d7_*.local.out) => no G-semi-invariant denominator of degree 7 (rigorous).
 * d = 7, 8: running (job excl-ctr-relax78; d = 7: 126 unknowns, 1441 quadrics, msolve GB in progress since 00:36 UTC).
 * Diagnostic (wave2-excl/wspan.py, p = 1000003, random family members): the degree-0 Koszul relaxation (functionals killing
   F*S and every Koszul image D div(S.gradF) - (S.gradF)(D)) has 2543 functionals at d = 6 versus 1751 for the Hessian

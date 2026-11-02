@@ -1,0 +1,33 @@
+{
+ "F": 22,
+ "A": 18,
+ "q": 1,
+ "D": 21,
+ "N": [
+  21,
+  21,
+  0,
+  21,
+  21,
+  0
+ ],
+ "Q": 0,
+ "d": 2,
+ "e1_pairs": 966,
+ "e1_monos": 351,
+ "e2_pairs": 798,
+ "e2_monos": 0,
+ "e1_ok": true,
+ "e2_ok": true,
+ "pairs_total": 1764,
+ "monos_total": 351,
+ "label": "m3_d2_n21",
+ "Fid": "m3-coupled",
+ "which": [
+  "e1",
+  "e2"
+ ],
+ "seed": 0,
+ "yeven": false,
+ "bytes": 29084
+}

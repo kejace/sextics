@@ -1,0 +1,33 @@
+{
+ "exp": "polyfarkas-deg1-exact",
+ "family": "test: single D = F_X0 (k = 1)",
+ "tag": "test_FX0_lift",
+ "d": 5,
+ "prime": 1000000007,
+ "rows": 1075,
+ "cols": 540,
+ "equations": 540,
+ "unknowns": 1075,
+ "rank_mod_p": 442,
+ "nullity_mod_p": 633,
+ "vectors_lifted": 2,
+ "vectors": [
+  {
+   "free_coord": 497,
+   "sha256": "b43ea5a953d602a5a4e4be548ae7af0ddfd55ab575976ee9c4a5bfac3e0649a1",
+   "maxbits": 160
+  },
+  {
+   "free_coord": 770,
+   "sha256": "baf8fa11afa6dde395a46ec252fc2fdddcd8e4d6e0006f2df4f9186cc2b5b31f",
+   "maxbits": 204
+  }
+ ],
+ "ncubics_Q": 2,
+ "dimW_affine_Q": 0,
+ "dimW_minus_Euler_affine_Q": null,
+ "vdimW_minus_Euler_Q": null,
+ "seconds": 4.1,
+ "job": "polyfarkas_lift",
+ "result": "exact degree-1 polynomial Farkas vectors over Q: 2; W = V0 cap V(phi): affine dim 0; minus Euler point: affine dim None"
+}

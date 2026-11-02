@@ -20,3 +20,7 @@ REMOTE BUSY: load 651 (max 150), available memory 126 GB (min 60), 78 jobs runni
 REMOTE BUSY: load 671 (max 150), available memory 123 GB (min 60), 78 jobs running; waiting 60 s
 REMOTE BUSY: load 676 (max 150), available memory 104 GB (min 60), 83 jobs running; waiting 60 s
 REMOTE BUSY: load 679 (max 150), available memory 80 GB (min 60), 84 jobs running; waiting 60 s
+REMOTE BUSY: load 710 (max 150), available memory 46 GB (min 60), 87 jobs running; waiting 60 s
+REMOTE BUSY: load 752 (max 150), available memory 10 GB (min 60), 90 jobs running; waiting 60 s
+REMOTE BUSY: load 763 (max 150), available memory 32 GB (min 60), 91 jobs running; waiting 60 s
+REMOTE BUSY: load 771 (max 150), available memory 74 GB (min 60), 91 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).

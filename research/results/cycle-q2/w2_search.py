@@ -242,8 +242,30 @@ def load_target(args):
     return F, A, q
 
 
+def subfamily_specs(args):
+    specs = []
+    import itertools
+    for kind in args.subfamilies.split(','):
+        kind = kind.strip()
+        if kind == 'cone4':
+            specs += ['cone4:' + ','.join(map(str, c)) for c in itertools.combinations(range(6), 4)]
+        elif kind == 'cone3':
+            specs += ['cone3:' + ','.join(map(str, c)) for c in itertools.combinations(range(6), 3)]
+        elif kind == 'mult4':
+            specs += ['mult4:' + ','.join(map(str, c)) for c in itertools.combinations(range(6), 2)]
+        elif kind == 'mult5':
+            specs += ['mult5:' + ','.join(map(str, c)) for c in itertools.combinations(range(6), 2)]
+        elif kind == 'sing2':
+            specs += ['sing2:' + ','.join(map(str, c)) for c in itertools.combinations(range(6), 3)]
+        elif kind:
+            specs.append(kind)
+    return specs
+
+
 def run_key(task):
     args, kappa, part = task if len(task) == 3 else (task[0], task[1], 0)
+    if args.family == 'multi':
+        return run_key_multi(task)
     F, A, q = load_target(args)
     S = W.Sectors(F, A)
     d = args.d
@@ -324,6 +346,95 @@ def run_key(task):
             'seconds': round(time.time() - t0, 1)}
 
 
+def run_key_multi(task):
+    """build the sector kernel system once, then search every structured sub-family inside it"""
+    args, kappa, part = task if len(task) == 3 else (task[0], task[1], 0)
+    F, A, q = load_target(args)
+    S = W.Sectors(F, A)
+    d = args.d
+    t0 = time.time()
+    Dm, Kb, info = W.e1_kernel_numeric(S, d, kappa, q)
+    K = Kb.shape[1] if Kb.size else 0
+    par = S.parity_of_key(d, kappa)
+    if K == 0:
+        W.log(step='search', family='multi', d=d, key=kappa, tag=args.tag, K=0, note='empty kernel; skipped')
+        return {'key': kappa, 'K': 0, 'skipped': True}
+    specs = subfamily_specs(args)
+    fams = []
+    for spec in specs:
+        try:
+            Dm2, Bsub, inf2 = family_basis(S, d, kappa, spec, q)
+        except Exception as ex:
+            W.log(step='search', family=spec, d=d, key=kappa, tag=args.tag, error=f'family: {ex}')
+            continue
+        k = Bsub.shape[1] if Bsub.size else 0
+        if k == 0:
+            continue
+        C = Kb.T @ Bsub
+        # check Bsub lies in the kernel (it should, by construction)
+        resid = float(np.linalg.norm(Kb @ C - Bsub) / max(np.linalg.norm(Bsub), 1e-300))
+        fams.append((spec, C, k, inf2, resid))
+    if not fams:
+        W.log(step='search', family='multi', d=d, key=kappa, tag=args.tag, K=int(K), n_subfamilies=0, note='no nonempty structured sub-family in this sector',
+              seconds=round(time.time() - t0, 1))
+        return {'key': kappa, 'K': K, 'skipped': True}
+    try:
+        kvp = W.KoszulVarPro(S, d, kappa, Dm, Kb, q=q, verbose=False)
+    except Exception as ex:
+        W.log(step='search', family='multi', d=d, key=kappa, tag=args.tag, error=f'build: {ex}', note=traceback.format_exc()[-800:])
+        return {'key': kappa, 'error': str(ex)}
+    rng = np.random.default_rng(args.seed * 100003 + kappa * 101 + part)
+    cand_file = os.path.join(LANE, f'w2cand_{args.tag}_d{d}.jsonl')
+    results = []
+    best_overall = None
+    for spec, C, k, inf2, resid in fams:
+        sub = kvp.subfamily(C)
+        tb = time.time()
+        seed = int(rng.integers(0, 2 ** 31 - 1))
+        n = args.restarts
+        if args.method == 'lm':
+            cands = sub.search_lm(n_restarts=n, seed=seed, max_nfev=args.maxiter, complex_mode=(args.mode == 'complex'), stop_rel=args.rel_thr * 1e-3)
+        else:
+            cands = sub.search(n_restarts=n, seed=seed, maxiter=args.maxiter, complex_mode=(args.mode == 'complex'), stop_rel=args.rel_thr * 1e-3)
+        cands.sort(key=lambda c: (c['spurious'], c['rel']))
+        cb = cands[0]
+        arr = np.array([c['rel'] for c in cands])
+        hist = {'lt1e-4': int(np.sum(arr < 1e-4)), 'lt1e-6': int(np.sum(arr < 1e-6)), 'lt1e-8': int(np.sum(arr < 1e-8)), 'lt1e-10': int(np.sum(arr < 1e-10))}
+        rec = {'step': 'search', 'family': spec, 'd': d, 'key': kappa, 'part': part, 'parity': par, 'tag': args.tag, 'K': int(k), 'K_sector': int(K),
+               'dimS': int(info.get('dimS', 0)), 'dimK': int(info.get('dimK', 0)), 'mode': args.mode, 'method': args.method, 'q': q,
+               'rows': kvp.R, 'cols': kvp.ncols, 'nC': kvp.nC, 'nQ': kvp.nQ, 'e1_residual': kvp.e1_residual, 'subfamily_resid': resid,
+               'family_info': {kk: (vv if isinstance(vv, (int, float, str)) else str(vv)) for kk, vv in inf2.items() if kk not in ('dimS', 'dimK', 'rankJ', 'gap')},
+               'restarts': len(cands), 'batch_seed': seed, 'batch_s': round(time.time() - tb, 1), 'best_rel': float(cb['rel']), 'best_f': float(cb['f']),
+               'best_spurious': bool(cb['spurious']), 'median_rel': float(np.median(arr)), 'hist': hist, 'seconds': round(time.time() - t0, 1)}
+        n_cand = 0
+        for c in cands:
+            if (c['rel'] < args.rel_thr or c['f'] < 1e-18) and not c['spurious']:
+                n_cand += 1
+                try:
+                    rc = reconstruct_and_confirm(S, sub, c, args, {'key': kappa})
+                except Exception as ex:
+                    rc = {'status': f'error {ex}', 'tb': traceback.format_exc()[-600:]}
+                dv = sub.D_coeffs(c['a'])
+                with open(cand_file, 'a') as f:
+                    f.write(json.dumps({'family': spec, 'd': d, 'key': kappa, 'rel': c['rel'], 'f': c['f'], 'a_re': [float(x) for x in c['a'].real],
+                                        'a_im': [float(x) for x in c['a'].imag], 'Dm': [tuple(int(x) for x in m) for m in sub.Dm],
+                                        'D_re': [float(x) for x in dv.real], 'D_im': [float(x) for x in dv.imag], 'recon': rc}, default=str) + '\n')
+                W.log(step='candidate', family=spec, d=d, key=kappa, tag=args.tag, rel=c['rel'], f=c['f'], recon_status=rc.get('status'),
+                      imag_rel=rc.get('imag_rel'), tried=rc.get('tried'), note='numerical candidate below threshold; see w2cand file')
+                if rc.get('status') == 'WITNESS':
+                    rec['note'] = 'WITNESS FOUND'
+                    W.log(**rec)
+                    return {'key': kappa, 'K': K, 'best_rel': cb['rel'], 'witness': True}
+        rec['n_candidates'] = n_cand
+        rec['note'] = f'{spec} d={d} key={kappa} K={k} (sector kernel {K}): {len(cands)} restarts, best rel {cb["rel"]:.2e}'
+        W.log(**rec)
+        results.append((spec, k, float(cb['rel'])))
+        if best_overall is None or cb['rel'] < best_overall:
+            best_overall = float(cb['rel'])
+    return {'key': kappa, 'K': K, 'best_rel': best_overall, 'restarts': args.restarts, 'rows': kvp.R, 'cols': kvp.ncols,
+            'seconds': round(time.time() - t0, 1), 'n_subfamilies': len(results)}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--d', type=int, required=True)
@@ -345,6 +456,7 @@ def main():
     ap.add_argument('--method', default='lm', help='lm (Levenberg-Marquardt varpro, default) or lbfgs')
     ap.add_argument('--split', type=int, default=1, help='split the restarts of every key into this many parallel parts')
     ap.add_argument('--target', default=None, help='alternative target polynomial (e.g. the q=1 sibling B = X0*X1**2*Y0*Y1**2)')
+    ap.add_argument('--subfamilies', default='cone4,mult4,cone3', help='for --family multi: comma list of structured kinds')
     ap.add_argument('--q', type=int, default=2, help='pole order for --target')
     args = ap.parse_args()
     F, A, q = load_target(args)

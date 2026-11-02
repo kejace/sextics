@@ -8,3 +8,370 @@
 {"family": "Y1-Hu", "d": 5, "sector": [0, 1], "D": "5*X0*X1*Y0**2*Y1/7 + 10*X0*X1*Y1**3/7 + 3*Y1*Y2**4", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
 {"family": "partial", "d": 5, "sector": [1, 0], "D": "10*X0*X1*Y0**2*Y2/7 + 20*X0*X1*Y1**2*Y2/7 + 6*Y2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
 {"family": "Y2-Hu", "d": 5, "sector": [1, 0], "D": "5*X0*X1*Y0**2*Y2/7 + 10*X0*X1*Y1**2*Y2/7 + 3*Y2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*X1**2*X2**2 + X1**6 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*X1**2*X2**2 + X1**6 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*X1**2*X2**2 + X1**6 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*X1**2*X2**2 + X1**6 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "cubic3-sq", "d": 6, "sector": [0, 0], "D": "X0**6 + 2*X0**3*X1**3 + 2*X0**3*X2**3 + X1**6 + 2*X1**3*X2**3 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "cubic3-hesse-sq", "d": 6, "sector": [0, 0], "D": "X0**6 - 6*X0**4*X1*X2 + 2*X0**3*X1**3 + 2*X0**3*X2**3 + 9*X0**2*X1**2*X2**2 - 6*X0*X1**4*X2 - 6*X0*X1*X2**4 + X1**6 + 2*X1**3*X2**3 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*X1**2*Y0**2 + X1**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*X1**2*Y0**2 + X1**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*X1**2*Y0**2 + X1**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*X1**2*Y0**2 + X1**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*X1**2*Y1**2 + X1**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*X1**2*Y1**2 + X1**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*X1**2*Y1**2 + X1**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*X1**2*Y1**2 + X1**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*X1**2*Y2**2 + X1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*X1**2*Y2**2 + X1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*X1**2*Y2**2 + X1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*X1**2*Y2**2 + X1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 - Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*X2**2*Y0**2 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*X2**2*Y0**2 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*X2**2*Y0**2 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*X2**2*Y0**2 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*X2**2*Y1**2 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*X2**2*Y1**2 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*X2**2*Y1**2 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*X2**2*Y1**2 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*X2**2*Y2**2 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*X2**2*Y2**2 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*X2**2*Y2**2 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*X2**2*Y2**2 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + Y0**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + Y0**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - 3*X0**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + X0**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X0**6 - X0**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 - Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - 3*X1**2*X2**2*Y0**2 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + X1**2*X2**2*Y0**2 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + 3*X1**2*X2**2*Y0**2 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - X1**2*X2**2*Y0**2 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - 3*X1**2*X2**2*Y1**2 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + X1**2*X2**2*Y1**2 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + 3*X1**2*X2**2*Y1**2 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - X1**2*X2**2*Y1**2 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - 3*X1**2*X2**2*Y2**2 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + X1**2*X2**2*Y2**2 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + 3*X1**2*X2**2*Y2**2 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - X1**2*X2**2*Y2**2 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X1**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + Y0**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - 3*X1**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + X1**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + 3*X1**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - X1**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X1**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + Y0**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - 3*X1**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + X1**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + 3*X1**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - X1**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X1**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - 3*X1**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + X1**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 + 3*X1**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X1**6 - X1**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X2**6 - Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X2**6 + Y0**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 - 3*X2**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 + X2**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 + 3*X2**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 - X2**2*Y0**2*Y1**2 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X2**6 - Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X2**6 + Y0**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 - 3*X2**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 + X2**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 + 3*X2**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 - X2**2*Y0**2*Y2**2 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X2**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "X2**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 - 3*X2**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 + X2**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 + 3*X2**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "X2**6 - X2**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3", "d": 6, "sector": [0, 0], "D": "Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "-Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "Y0**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat3-sign", "d": 6, "sector": [0, 0], "D": "Y0**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "Y0**6 - 3*Y0**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "Y0**6 + Y0**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "Y0**6 + 3*Y0**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "hesse3", "d": 6, "sector": [0, 0], "D": "Y0**6 - Y0**2*Y1**2*Y2**2 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 - Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y0**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y0**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X1**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X1**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 - Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y0**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 - Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y0**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X0**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X0**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 - Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + Y0**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X0**6 + Y0**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 - Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y0**6 - Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 - Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y0**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X1**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X1**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 - Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + Y0**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X1**6 + Y0**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4", "d": 6, "sector": [0, 0], "D": "X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "-X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X2**6 - Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X2**6 + Y0**6 - Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat4-sign", "d": 6, "sector": [0, 0], "D": "X2**6 + Y0**6 + Y1**6 - Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat5", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat5", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat5", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat5", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat5", "d": 6, "sector": [0, 0], "D": "X0**6 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat5", "d": 6, "sector": [0, 0], "D": "X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "fermat6", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict4", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + X1**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict4", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0*X1*Y0**2*Y2**2/7 + X1**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict4", "d": 6, "sector": [0, 0], "D": "X0**6 + 10*X0*X1*Y1**2*Y2**2/7 + X1**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict4", "d": 6, "sector": [0, 0], "D": "X0**6 + 15*X0*X2**3*Y0*Y1/7 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict4", "d": 6, "sector": [0, 0], "D": "X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict5", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict5", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0*X1*Y0**2*Y2**2/7 + X1**6 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict5", "d": 6, "sector": [0, 0], "D": "X0**6 + 10*X0*X1*Y1**2*Y2**2/7 + X1**6 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict5", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + X1**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict5", "d": 6, "sector": [0, 0], "D": "X0**6 + 15*X0*X2**3*Y0*Y1/7 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-restrict5", "d": 6, "sector": [0, 0], "D": "X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-4", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-2", "d": 6, "sector": [0, 0], "D": "5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 5*X1*X2*Y0*Y1**3/7", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-64", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-62", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + X1**6 + 5*X1*X2*Y0*Y1**3/7 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-42", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-40", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-20", "d": 6, "sector": [0, 0], "D": "5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 5*X1*X2*Y0*Y1**3/7 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-642", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-640", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-620", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + X1**6 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-bideg-420", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus1", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus1", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus1", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus1", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus1", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus1", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + Y0**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + Y1**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + Y0**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + Y0**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y1**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "F-minus2", "d": 6, "sector": [0, 0], "D": "X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial1", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 15*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial1", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 6*X1**6 + 30*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial1", "d": 6, "sector": [0, 0], "D": "45*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*X2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial1", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 15*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*Y0**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial1", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 20*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 15*X1*X2*Y0*Y1**3/7 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial1", "d": 6, "sector": [0, 0], "D": "10*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 30*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 15*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*X2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*Y0**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 15*X1*X2*Y0*Y1**3/7 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 15*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 45*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*X2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*Y0**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 6*X1**6 + 30*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 15*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y0**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 20*X0*X1*Y1**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "10*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 45*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*Y0**6 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 15*X0*X1*Y0**3*Y1/7 + 20*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*Y0**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial2", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 40*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 15*X1*X2*Y0*Y1**3/7 + 6*Y1**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*X2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 25*X0**3*X1*Y0*Y1/7 + 25*X0*X1*Y0**3*Y1/7 + 20*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*Y0**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 25*X0**3*X1*Y0*Y1/7 + 15*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 40*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 20*X0*X1*Y0**2*Y2**2/7 + 40*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 30*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 75*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y0**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 75*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 15*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 25*X0**3*X1*Y0*Y1/7 + 25*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 45*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*Y0**6 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 25*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + 6*Y0**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "6*X0**6 + 20*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 50*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 15*X1*X2*Y0*Y1**3/7 + 6*Y1**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 50*X1**3*X2*Y0*Y1/7 + 15*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y0**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 50*X1**3*X2*Y0*Y1/7 + 25*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 45*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "15*X0**3*X1*Y0*Y1/7 + 25*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 50*X1**3*X2*Y0*Y1/7 + 25*X1*X2*Y0*Y1**3/7 + 6*Y0**6 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 25*X0*X1*Y0**2*Y2**2/7 + 30*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*Y0**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 10*X0*X1*Y0**3*Y1/7 + 15*X0*X1*Y0**2*Y2**2/7 + 50*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 6*X1**6 + 40*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*Y1**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 75*X0*X2**3*Y0*Y1/7 + 30*X1**3*X2*Y0*Y1/7 + 25*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y0**6 + 6*Y1**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 15*X0*X1*Y0**3*Y1/7 + 20*X0*X1*Y0**2*Y2**2/7 + 20*X0*X1*Y1**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 10*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y0**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0**2*Y2**2/7 + 40*X0*X1*Y1**2*Y2**2/7 + 60*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*X2**6 + 6*Y1**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "radial3", "d": 6, "sector": [0, 0], "D": "10*X0**3*X1*Y0*Y1/7 + 20*X0*X1*Y0**3*Y1/7 + 20*X0*X1*Y0**2*Y2**2/7 + 40*X0*X1*Y1**2*Y2**2/7 + 30*X0*X2**3*Y0*Y1/7 + 20*X1**3*X2*Y0*Y1/7 + 20*X1*X2*Y0*Y1**3/7 + 6*Y0**6 + 6*Y1**6 + 6*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-cofactor-eight", "d": 6, "sector": [0, 0], "D": "X0**4*Y0**2 + 2*X0**3*X1*Y0**2 + 3*X0**2*X1**2*Y0**2 + 2*X0**2*X2**2*Y0**2 - 3*X0**2*Y0**4 + 2*X0*X1**3*Y0**2 + 2*X0*X1*X2**2*Y0**2 - 3*X0*X1*Y0**4 + X1**4*Y0**2 + 2*X1**2*X2**2*Y0**2 - 3*X1**2*Y0**4 + X2**4*Y0**2 - 3*X2**2*Y0**4 + 9*Y0**6/4 + Y1**6/4 + Y1**4*Y2**2/4 + Y2**6/4", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-cofactor-mixed", "d": 6, "sector": [0, 0], "D": "4*X0**4*Y0**2 + 8*X0**3*X1*Y0**2 + 12*X0**2*X1**2*Y0**2 - 12*X0**2*Y0**4 + 8*X0**2*Y0**2*Y1**2 + 8*X0**2*Y0**2*Y2**2 + 8*X0*X1**3*Y0**2 - 12*X0*X1*Y0**4 + 8*X0*X1*Y0**2*Y1**2 + 8*X0*X1*Y0**2*Y2**2 + 4*X1**4*Y0**2 - 12*X1**2*Y0**4 + 8*X1**2*Y0**2*Y1**2 + 8*X1**2*Y0**2*Y2**2 + X2**6 + 9*Y0**6 - 12*Y0**4*Y1**2 - 12*Y0**4*Y2**2 + 4*Y0**2*Y1**4 + 8*Y0**2*Y1**2*Y2**2 + 4*Y0**2*Y2**4", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-family-block-cube", "d": 6, "sector": [0, 0], "D": "8*X0**6/243 + 4*X0**4*Y0**2/9 + 2*X0**2*Y0**4 + 3*Y0**6 + Y1**6 + 1681*Y2**6/1701", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-family-hesse-web", "d": 6, "sector": [0, 0], "D": "X0**6 - 2*X0**4*X1**2 + 3*X0**4*Y0**2 - 4*X0**2*X1**2*Y0**2 + 3*X0**2*Y0**4 + 4*X1**6 - 2*X1**2*Y0**4 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-family-trace-zero", "d": 6, "sector": [0, 0], "D": "2*X1**6 + 3*X2**6 + 5*Y1**6 + 7*Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-twoblock-cubic", "d": 6, "sector": [0, 0], "D": "X0**4*Y0**2 - 6*X0**2*Y0**4 + 8*X1**6 + 9*Y0**6 + Y1**6/17", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-xtype-sparse-rational-1m142", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**4*Y0**2 + 3*X0**2*Y0**4 + X1**6/2 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-xtype-strict-rational-113", "d": 6, "sector": [0, 0], "D": "X0**6 + 3*X0**4*Y0**2 + 3*X0**2*Y0**4 + X1**6/3 + 27*X2**6/17 + Y0**6 + 27*Y1**6/17", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-block-q2", "d": 6, "sector": [0, 0], "D": "X0**6 + 2*X0**4*Y0**2 - X0**2*Y0**4 + Y0**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-fermat-q2", "d": 6, "sector": [0, 0], "D": "6*X1**6 + 6*X2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-hesse-triangle", "d": 6, "sector": [0, 0], "D": "X0**6 + X1**6 + X2**6 + 2*Y2**6", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "companion-tie-singleton-3odd-strict", "d": 6, "sector": [0, 0], "D": "7*X1**6/8 + 27*X2**6/32 + 27*Y0**6/32 + 27*Y2**6/32", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y0-partial", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y0**2/7 + 5*X0*X1*Y0**4/7 + 20*X0*X1*Y0*Y1*Y2**2/7 + 15*X0*X2**3*Y0**2/7 + 10*X1**3*X2*Y0**2/7 + 15*X1*X2*Y0**2*Y1**2/7 + 6*Y0*Y1**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y1-partial", "d": 6, "sector": [0, 0], "D": "5*X0**3*X1*Y1**2/7 + 15*X0*X1*Y0**2*Y1**2/7 + 10*X0*X1*Y0*Y1*Y2**2/7 + 15*X0*X2**3*Y1**2/7 + 10*X1**3*X2*Y1**2/7 + 5*X1*X2*Y1**4/7 + 6*Y0**5*Y1", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "X0-partial", "d": 6, "sector": [0, 0], "D": "5*X0**4*Y0*Y1/7 + 5*X0**2*Y0**3*Y1/7 + 5*X0**2*Y0**2*Y2**2/7 + 10*X0**2*Y1**2*Y2**2/7 + 6*X0*X1**5 + 30*X0*X1**2*X2*Y0*Y1/7 + 5*X0*X2*Y0*Y1**3/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "X0-partial", "d": 6, "sector": [0, 0], "D": "45*X0**2*X2**2*Y0*Y1/7 + 10*X0*X1**3*Y0*Y1/7 + 5*X0*X1*Y0*Y1**3/7 + 6*X0*X2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "(Y0*Y1)-Hu", "d": 6, "sector": [0, 0], "D": "5*X0*X1*Y0**3*Y1/7 + 10*X0*X1*Y0*Y1**3/7 + 3*Y0*Y1*Y2**4", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "(Y2**2)-Hu", "d": 6, "sector": [0, 0], "D": "5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 3*Y2**6", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "(Y0**2 + Y1**2)-Hu", "d": 6, "sector": [0, 0], "D": "5*X0*X1*Y0**4/7 + 15*X0*X1*Y0**2*Y1**2/7 + 10*X0*X1*Y1**4/7 + 3*Y0**2*Y2**4 + 3*Y1**2*Y2**4", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y0-partial", "d": 6, "sector": [0, 1], "D": "6*X0**5*Y0 + 15*X0**2*X1*Y0**2*Y1/7 + 5*X1*Y0**4*Y1/7 + 5*X1*Y0**3*Y2**2/7 + 10*X1*Y0*Y1**2*Y2**2/7 + 15*X2**3*Y0**2*Y1/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y0-partial", "d": 6, "sector": [0, 1], "D": "5*X0**3*Y0**2*Y1/7 + 5*X0*Y0**4*Y1/7 + 5*X0*Y0**3*Y2**2/7 + 10*X0*Y0*Y1**2*Y2**2/7 + 6*X1**5*Y0 + 30*X1**2*X2*Y0**2*Y1/7 + 5*X2*Y0**2*Y1**3/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y0-partial", "d": 6, "sector": [0, 1], "D": "45*X0*X2**2*Y0**2*Y1/7 + 10*X1**3*Y0**2*Y1/7 + 5*X1*Y0**2*Y1**3/7 + 6*X2**5*Y0", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y1-partial", "d": 6, "sector": [0, 1], "D": "6*X0**5*Y1 + 15*X0**2*X1*Y0*Y1**2/7 + 5*X1*Y0**3*Y1**2/7 + 5*X1*Y0**2*Y1*Y2**2/7 + 10*X1*Y1**3*Y2**2/7 + 15*X2**3*Y0*Y1**2/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y1-partial", "d": 6, "sector": [0, 1], "D": "5*X0**3*Y0*Y1**2/7 + 5*X0*Y0**3*Y1**2/7 + 5*X0*Y0**2*Y1*Y2**2/7 + 10*X0*Y1**3*Y2**2/7 + 6*X1**5*Y1 + 30*X1**2*X2*Y0*Y1**2/7 + 5*X2*Y0*Y1**4/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y1-partial", "d": 6, "sector": [0, 1], "D": "45*X0*X2**2*Y0*Y1**2/7 + 10*X1**3*Y0*Y1**2/7 + 5*X1*Y0*Y1**4/7 + 6*X2**5*Y1", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "X0-partial", "d": 6, "sector": [0, 1], "D": "5*X0**4*X1*Y1/7 + 15*X0**2*X1*Y0**2*Y1/7 + 10*X0**2*X1*Y0*Y2**2/7 + 15*X0**2*X2**3*Y1/7 + 10*X0*X1**3*X2*Y1/7 + 5*X0*X1*X2*Y1**3/7 + 6*X0*Y0**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "X0-partial", "d": 6, "sector": [0, 1], "D": "5*X0**4*X1*Y0/7 + 5*X0**2*X1*Y0**3/7 + 20*X0**2*X1*Y1*Y2**2/7 + 15*X0**2*X2**3*Y0/7 + 10*X0*X1**3*X2*Y0/7 + 15*X0*X1*X2*Y0*Y1**2/7 + 6*X0*Y1**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "(X0*Y0)-Hu", "d": 6, "sector": [0, 1], "D": "5*X0**2*X1*Y0**3/7 + 10*X0**2*X1*Y0*Y1**2/7 + 3*X0*Y0*Y2**4", "e1": false, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y2-partial", "d": 6, "sector": [1, 0], "D": "6*X0**5*Y2 + 15*X0**2*X1*Y0*Y1*Y2/7 + 5*X1*Y0**3*Y1*Y2/7 + 5*X1*Y0**2*Y2**3/7 + 10*X1*Y1**2*Y2**3/7 + 15*X2**3*Y0*Y1*Y2/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y2-partial", "d": 6, "sector": [1, 0], "D": "5*X0**3*Y0*Y1*Y2/7 + 5*X0*Y0**3*Y1*Y2/7 + 5*X0*Y0**2*Y2**3/7 + 10*X0*Y1**2*Y2**3/7 + 6*X1**5*Y2 + 30*X1**2*X2*Y0*Y1*Y2/7 + 5*X2*Y0*Y1**3*Y2/7", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y2-partial", "d": 6, "sector": [1, 0], "D": "45*X0*X2**2*Y0*Y1*Y2/7 + 10*X1**3*Y0*Y1*Y2/7 + 5*X1*Y0*Y1**3*Y2/7 + 6*X2**5*Y2", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "X0-partial", "d": 6, "sector": [1, 0], "D": "10*X0**2*X1*Y0**2*Y2/7 + 20*X0**2*X1*Y1**2*Y2/7 + 6*X0*Y2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "(X0*Y2)-Hu", "d": 6, "sector": [1, 0], "D": "5*X0**2*X1*Y0**2*Y2/7 + 10*X0**2*X1*Y1**2*Y2/7 + 3*X0*Y2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y2-partial", "d": 6, "sector": [1, 1], "D": "5*X0**3*X1*Y1*Y2/7 + 15*X0*X1*Y0**2*Y1*Y2/7 + 10*X0*X1*Y0*Y2**3/7 + 15*X0*X2**3*Y1*Y2/7 + 10*X1**3*X2*Y1*Y2/7 + 5*X1*X2*Y1**3*Y2/7 + 6*Y0**5*Y2", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y2-partial", "d": 6, "sector": [1, 1], "D": "5*X0**3*X1*Y0*Y2/7 + 5*X0*X1*Y0**3*Y2/7 + 20*X0*X1*Y1*Y2**3/7 + 15*X0*X2**3*Y0*Y2/7 + 10*X1**3*X2*Y0*Y2/7 + 15*X1*X2*Y0*Y1**2*Y2/7 + 6*Y1**5*Y2", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y0-partial", "d": 6, "sector": [1, 1], "D": "10*X0*X1*Y0**3*Y2/7 + 20*X0*X1*Y0*Y1**2*Y2/7 + 6*Y0*Y2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "Y1-partial", "d": 6, "sector": [1, 1], "D": "10*X0*X1*Y0**2*Y1*Y2/7 + 20*X0*X1*Y1**3*Y2/7 + 6*Y1*Y2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "(Y0*Y2)-Hu", "d": 6, "sector": [1, 1], "D": "5*X0*X1*Y0**3*Y2/7 + 10*X0*X1*Y0*Y1**2*Y2/7 + 3*Y0*Y2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}
+{"family": "(Y1*Y2)-Hu", "d": 6, "sector": [1, 1], "D": "5*X0*X1*Y0**2*Y1*Y2/7 + 10*X0*X1*Y1**3*Y2/7 + 3*Y1*Y2**5", "e1": true, "F_divides": false, "p": 2147483647, "engine": 3}

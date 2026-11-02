@@ -440,7 +440,7 @@ def test_fixed_D(D, name, family, p=2147483647, want_exact_dual=True, verbose=Fa
         for j in range(c):
             v = int(M[i, j])
             if v: Mp0[i, j] = v % p
-    rank = Mp0.rank(); rank_aug = Mp.rank()
+    rank = int(Mp0.rank()); rank_aug = int(Mp.rank())
     out = dict(meta); out.update({'name': name, 'family': family, 'p': p, 'rank': rank, 'rank_aug': rank_aug,
                                   'nullity': c - rank, 'consistent_modp': rank_aug == rank})
     if rank_aug == rank:

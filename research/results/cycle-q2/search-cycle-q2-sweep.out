@@ -1,1 +1,3 @@
 [struct-sweep] 420 candidates, 420 new
+  hess-minor2 d=8 e1=False cons=False rk=-1 5.09s det H[X0,X1;X1,Y1] 
+  hess-minor2^2 d=16 e1=None cons=False rk=7227 1097.53s det H[X0,X1;X1,Y1] squared 

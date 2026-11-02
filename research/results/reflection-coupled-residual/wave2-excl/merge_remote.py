@@ -21,6 +21,6 @@ for f in glob.glob(f'{M}/*.jsonl'):
 # also copy non-jsonl outputs that do not exist locally
 for f in glob.glob(f'{M}/*'):
     name = os.path.basename(f)
-    if not name.endswith('.jsonl') and not os.path.exists(f'{Lo}/{name}'):
+    if not name.endswith(('.jsonl', '.out', '.log', '.err', '.pyc')) and not os.path.isdir(f) and not os.path.exists(f'{Lo}/{name}'):
         os.system(f'cp -p "{f}" "{Lo}/{name}"')
 print('merged', added)

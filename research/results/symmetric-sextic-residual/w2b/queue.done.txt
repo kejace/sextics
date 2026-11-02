@@ -1,1 +1,2 @@
 search-symmetric-sextic-residual-w2b-vp1|8|python3 w2b/w2_varpro.py --job vp1 --sectors triv:8:0,triv:8:1,triv:9:0,triv:9:1,triv:6:1,triv:7:0,triv:7:1 --restarts 600 --per-dim 60 --workers 8 --maxiter 400 --seed 1000
+search-symmetric-sextic-residual-w2b-vp2|8|python3 w2b/w2_varpro.py --job vp2 --sectors triv:10:0,triv:10:1,triv:11:0,triv:11:1 --restarts 300 --workers 8 --maxiter 400 --seed 2000

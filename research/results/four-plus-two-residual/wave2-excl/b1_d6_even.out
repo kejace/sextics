@@ -4,3 +4,4 @@
 [129.7s] E1 particular solutions for parity 0: 20 rhs, rank 2214
 [492.1s] NormalFormer deg 12: 3080 monomials, rank J = 2214 (certified), std = 866
 [529.8s] products beta=0/38
+[1794.0s] products beta=10/38

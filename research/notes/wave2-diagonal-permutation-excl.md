@@ -71,8 +71,17 @@ Graded characters chi_g(t) = det(1 - t^5 g)/det(1 - t g) for g in {1, tau, (01),
   d = 10: (even,+) >= 170, (even,-) >= 124 [sum 294 = k_10^+], (odd,+) >= 152, (odd,-) >= 109 [sum 261 = k_10^- - 1].
   d = 11: >= 275 / 235 per parity; d = 12: (even) >= 361 + 316, (odd) >= 342 + 306.
 Consequence: the 21-dimensional degree-9 kernel (both parities) is exactly the forced one and lies entirely in the
-(01)-INVARIANT sector provided the anti-invariant sector kernel is 0 (e1kF sector run, pending).  Every non-Jacobian
+(01)-INVARIANT sector provided the anti-invariant sector kernel is 0 (e1kS run: d=9 (odd,+): kernel 21 with rank 301 = full rank onto the target, i.e. exactly the forced kernel; other sectors pending).  Every non-Jacobian
 E1-admissible denominator of degree 9 is then (01)-invariant modulo J, so the (01)-equivariant reduced E2' system applies.
+
+### Job log (wave 2, this lens)
+* e1kF: full-parity kernels done (d<=9 at P1, d<=8 at P2); crashed in the (01)-sector part (bug: products with representative
+  monomials instead of orbit sums; fixed in w2lib, verified locally: d=8 sectors (even,+)=1, (even,-)=0, (odd,+)=0 with sector
+  dims 255/228/240 matching the equivariant Hilbert series).  Resubmitted as e1kS (sectors d=8..12).
+* d8F: crashed -- rational reconstruction of u8 failed after 6 primes (heights too large).  Resubmitted as d8G with a mod-p
+  fallback; the mod-p relaxation verdict is rigorous for D8 by the regular-sequence argument (README §1.3, "D8 without an exact lift").
+* relax7F: d=7 even system built (60 unknowns, 480 independent quadrics in 1830 pair monomials, good reduction in degree 14);
+  msolve running (4 threads, box at load ~700).
 
 ### R2. Sibling-lens data on this lane seen on the remote (search lens, not mine; to be re-verified)
 * d = 9 E1 kernel (Y-even) primitive dimension 21 (p = 2147483647), hence 21 odd as well by duality (e1kernel_d9.out).

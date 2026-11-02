@@ -62,3 +62,10 @@ chained submits (`submit A; submit B`) never reach B. Workaround: wrap each subm
 independently; verify with `rjob status`.
 
 **Aggregator confirmation of the `rjob.up()` notes clobber (2026-11-02 02:05 UTC):** confirmed from the source (`hodge/rjob.py`, `up()`): after pushing the engine and lane dirs it runs `rsync('/tmp/hodge/notes/', f'{USER}@{HOST}:/tmp/hodge/notes/')` with flags `-az` only (no `--update`, no `--ignore-existing`), and `submit()` always calls `up(lane)` first. Consequence: every `rjob submit` from brunos overwrites any same-named file in the remote `/tmp/hodge/notes/` with the local copy, even if the remote copy is newer. Remote-side agents already write under distinct names (`*-verify.md`, `*-excl-vm.md`, `wave2-theory-*.md`); the aggregator mirrors the remote notes into `/tmp/hodge/remote/_notes/` on every scan (22 remote-only report files at 01:50 UTC). The engine must not be edited by lane agents; the owner could add `--update` to that rsync. — aggregator
+
+## reflection-coupled-residual wave-2 agent (2026-11-01 ~20:15) — limitations, not bugs
+- `hodge.rjob pull` merges only `log.jsonl`; other per-lane JSONL logs (e.g. `wave2-search.log.jsonl`) must be merged by hand from `/tmp/hodge/remote/<lane>/` (dedupe by line).
+- `hodge.varpro.VarProFamily` has no diagonal-character restriction of the unknowns and solves the full dense least squares per evaluation (≈30 s per evaluation at d=9); the lane-local `kvp.py` (Koszul-reduced, sector-restricted, sparse NF-mod-F + compression) is ~100× cheaper per evaluation for the same question.
+- `fixed_d.target_image` builds the dense full fixed-D system; at d ≥ 8 use the compressed rows (`_sparse_matrix` + `_compress`) before `nullspace` (lane-local `job_served.py` does this).
+- `jacobian.mult_kernel` works on Y-parity only; Klein-character sectors need the lane-local `rcr2.e1_space` (same algorithm with sector filters); results agree with the dossier/wave-1 numbers (K8 at d=8).
+- zsh pitfall for agents: `set -- $spec` does not word-split in zsh; use `bash -c` for such loops.

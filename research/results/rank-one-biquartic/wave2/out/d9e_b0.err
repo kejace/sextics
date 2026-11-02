@@ -1,2 +1,5 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 [E2Float d=9 pD=0] rows=16797 n_c=1890 n_C=3080 nN=9009 n_red=13717 col_nnz=19083600 built 10.2s
+[E1Family d=9 pD=0] Jm (7752, 9009) rank=7129 ring_dim=623 gap=(0.13958011339358556, 2.377657299141924e-13) K=406 C_gap=(0.3367117555245884, 0.33414583672024645) e1_rel=1.69e-11 (752.5s)
+[search] d=9 pD=0 K=406 spurious=28 n_u=378 n_c=1890 rows_red=13717 rows=16797 build 752.6s
+[search] generic reduced Koszul rank {'Mred_shape': [13717, 1890], 'rank': 1530, 'nullity': 360, 'sv_min_kept': 19.5786776781925, 'sv_next': 4.676764070285047e-10, 'sv_max': 5443448.379240244}

@@ -22,6 +22,12 @@ Verified on `family-hesse-web` (accepted degree-6 witness, same target): the red
 exactly, the float operator gives relative residual `3.7e-15` at it, `exact_confirm` recovers and
 verifies the 6-variable certificate.
 
+Two structural facts used in the search design (both one-line checks from (*)): (i) `(fG, fW)` solves (*) iff
+`(G, W)` does, so `f`-multiples are never spurious; (ii) more generally `(qD, qN)` solves (*) for every polynomial
+`q` whenever `(D, N)` does, so **the degree-`d` solution set contains `D*·S_{d−d₀}` for every solution `D*` of
+lower degree `d₀`** — a degree-`d` kernel search covers all lower degrees (as positive-dimensional families, which
+the snap-to-rational step then has to collapse), and "no zero at `d`" is heuristic evidence for all `d' ≤ d`.
+
 Code: `/tmp/hodge/results/one-reflection-skew/w2lib.py` (operator linear in D over monomial coordinates,
 variable projection with Tikhonov normal equations, full Golub–Pereyra Jacobian LM, rationalisation +
 LLL, exact modular confirm with CRT), `w2_search.py` (multiprocess restarts), `w2_dims.py`,
@@ -68,13 +74,44 @@ at high degree (at d = 12 only 3 conditions remain in the main sector).
   ~50% per-restart hit rate on a 32-dimensional family with an 8-term solution. Hit rates at larger K
   are measured by `calib-hesse-d6` (400 restarts, LM vs L-BFGS) and `calib-xtype-d6` on the remote.
 
-## 3. Search batches (filled from the log)
+## 3. Search batches (filled from the log; remote chain `w2-chain1b`, 4 processes, box load ~900–1100)
 
-(pending)
+Jacobian-type degrees (task 2; 5-variable `d = 5, 6`, i.e. 6-variable denominators `(w·∇f)²` of degree 10, 12,
+never excluded before): full-E2 variable projection over the complete `w`-space, 160 restarts per sector
+(LM + L-BFGS alternating; the families have K ≤ 7 so this is exhaustive to numerical precision).
+
+| d | sector | K | restarts | best rel | median rel |
+|---|---|---|---|---|---|
+| 5 | (0,0) | 2 | 160 | 3.13e-1 | 3.13e-1 |
+| 5 | (0,1) | 1 | 160 | 5.36e-1 | — |
+| 5 | (1,0) | 1 | 160 | 4.55e-1 | — |
+| 5 | (1,1) | 1 | 160 | 6.35e-1 | — |
+| 6 | (0,0) | 7 | 160 | 6.50e-2 | 7.6e-2 |
+| 6 | (0,1) | 6 | 160 | 3.08e-1 | 3.6e-1 |
+| 6 | (1,0), (1,1) | 6 | running | | |
+
+No zero anywhere (a solution shows rel ≤ 1e-10 in the calibration). A "Hessian relaxation" was unnecessary:
+the full E2 system over these tiny `w`-spaces is solved directly by the variable projection.
+
+Kernel families (task 3) at d = 7 … 12 and the half-target/cone/structured runs: queued in the chains; the
+E1-kernel bases are now computed **exactly** (mod-p nullspace, canonical rref, CRT over 31-bit primes,
+rational reconstruction verified by an extra prime; heights 2^17 … 2^674 bits for d ≤ 8) because the float
+SVD kernel is unreliable here: the skew term is a 1/7-perturbation of `one-reflection`, so many E1-kernel
+directions of the undeformed sextic survive as near-kernel directions with singular values 1e-7 … 1e-15
+(the float basis in the main sector at d = 7 was off by 1.3e-5; in sector (0,1) the 19-dimensional kernel
+was not even separable from 4 spurious directions).
 
 ## 4. Structured families (task 4)
 
-(pending: `w2_struct.py`, cone families)
+* Coordinate cones `D ∈ C[subset of variables] ∩ E1-kernel` (vertex a line or a plane; 13 subsets × degrees
+  6–12, `w2-chain2`): at `d = 6` every cone family is empty (`K = 0`) except `C[X0,X1,Y0,Y1]` (`K = 3`), as
+  expected since the degree-6 kernel is `J_6`. Higher degrees pending.
+* Fixed-D structured candidates (`w2_struct.py`, pending): companion pieces of the accepted `one-reflection`
+  certificate (`f_c`, `h`, `δ`, skew-twisted variants and products), the homogenised binary-cubic covariants
+  of `P(U) = G0 U³ + cp U² + skew U + Y6` (degree 12), 3×3 Hessian minors (degree 12), 2×2 minors × invariants,
+  block radial derivatives × invariants, products of the skew-adapted invariants at degrees 9–12, norm-type
+  cones `f·q + λ g²`, Fermat/twisted 3-variable cones, random generic controls. First results: `f_c`, `f_c + skew`
+  and all degree-6 Fermat cones fail E1 (`A D ∉ J_f`).
 
 ## 5. Rational reconstruction attempts (task 5)
 

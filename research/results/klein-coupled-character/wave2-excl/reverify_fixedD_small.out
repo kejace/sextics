@@ -27,3 +27,8 @@ X2*F_5 certified d 6 rows 2021 cols 472 rankM 410 nullity 61 farkas_rows 411 bit
 Y0*F_0 certified d 6 rows 2097 cols 371 rankM 339 nullity 31 farkas_rows 340 bits 103 1.8 s
 Y0*F_1 certified d 6 rows 2012 cols 360 rankM 328 nullity 31 farkas_rows 329 bits 50 2.0 s
 Y0*F_2 certified d 6 rows 2089 cols 357 rankM 325 nullity 31 farkas_rows 326 bits 91 141.6 s
+Y0*F_3 certified d 6 rows 2028 cols 372 rankM 340 nullity 31 farkas_rows 341 bits 71 167.2 s
+Y0*F_4 certified d 6 rows 1969 cols 372 rankM 340 nullity 31 farkas_rows 341 bits 35 84.4 s
+Y0*F_5 certified d 6 rows 1991 cols 372 rankM 340 nullity 31 farkas_rows 341 bits 19 40.0 s
+Y1*F_0 certified d 6 rows 2096 cols 371 rankM 339 nullity 31 farkas_rows 340 bits 53 60.0 s
+Y1*F_1 certified d 6 rows 2036 cols 360 rankM 328 nullity 31 farkas_rows 329 bits 19 189.5 s

@@ -5,3 +5,6 @@ D7 depends on X only via L: False
 p=1000000007: rank=3441 consistent=True pivots=3441 (212s)
 p=1000000009: rank=3441 consistent=True pivots=3441 (248s)
 p=998244353: rank=3441 consistent=True pivots=3441 (336s)
+p=754974721: rank=3441 consistent=True pivots=3441 (990s)
+reconstruction failures: 0
+EXACT: sum N_i F_i == A*D7 over Q: True (4s)

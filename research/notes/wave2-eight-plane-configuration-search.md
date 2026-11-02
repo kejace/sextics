@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T19:56:59. 0 search restarts collected over 0 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 0 family intersections, 0 reconstruction attempts. 
+STATUS: NO WITNESS. Updated 2026-11-01T20:07:51. 0 search restarts collected over 0 batches; 0 Hessian-relaxation systems, 0 new kernel dimensions, 0 family intersections, 0 reconstruction attempts. 
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -23,8 +23,10 @@ Assembled residual equals the exact Fraction computation (max diff 2e-11 at scal
 ## Exact results obtained locally (wave 2, mod p = 2147483629; Singular for Hilbert data)
 - d = 6, odd parity: 18 w-variables, 153 independent quadrics; Hilbert function 1, 18, 18, 2, 0, ... — the ideal contains all quartics, the projective variety is EMPTY. Rigorous over Q (Macaulay rank can only grow in characteristic 0): **no odd degree-6 denominator exists**.
 - d = 6, even parity: 135 independent quadrics; projective dimension 0, degree 38; primary decomposition: a single component, the Euler point w = Euler (D = 6F, spurious), with multiplicity 38. Hence **no genuine even degree-6 Jacobian denominator** (mod p; every characteristic-0 point would have to reduce to the Euler point).
-- d = 6, mixed parity (36 variables): 405 independent quadrics; projective dimension 0, degree 923; the quadrics have no linear term in the odd directions at the Euler point (H(E, v) = 5 v(F) in J), so the Euler point is expected to carry all of the degree — radical computation pending (see log).
+- d = 6, mixed parity (36 variables): 405 independent quadrics; projective dimension 0, degree 923; the quadrics have no linear term in the odd directions at the Euler point (H(E, v) = 5 v(F) in J), and the radical of the (dehomogenized) ideal has vector-space dimension 1: the scheme is supported at the single point w = Euler. Hence **no mixed-parity degree-6 Jacobian denominator** either (mod p).
+- **Degree-6 verdict: no certificate with deg D = 6** — odd parity rigorous over Q; even and mixed parity modulo the standard mod-p caveat (confirmed with a second prime for the even sector: rank 135, degree 38).
 - d = 5: excluded rigorously (Hessian condition forces a singular point), see above.
+- d = 7 (both parities, local, mod p): 63 w-variables, exactly 483 independent quadrics each (= rank of [A]: R_8^+ -> R_14^-, as predicted), dim R_14^- = 744. The spurious plane {g * Euler : g linear} lies in the variety, so emptiness of the complement cannot be certified by Macaulay ranks (degree-4 matrix ~ 10^6 x 6*10^5, dense); decided numerically instead (stage-1 searches with the spurious subspace projected out). Structured probe: 344 natural quadratic fields (linear form x {Euler, block scalings, block rotations, coordinate fields}, Q_j x constant fields, gradients of all cubic monomials and of z_a Q_j) evaluated on the exact quadrics: only the six spurious fields z_a * Euler are Hessian-admissible.
 
 
 ## 1. E1-admissible denominator spaces per degree (mod p = 2147483629)

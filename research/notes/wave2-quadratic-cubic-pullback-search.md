@@ -108,18 +108,20 @@ the same conclusion when it returns the Groebner basis [1].
 | 5 | even | 3 | 0 | 3 | 744 | 6/6 |  | 2 |
 | 5 | odd | 3 | 0 | 3 | 744 | 6/6 |  | 2 |
 | 6 | even | 18 | 1 | 17 | 866 | 135/153 | deg3: 967/969 deg4: 4845/4845 | 4 |
-| 6 | odd | 18 | 0 | 18 | 866 | 153/171 |  | None |
+| 6 | odd | 18 | 0 | 18 | 866 | 153/171 | deg3: 1138/1140 deg4: 5985/5985 | 4 |
 
 msolve (exact, mod p = 2147483629):
 
-| d | parity | char | system | GB / solutions | time |
-|---|---|---|---|---|---|
-| 6 | even | 2147483629 | 135 forms in 17 vars | [-1]: (no solution) | 0.0 s |
-| 6 | odd | 2147483629 | 153 forms in 18 vars | [-1]: (no solution) | 0.0 s |
+| d | parity | char | system | mode | verdict | time |
+|---|---|---|---|---|---|---|
+| 6 | even | 2147483629 | 135 forms in 17 vars | affine chart l(v)=1 | no solution in the random affine chart | 0.0 s |
+| 6 | odd | 2147483629 | 153 forms in 18 vars | affine chart l(v)=1 | no solution in the random affine chart | 0.0 s |
+| 6 | odd | 2147483629 | 153 forms in 18 vars | homogeneous, -g 2 | EMPTY projective zero set (pure power of every variable in the leading ideal) | 0.1 s |
 
-Conclusions so far: d = 5 (both parities, rank-2 certificate), d = 6 Y-even (Macaulay-4 certificate 4845/4845, exact) and d = 6 Y-odd
-(msolve GB = [1]; Macaulay-4 running) admit NO certificate for A.  Combined with K_d = J_d for d <= 9, every certificate has deg D >= 7;
-d = 7, 8 msolve/Macaulay running (job closure678).
+Conclusions so far (rigorous): d = 5 (both parities, rank-2 certificate) and d = 6 (both parities: Macaulay-4 certificates
+4845/4845 and 5985/5985, exact mod p hence over Q; confirmed independently by msolve's homogeneous reduced Groebner basis,
+whose leading ideal contains v_i^2 for every variable) admit NO certificate for A.  With K_d = J_d for d <= 9 this proves:
+every certificate for this target has deg D >= 7 (both parities).  d = 7, 8 msolve/Macaulay running (job closure678).
 
 ### Batch 4 (item 2/3, numerical joint search, remote jobs jvp-d678 / d10; running): residual landscape so far
 rel = ||residual||^2 / ||B_D(N0)||^2 at the converged point (0 would be a certificate).  Spurious directions (F-multiples,

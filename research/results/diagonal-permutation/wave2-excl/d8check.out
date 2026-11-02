@@ -1,0 +1,4 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+D8 in J? False ; NF nonzero coords 414 of 483
+(01)D8 - D8 in J? True ; (01)D8 + D8 in J? False
+rank of {NF(D8), NF(cyc D8)}: 2 (2 = three-cycle moves the line)

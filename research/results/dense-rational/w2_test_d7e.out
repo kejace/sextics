@@ -2,3 +2,11 @@
 load: 0.1s
 spaces: 0.0s
 family: 0.1s
+[NormE2] d=7 pD=0 kind=jacobian nw=63 gauge=3 dimU=60 rows=5796 nK=420 nC=636 nT=396 built in 166.2s
+NormE2 build: 166.2s
+evaluate f=7.083e+05 rel=8.994e-01 rank=360: 2.1s
+evaluate+jac: 206.4s
+reduced_jac: 6.7s
+E1 residual max 5.329070518200751e-15
+B_D(N) direct vs assembled: max abs diff 1.1368683772161603e-13 scale 339.42364369823946
+polynomial cross-check: 39.7s

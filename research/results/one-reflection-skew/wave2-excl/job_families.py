@@ -98,16 +98,16 @@ if __name__ == '__main__':
                 if ok: e1pass.append((nm, Dd))
                 else:
                     nfail += 1
-                    fh.write(json.dumps({'name': nm, 'd': d, 'chi': chi, 'e1': False, 'status': 'E1-fails-rigorous'}) + '\n')
+                    fh.write(json.dumps({'name': nm, 'd': d, 'chi': chi, 'e1': False, 'status': 'E1-fails-rigorous'}, default=w2x._jsdefault) + '\n')
         fh.flush()
         print(f'E1 stage: {nfail} fail (rigorous: J rank certified), {len(e1pass)} pass -> E2', round(time.time()-t0, 1), flush=True)
         w2x.logexp(exp='family-E1-batch', family='structured-products', d=f'{dmin}-{dmax}', prime=P, result=f'{nfail} E1-fail (rigorous), {len(e1pass)} E1-pass',
                    rank=None, seconds=round(time.time()-t0, 1), job='excl-ors-families', note=f'{len(cands)} candidates, <= {maxf} factors; J_{{d+6}}[chi] rank mod p certified equal to exact rank in every sector used')
         e1pass.sort(key=lambda x: sum(next(iter(x[1]))))
         for rec in pool.imap_unordered(e2_work, e1pass):
-            fh.write(json.dumps(rec) + '\n'); fh.flush()
+            fh.write(json.dumps(rec, default=w2x._jsdefault) + '\n'); fh.flush()
             print(rec['name'], rec['d'], rec['status'], rec.get('seconds'), flush=True)
             if rec['status'] == 'WITNESS':
                 print('!!!!!!!! WITNESS FOUND !!!!!!!!', rec, flush=True)
-                with open('WITNESS_FOUND.json', 'w') as wf: json.dump(rec, wf)
+                with open('WITNESS_FOUND.json', 'w') as wf: json.dump(rec, wf, default=w2x._jsdefault)
     print('DONE', round(time.time()-t0, 1), flush=True)

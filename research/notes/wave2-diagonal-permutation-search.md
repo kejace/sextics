@@ -15,6 +15,7 @@ Scripts: `w2pt.py` (pointwise variable projection, see §2), `w2pt_search.py` (m
 | D8 served-target space (compressed homogeneous system with 226 target columns) | served dim = 18 = `J_6^-` (only the zero class); A not served |
 | E1 kernel modulo `J(F)` at d=9, Y-even (`mult_kernel`, rows 7752, cols 10010) | **dim 21** (kernel 399 = 378 + 21): the first non-Jacobian denominators appear at **d = 9**, not 10 (duality ⇒ Y-odd kernel also 21) |
 | E1 kernel modulo `J(F)` at d=9, Y-odd | **dim 21** (computed; matches duality) |
+| Float basis of the degree-9 admissible space (SVD of the 7752×10010 E1 matrix over R, `w2_kerfam.py`) | admissible dim 399 = 378 + 21; singular-value gap 3.2e-3 / 1.5e-14; E1 residual of the kernel lifts ~3e-15 |
 
 ## 2. Method for the joint search (reduced E2, pointwise)
 

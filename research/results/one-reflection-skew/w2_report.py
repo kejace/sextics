@@ -9,6 +9,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--mirror', default='/tmp/hodge/remote/one-reflection-skew')
 ap.add_argument('--local', default='/tmp/hodge/results/one-reflection-skew')
 ap.add_argument('--merge', action='store_true')
+ap.add_argument('--md', action='store_true', help='print a markdown table of all searches')
 a = ap.parse_args()
 
 def read_jsonl(path):
@@ -69,7 +70,7 @@ for job, s in sorted(starts.items(), key=lambda kv: (kv[1].get('d', 0), kv[0])):
         h = e.get('hist', {})
         hs = f"{h.get('<1e-08', 0)}/{h.get('<1e-06', 0)}/{h.get('<0.0001', 0)}/{h.get('<0.01', 0)}"
         print(f"  {job:22s} {s.get('inst','')[:16]:16s} d={s['d']} ({s['rho']},{s['sigma']}) {s['family'][:14]:14s} {s['target']:5s} K={s['K']:<4d} {s['rows']}x{s['cols']} {s['method']:5s} "
-              f"n={e['restarts']:<5d} best={e['best_rel'] if e['best_rel'] is None else format(e['best_rel'], '.2e')} med={e['median_rel'] if e['median_rel'] is None else format(e['median_rel'], '.2e')} hist={hs} {e['elapsed']}s cands={e.get('n_cands')} conf={e.get('confirmed')}")
+              f"n={e.get('restarts', 0):<5d} best={e.get('best_rel') if e.get('best_rel') is None else format(e['best_rel'], '.2e')} med={e.get('median_rel') if e.get('median_rel') is None else format(e['median_rel'], '.2e')} hist={hs} {e.get('elapsed')}s cands={e.get('n_cands')} conf={e.get('confirmed')} {e.get('note', '')}")
     elif bl:
         b = bl[-1]
         print(f"  {job:22s} {s.get('inst','')[:16]:16s} d={s['d']} ({s['rho']},{s['sigma']}) {s['family'][:14]:14s} {s['target']:5s} K={s['K']:<4d} {s['rows']}x{s['cols']} {s['method']:5s} "
@@ -100,3 +101,21 @@ for ev in ('candidate', 'exact-confirm', 'WITNESS'):
         print(f'\n## {ev}: {len(L)}')
         for r in L[-20:]:
             print('  ', json.dumps(r)[:300])
+
+if a.md:
+    print('\n| job | instance | d | sector | family | target | K | system (rows×cols) | method | restarts | best rel | median rel | <1e-8 / <1e-6 / <1e-4 | time |')
+    print('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|')
+    for job, s in sorted(starts.items(), key=lambda kv: (kv[1].get('inst', ''), kv[1].get('d', 0), kv[0])):
+        if job.startswith('smoke') or job.startswith('test-'):
+            continue
+        e = ends.get(job)
+        bl = batches.get(job, [])
+        if e:
+            h = e.get('hist', {}) or {}
+            br, mr = e.get('best_rel'), e.get('median_rel')
+            print(f"| {job} | {s.get('inst','')} | {s['d']} | ({s['rho']},{s['sigma']}) | {s['family']} | {s['target']} | {s['K']} | {s['rows']}×{s['cols']} | {s['method']} | {e.get('restarts', 0)} | "
+                  f"{'—' if br is None else format(br, '.2e')} | {'—' if mr is None else format(mr, '.2e')} | {h.get('<1e-08', 0)} / {h.get('<1e-06', 0)} / {h.get('<0.0001', 0)} | {e.get('elapsed', '')}s {e.get('note', '')} |")
+        elif bl:
+            b = bl[-1]
+            print(f"| {job} | {s.get('inst','')} | {s['d']} | ({s['rho']},{s['sigma']}) | {s['family']} | {s['target']} | {s['K']} | {s['rows']}×{s['cols']} | {s['method']} | {b['done_total']} (running) | "
+                  f"{'—' if b.get('best_rel_total') is None else format(b['best_rel_total'], '.2e')} | | | |")

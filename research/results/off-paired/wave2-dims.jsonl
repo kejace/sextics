@@ -262,3 +262,4 @@
 {"d": 11, "chi": [2, 3], "dimR": 98, "dimE1": 84, "gauge": 3, "jac_mod_gauge": 45, "ker": 36, "jac_total_with_gauge": 48, "seconds": 79.28, "parity": 0}
 {"d": 11, "chi": [2, 4], "dimR": 104, "dimE1": 89, "gauge": 4, "jac_mod_gauge": 52, "ker": 33, "jac_total_with_gauge": 56, "seconds": 185.96, "parity": 0}
 {"d": 11, "chi": [2, 5], "dimR": 122, "dimE1": 105, "gauge": 7, "jac_mod_gauge": 74, "ker": 24, "jac_total_with_gauge": 81, "seconds": 215.39, "parity": 0}
+{"d": 11, "chi": [4, 0], "dimR": 152, "dimE1": 131, "gauge": 12, "jac_mod_gauge": 93, "ker": 26, "jac_total_with_gauge": 105, "seconds": 667.92, "parity": 0}
