@@ -22,3 +22,4 @@
 {"ts":"2026-11-02T01:58:44","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_V3_on_c4.ms","output":"sigmaQP_V3_on_c4.out","exit":0,"head":"[0, [0,  10,  24,  ['x', 'y', 'z', 'r', 'm0', 'm1', 'm2', 'm"}
 {"ts":"2026-11-02T01:58:45","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_X_off_c1.ms","output":"sigmaQP_X_off_c1_det.out","exit":0,"head":"[-1]: "}
 {"ts":"2026-11-02T01:58:46","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_X_off_c2.ms","output":"sigmaQP_X_off_c2_det.out","exit":0,"head":"[-1]: "}
+{"ts":"2026-11-02T02:06:16","step":"detached-char0-run","lens":"construct","engine":2,"input":"sigmaQ_X_off_c4.ms","output":"sigmaQP_X_off_c4_det.out","exit":0,"head":"[0, [0,  13,  117,  ['x', 'y', 'z', 't', 's', 'm0', 'm1', 'm"}

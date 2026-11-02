@@ -122,3 +122,39 @@ params 30 killed 0 survivors 30
 residual constraint rank 114 on 465 quadratic monomials in 30 variables
 DIM=0 DEG=4979 SIZE=2868
 === target=k3 char=5 Mon Nov  2 01:53:22 AM EST 2026
+[result] {"d": 8, "p": 65521, "target": "k3", "gauge": true, "char": 5, "params": 30, "pairs": 465, "L_generators": 55473, "blocks": [{"r": 0, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "quotient_dim_p": 129, "constraint_rank_p": 0, "seconds": 70.2}, {"r": 1, "rows": 3438, "L_cols": 9711, "L_rank_p": 3258, "quotient_dim_p": 180, "constraint_rank_p": 0, "seconds": 77.0}, {"r": 2, "rows": 3465, "L_cols": 10188, "L_rank_p": 3240, "quotient_dim_p": 225, "constraint_rank_p": 0, "seconds": 85.2},
+[squares-summary] {"killed_mod_p": 0, "params": 30, "killed_Q": null}
+params 30 killed 0 survivors 30
+  c0 = coefficient of U2^3 in a_3 (P_3 * U2^3)
+  c1 = coefficient of U1*U2^2 in a_3 (P_3 * U1*U2^2)
+  c2 = coefficient of U1^2*U2 in a_3 (P_3 * U1^2*U2)
+  c3 = coefficient of U1^3 in a_3 (P_3 * U1^3)
+  c4 = coefficient of U0*U2^2 in a_3 (P_3 * U0*U2^2)
+  c5 = coefficient of U0*U1*U2 in a_3 (P_3 * U0*U1*U2)
+  c6 = coefficient of U0*U1^2 in a_3 (P_3 * U0*U1^2)
+  c7 = coefficient of U0^2*U2 in a_3 (P_3 * U0^2*U2)
+  c8 = coefficient of U0^2*U1 in a_3 (P_3 * U0^2*U1)
+  c9 = coefficient of U0^3 in a_3 (P_3 * U0^3)
+  c10 = coefficient of U2^3 in a_4 (P_4 * U2^3)
+  c11 = coefficient of U1*U2^2 in a_4 (P_4 * U1*U2^2)
+  c12 = coefficient of U1^2*U2 in a_4 (P_4 * U1^2*U2)
+  c13 = coefficient of U1^3 in a_4 (P_4 * U1^3)
+  c14 = coefficient of U0*U2^2 in a_4 (P_4 * U0*U2^2)
+  c15 = coefficient of U0*U1*U2 in a_4 (P_4 * U0*U1*U2)
+  c16 = coefficient of U0*U1^2 in a_4 (P_4 * U0*U1^2)
+  c17 = coefficient of U0^2*U2 in a_4 (P_4 * U0^2*U2)
+  c18 = coefficient of U0^2*U1 in a_4 (P_4 * U0^2*U1)
+  c19 = coefficient of U0^3 in a_4 (P_4 * U0^3)
+  c20 = coefficient of U2^3 in a_5 (P_5 * U2^3)
+  c21 = coefficient of U1*U2^2 in a_5 (P_5 * U1*U2^2)
+  c22 = coefficient of U1^2*U2 in a_5 (P_5 * U1^2*U2)
+  c23 = coefficient of U1^3 in a_5 (P_5 * U1^3)
+  c24 = coefficient of U0*U2^2 in a_5 (P_5 * U0*U2^2)
+  c25 = coefficient of U0*U1*U2 in a_5 (P_5 * U0*U1*U2)
+  c26 = coefficient of U0*U1^2 in a_5 (P_5 * U0*U1^2)
+  c27 = coefficient of U0^2*U2 in a_5 (P_5 * U0^2*U2)
+  c28 = coefficient of U0^2*U1 in a_5 (P_5 * U0^2*U1)
+  c29 = coefficient of U0^3 in a_5 (P_5 * U0^3)
+residual constraint rank 114 on 465 quadratic monomials in 30 variables
+DIM=0 DEG=4979 SIZE=2868
+=== CHAR8B DONE Mon Nov  2 02:05:36 AM EST 2026

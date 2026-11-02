@@ -1,6 +1,6 @@
 # Wave 2 — quadric-contact-residual — SEARCH lens (joint (D,N,Q) search)
 
-STATUS: NO WITNESS. Updated 2026-11-02 01:37 local. Batches logged: 579 (361 varpro sector batches, 3 Hessian-relaxation batches, 6 E1 profiles, 203 structured candidates); random restarts so far: 13932; best full-E2 relative residual: 6.34e-07.
+STATUS: NO WITNESS. Updated 2026-11-02 02:04 local. Batches logged: 584 (366 varpro sector batches, 3 Hessian-relaxation batches, 6 E1 profiles, 203 structured candidates); random restarts so far: 14205; best full-E2 relative residual: 6.34e-07.
 
 Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residue character trivial on G_aff (order 48), odd under s0 (X0<->Y0) and r1 (X1<->Y1). Prior rigorous exclusions (fqlx #125, replicated in wave 1): deg D <= 6; deg 7 in every pure parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.
 
@@ -11,12 +11,10 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
 * degree 7, mixed families: 2 batches over 2 sector(s)/mode(s), 66 restarts, best full-E2 rel 0.07074 (no witness).
 * degree 8, sector families: 26 batches over 24 sector(s)/mode(s), 3679 restarts, best full-E2 rel 0.001436 (no witness).
 * degree 9, sector families: 25 batches over 24 sector(s)/mode(s), 2753 restarts, best full-E2 rel 6.34e-07 (no witness).
-* degree 10, sector families: 1 batches over 1 sector(s)/mode(s), 22 restarts, best full-E2 rel 8.18e-05 (no witness).
-* cone / coordinate-subspace / reflection-adapted families: 307 batches, best rel 0.07647 (no witness).
-* Hessian relaxation d=5 (par0, 3 members, 3 free parameters, 4 restarts): best |T|^2/scale 0.5164; no zero of the necessary quadratic condition found.
+* degree 10, sector families: 2 batches over 1 sector(s)/mode(s), 91 restarts, best full-E2 rel 8.18e-05 (no witness).
+* cone / coordinate-subspace / reflection-adapted families: 311 batches, best rel 0.01783 (no witness).
 * Hessian relaxation d=7 (par0, 63 members, 60 free parameters, 1500 restarts): best |T|^2/scale 4.64e-04; no zero of the necessary quadratic condition found.
 * Hessian relaxation d=7 (par1, 63 members, 60 free parameters, 1500 restarts): best |T|^2/scale 4.61e-04; no zero of the necessary quadratic condition found.
-* EXACT Hessian-congruence closure d=6 (par0, 17 unknowns, 406 quadrics mod p): singular-unparsed.
 * EXACT Hessian-congruence closure d=6 (par0, 17 unknowns, 406 quadrics mod p): EXCLUDED (affine dim 0: only a=0 mod p, hence over Q-bar).
 * structured candidates: 203 tested; E1 passed: 40; consistent (full sector solve): 0; character-mixed skipped at d>=10: 8.
 
@@ -41,7 +39,7 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
   - search-quadric-contact-residual-pipeB.log: last line: `=== 2026-11-02 00:47:52 w2_hess.py --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e`
   - search-quadric-contact-residual-pipeB2.log: last line: `=== 2026-11-02 06:35:49 w2_hess.py --d 7 --mixed --restarts 1000 --procs 8 --seed 13 --tag hd7m`
   - search-quadric-contact-residual-pipeC.log: last line: `PIPELINE C DONE Mon Nov  2 05:40:16 UTC 2026`
-  - search-quadric-contact-residual-pipeD.log: last line: `=== 2026-11-02 05:49:38 w2_varpro.py --d 10 --chi 0000 --sym --restarts 500 --per-dim 8 --min-restarts 50 --procs 8 --seed 22000 --tag sym --time-limit 3000`
+  - search-quadric-contact-residual-pipeD.log: last line: `[build_family] {'d': 10, 'chi': '0020', 'parity': None, 'dimS': 49, 'rows': 813, 'cols': 1059, 'nullity': 246, 'dim_kernel': 12, 'dimJ': 5, 'n_extra': 7, 'dim_g`
   - search-quadric-contact-residual-vp-d8.log: last line: `[koszul-varpro] d=8 chi=0000 K=33 rows=1002 cols=303 (K 130, Q 173) Mstack nnz=155331 Vstack nnz=43948 dimP=29 excluded=4 built 0.7s`
 
 ## (1) E1-admissible denominator spaces per degree and character sector (exact over Q)
@@ -436,6 +434,11 @@ Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian 
 | cone | 9 | 1151 | X0X1X2Y1 | 1 | 1 | 1356 | 192+240 | 0.0612 | 12 | 0 | 0.9003 | 0.9003 | 0 | 0 | 0.00e+00 | 3.2 |
 | cone | 9 | 1151 | X0X1X2Y1Y2 | 1 | 1 | 1356 | 192+240 | 0.0527 | 12 | 0 | 0.9003 | 0.9003 | 0 | 0 | 0.00e+00 | 3.0 |
 | w2a | 10 | 0000 | - | 128 | 114 | 2490 | 402+594 | 0.4938 | 22 | 0 | 8.18e-05 | 0.002516 | 0 | 0 | 300 | 2430.2 |
+| sym | 10 | 0000 | - | 62 | 51 | 2490 | 402+594 | 0.5269 | 69 | 0 | 1.89e-04 | 5.78e-04 | 0 | 0 | 139.3 | 3005.3 |
+| cone2 | 10 | 0000 | X0X1X2Y0Y1 | 14 | 14 | 2490 | 402+594 | 0.3704 | 60 | 0 | 0.01931 | 0.01932 | 0 | 0 | 48.6 | 676.3 |
+| cone2 | 10 | 0001 | X0X1X2Y0Y1 | 10 | 10 | 2490 | 390+594 | 0.3759 | 60 | 0 | 0.1322 | 0.1322 | 0 | 0 | 37.52 | 452.6 |
+| cone2 | 10 | 0020 | X0X1X2Y0Y1 | 12 | 12 | 2154 | 234+459 | 0.1247 | 60 | 0 | 0.01783 | 0.01783 | 0 | 0 | 34.83 | 227.3 |
+| cone2 | 10 | 0021 | X0X1X2Y0Y1 | 3 | 3 | 2154 | 225+459 | 0.1345 | 24 | 0 | 0.2335 | 0.2335 | 0 | 0 | 11.88 | 56.9 |
 
 Reconstruction attempts (rel < 1e-10): 0
 
@@ -661,7 +664,7 @@ Reconstruction attempts (rel < 1e-10): 0
 * d=7: 1e-2: 66, 1e-1: 792
 * d=8: 1e-3: 462, 1e-2: 2354, 1e-1: 2771
 * d=9: 1e-7: 120, 1e-4: 318, 1e-3: 485, 1e-2: 1706, 1e-1: 1640
-* d=10: 1e-5: 1, 1e-4: 1, 1e-3: 20
+* d=10: 1e-5: 1, 1e-4: 67, 1e-3: 22, 1e-2: 121, 1e-1: 84
 
 Reading: a genuine witness in a family shows up as rel ~ 1e-14..1e-12 (float64 floor); the smallest values seen so far are listed above; all minima are separated from the floor by many orders of magnitude unless stated otherwise.
 
