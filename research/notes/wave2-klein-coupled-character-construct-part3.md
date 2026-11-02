@@ -78,3 +78,16 @@ Subgroups: 1, <tau>, <sigma>, <sigma^k tau> = <sigma,tau> (k != 0, order 14). Fi
  EVIDENCE: Z_gamma/<r,swap> not supported (eigensheaf count on X).
  OPEN: non-base-change covers of other shapes; birational (Bertini-type) involutions of W from K-rational curves give the
  same obstruction pattern (Kummer cover of X branched along a positive-degree divisor => many (4,0)-forms).
+
+## 3.6 Addendum: a rigorous lower bound for the <r,swap> quotient (r = tau x tau, i.e. r = (Y -> -Y, w -> w))
+ The j = 1 eigenspace V_1 = { s . w^{-1} Omega_Z : s in S_3 } (deg_1 = 3, no strict-transform floors since 5,3,9 < 14) consists
+ of forms that are regular on the normalised cover (vanishing orders along the ramification divisors: 13-5 = 8 over phi,
+ 13-3 = 10 over x, 13-9 = 4 over y) and extend over every exceptional divisor E of a log resolution of the branch divisor
+ (EV condition floor(m_E/14) <= a_E: m_E = 8,14,12 for pairwise intersections with a_E = 1, m_E = 17 for the triple locus with
+ a_E = 2). r acts on s w^{-1} Omega_Z by (-1)^{1+deg_Y s}: 28 r-invariant forms (Y-degree 1 or 3), of which 25 lie in (1,k)
+ pieces with k != 1 ((1,3):3, (1,5):3, (1,7):10, (1,9):3, (1,11):3, (1,13):3). Each gives the nonzero <r,swap>-invariant
+ form v + swap^* v; (Z/2)^2-quotient singularities are canonical (only reflections are junior among involutions), so
+   h^{4,0}( Z_gamma / <r,swap> ~ ) >= 25  (and >= 948 if the full count of part 3.4 extends).
+ Hence Z_gamma/<r,swap> is NOT divisor-supported, for the symmetric lift r = tau x tau; the other lift (tau,1) does not
+ commute with the swap and generates <tau x 1, 1 x tau, swap>, whose invariants are a subspace of the above with the same
+ j = 1 analysis (28 r'-invariant forms, 27 off-diagonal).  The Geiser candidate is dead for every admissible K.

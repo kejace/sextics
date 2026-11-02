@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 23:12 EST from 817 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 23:15 EST from 818 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -157,6 +157,7 @@ Per sector: admissible dimension `dimP` (= dimK − F-multiples), total restarts
 | jac d=5 pD=0 | 3 | 3 (3+0) | 3 | 1491×105 | 12 | 5.81e-01 | 5.8e-01 | 0 | 0 | 0.581: 9, 0.592: 3 | local1 |
 | jac d=5 pD=1 | 3 | 3 (3+0) | 3 | 1491×105 | 12 | 6.03e-01 | 6.0e-01 | 0 | 0 | 0.603: 9, 0.656: 3 | local1 |
 | jac d=6 pD=0 | 18 | 18 (18+0) | 17 | 3080×388 | 680 | 1.80e-01 | 2.1e-01 | 0 | 0 | 0.18: 34, 0.187: 11, 0.191: 13, 0.192: 59, 0.2: 5 | jac1 |
+| jac d=6 pD=1 | 18 | 18 (18+0) | 18 | 3080×379 | 720 | 2.39e-01 | 3.5e-01 | 0 | 0 | 0.239: 1, 0.262: 2, 0.282: 3, 0.314: 8, 0.319: 130 | jac1 |
 | triv d=6 pD=1 | 19 | 2 (2+0) | 2 | 838×183 | 60 | 1.69e-04 | 1.7e-04 | 0 | 0 | 0.000169: 60 | vp1b |
 | triv d=7 pD=0 | 37 | 8 (8+0) | 7 | 1268×279 | 70 | 4.34e-04 | 4.3e-04 | 0 | 0 | 0.000434: 70 | local2,vp1b |
 | triv d=7 pD=1 | 37 | 8 (8+0) | 7 | 1268×279 | 72 | 1.54e-04 | 1.5e-04 | 0 | 0 | 0.000154: 72 | local2,local3,vp1b |
@@ -173,7 +174,6 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=6 pD=1 | jac1 | 705 | 2.39e-01 | 3.5e-01 | 0 | 0 | 0.239: 1, 0.262: 1, 0.282: 3, 0.314: 8, 0.319: 129 |
 | ternX-sgnX d=7 pD=0 | struct2 | 60 | 6.46e-01 | 6.5e-01 | 0 | 0 | 0.646: 42, 0.667: 18 |
 | ternX-sgnX d=8 pD=0 | struct2 | 60 | 4.36e-01 | 5.2e-01 | 0 | 0 | 0.436: 25, 0.525: 25, 0.626: 10 |
 | ternX-sgnX d=9 pD=0 | struct2 | 60 | 9.13e-02 | 3.3e-01 | 0 | 0 | 0.0913: 22, 0.178: 1, 0.24: 5, 0.332: 13, 0.406: 5 |
@@ -181,7 +181,7 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 | ternX-triv d=7 pD=0 | struct | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
 | ternX-triv d=8 pD=0 | struct2 | 60 | 4.52e-01 | 4.5e-01 | 0 | 0 | 0.452: 34, 0.603: 26 |
 | ternX-triv d=9 pD=0 | struct2 | 60 | 1.28e-01 | 3.4e-01 | 0 | 0 | 0.128: 1, 0.228: 13, 0.342: 46 |
-| ternX-triv d=10 pD=0 | struct2 | 5 | 1.22e-01 | 2.3e-01 | 0 | 0 | 0.122: 1, 0.231: 3, 0.259: 1 |
+| ternX-triv d=10 pD=0 | struct2 | 8 | 1.16e-01 | 2.3e-01 | 0 | 0 | 0.116: 1, 0.122: 2, 0.231: 4, 0.259: 1 |
 | triv d=10 pD=0 | vp2b | 31 | 2.07e-06 | 9.6e-06 | 0 | 0 | 2.07e-06: 12, 2.94e-06: 2, 9.6e-06: 2, 1.17e-05: 12, 1.72e-05: 1 |
 
 ## 7b. Gauss–Newton polish of the best points (is a small residual a zero?)
@@ -241,4 +241,4 @@ Kernel classes / combos per sector (tested, consistent, errors): sgnX d=8 pD=1: 
 
 ## 10. Batches logged per job
 
-`jac1`: 1 records, 1.7 h, `kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `polish`: 5 records, 0.2 h, `single`: 477 records, 14.7 h, `struct`: 2 records, 0.0 h, `struct2`: 24 records, 0.4 h, `vp1b`: 7 records, 2.5 h
+`jac1`: 2 records, 2.8 h, `kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `polish`: 5 records, 0.2 h, `single`: 477 records, 14.7 h, `struct`: 2 records, 0.0 h, `struct2`: 24 records, 0.4 h, `vp1b`: 7 records, 2.5 h

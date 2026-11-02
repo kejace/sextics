@@ -43,22 +43,41 @@ diagonal-permutation `relax_d7o`; reflection-coupled `hess_d8_W10`; one-reflecti
 `relax_d7_p0_q`. Out of Gröbner reach (not queued): mixed-parity d7 on dense lanes (120 vars / ~950 quadrics, dreg 5),
 d8 pure cones (~160 vars / 468 quadrics), quadric-contact full mixing; polarized-k3 d7 (relaxation itself too weak).
 
-## 2. Queue order (smallest first) and status
+## 2. Queue order (smallest first) and status (04:35 UTC)
 
-| slot | job | systems | status |
-|---|---|---|---|
-| A1 | wave3-A1 | rcr W00 → W0111 → W0011 → W0110 | pending submit |
-| B1 | wave3-B1 | klein d7 even → odd → ctr s41–s45 | pending submit |
-| A2 | | ssr par0 → par1 | queued |
-| B2 | | eight-plane par0 → par1 | queued |
-| A3 | | dense-rational even → odd | queued |
-| B3 | | diagonal-permutation even; qcp Y-even | queued |
-| A4 | | quadric-contact y0, tri_000_011_101 | queued |
-| B4 | | rcr W0010, W0001; d8 K8 / W11; klein d8 | queued |
+Policy note: `rjob submit --force` is denied by the permission classifier ("Interfere With Workloads"), so every job
+goes through the rjob capacity gate (`--wait 3600`, retried); the gate needs ≥ 110 GB available and ≤ 200 allocated
+cpus (the box had 60 foreign jobs / 361 cpus / 66–97 GB available all night). One tier-1 chain (`wave3-B1`) got through;
+the rest of the queue is a single sequential runner job (`wave3-Q`, `wave3_queue.sh` over `queue.txt`, one Gröbner
+computation at a time, per-entry memory floor so that a 40–60 GB F4 step never drives the box under the 45 GB guard).
+
+| job | systems | status |
+|---|---|---|
+| wave3-B1 (running since 04:07:52 UTC, pid 3210118, 16 cores) | klein d7 even (60/447) → klein d7 odd (60/420) → ctr s42–s45 | running |
+| wave3-Q (gated submit pending) | rcr W00 → W0111 → W0011 → W0110 → ssr par0 → par1 → epc par0 → par1 → dense even → odd → dp even → qcr y0 → qcr tri → rcr W0010 → W0001 → rcr d8 W11 → K8 → klein d8 k0 → qcp Y-even/Y-odd (homogenised) | waiting for the gate |
 
 ## 3. Results (rewritten after every job)
 
-(none yet)
+### 3a. New wave-3 computations
+(none finished yet; B1 running)
+
+### 3b. Harvested wave-2 outputs re-parsed independently (`wave3_harvest.py`, tags harvest1/harvest2; receipts in
+`/tmp/hodge/results/_closure/wave3-receipts.jsonl` and `<lane>/.../wave3/receipts.jsonl`)
+All of the following finished wave-2 msolve outputs (reduced GB or leading ideal) have an m-primary leading ideal, so
+by §0 the corresponding sector has no denominator of that degree over ℂ (given the lens's E1 ⇒ Jacobian statement):
+
+| lane | degree / sector | unknowns / quadrics | prime | files |
+|---|---|---|---|---|
+| reflection-coupled-residual | d7 Klein characters (0,1), (1,0), (1,1) and pair (1,0)+(1,1) | 38/426, 22/426, 18/426, 40/879 (raw) | 2147483587 | `wave2-excl/hess_d7_W{01,10,11,1011}_*.gb` (complete reduced GBs, max pure power 4) |
+| symmetric-sextic-residual | d7 S₃×S₃-sectors triv, sgnX, sgnY, both parities (sgn⊗sgn sectors empty) | 7/46, 3/46, 1/46, 1/20, 3/41, 7/46 | 2147483647 | `wave2-excl/relax_sector_*_d7_par*.lead` |
+| cyclic-triple-residual | d7 G-semi-invariant sectors s00–s05, s20–s25, s40 (gauge-fixed) + s41–s45 (referee files, trivially all quadratic monomials) | 3–16 unknowns | 1000003 / 999999937 | `wave2-excl/relax_d7_p1000003_s*_gauge_lead.txt`, `wave2-referee/.../wave3/*.lead` |
+| eight-plane-configuration | d7 subfamilies arr / blockX / blockY / coefB0 / coefX, both parities; d8 subfamilies coefB0 / coefX / comp-0..5, both parities | 9–36 unknowns | 2147483587 / 2147483629 | `wave2-excl/hsub_d{7,8}_par*_*.lm` |
+| quadric-contact-residual | d7: all 28 (σ0,σ2,τ_Y)-parity-class pairs at two primes (56 files) | 24–32 / 227–258 | 2147483629 and p3 | `wave2-excl/sub_d7_*.ms.lead`, `sub_d7p3_*.ms.lead` |
+| klein-coupled-character | d7 even k=0 sector | 3/15 | 1000003 | `wave2-excl/local_d7/d7_even_k0.lead` |
+
+Not decided by this check (leading ideal positive-dimensional; the lenses closed these with second-stage exact
+arguments, not re-derived here): one-reflection-skew `d7_sub_tor_{1000,0100,0010}`, `d7_5v_tor_*`; klein `local_d7`
+k1, k2 sectors.
 
 ## 4. Rigorous degree bounds per lane (running)
 

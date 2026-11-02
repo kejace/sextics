@@ -109,3 +109,147 @@ GHC statement (sources: arXiv 2203.09778, 2304.02519, 2210.02948).
 | reflection-coupled-residual | M5 twisted slices / M1 hidden fibre reflection | `W = X/r ⊂ P(2,1⁵)`, conic family `e = 2` | Hodge bundle `λ` on slices + Gysin; `construct-rcr-all` | 0.5 | 0.03 | L-D / L-B |
 | short-power-presentation | vertical divisors on the `(ε_X, ε_Y, t)` base | `D_res` (deg 10), ring `C[e(X),e(Y),L,M]` | E1 of vertical families d = 7..12 (job never ran) | 0.9 | 0.02 | L-A |
 | symmetric-sextic-residual | cones `Δ_X·s(X)` over symmetric plane curves | pencil `S_λ ⊂ P³` with `sgn_Y` three times | Hodge-bundle twist on `C = {Δ_X s = 0}` (E6) | 0.6 | 0.03 | L-A |
+
+## 3. Per-lane entries
+
+Format: target and sector → mechanisms kept (with the explicit auxiliary variety) → hypotheses verified / not verified →
+decisive next computation with size → probabilities → Lean route. Excluded mechanisms are listed once with their receipt.
+
+### 3.1 cycle-q2 (q = 2, `A = X0²X1²X2³Y0²Y1²Y2` on the cyclic three-link sextic; residue character `ω²` on `G/K`, G-sector (0,6,26,6,0), `α^{3,1} ≠ 0` by fqlx)
+
+Excluded with receipts: (i) all 60 coordinate §2.7 covers, non-coordinate forms by Fermat-curve automorphisms (part 3);
+(ii)/(iii) all 226 subgroups of `Γ = G ⋊ ⟨R⟩` (order 216): 154 reach `ρ = Ind χ_A`, all have `κ = 0` and their only surface
+fibration has `p_g = 2` fibres (part 2, `w2c_gamma.json`); (iv) the q-raising identity is verified but all 61 degree-6
+factorisations `A = M'·B'` either keep the character on the sibling or force the S3 base change (part 4, `w2c_factor.json`);
+vertical divisors of the `(c1,c2)`-fibration cannot support `α` (part 5, Leray + injective KS).
+
+**M-a (kept): M\* — S3-transport with base absorption, i.e. a non-fibrewise rational primitive.** Auxiliary data (part 5,
+`w2c_s3.py`): cubic `U = a x³ + b y³ + c z³ + d x²y + e y²z + f z²x`, `(a,b,c) = (1+t³, 1+c1⁶t³, 1+c2⁶t³)`,
+`(d,e,f) = (t/2)(c1, c1c2, c2)`, `t = v² = (Y0/X0)²`; Jacobian `η² = ξ³ + s4 ξ − s6/4` with `s4 = c1c2t³(c1⁶c2t³ + c1²c2⁶t³ + c1c2²t³ + c1² + c1c2² + c2)/8`,
+`s6` the standard degree-18 polynomial in `t³`; `S3(c1,c2)` over `P¹_t` (χ = 3, p_g = 2, κ = 1), `RES(c1,c2)` over `P¹_T`, `T = t³`.
+The target's `(3,1)`-part sits fibrewise in the sector of the untwisted form `ω₀ = dt∧dξ/η`; the remaining equation is
+`[σ] = 0` in `H²_dR(B°, V_{ω²})`, `V_{ω²} = H¹(P¹_T, R¹_RES ⊗ L_{ω²})` of rank 12, type (1,10,1), over `B = C²_{c1,c2}` minus the discriminant.
+Verified: (H1) `s4, s6 ∈ C[t³]`; (H2) `deg s4 = 6, deg s6 = 18`, minimal at `t = 0, ∞`, discriminant degree 36, `j` non-constant;
+(H3) characters of `ω₀, ω₁`; cited: (H4) DiamondJM — the fibrewise (0,2)-component of the transported source lies in
+`J37 + ∂_{c1}G·S19 + ∂_{c2}G·S19`; (H5) benediamond — vertical remainder nonzero (5-adic), so no fibrewise primitive exists.
+Not verified: the Gauss–Manin connection of `V_{ω²}` over `C(c1,c2)`; the class `[σ]`; whether poles along a horizontal
+non-normal divisor `Z` (Noether–Lefschetz jump of the `ω₀`-sector) are needed.
+Decisive computation: Picard–Fuchs/Griffiths–Dwork reduction for the Kummer-twisted RES in the frame `{t^j T^k dξ/η}`:
+two `12 × 12` connection matrices over `Q(c1,c2)` (entries of degree ≲ 10²), the source `σ` from the second variation
+`2AΩ/F³ = ∂_{s1}∂_{s2} Ω/F_s|_0` transported through the cubic (DiamondJM's frame or the lens's `w2c_s3.py` data), then
+solve `∇Ψ = σ` for `Ψ ∈ V ⊗ Ω¹_B` rational (linear algebra over `Q(c1,c2)` with pole-order bounds along the discriminant).
+Size: a few CPU-hours of Singular/sympy on the remote; the only two-variable D-module computation in the programme.
+Outcome A (rational `Ψ` exists): fqlx's pole-three clearing adapter turns `Ψ` into an explicit `q = 2` certificate with
+denominator the polar locus of `Ψ` (degree unknown, probably large) → **L-A** via the Kronecker checker.
+Outcome B (`[σ] ≠ 0` on `B°∖Z` for every tested `Z`): the support must be a horizontal non-normal divisor (dossier P5);
+the lane is then a search problem in the sibling spaces.
+P(decide) 0.6 (the connection is computable; the pole bookkeeping is the risk), P(solve) 0.04.
+No finite-field incidence seed exists for any auxiliary surface carrying the `ω²`-sector (dominance fails: `S3` has `κ = 1`),
+so `PolynomialCurves`/`HoldoutCover` cannot be the engine here.
+
+**M-b (secondary): q-raising from a character-free sibling** — the five families with `G' = K` (`M' ∈ {X1²X2²Y0², X0X2Y0Y1²Y2,
+X0²Y0²Y1², X0²X2²Y0², X0²X1X2Y1Y2}`) give `q = 1` problems `(F + sM', B')` with `B'` invariant under `Sym(F_s)`, but `F_s`
+leaves the 26-coefficient Γ-family (`M'` is not `h`-invariant), so no sector theorem applies; only a fixed-degree search
+(`deg D ≥ 7`) at a few `s` values is left. P(solve) 0.01.
+
+### 3.2 cyclic-triple-residual (`A = X0³Y0³`, `ζ3`-sector exact Hodge numbers (41,119,26), `τ`-invariant)
+
+Excluded with receipts: all 128 subgroups of the order-108 group of the Galois closure `Z̃ = X ×_{P⁴} Y` (38 serve the class,
+none with negative canonical degree; `c2_abstract.json`); abelian-extension lemma (no tower of cyclic covers helps); §2.7
+exchange covers for every linear form (Singular char 0: only `e_{X1}`, `e_{Y0}` directions, both blocked by
+`X0²Y0Y1Y2²`/`X0X2³Y1Y2` resp. `X0X1Y1³Y2`/`X0X2³Y1Y2`); surface fibrations of `X/K`: minimal `p_g = 2`; §4.6 descent would need
+`Z̃/⟨r,σ⟩` (deg K = 1) supported. Sector variation: `Def_G·ξ = 41`, `Def_G²·ξ = 26`, `K = K2 = 0` ⇒ very general supports need
+`Σ h^{2,0} ≥ 67` (exact over Q by rank semicontinuity; `c5_sector_vhs.json`, `c5b_K2.json`).
+
+**M-a (kept): isotrivial j = 0 elliptic exceptional surfaces along triple-point curves, equivalently scrolls of lines over
+irregular surfaces of the Fano variety of lines.** `W = X/μ3 ⊂ P(1,1,1,1,1,3)` (coordinates `X0,X1,Z = X2³,Y`), branch divisor
+`B = {Z = 0} ≅ {H = 0} ⊂ P⁴`; for a weighted line `L ⊄ B`, `E_L = π⁻¹(L) = {X2³ = c_L(s,t)}` is a j = 0 cubic with `μ3` acting as CM;
+`V_1 ⊕ V_2 ↪ H³(𝓕, L_χ ⊕ L_χ̄)` with `𝓕` the 3-dimensional family of lines (rbajaj5's free line `[0:s:0:is:t:it]` is one member).
+Supports: `T_S = ∪_{L ∈ S} E_L` for a surface `S ⊂ 𝓕` with twisted irregularity `q_χ(S') ≥ 41`; the triple-point-curve
+denominators of part 4 (`D` of order 3 along a plane `Π ⊂ {X2 = 0}`, leading cubic `c3(n1,n2) + aX2³`) are their degenerate shadow.
+Verified: Hodge bookkeeping, degree-9 families (120 `(plane, sector)` pairs, dims 29–66, four random members inconsistent at
+two primes), the `≥ 67` bound. Not verified: `𝓕` itself (never computed), the twisted irregularity of any surface of lines,
+smoothness of `Z̃` (job `construct-ctr-ztsmooth` never ran).
+Decisive computation: (1) compute `𝓕` — incidence of five linear forms and one binary cubic in the equation of `W` modulo
+`GL2`, ≈ 17 unknowns over `F_p` (Gröbner, hours on the remote, 8 cpus); (2) for the surface `S_B ⊂ 𝓕` of lines tangent to `B`
+and for `S_Σ` (lines meeting a fixed surface `Σ = W ∩ {ℓ = ℓ' = 0}`) compute `q_χ` of a smooth model (point counts or
+Hodge-bundle degree on a pencil of curves in `S`); (3) if `q_χ ≥ 41`, derive the equation of `T_S` (elimination) and run the
+sparse sector solver. P(decide) 0.5, P(solve) 0.03. Lean: **L-A only** (an explicit witness); the elliptic-fibre integration
+has no library counterpart (elliptic integrals, not polynomial sources).
+
+### 3.3 dense-rational (`A = X0³Y0³`, 236-term even sextic; sector (0,208,866,208,0), expected simple)
+
+Everything definable from the equation has zero (2,0)-budget: `V1 = V2 = ∅` (no exchange cover, no quasi-reflection in any
+coordinates; msolve leading ideals, 4.9 s / 374 s), `V3` (linear reflections) pending; ternary cones serve no primitive class
+(Lefschetz on the net of `P³`'s through `P²_Y`) and fail E1 for `k ≤ 8` exactly (9..12 pending); `R`, `R'` (residual tangency,
+`D_{R'} = (F24 + F06)² + 4F60F06`, degree 12), `det Hess F`, bihomogeneous sections, products: budget 0 by Lefschetz on `W = X/τ`
+(smooth cubic cover of `P² × P²`) and the equivariance reduction (only `H²((Y/τ)~)` can serve the invariant class).
+No mechanism survives; a support must be a non-universal singular divisor of degree `≥ 10` whose singular locus carries a
+1282-dimensional transcendental structure. No auxiliary variety, no seed. P(solve) < 0.01. (The pending jobs are consistency
+checks of the structural argument, not routes.)
+
+### 3.4 diagonal-permutation (`A = X0³Y0³ − X1³Y1³`, standard representation of the simultaneous `S3`; `B = T0 + T1 − 2T2` is the `(01)`-invariant partner)
+
+Excluded with receipts: all quotients (ages ≥ 1, `K ≡ 0`, table of `h^{3,1}(X/K)`); `⟨s,τ⟩`-stable linear-section fibrations
+have fibre `p_g ≥ 1` (exact character count, J3); Galois closure of the cubic cover with the commuting `S3^sym`: every `K` with
+`(V_std ⊗ V_std)^K ≠ 0` gives a non-uniruled quotient; pure-`X`/`Y` §2.7 partners excluded by hand; 13 natural degree-≤6
+divisors (Shioda-type cones, sign quadric, `τ·s` cones) serve nothing (X1/J5/J5b); fixed-degree deformation from the
+three-reflection sub-families is obstructed for `d ≤ 7` (kernel bundle rank 0) and `d = 8` (the D8 line, inconsistent).
+
+**M-a (kept): a second reflection on the `(01)`-pencil fibres after base change ⇒ §4.6 descent** (holdout architecture).
+Auxiliary: pencil `{r = μt} ⊃ P³_0 = Fix(s)` (`r = X0 − X1`, `t = Y0 − Y1`), fibres `X_μ` sextic threefolds on which `s` is a
+reflection with fixed surface `S`; `W_t = X_μ/s` the CY3 sextics in `P(1,1,1,1,2)` of #177; a second (hidden or created)
+reflection on `X_μ` would make `Z/⟨s̃,σ⟩` fibrewise Fano in `P(1,1,1,2,2)` and give `H⁴(X)^{(01)} ⊂ N¹` (hence `A` via
+`B`'s `(01)`-equivariant data). Verified: `S` is smooth on every `X_μ`; the fibre quotient needs exactly two reflections.
+Not verified: J2 (mixed exchange partners on `P⁵`: `ℓ_v ∣ ∂_v³F`, `F(v) ≠ 0`, six msolve charts; job `construct-dp-j1j2`
+RUNNING since 20:23 EST) and J2f (hidden reflections of `F_μ` at `μ = 3/7`; `construct-dp-fibre` has no output — resubmit
+`w2c_fibre.sh`). Decisive: let J2/J2f finish (msolve, 4 cpus, hours; numerical screens found nothing). P(decide) 0.9,
+P(nonempty) ≈ 0.02 — if nonempty the route is **L-B** (new cover fields + `PolynomialCurves`).
+**M-b**: the served-space criterion `A ∈ Q[S3]·served(D) + J_6^-` applied to `D8` and `(01)`-stable degree-8/10 candidates
+(`w2c_served_orbit.py`, `w2c_d8_served.py` ready). P(solve) 0.02.
+
+### 3.5 eight-plane-configuration (`A = X0³Y0³`, `F = Σ Q_i K_i`, `Q_i = X_i² + Y_i²`; τ-invariant (3,1) sector 208)
+
+Excluded with receipts: all §2.7 covers (Lemma A; the 15 coefficient quadrics of `F_{4,2}`, `F_{2,4}` span 6 dimensions, Gram
+ranks 3); the four quartic plane-pair covers `X ⇢ Π_ε × Π_{−ε}` (`F(sp + tp') = st·q`, `S4` monodromy, reduced discriminant,
+non-isotrivial elliptic carrier `w² = q`): every intermediate quotient of the `S4 × Z/2` closure carrying `α` has `κ ≥ 0`
+(ω-descent theorem, (H5) checked up to isolated points); ramification divisors `X ∩ V(Σ ε_j R_j F)` are excluded degree-6
+Jacobian denominators; `Aut(X) = ⟨τ⟩` among block-monomial maps (exact over `Q(i)`), conditional on the Fano scheme of planes
+being the eight planes (job `construct-epc-fanoplanes` never ran; recipe in part 3 §6: 20 msolve charts, 9 unknowns,
+28 sextics, `p = 2147483629`, 8 cpus, ≈ 1.5 h). Nothing remains except a non-linear created reflection, for which the
+arrangement offers no candidate (planes rigid, type (2,2); the self-correspondence `x ↦` other residual points acts alike on
+`ω` and `α`). P(solve) < 0.01. Only action: run the Fano-scheme job to make `Aut(X) = ⟨τ⟩` unconditional.
+
+### 3.6 four-plus-two-residual (`A = X0³Y0³`, `F = H(X0,X1,Y0,Y1) + B(X2,Y2)`; sector `M' = H³(T_H)^{ι1=−1}_χ ⊗_K H¹(P)_{χ⁻¹} ⊕ conj`, rank 288, (64,160,64), level 2)
+
+Structure (verified): `T_H: v³ = H ⊂ P(1,1,1,1,2)` smooth CY threefold, `χ`-sector (1,68,35,0); `C_B: w³ = B` genus 4,
+`J(C_B) ~ E' × P` with `P` the 3-dimensional Prym; `P` is **absolutely simple with `End⁰ = Q(ζ3)`** (irreducible Frobenius
+sextics at 28 of 36 split primes `p ≤ 400`, distinct Frobenius fields) ⇒ the 3A elliptic contraction is unavailable; `W_H =
+{H + s³ + t³ = 0} ⊂ P(1,1,1,1,2,2)` is a terminal Gorenstein Fano fourfold (`−K = O(2)`, `h^{3,1} = 56`) supporting
+`[H³(T_H) ⊗ H¹(E)]^{μ3}`, but the target needs a second supported factor on the binary side (attack1 §1.4 dimension count:
+`Γ ∩ (D_H × W_B × X)` has dimension 4). Rigorous: `deg D ≥ 6`; core kernels exact (k = 6: 20/13, 7: 30/30, 8: 41/34, 9: 38/38).
+
+**M-a (kept): core-side support through the exact 5-variable reduction.** `X̃ = Bl_{S_H} X → P¹_{(X2:Y2)}` with fibres
+`Y_t ≅ Y_H: U⁶ = −H ⊂ P⁴`; a core-only `D(X0,X1,Y0,Y1)` cuts `Z_D = ∪_t V(D) ∩ Y_t`, and `Z_D` supports `[A]` iff the fibre
+class `[aU] ∈ H^{2,1}(Y_H)_{ζ6²}` is supported on `S_D = V(D) ∩ Y_H` (the `μ6`-cover of the surface `V(D) ⊂ P³` branched along
+`V(D) ∩ S_H`). Algebraic form (proved direction): a core field `ñ` with `ñ(H) = aD`, `ñ(D) = D·div ñ` lifts to a strict
+6-variable certificate `N = ñ + mE`; the reduced solver (`threefold.py: reduced_test`, U-degree sector, ≈ 20× smaller) detects
+the known core-only witnesses of `family-hesse-web` and `f3-block-x0-quartic-strict`. Verified negatives: every rref basis
+element and random member of the core kernels for `k ≤ 8`, random members at `k = 9, 10`, cones with vertex on `S_H` over
+plane curves of degree 2–6, six-plane unions, the split neighbour (`deg ≤ 8`). Not verified: any **designed** singular core
+surface: `V(D)` must be singular so that `S̃_D` acquires irregularity in the `ζ6²`-character — the classical sources are
+(a) non-rational transversal singularities along curves `Γ ⊂ S_H` (cones with vertex on `S_H` over curves of genus `≥ 1`;
+double surfaces along curves of `S_H`), (b) Zariski-type branch curves `V(D) ∩ S_H` with special singularities (cusps on
+conics give irregular cyclic covers), (c) unions of surfaces through curves of `S_H` (Mayer–Vietoris joining). The adjoint
+criterion of the quadratic-cubic lens (`h^{2,0}(S̃)_χ = h¹(I_adj(d))` sector-wise) prices each configuration in seconds.
+Decisive computation: enumerate configurations of degree 9–14 with positive `ζ6²`-adjoint budget (plane sections of `S_H`
+through chosen points/lines, the genus-4 curves `C_f = {X0 = X1 = 0} ∩ Y_H`, `C_g`, tangent developables), impose them as
+linear conditions on `D` (`D ∈ I_Γ^m` restricted to `Y_H`), intersect with the exact core E1 kernel, and run `reduced_test`
+on every member (5-variable systems of 3–10 k unknowns: seconds to minutes each; a full sweep is hours on 8 cpus).
+Complementary theory step: Frobenius on `H³(T_H)^−_χ` (surface/curve point counts of `S_H`, `C_f`, `C_g`) to see whether the
+core Weil-type structure (signature (32,16)) has `End ⊋ Q(ζ3)` — if it does, an explicit Prym/Jacobian correspondence
+(the missing "second supported factor") is plausible and would name the surfaces.
+P(decide) 0.7, P(solve) 0.04. Lean: **L-A** — a strict 5-variable identity lifts to a strict 6-variable witness (`Q = 0`),
+checkable by the Kronecker route; no new library layer.
+**M-b**: reducible `c·X2`, `c·Y2` products (joining across the fibre `Y_0`): 33 candidates in the pending sum-principle job.
+P(solve) 0.01.

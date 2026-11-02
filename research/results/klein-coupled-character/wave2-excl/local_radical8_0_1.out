@@ -1,0 +1,9 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+d8_even_k1: n=19 eqs=72 leading ideal size 452 irrelevant=False [7s]
+  multipliers 1: [(0, 0, 2, 0, 0, 0)]; lifted family: 5 matrix coords, 14 vanishing, 0 minors, 3 C-quadric images; GB size 452
+gb_size 452 dim 2
+group vanishing-coordinates: 14 generators
+group rank-one-minors: 0 generators
+group C-quadrics: 3 generators
+total failures 0  [0s]
+RADICAL_DONE True
