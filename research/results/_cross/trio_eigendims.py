@@ -37,11 +37,11 @@ def sector_dims(F, charfn, k, chars):
     return res
 # ctr: residue character of X^e Omega/F^k under X2 -> zeta X2 is zeta^(e2+1); report by e2 mod 3
 F=readF('cyclic-triple-residual')
-for k in (6,12,18):
+for k in (6,12):
     d=sector_dims(F, lambda e: e[2]%3, k, [0,1,2])
     print('ctr degree',k,'by e2 mod 3 (residue char zeta^(e2+1)):', d)
 # rcr: residue character under Y2 -> -Y2 is (-1)^(e5+1); report by e5 mod 2
 F=readF('reflection-coupled-residual')
-for k in (6,12,18):
+for k in (6,12):
     d=sector_dims(F, lambda e: e[5]%2, k, [0,1])
     print('rcr degree',k,'by e5 mod 2 (residue char (-1)^(e5+1)):', d)

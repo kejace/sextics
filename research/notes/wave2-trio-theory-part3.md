@@ -37,8 +37,8 @@ Family: the 158 Klein-invariant sextic monomials (= the one-reflection+ρ locus 
 family has 158 monomial directions, 157 effective modulo scaling).  Sector (−,−) of ξ: R_6 = 126, R_12 = 492 reproduced mod p.
 * dim Def·ξ in (2,2): **144** of 492 (first-order variation does not fill the sector, as in ctr and qcr).
 * dim Def²·ξ in (1,3): RCR_B of 126.
-* kernel K = {v ∈ R_6^{(−,−)} : Def·v = 0}: RCR_K.
-* dim Def·R_6^{(−,−)} in (2,2): RCR_D of 492.
+* kernel K = {v ∈ R_6^{(−,−)} : Def·v = 0}: **0** (matrix-form computation, 158 × 492 block rows; dim S_6^{(−,−)} = 138, J_6 part 12).
+* dim Def·R_6^{(−,−)} in (2,2): **492 = all**.
 Interpretation: RCR_INTERP
 
 ## 3.3 qcr: klt check of the Galois closure (remote job trio-qcr-ztsing)

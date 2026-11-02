@@ -104,3 +104,4 @@ up: done ['off-paired']
 submit search-off-paired-s2-homotopy2: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-homotopy2)
 23:45:01 homotopy2 confirmed submitted
 23:45:36 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:48:12 submitting ft-d9h0 (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-homotopy2']
