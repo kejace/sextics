@@ -1,2 +1,8 @@
 [w2_search] multi d=7: 72 sectors, 6 restarts each, 32 procs
   key 213: K=6 best_rel=0.0854244848465114 restarts=6 750x413 12683.8s  
+  key 477: K=8 best_rel=0.0010311027188627368 restarts=6 750x432 14397.8s  
+  key 192: K=6 best_rel=0.06105422668695323 restarts=6 750x434 14598.4s  
+  key 147: K=8 best_rel=0.011011175463950588 restarts=6 750x438 14709.6s  
+  key 237: K=6 best_rel=0.07900860996918464 restarts=6 766x433 14836.8s  
+  key 57: K=7 best_rel=0.0013738961736194512 restarts=6 750x450 14853.9s  
+  key 102: K=7 best_rel=0.08747970341719712 restarts=6 750x421 14966.6s  
