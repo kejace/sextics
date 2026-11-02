@@ -252,3 +252,6 @@ submit search-off-paired-s2-ft-d8h0: launch ssh timed out after 120 s (job may s
 05:05:30 ft-d8h0 confirmed submitted
 05:06:05 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
 05:08:40 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:11:14 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:13:49 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:16:24 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
