@@ -7,3 +7,5 @@
 {"label": "rand-J9-char3-0-k3", "target": "k3", "consistent_Q": false, "consistent_p": false, "seconds": 323.9} [(0, 5476, 1614, 1488, 1489)]
 {"label": "rand-J9-char3-0-full", "target": "full", "consistent_Q": false, "consistent_p": false, "seconds": 817.8} [(0, 5476, 1614, 1488, 1489), (2, 5688, 1458, 1404, 1405), (4, 5688, 1926, 1746, 1747)]
 {"label": "rand-J9-char4-0-k3", "target": "k3", "consistent_Q": false, "consistent_p": false, "seconds": 77.0} [(2, 5688, 1458, 1404, 1405)]
+{"label": "rand-J9-char4-0-full", "target": "full", "consistent_Q": false, "consistent_p": false, "seconds": 524.2} [(0, 5476, 1821, 1641, 1642), (2, 5688, 1458, 1404, 1405), (4, 5688, 1719, 1593, 1594)]
+{"label": "rand-J9-char5-0-k3", "target": "k3", "consistent_Q": false, "consistent_p": false, "seconds": 77.8} [(4, 5688, 1458, 1404, 1405)]

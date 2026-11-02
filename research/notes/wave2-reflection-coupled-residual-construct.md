@@ -24,7 +24,7 @@ Conventions as in the dossier (`/tmp/hodge/notes/dossier-reflection-coupled-resi
 | M5 | twisted slices of the companion's curve family on `W` (item v) | a slice `S` of the rational-curve family on `W` whose hyperelliptic lift carries anti-invariant 2-forms, i.e. `H⁰(S, Ω¹_S ⊗ λ_hyp) ≠ 0`, with nonzero Gysin image | **the only mechanism on this variety that can produce `(−,−)` classes**; explicit integration is obstructed by `H³(S, R¹p_*L) ≠ 0` (positive-genus lifts) — exactly the period obstruction met in discussion #154; a finite-field incidence seed cannot be used because the lifted curves have genus `e − 1 ≥ 1` for every weighted degree `e ≥ 2`, and `e = 1` (weighted lines) gives `r`-invariant classes only (§3) |
 | M6 | Fermat-pencil continuation (item iv) | formal deformation of the degree-6 Fermat certificate along `F_c = Fermat + cP` | **fails at first order** for the strict subset-Euler base `D₀ = X0⁶+X1⁶+X2⁶`, `N₀ = A·X_i/6`: the linearised system (9306 rows, 1664 unknowns in the Klein `(+,+)` sector) has rank 1484 but the augmented rank is 1485 (`p = 2³¹−1`, job `construct-rcr-all`); the `Y`-block base is being tested |
 | M8 | nonlinear polynomial Piola / finite Fano maps (§3.4; "`F = ΣQ_i³`", block maps) | `F = G(Φ)` with `Φ` polynomial of equal dimension; served sector = `det(dΦ)·B(Φ)` | **only `Φ = (x, Y2²)` exists** (density `2Y2`, the companion): `F` is not a polynomial in `(X, Y0², Y1², Y2²)` (the `Y0Y1` terms) nor in `(X, Y0Y1, q(Y0,Y1), Y2²)` for a single quadratic `q` (`Y0²Y2²` vs `2Y1²Y2²`, `Y0³Y1·X0X1` vs `Y0Y1³·X1X2` need three invariant quadrics), and `F` is not a sum of cubes of quadrics beyond the Fermat part |
-| M7 | pencil `(Y0:Y1)` and the variation `V₁₁` (new) | Abel–Jacobi/normal-function supports would need a level-one sub-variation `V' ⊂ V₁₁` | the residual sector **is** `H¹(P¹, j_*V₁₁)`, `V₁₁` of rank 186 with Hodge numbers `(3,90,90,3)` [computed]; **`V₁₁` has no level-one sub-variation** (vanishing-cycle argument, §4) ⇒ supports must be horizontal divisors carrying `(−,−)` `(2,0)`-forms, consistent with M5 and excluding the "irregular surfaces in the fibres" route |
+| M7 | pencil `(Y0:Y1)` and the variation `V₁₁` (new) | Abel–Jacobi/normal-function supports would need a level-one sub-variation `V' ⊂ V₁₁` | the residual sector **is** `H¹(P¹, j_*V₁₁)`, `V₁₁` of rank 186 with Hodge numbers `(3,90,90,3)` [computed]; **the `∇`-span of the three `(3,0)`-forms is all of `V₁₁` (rank 186, computed mod `p`)**, so `V₁₁` has no proper sub-local-system containing `F³` and **no level-one sub-variation** (§4) ⇒ Abel–Jacobi-type supports are impossible; supports must be horizontal divisors carrying `(−,−)` `(2,0)`-forms, consistent with M5 and excluding the "irregular surfaces in the fibres" route |
 
 ## 1. Exact data used
 
@@ -152,9 +152,10 @@ contains `E`. Consequently a level-one sub-variation `V'` (type `(0,a,a,0)`) of 
 `E^⊥`, the part of `V₁₁` with trivial local monodromy at every nodal fibre (nontrivial monodromy only at the
 six degenerate fibres `λ⁶ = −1`, whose singular point `(0:0:0:1:ζ:0)` has local equation
 `cλ·X1·(λ²X0 + X2) + 3cλ·X0⁴ + 2X0⁶ + Y2⁶ + …` (Morse in `(X1, λ²X0+X2)`, semi-quasihomogeneous principal part
-`X0⁴ + Y2⁶` in the other two variables): corank 2, Milnor number `3·5 = 15`). If `E = V₁₁` (expected; equivalent to
-`rank` of the `∇`-span of the `(3,0)`-forms being 186, the quantity computed by `gm_rank.py`), then `V₁₁`
-has no level-one sub-variation at all.
+`X0⁴ + Y2⁶` in the other two variables): corank 2, Milnor number `3·5 = 15`). **Computed (`gm_rank.py`, job `construct-rcr-gm2`, `p = 2²⁶ − 5`, random `λ₀`): the `∇`-span of the three
+`(3,0)`-forms has rank 186 = rank `V₁₁`** (the span grows by exactly 3 per derivative order up to order 61); since a
+modular rank bounds the characteristic-zero rank from below, every sub-local-system of `V₁₁ ⊗ C` containing `F³` is
+everything, so `E = V₁₁` and **`V₁₁` has no level-one sub-variation at all**.
 *Proof.* `V''` is stable under the transvection `T_s(x) = x + c⟨x,δ_s⟩δ_s`, so either `δ_s ∈ V''` or
 `δ_s ⊥ V''`. The period `∫_{δ_s} ω_i(λ) = c'·X_i(p_s)·(λ − s) + O((λ−s)^{3/2})` with a universal `c' ≠ 0`
 (integral of `dw₁dw₂dw₃/∂₄Q` over the vanishing sphere in a Morse chart), and `X(p_s) ≠ 0` at every nodal
@@ -177,10 +178,9 @@ degenerate fibres in the `(−,+)` sector — irrelevant for the proposition, wh
 
 **Consequences for supports.** Write the Gysin map of a resolved divisor `Ẽ → X` through the Leray
 filtrations of `Ẽ_U → U` and `X_U → U`. The graded piece `H¹(U, R¹f_*Q_Ẽ)(−1) → H¹(U, V₁₁)` has image in
-`H¹(U, V'_E)` for the level-one sub-variation `V'_E = im(R¹f_*Q_Ẽ(−1) → R³f_*Q)`, which by the
-proposition lies in `E^⊥` (and is zero if `E = V₁₁`): **Abel–Jacobi-type contributions (irregular surfaces
-in the fibres `X_λ`, normal functions of families of 1-cycles) cannot support residual classes, except
-possibly through a piece with monodromy only at the six degenerate fibres.** What remains is the secondary map on
+`H¹(U, V'_E)` for the level-one sub-variation `V'_E = im(R¹f_*Q_Ẽ(−1) → R³f_*Q)`, which is zero by the
+proposition and the rank computation: **Abel–Jacobi-type contributions (irregular surfaces in the fibres `X_λ`,
+normal functions of families of 1-cycles) cannot support any residual class.** What remains is the secondary map on
 monodromy-invariant fibre classes, `H⁰(U, R²f_*Q_Ẽ)^{(−,−)}(−1) → H¹(U, V₁₁)` (the Gysin map restricted to
 classes whose fibrewise degree vanishes), i.e. the `(2,0)`-classes of `Ẽ` restricted to the fibres `E_λ`.
 So a supporting divisor must be *horizontal* with respect to every such pencil and carry `(2,0)`-forms of
@@ -191,8 +191,7 @@ work for the companion sector.
 
 (An earlier draft of this note claimed that GHC forces the monodromy of `V₁₁` to be reducible; that
 argument ignored the secondary Leray map and is withdrawn. The proposition above is the correct statement.
-The computation `gm_rank.py` of the `∇`-span of the `(3,0)`-forms decides whether `E = V₁₁`: rank 186 closes
-the loophole `E^⊥ ≠ 0`.)
+The computation `gm_rank.py` returned rank 186, closing the loophole `E^⊥ ≠ 0`.)
 
 ## 5. Where each shared Lean module fails here
 
@@ -217,7 +216,7 @@ the loophole `E^⊥ ≠ 0`.)
 * **C (job `construct-rcr-all`, done for base X)**: formal continuation of the strict Fermat certificate
   `D₀ = X0⁶+X1⁶+X2⁶`, `N₀ = A·X_i/6` along `F_c`, degree 6, Klein `(+,+)` sector, orders 1–5 mod `2³¹−1`
   (also the `Y`-block base `D₀ = Y0⁶+Y1⁶+Y2⁶`).
-* **G (job `construct-rcr-gm2`, running)**: `gm_rank.py` — Griffiths–Dwork over `F_p[ε]/ε^71`, `p = 2²⁶ − 5`, rank of the
+* **G (job `construct-rcr-gm2`, DONE: rank 186)**: `gm_rank.py` — Griffiths–Dwork over `F_p[ε]/ε^71`, `p = 2²⁶ − 5`, rank of the
   `∇`-span of the `(3,0)`-forms in `V₁₁` (186 would close the `E^⊥` loophole of §4). Setup verified at this second
   prime and a second random `λ₀`: `dim R_d^{even,even} = 3, 90, 90, 3, 0` in degrees `1, 7, 13, 19, 25` (the degree-25
   Jacobian decomposition, a `6825 × 14718` system, took 29 min on the loaded box); a first run crashed in the reduction
@@ -235,9 +234,7 @@ the loophole `E^⊥ ≠ 0`.)
   (`21/0/21/0`, `186/126/136/108` by character); Koszul-reduced full-E2 variable projection finds no zero at `d = 7, 8`.
 
 ## 7. Open questions recorded for the lane
-1. Verify numerically that the `∇`-span of the `(3,0)`-forms is all of `V₁₁` (predicted by §4; `gm_rank.py`,
-   queued) and classify the 3750 critical points of the pencil (`critpts.py`, queued) to pin down the
-   singular-fibre bookkeeping (`N_free + N_r + d_deg = 1116`).
+1. (done) `∇`-span of the `(3,0)`-forms = `V₁₁` (rank 186); critical scheme: 3750 = 4·732 + 2·366 + 6·15.
 2. (withdrawn) irregular surfaces in the fibres cannot help (§4).
 3. A slice `S` of the conic family on `W` with `H⁰(S, Ω¹_S ⊗ λ) ≠ 0` and nonzero Gysin image would give
    generic existence on the one-reflection locus (§3), not yet a certificate at this `F`.
@@ -249,7 +246,7 @@ the loophole `E^⊥ ≠ 0`.)
 4. Klein quotients: only `W` and `X/⟨r,ρ⟩` are Fano (wrong character); the surface fibrations of `X/τ` have `p_g = 3` fibres (§2.3); q-raising needs an `r`-odd deformation that leaves the one-reflection locus (§2.4); only one polynomial Piola map exists (M8).
 5. Twisted slices of the companion's curve family are the only mechanism on this variety that can produce `(−,−)` classes: `H^{2,0}(Ẽ)^− ↪ H⁰(S, Ω¹_S ⊗ λ_hyp)` with hyperelliptic lifts of genus `e − 1`; termwise (`PolynomialCurves`) integration is obstructed by `H³(S, R¹p_*L)`, which is exactly the period obstruction of discussion #154 (§3).
 6. New description: the residual sector is `H¹(P¹, j_*V₁₁)` for the `(−,−)` variation of the Klein pencil, rank 186, Hodge numbers `(3,90,90,3)`; companion sector = `H³` of the Fano fibres (rank 82, level one) (§4).
-7. Proposition: every sub-variation containing the `(3,0)`-forms contains all nodal `(−,−)` vanishing classes (period `∼ X_i(p_s)(λ−s)`), so `V₁₁` has no level-one sub-variation seen by nodal fibres: Abel–Jacobi/irregular-surface supports are impossible; supports must be horizontal divisors with `(−,−)` `(2,0)`-forms (§4).
-8. Remote experiments (scripts in `construct/`): hidden-reflection search on `X` and on the six pencils' generic fibres (0-dim msolve system, verified decoder); Gauss–Manin rank of the `(3,0)`-span (predicted 186); Fermat-pencil continuation at degree 6; critical-point classification of the pencil — queued behind the saturated remote.
+7. Proposition + computation: every sub-variation containing the `(3,0)`-forms contains all nodal `(−,−)` vanishing classes (period `∼ X_i(p_s)(λ−s)`), and the `∇`-span of the `(3,0)`-forms has full rank 186 (Griffiths–Dwork mod `p`), so `V₁₁` has **no level-one sub-variation**: Abel–Jacobi/irregular-surface supports are impossible; supports must be horizontal divisors with `(−,−)` `(2,0)`-forms (§4).
+8. Remote experiments (scripts in `construct/`): Fermat-pencil continuation of the strict degree-6 certificate fails at first order; the pencil has 732 free-orbit and 366 `r`-fixed nodal fibres plus six Milnor-15 degenerate fibres (Singular); Gauss–Manin rank 186 (done); hidden-reflection search on `X` and the six pencils' generic fibres (0-dim msolve system with verified decoder) running in a λ-eliminated form after two slower formulations stalled on the loaded box.
 9. Sibling lenses: `deg D ≥ 7` rigorous, `K8` excluded; any construction must yield degree ≥ 8.
 10. Recommended next step for the lane: a Hodge-theoretic existence argument for M5 (twisted slice with nonzero Gysin image) at the generic point of the one-reflection locus, then an explicit transport at this `F`; and the two queued computations.
