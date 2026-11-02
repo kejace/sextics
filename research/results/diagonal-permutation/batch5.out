@@ -1,2 +1,5 @@
 [hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
 == cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts]: dim 2
+cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] basis#0 -> d 7 e1 True cons False served 18 245.2 s
+cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] basis#1 -> d 7 e1 True cons False served 18 238.24 s
+cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] sum of basis -> d 7 e1 True cons False served 18 239.35 s

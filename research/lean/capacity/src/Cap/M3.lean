@@ -17,7 +17,7 @@ set_option linter.unreachableTactic false
 
 noncomputable section
 
-namespace Cap.M3Coupled
+namespace HodgeComputer.Instances.M3Coupled
 
 open MvPolynomial HodgeTestbed
 
@@ -1226,6 +1226,6 @@ theorem certificate : Verify F A 1 10 D N Q where
 
 theorem solved : HasCertificate F A 1 := ⟨10, D, N, Q, certificate⟩
 
-end Cap.M3Coupled
+end HodgeComputer.Instances.M3Coupled
 
-#print axioms Cap.M3Coupled.solved
+#print axioms HodgeComputer.Instances.M3Coupled.solved

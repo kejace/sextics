@@ -3,3 +3,7 @@ ours   polar5         d=5 core.pderiv(F,0)                                      
 ours   polar5         d=5 core.add(core.pderiv(F,0), core.pderiv(F,1))                           E1=True cons=False rank=1318 null=128 imgdim=None 17.8s
 ours   polar5         d=5 core.add(core.add(core.pderiv(F,0), core.scale(core.pderiv(F,1),2)), c E1=True cons=False rank=1318 null=128 imgdim=None 20.2s
 ours   J6             d=6 core.add(core.add(core.mul(P('X0+2*X1'),core.pderiv(F,0)), core.mul(P( E1=True cons=False rank=2359 null=243 imgdim=None 86.7s
+ours   J6             d=6 core.add(core.add(core.mul(P('X1'),core.pderiv(F,0)), core.mul(P('X0') E1=True cons=False rank=2359 null=243 imgdim=None 66.4s
+ours   J6             d=6 core.add(core.mul(P('X0'),core.pderiv(F,0)), core.mul(P('Y0'),core.pde E1=True cons=False rank=2359 null=243 imgdim=None 45.8s
+ours   J7             d=7 core.add(core.add(core.mul(P('X0**2+X1*X2+2*Y0*Y1'),core.pderiv(F,0)), E1=True cons=False rank=4042 null=455 imgdim=None 228.9s
+ours   J7             d=7 core.add(core.mul(P('Y0**2'),core.pderiv(F,0)), core.mul(P('X0*Y0'),co E1=True cons=False rank=4042 null=455 imgdim=None 157.7s

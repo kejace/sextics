@@ -1,0 +1,15 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=6279252 built in 9.1s
+[compressed p=2147483647] k=2643 consistent=False rank=2359 nullity=243 (compress 49.2s, rref 7.7s)
+E_X(F)=6a+4b+2c: d=6 e1=True consistent=False rank=2359 nullity=243 (83.7s)
+[system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=6279252 built in 9.3s
+[compressed p=2147483647] k=2643 consistent=False rank=2359 nullity=243 (compress 50.2s, rref 7.8s)
+E_Y(F)=2b+4c+6d: d=6 e1=True consistent=False rank=2359 nullity=243 (85.1s)
+a - d: d=6 NOT in J_d -> E1 fails (kernel mod J = 0) (0.0s)
+X0^6+Y0^6 pair: d=6 NOT in J_d -> E1 fails (kernel mod J = 0) (0.0s)
+(X0^2+X1^2+X2^2)^3: d=6 NOT in J_d -> E1 fails (kernel mod J = 0) (0.0s)
+(X0^2+Y0^2)^3: d=6 NOT in J_d -> E1 fails (kernel mod J = 0) (0.0s)
+[system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=4961946 built in 7.0s
+[compressed p=2147483647] k=2643 consistent=False rank=2359 nullity=243 (compress 39.7s, rref 7.6s)
+E_X(F) - E_Y(F): d=6 e1=True consistent=False rank=2359 nullity=243 (72.1s)
+[system] d=6 q=1 rows=16797 cols=2602 (N 2376, Q 226) nnz=4764547 built in 6.7s
