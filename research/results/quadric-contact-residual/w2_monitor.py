@@ -20,6 +20,8 @@ for line in sys.stdin:
     except Exception:
         print('LOG:', line[:220]); continue
     t = r.get('task'); d = r.get('d')
+    if t == 'varpro' and r.get('tag') in ('cone', 'uvcone') and (r.get('best_rel') or 1.0) > 1e-4 and r.get('status') == 'done':
+        continue   # tiny cone families with ordinary minima: not worth a notification (they are in the report)
     if t == 'varpro':
         print(f"varpro d={d} chi={r.get('chi')} vars={r.get('vars')} tag={r.get('tag')} K={r.get('K')} dimP={r.get('dimP')} rows={r.get('rows')} "
               f"t_eval={r.get('t_eval')} restarts={r.get('restarts_done')} best={r.get('best_rel')} med={r.get('median_rel')} "

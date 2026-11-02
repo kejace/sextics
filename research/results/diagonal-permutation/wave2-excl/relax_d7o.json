@@ -16,5 +16,9 @@
   "w0_010001_e1",
   "w0_010010_e1"
  ],
- "all_quadratic_monomials_in_I": false
+ "all_quadratic_monomials_in_I": false,
+ "msolve_status": -9,
+ "msolve_seconds": 9019.6,
+ "msolve_tail": "\n--------------- INPUT DATA ---------------\n#variables                      60\n#equations                     480\n#invalid equations               0\nfield characteristic    1000000007\nhomogeneous input?               1\nsignature-based computation      0\nmonomial order                 DRL\nbasis hash table resetting     OFF\nlinear algebra option            2\ninitial hash table size     131072 (2^17)\nmax pair selection             ALL\nreduce gb                        1\n#threads                         4\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\n",
+ "verdict": "msolve failed"
 }

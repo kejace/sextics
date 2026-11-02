@@ -165,7 +165,13 @@ def jgens(deg, c=None, parity=None):
 
 
 def fpoly(P):
-    return {e: float(v) for e, v in P.items()}
+    out = {}
+    for e, v in P.items():
+        try:
+            out[e] = float(v)
+        except OverflowError:
+            out[e] = float(Fraction(v).limit_denominator(10**9)) if abs(Fraction(v)) < 1e300 else (1e300 if v > 0 else -1e300)
+    return out
 
 
 def to_int_poly(P):
@@ -218,16 +224,23 @@ def e1_family(d, c, vars_mask=None, verbose=False, parity=None):
     t2 = time.time()
     kernel = []
     if nul:
-        # project kernel vectors onto the D coordinates, rref over Q
+        # project kernel vectors onto the D coordinates, rref over Q, then LLL-reduce the integer basis of the
+        # row space (the rref representatives have astronomically large entries at d >= 10; LLL makes them small)
         proj = fmpq_mat(nul, K, [int(X[j, k]) for k in range(nul) for j in range(K)])
         Pr, rk = proj.rref()
+        int_rows = []
         for i in range(rk):
             P = {}
             for j in range(K):
                 v = Pr[i, j]
                 if v != 0:
                     P[mons[j]] = Fraction(int(v.p), int(v.q))
-            kernel.append(to_int_poly(P))
+            Pi = to_int_poly(P)
+            int_rows.append([Pi.get(m, 0) for m in mons])
+        for row in int_rows:
+            P = {mons[j]: row[j] for j in range(K) if row[j]}
+            if P:
+                kernel.append(P)
     # Jacobian part of degree d inside span(mons)
     gens = []
     if vars_mask is None:
@@ -327,18 +340,96 @@ def e1_family_span(d, polys, c, verbose=False):
     if nul:
         proj = fmpq_mat(nul, K, [int(X[j, k]) for k in range(nul) for j in range(K)])
         Pr, rk = proj.rref()
+        int_rows = []
         for i in range(rk):
+            row = [Fraction(int(Pr[i, j].p), int(Pr[i, j].q)) for j in range(K)]
+            den = 1
+            for v in row:
+                den = den * v.denominator // math.gcd(den, v.denominator)
+            int_rows.append([int(v * den) for v in row])
+        for row in int_rows:
             P = {}
             for j in range(K):
-                v = Pr[i, j]
-                if v != 0:
-                    P = add(P, scale(polys[j], Fraction(int(v.p), int(v.q))))
+                if row[j]:
+                    P = add(P, scale(polys[j], Fraction(row[j])))
             if P:
                 kernel.append(to_int_poly(P))
     info = {'d': d, 'K': K, 'rows': R, 'cols': C, 'nullity': nul, 'dim_kernel': len(kernel), 'seconds': round(time.time() - t0, 1)}
     if verbose:
         print('[e1_family_span]', info, file=sys.stderr, flush=True)
     return kernel, info
+
+
+def numeric_kernel(d, c=None, parity=None, vars_mask=None, polys=None, rcond=1e-10):
+    """Float orthonormal basis of {D in span : A D in J_{d+6}} where span = sector monomials (vars_mask) or the
+    given polys.  Returns (basis polys (float, unit norm), monomial list / polys, singular-value gap info)."""
+    if polys is None:
+        mons = mons_sector(d, c, vars_mask, parity)
+        base = [{m: 1.0} for m in mons]
+    else:
+        base = [fpoly(P) for P in polys]
+    K = len(base)
+    if K == 0:
+        return [], base, {}
+    c6 = None if c is None else chi_add(c, CHI_A)
+    par6 = None if parity is None else (parity + 1) % 2
+    gens6 = jgens(d + 6, c6, par6)
+    cols = [mul(Af, B) for B in base] + [shift(Fif[i], m, 1.0) for i, m in gens6]
+    rows = {}
+    for col in cols:
+        for e in col:
+            rows.setdefault(e, len(rows))
+    M = np.zeros((len(rows), len(cols)))
+    for j, col in enumerate(cols):
+        for e, v in col.items():
+            M[rows[e], j] = v
+    N = sla.null_space(M, rcond=rcond)
+    Pk = N[:K, :]
+    if Pk.size == 0:
+        return [], base, {'nullity': int(N.shape[1]), 'rank': 0}
+    U, s, Vt = np.linalg.svd(Pk, full_matrices=False)
+    tol = max(s[0], 1e-300) * 1e-8
+    r = int(np.sum(s > tol))
+    gap = float(s[r - 1] / s[r]) if r < len(s) and r > 0 and s[r] > 0 else float('inf')
+    out = []
+    for i in range(r):
+        P = {}
+        for j, B in enumerate(base):
+            cj = U[j, i]
+            if abs(cj) > 1e-14:
+                for e, v in B.items():
+                    P[e] = P.get(e, 0.0) + cj * v
+        out.append(P)
+    return out, base, {'nullity': int(N.shape[1]), 'rank': r, 'gap': gap, 'smin_kept': float(s[r - 1]) if r else None,
+                       'smax_dropped': float(s[r]) if r < len(s) else 0.0}
+
+
+def numeric_extras(kernel_polys, gens_polys):
+    """Orthonormal basis of the part of span(kernel) orthogonal to span(gens) (float): the non-Jacobian directions."""
+    mons = {}
+    for P in kernel_polys + gens_polys:
+        for e in P:
+            mons.setdefault(e, len(mons))
+    Kmat = np.zeros((len(mons), len(kernel_polys)))
+    for j, P in enumerate(kernel_polys):
+        for e, v in P.items():
+            Kmat[mons[e], j] = v
+    if gens_polys:
+        G = np.zeros((len(mons), len(gens_polys)))
+        for j, P in enumerate(gens_polys):
+            for e, v in P.items():
+                G[mons[e], j] = v
+        Qg, Rg = np.linalg.qr(G, mode='reduced')
+        keep = np.abs(np.diag(Rg)) > 1e-10 * max(1.0, np.abs(Rg).max())
+        Qg = Qg[:, keep]
+        Kmat = Kmat - Qg @ (Qg.T @ Kmat)
+    U, s, Vt = np.linalg.svd(Kmat, full_matrices=False)
+    r = int(np.sum(s > 1e-8 * max(s[0], 1e-300))) if s.size else 0
+    inv = {i: e for e, i in mons.items()}
+    out = []
+    for i in range(r):
+        out.append({inv[j]: float(U[j, i]) for j in range(len(mons)) if abs(U[j, i]) > 1e-14})
+    return out
 
 
 # ----------------------------------------------------------------------------- numerical E1 lifts
@@ -414,15 +505,24 @@ def build_family(d, c=None, parity=None, vars_mask=None, mode='gens', verbose=Fa
     fam = fam or e1_family(d, c, vars_mask, verbose=verbose, parity=parity)
     members = []   # (D poly float, N list of 6 float polys, tag)
     need_lift = []
+    kinfo = {}
     if mode == 'gens' and vars_mask is None:
+        gpolys = []
         for i, m in fam['gens']:
             Dk = shift(Fif[i], m, 1.0)
             Nk = [{} for _ in range(NV)]
             Nk[i] = shift(Af, m, 1.0)
             members.append((Dk, Nk, f'J:{i}:{m}'))
-        need_lift = fam['extras']
+            gpolys.append(Dk)
+        if fam['info']['n_extra'] > 0:
+            kb, _, kinfo = numeric_kernel(d, c, parity, vars_mask)
+            need_lift = numeric_extras(kb, gpolys)
+            if len(need_lift) != fam['info']['n_extra']:
+                print(f'[build_family] WARNING numeric extras {len(need_lift)} != exact {fam["info"]["n_extra"]} (kernel info {kinfo})', file=sys.stderr, flush=True)
     else:
-        need_lift = fam['kernel']
+        need_lift, _, kinfo = numeric_kernel(d, c, parity, vars_mask)
+        if len(need_lift) != fam['info']['dim_kernel']:
+            print(f'[build_family] WARNING numeric kernel {len(need_lift)} != exact {fam["info"]["dim_kernel"]} (kernel info {kinfo})', file=sys.stderr, flush=True)
     lift_res = []
     if need_lift:
         deg6 = d + 6
@@ -430,10 +530,10 @@ def build_family(d, c=None, parity=None, vars_mask=None, mode='gens', verbose=Fa
         par6 = None if parity is None else (parity + 1) % 2
         LS = LiftSolver(deg6, c6, par6)
         for k, E in enumerate(need_lift):
-            T = mul(Af, fpoly(E))
+            T = mul(Af, E)
             Nk, res = LS.lift(T)
             lift_res.append(res)
-            members.append((fpoly(E), Nk, f'E:{k}'))
+            members.append((E, Nk, f'E:{k}'))
     if sym:
         # average over <s0, r1>; dependent / vanishing members are removed by the null-space projection later
         sm = []
@@ -449,8 +549,28 @@ def build_family(d, c=None, parity=None, vars_mask=None, mode='gens', verbose=Fa
             seen.add(key)
             sm.append((Ds, Ns, 'sym:' + tag))
         members = sm
+    # normalize every member to unit coefficient norm (D_k and its lift N_k by the same factor): the exact
+    # kernel extras come as integer polynomials with huge entries, which otherwise wreck the SVD tolerances
+    # of parameter_complement (observed at d = 10: 108 of 128 directions wrongly excluded) and the float lstsq.
+    normed = []
+    for Dk, Nk, tag in members:
+        vals = list(Dk.values())
+        if all(isinstance(v, (int, Fraction)) for v in vals):
+            nrm2 = sum(Fraction(v) ** 2 for v in vals)
+            nrm = Fraction(math.isqrt(nrm2.numerator), math.isqrt(nrm2.denominator)) if nrm2 else Fraction(0)
+            if nrm == 0:
+                continue
+            Dk = {e: float(Fraction(v) / nrm) for e, v in Dk.items()}
+            Nk = [{e: float(Fraction(v) / nrm) for e, v in P.items()} for P in Nk]
+        else:
+            nrm = math.sqrt(sum(float(v) ** 2 for v in vals))
+            if nrm == 0.0:
+                continue
+            Dk = scale(Dk, 1.0 / nrm); Nk = [scale(P, 1.0 / nrm) for P in Nk]
+        normed.append((Dk, Nk, tag))
+    members = normed
     info = dict(fam['info'])
-    info.update({'mode': mode, 'sym': sym, 'n_members': len(members), 'n_lifted': len(need_lift),
+    info.update({'mode': mode, 'sym': sym, 'n_members': len(members), 'n_lifted': len(need_lift), 'numeric_kernel': kinfo,
                  'max_lift_res': max(lift_res) if lift_res else 0.0, 't_family': round(time.time() - t0, 1)})
     if verbose:
         print('[build_family]', {k: v for k, v in info.items() if k != 'vars_mask'}, file=sys.stderr, flush=True)

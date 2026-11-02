@@ -241,3 +241,11 @@ d=8: 5v family 310, extra 228, combos 12 872.7
 5v:d8:(3, 0, 5):randcombo2 EXCLUDED-exact 890 891 195.81
 d=8: 6v non-Jacobian basis directions 232
 6v:d8:(0, 0, 1):14 EXCLUDED-exact 819 820 63.44
+6v:d8:(0, 0, 2):12 EXCLUDED-exact 1274 1275 1320.6
+6v:d8:(0, 0, 2):15 EXCLUDED-exact 1274 1275 1343.33
+6v:d8:(0, 0, 2):22 EXCLUDED-exact 1274 1275 1372.6
+6v:d8:(0, 0, 2):23 EXCLUDED-exact 1274 1275 1383.29
+6v:d8:(0, 0, 2):21 EXCLUDED-exact 1274 1275 1390.51
+6v:d8:(0, 0, 2):24 EXCLUDED-exact 1274 1275 1410.05
+6v:d8:(0, 0, 2):11 EXCLUDED-exact 1274 1275 1413.46
+6v:d8:(0, 0, 2):25 EXCLUDED-exact 1274 1275 1442.38

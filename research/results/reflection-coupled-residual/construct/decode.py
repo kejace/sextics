@@ -67,9 +67,23 @@ for f, m in fac[1]:
             Pi = pr[0][1]
             raw[vars_[i]] = sum(conv(int(c)) * theta**kk for kk, c in enumerate(Pi))
         raw[vars_[-1]] = theta  # elimination variable = last var (linform picks it)
+        ELIM = not any(vv.startswith('l') for vv in vars_)
         # try conventions: x = raw, x = -raw/wp, x = raw/wp, x = -raw/dn
+        def dphi_at(v):
+            lam = []
+            for i in range(n):
+                val = conv(0)
+                for mono, cf in dPhi_w[i].to_dict().items():
+                    t = conv(int(cf))
+                    for a, e in enumerate(mono):
+                        if e: t = t * v[a]**e
+                    val = val + t
+                lam.append(val)
+            return lam
         def check(vals):
             v = [conv(1)] + [vals[f'v{i}'] for i in range(1, n)]
+            if ELIM:
+                return True
             lam = [vals[f'l{i}'] for i in range(n)]
             # lambda_i == dPhi_w(v)?
             for i in range(n):
@@ -91,7 +105,7 @@ for f, m in fac[1]:
             continue
         label, vals = found
         v = [conv(1)] + [vals[f'v{i}'] for i in range(1, n)]
-        lam = [vals[f'l{i}'] for i in range(n)]
+        lam = dphi_at(v) if ELIM else [vals[f'l{i}'] for i in range(n)]
         # genuine reflection test: Phi_w(s z) = Phi_w(z) with s z = z - 2 ell(z)/ell(v) v, ell = sum lam_i z_i
         ellv = sum((lam[i] * v[i] for i in range(n)), conv(0))
         genuine = ellv != 0

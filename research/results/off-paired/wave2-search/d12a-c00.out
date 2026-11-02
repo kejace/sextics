@@ -4,3 +4,4 @@
 [float colon basis d=12 c=(0, 0)] dim 211 (modular 211)
 [sector varpro] d=12 c=(0, 0) K=211 rank=211 gauge=26 dimP=185 rows=9606 N=1692 Q=1085 nnz(TN)=3356292 built in 9.5s
 [2026-11-02T05:28:31] family built: K=211 rank=211 gauge=26 dimP=185 rows=9606 N=1692 Q=1085 build 9.5s
+gradient check: analytic -7.800997e-02 fd -7.800997e-02
