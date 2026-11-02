@@ -1,0 +1,21 @@
+#Leading ideal data
+#---
+#field characteristic: 1073741741
+#variable order:       u1, u2, u3, u4, u5, u6
+#monomial order:       graded reverse lexicographical
+#length of basis:      14 elements sorted by increasing leading monomials
+#---
+[u6^2,
+u5^2,
+u4^2,
+u1^1*u4^1,
+u3^2,
+u2^2,
+u1^1*u2^1,
+u1^2,
+u4^1*u5^1*u6^1,
+u1^1*u5^1*u6^1,
+u3^1*u4^1*u5^1,
+u2^1*u4^1*u5^1,
+u2^1*u3^1*u4^1,
+u2^1*u3^1*u5^1*u6^1]:

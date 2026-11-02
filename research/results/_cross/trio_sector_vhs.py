@@ -118,7 +118,8 @@ def quotient_rank(S, idx, M, rJ, vecs, p):
         for e,v in vv.items(): N[idx[e], M.ncols()+j] = v % p
     return N.rank() - rJ
 out = {'lane': lane, 'n_Def': len(Def), 'chiA': chiA}
-for p in (1000003, 998244353):
+PRIMES = tuple(int(x) for x in os.environ.get('TRIO_PRIMES','1000003,998244353').split(','))
+for p in PRIMES:
     t0=time.time()
     S6, idx6, M6, r6 = sector_data(6, chiA, p)
     S12, idx12, M12, r12 = sector_data(12, chiA, p)

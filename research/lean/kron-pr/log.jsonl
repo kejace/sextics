@@ -10,3 +10,5 @@
 {"ts":"2026-11-01T23:30:26-05:00","step":"timings-done","msg":"leanchecker KroneckerTest 97s wall/83s user/8.2GB; lean -j2 Kronecker 32s/42s user/3.6GB; lean -j2 KroneckerTest 97s/88s user/8.5GB; content checks exit 0"}
 {"ts":"2026-11-01T23:31:34-05:00","step":"commit","msg":"committed on maint/kronecker-checker: 575e666b"}
 {"ts":"2026-11-01T23:31:42-05:00","step":"check-library","msg":"python3 scripts/check-library.py --base origin/main (CI replica)"}
+{"ts":"2026-11-01T23:42:41-05:00","step":"check-library-stop","msg":"check-library.py rebuilds whole library + Docker rechecks because Reflection/README.md is a non-.lean change under formal/lean; stopping local run (88 modules rebuilt, no failures)"}
+{"ts":"2026-11-01T23:43:14-05:00","step":"done","msg":"branch maint/kronecker-checker commit 575e666b; lake build --wfail ok; lean -j2 + leanchecker ok for both modules; axioms propext/Classical.choice/Quot.sound; PR.md at /tmp/hodge/lean/kron-pr/PR.md; not pushed; stray build processes cleaned"}

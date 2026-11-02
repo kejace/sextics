@@ -1,6 +1,6 @@
 # Kronecker checker → shared library module (maintenance PR draft)
 
-Status: IN PROGRESS (started 2026-11-01). Log: /tmp/hodge/lean/kron-pr/log.jsonl. PR draft: /tmp/hodge/lean/kron-pr/PR.md.
+Status: DONE 2026-11-02 (commit 575e666b on maint/kronecker-checker, not pushed, no PR opened). Log: /tmp/hodge/lean/kron-pr/log.jsonl. PR draft: /tmp/hodge/lean/kron-pr/PR.md.
 
 ## Layout
 - Worktree: /home/kejace/devel/sextics-kron, branch `maint/kronecker-checker` from origin/main 83fbf5c9 (never pushed).
@@ -24,9 +24,10 @@ Status: IN PROGRESS (started 2026-11-01). Log: /tmp/hodge/lean/kron-pr/log.jsonl
 - [x] axioms (all six #print axioms): [propext, Classical.choice, Quot.sound]
 - [x] lean -j 2 -M 14336 KroneckerTest: 95 s wall / 86 s user / 10.9 GB with async elaboration; added `set_option Elab.async false` -> lake build 97 s / 8.6 GB
 - [x] leanchecker replay Kronecker: 18.5 s wall / 10.6 s user / 2.9 GB
-- [ ] leanchecker replay KroneckerTest, lean -j 2 of both (running)
-- [ ] content checks (build-content/validate-records/check-content) running in background
-- [ ] PR.md, commit, then scripts/check-library.py --base origin/main as CI replica
+- [x] leanchecker replay KroneckerTest: 97 s wall / 83 s user / 8.2 GB; lean -j 2: Kronecker 32 s / 3.6 GB, KroneckerTest 97 s / 8.5 GB
+- [x] content checks: not runnable locally (mistune missing); formal/README.md is not website content
+- [x] PR.md written; commit 575e666b
+- [x] check-library.py --base origin/main: README under formal/lean => full library rebuild + Docker recheck of all applications (CI will do this); stopped locally after 88 modules
 
 ## Findings worth keeping
 - Memory for d=10 identities is dominated by full-span Kronecker numbers per tree occurrence (m^5*W bits, ~31 MB at m=21,W=61), ~independent of term count: e2 of m3-coupled (13 tree occurrences) = 8.6 GB alone. d<=8 is ~4x smaller.

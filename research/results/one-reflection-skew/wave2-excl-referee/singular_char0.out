@@ -386,3 +386,9 @@ l45*l49^3
 13.12user 0.02system 0:14.98elapsed 87%CPU (0avgtext+0avgdata 15804maxresident)k
 0inputs+0outputs (0major+5950minor)pagefaults 0swaps
 ### ref5v_tor_0010
+
+halt 1
+Command exited with non-zero status 124
+1059.73user 3.57system 20:00.04elapsed 88%CPU (0avgtext+0avgdata 120584maxresident)k
+344inputs+0outputs (35major+417025minor)pagefaults 0swaps
+### ref5v_tor_1000

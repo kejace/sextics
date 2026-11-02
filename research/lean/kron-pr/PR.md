@@ -23,7 +23,7 @@ Pinned toolchain `leanprover/lean4:v4.33.0` with the committed manifest, from `f
 - `lake env lean -j 2 -M 14336 <file>` for both files, the verifier's compile configuration: success.
 - `lake env leanchecker --verbose <module>` for both modules, as `scripts/check-library.py` does: success.
 - `#print axioms` in the test module for `soundN`, `sound4`, `matchW_sound`, `KroneckerTest.small`, `KroneckerTest.e1`, `KroneckerTest.e2`: `[propext, Classical.choice, Quot.sound]` each.
-- `python3 scripts/check-library.py --base origin/main` (see the final section below for the result of that run).
+- `python3 scripts/check-library.py --base origin/main`: because the new `README.md` is a non-`.lean` file under `formal/lean`, the script marks every shared module as affected, rebuilds and replays the whole library, and rechecks all accepted applications in Docker, as Repository build will do for this PR (the same happened for the earlier `Constructions/*/README.md` additions). The local run was stopped after it had rebuilt 88 unchanged modules; the two changed modules were built and replayed directly as listed above.
 - `scripts/build-content.py`/`validate-records.py`/`check-content.py` were not run locally (`mistune` is not installed here); the change touches no website content, and Repository build runs them.
 
 No accepted application imports the new module, so `check-library.py` rechecks no protected application; `HodgeComputer.Verify` is unchanged.

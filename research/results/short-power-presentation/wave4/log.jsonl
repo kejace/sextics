@@ -1,0 +1,12 @@
+{"what": "validate-unrestricted-E1", "d": 5, "parD": 0, "prime": 2147483647, "kernel_dim": 3, "J_d_dim": 3, "hilbert_ok": true, "engine_reference": 3, "file": "w4_validate.py", "time": "2026-11-02T04:41:20Z"}
+{"what": "validate-unrestricted-E1", "d": 5, "parD": 1, "prime": 2147483647, "kernel_dim": 3, "J_d_dim": 3, "hilbert_ok": true, "engine_reference": 3, "file": "w4_validate.py", "time": "2026-11-02T04:41:21Z"}
+{"what": "validate-unrestricted-E1", "d": 6, "parD": 0, "prime": 2147483647, "kernel_dim": 18, "J_d_dim": 18, "hilbert_ok": true, "engine_reference": 18, "file": "w4_validate.py", "time": "2026-11-02T04:41:24Z"}
+{"what": "validate-unrestricted-E1", "d": 6, "parD": 1, "prime": 2147483647, "kernel_dim": 18, "J_d_dim": 18, "hilbert_ok": true, "engine_reference": 18, "file": "w4_validate.py", "time": "2026-11-02T04:41:26Z"}
+{"what": "validate-vert-d6-vs-restricted_kernel", "d": 6, "parD": 0, "prime": 2147483647, "T_kernel": 2, "w2_kernel": 2, "file": "w4_validate.py", "time": "2026-11-02T04:41:42Z"}
+{"what": "validate-vert-d6-vs-restricted_kernel", "d": 6, "parD": 1, "prime": 2147483647, "T_kernel": 0, "w2_kernel": 0, "file": "w4_validate.py", "time": "2026-11-02T04:41:58Z"}
+{"what": "E1-kernel-vert", "d": 7, "parD": 0, "prime": [2147483647, 2147483629], "result": "fam 6 | kernel 2/2 | J-part 2/2 | interesting 0/0 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T04:43:06Z"}
+{"what": "E1-kernel-vert", "d": 7, "parD": 1, "prime": [2147483647, 2147483629], "result": "fam 6 | kernel 2/2 | J-part 2/2 | interesting 0/0 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T04:43:12Z"}
+{"what": "E1-kernel-vert", "d": 8, "parD": 0, "prime": [2147483647, 2147483629], "result": "fam 9 | kernel 4/4 | J-part 4/4 | interesting 0/0 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T04:43:23Z"}
+{"what": "E1-kernel-vert", "d": 8, "parD": 1, "prime": [2147483647, 2147483629], "result": "fam 6 | kernel 2/2 | J-part 2/2 | interesting 0/0 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T04:43:35Z"}
+{"what": "E1-kernel-vert", "d": 9, "parD": 0, "prime": [2147483647, 2147483629], "result": "fam 9 | kernel 4/4 | J-part 4/4 | interesting 0/0 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T04:43:53Z"}
+{"what": "E1-kernel-vert", "d": 9, "parD": 1, "prime": [2147483647, 2147483629], "result": "fam 9 | kernel 4/4 | J-part 4/4 | interesting 0/0 | hilbert True/True", "file": "e1_vert.jsonl", "time": "2026-11-02T04:44:13Z"}

@@ -1,0 +1,90 @@
+[
+ {
+  "d": 4,
+  "parity": 0,
+  "Amix_kernel_in_RJ": 0,
+  "Amix_admissible": 0,
+  "A_kernel_in_RJ": 0,
+  "A_admissible": 0,
+  "J_d": 0,
+  "RJ_d": 66,
+  "sec": 2.7
+ },
+ {
+  "d": 4,
+  "parity": 1,
+  "Amix_kernel_in_RJ": 0,
+  "Amix_admissible": 0,
+  "A_kernel_in_RJ": 0,
+  "A_admissible": 0,
+  "J_d": 0,
+  "RJ_d": 60,
+  "sec": 2.7
+ },
+ {
+  "d": 5,
+  "parity": 0,
+  "Amix_kernel_in_RJ": 0,
+  "Amix_admissible": 3,
+  "A_kernel_in_RJ": 0,
+  "A_admissible": 3,
+  "J_d": 3,
+  "RJ_d": 123,
+  "sec": 9.5
+ },
+ {
+  "d": 5,
+  "parity": 1,
+  "Amix_kernel_in_RJ": 0,
+  "Amix_admissible": 3,
+  "A_kernel_in_RJ": 0,
+  "A_admissible": 3,
+  "J_d": 3,
+  "RJ_d": 123,
+  "sec": 10.3
+ },
+ {
+  "d": 6,
+  "parity": 0,
+  "Amix_kernel_in_RJ": 0,
+  "Amix_admissible": 18,
+  "A_kernel_in_RJ": 0,
+  "A_admissible": 18,
+  "J_d": 18,
+  "RJ_d": 218,
+  "sec": 29.2
+ },
+ {
+  "d": 6,
+  "parity": 1,
+  "Amix_kernel_in_RJ": 0,
+  "Amix_admissible": 18,
+  "A_kernel_in_RJ": 0,
+  "A_admissible": 18,
+  "J_d": 18,
+  "RJ_d": 208,
+  "sec": 28.9
+ },
+ {
+  "d": 7,
+  "parity": 0,
+  "Amix_kernel_in_RJ": 0,
+  "Amix_admissible": 63,
+  "A_kernel_in_RJ": 0,
+  "A_admissible": 63,
+  "J_d": 63,
+  "RJ_d": 333,
+  "sec": 90.4
+ },
+ {
+  "d": 7,
+  "parity": 1,
+  "Amix_kernel_in_RJ": 0,
+  "Amix_admissible": 63,
+  "A_kernel_in_RJ": 0,
+  "A_admissible": 63,
+  "J_d": 63,
+  "RJ_d": 333,
+  "sec": 87.3
+ }
+]

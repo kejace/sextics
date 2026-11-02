@@ -48,3 +48,67 @@ generate pbm files               0
 Dimension of quotient: 1488
 [1488, 696], Non trivial / Trivial = 46.77%
 Density of non-trivial part 100.00%
+Time spent to generate sequence (elapsed): 1.56 sec (1.97 Gops/sec)
+Mininimal polynomial is not square-free
+Degree of the square-free part: 1250
+[1488, 1274, 1250]
+Time spent to compute eliminating polynomial (elapsed): 0.03 sec
+Elimination polynomial is not squarefree.
+Time for rational param:         36.63 (elapsed) sec / 86.99 sec (cpu)
+
+------------------------------------------------------------------------------------
+msolve overall time          52.30 sec (elapsed) / 125.97 sec (cpu)
+------------------------------------------------------------------------------------
+
+---------------- TIMINGS ---------------
+overall(elapsed)       14.82 sec
+overall(cpu)           36.86 sec
+select                  1.10 sec   7.4%
+symbolic prep.          1.40 sec   9.4%
+update                  1.43 sec   9.7%
+convert                 0.09 sec   0.6%
+linear algebra         10.71 sec  72.3%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                  1161
+#terms in basis             1719897
+#pairs reduced                 9479
+#GM criterion               2021641
+#redundant elements             855
+#rows reduced                 20245
+#zero reductions               7536
+max. matrix data               8056 x 5583 (25.316%)
+max. symbolic hash table size  2^13
+max. basis hash table size     2^17
+-----------------------------------------
+
+
+Adding a linear form with an extra variable (lowest w.r.t. monomial order)
+[coefficients of linear form are randomly chosen]
+
+---------------- TIMINGS ---------------
+overall(elapsed)       34.87 sec
+overall(cpu)           82.95 sec
+select                  2.15 sec   6.2%
+symbolic prep.          3.48 sec  10.0%
+update                  1.91 sec   5.5%
+convert                 0.22 sec   0.6%
+linear algebra         26.99 sec  77.4%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                  1162
+#terms in basis             1724283
+#pairs reduced                 9638
+#GM criterion               1943638
+#redundant elements             815
+#rows reduced                 20528
+#zero reductions               7717
+max. matrix data               9540 x 11249 (0.059%)
+max. symbolic hash table size  2^14
+max. basis hash table size     2^17
+-----------------------------------------
+
