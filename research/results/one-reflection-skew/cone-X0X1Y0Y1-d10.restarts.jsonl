@@ -1,0 +1,1 @@
+{"seed": 10000, "init": "gauss", "method": "lm", "phi": 4.1935585054598623e-05, "rel": 0.0031560542114963362, "iters": 82, "nfev": 83, "secs": 269.01, "msg": "`ftol` termination condition is satisfied.", "n_defl": 0, "job": "cone-X0X1Y0Y1-d10", "d": 10, "rho": 0, "sigma": 0, "family": "cone:X0,X1,Y0,Y1", "target": "A"}

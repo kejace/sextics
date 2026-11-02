@@ -247,3 +247,40 @@ submit search-off-paired-s2-d10rest: launch ssh timed out after 120 s (job may s
 04:57:50 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
 05:00:24 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
 05:03:05 submitting ft-d8h0 (cpus 8); running now: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones']
+up: done ['off-paired']
+submit search-off-paired-s2-ft-d8h0: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-ft-d8h0)
+05:05:30 ft-d8h0 confirmed submitted
+05:06:05 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:08:40 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:11:14 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:13:49 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:16:24 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:18:59 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:21:33 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:24:08 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:26:42 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:29:17 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:31:52 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:34:27 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:37:01 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:39:37 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:42:11 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:44:46 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:47:20 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:49:56 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:52:29 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:55:04 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:57:39 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:00:14 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:02:49 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:05:23 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:07:58 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:10:33 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:13:07 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:15:42 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:18:15 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:20:50 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:23:25 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:26:01 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:28:35 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:31:11 submitting struct-hess4 (cpus 8); running now: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones']
