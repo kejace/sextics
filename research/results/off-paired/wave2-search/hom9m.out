@@ -4,3 +4,4 @@ t=0 start f6*X0^3: relres 5.179e-16
 stage-1 colon family of F0: K=74 dimP=69
   t=0 solution 1 at seed 4
   t=0 solution 2 at seed 16
+  t=0 solution 3 at seed 38
