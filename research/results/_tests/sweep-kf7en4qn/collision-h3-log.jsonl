@@ -1,0 +1,4 @@
+{"D": "2*X0**2 + X1**2 - 2*Y0**2", "d": 2, "family": "perturbed", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.13, "note": "e1 fails: A*D not in J(F) mod p", "engine": 2, "instance": "collision-h3"}
+{"D": "X0**2 + X1**2 - 2*Y0**2 + X0*Y0", "d": 2, "family": "unspecified", "e1": null, "consistent": null, "rank": null, "nullity": null, "seconds": 0.0, "note": "D has mixed Y-parity", "engine": 2, "instance": "collision-h3"}
+{"D": "X0**2 + X1**2 - 2*Y0**2", "d": 2, "family": "accepted", "e1": true, "consistent": true, "rank": 159, "nullity": 9, "seconds": 0.42, "note": "EXACT WITNESS verified (strict, Q=0)", "engine": 2, "instance": "collision-h3"}
+{"D": "(X0**2 + X1**2 - 2*Y0**2)**2", "d": 4, "family": "over-cap", "e1": null, "consistent": null, "rank": null, "nullity": null, "seconds": 0.0, "note": "skipped: degree 4 > cap 2", "engine": 2, "instance": "collision-h3"}

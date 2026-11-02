@@ -1,0 +1,4 @@
+{"D": "X0**4 - X0**2*X1**2 + X1**4", "family": "accepted"}
+{"D": "2*X0**4 - X0**2*X1**2 + X1**4", "family": "perturbed"}
+X0**4 - X0**2*X1**2 + X1**4 + X0*Y0*X1**2
+{"D": "(X0**4 - X0**2*X1**2 + X1**4)**2", "family": "over-cap"}

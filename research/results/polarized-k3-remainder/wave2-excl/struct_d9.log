@@ -1,1 +1,2 @@
 {"label": "rand-J9-char0-0-k3", "target": "k3", "consistent_Q": false, "consistent_p": false, "seconds": 1077.7} [(0, 5476, 1614, 1488, 1489)]
+{"label": "rand-J9-char0-0-full", "target": "full", "consistent_Q": false, "consistent_p": false, "seconds": 1217.9} [(0, 5476, 1614, 1488, 1489), (2, 5688, 1926, 1746, 1747), (4, 5688, 1458, 1404, 1405)]

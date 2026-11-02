@@ -86,6 +86,15 @@ independent — also confirmed computationally.)
   dependencies among the w-pair polynomials (moderate height). Exact certificates for the eliminating steps (λ, w3, w4,
   w5) are being produced by the replay job exclB-spp-certify7e (λ first, up to 12 primes for the lifts) (`excl_certify.py`: dim_Q span(other pairs mod J_14) = dim_p, rational dependency certificates).
 
+### 1b. Degree 7, Y-odd, block elimination (remote job exclB-spp-blocks, prime 1073741789)
+Mirror image of the even case: λ (the D7^- coefficient) is eliminated, and in the second pass the three X-component
+blocks w0, w1, w2 are eliminated; the Y-component blocks resist. So **no degree-7 Y-odd denominator involves D7^-**
+(mod p), and the residual lives in the Y-components (plus invisible X-directions).
+
+### 1c. λ-only sub-families at d = 8 (remote job exclB-spp-kernel2, prime 1073741789)
+For D in the span of the K_8^±/J bases (w = 0, 6 unknowns each) the relaxed E2 defect ideal is m-primary (Singular dim 0,
+vdim 7 in both parities): no denominator in the kernel span itself works. K_9^+/J = 18 with S_2·K_7 spanning 15.
+
 ## 2. Wave-1 claims: re-verification status
 1. E1 kernel dims (p = 2^31−1): d ≤ 3 confirmed with p = 1073741789; d = 4..10 queued (job excl-spp-e1k).
 2. d = 6 Hessian relaxation (p = 536870909, Singular): confirmed with p = 1073741789 by both msolve and Singular;
@@ -123,8 +132,9 @@ independent — also confirmed computationally.)
 1. Best rigorous bound: **deg D ≥ 7 for every certificate denominator, any Y-parity** (E1 kernels zero through d = 6
    with four primes + Hilbert check; E2 relaxations m-primary for d ≤ 6 Y-pure; mixed d = 6 by exact-certified
    annihilator functionals).
-2. Degree 7, Y-even: λ = 0 (no D7^+ component) and 18 Y-coefficients vanish (mod 1073741789); residual 42 unknowns /
-   231 quadrics under Gröbner (local msolve; remote exclB-spp-blocks with exact certificates).
+2. Degree 7: Y-even: λ = 0 (no D7^+ component) and 18 Y-coefficients vanish; Y-odd: λ = 0 and the X-blocks vanish
+   (mod 1073741789); the even residual (42 unknowns / 231 quadrics) is at F4 degree 5 on the remote (16 threads);
+   exact certificates for the eliminating steps in progress (λ first).
 3. E1 kernel: dim K_7^±/J = 1 exactly (exact rational D7^± with exact numerator certificates N7^± over Q, both parities,
    remote job exclB-spp-kernel2; the odd rref representative has 324 terms and is not itself a cone, the class has a cone
    representative in Q[Y,L] per the search lens); K_8^+/J = 6 of which S_1·K_7 spans 4, and K_8^-/J = 6 = S_1·K_7 exactly (this

@@ -1,0 +1,13 @@
+[setup] F parsed: 54 terms, degree 6; A = X0^3 Y0^3; q = 1
+=== referee_replay.py start 2026-11-01 22:38:57 parts=['d5'] ===
+[d5] my E2 system: 687 columns (21 aa, 540 ac, 126 Q); packet rows 2924 cols 687
+[d5] certificate a_0^2: verified=True support=51 height_digits=11
+[d5] certificate a_1^2: verified=True support=51 height_digits=11
+[d5] certificate a_2^2: verified=True support=51 height_digits=10
+[d5] certificate a_3^2: verified=True support=248 height_digits=197
+[d5] certificate a_4^2: verified=True support=248 height_digits=197
+[d5] certificate a_5^2: verified=True support=248 height_digits=197
+[d5] VERIFIED: a_k^2 in I for all k -> no degree-5 denominator (any parity) (11.2s)
+=== done 12s ===
+[setup] F parsed: 54 terms, degree 6; A = X0^3 Y0^3; q = 1
+=== referee_replay.py start 2026-11-01 22:39:59 parts=['d6'] ===

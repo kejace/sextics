@@ -1,0 +1,1 @@
+{"D": "X0**6 + X1**6 + X2**6 + 2*Y2**6", "family": "accepted", "instance": "hesse-triangle", "d": null, "e1": null, "consistent": null, "rank": null, "nullity": null, "seconds": 1.02, "note": "timeout after 1.0s (killed)"}

@@ -1,6 +1,6 @@
 # Wave-2 joint search — lane `reflection-coupled-residual` (q=1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS FOUND (search running; report rewritten after every batch). Started 2026-11-01 19:05 local.
+STATUS: NO WITNESS FOUND (local search complete 2026-11-01 22:40 local; the remote batches are still queued behind the capacity gate and their submissions may not survive the end of this session — resubmit with the commands at the end of this file). Started 2026-11-01 19:05 local.
 Remote box saturated since ~19:25 (load 240–500 on 128 cores, 22–97 jobs); submissions `search-rcr-e1lo`, `search-rcr-relaxlo`,
 `search-rcr-e1hi` wait for capacity (runner gate); low-degree work done locally within the light-compute budget.
 Queued next (scripts ready in the lane dir): `job_kvp_lo.sh` (full-E2 Koszul varpro d=7,8, 8 seeds), `job_kvp_d9.sh`, `job_kvp_d10.sh`,
@@ -111,10 +111,13 @@ No degree-8 sector shows any descent below rel 0.1 (earlier dense-metric and LM 
 | 10 | ker(21) ⊕ J_9(150) | 171 | 161 | 9306 | 850 | 1764 | 1 | 0.0256 | 0.0256 | L-BFGS 300 it., seed 45 |
 | 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | **0.0075** | 0.0075 | L-BFGS **900 it.**, seed 41 (1288.4 s) |
 | 10 | ker(21) ⊕ J_9(150) | 171 | 161 | 9306 | 850 | 1764 | 1 | **0.0131** | 0.0131 | L-BFGS **900 it.**, seed 51 (721.2 s, tag localF) |
-Floors ≈ 0.02 in both kernel-bearing sectors after 300 iterations (vs 0.1–0.2 at degree 8), and both landscapes keep
-descending slowly with more iterations (sector 00: 0.018 → 0.0075; sector 10: 0.021 → 0.013 at 900 iterations; not converged). Whether this approaches zero or a
-positive floor is the key open numerical question; a 1500-iteration run is queued (the logged seed-41 entry with rel 4.36 is a
-diagnostic 3-iteration run, not a search result).
+| 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | **0.0075** | 0.0075 | L-BFGS **1500 it.**, seed 41 (2131 s, nfev 1565, tag localG): same value as at 900 it. — a plateau, not a descent to 0 |
+Floors ≈ 0.02 in both kernel-bearing sectors after 300 iterations (vs 0.1–0.2 at degree 8); longer runs descend further
+(sector 00: 0.018 → 0.0075 at 900 iterations; sector 10: 0.021 → 0.013) but the 1500-iteration run from the same seed stops at the
+same value 0.0075 (f = 0.02355 vs 0.02364 at 900 it.): the sector-00 landscape has a **positive plateau ≈ 7.5e-3** along this
+trajectory, six orders of magnitude above the 1e-9 reconstruction threshold, so there is nothing to reconstruct. Thousands of
+restarts (job_kvp_d9.sh) remain the only way to find a different basin; the local budget allowed one trajectory per sector.
+(The logged seed-41 entry with rel 4.36 is a diagnostic 3-iteration run, not a search result.)
 
 ### R3. K8 (unique non-Jacobian degree-8 Y-even E1 class, Klein-invariant): full fixed-D test — remote job `search-rcr-k8full`
 E1 confirmed (rank 5052 = rank_aug). Sector-restricted compressed system 22016 × 4256 (of 7497 unrestricted): **inconsistent** (rank 3781, nullity 475, 36 s).
@@ -137,14 +140,26 @@ Unrestricted compressed system 40301 × 7497: **inconsistent** (rank 6703, nulli
    families in sectors 01/10/11 stay at 0.16–0.34.
 5. d = 9 (new): E1 spaces computed in all sectors — 21 non-Jacobian classes in sector 00 and 21 in sector 10 (exactly the
    forced minimum dim R_9 − dim R_15), none in 01/11. Full-E2 Koszul varpro over the kernel ⊕ J_9 families: floors
-   ≈ 0.02 after 300 L-BFGS iterations, descending slowly with longer runs (00: 0.018 → 0.0075 at 900 it.; 10: 0.021 → 0.013);
-   a 1500-iteration run is in progress; no candidate below 1e-9, nothing to reconstruct.
+   ≈ 0.02 after 300 L-BFGS iterations, lower with longer runs (00: 0.018 → 0.0075 at 900 it.; 10: 0.021 → 0.013) but the
+   1500-iteration run plateaus at the same 0.0075 (positive floor along this trajectory); no candidate below 1e-9, nothing to
+   reconstruct. Many-restart searches of these two families (job_kvp_d9.sh) are the top remaining numerical item.
 6. Tools (all validated on Fermat controls that recover exact witnesses): sector-aware E1 spaces with float bases, Hessian
    relaxation (exact msolve export + LM), generalised family relaxation, Koszul-reduced full-E2 variable projection with sparse
    quotient-mod-F and random compression (L-BFGS and joint LM), served-space profiler, structured-candidate screen.
 7. Remote box saturated all evening (load 240–1900, 150–230 jobs, free memory down to 0 GB): the 8-seed searches, the exact
    msolve of the degree-7/8 families, d = 10–12 kernels and the structured/served sweeps are queued (scripts ready in the lane
    dir: job_relax_lo.sh, job_kvp_lo.sh, job_kvp_d9.sh, job_kvp_d10.sh, job_screen.sh, job_served.py) behind the capacity gate.
+
+## Resubmission commands for the queued remote batches (from `/home/kejace/devel/sextics-work`, ≤ 4 jobs at a time, `--cpus` ≤ 8)
+```sh
+L=reflection-coupled-residual
+python3 -m hodge.rjob submit --wait 14400 --lane $L --name search-rcr-e1lo --cpus 8 -- python3 rcr2.py e1 --d 6 7 8 9 --sec all '>' e1lo.out '2>&1'
+python3 -m hodge.rjob submit --wait 14400 --lane $L --name search-rcr-relaxlo --cpus 8 -- bash job_relax_lo.sh '>' relax_lo.out '2>&1'
+python3 -m hodge.rjob submit --wait 14400 --lane $L --name search-rcr-kvplo --cpus 8 -- bash job_kvp_lo.sh '>' kvp_lo.out '2>&1'
+python3 -m hodge.rjob submit --wait 14400 --lane $L --name search-rcr-kvpd9 --cpus 8 -- bash job_kvp_d9.sh '>' kvp_d9.out '2>&1'
+# then: job_kvp_d10.sh, job_screen.sh (needs e1 d=9..12 first; it runs them), job_served.py (cands_served.txt)
+```
+All scripts live in `/tmp/hodge/results/reflection-coupled-residual/` and append to `wave2-search.log.jsonl` (pull merges log lines only).
 
 ## Auto-generated tables
 Regenerated from the log by `python3 summarize_log.py` into `wave2-reflection-coupled-residual-tables.md` (same directory).

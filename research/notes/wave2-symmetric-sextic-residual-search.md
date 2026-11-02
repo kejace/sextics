@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 22:32 EST from 789 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 22:35 EST from 789 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -157,9 +157,9 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=6 pD=1 | jac1 | 207 | 2.62e-01 | 3.5e-01 | 0 | 0 | 0.262: 1, 0.314: 1, 0.319: 35, 0.331: 6, 0.34: 17 |
+| jac d=6 pD=1 | jac1 | 265 | 2.62e-01 | 3.5e-01 | 0 | 0 | 0.262: 1, 0.282: 1, 0.314: 3, 0.319: 53, 0.331: 7 |
 | ternX-triv d=7 pD=0 | struct | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
-| triv d=9 pD=1 | vp1b | 45 | 1.63e-05 | 1.6e-05 | 0 | 0 | 1.63e-05: 44, 7.12e-05: 1 |
+| triv d=9 pD=1 | vp1b | 59 | 1.63e-05 | 1.6e-05 | 0 | 0 | 1.63e-05: 57, 7.12e-05: 2 |
 | triv d=10 pD=0 | vp2b | 25 | 2.07e-06 | 9.6e-06 | 0 | 0 | 2.07e-06: 10, 2.94e-06: 2, 9.6e-06: 1, 1.17e-05: 9, 1.72e-05: 1 |
 
 ## 7b. Gauss–Newton polish of the best points (is a small residual a zero?)

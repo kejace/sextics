@@ -54,3 +54,13 @@ sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by th
   (0.011-0.013 at d=7) are directly comparable.  Local optimizer: Levenberg-Marquardt with the Kaufman
   variable-projection Jacobian (`--method lm`, default from 20:50) which converges in tens of iterations; the
   earlier L-BFGS restarts (tags *_b0, d7k_a) all stopped at the 400-iteration cap.
+
+**Why the mod-q emptiness statements lift to C (precise form).**  Let G be the Jacobian-generator matrix in degree 2d
+(integer entries after clearing 7).  Its rank over Q equals its rank mod q (the Jacobian-ring dimensions computed mod q
+are the regular-sequence values).  Take a saturated q-integral basis {l_i} of the left null space of G over Q; its
+reduction mod q is a basis of the left null space of G mod q.  The relaxation system over Q is {l_i . B(a,a) = 0}
+(B(a,a) = sum a_m a_n B_mn with q-integral B_mn), and its reduction is exactly the mod-q system whose span msolve
+received.  If the mod-q Macaulay matrix in some degree k has full column rank (finite quotient), the Q Macaulay matrix
+(whose reduction it is) has full column rank too, so the Q-ideal contains every form of degree k and the projective
+variety over C is empty.  The same argument gives the degree-5 statement (full rank of Phi) and would give degree 7 if
+msolve reports a finite quotient for the sliced 63-variable system.  No "standard monomial" or pivot assumption is used.

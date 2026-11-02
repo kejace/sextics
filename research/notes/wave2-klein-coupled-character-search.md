@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 22:34:18 from 931 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 22:38:37 from 934 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -104,8 +104,11 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 | 9 | odd | 1 | K | 5 | 5 | 1947x264 | 5 | 8.90e-01 | 8.90e-01 | 8.90e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 1 | KJ | 54 | 51 | 1947x264 | 3 | 7.73e-02 | 1.18e-01 | 1.58e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 4 | K | 9 | 9 | 1973x216 | 6 | 8.66e-01 | 8.66e-01 | 8.66e-01 | 0 | 0 | lm | 0 |
+| 9 | odd | 4 | KJ | 58 | 55 | 1973x216 | 3 | 1.28e-01 | 2.51e-01 | 3.75e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 5 | K | 6 | 6 | 1929x264 | 5 | 7.55e-01 | 7.55e-01 | 7.55e-01 | 0 | 0 | lm | 0 |
+| 9 | odd | 5 | KJ | 52 | 49 | 1929x264 | 3 | 4.77e-01 | 4.77e-01 | 4.77e-01 | 0 | 0 | lm | 0 |
 | 9 | odd | 6 | K | 4 | 4 | 1939x264 | 5 | 1.26e+00 | 1.26e+00 | 1.26e+00 | 0 | 0 | lm | 0 |
+| 9 | odd | 6 | KJ | 50 | 47 | 1939x264 | 2 | 5.36e-02 | 5.95e-02 | 6.55e-02 | 0 | 0 | lm | 0 |
 
 ## (4) Structured families (E1-admissible dimension per sector; varpro where nonzero)
 
@@ -308,14 +311,14 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 
 ## Remote job queue (tail)
 ```
-22:22:47 gate closed for w2-control: 0), available memory 172 GB (min 110), 62 jobs running with 322 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:24:21 gate closed for w2-control: 0), available memory 168 GB (min 110), 62 jobs running with 322 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-22:25:55 gate closed for w2-control: 0), available memory 165 GB (min 110), 61 jobs running with 320 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:27:29 gate closed for w2-control: 0), available memory 163 GB (min 110), 61 jobs running with 320 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:29:04 gate closed for w2-control: 0), available memory 134 GB (min 110), 62 jobs running with 328 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:30:38 gate closed for w2-control: 0), available memory 161 GB (min 110), 62 jobs running with 328 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:32:13 gate closed for w2-control: 0), available memory 159 GB (min 110), 61 jobs running with 327 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 22:33:47 gate closed for w2-control: 0), available memory 168 GB (min 110), 62 jobs running with 329 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:35:21 gate closed for w2-control: 0), available memory 155 GB (min 110), 63 jobs running with 333 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:36:55 gate closed for w2-control: 0), available memory 154 GB (min 110), 62 jobs running with 332 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+22:38:29 gate closed for w2-control: 0), available memory 145 GB (min 110), 62 jobs running with 332 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation

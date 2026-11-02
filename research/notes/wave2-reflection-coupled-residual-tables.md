@@ -1,4 +1,4 @@
-events: {'coker': 25, 'e1space': 25, 'relax': 3, 'relax-reconstruct': 1, 'confirm': 1, 'msolve-export': 18, 'msolve': 11, 'k8-e1': 1, 'k8-fixedD-symmetric': 1, 'wave2-search-start': 1, 'k8-fixedD-full': 1, 'famrelax': 2, 'msolve-family-export': 2, 'msolve-family': 2, 'kvp': 21, 'served': 2}
+events: {'coker': 25, 'e1space': 25, 'relax': 3, 'relax-reconstruct': 1, 'confirm': 1, 'msolve-export': 18, 'msolve': 11, 'k8-e1': 1, 'k8-fixedD-symmetric': 1, 'wave2-search-start': 1, 'k8-fixedD-full': 1, 'famrelax': 2, 'msolve-family-export': 2, 'msolve-family': 2, 'kvp': 22, 'served': 2}
 
 ### E1 spaces (exact mod p)
 | d | sec | dim S | dim J | dim R | E1-admissible | non-J |
@@ -74,6 +74,7 @@ events: {'coker': 25, 'e1space': 25, 'relax': 3, 'relax-reconstruct': 1, 'confir
 | 9 | 00 | JK | 263 | 241 | 9306 | 1050 | 1 | 7.46e-03 | 7.46e-03 | 1288.4s |
 | 9 | 00 | JK | 263 | 241 | 9306 | 1050 | 1 | 4.36e+00 | 4.36e+00 | 7.0s |
 | 9 | 10 | JK | 171 | 161 | 9306 | 850 | 1 | 1.31e-02 | 1.31e-02 | 721.2s |
+| 9 | 00 | JK | 263 | 241 | 9306 | 1050 | 1 | 7.49e-03 | 7.49e-03 | 2131.3s |
 
 ### Exact confirmations
 - d=6 spurious (F | D) rank=None nullity=None note=relax d=6 secs=00 rel=1.49e-15 D=6*X0**6 + 30*X0**3*X1*Y0*Y1/7 + 30*X0*X1*Y0**3*Y1/7 + 30*X0*X1*Y0**2*Y
