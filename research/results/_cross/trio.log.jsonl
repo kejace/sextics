@@ -1,3 +1,5 @@
 {"ts":"2026-11-01T23:07:30-05:00","step":"start","msg":"trio theory subagent started; orienting"}
 {"ts":"2026-11-01T23:22:17-05:00","step":"read","msg":"read instance.rec/why.md x3, companion solutions (cyclic-triple-fano, quadric-contact-broken), construct reports ctr (index+part heads) and rcr (sections 0-3), rjob docstring, formal README"}
 {"ts":"2026-11-01T23:30:25-05:00","step":"plan","msg":"index written; plan: part1 EV+rigidity theory, part2 Galois closures incl. new qcr tower computation, part3 sector-variation (Def.xi spans) for rcr and qcr + verdicts"}
+{"ts":"2026-11-01T23:36:31-05:00","step":"compute","msg":"qcr reflection towers: all 4 real reflections give F even in v, cubic in v^2 with Galois group S3, -c0 non-square => sextic group B3=S4xC2 (order 48) at 3 random specialisations each (trio-qcr-galois.json). qcr sector VHS local run started; rcr sector VHS + qcr Galois-closure singular-locus (Singular) submitted to remote (trio-rcr-sectorvhs, trio-qcr-ztsing)"}
+{"ts":"2026-11-01T23:37:57-05:00","step":"write","msg":"part1 written (EV decomposition, support conditions, W-tower rigidity theorem + corollaries on fibre products / branch sections)"}

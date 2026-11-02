@@ -554,3 +554,596 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 info: HodgeComputer/Constructions/PolynomialCurves/NormalizedCertificate.lean:120:0: 'ReflectionCoupledFano.normalized_data_from_polynomial_family' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+⚠ [3747/3805] Built HodgeComputer.Constructions.EllipticCompanions.CompanionAlgebra (73s)
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:104:0: automatically included section variable(s) unused in theorem `CrossedMonicHypersurface.derivative_finSuccEquiv`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:112:40: This simp argument is unused:
+  derivative_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_add, hp, hq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:135:0: automatically included section variable(s) unused in theorem `CrossedMonicHypersurface.projection_surjective`:
+  [CharZero K]
+  [IsDomain (AdjoinRoot p)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] [IsDomain (AdjoinRoot p)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:138:0: automatically included section variable(s) unused in theorem `CrossedMonicHypersurface.projection_kernel`:
+  [CharZero K]
+  [IsDomain (AdjoinRoot p)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] [IsDomain (AdjoinRoot p)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:146:8: automatically included section variable(s) unused in theorem `CrossedMonicHypersurface.residueMap_C`:
+  [CharZero K]
+  [IsDomain (AdjoinRoot p)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] [IsDomain (AdjoinRoot p)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:153:8: automatically included section variable(s) unused in theorem `CrossedMonicHypersurface.residueMap_X_zero`:
+  [CharZero K]
+  [IsDomain (AdjoinRoot p)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] [IsDomain (AdjoinRoot p)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:160:8: automatically included section variable(s) unused in theorem `CrossedMonicHypersurface.residueMap_X_succ`:
+  [CharZero K]
+  [IsDomain (AdjoinRoot p)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] [IsDomain (AdjoinRoot p)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:170:0: automatically included section variable(s) unused in theorem `CrossedMonicHypersurface.normal_ne_zero`:
+  [IsDomain (AdjoinRoot p)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain (AdjoinRoot p)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:298:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: HodgeComputer/Constructions/EllipticCompanions/CompanionAlgebra.lean:339:0: automatically included section variable(s) unused in theorem `CrossedOpenIncidence.evaluation`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ℹ [3748/3805] Built HodgeComputer.Constructions.HoldoutCover.FermatCoefficientDerivations (23s)
+info: HodgeComputer/Constructions/HoldoutCover/FermatCoefficientDerivations.lean:80:0: 'HoldoutConstruction.fermatCoefficient_derivation_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3749/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverFields (35s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverFields.lean:130:0: 'HoldoutConstruction.physicalCoverFieldMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverFields.lean:131:0: 'HoldoutConstruction.commonCoverFunctionField_trdeg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverFields.lean:132:0: 'HoldoutConstruction.commonCoverFunctionField_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3750/3805] Built HodgeComputer.Constructions.PolynomialCurves.OpenIncidence (70s)
+warning: HodgeComputer/Constructions/PolynomialCurves/OpenIncidence.lean:72:0: automatically included section variable(s) unused in theorem `ReflectionCoupledFano.openGeneric_eval`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/PolynomialCurves/OpenIncidence.lean:117:0: automatically included section variable(s) unused in theorem `ReflectionCoupledFano.openGeneric_coordinate_unit`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/PolynomialCurves/OpenIncidence.lean:140:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: HodgeComputer/Constructions/PolynomialCurves/OpenIncidence.lean:142:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+info: HodgeComputer/Constructions/PolynomialCurves/OpenIncidence.lean:150:0: 'ReflectionCoupledFano.openSquare_exists_fieldFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3751/3805] Built HodgeComputer.Constructions.HoldoutCover.QuotientDerivatives (70s)
+info: HodgeComputer/Constructions/HoldoutCover/QuotientDerivatives.lean:216:0: 'HoldoutConstruction.quotient_normal_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/QuotientDerivatives.lean:217:0: 'HoldoutConstruction.quotientTangents_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/QuotientDerivatives.lean:218:0: 'HoldoutConstruction.quotientTangent_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/QuotientDerivatives.lean:269:0: 'HoldoutConstruction.weightedHypersurface_integerPartial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/QuotientDerivatives.lean:270:0: 'HoldoutConstruction.weightedHypersurface_integerPartial_eval₂' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [3752/3805] Built HodgeComputer.Constructions.HigherResidues.NormalJetBinding (106s)
+warning: HodgeComputer/Constructions/HigherResidues/NormalJetBinding.lean:20:0: automatically included section variable(s) unused in theorem `SplitNormalJetBinding.hessian_symm`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/NormalJetBinding.lean:25:0: automatically included section variable(s) unused in theorem `SplitNormalJetBinding.third_cycle`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/NormalJetBinding.lean:74:0: automatically included section variable(s) unused in theorem `SplitNormalJetBinding.quotient_tangent_first`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/NormalJetBinding.lean:82:0: automatically included section variable(s) unused in theorem `SplitNormalJetBinding.quotient_tangent_second`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/NormalJetBinding.lean:96:0: automatically included section variable(s) unused in theorem `SplitNormalJetBinding.quotient_firstJet`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+info: HodgeComputer/Constructions/HigherResidues/NormalJetBinding.lean:151:0: 'SplitNormalJetBinding.polynomial_source_jets' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HigherResidues/NormalJetBinding.lean:152:0: 'SplitNormalJetBinding.quotient_tangent_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HigherResidues/NormalJetBinding.lean:153:0: 'SplitNormalJetBinding.rational_source_jets' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3753/3805] Built HodgeComputer.Constructions.HoldoutCover.FermatDeck (46s)
+info: HodgeComputer/Constructions/HoldoutCover/FermatDeck.lean:152:0: 'HoldoutConstruction.commonDeck_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/FermatDeck.lean:153:0: 'HoldoutConstruction.commonDeckRingEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3754/3805] Built HodgeComputer.Constructions.HoldoutCover.PhysicalDerivations (27s)
+info: HodgeComputer/Constructions/HoldoutCover/PhysicalDerivations.lean:147:0: 'HoldoutConstruction.physical_normal_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PhysicalDerivations.lean:148:0: 'HoldoutConstruction.physicalTangents_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/PhysicalDerivations.lean:149:0: 'HoldoutConstruction.physicalTangent_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3755/3805] Built HodgeComputer.Constructions.HoldoutCover.QuotientCoverField (32s)
+info: HodgeComputer/Constructions/HoldoutCover/QuotientCoverField.lean:92:0: 'HoldoutConstruction.quotientCoverFieldMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/QuotientCoverField.lean:93:0: 'HoldoutConstruction.quotientCoverFieldMap_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/QuotientCoverField.lean:94:0: 'HoldoutConstruction.cover_fermat_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3756/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverCoordinates (50s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinates.lean:118:0: 'HoldoutConstruction.physicalCoverFieldMap_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinates.lean:119:0: 'HoldoutConstruction.quotientCoverFieldMap_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverCoordinates.lean:120:0: 'HoldoutConstruction.cover_square_difference_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3757/3805] Built HodgeComputer.Constructions.EllipticCompanions.Residues (106s)
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:194:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:254:13: This simp argument is unused:
+  pow_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pow_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:399:21: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:437:17: This simp argument is unused:
+  pow_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [div_pow, inv_div, map_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:437:41: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pow_one, div_pow, inv_div]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:459:26: This simp argument is unused:
+  pow_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pow_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:441:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:547:0: automatically included section variable(s) unused in theorem `CrossedElliptic.baseTime_C`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:551:0: automatically included section variable(s) unused in theorem `CrossedElliptic.baseTime_X`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:555:0: automatically included section variable(s) unused in theorem `CrossedElliptic.baseCoefficient_C`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:560:0: automatically included section variable(s) unused in theorem `CrossedElliptic.baseCoefficient_X`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:605:44: This simp argument is unused:
+  Derivation.map_natCast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Derivation.leibniz_pow, map_sub, time_x, smul_eq_mul, nsmul_eq_mul] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:615:44: This simp argument is unused:
+  Derivation.map_natCast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Derivation.leibniz_pow, map_sub, coefficient_x, smul_eq_mul, nsmul_eq_mul] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:808:0: automatically included section variable(s) unused in theorem `CrossedElliptic.differentialTrace_apply`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:960:0: automatically included section variable(s) unused in theorem `CrossedElliptic.rationalConstantTerm_apply`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:1061:67: This simp argument is unused:
+  h2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coneDerivations, independentCoordinates, Derivation.sub_apply, Derivation.smul_apply,
+    Derivation.leibniz, Derivation.leibniz_pow, smul_eq_mul, baseTime_X, baseTime_C, baseCoefficient_X,
+    baseCoefficient_C, hc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:1081:50: This simp argument is unused:
+  Derivation.leibniz_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [residueDivergence, fieldDivergence, coneDerivations, projectedField, Fin.sum_univ_succ,
+    Derivation.sub_apply, Derivation.smul_apply, Derivation.leibniz, Derivation.leibniz_div, Derivation.leibniz_pow,
+    smul_eq_mul, Algebra.smul_def, Algebra.algebraMap_self, RingHom.id_apply, baseTime_X, baseTime_C, baseCoefficient_X,
+    baseCoefficient_C, hc, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:1082:16: This simp argument is unused:
+  Algebra.smul_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [residueDivergence, fieldDivergence, coneDerivations, projectedField, Fin.sum_univ_succ,
+    Derivation.sub_apply, Derivation.smul_apply, Derivation.leibniz, Derivation.leibniz_div, Derivation.leibniz_pow,
+    Derivation.leibniz_inv, smul_eq_mul, Algebra.algebraMap_self, RingHom.id_apply, baseTime_X, baseTime_C,
+    baseCoefficient_X, baseCoefficient_C, hc, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:1082:33: This simp argument is unused:
+  Algebra.algebraMap_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [residueDivergence, fieldDivergence, coneDerivations, projectedField, Fin.sum_univ_succ,
+    Derivation.sub_apply, Derivation.smul_apply, Derivation.leibniz, Derivation.leibniz_div, Derivation.leibniz_pow,
+    Derivation.leibniz_inv, smul_eq_mul, Algebra.smul_def, RingHom.id_apply, baseTime_X, baseTime_C, baseCoefficient_X,
+    baseCoefficient_C, hc, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Residues.lean:1082:57: This simp argument is unused:
+  RingHom.id_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [residueDivergence, fieldDivergence, coneDerivations, projectedField, Fin.sum_univ_succ,
+    Derivation.sub_apply, Derivation.smul_apply, Derivation.leibniz, Derivation.leibniz_div, Derivation.leibniz_pow,
+    Derivation.leibniz_inv, smul_eq_mul, Algebra.smul_def, Algebra.algebraMap_self, baseTime_X, baseTime_C,
+    baseCoefficient_X, baseCoefficient_C, hc, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [3758/3805] Built HodgeComputer.Constructions.HoldoutCover.HoldoutCertificateClosure (63s)
+info: HodgeComputer/Constructions/HoldoutCover/HoldoutCertificateClosure.lean:121:0: 'HoldoutConstruction.holdout_hasCertificate_of_cover_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3759/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverDeckField (33s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverDeckField.lean:235:0: 'HoldoutConstruction.commonDeckFieldEquiv_fixes_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverDeckField.lean:236:0: 'HoldoutConstruction.physicalDeckAlgHom' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverDeckField.lean:237:0: 'HoldoutConstruction.commonCover_trace_inverse_fourth' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3760/3805] Built HodgeComputer.Constructions.HigherResidues.HigherResidue (254s)
+warning: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:28:0: automatically included section variable(s) unused in theorem `SplitHigherResidue.advect_mul`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:35:0: automatically included section variable(s) unused in theorem `SplitHigherResidue.advect_add`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:39:0: automatically included section variable(s) unused in theorem `SplitHigherResidue.divergence_smul`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:43:0: automatically included section variable(s) unused in theorem `SplitHigherResidue.divergence_advect`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:64:0: automatically included section variable(s) unused in theorem `SplitHigherResidue.advect_advect`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:136:33: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fieldDivergence, secondCorrection, map_add, Derivation.leibniz, hhalf, mul_zero, add_zero,
+    smul_eq_mul, Finset.sum_add_distrib, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:282:19: Variable name `hN` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:358:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:440:1: automatically included section variable(s) unused in theorem `SplitHigherResidue.tangent_linear_factorization`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+info: HodgeComputer/Constructions/HigherResidues/HigherResidue.lean:458:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [3761/3805] Built HodgeComputer.Constructions.EllipticCompanions.Coordinates (45s)
+warning: HodgeComputer/Constructions/EllipticCompanions/Coordinates.lean:92:17: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Coordinates.lean:139:8: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Coordinates.lean:171:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Coordinates.lean:177:17: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Coordinates.lean:177:17: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Coordinates.lean:195:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+ℹ [3762/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverDifferentials (72s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverDifferentials.lean:181:0: 'HoldoutConstruction.actualCoverJacobian_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverDifferentials.lean:182:0: 'HoldoutConstruction.actualCoverJacobian_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverDifferentials.lean:183:0: 'HoldoutConstruction.coverQuotientTangent_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3763/3805] Built HodgeComputer.Constructions.EllipticCompanions.ScalarEmbedding (46s)
+warning: HodgeComputer/Constructions/EllipticCompanions/ScalarEmbedding.lean:39:0: automatically included section variable(s) unused in theorem `EllipticCompanion.coefficientMap_base`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/ScalarEmbedding.lean:45:0: automatically included section variable(s) unused in theorem `EllipticCompanion.coefficientMap_S`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/ScalarEmbedding.lean:51:0: automatically included section variable(s) unused in theorem `EllipticCompanion.coefficientMap_X_succ`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: HodgeComputer/Constructions/EllipticCompanions/ScalarEmbedding.lean:57:0: automatically included section variable(s) unused in theorem `EllipticCompanion.coefficientMap_C`:
+  [CharZero K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+info: HodgeComputer/Constructions/EllipticCompanions/ScalarEmbedding.lean:85:0: 'EllipticCompanion.ringMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3764/3805] Built HodgeComputer.Constructions.EllipticCompanions.Calculus (72s)
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:37:13: This simp argument is unused:
+  map_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_mul, map_add, map_zero, Fin.sum_univ_succ, Fin.sum_univ_zero] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:48:13: This simp argument is unused:
+  map_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_mul, map_add, map_zero, Derivation.leibniz, smul_eq_mul, Fin.sum_univ_succ,
+    Fin.sum_univ_zero] at he he'
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:58:29: This simp argument is unused:
+  map_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_mul, map_add, map_zero, Fin.sum_univ_succ, Fin.sum_univ_zero] at hdiv
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:109:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:117:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:164:37: This simp argument is unused:
+  map_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [scalarB, scalarX, scalarY, jetNumerator, Derivation.leibniz_div, Derivation.leibniz,
+    Derivation.leibniz_pow, map_sub, map_neg, hδ3, hx3, hy3, hδu, ha, hb, hDxu, hDyu, hδs, hδt, hDx, hDy, smul_eq_mul,
+    nsmul_eq_mul, smul_zero, mul_zero, zero_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:165:34: This simp argument is unused:
+  nsmul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [scalarB, scalarX, scalarY, jetNumerator, Derivation.leibniz_div, Derivation.leibniz,
+    Derivation.leibniz_pow, map_sub, map_add, map_neg, hδ3, hx3, hy3, hδu, ha, hb, hDxu, hDyu, hδs, hδt, hDx, hDy,
+    smul_eq_mul, smul_zero, mul_zero, zero_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:165:66: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [scalarB, scalarX, scalarY, jetNumerator, Derivation.leibniz_div, Derivation.leibniz,
+    Derivation.leibniz_pow, map_sub, map_add, map_neg, hδ3, hx3, hy3, hδu, ha, hb, hDxu, hDyu, hδs, hδt, hDx, hDy,
+    smul_eq_mul, nsmul_eq_mul, smul_zero, mul_zero, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:165:84: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [scalarB, scalarX, scalarY, jetNumerator, Derivation.leibniz_div, Derivation.leibniz,
+    Derivation.leibniz_pow, map_sub, map_add, map_neg, hδ3, hx3, hy3, hδu, ha, hb, hDxu, hDyu, hδs, hδt, hDx, hDy,
+    smul_eq_mul, nsmul_eq_mul, smul_zero, mul_zero, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:280:23: This simp argument is unused:
+  map_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_neg, Derivation.leibniz_pow, Derivation.leibniz, Derivation.leibniz_inv, hx, hy, hu,
+    hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, mul_zero, zero_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:280:31: This simp argument is unused:
+  map_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, Derivation.leibniz_pow, Derivation.leibniz, Derivation.leibniz_inv, hx, hy, hu,
+    hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, mul_zero, zero_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:282:15: This simp argument is unused:
+  zero_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz, Derivation.leibniz_inv, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, mul_zero, zero_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:282:24: This simp argument is unused:
+  mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz, Derivation.leibniz_inv, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, zero_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:282:33: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz, Derivation.leibniz_inv, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, mul_zero, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:282:42: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz, Derivation.leibniz_inv, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, mul_zero, zero_mul, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:282:51: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz, Derivation.leibniz_inv, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, mul_zero, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:300:109: This simp argument is unused:
+  zero_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz_inv, Derivation.leibniz, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, mul_zero, zero_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:301:6: This simp argument is unused:
+  mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz_inv, Derivation.leibniz, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, zero_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:301:15: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz_inv, Derivation.leibniz, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, mul_zero, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:301:24: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz_inv, Derivation.leibniz, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, mul_zero, zero_mul, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Constructions/EllipticCompanions/Calculus.lean:301:33: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_add, map_neg, Derivation.leibniz_pow, Derivation.leibniz_inv, Derivation.leibniz, hx,
+    hy, hu, hv, smul_eq_mul, nsmul_eq_mul, Nat.cast_ofNat, sub_zero, zero_sub, mul_zero, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [3765/3805] Built HodgeComputer.Constructions.EllipticCompanions.AffineCompanion (26s)
+info: HodgeComputer/Constructions/EllipticCompanions/AffineCompanion.lean:45:0: 'EllipticCompanion.equation_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3766/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverSourceBinding (125s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverSourceBinding.lean:246:0: 'HoldoutConstruction.cover_normal_binding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverSourceBinding.lean:247:0: 'HoldoutConstruction.cover_second_normal_binding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverSourceBinding.lean:248:0: 'HoldoutConstruction.cover_source_binding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverSourceBinding.lean:249:0: 'HoldoutConstruction.cover_normal_source_binding' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3767/3805] Built HodgeComputer.Constructions.HoldoutCover.CoverQuotientCompatibility (53s)
+info: HodgeComputer/Constructions/HoldoutCover/CoverQuotientCompatibility.lean:154:0: 'HoldoutConstruction.coverQuotientTangent_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverQuotientCompatibility.lean:155:0: 'HoldoutConstruction.coverQuotientTangent_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Constructions/HoldoutCover/CoverQuotientCompatibility.lean:156:0: 'HoldoutConstruction.coverQuotientTangent_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]

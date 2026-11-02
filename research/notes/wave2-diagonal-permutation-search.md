@@ -1,105 +1,45 @@
-# Wave 2 search report: `diagonal-permutation` (q = 1, A = X0^3 Y0^3 - X1^3 Y1^3)
+# Wave 2 search report: `diagonal-permutation` (q = 1, A = X0^3 Y0^3 − X1^3 Y1^3)
 
-STATUS: NO WITNESS FOUND (search in progress; this file is rewritten after every batch).
+STATUS: NO WITNESS FOUND.  No candidate with residual below 1e-3 (relative) or 5e-5 (absolute-scaled) appeared in any
+family; every low-residual value is reproduced by a random control target.  Rigorous by-products: D8 excluded (two primes),
+the degree-9 E1 kernel (21 + 21 classes) computed, lifted to R and explained by the transposition symmetry.
 
-Summary so far (2026-11-02 02:35 UTC): D8 (the only non-Jacobian degree-8 denominator) is excluded by the full fixed-D system at two
-primes and serves only the zero class; the first non-Jacobian E1-admissible denominators appear at **degree 9** (21 Y-even + 21 Y-odd
-classes modulo J(F)), exactly the kernel forced by the transposition symmetry ((01)-equivariant Hilbert function 322 → 301), all
-(01)-invariant, 11 of them with elliptic-cone singularities along the Fermat curve `X ∩ {X=0}` and 4 with genus-3-cone singularities
-along `X ∩ {Y=0}`.  A new pointwise variable-projection method (reduced E2 evaluated at random points of V(F), (01)-sector
-reduction) was run on the degree-7 Jacobian family (558 restarts, floor 0.1–0.26: nothing), the degree-8 family (no completed
-restart under remote load > 1000), and the full degree-9 admissible families (Y-even, Y-odd, (X)^3 sub-family; 33 restarts at a
-small equation surplus): the degree-9 residuals 2e-3 … 4e-2 were shown by three calibrations (3× more points → converged nonzero
-minimum; random control target → same distribution; long refinement → slow valley) to be the generic floor of a nearly square
-compressed system, not near-solutions.  The degree-9 searches are being re-run with a doubled equation surplus (jobs j9eps, j9ops,
-j9x3s).  No candidate with residual below 1e-3 (relative) or 1e-5 (absolute-scaled) has appeared for the real target.
+Lane dir `/tmp/hodge/results/diagonal-permutation/` (scripts `w2pt.py`, `w2pt_search.py`, `w2sym.py`, `w2_kerfam.py`,
+`w2_refine.py`, `w2_k9_exact.py`, `w2_d8_d9.py`, `w2_kernels.py`, `w2_forced_kernels.py`, `w2_control.py`, `w2_merge.py`,
+`w2_report_stats.py`); log `wave2-search.log.jsonl`; remote outputs mirrored to `/tmp/hodge/remote/diagonal-permutation/`
+(`w2-*.jsonl`, `w2-kernel-*.json`, `w2-refine-*`, per-restart files `w2-pt-d<d>-<tag>.jsonl`; batch statistics in
+`w2-batch-stats.json`).  Jobs `search-diagonal-permutation-{j9eps,j9ops,j9x3s,calAs}` were still running on the remote when
+this report was written (04:40 UTC); `python3 -m hodge.rjob pull --lane diagonal-permutation` + `w2_report_stats.py` refresh the numbers.
 
-Lane dir: `/tmp/hodge/results/diagonal-permutation/`; log: `wave2-search.log.jsonl` (one line per experiment/batch);
-remote outputs mirrored to `/tmp/hodge/remote/diagonal-permutation/` (`w2-*.jsonl`, `w2-*.json`).
-Scripts: `w2pt.py` (pointwise variable projection, see §2), `w2pt_search.py` (multi-process driver), `w2_d8_d9.py`
-(D8 fixed-D test + d=9 kernel), `w2_kernels.py` (E1 kernels d=10..12).
+## 1. Summary of results
 
-## 1. Results so far
+1. **D8** (the unique non-Jacobian E1-kernel element of degree 8, wave 1): full fixed-D system (40326 equations, 7497 unknowns)
+   **inconsistent at p = 2147483647 and p = 2147483629** (rank 6703, nullity 794 both); served-target space = `J_6^-` only
+   (dimension 18).  Hence every degree-≤8 denominator is Jacobian type `w(F)`.
+2. **Degree 9 is the first non-Jacobian degree**: `ker([A]: R_9^± → R_15^∓)` has dimension **21 for both Y-parities**
+   (mult_kernel at 4 primes; duality cross-check), one degree below the dimension-count bound (d = 10).  Explanation: with the
+   (01)-equivariant Koszul series the σ-invariant Y-even part of `R_9` has dimension 322 and its target (σ-anti, Y-odd part of `R_15`)
+   301, so a 21-dimensional kernel is forced by the transposition symmetry; the computed kernel is exactly this forced part
+   (entirely σ-invariant; the σ-anti part 301 → 322 is injective).  The same count gives 170 + 124 = 294 at d = 10 (Y-even) and
+   152 + 109 + 1 = 262 (Y-odd), matching duality.  Structure (probes mod p): 11 of the 21 Y-even classes have representatives in
+   `(X0,X1,X2)^3` (triple along the Fermat curve `X ∩ {X = 0}`: elliptic-cone transverse type), 4 in `(Y0,Y1,Y2)^4` (quadruple along
+   `X ∩ {Y = 0}`: genus-3 cone); none in `(X)^4`, `(X_i,Y_i)^2`, `(r,s)^k`, `(p,q)^2`; the other probed ideals meet the kernel only in
+   the dimension-forced amount.  A float basis with E1 lifts was built by SVD (gap 3e-3 / 1.5e-14; E1 residual ~3e-15).
+3. **Joint searches (pointwise variable projection, §3)**: d = 7 Jacobian family 558 restarts (floor 0.10–0.26); d = 8 Jacobian ⊕ D8
+   family: no restart finished under remote load > 1000; d = 9: 84 restarts over the full admissible families (Y-even, Y-odd) and
+   the `(X)^3`, `(Y)^4` sub-families in the (01)-invariant sector, at two equation surpluses, plus two long refinements.  Best values
+   for the real target: relative 1.9e-3 / absolute-scaled 1.4e-5 (small surplus) and 5.6e-3 / 5.5e-5 (doubled surplus).
+   **Controls**: a random σ-anti-invariant target A′ gives 3.3e-3 / 1.2e-5 (small surplus, 6 restarts) and 3.1e-2 / 6.1e-5 (doubled
+   surplus, 3 restarts); tripling the point count on the best start raised its converged minimum from f ≈ 17 (still decreasing) to
+   f = 156.1 (gradient 0.02).  So the degree-9 residual floor is a property of the compressed system, not of A, and no basin of a true
+   zero (f ~ 1e-15) was entered.  Degree 10 (admissible dimension 1044) was not searched jointly: each evaluation costs seconds
+   under the load, and the (01)-sector version needs ~20 GB per worker; the kernel bases at d = 10, 11, 12 were computed by the
+   sibling `kern10/11/12` jobs.
 
-| experiment | result |
-|---|---|
-| D8 (unique non-Jacobian E1-kernel element at d=8), full fixed-D system (40326 eq, 7497 unknowns), compressed, mod p=2147483647 and p=2147483629 | **inconsistent at both primes** (rank 6703, nullity 794 both) ⇒ the only non-Jacobian denominator of degree ≤ 8 is excluded; every degree-8 denominator is Jacobian-type `w(F)` (w cubic) |
-| D8 served-target space (compressed homogeneous system with 226 target columns) | served dim = 18 = `J_6^-` (only the zero class); A not served |
-| E1 kernel modulo `J(F)` at d=9, Y-even (`mult_kernel`, rows 7752, cols 10010) | **dim 21** (kernel 399 = 378 + 21): the first non-Jacobian denominators appear at **d = 9**, not 10 (duality ⇒ Y-odd kernel also 21) |
-| E1 kernel modulo `J(F)` at d=9, Y-odd | **dim 21** (computed; matches duality) |
-| Float basis of the degree-9 admissible space (SVD of the 7752×10010 E1 matrix over R, `w2_kerfam.py`), Y-even | admissible dim 399 = 378 + 21; singular-value gap 3.2e-3 / 1.5e-14; E1 residual of the kernel lifts ~3e-15 |
-| same, Y-odd | admissible dim 399 = 378 + 21; gap 4.0e-3 / 1.7e-14 |
-| **Structure of the degree-9 Y-even kernel** (`w2_k9_exact.py`, 4 primes) | dim 21 at all 4 primes; the kernel is **(01)-stable and entirely (01)-invariant** (invariant part 21, anti-invariant part 0); 11 of the 21 classes have representatives in `(X0,X1,X2)^3` (triple along the Fermat curve `Z_Y = X∩{X=0}`: elliptic-cone transverse type), 4 in `(Y0,Y1,Y2)^4` (quadruple along `Z_X`, genus-3 cone), (these two are *significant*: the ambient spaces `((X)^3+J)/J`, `((Y)^4+J)/J` have dims 602, 592 < 623, so no intersection is forced); the counts 17 in `(X0−X1,Y0−Y1,X2)^3`, 12 in `(X0−X1,Y0−Y1,Y2)^3`, 13 in `(X0,X1,X2,Y0)^4` are within 1 of the dimension-forced lower bounds (ambient dims 618, 614, 615) and carry no information; none in `(X)^4`, `(X_i,Y_i)^2`, `(r,s)^2`, `(p,q)^2`; rational reconstruction of the canonical rref basis needs more primes (heights ≥ 25 digits; 1/21 reconstructed) |
-| d=7 Jacobian family, pointwise varpro, 553 unrestricted restarts (j7a) | best relative residual 9.9e-2, median 0.21: no candidate; stopped to free compute (the excl agent runs the rigorous d=7 Hessian relaxation by msolve) |
+## 2. E1-admissible denominator spaces per degree (rank/nullity statistics)
 
-## 2. Method for the joint search (reduced E2, pointwise)
-
-For `D` in a linear family with E1 lifts `N^k` (`N^k(F) = A D_k`), every E1 lift is `N = N^0(a) + (H/6)E + K_c`
-(Euler field `E`, Koszul field `K_c` with skew `c_ij` of degree `d-4`); the `H`-term cancels in E2 identically, so E2 is
-`B_D(N^0) + T_D(c) ≡ 0 (mod F)`, `B_D(N) = D div N − N(D)`, `T_D(c) = Σ_{i<j} D[(∂_i c_ij)F_j − (∂_j c_ij)F_i] − c_ij(D_iF_j − D_jF_i)`.
-`mod F` is tested by evaluation at `r` random complex points of `V(F)` (F irreducible), with `r > dim a + dim c`, so the
-compressed system has no false zeros; the reduced functional `f(a) = min_c |ρ|²` is minimized on the unit sphere
-(orthogonal to the spurious directions `D ∈ F·S_{d−6}`, `D = 0`) by L-BFGS with the exact variable-projection gradient.
-For Jacobian-type `D = w(F)` the lift is `N^0 = A w`.  Reduction modulo `J(F)` of the same identity gives the Hessian
-relaxation `A·wᵀHess(F)w ∈ J(F)` (necessary; 208 quadrics in 63 unknowns at d=7, 60 in 168 at d=8, 9 in 378 at d=9).
-
-## 3. Batches (filled as they finish)
-
-| batch | family | d | sector | restarts | best rel. residual | median | status |
-|---|---|---|---|---|---|---|---|
-| j7a | Jacobian `w(F)`, w quadratic (63 params, 3 gauge removed; 420 Koszul unknowns; r = 543 points) | 7 | all | 498 / 3200 | 9.9e-2 | 0.21 | running |
-| j8a | Jacobian `w(F)` (w cubic, 168) ⊕ D8 (169 params, 12 gauge; 954 Koszul; r = 1183) | 8 | all | 0 (killed: too slow under remote load ~900; no restart finished in 25 min) | – | – | replaced by j8b |
-| j8b | same family, r = 662 points (2r > dim a + dim c), maxiter 300 | 8 | all | started 01:10 UTC | – | – | running |
-| j9ep2 | **full admissible family at d=9, Y-even**: J_9^+ (w quartic, 378) ⊕ 21 kernel members (float E1 lifts) = 399 params, restricted to (01)-invariant D (201 params after gauge) with (01)-anti-equivariant Koszul corrections (950 of 1890); r = 684 points | 9 | (01)-inv | 8 (stopped) | 3.7e-3 (rel_abs 2.6e-5; 300-iteration cap) | ~1e-2 | stopped (floor-dominated, see calibration); replaced by j9eps |
-| calA | **control**: random σ-anti-invariant target A′, same family type/settings as j9op2 | 9 | (01)-inv | 6 (stopped) | 3.3e-3 (rel_abs 1.2e-5) | 6.5e-3 | same floor as the real target (4 in [1e-3,1e-2], 2 in [1e-2,1e-1]); stopped |
-| j9y4s | admissible ∩ `(Y0,Y1,Y2)^4` (the 4 kernel classes with genus-3-cone singularities along `Z_X` plus `(Y)^4 ∩ J_9`), (01)-sector, doubled surplus (r = 1260) | 9 | (01)-inv, vanish Y4 | 19 (stopped) | 4.6e-3 (rel_abs 6.0e-3, converged in 86 iterations: an ordinary local minimum) | 0.175 | 18 of 19 at the 0.17 floor (converged in ~75 iterations); stopped to free a slot |
-| j9eps | full Y-even admissible family, (01)-sector, doubled surplus (r = 1260), 400 iterations | 9 | (01)-inv | 8 (of 8×100) | 5.6e-3 (rel_abs 7.1e-5; ~385 iterations, ~60 min/restart) | 1.0e-2 | running |
-| j9ops | full Y-odd admissible family, same settings | 9 | (01)-inv | 1 | 9.0e-3 (rel_abs 9.2e-5; 307 iterations, 66 min) | – | running |
-| j9x3s | admissible ∩ `(X)^3` (141 params), same settings | 9 | (01)-inv, vanish X3 | 7 | 1.7e-2 (rel_abs 1.3e-4; converged, ~210 iterations, ~48 min/restart) | 1.8e-2 | running |
-| calAs | **control at the doubled surplus**: random target A′, Y-odd sector, r = 1260, 400 iterations (to calibrate the j9eps/j9ops floor) | 9 | (01)-inv | queued 03:27 UTC | | | j9y4s stopped (19 restarts) to free the slot |
-| j9op2 | same for **Y-odd D** (J_9^- ⊕ 21 odd kernel members), (01)-invariant sector | 9 | (01)-inv | 15 (stopped) | **1.9e-3** (rel_abs 1.4e-5; all restarts hit the 300-iteration cap while still decreasing; 10 of 15 in [1e-3, 1e-2], 5 in [1e-2, 1e-1]) | 3.4e-3 | stopped to free a slot; refinement job `ref9op` running (1500 + 4000 + 300 iterations, independent-point check, rational reconstruction) |
-| j9x3 | admissible ∩ `(X0,X1,X2)^3` (141 params in the (01)-invariant sector), same Koszul sector | 9 | (01)-inv, vanish X3 | 10 (stopped) | 3.9e-3 (rel_abs 2.3e-5) | 7.3e-3 | stopped to free a slot for the calibration runs (~9 min/restart) |
-
-*Reading the degree-9 numbers.*  Every degree-9 restart so far ends at relative residual 2e-3 … 4e-2 (absolute-scaled 1e-5 … 3e-4),
-two orders of magnitude below the degree-7 local minima (0.1–0.26), and almost all are stopped by the 300-iteration cap while still
-decreasing slowly (the refinement trajectory of j9op/w4/r0: f = 1.8e5 → 153 → 92 → 77 after 26/51/76 further iterations).  The
-uniformity across restarts and families suggests a *floor* of an infeasible but nearly square system (2r = 1368 real equations
-for 201 + 950 unknowns, only 217 more equations than unknowns) rather than basins of true zeros; a true zero would show
-superlinear convergence to ~1e-15.  **Calibration results so far.**  (i) Long refinement of the best j9op start (r = 684): f = 1.8e5 → 153 → 64 → 47 → 27.6 → 17.4 after
-26 / 101 / 151 / 251 / 401 iterations — a slow algebraic decrease along a shallow valley (gradient norm still ~20), not the
-superlinear convergence of a true zero.  (ii) The same start with 3× the equation surplus (`--margin 400`, r = 984) **converges** to a
-genuine local minimum f = 156.1 (gradient norm 0.2 after ~180 iterations), i.e. the per-point residual rises from ≈0.025 (and
-falling) to 0.16 when 300 more points are added — exactly the behaviour of a nearly square infeasible system, and incompatible with
-an exact solution (which would give f → 0 for both point sets).  Hence the degree-9 values ~1e-3 are the floor of the compressed
-system, not near-solutions; searches should use a larger surplus (2r ≈ 2·(dim a + dim c)) to make the landscape informative.
-(iii) **Control target**: the identical search (Y-odd, (01)-sector, margin 100, 300 iterations) for the random σ-anti-invariant sextic
-A′ (whose forced degree-9 kernel is also 21-dimensional; float basis gap 6.5e-2 / 1.6e-14) gives relative residuals 3.3e-3, 5.9e-3,
-1.2e-2, 1.2e-2 (absolute-scaled 1.2e-5 … 3.3e-5) — the same distribution as for the real target.  **Conclusion: the degree-9 residual
-values obtained with the small equation surplus carry no information about A; they are the generic floor of the compressed system.**
-Consequence for the method: with 2r only ~20 % above dim a + dim c, true zeros would sit at the bottom of a nearly flat valley and
-L-BFGS would not single them out; the degree-9 searches were therefore restarted with 2r ≈ 2·(dim a + dim c) (`--margin 676`,
-r = 1251 points; jobs `j9eps`, `j9ops`, `j9x3s`, 400 iterations), where the floor is O(0.1) as at degree 7 and a true zero is an
-isolated deep basin.  Earlier checks (stopped once the conclusion was clear): (i) the long refinement `ref9op` (f = 12.5 at 500
-iterations, gradient norm 3.7, still creeping down the valley),
-(ii) the same start with 3× more points (`--margin 400`, job `cal9`): a true solution is unaffected, a near-square floor rises;
-(iii) the **same search with a random σ-anti-invariant Y-odd sextic target A′** (58 terms, A′ ∉ J; its degree-9 kernel is also
-forced to be 21-dimensional by the σ-count), identical settings (`calA`): if A′ gives the same floor ~1e-3, the degree-9 values for A
-carry no evidence of a solution.  (j9op2 was stopped after 9+ restarts to free the slot; j9x3 after 8.)
-| (planned) j9y4 | admissible ∩ `(Y0,Y1,Y2)^4` at d=9 (the 4 kernel classes with genus-3-cone singularities along `Z_X` plus `(Y)^4 ∩ J_9`), (01)-invariant sector | 9 | (01)-inv, vanish Y4 | queued | | | |
-| (planned) j9x3 | admissible ∩ `(X0,X1,X2)^3` at d=9 (the 11 kernel classes with elliptic-cone singularities along `Z_Y` plus `(X)^3 ∩ J_9`), (01)-invariant sector | 9 | (01)-inv, vanish X3 | queued | | | |
-
-Relative residual = `min_c |ρ|² / |B_D(N^0)|²` at the normalized point; values ~0.1–0.3 are ordinary local minima of an
-infeasible system.  **Control** (`w2_control.py`, accepted witness `fermat-pair-rational-d4-strict`, d=4): with the exact E1
-lift the pointwise residual is `f = 3e-30` (here `B_D(u)` itself vanishes on `V(F)`, so the *relative* value is meaningless
-and an absolute criterion `f / median|B_0|²` was added to the driver); perturbing the lift by `(1/50)·monomial` or `D` by
-`(1/20)·monomial` gives relative residuals 0.90 / 0.92.
-
-## 3b. E1-admissible denominator spaces per degree (rank/nullity statistics)
-
-`k_d^±` = dim of the E1 kernel modulo `J(F)_d` (Y-even / Y-odd D); `Adm_d^± = k_d^± + dim J_d^±` is the dimension of the
-E1-admissible denominator space inside `S_d^±`.  Computed mod p = 2147483647 (zero kernels are rigorous over Q; nonzero
-dimensions are confirmed at a second prime where stated); `d ≥ 10` by Gorenstein duality `k_d^ε − k_{18−d}^{1−ε} = R_d^ε − R_{18−d}^{1−ε}`
-(cross-checked against the direct computation of the `kern10/11/12` jobs when they finish).
+`k_d^±` = dim ker([A]) modulo `J(F)_d`; `Adm_d^± = k_d^± + dim J_d^±`.  Mod p = 2147483647; zero kernels are rigorous over Q,
+nonzero ones confirmed at a second prime (d = 8, 9) or by duality (d ≥ 10).
 
 | d | dim S_d^+ | dim J_d^+ | R_d^+ | k_d^+ | Adm_d^+ | dim S_d^- | dim J_d^- | R_d^- | k_d^- | Adm_d^- |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -107,58 +47,73 @@ dimensions are confirmed at a second prime where stated); `d ≥ 10` by Gorenste
 | 5 | 126 | 3 | 123 | 0 | 3 | 126 | 3 | 123 | 0 | 3 |
 | 6 | 236 | 18 | 218 | 0 | 18 | 226 | 18 | 208 | 0 | 18 |
 | 7 | 396 | 63 | 333 | 0 | 63 | 396 | 63 | 333 | 0 | 63 |
-| 8 | 651 | 168 | 483 | **1** (D8, excluded by the full fixed-D test) | 169 | 636 | 168 | 468 | 0 | 168 |
-| 9 | 1001 | 378 | 623 | **21** (2 primes; all (01)-invariant) | 399 | 1001 | 378 | 623 | **21** | 399 |
+| 8 | 651 | 168 | 483 | **1** (D8, excluded) | 169 | 636 | 168 | 468 | 0 | 168 |
+| 9 | 1001 | 378 | 623 | **21** (all (01)-inv.) | 399 | 1001 | 378 | 623 | **21** | 399 |
 | 10 | 1512 | 750 | 762 | 294 | 1044 | 1491 | 747 | 744 | 262 | 1009 |
 | 11 | 2184 | 1341 | 843 | 510 | 1851 | 2184 | 1341 | 843 | 510 | 1851 |
 | 12 | 3108 | 2223 | 885 | 677 | 2900 | 3080 | 2214 | 866 | 648 | 2862 |
 
-**Why 21, and why (01)-invariant.**  With the (01)-equivariant Koszul series (σ has eigenvalues (1,1,1,1,−1,−1) on C^6,
-στ has (1,−1,1,−1,1,−1)) the Jacobian ring splits as `R_d^{±,σ±}` with dimensions (Y-even σ+, Y-even σ−, Y-odd σ+, Y-odd σ−) =
-(322, 301, 322, 301) at d = 9 and (398, 364, 380, 364) at d = 10, (255, 228, 240, 228) at d = 16, (174, 159, 174, 159) at d = 17.
-Since A is Y-odd and σ-anti-invariant, `[A]` maps `R_9^{+,σ+}` (322) into `R_15^{−,σ−}` (301): a kernel of dimension ≥ 21 is
-**forced by the transposition symmetry alone**, and the computed kernel is exactly this forced part (21, all σ-invariant); the
-σ-anti-invariant part (301 → 322) is injective.  At d = 10 the same count gives 170 + 124 = 294 (Y-even) and 152 + 109 (+1 from D8)
-= 262 (Y-odd), reproducing the duality values.  So the degree-9 kernel is the first place where the symmetry forces E1-admissible
-non-Jacobian denominators; it is not a coincidence special to the coefficients 5/7, 5/11, 5/13.
+(01)-sector dimensions of `R_d` (Y-even σ+, Y-even σ−, Y-odd σ+, Y-odd σ−): d=9: 322/301/322/301; d=10: 398/364/380/364;
+d=15: 322/301/322/301; d=16: 255/228/240/228 (`w2_forced_kernels.py`).  S3 × τ isotypic multiplicities (triv/sign/std) of `R_d^+`:
+d=9: 115/94/207, d=10: 144/110/254, d=11: 153/128/281, d=12: 167/130/294; of `R_d^-`: d=6: 39/31/69, d=15: 115/94/207, d=16: 84/72/156,
+d=17: 63/48/111, d=18: 39/31/69.  For S3-invariant denominators the E1 kernel is forced only from d = 11 (≥ 42) and d = 12 (≥ 98).
 
-S3 × τ isotypic decomposition of `R_d` (multiplicities of triv / sign / std; std has dimension 2), from the equivariant Koszul
-series (3-cycle eigenvalues 1, ω, ω² twice): `R_d^+`: d=8: 94/67/161, d=9: 115/94/207, d=10: 144/110/254, d=11: 153/128/281,
-d=12: 167/130/294; `R_d^-`: d=6: 39/31/69, d=12: 154/136/288, d=15: 115/94/207, d=16: 84/72/156, d=17: 63/48/111, d=18: 39/31/69.
-For S3-invariant denominators (natural WLOG up to a 12-fold degree cost) `[A]` maps the trivial part of `R_d^+` into the
-std-isotypic part of `R_{d+6}^-`, so the invariant E1 kernel is forced only from d = 11 (153 → 111: ≥ 42) and d = 12 (167 → 69: ≥ 98);
-at d = 9, 10 the invariant parts (115 → 207, 144 → 156) are not forced.
+## 3. Method (pointwise variable projection on V(F))
 
-Jacobian-type degrees (every admissible D is `w(F)`): d ≤ 7 (both parities) and d = 8 (Y-odd); d = 8 Y-even has the single extra
-line D8 (now excluded).  First genuinely non-Jacobian degree: **d = 9** (21 + 21 classes), one lower than the dimension count forces.
-Full fixed-D system of D8: 40326 equations, 7497 unknowns (N 6006, Q 1491), rank 6703, nullity 794, inconsistent at two primes.
+1. *Reduced E2.*  With `N(F) = A D + F H` and `F_0..F_5` a regular sequence, every E1 lift is `N = N^0 + (H/6)E + K_c` (`N^0(F) = A D`,
+   `E` Euler field, `K_c` Koszul field with skew `c_ij` of degree d − 4); the H-term cancels in the cleared identity, so
+   E2 ⇔ `B_D(N^0) + T_D(c) ≡ 0 (mod F)`, `B_D(N) = D div N − N(D)`, `T_D(c) = Σ_{i<j} D[(∂_i c_ij)F_j − (∂_j c_ij)F_i] − c_ij(D_iF_j − D_jF_i)`.
+   For Jacobian members `D = m F_i`: `N^0 = A m ∂_i`; for kernel members the float lift from the E1 SVD.
+2. *Points instead of rows.*  `P ≡ 0 (mod F)` iff P vanishes on V(F) (F irreducible).  r random complex points of V(F) (five unit-modulus
+   coordinates, sixth a root of the univariate sextic, |F(z)| ~ 1e-14) give 2r real equations; with `2r > dim a + dim c` false zeros are
+   impossible for generic points.  Everything is pointwise (D, ∂D, N^0, div N^0, F_j, c, ∂c), no large matrix is stored; one dense least
+   squares `(2r) × nK` per evaluation (gelsy), exact variable-projection gradient, L-BFGS on the unit sphere of the family coordinates
+   orthogonal to the spurious directions (`D ∈ F·S_{d−6}`, `D = 0`).  Controls: the accepted witness of `fermat-pair-rational-d4-strict`
+   gives f = 3e-30; perturbing its lift or D by 1/50 … 1/20 of a monomial gives relative residuals 0.90 / 0.92.
+3. *(01)-sector.*  σ = (01) fixes F and negates A; for σ-invariant D one may take N σ-anti-equivariant, i.e. w equivariant and c in the
+   −1 eigenspace of `(σ·c)_{ij}(z) = c_{σi σj}(σz)` (identity `σ_*(K_c) = K_{σ·c}` verified exactly); this halves parameters and
+   unknowns.  It is a sub-search: a general degree-9 denominator is `D_inv + w_−(F)` with a σ-anti-invariant Jacobian part.
+4. *Equation surplus matters.*  With `2r` only ~20 % above `dim a + dim c` the compressed landscape is a nearly flat valley whose floor
+   (relative ~1e-3) carries no information (shown by the control target and by the point-count test); with `2r ≈ 2(dim a + dim c)` the
+   floor is O(1e-2 … 0.2) and converges in 75–400 iterations, as at degree 7.  The Hessian relaxation (same identity mod J:
+   `A·wᵀHess(F)w ∈ J`) was pursued rigorously by the exclusion agent (msolve).
 
-## 3c. Mathematics of the method (for the record)
+## 4. Batches
 
-1. *Reduced E2.*  With `N(F) = A D + F H` and `F_0..F_5` a regular sequence, `N = N^0 + (H/6)E + K_c` for any fixed E1 lift
-   `N^0` (`N^0(F) = A D`); substituting into the cleared identity gives `F·(B_D(N^0) + T_D(c) − F Q) = 0`, the H-terms cancel
-   identically.  Unknowns: skew `c_ij` of degree `d − 4` and `Q`; equations in degree `2d + 6`.
-2. *Points instead of rows.*  `P ≡ 0 (mod F)` iff `P` vanishes on `V(F)` (F irreducible).  Evaluating at `r` random points
-   `z_t ∈ V(F)` (five coordinates on the unit circle, the sixth a root of the univariate sextic, |F(z)| ~ 1e-14) turns the
-   identity into `r` complex (2r real) equations; the dimension count `2r > dim a + dim c` makes false zeros impossible for
-   generic points, and every quantity entering the system (D, ∂_iD, N^0, div N^0, F_j, c, ∂c) is a pointwise value, so no
-   large matrix is ever assembled: one dense least squares `(2r) × nK` per evaluation, exact variable-projection gradient.
-3. *(01)-sector.*  σ = (01) fixes F, negates A.  If σD = D and (N, Q) certifies A then `(N − σ_*N)/2` does too, so one may take
-   `N` σ-anti-equivariant: `w` σ-equivariant and `c` in the −1 eigenspace of `(σ·c)_{ij}(z) = c_{σi σj}(σz)` (identity
-   `σ_*(K_c) = K_{σ·c}` verified exactly).  This halves both the parameter and the unknown count.  Caveat: the σ-invariant
-   sector is a genuine sub-search.  Every non-Jacobian admissible degree-9 *class* is σ-invariant modulo J, but a denominator
-   itself is `D = D_inv + w_−(F)` with `D_inv` σ-invariant admissible and `w_−(F)` a σ-anti-invariant Jacobian element; the
-   sector search fixes `w_− = 0`.  The unrestricted degree-9 searches (`j9e`, `j9o`, ~4× the cost per evaluation) cover the
-   full admissible family.
-4. *Hessian relaxation* (reduction of the same identity modulo J instead of F): `A·wᵀHess(F)w ∈ J(F)` for Jacobian-type D; used
-   rigorously (msolve) by the exclusion agent.
+| batch | family | d | sector | points r | restarts | best rel. / abs.-scaled residual | median rel. | notes |
+|---|---|---|---|---|---|---|---|---|
+| j7a | Jacobian `w(F)`, w quadratic (63 params, 3 gauge; 420 Koszul) | 7 | all | 543 | 558 | 9.9e-2 / – | 0.215 | converged in 52–214 iterations; stopped to free compute |
+| j8a/j8b | Jacobian (168) ⊕ D8, 954 Koszul | 8 | all | 1183 / 662 | 0 | – | – | no restart finished under load 900–1900; killed |
+| j9ep2 | J_9^+ ⊕ 21 kernel members (399 → 201 σ-inv. params; 950 Koszul) | 9 | (01)-inv | 684 | 8 | 3.7e-3 / 2.6e-5 | 1.2e-2 | 300-iteration cap; floor |
+| j9op2 | Y-odd version | 9 | (01)-inv | 684 | 15 | **1.9e-3 / 1.4e-5** | 3.4e-3 | 300-iteration cap; floor |
+| j9x3 | admissible ∩ (X)^3 (141 params) | 9 | (01)-inv | 684 | 10 | 3.9e-3 / 2.3e-5 | 7.3e-3 | 300-iteration cap |
+| calA | **control** A′, Y-odd, as j9op2 | 9 | (01)-inv | 684 | 6 | 3.3e-3 / 1.2e-5 | 6.5e-3 | same floor as A |
+| ref9op | refinement of j9op2/w4/r0 (varpro, 1500 it.) | 9 | (01)-inv | 684 | 1 | f: 1.8e5 → 153 → 64 → 27.6 → 12.5 at 26/101/251/501 it. | – | slow valley, gradient 3.7; stopped |
+| cal9 | same start, r = 984 | 9 | (01)-inv | 984 | 1 | converged f = 156.1 (gradient 0.02) | – | floor rises 6× with 300 more points |
+| j9eps | full Y-even family, doubled surplus, 400 it. | 9 | (01)-inv | 1260 | 9 | 5.6e-3 / 7.1e-5 | 1.1e-2 | ~370 iterations, ~60 min/restart; running |
+| j9ops | full Y-odd family, doubled surplus | 9 | (01)-inv | 1260 | 8 | 6.7e-3 / 5.5e-5 | 1.0e-2 | running |
+| j9x3s | admissible ∩ (X)^3, doubled surplus | 9 | (01)-inv | 1260 | 15 | 1.6e-2 / 1.3e-4 | 1.8e-2 | converged (~215 it.); running |
+| j9y4s | admissible ∩ (Y)^4, doubled surplus | 9 | (01)-inv | 1260 | 19 | 4.6e-3 / 6.0e-3 | 0.175 | 18/19 at the 0.17 floor; stopped |
+| calAs | **control** A′, Y-odd, doubled surplus | 9 | (01)-inv | 1260 | 3 | 3.1e-2 / 6.1e-5 | 3.2e-2 | same absolute-scaled floor as A; running |
 
-## 4. Coordination (other agents on this lane, same remote lane dir)
-* `wave2-excl/` (exclusion/rigor agent): Hessian relaxation by msolve (d=5,6 all sectors: `V(I)={0}` rigorous mod p with
-  good reduction), E1 kernels at two primes (`e1kF`: d=8 odd kernel 0, d=9 even kernel 21 confirmed at p=1000000007),
-  D8 exact/rank-certified, structured families (`w2_families.py`), individual degree-9 kernel tests (`w2_d9.py`).
-* `w2search/` (second search agent): `fastvp.py` variable projection on Jacobian families from d=5 upward, structured
-  candidate E1 filter (`cands-structured.jsonl`).
-* `kern10/kern11/kern12` jobs: `w2_kernels.py` (E1 kernel bases d=10,11,12 mod p) launched by the search agent at 00:20 UTC;
-  my duplicate `k10` was killed.  My structured sweep (`w2_struct.py`) and Hessian numerics (`w2_hess.py`) are therefore
-  NOT run (covered by the other agents); this agent concentrates on the pointwise joint searches.
+Relative residual = `min_c|ρ|² / |B_D(N^0)|²` at the final point; absolute-scaled = `min_c|ρ|²` divided by the median of `|B_D(N^0)|²`
+over random directions (a true zero gives ~1e-15 for both).  Histograms per batch are in `w2-batch-stats.json`.
+
+## 5. Coordination (other agents on the same lane dir)
+* `wave2-excl/` (exclusion/rigor agent): Hessian relaxation by msolve (d = 5, 6: `V(I) = {0}`, d = 7 running), E1 kernels at two primes
+  (d = 9 even kernel 21 confirmed at p = 1000000007), D8 exact/rank certification, structured families, degree-9 kernel line tests.
+* `w2search/` (second search agent): `fastvp.py` variable projection from d = 5 upward with structured E1-filtered candidates.
+* `kern10/kern11/kern12` (E1 kernel bases at d = 10–12) launched by the search agent from `w2_kernels.py`; my duplicate was killed.
+  My structured sweep (`w2_struct.py`) and Hessian numerics (`w2_hess.py`) were therefore not run (covered elsewhere).
+* Coordination note left in `w2-NOTE-pointwise-search-agent.txt`.
+
+## 6. What remains / suggested next steps
+1. Unrestricted degree-9 searches (σ-anti-invariant Jacobian part included; ~4× the cost per evaluation) and the σ-anti sector of the
+   Jacobian family (`--sector -1`), with doubled surplus, once the remote is less loaded (the code supports them: `w2pt_search.py --d 9
+   --extra kerfam [--sector -1]`).
+2. Degree 10 in the (01)-sector for the equivalent target B = T0 + T1 − 2T2 (B invariant, N equivariant) would need the float kernel
+   family (`w2_kerfam.py 10 0`, SVD 10152 × 14616) and ~20 GB per worker; feasible on an idle machine, not under this load.
+3. Exact rational basis of the degree-9 kernel (CRT with ≥ 8 primes; heights ≥ 25 digits) and the geometry of the `(X)^3` classes
+   (transverse cubics along `Z_Y`): a candidate geometric source of the (2,0)-forms the certificate needs.
+4. The `mod J` relaxation for non-Jacobian D is one scalar cubic condition `res(A·N^0(D)(D)) = 0` per `A' ∈ Ann_6(D)`; worth adding as a
+   cheap filter in a future exact search.

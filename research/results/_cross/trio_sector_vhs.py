@@ -33,7 +33,7 @@ CFG = {
  'cyclic-triple-residual': dict(W=[(0,0,2,0,0,0),(3,3,3,0,0,0),(2,4,0,4,4,0)], EX=[]),
  'reflection-coupled-residual': dict(W=[(0,0,0,0,0,3),(0,0,0,3,3,0)], EX=[]),
  'quadric-contact-residual': dict(W=[(3,0,0,3,0,0),(0,0,3,0,0,3),(0,1,0,0,5,0),(0,0,0,3,3,3)],
-                                  EX=[((3,1,2,0,4,5),-1), ((0,4,2,3,1,5),-1)]),   # s0: X0<->Y0, r1: X1<->Y1; eps=-1
+                                  EX=[((3,1,2,0,4,5),+1), ((0,4,2,3,1,5),+1)]),   # s0: X0<->Y0, r1: X1<->Y1; POLYNOMIAL sign of A (+1; residue sign -1 comes from det)
 }[lane]
 W, EX = CFG['W'], CFG['EX']
 def chi(e): return tuple(sum(e[i]*w[i] for i in range(6)) % 6 for w in W)
@@ -189,8 +189,10 @@ for p in (1000003, 998244353):
     J6eps = quotient_rank(S6, idx6, nmod_mat(len(S6),0,p), 0, [], p)  # placeholder 0
     # epsilon-part of R6: rank of basis6 modulo J6
     r6eps = quotient_rank(S6, idx6, M6, r6, basis6, p)
+    allprod = [mulpoly(b6, m) for b6 in basis6 for m in Def]
+    defR6 = quotient_rank(S12, idx12, M12, r12, allprod, p)
     rec = {'p':p, 'dims':dims, 'dim_eps_S6': len(basis6), 'dim_eps_R6': r6eps, 'dim_Def_xi_in_R12': a,
-           'dim_Def2_xi_in_R18': b, 'dim_ker_in_eps_S6': kerdim, 'dim_K_annihilated_by_Def_in_R6eps': kerdim-(len(basis6)-r6eps),
+           'dim_Def2_xi_in_R18': b, 'dim_ker_in_eps_S6': kerdim, 'dim_K_annihilated_by_Def_in_R6eps': kerdim-(len(basis6)-r6eps), 'dim_Def_R6eps_in_R12': defR6,
            'seconds': round(time.time()-t0,1)}
     print(rec, flush=True); out[str(p)]=rec
     json.dump(out, open(out_path,'w'), indent=1)

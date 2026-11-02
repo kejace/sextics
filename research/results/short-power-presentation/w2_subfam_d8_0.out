@@ -27,3 +27,6 @@
 [subfam] X1+Y0+Y1: vars 6, eqs 462, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (7102s)
 [subfam] X1+Y0+Y2: vars 6, eqs 462, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (7222s)
 [subfam] X1+Y1+Y2: vars 6, eqs 462, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (7529s)
+[subfam] X1+L+M: vars 6, eqs 462, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (8045s)
+[subfam] X2+Y0+Y1: vars 6, eqs 465, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (8142s)
+[subfam] X2+Y0+Y2: vars 6, eqs 465, msolve chart '[-1]:', singular ['dim = 0', 'vdim = 15'] (8253s)

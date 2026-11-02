@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 22:59 from 252 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 23:39 from 252 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -327,10 +327,14 @@ Local compute is restricted to light scripting (< 1 CPU-minute, one process) on 
 A forced submission (`--force`) of the lightest job was attempted once after three hours of refusals and was denied by the permission system, so all jobs keep waiting for the runner capacity guard (load ≤ 150, ≥ 60 GB free); the three queued submissions were re-queued at 22:33 with 4-hour waits.
 At 22:35 the runner guard was changed to load ≤ 700, ≥ 110 GB free and ≤ 200 allocated CPUs in total; the binding constraint is now the allocated-CPU cap (329 allocated by 62 running jobs of other agents vs 200), so the three queued submissions (2 + 4 + 8 CPUs) still wait.
 Snapshot 22:59: 61 running jobs holding 355 allocated CPUs — other agents’ `search-*` 36 jobs/261 CPUs, `excl*` 14 jobs/74 CPUs, `construct` 3/12; this lane holds 1 job/1 CPU (the kernel table). The queued jobs of this lane need 2 + 4 + 8 CPUs and start automatically once the total drops below 200.
+At 23:39 the three waiting submissions were re-launched as detached processes (`w2/requeue_detached.sh`, 12-hour capacity waits, pids logged in `/tmp/hodge/jobs-registry.jsonl` once accepted); when they run, their outputs appear in the remote lane dir and are collected with `python3 w2_merge.py && python3 w2_report.py`.
 The remote box has been saturated by other agents since ~19:30 (load 300–1150 on 128 cores, 45–90 jobs); the runner refuses new submissions above load 150, so the heavy jobs below were queued with `--wait` and started only when capacity allowed. Latest runner messages:
-- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 620 (max 700), available memory 98 GB (min 110), 61 jobs running with 355 cpus allocated (max 200); waiting 60 s
-- `submit-hess-tensor-d8.out`: REMOTE BUSY: load 620 (max 700), available memory 97 GB (min 110), 61 jobs running with 355 cpus allocated (max 200); waiting 60 s
-- `submit-sweep-a.out`: REMOTE BUSY: load 620 (max 700), available memory 100 GB (min 110), 61 jobs running with 355 cpus allocated (max 200); waiting 60 s
+- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 573 (max 700), available memory 109 GB (min 110), 60 jobs running with 356 cpus allocated (max 200); waiting 60 s
+- `submit-hess-tensor-d8.out`: REMOTE BUSY: load 573 (max 700), available memory 109 GB (min 110), 60 jobs running with 356 cpus allocated (max 200); waiting 60 s
+- `submit-sweep-a.out`: REMOTE BUSY: load 573 (max 700), available memory 108 GB (min 110), 60 jobs running with 356 cpus allocated (max 200); waiting 60 s
+- `submit-w2-k3-full-d8p0-s1.out`: REMOTE BUSY: load 574 (max 300), available memory 113 GB (min 110), 60 jobs running with 356 cpus allocated (max 200); waiting 60 s
+- `submit-w2-k3-hess-tensor-d8.out`: REMOTE BUSY: load 574 (max 300), available memory 113 GB (min 110), 60 jobs running with 356 cpus allocated (max 200); waiting 60 s
+- `submit-w2-k3-sweep-a.out`: REMOTE BUSY: load 574 (max 300), available memory 113 GB (min 110), 60 jobs running with 356 cpus allocated (max 200); waiting 60 s
 
 ## Jobs / reproduction
 
