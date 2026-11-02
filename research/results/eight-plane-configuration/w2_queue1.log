@@ -2,3 +2,6 @@
 REMOTE BUSY: load 568 (max 150), available memory 113 GB (min 60), 60 jobs running; waiting 60 s
 REMOTE BUSY: load 564 (max 150), available memory 113 GB (min 60), 59 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 [23:41:23] submitting search-eight-plane-configuration-prepk
+REMOTE BUSY: load 492 (max 300), available memory 79 GB (min 110), 53 jobs running with 335 cpus allocated (max 200); waiting 60 s
+REMOTE BUSY: load 494 (max 300), available memory 75 GB (min 110), 53 jobs running with 335 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+[03:42:00] submitting search-eight-plane-configuration-d6d7
