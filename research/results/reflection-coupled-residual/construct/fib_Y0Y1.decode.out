@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/tmp/hodge/results/reflection-coupled-residual/construct/decode.py", line 26, in <module>
+    data = ast.literal_eval(txt.replace("'", '"'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ast.py", line 66, in literal_eval
+    node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ast.py", line 52, in parse
+    return compile(source, filename, mode, flags,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<unknown>", line 0
+    
+SyntaxError: invalid syntax
