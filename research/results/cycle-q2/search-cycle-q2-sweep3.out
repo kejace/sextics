@@ -234,3 +234,11 @@
   F_i*F_j d=10 e1=True cons=False rk=1975 72.58s F_Y0*F_Y1 
   F_i*F_j d=10 e1=True cons=False rk=1983 36.19s F_Y1*F_Y2 
   F_i*F_j d=10 e1=True cons=False rk=1718 41.85s F_Y2*F_Y2 
+  block-cubic d=6 e1=False cons=False rk=-1 39.11s P_blockq2(X2^2,Y2^2) 
+  block-cubic^2 d=12 e1=True cons=False rk=7730 1551.53s P_blockq2(X2^2,Y2^2) squared 
+  block-cubic d=6 e1=False cons=False rk=-1 20.51s P_blockq2(X1^2,Y1^2) 
+  block-cubic^2 d=12 e1=True cons=False rk=7754 1690.87s P_blockq2(X1^2,Y1^2) squared 
+  block-cubic d=6 e1=False cons=False rk=-1 28.67s P_blockq2(X0^2,Y0^2) 
+  block-cubic^2 d=12 e1=True cons=False rk=7788 1760.72s P_blockq2(X0^2,Y0^2) squared 
+[struct-sweep] done 6477s consistent=1
+[pencil] {"rank_aug_generic": 632, "rank_generic": 631, "cols": 738, "rows": 1689, "generic_consistent": false, "deg_g": 625, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 2, 46, 106, 147, 306], "n_factors": 10, "n_roots": 5, "roots_checked": 5, "consistent_roots": [], "t_inf_consistent": false, "seconds": 247.2, "result": "no F_p-rational consistent point in the pencil (g degree 625, 5 roots, irreducible factor degrees [1, 1, 1, 1, 1, 2, 46, 106, 147, 306])", "d": 6, "key": 96, "p": 2147483647, "dimJ": 0, "D1": "1929738304*X0**4*Y0**2 + 713454122*X0**2*X2**2*Y1**2 + 2001022050*X0**2*Y2**4 + 1035611821*X0*X1**2*X2*Y0*Y2 + 339827232*X0*X1*Y0**3*Y1 + 1502112902*X", "D2": "1893535385*X0**4*Y0**2 + 1809721434*X0**2*X2**2*Y1**2 + 168224177*X0**2*Y2**4 + 1399442821*X0*X1**2*X2*Y0*Y2 + 127085454*X0*X1*Y0**3*Y1 + 1325848566*X"}

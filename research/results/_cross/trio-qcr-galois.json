@@ -1,0 +1,122 @@
+{
+ "s0 (X0<->Y0), v=X0-Y0": {
+  "even_in_v": true,
+  "deg_v": 6,
+  "specialisations": [
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   },
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   },
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   }
+  ]
+ },
+ "s0*sigma0, v=X0+Y0": {
+  "even_in_v": true,
+  "deg_v": 6,
+  "specialisations": [
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   },
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   },
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   }
+  ]
+ },
+ "r1 (X1<->Y1), v=X1-Y1": {
+  "even_in_v": true,
+  "deg_v": 6,
+  "specialisations": [
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   },
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   },
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   }
+  ]
+ },
+ "r1*h1^3, v=X1+Y1": {
+  "even_in_v": true,
+  "deg_v": 6,
+  "specialisations": [
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   },
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   },
+   {
+    "cubic_irreducible": true,
+    "cubic_galois": "S3TransitiveSubgroups.S3",
+    "disc_cubic_is_square": false,
+    "minus_c0_is_square": false,
+    "sextic_irreducible": true,
+    "sextic_galois": "S6TransitiveSubgroups.S4xC2"
+   }
+  ]
+ }
+}

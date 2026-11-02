@@ -1,0 +1,12 @@
+LIB "general.lib";
+ring R = 32003, (w,X1,X2,Y1,Y2,z1,z2,z3), dp;
+poly f1 = 5*w^2/3 + z1^2 + z2^2 + z3^2;
+poly f2 = -40*X1^2*Y1^2/3 + 20*X1*X2^2*Y1/21 - 40*X1*X2*Y1*Y2/3 + 40*X1*Y1*Y2^2/21 - 40*X2^2*Y2^2/3 - 5*w^4/3 + z1^2*z2^2 + z1^2*z3^2 + z2^2*z3^2;
+poly f3 = 16*X1^6/3 + 40*X1^2*Y1^2*w^2/3 + 20*X1*X2^2*Y1*w^2/21 + 40*X1*X2*Y1*Y2*w^2/3 + 40*X1*Y1*Y2^2*w^2/21 + 16*X2^6/3 + 40*X2^2*Y2^2*w^2/3 + 16*Y1^6/3 + 16*Y2^6/3 + w^6 + z1^2*z2^2*z3^2;
+ideal I = f1,f2,f3;
+print(dim(std(I)));  // expect 5 (affine cone of a 4-fold)
+ideal J = I + minor(jacob(I), 3);
+ideal sJ = std(J);
+print("dim singular locus cone:"); print(dim(sJ));
+print("degree of singular locus:"); print(mult(sJ));
+quit;

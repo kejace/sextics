@@ -5,3 +5,4 @@
 [gmrank_sep] degree 25: 6825 even-even monomials, 14718 Jacobian generators
 [gmrank_sep] degree 7: dim R_d^ee = 90, rank J = 30, inverse built (0s)
 [gmrank_sep] degree 13: dim R_d^ee = 90, rank J = 666, inverse built (3s)
+[gmrank_sep] degree 19: dim R_d^ee = 3, rank J = 2637, inverse built (113s)
