@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-01 22:46:16.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-01 23:01:59.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -104,15 +104,16 @@ Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-typ
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | d7k_a | 7 | even | 3 | 420 | 5160 | 40 | 2.268e-02 | 7.835e-02 | 0 | 0 | 0 | 360/60 | 361 |
 | d7o_a | 7 | odd | 63 | 420 | 5160 | 16 | 1.440e-02 | 4.123e-02 | 0 | 0 | 0 | 360/60 | 2082 |
+| d8k_a | 8 | even | 9 | 954 | 8661 | 40 | 2.502e-03 | 6.222e-03 | 0 | 0 | 0 | 795/159 | 9395 |
 
-Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02; d=7 odd (K=63): 16 restarts, best rel 1.440e-02
+Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02; d=7 odd (K=63): 16 restarts, best rel 1.440e-02; d=8 even (K=9): 40 restarts, best rel 2.502e-03
 
 ### Residual landscape (per-restart files)
-* `d7e_b0`: n=65, min 6.287e-03, 10% 1.563e-02, median 3.772e-02, 90% 5.373e-02, max 1.281e-01
+* `d7e_b0`: n=78, min 6.287e-03, 10% 1.563e-02, median 3.856e-02, 90% 5.566e-02, max 1.281e-01
 * `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
 * `d7o_a`: n=16, min 1.440e-02, 10% 1.822e-02, median 4.123e-02, 90% 7.103e-02, max 8.815e-02
 * `d8e_b0`: n=8, min 2.383e-03, 10% 2.383e-03, median 5.977e-03, 90% 8.786e-03, max 8.786e-03
-* `d8k_a`: n=31, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
+* `d8k_a`: n=40, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
 
 ## 4. Structured families vs the E1-admissible space (exact mod p)
 dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not already in J_d.
@@ -618,7 +619,8 @@ None so far: no restart reached rel < 1e-8 on this instance (see landscape above
 * `chainB.log`: chainB start Mon Nov  2 00:47:54 UTC 2026
 * `chainC.log`: chainC start Mon Nov  2 00:47:55 UTC 2026
 * `chainD.log`: chainD start Mon Nov  2 00:47:58 UTC 2026
-* `chainD2.log`: chainD2 start Mon Nov  2 01:12:04 UTC 2026 / d7 kernel probe done Mon Nov  2 01:19:50 UTC 2026
+* `chainD2.log`:  UTC 2026 / d7 kernel probe done Mon Nov  2 01:19:50 UTC 2026 / d8 kernel probe done Mon Nov  2 04:00:05 UTC 2026 / d9 kernel probe done Mon Nov  2 04:00:07 UTC 2026 / d9e batch c0 done Mon Nov  2 04:00:09 UTC 2026 / d9e batch c1 done Mon Nov  2 04:00:11 UTC 2026 / d9e batch c2 done Mon Nov  2 04:00:12 UTC 2026 / d9e batch c3 done Mon Nov  2 04:00:14 UTC 2026 / d9e batch c4 done Mon Nov  2 04:00:16 UTC 2026 / d9e batch c5 done Mon Nov  2 04:00:17 UTC 2026 / d9e batch c6 done Mon Nov  2 04:00:19 UTC 2026 / d9e batch c7 done Mon Nov  2 04:00:21 UTC 2026 / chainD2 end Mon Nov  2 04:00:22 UTC 2026
+* `chainE.log`: chainE start Mon Nov  2 04:01:22 UTC 2026
 
 ## 8. Interpretation and what remains
 

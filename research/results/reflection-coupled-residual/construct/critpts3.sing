@@ -1,0 +1,26 @@
+
+LIB "general.lib";
+int p = 1000033;
+ring r = 1000033, (X0,X1,X2,Y0,Y1,Y2), dp;
+poly F = 1*X0^6+714310*X0^3*X1*Y0*Y1+714310*X0*X1*Y0^3*Y1+714310*X0*X1*Y0^2*Y2^2+428587*X0*X1*Y1^2*Y2^2+142864*X0*X2^3*Y0*Y1+1*X1^6+428587*X1^3*X2*Y0*Y1+714310*X1*X2*Y0*Y1^3+1*X2^6+1*Y0^6+1*Y1^6+1*Y2^6;
+ideal I0 = diff(F,X0), diff(F,X1), diff(F,X2), diff(F,Y2), F;
+// global counts in a random affine chart
+ideal I = I0, 249524*X0+621430*X1+570666*X2+136759*Y0+387927*Y1+960438*Y2-1;
+ideal J = std(I);
+"vdim_total"; vdim(J);
+ideal I2 = I0, Y2, 249524*X0+621430*X1+570666*X2+136759*Y0+387927*Y1+960438*Y2-1;
+ideal J2 = std(I2);
+"vdim_Y2eq0"; vdim(J2);
+ideal I3 = I0, X0, X1, X2, 249524*X0+621430*X1+570666*X2+136759*Y0+387927*Y1+960438*Y2-1;
+"vdim_Xeq0 (restriction)"; vdim(std(I3));
+// local multiplicities at the Klein-fixed point (X=0, Y0 = eta Y1, Y2 = 0), chart Y1 = 1, eta^6 = -1, eta = 385966
+ring rl = 1000033, (X0,X1,X2,Y0,Y2), ds;
+poly Fl = imap(r, F);
+Fl = subst(Fl, Y1, 1);
+Fl = subst(Fl, Y0, Y0 + 385966);
+ideal K0 = diff(Fl,X0), diff(Fl,X1), diff(Fl,X2), diff(Fl,Y2), Fl;
+"local_mult_m (P5 critical scheme at the Klein-fixed point)"; vdim(std(K0));
+ideal K2 = K0, Y2;
+"local_mult_mprime (Y2=0 system at the same point)"; vdim(std(K2));
+"milnor_check: Fl value and order at origin"; subst(Fl,X0,0,X1,0,X2,0,Y0,0,Y2,0); ord(Fl);
+quit;
