@@ -1279,5 +1279,26 @@
   "compressed": false,
   "subgroup": 14,
   "seconds": 663.76
+ },
+ {
+  "exp": "fixedD",
+  "D": "E1-kernel rep d=9 par=1 k=4 #2 (p=1000003)",
+  "d": 9,
+  "par": 1,
+  "k": 4,
+  "prime": 1000003,
+  "family": "e1-kernel-rep",
+  "e1": true,
+  "engine": "v2-restricted",
+  "result": "inconsistent",
+  "rank": 1488,
+  "nullity": 147,
+  "note": "canonical rref kernel basis element mod p",
+  "job": "jobC-local",
+  "rows": 8430,
+  "cols": 1635,
+  "compressed": false,
+  "subgroup": 14,
+  "seconds": 906.39
  }
 ]

@@ -48,7 +48,7 @@ def I31(phi, j):
         return U**j * mp.exp(-mp.mpf(5)/6*(a1+a2+a3)) * dU
     total += -mp.quad(fiii, [0, R3])        # s runs from R3 down to 0
     return total
-def Pi(phi):
+def Pi(phi):  # noqa
     return mp.matrix([[I12(phi,0), I12(phi,1)], [I31(phi,0), I31(phi,1)]])
 P0 = Pi(mp.mpf(0)); P1 = Pi(2*mp.pi)
 T = P1 * P0**-1

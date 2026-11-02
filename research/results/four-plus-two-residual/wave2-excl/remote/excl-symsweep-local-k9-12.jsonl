@@ -1,0 +1,1 @@
+{"exp": "sym-exact-reps", "d": 9, "parity": 0, "n_reps": 38, "dim_modJ": 38, "dim_J": 70, "verified_exact": true, "max_abs_coeff": 981695, "seconds": 613.5, "job": "excl-symsweep-local-k9-12", "ts": "2026-11-01T23:57:01"}
