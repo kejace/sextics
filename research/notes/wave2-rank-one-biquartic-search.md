@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-02 07:13:05.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-02 07:43:45.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -117,10 +117,10 @@ Totals per family: d=7 even (K=66): 240 restarts, best rel 6.270e-03; d=7 odd (K
 
 ### Residual landscape (per-restart files)
 * `d7e_b0`: n=200, min 6.270e-03, 10% 1.645e-02, median 3.842e-02, 90% 7.439e-02, max 2.901e-01
-* `d7e_b1`: n=152, min 1.225e-02, 10% 2.389e-02, median 4.010e-02, 90% 6.503e-02, max 2.036e+00
+* `d7e_b1`: n=162, min 1.225e-02, 10% 2.282e-02, median 4.019e-02, 90% 6.606e-02, max 2.121e+01
 * `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
 * `d7o_a`: n=16, min 1.440e-02, 10% 1.822e-02, median 4.123e-02, 90% 7.103e-02, max 8.815e-02
-* `d8e_b0`: n=40, min 1.819e-03, 10% 2.292e-03, median 4.923e-03, 90% 8.383e-03, max 1.866e-02
+* `d8e_b0`: n=41, min 1.819e-03, 10% 2.292e-03, median 4.227e-03, 90% 7.684e-03, max 1.866e-02
 * `d8k_a`: n=40, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
 * `d9m_a`: n=8, min 1.344e-03, 10% 1.344e-03, median 2.496e-03, 90% 1.070e-02, max 1.070e-02
 
@@ -589,6 +589,7 @@ dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not alread
 | 10 | odd | vars[X2Y0Y1] | 30 | 0 |  |  |
 | 10 | odd | vars[X2Y0Y2] | 30 | 0 |  |  |
 | 10 | odd | vars[X2Y1Y2] | 30 | 0 |  |  |
+| 11 | even | vars[X0X1X2] | 78 | 47 | 47 | 0 |
 
 (0 three-variable cone families with zero intersection omitted from the table.)
 
@@ -624,12 +625,12 @@ None so far: no restart reached rel < 1e-8 on this instance (see landscape above
 * planted witness search (solved instance coupled-pair-rational-d4-strict, d=4, K=5): 9/12 random restarts converged to rel<4e-11; rational reconstruction gave D = X0^4 - X0^2 Y0^2 + Y0^4; exact fixed-D solve + verify_witness succeeded (strict, Q=0). End-to-end pipeline (search -> reconstruct -> exact confirm) validated; 3/12 restarts stuck at a local minimum rel=0.35
 
 ## 7. Jobs
-* `chainA.log`: chainA start Mon Nov  2 00:47:55 UTC 2026 / relax 5,6 done Mon Nov  2 00:48:43 UTC 2026 / e1spaces 4-10 done Mon Nov  2 01:58:14 UTC 2026 / relax 5-7 done Mon Nov  2 02:02:24 UTC 2026 / d5,d6 searches done Mon Nov  2 02:02:27 UTC 2026 / structured 6-10 done Mon Nov  2 02:32:57 UTC 2026 / msolve d6 exit 0 / msolve d7 exit 124 / msolve done Mon Nov  2 07:13:51 UTC 2026
-* `chainB.log`: chainB start Mon Nov  2 00:47:54 UTC 2026 / d7e batch 0 done Mon Nov  2 08:00:43 UTC 2026
-* `chainC.log`: chainC start Mon Nov  2 00:47:55 UTC 2026
+* `chainA.log`: chainA start Mon Nov  2 00:47:55 UTC 2026 / relax 5,6 done Mon Nov  2 00:48:43 UTC 2026 / e1spaces 4-10 done Mon Nov  2 01:58:14 UTC 2026 / relax 5-7 done Mon Nov  2 02:02:24 UTC 2026 / d5,d6 searches done Mon Nov  2 02:02:27 UTC 2026 / structured 6-10 done Mon Nov  2 02:32:57 UTC 2026 / msolve d6 exit 0 / msolve d7 exit 124 / msolve done Mon Nov  2 07:13:51 UTC 2026 / wave2/chainA.sh: line 33: 65171 Killed                  python3 wave2/e1spaces.py --dmin 12 --dmax 12 --tag e1spaces_d12 > $O/e1spaces_d12.out 2> $O/e1spaces_d12.err
+* `chainB.log`: chainB start Mon Nov  2 00:47:54 UTC 2026 / d7e batch 0 done Mon Nov  2 08:00:43 UTC 2026 / wave2/chainB.sh: line 7: 2631878 Killed                  python3 wave2/e2search.py --d 7 --pD 0 --restarts 200 --seed $((b*200)) --workers 8 --tag d7e_b$b > $O/d7e_b$b.out 2> $O/d7e_b$b.err / d7e batch 1 done Mon Nov  2 12:29:38 UTC 2026
+* `chainC.log`: chainC start Mon Nov  2 00:47:55 UTC 2026 / wave2/chainC.sh: line 7: 389988 Killed                  python3 wave2/e2search.py --d 8 --pD 0 --restarts 80 --seed $((b*80)) --workers 8 --tag d8e_b$b > $O/d8e_b$b.out 2> $O/d8e_b$b.err / d8e batch 0 done Mon Nov  2 12:29:36 UTC 2026
 * `chainD.log`: chainD start Mon Nov  2 00:47:58 UTC 2026
 * `chainD2.log`:  UTC 2026 / d7 kernel probe done Mon Nov  2 01:19:50 UTC 2026 / d8 kernel probe done Mon Nov  2 04:00:05 UTC 2026 / d9 kernel probe done Mon Nov  2 04:00:07 UTC 2026 / d9e batch c0 done Mon Nov  2 04:00:09 UTC 2026 / d9e batch c1 done Mon Nov  2 04:00:11 UTC 2026 / d9e batch c2 done Mon Nov  2 04:00:12 UTC 2026 / d9e batch c3 done Mon Nov  2 04:00:14 UTC 2026 / d9e batch c4 done Mon Nov  2 04:00:16 UTC 2026 / d9e batch c5 done Mon Nov  2 04:00:17 UTC 2026 / d9e batch c6 done Mon Nov  2 04:00:19 UTC 2026 / d9e batch c7 done Mon Nov  2 04:00:21 UTC 2026 / chainD2 end Mon Nov  2 04:00:22 UTC 2026
-* `chainE.log`: chainE start Mon Nov  2 04:01:22 UTC 2026 / d9 mixed-kernel full-E2 (LM) done Mon Nov  2 07:43:59 UTC 2026
+* `chainE.log`: chainE start Mon Nov  2 04:01:22 UTC 2026 / d9 mixed-kernel full-E2 (LM) done Mon Nov  2 07:43:59 UTC 2026 / wave2/chainE.sh: line 11: 2423901 Killed                  python3 wave2/relaxsearch.py --d 9 --pD 0 --family kernel-mixed --restarts 300 --seed 0 --workers 8 --refine-maxiter 200 --tag r9m_a > $O/r9m_a.out 2> $O/r9m_a.err / d9 mixed-kernel relaxation-first done Mon Nov  2 12:29:38 UTC 2026
 
 ## 8. Interpretation and what remains
 
