@@ -86,3 +86,4 @@
 [subfam] X0+X1+X2+Y0+Y1: vars 54, eqs 465, msolve chart 'TIMEOUT', singular [] (19870s)
 [subfam] X0+X1+X2+Y0+Y2: vars 54, eqs 465, msolve chart 'TIMEOUT', singular [] (20535s)
 [subfam] X0+X1+X2+Y0+M: vars 76, eqs 468, msolve chart 'TIMEOUT', singular [] (21202s)
+[subfam] X0+X1+X2+Y1+Y2: vars 54, eqs 465, msolve chart 'TIMEOUT', singular [] (21868s)
