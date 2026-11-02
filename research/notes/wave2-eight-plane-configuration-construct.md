@@ -1,8 +1,10 @@
 # Wave 2 — eight-plane-configuration — CONSTRUCTION lens
 
-STATUS: parts 1-3 written (2026-11-01 22:45). NO WITNESS. Mechanisms (i),(iii),(iv),(v) excluded with verified
-hypotheses; (ii): Aut(X) = <tau> proved within block-monomial maps (exact over Q(i)), conditional on the
-Fano-scheme-of-planes check (remote job construct-epc-fanoplanes queued behind capacity; local probe of chart00).
+STATUS: FINAL for this session (2026-11-01 22:50 EST). NO WITNESS. Mechanisms (i),(iii),(iv),(v) excluded with
+computationally verified hypotheses (Parts 1-2); (ii): Aut(X) = <tau> proved among block-monomial maps (exact over
+Q(i)), conditional on "the eight planes are the only planes on X" — the Fano-scheme msolve job (20 charts) could
+NOT be run: remote capacity gate closed all session (320-349 cpus allocated vs max 200), local single-thread probe
+of chart00 hit its 20-min cap (rc=124). Rerun recipe in Part 3 §6; inputs are on the remote already.
 
 Log: /tmp/hodge/results/eight-plane-configuration/wave2-construct.log.jsonl
 Scripts/data: /tmp/hodge/results/eight-plane-configuration/wave2-construct/ (mech_i_ranks.py/.json,

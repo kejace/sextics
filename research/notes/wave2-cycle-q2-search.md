@@ -119,18 +119,22 @@ Final job set:
 ### Results of the joint search so far (22:00; updated as jobs finish)
 
 Structured modular sweep (chain D3, two primes, sector solver `eq.test_D_fast`): 110/117 Hessian 2x2 minors tested at
-d = 8 (104 fail E1, 6 pass E1 and are inconsistent, ranks 909-1062), 173/210 Hessian 3x3 minors at d = 12 (172 pass E1,
-all inconsistent, ranks 2614-3510); subset-Euler forms, block cubics, F_i F_j and the pencil scans follow.
+d = 8 (104 fail E1, 6 pass E1 and are inconsistent, ranks 909-1062), 201/210 Hessian 3x3 minors at d = 12 (199 pass E1,
+all inconsistent, ranks 2614-3510), 24/63 subset-Euler forms E_I(F) at d = 6 (all pass E1, all inconsistent, ranks
+595-629) and 16 of their squares at d = 12 (inconsistent, ranks 2818-3003); block cubics, F_i F_j and the pencil scans
+follow.
 
 | q | target | d | family | sectors | restarts | system (rows x unknowns) | best rel over all sectors | median of sector-best rel | candidates (rel < 1e-10) |
 |---|---|---:|---|---:|---:|---|---:|---:|---:|
 | 2 | A | 6 | kernel (all 48 nonempty sectors, K = 1..6) | 48 | 1920 | <= 492 x 304 | 7.5e-3 (key 777, K = 1: a fixed D, its least-squares defect) | 0.76 | 0 |
 | 2 | A | 6 | trivial sector D = sum a_i Z_i F_i (K = 6) | 1 | 40 + 2704 | 480 x 278 | 0.18 (median over 32 independent parts 0.24) | - | 0 |
 
-| 1 | B (sibling) | 8 | kernel, deflated (chain E3, finished) | 72 | 10140 | <= 297 x 79 | 4.5e-7 (best non-spurious) | 0.73 | 0 |
-| 2 | A | 7 | kernel (chain A4, running) | 4 of 72 | 40 | <= 766 x 442 | 1.9e-3 | 0.025 | 0 |
-| 2 | A | 7 | mult4 sub-families (mult >= 4 at X ∩ coordinate line; chain B5, running) | 55 | 825 | <= 766 x 450 | 9.9e-4 | 0.097 | 0 |
-| 2 | A | 7 | cone4 sub-families (line-vertex cones; chain B5, running) | 31 | 465 | <= 766 x 454 | 0.26 | 0.85 | 0 |
+| 1 | B (sibling) | 8 | kernel, deflated (chain E3, finished) | 72 | 10800 | <= 297 x 79 | 4.5e-7 (best non-spurious) | 0.73 | 0 |
+| 1 | B (sibling) | 9 | kernel, deflated (chain E3, running) | 16 of 72 | 700 | <= 492 x 150 | 9.2e-7 (non-spurious) | 4.4e-6 | 0 |
+| 2 | A | 7 | kernel (chain A4 sample; A5 completes the other 40 sectors) | 32 of 72 | 320 | <= 766 x 458 | 1.2e-3 | 0.040 | 0 |
+| 2 | A | 7 | mult4 sub-families (mult >= 4 at X ∩ coordinate line; chain B5) | 65 | 885 | <= 766 x 458 | 9.9e-4 | 0.097 | 0 |
+| 2 | A | 7 | cone4 sub-families (line-vertex cones; chain B5) | 42 | 531 | <= 766 x 454 | 0.26 | 0.86 | 0 |
+| 2 | A | 8 | cone4 sub-families (chain B5, running) | 19 | 285 | <= 1152 x 690 | 0.17 | 0.51 | 0 |
 
 Sibling note: with the deflated residual r/dist(a,L)^2, 20-40 % of the restarts in sectors containing F-multiples still
 end within 5 % of L (flagged spurious; e.g. sector 609: 51 of 150 restarts below 1e-10 are all spurious), and the best

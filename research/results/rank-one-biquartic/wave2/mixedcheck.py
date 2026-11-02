@@ -22,5 +22,6 @@ def rank(polys):
 rJ = rank(Jg); rW = rank(Jg + K9); rJP = rank(Jg + prod); rJY = rank(Jg + yb); rJYP = rank(Jg + yb + prod)
 # Y-base part of W: dim (span(yb) cap W) = rank(yb) + rank(W) - rank(yb + W)
 rY = rank(yb); rYW = rank(yb + Jg + K9)
-print(json.dumps({'batch': 'mixed-identification', 'd': 9, 'p': p, 'dim_J9': rJ, 'dim_W9': rW, 'dim_J+K7S2Y': rJP, 'new_from_K7S2Y': rJP - rJ,
+rJYK = rank(Jg + yb + K9)
+print(json.dumps({'batch': 'mixed-identification', 'dim_J+Ybase': rJY, 'new_from_K7S2Y_beyond_J+Ybase': rJYP - rJY, 'dim_J+Ybase+K9': rJYK, 'K7S2Y_inside_J+Ybase+W': rank(Jg + yb + K9 + prod) == rJYK, 'd': 9, 'p': p, 'dim_J9': rJ, 'dim_W9': rW, 'dim_J+K7S2Y': rJP, 'new_from_K7S2Y': rJP - rJ,
                   'dim_Ybase_cap_W': rY + rW - rYW, 'dim_J+YbaseW+K7S2Y': rJYP, 'W_spanned_by_J_Ybase_K7S2Y': rJYP == rW and rank(Jg + yb + prod + K9) == rW}))

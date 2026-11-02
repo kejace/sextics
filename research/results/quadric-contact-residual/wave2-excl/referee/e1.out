@@ -1,0 +1,10 @@
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:48:33", "who": "referee", "d": 0, "dim_colon": 0, "dim_J": 0, "extras_per_sector": {}, "agrees": true, "seconds": 0.0}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:48:33", "who": "referee", "d": 1, "dim_colon": 0, "dim_J": 0, "extras_per_sector": {}, "agrees": true, "seconds": 0.0}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:48:33", "who": "referee", "d": 2, "dim_colon": 0, "dim_J": 0, "extras_per_sector": {}, "agrees": true, "seconds": 0.1}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:48:33", "who": "referee", "d": 3, "dim_colon": 0, "dim_J": 0, "extras_per_sector": {}, "agrees": true, "seconds": 0.3}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:48:34", "who": "referee", "d": 4, "dim_colon": 0, "dim_J": 0, "extras_per_sector": {}, "agrees": true, "seconds": 1.0}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:48:36", "who": "referee", "d": 5, "dim_colon": 6, "dim_J": 6, "extras_per_sector": {}, "agrees": true, "seconds": 2.3}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:48:42", "who": "referee", "d": 6, "dim_colon": 36, "dim_J": 36, "extras_per_sector": {}, "agrees": true, "seconds": 5.1}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:48:51", "who": "referee", "d": 7, "dim_colon": 126, "dim_J": 126, "extras_per_sector": {}, "agrees": true, "seconds": 9.2}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:49:11", "who": "referee", "d": 8, "dim_colon": 337, "dim_J": 336, "extras_per_sector": {"(0, 0, 0, 0)": 1}, "agrees": true, "seconds": 20.3}
+[LOG] {"exp": "E1-colon", "prime": 1000000021, "time": "2026-11-01T22:49:53", "who": "referee", "d": 9, "dim_colon": 760, "dim_J": 756, "extras_per_sector": {"(0, 0, 1, 0)": 1, "(0, 0, 5, 1)": 1, "(0, 1, 0, 0)": 1, "(0, 1, 0, 1)": 1}, "agrees": true, "seconds": 41.6}

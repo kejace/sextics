@@ -17,16 +17,16 @@
 | X2^6 − 2Y2^6 (pullback of a rational 3-section of Σ) | 6 | (0,0) | yes | 0 | 27 |
 | X2^6 + 2X2^3Y2^3 − 3Y2^6 | 6 | mixed parity | — | rejected by the engine (mixed Y-parity); its τ-orbit product has degree 12 (not run) | — |
 | C^2 − (X0^2+Y1^2)^4 (Λ_mu ∪ gΛ_mu, √kappa on Λ) | 8 | (0,0) | yes | 0 | 230 |
-| C^2 − (X0Y1+X1Y0)^4 | 8 | (0,0) | pending | pending | |
-| C^2 − X0^8 | 8 | (0,0) | pending | pending | |
-| H^2 − (X0^2+Y1^2)^6 (cube root of kappa on Λ) | 12 | (0,0) | pending | pending | |
-| (X2^3+Y2^3)(X2^3−Y2^3)·H (2-torsion of Y_± × the kappa=∞ fibre) | 12 | (0,0) | pending | pending | |
+| C^2 − (X0Y1+X1Y0)^4 | 8 | (0,0) | yes | 0 | 227 |
+| C^2 − X0^8 | 8 | (0,0) | yes | 0 | 223 |
+| H^2 − (X0^2+Y1^2)^6 (cube root of kappa on Λ) | 12 | (0,0) | pending (job construct-off-paired-served30, sector (3,0) only) | pending | |
+| (X2^3+Y2^3)(X2^3−Y2^3)·H (2-torsion of Y_± × the kappa=∞ fibre) | 12 | (0,0) | pending (served30) | pending | |
 Interpretation: exactly as predicted in part 2 §C — the block multisection pullback (H1) and the vertical √kappa-twist with
 linearly equivalent conjugate components (V1) serve only the Jacobian part.  Note that C^2 − mu^4 DOES pass the colon
 condition E1, so it is a genuine candidate support that the geometry (not E1) kills.
 Mordell–Weil screen (job construct-off-paired-mw + local primes): the Weierstrass fibrations Y_∓ : t^2 = ±2m^3 − Cm − H over
 P^3 have NO polynomial section (m quadric, t cubic): msolve returns the empty variety mod 1073741827 (both signs),
-2147483647 and 1000003 (eps = −1; eps = +1 pending locally) — 30 unknowns, 84 cubic equations.  [SCREEN: affine system,
+2147483647 and 1000003 (eps = −1; for eps = +1 only the first prime: the local reruns timed out on the loaded box) — 30 unknowns, 84 cubic equations.  [SCREEN: affine system,
 no properness; sections with denominators (m = M/d^2, t = T/d^3, deg d ≥ 1) not searched.]  Consequently the simplest
 realisation of part 3 §E (reflection through a Mordell–Weil section) has no candidate; lead K.2(c) is weakened.
 ## J. Verdict for the five requested mechanisms

@@ -1,4 +1,3 @@
-search-symmetric-sextic-residual-w2b-struct2|8|python3 w2b/w2_struct.py --job struct2 --families ternX,ternY,uuv,evv,line_tt,line_sX,line_sY --chis triv,sgnX,sgnY,sgnsgn --dmin 7 --dmax 12 --restarts 60 --workers 8
 search-symmetric-sextic-residual-w2b-singlesub|8|python3 w2b/w2_single_sub.py --job singlesub --workers 8 --dmin 8 --dmax 9
 search-symmetric-sextic-residual-w2b-jac2|8|python3 w2b/w2_varpro.py --job jac2 --sectors jac:8:0,jac:8:1 --restarts 160 --workers 8 --maxiter 400 --seed 4000 --dump-rel 1e-4
 search-symmetric-sextic-residual-w2b-vp4|8|python3 w2b/w2_varpro.py --job vp4 --sectors S22_++:6:0,S22_++:6:1,S22_-+:6:0,S22_-+:6:1,S22_+-:6:0,S22_+-:6:1,S22_--:6:0,S22_--:6:1,S22_++:7:0,S22_++:7:1,S22_-+:7:0,S22_-+:7:1,S22_+-:7:0,S22_+-:7:1,S22_--:7:0,S22_--:7:1,S22_++:8:0,S22_++:8:1,S22_-+:8:0,S22_-+:8:1,S22_+-:8:0,S22_+-:8:1,S22_--:8:0,S22_--:8:1 --restarts 60 --workers 8 --maxiter 400 --seed 6000 --dump-rel 1e-4

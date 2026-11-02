@@ -1,3 +1,5 @@
 [chain] 20:18:29 start 7200 w2_symsweep.py excl-symsweep-local-k6-8 1 6 8 2500
 [chain] 22:06:46 exit 0 w2_symsweep.py
 [chain] 22:06:46 start 2400 w2_sum.py excl-sum-local 1
+[chain] 22:46:46 exit 0 w2_sum.py
+[chain] 22:46:46 start 3600 w2_struct.py excl-struct-local 1
