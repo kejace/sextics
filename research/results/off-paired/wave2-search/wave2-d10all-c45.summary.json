@@ -1,0 +1,82 @@
+{
+ "ts": "2026-11-02T11:43:56",
+ "job": "d10all-c45",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 10,
+ "sector": [
+  4,
+  5
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 62,
+ "rank": 62,
+ "gauge": 3,
+ "dimP": 59,
+ "rows": 4556,
+ "nN": 760,
+ "nQ": 290,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 18,
+ "best_relres": 0.006455277944407287,
+ "median_relres": 0.006861416456965965,
+ "hist": {
+  "lt1e-2": 10,
+  "ge1e-2": 8
+ },
+ "top_minima": [
+  [
+   "6.455e-03",
+   4
+  ],
+  [
+   "6.711e-03",
+   1
+  ],
+  [
+   "6.825e-03",
+   4
+  ],
+  [
+   "6.861e-03",
+   1
+  ],
+  [
+   "1.883e-02",
+   1
+  ],
+  [
+   "1.887e-02",
+   1
+  ],
+  [
+   "2.678e-02",
+   2
+  ],
+  [
+   "3.041e-02",
+   1
+  ],
+  [
+   "3.058e-02",
+   2
+  ],
+  [
+   "3.806e-02",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 202.83,
+ "statuses": {
+  "flat": 5,
+  "maxiter": 5,
+  "stalled": 8
+ },
+ "wall": 557.7,
+ "confirm_attempts": [],
+ "witness": false
+}

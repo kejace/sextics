@@ -16,3 +16,4 @@
 {"seed": 3122, "rel": 0.751914499454243, "iters": 69, "nfev": 81, "spurious": false, "div_rel": 0.9901292556894036, "sparse_init": false}
 {"seed": 3130, "rel": 0.7739537402231728, "iters": 109, "nfev": 124, "spurious": false, "div_rel": 0.9893917584570772, "sparse_init": true}
 {"seed": 3138, "rel": 0.7519145029691917, "iters": 100, "nfev": 124, "spurious": false, "div_rel": 0.99012925383254, "sparse_init": true}
+{"seed": 3146, "rel": 0.7735145902518188, "iters": 87, "nfev": 104, "spurious": false, "div_rel": 0.9870879319748872, "sparse_init": false}
