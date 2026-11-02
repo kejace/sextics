@@ -59,7 +59,11 @@ computation at a time, per-entry memory floor so that a 40–60 GB F4 step never
 ## 3. Results (rewritten after every job)
 
 ### 3a. New wave-3 computations
-(none finished yet; B1 running)
+
+| lane | system | engine | wall | peak RSS | outcome |
+|---|---|---|---|---|---|
+| klein-coupled-character | d7 non-eigen Y-even `local_d7full/d7_even_all.ms` (60 vars / 447 quadrics, p = 1000003) | msolve -g 1 -t 16 | 3504 s | 38.5 GB (growing) | **killed by the remote memory guard** at 05:06 UTC (box available 44 GB < 45 GB floor) inside the F4 degree-4 round: matrix 694 846 × 524 952 (235 392 pairs; degree 3: 26 791 × 37 791 in 856 s). No verdict. Re-queued with `msolve -m 25000` (bounded matrices). |
+| klein-coupled-character | d7 non-eigen Y-odd `d7_odd_all.ms` (60 / 420) | msolve -g 1 -t 16 | running since 05:06 UTC | | |
 
 ### 3b. Harvested wave-2 outputs re-parsed independently (`wave3_harvest.py`, tags harvest1/harvest2; receipts in
 `/tmp/hodge/results/_closure/wave3-receipts.jsonl` and `<lane>/.../wave3/receipts.jsonl`)

@@ -1447,5 +1447,26 @@
   "compressed": false,
   "subgroup": 14,
   "seconds": 417.76
+ },
+ {
+  "exp": "fixedD",
+  "D": "E1-kernel random combo d=9 par=1 k=4 trial 1 (p=1000003)",
+  "d": 9,
+  "par": 1,
+  "k": 4,
+  "prime": 1000003,
+  "family": "e1-kernel-random",
+  "e1": true,
+  "engine": "v2-restricted",
+  "result": "inconsistent",
+  "rank": 1488,
+  "nullity": 147,
+  "note": "random GF(p) combination of the kernel reps",
+  "job": "jobC-local",
+  "rows": 8430,
+  "cols": 1635,
+  "compressed": false,
+  "subgroup": 14,
+  "seconds": 415.07
  }
 ]
