@@ -61,3 +61,9 @@ attempt 1 refused 2026-11-02T05:15:12Z
 REMOTE BUSY: load 558 (max 300), available memory 70 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s
 REMOTE BUSY: load 557 (max 300), available memory 66 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s
 REMOTE BUSY: load 548 (max 300), available memory 66 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s
+REMOTE BUSY: load 546 (max 300), available memory 65 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s
+REMOTE BUSY: load 537 (max 300), available memory 64 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s
+REMOTE BUSY: load 556 (max 300), available memory 56 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s
+REMOTE BUSY: load 557 (max 300), available memory 55 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s
+REMOTE BUSY: load 547 (max 300), available memory 57 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s
+REMOTE BUSY: load 552 (max 300), available memory 54 GB (min 110), 59 jobs running with 353 cpus allocated (max 200); waiting 60 s

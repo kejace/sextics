@@ -24,3 +24,5 @@
 {"check": "E1_A_d7", "target": "A", "d": 7, "dim_domain": 666, "dim_codomain": 1686, "rank_mod_1000000009": 666, "rank_mod_999999893": 666, "rank_Q": 666, "exact_seconds": 2.1, "kernel_mod_1000000009": 0, "kernel_mod_999999893": 0, "kernel_Q": 0, "seconds": 6.0, "ts": "2026-11-02T04:40:51Z"}
 {"check": "E1_A_d8", "target": "A", "d": 8, "dim_domain": 951, "dim_codomain": 1506, "rank_mod_1000000009": 951, "rank_mod_999999893": 951, "rank_Q": 951, "exact_seconds": 2.7, "kernel_mod_1000000009": 0, "kernel_mod_999999893": 0, "kernel_Q": 0, "seconds": 8.4, "ts": "2026-11-02T04:40:59Z"}
 {"check": "E1_A_d9", "target": "A", "d": 9, "dim_domain": 1246, "dim_codomain": 1246, "rank_mod_1000000009": 1246, "rank_mod_999999893": 1246, "rank_Q": 1246, "exact_seconds": 3.0, "kernel_mod_1000000009": 0, "kernel_mod_999999893": 0, "kernel_Q": 0, "seconds": 9.7, "ts": "2026-11-02T04:41:09Z"}
+FLINT exception (General error):
+    Unable to allocate memory (8).

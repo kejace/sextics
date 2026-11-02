@@ -1,6 +1,6 @@
 # Wave 2 — quadric-contact-residual — SEARCH lens (joint (D,N,Q) search)
 
-STATUS: NO WITNESS. Updated 2026-11-02 00:04 local. Batches logged: 502 (298 varpro sector batches, 3 Hessian-relaxation batches, 6 E1 profiles, 189 structured candidates); random restarts so far: 12270; best full-E2 relative residual: 6.34e-07.
+STATUS: NO WITNESS. Updated 2026-11-02 00:23 local. Batches logged: 506 (302 varpro sector batches, 3 Hessian-relaxation batches, 6 E1 profiles, 189 structured candidates); random restarts so far: 12414; best full-E2 relative residual: 6.34e-07.
 
 Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residue character trivial on G_aff (order 48), odd under s0 (X0<->Y0) and r1 (X1<->Y1). Prior rigorous exclusions (fqlx #125, replicated in wave 1): deg D <= 6; deg 7 in every pure parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.
 
@@ -22,10 +22,10 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
 * `excl-lattice7` (submitted 2026-11-01T21:26:18): `cd wave2-excl && bash lattice7.sh`
   - search-quadric-contact-residual-e1prof.log: last line: `{"task": "e1-profile", "d": 11, "n_sectors": 24, "tot_dimS": 4368, "tot_dimJ": 2682, "tot_kernel": 3702, "tot_extra": 1020, "tot_gauge": 252, "per_sector_extra"`
   - search-quadric-contact-residual-pipeA.log: last line: `[koszul-varpro] d=9 chi=0011 K=41 rows=1356 cols=427 (K 187, Q 240) Mstack nnz=275283 Vstack nnz=12423 dimP=38 excluded=3 built 1.2s`
-  - search-quadric-contact-residual-pipeA2.log: last line: `=== 2026-11-02 05:01:19 w2_varpro.py --d 10 --chi all --restarts 160 --per-dim 4 --min-restarts 16 --procs 8 --seed 3000 --tag w2a --time-limit 2400`
+  - search-quadric-contact-residual-pipeA2.log: last line: `  rel = float(np.linalg.norm(Mb @ x - bv) / max(np`
   - search-quadric-contact-residual-pipeB.log: last line: `=== 2026-11-02 00:47:52 w2_hess.py --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e`
   - search-quadric-contact-residual-pipeB2.log: last line: `=== 2026-11-02 04:34:22 w2_varpro.py --d 7 --parity 0 --restarts 300 --per-dim 0 --procs 8 --seed 6000 --tag w2m --time-limit 3600`
-  - search-quadric-contact-residual-pipeC.log: last line: `{"task": "varpro", "d": 9, "chi": "0010", "mode": "basis", "tag": "cone", "vars": "X0X1X2Y0Y2", "dimS": 49, "dim_kernel": 5, "dimJ": 5, "n_extra": 0, "dim_gauge`
+  - search-quadric-contact-residual-pipeC.log: last line: `{"task": "varpro", "d": 9, "chi": "0121", "mode": "basis", "tag": "cone", "vars": "X0X1X2Y0Y2", "dimS": 31, "dim_kernel": 1, "dimJ": 1, "n_extra": 0, "dim_gauge`
   - search-quadric-contact-residual-vp-d8.log: last line: `[koszul-varpro] d=8 chi=0000 K=33 rows=1002 cols=303 (K 130, Q 173) Mstack nnz=155331 Vstack nnz=43948 dimP=29 excluded=4 built 0.7s`
 
 ## (1) E1-admissible denominator spaces per degree and character sector (exact over Q)
@@ -327,11 +327,15 @@ Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian 
 | cone | 9 | 0051 | X0X1X2Y0Y1 | 4 | 4 | 1356 | 190+240 | 0.0511 | 32 | 0 | 0.5436 | 0.5436 | 0 | 0 | 43.62 | 55.1 |
 | w2a | 9 | 0100 | - | 59 | 53 | 1611 | 234+332 | 0.113 | 120 | 0 | 6.34e-07 | 6.37e-07 | 120 | 0 | 192.8 | 1058.5 |
 | cone | 9 | 0100 | X0X1X2Y0Y1 | 4 | 4 | 1610 | 234+332 | 0.0843 | 32 | 0 | 0.6518 | 0.6518 | 0 | 0 | 44.16 | 90.0 |
+| cone | 9 | 0100 | X0X1X2Y0Y2 | 8 | 8 | 1611 | 234+332 | 0.0932 | 60 | 0 | 0.1462 | 0.3435 | 0 | 0 | 267.8 | 848.0 |
 | w2a | 9 | 0101 | - | 59 | 52 | 1611 | 234+332 | 0.0905 | 116 | 0 | 5.58e-04 | 0.008087 | 0 | 0 | 227.8 | 1503.8 |
 | cone | 9 | 0101 | X0X1X2Y0Y1 | 2 | 2 | 1609 | 234+332 | 0.0913 | 16 | 0 | 0.8764 | 0.9317 | 0 | 0 | 6.312 | 14.5 |
+| cone | 9 | 0101 | X0X1X2Y0Y2 | 8 | 8 | 1611 | 234+332 | 0.086 | 60 | 0 | 0.07647 | 0.3768 | 0 | 0 | 282.7 | 932.6 |
 | w2a | 9 | 0120 | - | 20 | 19 | 1356 | 118+240 | 0.0305 | 114 | 0 | 0.0387 | 0.0387 | 0 | 0 | 44.75 | 150.7 |
 | cone | 9 | 0120 | X0X1X2Y0Y1 | 1 | 1 | 1356 | 118+240 | 0.0283 | 12 | 0 | 0.9263 | 0.9263 | 0 | 0 | 0.00e+00 | 2.1 |
+| cone | 9 | 0120 | X0X1X2Y0Y2 | 1 | 1 | 1356 | 118+240 | 0.0231 | 12 | 0 | 0.369 | 0.369 | 0 | 0 | 0.00e+00 | 2.6 |
 | w2a | 9 | 0121 | - | 20 | 19 | 1356 | 118+240 | 0.0346 | 114 | 0 | 0.03835 | 0.03835 | 0 | 0 | 45.7 | 124.1 |
+| cone | 9 | 0121 | X0X1X2Y0Y2 | 1 | 1 | 1356 | 118+240 | 0.0284 | 12 | 0 | 0.3653 | 0.3653 | 0 | 0 | 0.00e+00 | 2.5 |
 | w2a | 9 | 0140 | - | 20 | 19 | 1356 | 118+240 | 0.0256 | 114 | 0 | 0.0387 | 0.0387 | 0 | 0 | 43.71 | 121.7 |
 | cone | 9 | 0140 | X0X1X2Y0Y1 | 1 | 1 | 1356 | 118+240 | 0.0401 | 12 | 0 | 0.9263 | 0.9263 | 0 | 0 | 0.00e+00 | 2.7 |
 | w2a | 9 | 0141 | - | 20 | 19 | 1356 | 118+240 | 0.0266 | 114 | 0 | 0.03835 | 0.03835 | 0 | 0 | 45.04 | 114.8 |
@@ -567,7 +571,7 @@ Reconstruction attempts (rel < 1e-10): 0
 * d=6: 1e-1: 192
 * d=7: 1e-1: 792
 * d=8: 1e-3: 452, 1e-2: 1854, 1e-1: 2771
-* d=9: 1e-7: 120, 1e-4: 318, 1e-3: 485, 1e-2: 1705, 1e-1: 577
+* d=9: 1e-7: 120, 1e-4: 318, 1e-3: 485, 1e-2: 1706, 1e-1: 720
 
 Reading: a genuine witness in a family shows up as rel ~ 1e-14..1e-12 (float64 floor); the smallest values seen so far are listed above; all minima are separated from the floor by many orders of magnitude unless stated otherwise.
 

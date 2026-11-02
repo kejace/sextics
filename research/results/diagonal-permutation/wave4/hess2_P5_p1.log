@@ -1,1 +1,2 @@
 3x3 minors 210
+X0 {"class": "finite", "seconds": 1440.8, "deg_ideal": 10, "elim_degree": 5, "elim_factor_degrees": [1, 2, 2], "elim_factor_mults": [1, 1, 1], "Fp_points": [{"X1": 0, "X2": 0, "Y0": 0, "Y1": 0, "Y2": 0, "A": 0}]}
