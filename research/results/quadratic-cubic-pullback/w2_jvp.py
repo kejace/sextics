@@ -581,6 +581,7 @@ def main():
     ap.add_argument('--seeds-from', default=None, help='jsonl of stage-1 records to seed stage 2 (sorted by rel, below thresh1)')
     ap.add_argument('--max-seeds', type=int, default=1000)
     ap.add_argument('--worker-threads', type=int, default=1)
+    ap.add_argument('--refine1', action='store_true', help='with --seeds-from: refine recorded stage-1 minima by long LM runs')
     ap.add_argument('--parity', type=int, default=0, help='Y-parity of D (0 even, 1 odd)')
     ap.add_argument('--restrict', default=None, help='comma list of symmetry generators (rho, sigma, taux) forcing D invariant')
     a = ap.parse_args()
@@ -628,7 +629,30 @@ def _worker(a, seed, restarts, restarts2, out):
     jvp = _SHARED['jvp']
     rng = np.random.default_rng(seed + 777)
     s1 = []
-    if '1' in a.stage:
+    if '1' in a.stage and a.seeds_from and a.refine1:
+        # seeded stage-1 refinement: long LM runs from the best recorded stage-1 points
+        recs = []
+        for path in a.seeds_from.split(','):
+            for line in open(path):
+                try:
+                    r = json.loads(line)
+                except Exception:
+                    continue
+                if r.get('stage') == 1 and r.get('d') == a.d and r.get('parity', 0) == jvp.parD and r['rel'] < a.thresh1:
+                    recs.append(r)
+        recs.sort(key=lambda r: r['rel'])
+        with open(out, 'a') as f:
+            for it, r0 in enumerate(recs[:a.max_seeds]):
+                v0 = np.array(r0['v']); t1 = time.time()
+                res = least_squares(jvp.r1_fun, v0, jac=jvp.r1_jacfun, method='lm', max_nfev=a.maxiter, xtol=1e-15, ftol=1e-15, gtol=1e-15)
+                v = res.x / np.linalg.norm(res.x); rel, bnorm = jvp.stage1_rel(v)
+                rec = {'stage': 1, 'd': jvp.d, 'parity': jvp.parD, 'tag': a.tag + '-refine', 'dimP': jvp.dimP, 'seed': seed, 'restart': it,
+                       'rel': rel, 'rel_seed': r0['rel'], 'bnorm': bnorm, 'nfev': int(res.nfev), 'status': int(res.status),
+                       'seconds': round(time.time() - t1, 2), 'v': v.tolist()}
+                s1.append(rec); f.write(json.dumps(rec) + '\n'); f.flush()
+                if verbose:
+                    print(f'[refine1 d={jvp.d}] seed {it}: rel {r0["rel"]:.3e} -> {rel:.3e} nfev={res.nfev} status={res.status} ({time.time()-t1:.0f}s)', file=sys.stderr)
+    elif '1' in a.stage:
         s1 = run_stage1(jvp, restarts, seed, out, a.tag, maxiter=a.maxiter, verbose=verbose, time_limit=a.time_limit)
     if '2' in a.stage:
         starts = []

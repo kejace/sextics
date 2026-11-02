@@ -86,3 +86,20 @@ any linear-algebra reach, and the theorem gives no reason to expect it to suppor
  * the four quartic plane-pair covers, their S_4 monodromy and the omega-descent theorem with proof;
  * Aut(X) = <tau> once the Fano scheme result is in;
  * the identification Ram(pi_eps) = X n V(sum eps_j R_j F) (degree-6 Jacobian divisors, already excluded).
+
+## 6. How to finish the Fano-scheme check (if the queued job did not run)
+
+Inputs (already rsynced to the remote by `rjob up --lane eight-plane-configuration`):
+  /tmp/hodge/results/eight-plane-configuration/wave2-construct/fano/chart00.ms ... chart19.ms
+  (charts.json lists the identity-column triples; p = 2147483629; 9 unknowns m1..m9; 28 sextics each).
+Run on the remote:
+  cd /home/kejace/devel/sextics-work && python3 -m hodge.rjob submit --lane eight-plane-configuration \
+    --name construct-epc-fanoplanes --cpus 8 --wait 1800 -- bash -c \
+    'for f in wave2-construct/fano/chart*.ms; do b=${f%.ms}; timeout 5400 msolve -t 8 -v 1 -f $f -o $b.out > $b.log 2>&1; echo "$f rc=$?" >> wave2-construct/fano/done.txt; done'
+Then `rjob pull --lane eight-plane-configuration` and read fano/chart*.out: expected "8 solutions" (a rational
+parametrisation of degree 8) in the 8 charts whose identity columns pick exactly one of {X_j, Y_j} per block
+(charts (0,1,2),(0,1,5),(0,4,2),(0,4,5),(3,1,2),(3,1,5),(3,4,2),(3,4,5) in column indices X0,X1,X2,Y0,Y1,Y2)
+and the empty ideal [1] in the other 12. Any other outcome (extra solutions or a positive-dimensional
+component) would mean X contains planes beyond the eight, and §1 would have to be redone with them.
+Ramification identity (checked numerically at 5 random points for random sign vectors, mod 10^9+9):
+  grad F(x) . p'_eps(x) = (6 F(x) - i sum_j eps_j R_j F (x))/2,   so Ram(pi_eps) = X n V(sum_j eps_j R_j F).

@@ -6,3 +6,5 @@
 {"ts":"2026-11-01T22:28:12-05:00","lane":"off-paired","step":"part2-written","note":"fibre-product/Leray analysis, p_g(Sigma_n) 0,0,0,1,2,1 rigorous via double planes, Reid-Tai theorem"}
 {"ts":"2026-11-01T22:29:00-05:00","lane":"off-paired","step":"part3-written","note":"descent-through-reflection lemma + realisation + obstruction; no-hub theorem; Galois closure verdict"}
 {"ts":"2026-11-01T22:29:41-05:00","lane":"off-paired","step":"part4-written","note":"computation table, verdicts, next steps (Mordell-Weil translations of Y_- as candidate phi)"}
+{"ts":"2026-11-01T22:32:24-05:00","lane":"off-paired","step":"index-written","note":"STATUS no witness / no new mechanism; parts 1-4"}
+{"ts":"2026-11-01T22:34:54-05:00","lane":"off-paired","step":"c7: W = X/sigma2 equation s^2(s^2-3m)^2 = -(H+Cm-2m^3) exact; branch (X2-Y2)^2 = s^2-4m exact; B_pm quasi-smoothness see output"}

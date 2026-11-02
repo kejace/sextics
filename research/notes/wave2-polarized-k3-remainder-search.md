@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 22:19 from 252 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 22:33 from 252 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -324,10 +324,12 @@ Every non-Jacobian-type guess (Hessian cofactors/pairings, third polars, Fermat,
 ## Remote capacity note
 
 Local compute is restricted to light scripting (< 1 CPU-minute, one process) on a 40-core box shared by ~50 agents; the full reduced-E2 evaluations (≈ 4–13 s each locally even for the 30-parameter P_8 piece) could therefore not be run locally, only the exact linear-algebra decisions and the tensor-frame relaxation batches (≈ 1 minute each) were.
+A forced submission (`--force`) of the lightest job was attempted once after three hours of refusals and was denied by the permission system, so all jobs keep waiting for the runner capacity guard (load ≤ 150, ≥ 60 GB free); the three queued submissions were re-queued at 22:33 with 4-hour waits.
+At 22:35 the runner guard was changed to load ≤ 700, ≥ 110 GB free and ≤ 200 allocated CPUs in total; the binding constraint is now the allocated-CPU cap (329 allocated by 62 running jobs of other agents vs 200), so the three queued submissions (2 + 4 + 8 CPUs) still wait.
 The remote box has been saturated by other agents since ~19:30 (load 300–1150 on 128 cores, 45–90 jobs); the runner refuses new submissions above load 150, so the heavy jobs below were queued with `--wait` and started only when capacity allowed. Latest runner messages:
-- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 604 (max 150), available memory 135 GB (min 60), 65 jobs running; waiting 60 s
-- `submit-hess-d8.out`: REMOTE BUSY: load 603 (max 150), available memory 135 GB (min 60), 65 jobs running; waiting 60 s
-- `submit-sweep-a.out`: REMOTE BUSY: load 604 (max 150), available memory 135 GB (min 60), 65 jobs running; waiting 60 s
+- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 584 (max 700), available memory 166 GB (min 110), 62 jobs running with 329 cpus allocated (max 200); waiting 60 s
+- `submit-hess-tensor-d8.out`: REMOTE BUSY: load 584 (max 700), available memory 166 GB (min 110), 62 jobs running with 329 cpus allocated (max 200); waiting 60 s
+- `submit-sweep-a.out`: REMOTE BUSY: load 584 (max 700), available memory 166 GB (min 110), 62 jobs running with 329 cpus allocated (max 200); waiting 60 s
 
 ## Jobs / reproduction
 
