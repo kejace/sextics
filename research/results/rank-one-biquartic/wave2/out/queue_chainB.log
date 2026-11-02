@@ -15,3 +15,5 @@ REMOTE BUSY: load 622 (max 150), available memory 123 GB (min 60), 76 jobs runni
 REMOTE BUSY: load 645 (max 150), available memory 120 GB (min 60), 78 jobs running; waiting 60 s
 REMOTE BUSY: load 671 (max 150), available memory 121 GB (min 60), 77 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 capacity wait expired (rc=3); forcing submit of search-rank-one-biquartic-chainB at Sun Nov  1 07:47:47 PM EST 2026
+up: done ['rank-one-biquartic']
+submitted search-rank-one-biquartic-chainB (lane rank-one-biquartic) pid 389702; log: /tmp/hodge/jobs/search-rank-one-biquartic-chainB.log on remote

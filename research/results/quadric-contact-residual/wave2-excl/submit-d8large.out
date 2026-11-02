@@ -14,3 +14,5 @@ REMOTE BUSY: load 1283 (max 150), available memory 5 GB (min 60), 97 jobs runnin
 REMOTE BUSY: load 1203 (max 150), available memory 138 GB (min 60), 66 jobs running; waiting 60 s
 REMOTE BUSY: load 1056 (max 150), available memory 160 GB (min 60), 65 jobs running; waiting 60 s
 REMOTE BUSY: load 1058 (max 150), available memory 240 GB (min 60), 62 jobs running; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+up: done ['quadric-contact-residual']
+submitted excl-d8large (lane quadric-contact-residual) pid 797803; log: /tmp/hodge/jobs/excl-d8large.log on remote

@@ -78,3 +78,5 @@ REMOTE BUSY: load 1659 (max 150), available memory 110 GB (min 60), 74 jobs runn
 REMOTE BUSY: load 1606 (max 150), available memory 122 GB (min 60), 74 jobs running; waiting 60 s
 REMOTE BUSY: load 1609 (max 150), available memory 117 GB (min 60), 77 jobs running; waiting 60 s
 REMOTE BUSY: load 1686 (max 150), available memory 105 GB (min 60), 75 jobs running; waiting 60 s
+up: done ['one-reflection-skew']
+submitted w2-chain3 (lane one-reflection-skew) pid 1157686; log: /tmp/hodge/jobs/w2-chain3.log on remote
