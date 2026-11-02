@@ -1,1 +1,1 @@
-{"event": "e1space", "d": 5, "sec": "00", "dimS": 88, "dimJ": 3, "dimR": 85, "kernel_dim": 3, "nonJ": 0, "target_rows": 1260, "target_cols": 896, "float_gap": 200807385527010.25, "sval_min_nonzero": 0.13398800878166137, "basis_modp": [], "t_modp": 0.8, "t_total": 2.2, "p": 2147483647}
+{"event": "e1space", "d": 5, "sec": "00", "dimS": 88, "dimJ": 3, "dimR": 85, "kernel_dim": 3, "nonJ": 0, "target_rows": 1260, "target_cols": 896, "float_gap": 200807385527010.25, "sval_min_nonzero": 0.13398800878166137, "basis_modp": [], "t_modp": 1.4, "t_total": 1.5, "p": 2147483647}

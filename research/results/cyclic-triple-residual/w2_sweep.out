@@ -59,3 +59,12 @@ d= 8 e1=True cons=False rank=685/686 159.2s pieces-8               X2^2*H'
 d= 8 e1=True cons=False rank=685/686 162.4s pieces-8               X2^2*C*Z'  
 d= 8 e1=False cons=False rank=None/None 181.6s pieces-8               X2^2*H  
 d= 8 e1=False cons=False rank=None/None 180.9s pieces-8               X2^2*C^2  
+d= 8 e1=True cons=False rank=685/686 188.0s pieces-8               X2^2*Z'^2  
+d= 9 e1=False cons=False rank=None/None 538.7s pieces-9               X2^3*H  
+d= 9 e1=True cons=False rank=1155/1156 565.6s D8-products            X2*D8  
+d= 9 e1=True cons=False rank=1738/1739 576.7s pieces-9               X2^3*H'  
+d= 9 e1=False cons=False rank=None/None 558.8s pieces-9               C*H'  
+d= 9 e1=False cons=False rank=None/None 553.1s pieces-9               Z'*H'  
+d= 9 e1=False cons=False rank=None/None 573.3s pieces-9               C^3  
+d= 9 e1=False cons=False rank=None/None 566.9s pieces-9               Z'^3  
+d= 9 e1=False cons=False rank=None/None 584.6s pieces-9               C^2*Z'  

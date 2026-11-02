@@ -1,0 +1,29 @@
+{
+ "d": 6,
+ "sector": "e",
+ "with_D8": false,
+ "prime": 1000000007,
+ "unknowns": 17,
+ "pair_monomials": 153,
+ "raw_equations": 866,
+ "independent_equations": 134,
+ "good_reduction_2d": true,
+ "build_seconds": 21.5,
+ "names_head": [
+  "w0_001000_e0",
+  "w0_010000_e0",
+  "w1_001000_e0",
+  "w1_010000_e0",
+  "w1_100000_e0"
+ ],
+ "all_quadratic_monomials_in_I": false,
+ "msolve_status": 0,
+ "msolve_seconds": 0.0,
+ "msolve_tail": "\n---------------- TIMINGS ---------------\noverall(elapsed)        0.01 sec\noverall(cpu)            0.02 sec\nselect                  0.00 sec  10.7%\nsymbolic prep.          0.00 sec   3.7%\nupdate                  0.01 sec  65.5%\nconvert                 0.00 sec   2.4%\nlinear algebra          0.00 sec  12.4%\nreduce gb               0.00 sec   0.0%\n-----------------------------------------\n\n---------- COMPUTATIONAL DATA -----------\nsize of basis                   139\n#terms in basis                 186\n#pairs reduced                 1395\n#GM criterion                  8196\n#redundant elements               0\n#rows reduced                  2929\n#zero reductions               1390\nmax. matrix data               2262 x 953 (0.142%)\nmax. symbolic hash table size  2^11\nmax. basis hash table size     2^16\n-----------------------------------------\n\n\n--------------- INPUT DATA ---------------\n#variables                      17\n#equations                     134\n#invalid equations               0\nfield characteristic    1000000007\nhomogeneous input?               1\nsignature-based computation      0\nmonomial order                 DRL\nbasis hash table resetting     OFF\nlinear algebra option            2\ninitial hash table size     131072 (2^17)\nmax pair selection             ALL\nreduce gb                        1\n#threads                         2\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\nDimension of quotient: 39\n------------------------------------------------------------------------------------\nmsolve overall time           0.01 sec (elapsed) /  0.02 sec (cpu)\n------------------------------------------------------------------------------------\n",
+ "gb_size": 139,
+ "gb_max_degree": 3,
+ "pure_powers": 17,
+ "zero_dimensional": true,
+ "gb_is_unit": false,
+ "verdict": "V(I) = {0}: no E1-admissible D of this shape passes E2 mod J (rigorous over Q given good reduction)"
+}

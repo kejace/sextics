@@ -30,3 +30,4 @@
 {"D": "X0*F_X0 (block radial, 1 var)", "d": 6, "family": "deg6b", "e1": true, "consistent": false, "rank": 2359, "nullity": 243, "seconds": 116.14, "note": "", "engine": 2}
 {"D": "X0*F_X0 + Y0*F_Y0 (pair radial)", "d": 6, "family": "deg6b", "e1": true, "consistent": false, "rank": 2359, "nullity": 243, "seconds": 166.82, "note": "", "engine": 2}
 {"D": "X0^2*F_X0", "d": 7, "family": "deg7x", "e1": true, "consistent": false, "rank": 4042, "nullity": 455, "seconds": 289.03, "note": "", "engine": 2}
+{"D": "X0*F_X0 + Y0*F_Y0 ... times X0? no: X0*E_X(F)", "d": 7, "family": "deg7x", "e1": true, "consistent": false, "rank": 4042, "nullity": 455, "seconds": 567.74, "note": "", "engine": 2}

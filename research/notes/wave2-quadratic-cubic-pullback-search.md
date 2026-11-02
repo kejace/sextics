@@ -16,4 +16,20 @@ so "character sectors" = Y-parity; the target forces D Y-even (Y-odd D handled s
 5. Rational reconstruction + exact re-solve for any candidate with residual < 1e-10.
 
 ## Batches (filled in as they finish)
-(none yet)
+
+### Batch 1 (item 1): exact E1-admissible spaces (remote job search-quadratic-cubic-pullback-kernels, mod p = 2^31-1)
+K_d^par = {D in S_d^par : A D in J(F)} via nullspace of [A*m | J(F)_{d+6} generators]; d <= 8 Y-even and d <= 6 Y-odd were
+already closed in wave 1 (K_d = J_d).  New (this batch):
+
+| d | parity of D | dim S_d | dim J_d | dim R_d | dim K_d | dim K_d/J_d | dim R_{d+6} (target) | matrix | s |
+|---|---|---|---|---|---|---|---|---|---|
+| 7 | odd | 396 | 63 | 333 | 63 | 0 | 843 | 4284x4257 | 18.8 |
+| 8 | odd | 636 | 168 | 468 | 168 | 0 | 762 | 5832x6642 | 55.4 |
+| 9 | even | 1001 | 378 | 623 | 378 | 0 | 623 | 7752x10010 | 151.1 |
+| 9 | odd | 1001 | 378 | 623 | 378 | 0 | 623 | 7752x10010 | 150.9 |
+| 10 | even | 1512 | 750 | 762 | 1044 | 294 | 468 | 10152x14616 | 445.5 |
+| 10 | odd | 1491 | 747 | 744 | 1008 | 261 | 483 | 10197x14595 | 435.3 |
+
+Conclusions: every E1-admissible denominator of degree <= 9 (both parities) lies in J(F) = (F_0..F_5); the first
+non-Jacobian degree is d = 10 with exactly the Gorenstein-duality numbers (294 Y-even, 261 Y-odd).  d = 11, 12 pending.
+

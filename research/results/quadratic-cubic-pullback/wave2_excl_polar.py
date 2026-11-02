@@ -92,6 +92,23 @@ def cands():
     addc('gradJoin012', 'polar10-gradh', gradpolar(add(add(power(Q0, 3), power(Q1, 3)), power(Q2, 3))), 'grad(Q0^3+Q1^3+Q2^3).grad F')
     addc('gradQ0Q1Q2sq', 'polar10-gradh', gradpolar(mul(mul(Q0, Q1), mul(Q2, Q2))))
     addc('graddelta-odd', 'polar10-gradh-odd', gradpolar(w2x.delta_poly()), 'grad delta . grad F (Y-odd)')
+    # ---- random members of J_d (generic polar at each degree), fixed seeds, small integer coefficients
+    import random as _r
+    parz = [0, 0, 0, 1, 1, 1]
+    for dd in (6, 7, 8, 9):
+        for par in (0, 1):
+            for s in range(2 if dd <= 7 else 1):
+                _r.seed(1000 * dd + 10 * par + s)
+                w = []
+                for i in range(6):
+                    pw = (par - parz[i]) % 2
+                    poly = {}
+                    for m in core.monomials(dd - 5, pw):
+                        c = _r.randint(-3, 3)
+                        if c:
+                            poly[m] = Fraction(c)
+                    w.append(poly)
+                addc(f'randJ{dd}_par{par}_{s}', f'polar{dd}-random' + ('-odd' if par else ''), polar(w), f'random element of J_{dd} (seed {1000*dd+10*par+s})')
     return C
 
 

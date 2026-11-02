@@ -14,12 +14,14 @@ ap.add_argument('--dmin', type=int, default=4)
 ap.add_argument('--dmax', type=int, default=10)
 ap.add_argument('--parities', default='0,1')
 ap.add_argument('--prime-index', type=int, default=0)
+ap.add_argument('--prime', type=int, default=None)
 ap.add_argument('--tag', default='e1spaces')
 ap.add_argument('--no-lifts', action='store_true')
 args = ap.parse_args()
 
 F, A, q = load()
-p = core.PRIMES[args.prime_index]
+p = args.prime or core.PRIMES[args.prime_index]
+PTAG = '' if p == core.PRIMES[0] else f'_q{p}'
 Ap = core.reduce_mod(A, p); Fp = core.reduce_mod(F, p)
 Fi = [pderiv(Fp, i, p) for i in range(NV)]
 pA = core.parity_of(A)
@@ -132,5 +134,5 @@ if __name__ == '__main__':
             print(json.dumps(info), flush=True)
             log_line(f'{OUT}/{args.tag}.jsonl', info)
             if basis:
-                with open(f'{OUT}/e1kernel_d{d}_p{par}.json', 'w') as fh:
+                with open(f'{OUT}/e1kernel_d{d}_p{par}{PTAG}.json', 'w') as fh:
                     json.dump({'info': info, 'p': p, 'basis_modp': [core.to_str(b) for b in basis], 'lifts_modp': lifts}, fh)

@@ -63,3 +63,19 @@ of `D7 = Δ_X e2(X²)` and `D7Y` are *implied* by the degree-4 E1 failure of `e2
 therefore concentrated on `triv` (both parities), the unrestricted w-space at d ≤ 8, and the subgroup
 (S2×S2, S3×S2, S2×S3) types, which probe invariant denominators of much higher degree (orbit products).
 The sign sectors are still run at low cost as consistency checks of the principle.
+
+## 4. Results so far (local light runs; remote batches appended as they land)
+
+| family | sector | nD | dimK (=J+ker) | dimP | restarts | best rel | minima | verdict |
+|---|---|---:|---:|---:|---:|---:|---|---|
+| w-space (unrestricted) | jac d=5 pD=0 (`Σ c_i F_{X_i}`) | 3 | 3 | 3 | 12 | 0.58 | 0.581 (9), 0.592 (3) | no solution |
+| w-space (unrestricted) | jac d=5 pD=1 (`Σ c_j F_{Y_j}`) | 3 | 3 | 3 | 12 | 0.60 | 0.603 (9), 0.656 (3) | no solution |
+| w-space (unrestricted) | jac d=6 pD=0 (K = 18) | 18 | 18 | 17 | 3 | 0.205 | 0.213/0.205/0.207 | remote batch pending |
+| invariant | triv d=6 pD=0 (`J^G_6`) | 30 | 4 | 3 | 12 | 8.3e-3 | single | no solution |
+| invariant | triv d=7 pD=0 (`J^G_7`) | 37 | 8 | 7 | 10 | 4.3e-4 | single bowl | no solution (stable under cond 1e-14) |
+| invariant | triv d=7 pD=1 (`J^G_7`) | 37 | 8 | 7 | 12 | 1.5e-4 | single bowl | no solution; rationalised point fails E1 |
+| sgnX | d=7 pD=0 (`D7 + J^{sgnX}_7`) | 12 | 3 | 3 | 12 | 1.6e-2 | 0.0157 (9), 0.357 (3) | no solution (as predicted by §3) |
+| sgnY | d=7 pD=1 (`D7Y + J^{sgnY}_7`) | 12 | 3 | 3 | 12 | 1.8e-2 | 0.0182 (5), 0.0615 (7) | no solution |
+
+Remote jobs (hodge-sextics, force-submitted at load ≈ 400 because the runner's capacity gate was never
+satisfied while ~50 jobs of other agents were running): `search-symmetric-sextic-residual-{kernels,vp1,vp2,single}`.

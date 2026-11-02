@@ -1,0 +1,11 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d=6 parmode=mixed: g-space dim n=36
+built 666 quadratic-form coefficient polys of degree 12 in 0.1s
+gauge vectors in V: 1
+Traceback (most recent call last):
+  File "/tmp/hodge/results/klein-coupled-character/wave2-excl/relax.py", line 115, in <module>
+    dimGV = nmod_mat(len(gauge_tensors), len(pairs), flat, p).rank()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "flint/types/nmod_mat.pyx", line 136, in flint.types.nmod_mat.nmod_mat.__init__
+  File "flint/types/nmod.pyx", line 63, in flint.types.nmod.nmod.__init__
+TypeError: cannot create nmod from object of type <class 'fractions.Fraction'>

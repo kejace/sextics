@@ -17,6 +17,8 @@ characters); keys = base-6 digit vectors of weights on a greedy generating set; 
 """
 from __future__ import annotations
 import sys, os, time, json, math, itertools
+for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ.setdefault(_v, "1")
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 sys.path.insert(0, '/tmp/hodge/results/cycle-q2')
 import numpy as np
@@ -751,3 +753,109 @@ def exact_confirm(F, A, q, D, verbose=False, do_lift=True):
 
 def family_label(kind, **kw):
     return kind + ('' if not kw else ':' + ','.join(f'{k}={v}' for k, v in kw.items()))
+
+
+# ----------------------------------------------------------------------------
+# Levenberg-Marquardt variable projection (Kaufman Jacobian) -- better basins than L-BFGS on |r|^2
+# ----------------------------------------------------------------------------
+
+def _kvp_residual_and_jac(kvp, a):
+    """r = P_perp(a) b(a) (complex, R) and Kaufman Jacobian J (R x K complex): J_k = P_perp (M_k x - db/da_k)."""
+    M, b, at = kvp.assemble(a)
+    # economic QR with column pivoting for rank-deficient M
+    if M.shape[1] > 0:
+        Q, Rm, piv = sla.qr(M, mode='economic', pivoting=True, check_finite=False)
+        diag = np.abs(np.diag(Rm))
+        rk = int(np.sum(diag > kvp.cond * max(diag[0], 1e-300))) if len(diag) else 0
+        Q = Q[:, :rk]
+        # least squares solution via the rank-rk factor (basic solution)
+        if rk:
+            y = Q.conj().T @ b
+            xr = sla.solve_triangular(Rm[:rk, :rk], y, check_finite=False)
+            x = np.zeros(M.shape[1], dtype=complex); x[piv[:rk]] = xr
+        else:
+            x = np.zeros(M.shape[1], dtype=complex)
+        r = b - Q @ (Q.conj().T @ b)
+        r = -r  # convention r = M x - b
+    else:
+        Q = np.zeros((kvp.R, 0), dtype=complex); x = np.zeros(0, dtype=complex); r = -b
+    xc = x[:kvp.nC]
+    # dM/da_k x
+    ym = np.zeros((kvp.R, kvp.nD), dtype=complex)
+    for mi_, Mk in enumerate(kvp.Mm):
+        if Mk.nnz:
+            ym[:, mi_] = Mk @ xc
+    dMx = ym @ kvp.Bmat                     # R x K
+    Wa = np.einsum('rmk,k->rm', kvp.W, a)   # R x nD
+    Wat = np.einsum('rmk,m->rk', kvp.W, at) # R x K
+    db = Wa @ kvp.Bmat + Wat                # R x K
+    G = dMx - db
+    J = G - Q @ (Q.conj().T @ G) if Q.shape[1] else G
+    return r, J, x
+
+
+def search_lm(kvp, n_restarts=10, seed=0, max_nfev=200, complex_mode=True, verbose=False, stop_rel=1e-13,
+              callback=None, time_budget=None, scale_pen=1.0):
+    """random-restart Levenberg-Marquardt on the real-ified residual with sphere normalization."""
+    from scipy.optimize import least_squares
+    rng = np.random.default_rng(seed)
+    K = kvp.K
+    dim = 2 * K if complex_mode else K
+    out = []
+    t0 = time.time()
+
+    def to_a(z):
+        return (z[:K] + 1j * z[K:]) if complex_mode else z.astype(complex)
+
+    def fun(z):
+        a_full = to_a(z); n = np.linalg.norm(a_full); a = a_full / n
+        r, J, x = _kvp_residual_and_jac(kvp, a)
+        kvp._nfev += 1
+        res = np.concatenate([r.real, r.imag, [scale_pen * (n - 1.0)]])
+        # Jacobian wrt z through normalization: da/da_full = (I - a a^H)/n  (complex-linear part) -- but normalization is
+        # not holomorphic; do it in real coordinates: a_real = z/|z| with z in R^{2K} (complex_mode) -> P = (I - zz^T/|z|^2)/|z|
+        Jr = np.vstack([np.hstack([J.real, -J.imag]), np.hstack([J.imag, J.real])])  # (2R) x (2K) wrt (re a, im a)
+        zr = np.concatenate([a.real, a.imag])
+        P = (np.eye(2 * K) - np.outer(zr, zr)) / n
+        Jz = Jr @ P
+        if not complex_mode:
+            # params are only re parts: columns for im parts dropped; z real of length K
+            Jz = Jz[:, :K]
+            P2 = np.eye(K)
+        pen = scale_pen * (z / max(n, 1e-300))
+        Jfull = np.vstack([Jz, pen[None, :]])
+        fun.last = Jfull
+        return res
+
+    def jac(z):
+        return fun.last
+    for it in range(n_restarts):
+        if time_budget and time.time() - t0 > time_budget:
+            break
+        z0 = rng.standard_normal(dim); z0 /= np.linalg.norm(z0)
+        try:
+            res = least_squares(fun, z0, jac=jac, method='lm', max_nfev=max_nfev, xtol=1e-15, ftol=1e-15, gtol=1e-15)
+            z = res.x
+        except Exception as ex:
+            if verbose:
+                print('[lm] failure', ex, file=sys.stderr)
+            continue
+        a = to_a(z); a /= np.linalg.norm(a)
+        f, x, r, b = kvp.value(a)
+        bn = float(np.linalg.norm(b))
+        rel = f / max(bn * bn, 1e-300)
+        spur, srel = kvp.is_spurious(a)
+        cand = {'f': f, 'rel': rel, 'bnorm': bn, 'a': a, 'iters': int(res.nfev), 'restart': it, 'spurious': spur,
+                'div_rel': srel, 'nfev': int(res.nfev), 'method': 'lm'}
+        out.append(cand)
+        if verbose:
+            print(f'[lm] restart {it}: f={f:.3e} rel={rel:.3e} nfev={res.nfev} spur={spur} ({time.time()-t0:.1f}s)', file=sys.stderr)
+        if callback:
+            callback(cand)
+        if rel < stop_rel and not spur:
+            break
+    out.sort(key=lambda c: (c['spurious'], c['rel']))
+    return out
+
+
+KoszulVarPro.search_lm = search_lm

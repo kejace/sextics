@@ -1,0 +1,19 @@
+# Draft discussion comment — cyclic-triple-residual (#155) — wave 2, exclusion/rigor lens
+
+(Draft; update numbers from /tmp/hodge/notes/wave2-cyclic-triple-residual-excl.md before posting.  Do not post from here.)
+
+**Low-degree exclusion for `cyclic-triple-residual` (q = 1, A = X0^3 Y0^3): no certificate with deg D <= [BOUND]; semi-invariant degree-9 families excluded; structured candidates up to degree 12 excluded.**  AI-assisted research update; code and receipts in [packet link].
+
+Setting: variables X0,X1,X2,Y0,Y1,Y2, F = Σ Z_i^6 + (5/7)(X0^3X1Y0Y1 + X0^3X2^3 + X0^2Y0Y1Y2^2 + X0X1Y1^3Y2 + X0X2^3Y1Y2 + X1X2^3Y0Y1), the diagonal symmetry group G of F has order 18 (generators X2 -> ζ3 X2 and (X0,X1,X2,Y0,Y1,Y2) -> (w, w^5, w, w^2, w^2, 1)·Z, w = ζ6); R = Q[Z]/J(F) is the Jacobian ring.
+
+**1. E1 structure (proven).** Writing the cleared identity as E1: Σ N_i F_i = A D and E2: D div N − N(D) = F Q, E1 says [A][D] = 0 in R. The annihilator of [A] in R_d is zero for d <= 7 and one-dimensional in degree 8 (spanned by an explicit 25-term form D8 in the G-sector (0,4)); dimensions 120, 556, 1020 in degrees 9, 10, 11. Modular kernel dimensions (primes 2147483647, 1000003, 32003, identical) are upper bounds for the Q-kernel because dim J(F)_d mod p equals the complete-intersection Hilbert function in every degree used (checked); the lower bound at d = 8 is exact (A·D8 = Σ P_i F_i with an explicit integer P). Consequences: no denominator of degree <= 4; every denominator of degree 5, 6, 7 is D = G(F) = Σ G_i ∂_i F for a polynomial vector field G of degree d − 5; every denominator of degree 8 is c·D8 + G(F).
+
+**2. Hessian relaxation (proven exclusions).** For D = G(F) the Koszul exactness of (∂_i F) gives N = A G + S·∇F with S antisymmetric, and E2 modulo J(F) reduces to A · G^T Hess(F) G ∈ J(F)_{2d} (for d = 8 the corresponding expression in (c, G)). This is a system of quadrics in the coefficients of G (all parities and characters, no symmetry assumption), invariant under G -> G + hE (D -> D + 6hF, the illegal denominators). On the gauge slice "Y2-component of G has no monomial divisible by Y2" the ideal is m-primary modulo p = 1000003 for d = 5 (6 unknowns), 6 (35 unknowns, 675 quadrics), [7 (120 unknowns, 1441 quadrics)], [8 (316 unknowns, ...)]. For a homogeneous ideal whose generators are reductions of the rational ones (dim J_{2d} mod p = c.i. value), m-primary mod p implies that the rational relaxation has only the illegal solutions (a nonzero projective zero over Q-bar would reduce to a nonzero zero mod a prime above p). Hence **no certificate with deg D <= [BOUND]**, for any homogeneous D (any parity, any character).
+
+**3. Degree 9–[10] semi-invariant families (proven for those families).** [per-sector results: for each of the 18 G-characters, the E1-admissible family (exact kernel elements + J(F)_9^χ, N by exact E1 lifts) satisfies the degree-0 Koszul relaxation only on the illegal locus (gauge-fixed m-primary mod p) — sectors done: ...]. Every individual exact kernel element (120 at d = 9, [556 at d = 10]) is excluded by the full E1+E2 sector system with the modular-rank argument sealed by exact rational null vectors.
+
+**4. Structured candidates (proven exclusions).** D8 times coordinates/quadratic monomials/C/Z'/X2^3, polar products ∂_iF ∂_jF, pieces X2^2 H, X2^3 H', C^3, Z'^3, H H', H^2, ... up to degree 12 — all sealed inconsistent (table in the packet).
+
+**5. Re-verification of earlier claims.** [D8 exclusion: unrestricted system mod 1000003 rank r / r+1; sector system sealed with 33 exact null vectors; exact fmpq rref agrees with wave-1's fmpz rank 1155/1156]. fqlx's exclusion of X2^6+Y0^6+Y1^6+Y2^6 reproduced earlier (dossier).
+
+What this does not say: nothing about degrees >= [BOUND+1] beyond the listed families; no statement of nonexistence. Primes, ranks, nullities and replay commands: packet README.

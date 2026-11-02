@@ -89,15 +89,22 @@ def jac_block(F, deg, p, par=None, k=None):
             keys.append((i, m)); polys.append(shift(Fi[i], m, 1, p))
     return keys, polys
 
+def modp(v, p):
+    """reduce an int / Fraction / fmpq to Z/p."""
+    if isinstance(v, int):
+        return v % p
+    fv = Fraction(v) if not isinstance(v, Fraction) else v
+    return (fv.numerator * pow(fv.denominator, -1, p)) % p
+
 def dense(colpolys, rows, p, rhs=None):
     R = len(rows); C = len(colpolys) + (1 if rhs is not None else 0)
     flat = [0] * (R * C)
     for j, col in enumerate(colpolys):
         for e, v in col.items():
-            flat[rows[e] * C + j] = v % p
+            flat[rows[e] * C + j] = modp(v, p)
     if rhs is not None:
         for e, v in rhs.items():
-            flat[rows[e] * C + len(colpolys)] = v % p
+            flat[rows[e] * C + len(colpolys)] = modp(v, p)
     return nmod_mat(R, C, flat, p)
 
 def e1_kernel_block(F, A, d, p, parD=0, k=None, want_basis=True):

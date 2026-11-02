@@ -1,0 +1,14 @@
+{
+ "experiment": "b:hessian-relaxation",
+ "d": 6,
+ "par": 0,
+ "p": 2147483629,
+ "fermat": false,
+ "kernel": "none",
+ "n_jacobian": 18,
+ "n_vars": 18,
+ "ring_dim_2d": 866,
+ "n_pairs": 171,
+ "rank_quadrics": 83,
+ "full_rank": false
+}

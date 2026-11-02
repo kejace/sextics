@@ -245,6 +245,10 @@ class FastFamily:
             self.Kcols_basis = None
         self.dimP = self.Vr.shape[1]
         self.nfev = 0
+        rng0 = np.random.default_rng(12345)
+        a0 = self.Vr @ rng0.standard_normal(self.dimP); a0 /= np.linalg.norm(a0)
+        _, phin0 = self.value(a0)
+        self.fscale = 1.0 / max(phin0, 1e-300)
         self.build_time = time.time() - t0
         if verbose:
             print(f'[fastvp] d={d} parD={parD} K={self.K} P={P} (R\'={Rp}) nK={self.nK} nQ(eliminated)={self.nQ} '
@@ -327,7 +331,7 @@ class FastFamily:
             phin = float(np.vdot(Phi[0::2], Phi[0::2]).real)
         return (f, phin, k) if want_k else (f, phin)
 
-    def value_and_grad(self, u):
+    def value_and_grad(self, u, return_jac=False):
         a_full = self.Vr @ u; na = np.linalg.norm(a_full); a = a_full / na
         D = self.Dv @ a; gD = self.gradD @ a; N0 = self.N0v @ a; dN0 = self.divN0 @ a
         Phi = D * dN0 - np.sum(N0 * gD, axis=1)
@@ -355,10 +359,43 @@ class FastFamily:
             c[:, i] += self.Fv[:, j] * wij
             c[:, j] -= self.Fv[:, i] * wij
         dPsik = self.Dv * U[:, None] - np.einsum('pim,pi->pm', self.gradD, c)
-        g = 2.0 * np.real(np.conj(r) @ (dPhi + dPsik))
+        Ja = dPhi + dPsik                                     # complex P x K Jacobian of the residual wrt a (Kaufman approx.)
+        if return_jac:
+            return f, r, Ja, a
+        g = 2.0 * np.real(np.conj(r) @ Ja)
         g_full = (g - float(g @ a) * a) / na
         self.nfev += 1
-        return f, self.Vr.T @ g_full
+        sc = getattr(self, 'fscale', 1.0)
+        return f * sc, (self.Vr.T @ g_full) * sc
+
+    def polish(self, a, iters=12, verbose=False):
+        """Kaufman/Gauss-Newton refinement of a near-solution: delta = -(P_perp J_a)^+ r with P_perp the projector off col(Psi)."""
+        a = np.asarray(a, float); a = a / np.linalg.norm(a)
+        best_a, best_f = a, self.value(a)[0]
+        for it in range(iters):
+            u = self.Vr.T @ a
+            f, r, Ja, a_n = self.value_and_grad(u, return_jac=True)
+            Psi, _ = self.assemble(a_n)
+            Bk = self.Kcols_basis
+            if Bk is not None: Psi = Psi @ Bk
+            if self.sector == 'inv':
+                rows = slice(0, None, 2)
+                Psi = Psi[rows]; r = r[rows]; Ja = Ja[rows]
+            M = np.vstack([Psi.real, Psi.imag]); Jr = np.vstack([Ja.real, Ja.imag]) @ self.Vr; rr = np.concatenate([r.real, r.imag])
+            Qm, _ = np.linalg.qr(M)
+            Jp = Jr - Qm @ (Qm.T @ Jr); rp = rr - Qm @ (Qm.T @ rr)
+            # remove the radial direction (a on the sphere): restrict to tangent space
+            du, *_ = sla.lstsq(Jp, -rp, cond=1e-10, lapack_driver='gelsd', check_finite=False)
+            a_new = a_n + self.Vr @ du; a_new /= np.linalg.norm(a_new)
+            f_new = self.value(a_new)[0]
+            if verbose:
+                print(f'[polish] it {it}: f {f:.3e} -> {f_new:.3e} |du|={np.linalg.norm(du):.2e}', file=sys.stderr)
+            if f_new < best_f:
+                best_a, best_f = a_new, f_new
+            if f_new > 0.5 * f or np.linalg.norm(du) < 1e-15:
+                break
+            a = a_new
+        return best_a, best_f
 
     def fd_check(self, seed=0, h=1e-6):
         rng = np.random.default_rng(seed)
@@ -370,7 +407,7 @@ class FastFamily:
         return f0, float(g @ v), fd
 
     # ---- search
-    def search(self, n_restarts=10, seed=0, maxiter=400, gtol=1e-12, verbose=False, stop_rel=1e-13, log=None, tag=''):
+    def search(self, n_restarts=10, seed=0, maxiter=400, gtol=1e-12, verbose=False, stop_rel=1e-13, log=None, tag='', polish_rel=1e-5):
         rng = np.random.default_rng(seed)
         out = []
         t0 = time.time()
@@ -382,8 +419,13 @@ class FastFamily:
             a = self.Vr @ res.x; a /= np.linalg.norm(a)
             f, phin = self.value(a)
             rel = f / max(phin, 1e-300)
+            rel_lbfgs = rel
+            if rel < polish_rel:
+                a, f = self.polish(a)
+                phin = self.value(a)[1]
+                rel = f / max(phin, 1e-300)
             Dn = float(np.linalg.norm(self.Dv @ a)) / math.sqrt(self.P)
-            cand = {'f': f, 'phi2': phin, 'rel': rel, 'iters': int(res.nit), 'restart': it, 'seed': seed,
+            cand = {'f': f, 'phi2': phin, 'rel': rel, 'rel_lbfgs': rel_lbfgs, 'iters': int(res.nit), 'restart': it, 'seed': seed,
                     'Dnorm_onX': Dn, 'seconds': round(time.time() - t1, 2), 'a': a.tolist(), 'msg': str(res.message)[:60]}
             out.append(cand)
             if log is not None:

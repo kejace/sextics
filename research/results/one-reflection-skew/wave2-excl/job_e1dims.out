@@ -1,0 +1,4 @@
+{"d": 5, "dimK_total": 6, "dimJ_total": 6, "extra_total": 0, "dimK_gauged_total": 6, "dimS_d": 252, "seconds": 0.8, "exact": true}
+{"d": 6, "dimK_total": 36, "dimJ_total": 36, "extra_total": 0, "dimK_gauged_total": 35, "dimS_d": 462, "seconds": 2.0, "exact": true}
+{"d": 7, "dimK_total": 135, "dimJ_total": 126, "extra_total": 9, "dimK_gauged_total": 129, "dimS_d": 792, "seconds": 4.4, "exact": true}
+{"d": 8, "dimK_total": 480, "dimJ_total": 336, "extra_total": 144, "dimK_gauged_total": 459, "dimS_d": 1287, "seconds": 47.7, "exact": true}

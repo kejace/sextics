@@ -1,4 +1,4 @@
-STATUS: in progress (restarted 2026-11-01 ~19:00 EST) — baseline + synthetic timing jobs being prepared; no timings yet.
+STATUS: in progress — 19 template timing jobs running on hodge-sextics (baseline m3-coupled/contact46006 + synthetic e1/e2/full at 1k..500k raw products); kernel sparse-arithmetic microbenchmarks done (too slow/memory-hungry, see below); now building the Kronecker big-integer checker (Lean scaffolding under /tmp/hodge/lean/capacity/src/Reflect/).
 
 # Lean capacity study (accepted template vs alternatives)
 
@@ -17,3 +17,14 @@ Work dir: /tmp/hodge/lean/capacity (log.jsonl, gen/, src/Cap/, results/). Remote
 
 ## Timings
 (to be filled)
+
+## Kernel-evaluation microbenchmarks (local, lean 4.33, `decide +kernel`)
+Sparse polynomial arithmetic on `List (Nat × Int)` (packed base-256 exponent keys), balanced merge-tree multiplication:
+| variant | case | wall | maxrss |
+|---|---|---|---|
+| import-only baseline | — | 6 s | 1.6 GB |
+| Core0 (Decidable `if` merge, structural recursion) | mul 100×100 terms (10k raw products, ~70k merge steps) | 31.7 s | 4.1 GB |
+| Core1 (Bool `Nat.blt` matches) | same | 25.3 s | 3.7 GB |
+| Core2 (explicit `Nat.rec`) | same | 24.5 s | 3.5 GB |
+| Core0 | `scaleT` only (10k product terms, no merging) | 5.5 s | 1.8 GB |
+Conclusion: the kernel rewriter costs ~250–300 µs and ~25 KB **per merge step**; a single declaration is memory-bound at ~3×10^5 steps (14 GiB). Sparse kernel arithmetic is therefore at best a few × better than `ring` and cannot reach 10^6+ raw products. The scalable design is Kronecker evaluation: encode each explicit polynomial as a big integer (GMP-accelerated `Nat` ops in the kernel, O(#terms) kernel steps), compare `ψ(L)=ψ(R)`, and discharge soundness by a degree bound (homogeneity) + coefficient bound (ℓ1 norms) + mixed-radix injectivity lemma.

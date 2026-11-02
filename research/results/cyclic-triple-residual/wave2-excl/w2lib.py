@@ -262,10 +262,191 @@ def run_msolve(inp, out, threads=1, gb=0, timeout=None, extra=()):
 
 def parse_msolve_gb(path):
     """Return list of polynomial strings from a -g 2 output file."""
-    txt = open(path).read()
+    txt = '\n'.join(l for l in open(path).read().splitlines() if not l.startswith('#'))
     txt = txt.strip()
     if txt.startswith('['): txt = txt[1:]
     if txt.endswith(']:'): txt = txt[:-2]
     elif txt.endswith(']'): txt = txt[:-1]
     polys = [s.strip() for s in txt.split(',\n') if s.strip()]
     return polys
+
+# ---------------------------------------------------------------------------------------------
+# Sealed fixed-D exclusion: modular ranks + exact rational null vectors (modular-rank argument)
+# ---------------------------------------------------------------------------------------------
+def sealed_exclusion(F, A, q, D, primes=(1000003, 2147483587), max_primes=4, verbose=False):
+    """Sector-reduced fixed-D system (sect.Sys).  Returns a dict with modular ranks at two primes, the number of
+    exactly verified rational null vectors (lower bound on nullity_Q => upper bound on rank_Q), and the conclusion:
+      sealed inconsistent over Q  iff  verified_null == nullity_p  and  rank_aug_p > rank_p.
+    (rank_p <= rank_Q <= cols - verified_null; rank_aug_Q >= rank_aug_p.)"""
+    import sect
+    t0 = time.time()
+    Sy = sect.Sys(F, A, q, D, verbose=verbose)
+    p1, p2 = primes[0], primes[1]
+    def null_mod(p):
+        M = Sy.dense(p, aug=False)
+        X, nullity = M.nullspace()
+        vs = [[int(X[j, k]) for j in range(Sy.ncols)] for k in range(nullity)]
+        if vs:
+            Mv = nmod_mat(len(vs), Sy.ncols, [x for v in vs for x in v], p)
+            R, rk = Mv.rref()
+            vs = [[int(R[i, j]) for j in range(Sy.ncols)] for i in range(rk)]
+        return vs, nullity
+    v1, n1 = null_mod(p1); v2, n2 = null_mod(p2)
+    ra1 = Sy.dense(p1, aug=True).rank(); ra2 = Sy.dense(p2, aug=True).rank()
+    out = {'rows': Sy.nrows, 'cols': Sy.ncols, 'nN': Sy.nN, 'nQ': Sy.nQ, 'G_order': Sy.G_order, 'd': Sy.d,
+           'primes': [p1, p2], 'nullity': [n1, n2], 'rank': [Sy.ncols - n1, Sy.ncols - n2], 'rank_aug': [ra1, ra2]}
+    sealed = 0
+    if n1 == n2 and len(v1) == len(v2):
+        mod = p1 * p2
+        for a, b in zip(v1, v2):
+            xs = [core.crt_pair(x, p1, y, p2)[0] for x, y in zip(a, b)]
+            rat = [core.ratrecon(x, mod) for x in xs]
+            if any(r is None for r in rat): continue
+            L = 1
+            for r in rat: L = L * r.denominator // math.gcd(L, r.denominator)
+            xi = [int(r * L) for r in rat]
+            acc = {}
+            for j, col in enumerate(Sy.cols):
+                if xi[j] == 0: continue
+                for r_, v in col.items(): acc[r_] = acc.get(r_, 0) + v * xi[j]
+            if all(v == 0 for v in acc.values()): sealed += 1
+    out['verified_null'] = sealed
+    out['consistent_mod_p'] = (ra1 == Sy.ncols - n1) or (ra2 == Sy.ncols - n2)
+    out['sealed_inconsistent'] = (sealed == n1) and (ra1 > Sy.ncols - n1) and (ra2 > Sy.ncols - n2)
+    out['seconds'] = round(time.time() - t0, 1)
+    return out
+
+# ---------------------------------------------------------------------------------------------
+# Exact E1-kernel elements by sector (multi-prime CRT + rational reconstruction + exact E1 solve)
+# ---------------------------------------------------------------------------------------------
+def kernel_canonical(S, d, c, p):
+    """Canonical (rref) basis mod p of {D in S_d^c : A D in J_{d+6}} / J_d^c, as coefficient rows over the sector
+    monomials (non-pivot-of-J coordinates only are nonzero at pivot positions... we return full rows)."""
+    Dm = [m for m in mons(d) if S.chi(m) == c]; idx = {m: i for i, m in enumerate(Dm)}
+    target = cadd(S.chiA, c)
+    cols = []
+    for m in Dm:
+        cols.append({tuple(a + b for a, b in zip(m, e)): v % p for e, v in S.Az.items()})
+    nA = len(cols)
+    for i in range(6):
+        ci = cadd(target, S.chiE[i])
+        for m in mons(d + 1):
+            if S.chi(m) != ci: continue
+            col = {}
+            for e, v in S.dF[i].items():
+                k = tuple(a + b for a, b in zip(m, e)); col[k] = (col.get(k, 0) + v) % p
+            cols.append(col)
+    rows = {}
+    for col in cols:
+        for e in col: rows.setdefault(e, len(rows))
+    R, C = len(rows), len(cols)
+    flat = [0] * (R * C)
+    for j, col in enumerate(cols):
+        for e, v in col.items(): flat[rows[e] * C + j] = v
+    M = nmod_mat(R, C, flat, p)
+    X, nullity = M.nullspace()
+    if nullity == 0: return Dm, [], 0
+    proj = nmod_mat(nullity, nA, [int(X[j, k]) for k in range(nullity) for j in range(nA)], p)
+    Pr, kA = proj.rref()
+    vecs = [[int(Pr[i, j]) for j in range(nA)] for i in range(kA)]
+    # reduce modulo J_d^c
+    red = Reducer(S, d, c, p)
+    assert red.mons == Dm
+    nfs = red.nf_rows(vecs) if vecs else []
+    # nfs are coordinates on standard monomials; embed back and rref
+    std = red.standard
+    full = []
+    for v in nfs:
+        row = [0] * nA
+        for s, j in enumerate(std): row[j] = v[s]
+        if any(row): full.append(row)
+    if not full: return Dm, [], red.rank
+    Mf = nmod_mat(len(full), nA, [x for r in full for x in r], p)
+    Rf, rk = Mf.rref()
+    out = [[int(Rf[i, j]) for j in range(nA)] for i in range(rk)]
+    return Dm, out, red.rank
+
+def kernel_exact(S, d, c, primes, verbose=False):
+    """Exact rational kernel basis in sector c (CRT over primes + ratrecon + exact E1 solve).
+    Returns list of dicts {Kz, Pz, L, verified} (integer polys; sum Pz_i dFz_i = Az Kz) or None entries on failure."""
+    t0 = time.time()
+    bases = []
+    for p in primes:
+        Dm, vecs, rJ = kernel_canonical(S, d, c, p)
+        bases.append((p, vecs))
+    k = len(bases[0][1])
+    if any(len(b[1]) != k for b in bases):
+        return None, {'error': 'kernel dimension differs between primes', 'dims': [len(b[1]) for b in bases]}
+    if k == 0: return [], {'dim': 0}
+    nA = len(Dm)
+    # CRT across primes
+    elems_ = []
+    for r in range(k):
+        xs = list(bases[0][1][r]); mod = bases[0][0]
+        for p, vecs in bases[1:]:
+            xs = [core.crt_pair(x, mod, y, p)[0] for x, y in zip(xs, vecs[r])]; mod *= p
+        rat = [core.ratrecon(x, mod) for x in xs]
+        if any(x is None for x in rat):
+            elems_.append(None); continue
+        L = 1
+        for x in rat: L = L * x.denominator // math.gcd(L, x.denominator)
+        Kz = {Dm[j]: int(rat[j] * L) for j in range(nA) if rat[j]}
+        elems_.append(Kz)
+    # exact E1 solve for all elements at once: sum P_i dFz_i = Az Kz  (rows: S_{d+6}^{target})
+    target = cadd(S.chiA, c)
+    mT = [m for m in mons(d + 6) if S.chi(m) == target]; iT = {m: i for i, m in enumerate(mT)}
+    cols = []; meta = []
+    for i in range(6):
+        ci = cadd(target, S.chiE[i])
+        for m in mons(d + 1):
+            if S.chi(m) != ci: continue
+            cols.append(imul({m: 1}, S.dF[i])); meta.append((i, m))
+    good = [e for e in elems_ if e is not None]
+    R, C, K = len(mT), len(cols), len(good)
+    flat = [0] * (R * (C + K))
+    for j, P_ in enumerate(cols):
+        for e, v in P_.items(): flat[iT[e] * (C + K) + j] += v
+    for kk, Kz in enumerate(good):
+        for e, v in imul(S.Az, Kz).items(): flat[iT[e] * (C + K) + C + kk] += v
+    Maug = fmpq_mat(fmpz_mat(R, C + K, flat))
+    Mr, rk = Maug.rref()
+    piv = []
+    for i in range(rk):
+        j = 0
+        while j < C + K and Mr[i, j] == 0: j += 1
+        piv.append(j)
+    rankM = sum(1 for j in piv if j < C)
+    results = []
+    gi = 0
+    for Kz in elems_:
+        if Kz is None:
+            results.append(None); continue
+        kk = gi; gi += 1
+        # consistent iff no pivot in column C + kk ... (pivots among rhs columns indicate inconsistency of that rhs
+        # only if the pivot row has zeros in the other rhs columns; simpler: solve individually using the rref of M)
+        results.append({'Kz': Kz})
+    # individual exact solves (robust): reuse rref of [M | all rhs]: a rhs column is consistent iff it is not a pivot
+    # column AND it has no nonzero entry in rows beyond rankM where all M-columns are zero. Do the simple thing:
+    for kk, res in enumerate([r for r in results if r is not None]):
+        colj = C + kk
+        # rows i >= rankM of rref have zero M-part; consistency iff Mr[i, colj] == 0 for all such i
+        ok = all(Mr[i, colj] == 0 for i in range(rankM, rk))
+        if not ok:
+            res['verified'] = False; res['Pz'] = None; continue
+        xs = [Fraction(0)] * C
+        for i, j in enumerate(piv[:rankM]):
+            v = Mr[i, colj]; xs[j] = Fraction(int(v.p), int(v.q))
+        L = 1
+        for x in xs: L = L * x.denominator // math.gcd(L, x.denominator)
+        Pz = [dict() for _ in range(6)]
+        for (i, m), x in zip(meta, xs):
+            if x: Pz[i][m] = int(x * L)
+        Kzz = {e: v * L for e, v in res['Kz'].items()}
+        lhs = {}
+        for i in range(6): lhs = core.add(lhs, imul(Pz[i], S.dF[i]))
+        res['verified'] = (lhs == imul(S.Az, Kzz))
+        res['Kz'] = Kzz; res['Pz'] = Pz; res['L'] = L
+    info = {'dim': k, 'reconstructed': sum(1 for r in results if r is not None),
+            'verified': sum(1 for r in results if r is not None and r.get('verified')), 'seconds': round(time.time() - t0, 1),
+            'e1_rows': R, 'e1_cols': C}
+    return results, info

@@ -14,3 +14,11 @@ log `wave2-excl.log.jsonl` (one JSON line per experiment).
 
 ## Results so far
 (none yet)
+
+### R1. Degree-6 exclusion for A independently REPLICATED (exact over Q)  [DONE 00:40]
+Own implementation `wave2-excl/relax.py` ((U,V) frame, G = 7f(U)+7f(V), T = prod(U_i^2-V_i^2), L = (G)+J(G)^2+(R_ijk),
+Euler gauge drops the z5-divisible coefficient of a_5). Prime 65521 and exact rationals. Results identical to the
+thread's DEGREE_SIX.md (p = 101): block L-ranks 603/558/396/260/396/558 (mod p = over Q), augmented Q-ranks
+713/715/617/470/617/715, constraint rank 437; exact square elimination kills the 30 off-diagonal entries, then the 5
+diagonal ones (rank 15) => D = 0 or D = c*G. Degree-5 smoke test: all 6 parameters killed (rank 21). Receipts
+`wave2-excl/relax-full-d6-p65521-local.json`, `-exactQ.json`, `smoke-d5-p101.json`.

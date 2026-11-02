@@ -9,7 +9,7 @@ fV = core.parse("(X0-Y0)**6 + 5*(X0-Y0)**5*(X1-Y1)/7 + 5*(X0-Y0)**2*(X1-Y1)**3*(
 chk = core.sub(core.scale(core.add(fU, fV), core.Fraction(1,2)), F)
 print('F = (fU+fV)/2 check:', len(chk) == 0)
 controls = [
-  ('illegal F*U0^2', core.mul(F, core.parse('(X0+Y0)**2'))),
+  ('illegal F*X0^2', core.mul(F, core.parse('X0**2'))),
   ('fU*U0^2 + fV*V0^2', core.add(core.mul(fU, core.parse('(X0+Y0)**2')), core.mul(fV, core.parse('(X0-Y0)**2')))),
 ]
 for name, D in controls:

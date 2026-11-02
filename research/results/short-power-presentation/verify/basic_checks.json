@@ -1,0 +1,12 @@
+{
+ "C1_presentation": true,
+ "quartic_power_rank": 8,
+ "sextic_power_rank": 8,
+ "hessian_symmetrizer_dim_Q": 1,
+ "diag_group_order_projective": 2,
+ "E_I_squared_subsets_passing": [],
+ "apolar_quadrics": 13,
+ "middle_catalecticant_rank_Q": 8,
+ "apolar_baselocus_singular": "dim = 1\ndegree = 8\nncomp = 8\n[1]:\n   _[1]=u5\n   _[2]=u4\n   _[3]=u3\n   _[4]=u2\n   _[5]=u1\n[2]:\n   _[1]=u5\n   _[2]=u4\n   _[3]=u3\n   _[4]=u2\n   _[5]=u0\n[3]:\n   _[1]=u5\n   _[2]=u4\n   _[3]=u3\n   _[4]=u1\n   _[5]=u0\n[4]:\n   _[1]=u5\n   _[2]=u3\n   _[3]=u2\n   _[4]=u1\n   _[5]=u0\n[5]:\n   _[1]=u5\n   _[2]=u4\n   _[3]=u2\n   _[4]=u1\n   _[5]=u0\n[6]:\n   _[1]=5*u4-3*u5\n   _[2]=5*u3-u5\n   _[3]=5*u2+3*u5\n   _[4]=5*u1+2*u5\n   _[5]=5*u0+u5\n[7]:\n   _[1]=5*u4-3*u5\n   _[2]=5*u3-u5\n   _[3]=5*u2-3*u5\n   _[4]=5*u1-2*u5\n   _[5]=5*u0-u5\n[8]:\n   _[1]=u4\n   _[2]=u3\n   _[3]=u2\n   _[4]=u1\n   _[5]=u0\n",
+ "8_points_on_all_apolar_quadrics": true
+}

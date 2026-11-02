@@ -1,0 +1,4 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[NormE2 jac d=7 pD=0] d=7 pD=0 K=63 dimP=60 rows=5796 (bot 5160, top 636) nK=420 built in 0.2s
+gradcheck f0 410.02082641154243 [(110.63677456044293, 110.63677445122266), (13.251304079222566, 13.251304324057855), (-57.234627193478495, -57.23462712126093), (107.24767616286769, 107.24767628289555), (14.333619079562975, 14.333619134276887)]
+[nvp nvp7e] one evaluation 0.532s; rel at random point 8.371e-01

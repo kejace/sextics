@@ -7,3 +7,4 @@
 {"ts":"2026-11-02T00:26:13Z","step":"verify-pull-3","done":270,"agree":135,"disagree":0,"note":"short-power kernel (1,1)@d7 (6,6)@d8 confirmed; symmetric all agree; quadric D8* inconsistent + d9 kernel 2+2; klein d9 24+24; rank-one f,g,RX inconsistent, split control solved"}
 {"ts":"2026-11-02T00:27:56Z","step":"status-v1","note":"wrote wave2-status.md v1 (16 lane boards, cross-lane table, rigor legend, engine notes)"}
 {"ts":"2026-11-02T00:29:57Z","step":"spotcheck-launch","note":"launched spotcheck.py (3 workers, p=2147483563, ~100 (lane,d,parity) tasks) via nohup; rjob unusable on VM"}
+{"ts":"2026-11-02T00:30:05Z","step":"engine-bugs","note":"appended 2 confirmed entries to engine-bugs.md and 2 relays to engine-maintainer-inbox.md"}

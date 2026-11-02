@@ -38,7 +38,7 @@ def log_line(rec, path=LOG):
     rec = dict(rec)
     rec.setdefault('ts', time.strftime('%Y-%m-%dT%H:%M:%S'))
     rec.setdefault('lane', LANE)
-    rec.setdefault('engine', 2)
+    rec.setdefault('engine', 3)
     with open(path, 'a') as f:
         f.write(json.dumps(rec, default=str) + '\n')
 
@@ -66,10 +66,15 @@ class Inst:
         self.pA = core.parity_of(A)
         self.pF = core.parity_of(F)
         # generators must separate the characters of the group
-        full = {}
-        for w in self.elements:
-            full.setdefault(tuple(sum(a * b for a, b in zip(w, g)) % self.n for g in self.gens), 0)
-        self.gens_separate = (len(full) == len(self.elements))
+        # the generator keys must determine the full character (i.e. the generators generate G):
+        # test on all degree-6 monomials (every character of G occurs there)
+        fullmap = {}
+        for e in monomials(6):
+            k = self.key(e)
+            fc = tuple(sum(a * b for a, b in zip(e, w)) % self.n for w in self.elements)
+            fullmap.setdefault(k, set()).add(fc)
+        self.gens_separate = all(len(v) == 1 for v in fullmap.values())
+        self.n_characters = len({fc for v in fullmap.values() for fc in v})
         self._mcache = {}
 
     def key(self, e):
@@ -810,3 +815,106 @@ def run_search(svp, tag, job, restarts, cpus=1, seed0=0, chunk=None, maxiter=300
             if c['rel'] < save_tol:
                 handle_candidate(svp, c, tag, job, extra=extra, confirm=(c['rel'] < cand_tol))
     return {'best': best, 'rels': allrels, 'seconds': time.time() - t0}
+
+
+# ----------------------------------------------------------------------------------------------
+class HessRelax(SectorVarPro):
+    """Hessian relaxation (NECESSARY condition for a Jacobian-type denominator D = sum_i w_i F_i):
+         quad(w) := D div(A w)/q - (A/q) w.grad(D)  must lie in J(F)_{2d+6} (sector, parity of A),
+       because the full E2 reads quad(w) + T_D(c) - F^2 Q = 0 with T_D(c), F^2 Q in J(F).
+       f(w) = || Pi_{J-perp} quad(w) ||^2 ; the number of independent conditions is dim (S/J)_{2d+6}^{sector}
+       (zero for 2d+6 > 24, i.e. d >= 10; tiny for d = 8, 9)."""
+
+    def __init__(self, I, keyD, wbasis, parity=0, exclude=True, verbose=False):
+        t0 = time.time()
+        self.I = I; self.mode = 'hessJ'; self.keyD = tuple(keyD); self.parity = parity; self.cond = 1e-9
+        self.ls = 'auto'
+        q = I.q
+        self.wbasis = list(wbasis); self.K = len(wbasis)
+        d = core.degree(wbasis[0][1]) + 5; self.d = d
+        self.Dk = [shift(I.Fi[i], m, 1) for (i, m) in wbasis]
+        self.labels = [f'{core.to_str({m: Fraction(1)})}*F_{i}' for (i, m) in wbasis]
+        self.pars = fixed_d.numerator_parities({next(iter(self.Dk[0])): Fraction(1)}, I.A)
+        Dki = [[pderiv(Dk, i) for i in range(NV)] for Dk in self.Dk]
+        Am = [shift(I.A, m, 1) for (i, m) in wbasis]
+        pair = {}
+        for k in range(self.K):
+            for l in range(self.K):
+                il, ml = wbasis[l]
+                t = sub(mul(self.Dk[k], pderiv(Am[l], il)), mul(Am[l], Dki[k][il]))
+                t = scale(t, Fraction(1, q))
+                kk, ll = min(k, l), max(k, l)
+                pair[(kk, ll)] = add(pair.get((kk, ll), {}), scale(t, Fraction(1, 2) if k != l else Fraction(1)))
+        degE = 2 * d + 6
+        keyE = I.kadd(I.keyA, I.kmul(2, self.keyD), I.kneg(I.keyF))
+        jcols = []
+        for i in range(NV):
+            mkey = I.kadd(keyE, I.kneg(I.keyFi[i])); mpar = (I.pA - I.parFi[i]) % 2
+            for m in I.sector_monomials(degE - 5, mpar, mkey):
+                jcols.append(shift(I.Fi[i], m, 1))
+        rows = {}
+        for v in pair.values():
+            for e in v:
+                rows.setdefault(e, len(rows))
+        for c in jcols:
+            for e in c:
+                rows.setdefault(e, len(rows))
+        R = len(rows); self.rows = R; self.row_index = rows
+        Jm = np.zeros((R, len(jcols)))
+        for j, c in enumerate(jcols):
+            for e, v in c.items():
+                Jm[rows[e], j] = float(v)
+        # orthonormal basis of the orthogonal complement of col(Jm)
+        if len(jcols):
+            U, s, _ = np.linalg.svd(Jm, full_matrices=True)
+            rk = int(np.sum(s > 1e-9 * max(1.0, s[0])))
+            C = U[:, rk:]
+        else:
+            rk = 0; C = np.eye(R)
+        self.jrank = rk; self.ncond = C.shape[1]; self.nJ = len(jcols)
+        self.Cmat = C
+        # Wk = C^T Vk  (ncond x K)
+        self.Wk = []
+        for k in range(self.K):
+            V = np.zeros((R, self.K))
+            for l in range(self.K):
+                v = pair.get((min(k, l), max(k, l)), {})
+                for e, c in v.items():
+                    V[rows[e], l] = float(c)
+            self.Wk.append(C.T @ V)
+        self.nX = 0; self.nQ = 0; self.ncols = self.nJ
+        self.P = np.eye(self.K); self.excluded_dim = 0
+        if exclude:
+            self.P, self.excluded_dim = self._complement_of_spurious()
+        self.dimP = self.P.shape[1]
+        self.build_time = time.time() - t0
+        self._nfev = 0
+        if verbose:
+            print(f'[hessJ] d={d} key={keystr(self.keyD)} K={self.K} rows={R} J-gens={self.nJ} rankJ={rk} '
+                  f'conditions={self.ncond} excluded={self.excluded_dim} dimP={self.dimP} built in {self.build_time:.1f}s',
+                  file=sys.stderr)
+
+    def _b(self, a):
+        b = np.zeros(self.ncond)
+        for k in range(self.K):
+            b += a[k] * (self.Wk[k] @ a)
+        return b
+
+    def value(self, a, exact=True):
+        a = np.asarray(a, float); a = a / np.linalg.norm(a)
+        b = self._b(a)
+        # normaliser: squared norm of quad(w) itself is not available after projection; use |a|^4 = 1
+        self._nfev += 1
+        return float(b @ b), None, None, 1.0
+
+    def value_and_grad(self, u):
+        u = np.asarray(u, float)
+        a_full = self.P @ u; na = np.linalg.norm(a_full); a = a_full / na
+        b = self._b(a)
+        f = float(b @ b)
+        g = np.zeros(self.K)
+        for k in range(self.K):
+            g[k] = 4.0 * float(b @ (self.Wk[k] @ a))
+        g_full = (g - float(g @ a) * a) / na
+        self._nfev += 1
+        return f, self.P.T @ g_full

@@ -1,0 +1,31 @@
+d=7: family size 126 (sector None)
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cyclic-triple-residual/wave2-excl/wspan.py", line 56, in kvec
+    return reduce_F(core.sub(imul(D, divN), ND))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cyclic-triple-residual/wave2-excl/wspan.py", line 17, in reduce_F
+    del P[e]; c = (v * p7inv) % p; m = (e[0], e[1], e[2] - 6, e[3], e[4], e[5])
+        ~^^^
+KeyError: (2, 0, 6, 2, 2, 2)
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/hodge/results/cyclic-triple-residual/wave2-excl/wspan.py", line 59, in <module>
+    W = pool.map(kvec, [(s, q) for s in Sbasis for q in range(r)], chunksize=32)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+KeyError: (2, 0, 6, 2, 2, 2)

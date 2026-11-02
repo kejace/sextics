@@ -1,3 +1,5 @@
 {"batch": "e1-kernel", "family": "mult_kernel", "degree": 7, "parity": 1, "p": 2147483647, "kernel_mod_J": 1, "dim_J": 63, "dim_R": 333, "rows": 4284, "cols": 4257, "seconds": 53.2, "t": "2026-11-02T00:23:41", "engine": 2}
 {"batch": "e1-kernel", "family": "mult_kernel", "degree": 7, "parity": 1, "p": 2147483629, "kernel_mod_J": 1, "dim_J": 63, "dim_R": 333, "rows": 4284, "cols": 4257, "seconds": 55.7, "t": "2026-11-02T00:24:37", "engine": 2}
 {"batch": "e1-kernel", "family": "mult_kernel", "degree": 7, "parity": 1, "p": 2147483587, "kernel_mod_J": 1, "dim_J": 63, "dim_R": 333, "rows": 4284, "cols": 4257, "seconds": 263.9, "t": "2026-11-02T00:29:02", "engine": 2}
+{"batch": "e1-kernel", "family": "mult_kernel", "degree": 8, "parity": 1, "p": 2147483647, "kernel_mod_J": 6, "dim_J": 168, "dim_R": 468, "rows": 5832, "cols": 6642, "seconds": 617.7, "t": "2026-11-02T00:33:06", "engine": 2}
+{"batch": "e1-kernel", "family": "mult_kernel", "degree": 8, "parity": 0, "p": 2147483647, "kernel_mod_J": 6, "dim_J": 168, "dim_R": 483, "rows": 5796, "cols": 6657, "seconds": 619.6, "t": "2026-11-02T00:33:08", "engine": 2}

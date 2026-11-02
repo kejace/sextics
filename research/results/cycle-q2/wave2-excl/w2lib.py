@@ -173,6 +173,7 @@ def farkas(F, A, q, D, p, G=None, save=None, Dstr=None, verbose=False, max_store
                 'yb': str(yb), 'sha256_y': h, 'bits_max': max(max(v.numerator.bit_length(), v.denominator.bit_length()) for v in y),
                 't_solve': round(t2 - t1, 2), 'seconds': round(time.time() - t0, 2), 'F_scaled': '2F', 'D_scale': core.to_str(Dz) if len(core.to_str(Dz)) < 400 else 'see D (integralized)'})
     if save:
+        os.makedirs(os.path.dirname(save), exist_ok=True)
         size = sum(len(s) for s in ytxt)
         cert = {'instance': 'cycle-q2', 'F': '2F', 'q': q, 'D': core.to_str(Dz), 'p_used_for_pivots': p,
                 'columns_note': 'character-sector restricted columns of engine v2 symmetry.restricted_system',

@@ -18,10 +18,22 @@ assert add(H, B) == F
 CORE = [0, 1, 3, 4]
 PRIMES = core.PRIMES
 
+MYLOG = LANE + '/wave2-excl/mylog-excl.jsonl'   # private master copy (the shared log was clobbered once by a remote rsync push)
 def log(ent):
-    ent = dict(ent); ent.setdefault('t', time.strftime('%Y-%m-%d %H:%M:%S'))
-    with open(LOG, 'a') as f: f.write(json.dumps(ent) + '\n')
-    print(json.dumps(ent), flush=True)
+    ent = dict(ent); ent.setdefault('t', time.strftime('%Y-%m-%d %H:%M:%S')); ent.setdefault('lens', 'excl-vm')
+    s = json.dumps(ent)
+    for path in (MYLOG, LOG):
+        with open(path, 'a') as f: f.write(s + '\n')
+    print(s, flush=True)
+def merge_log():
+    """append every line of the private master log that is missing from the shared lane log"""
+    seen = set(l.strip() for l in open(LOG)) if os.path.exists(LOG) else set()
+    n = 0
+    with open(LOG, 'a') as out:
+        for l in open(MYLOG):
+            s = l.strip()
+            if s and s not in seen: out.write(s + '\n'); seen.add(s); n += 1
+    return n
 
 def cmon(deg, par=None):
     """core monomials (no X2, Y2) of given degree and Y-parity"""

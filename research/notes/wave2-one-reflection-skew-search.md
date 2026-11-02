@@ -1,49 +1,70 @@
-# Wave 2 — one-reflection-skew — SEARCH lens
+# Wave 2 — `one-reflection-skew` joint search (report rewritten after every batch)
 
-STATUS: STARTED 2026-11-02 (VM). No witness. Reading done (dossier, wave-1 logs: 318 fixed-D 5-var tests d<=11, all inconsistent;
-E1-kernel tables). Building the sector-restricted joint-search library (w2skew.py). Nothing searched yet.
+STATUS: NO WITNESS FOUND (remote chains queued behind the shared-box capacity gate; load ~400 from ~50
+other jobs). Pipeline validated end-to-end on an accepted witness (family-hesse-web): exact 6→5 reduction,
+operator (rel 2.6e-15 at the known D), LM variable projection finds the known D from random starts in 4/8
+restarts (full E1-kernel family), exact confirm verifies the 6-variable lift.
 
-Lane dir: /tmp/hodge/results/one-reflection-skew/ (wave-2 scripts w2skew.py, w2_*.py; jobs log to /tmp/hodge/jobs/search-one-reflection-skew-*.log).
-Batch log: /tmp/hodge/results/one-reflection-skew/wave2-search.log.jsonl (one JSON line per batch).
+## 0. Setting (exact reduction used throughout)
 
-## Plan
-1. E1-admissible denominator spaces per degree d = 4..12: (a) five-variable reduction (D free of Y2; sectors (rho,sigma) in {+,-}^2),
-   (b) six-variable per diagonal character (e5 mod 6, rho, sigma), with Jacobian part and non-Jacobian quotient dimensions.
-2. Jacobian-type degrees: Hessian relaxation (A w^T Hess(F) w in J) then full-E2 varpro over the w-space (6-var, sector-restricted).
-3. First non-Jacobian degrees (d = 7, 8, 9, ...): varpro over kernel + J_d (5-var, sector-restricted), thousands of restarts.
-4. Structured families (cones over 3/4-variable subsets, bihomogeneous, invariant-ring products, binary-cubic covariants
-   h_hom/k_hom, companion h/delta transported) via 5-var fixed-D tests and sub-family varpro.
-5. Rational reconstruction + exact re-solve (5-var exact lift -> 6-var strict witness with D^2) for every candidate with relres < 1e-10.
+`F = f(X0,X1,X2,Y0,Y1) + Y2^6`, `A = X0^3 Y0^3` (free of Y2), `q = 1`. Averaging a certificate over
+`μ6(Y2)` and expanding in powers of `F` (details in §6) gives the **exact equivalence**
 
-## Batches
-| ts | batch | family | d | sector | restarts | best rel | min/median iters | secs | note |
-|---|---|---|---|---|---|---|---|---|---|
-| 11-02T00:21 | start | - | None | None | 0 | None |  | 0 | wave-2 search started on VM; library construction |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 4 | rho0sig0 | 0 | None |  | 0.1 | nD=22 kerD=0 dimJ_d=0 nonJ=0 matrix 244x178 sv_gap=None |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 4 | rho0sig1 | 0 | None |  | 0.1 | nD=16 kerD=0 dimJ_d=0 nonJ=0 matrix 242x172 sv_gap=None |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 4 | rho1sig0 | 0 | None |  | 0.1 | nD=16 kerD=0 dimJ_d=0 nonJ=0 matrix 248x178 sv_gap=None |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 4 | rho1sig1 | 0 | None |  | 0.1 | nD=16 kerD=0 dimJ_d=0 nonJ=0 matrix 242x172 sv_gap=None |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 5 | rho0sig0 | 0 | None |  | 1.4 | nD=36 kerD=2 dimJ_d=2 nonJ=0 matrix 335x296 sv_gap=(0.00041212169351212635, 3.5527136788005025e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 5 | rho0sig1 | 0 | None |  | 0.5 | nD=30 kerD=1 dimJ_d=1 nonJ=0 matrix 334x290 sv_gap=(0.0003096390396150395, 4.100581074357064e-16) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 5 | rho1sig0 | 0 | None |  | 0.1 | nD=30 kerD=1 dimJ_d=1 nonJ=0 matrix 352x300 sv_gap=(0.000385110643052802, 3.552713678800501e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 5 | rho1sig1 | 0 | None |  | 0.1 | nD=30 kerD=1 dimJ_d=1 nonJ=0 matrix 335x290 sv_gap=(0.00015029153628498586, 8.698585526996496e-16) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 6 | rho0sig0 | 0 | None |  | 0.3 | nD=60 kerD=7 dimJ_d=7 nonJ=0 matrix 448x470 sv_gap=(7.2359173463574204e-06, 1.1909405287546993e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 6 | rho0sig1 | 0 | None |  | 0.9 | nD=50 kerD=6 dimJ_d=6 nonJ=0 matrix 448x460 sv_gap=(0.00014892553783067315, 1.2026186550753806e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 6 | rho1sig0 | 0 | None |  | 4.7 | nD=50 kerD=6 dimJ_d=6 nonJ=0 matrix 473x470 sv_gap=(7.864439401534822e-05, 1.6771845985915685e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 6 | rho1sig1 | 0 | None |  | 0.3 | nD=50 kerD=6 dimJ_d=6 nonJ=0 matrix 448x460 sv_gap=(6.24367336191745e-05, 3.507815069467059e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 7 | rho0sig0 | 0 | None |  | 3.0 | nD=90 kerD=28 dimJ_d=21 nonJ=7 matrix 588x705 sv_gap=(7.053834259805499e-10, 3.5210606109193014e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 7 | rho0sig1 | 0 | None |  | 4.1 | nD=80 kerD=19 dimJ_d=18 nonJ=1 matrix 588x695 sv_gap=(6.718892297484834e-15, 1.4515108722020692e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 7 | rho1sig0 | 0 | None |  | 3.1 | nD=80 kerD=18 dimJ_d=18 nonJ=0 matrix 616x710 sv_gap=(6.803086746021771e-10, 2.8655951429004052e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 7 | rho1sig1 | 0 | None |  | 0.6 | nD=80 kerD=19 dimJ_d=18 nonJ=1 matrix 588x695 sv_gap=(5.5500041248361314e-15, 3.5072803366595137e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 8 | rho0sig0 | 0 | None |  | 2.1 | nD=135 kerD=91 dimJ_d=46 nonJ=45 matrix 756x1025 sv_gap=(7.797812810775675e-05, 7.000059955173007e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 8 | rho0sig1 | 0 | None |  | 7.3 | nD=120 kerD=76 dimJ_d=43 nonJ=33 matrix 756x1010 sv_gap=(7.340408164801743e-05, 7.002261854364943e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 8 | rho1sig0 | 0 | None |  | 4.9 | nD=120 kerD=67 dimJ_d=43 nonJ=24 matrix 792x1025 sv_gap=(8.005053411721793e-06, 7.004823164754639e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 8 | rho1sig1 | 0 | None |  | 1.9 | nD=120 kerD=76 dimJ_d=43 nonJ=33 matrix 756x1010 sv_gap=(0.00014304945713989234, 6.9654687646712834e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 9 | rho0sig0 | 0 | None |  | 14.7 | nD=190 kerD=161 dimJ_d=92 nonJ=69 matrix 960x1436 sv_gap=(0.0003864068195329069, 6.963684843870582e-15) |
-| 11-02T00:25 | e1-kernel5 | E1 kernel (5-var) | 9 | rho0sig1 | 0 | None |  | 5.2 | nD=175 kerD=146 dimJ_d=86 nonJ=60 matrix 960x1421 sv_gap=(0.00016550511232228112, 6.967952098221713e-15) |
-| 11-02T00:26 | e1-kernel5 | E1 kernel (5-var) | 9 | rho1sig0 | 0 | None |  | 5.0 | nD=175 kerD=141 dimJ_d=86 nonJ=55 matrix 996x1442 sv_gap=(0.00043428162614897784, 7.000607495074884e-15) |
-| 11-02T00:26 | e1-kernel5 | E1 kernel (5-var) | 9 | rho1sig1 | 0 | None |  | 3.9 | nD=175 kerD=146 dimJ_d=86 nonJ=60 matrix 960x1421 sv_gap=(0.0003247213419745124, 6.949252157606642e-15) |
-| 11-02T00:26 | e1-kernel5 | E1 kernel (5-var) | 10 | rho0sig0 | 0 | None |  | 6.5 | nD=266 kerD=250 dimJ_d=161 nonJ=89 matrix 1200x1967 sv_gap=(0.006765765151149101, 6.8307429371494335e-15) |
-| 11-02T00:26 | e1-kernel5 | E1 kernel (5-var) | 10 | rho0sig1 | 0 | None |  | 18.0 | nD=245 kerD=229 dimJ_d=153 nonJ=76 matrix 1200x1946 sv_gap=(0.018695602008891362, 6.7911138305558276e-15) |
-| 11-02T00:26 | e1-kernel5 | E1 kernel (5-var) | 10 | rho1sig0 | 0 | None |  | 13.3 | nD=245 kerD=223 dimJ_d=153 nonJ=70 matrix 1245x1967 sv_gap=(0.00043503413489084176, 6.964437748219748e-15) |
-| 11-02T00:27 | e1-kernel5 | E1 kernel (5-var) | 10 | rho1sig1 | 0 | None |  | 18.6 | nD=245 kerD=229 dimJ_d=153 nonJ=76 matrix 1200x1946 sv_gap=(0.0188506902799893, 6.88568017368748e-15) |
+> a certificate exists  ⇔  a rational 5-variable field `u = N/D` (deg D = d, deg N_i = d+1) satisfies
+> `A D² − D N(f) + (6/5) f (D div N − N(D)) = 0`     (*)
+
+and then `(D², (N_i D)_{i<5}, Y2 (D div N − N(D))/5, Q = 0)` is a strict 6-variable certificate of degree
+`2d`. Necessary condition (E1): `A D ∈ J_f`. `D` can be taken in any `(ρ, σ)` character
+(`ρ`: sign of (Y0,Y1), `σ`: sign of (X1,Y1)); `N` and the rows then live in determined sectors.
+Verified on `family-hesse-web` (accepted degree-6 witness, same target): the reduced field satisfies (*)
+exactly, the float operator gives relative residual `3.7e-15` at it, `exact_confirm` recovers and
+verifies the 6-variable certificate.
+
+Code: `/tmp/hodge/results/one-reflection-skew/w2lib.py` (operator linear in D over monomial coordinates,
+variable projection with Tikhonov normal equations, full Golub–Pereyra Jacobian LM, rationalisation +
+LLL, exact modular confirm with CRT), `w2_search.py` (multiprocess restarts), `w2_dims.py`,
+`w2_struct.py`, `chains/chain{1,2,3,4}.sh`. Log: `wave2-search.log.jsonl` (one line per batch).
+
+## 1. E1-admissible denominator spaces (task 1)
+
+(pending: `w2_dims.py` on the remote; wave-1 mod-p numbers for the 5-variable ρ-even sector:
+kernel = 3, 13, 47, 167, 307, 479, 677 at d = 5..11 with J_d = 3, 13, 39, 89, 178, 314, 506, i.e.
+non-Jacobian directions 0, 0, 8, 78, 129, 165, 171.)
+
+## 2. Optimizer calibration (needle = accepted degree-6 witness of family-hesse-web, same target A)
+
+* First attempts (L-BFGS, LM-Kaufman, LM with the full Golub–Pereyra Jacobian — the latter checked
+  against finite differences to 3e-9) all converged to recurring local minima (rel 3.056e-2, 4.256e-2,
+  2.3e-3, …), 0/26 hits. Basin probe: LM started 5°–45° from the needle still ended at rel 5e-2.
+* Cause: the family had the f-multiple subspace `f·S_{d−6}` projected out (as the engine's varpro does
+  with `exclude_F_multiples`). The true `D*` lies in the E1 kernel (projection residual 8e-16) but has a
+  component along `f`, so the restricted span did not contain it. **Removing the F-multiple subspace is
+  wrong**: it removes solutions `D0 + F·G` that are not divisible by F. Recorded in
+  `/tmp/hodge/notes/engine-bugs.md`; the lane driver now searches the full kernel (in the strict
+  5-variable problem there are no spurious solutions: `(fG, fW)` solves iff `(G, W)` does).
+* With the full kernel (K = 32): **4/8 LM restarts converge to the needle** (rel 2e-13 … 6e-8,
+  |cos(u,u*)| = 1.0000); the other restarts end at the usual local minima. So random-restart LM has a
+  ~50% per-restart hit rate on a 32-dimensional family with an 8-term solution. Hit rates at larger K
+  are measured by `calib-hesse-d6` (400 restarts, LM vs L-BFGS) and `calib-xtype-d6` on the remote.
+
+## 3. Search batches (filled from the log)
+
+(pending)
+
+## 4. Structured families (task 4)
+
+(pending: `w2_struct.py`, cone families)
+
+## 5. Rational reconstruction attempts (task 5)
+
+(none yet: no restart below the 1e-7 threshold)
+
+## 6. Derivation of the reduction (for the record)
+
+Let `v = N/D` with `K_A(v) := A − v(F) + F div v = F² Q/D²`. Average over `g: Y2 ↦ ζ^k Y2` (F, A invariant;
+`K_A` is natural): `v̄` is invariant, `K_A(v̄) = F² · (avg of g·(Q/D²))`, denominator `∏ g(D)²` coprime to F.
+Invariance: `v̄_i = u_i(x, w)` for i < 5 and `v̄_5 = Y2 a(x, w)`, `w = Y2^6`. With `F = f + w`, regard
+everything as rational in `(x, F)`: `K_A = A − ũ(f) − 6(F − f)ã + F(div_x ũ + ∂_F ũ(f) + ã + 6(F − f)ã_F)`.
+`F² | K_A` ⇒ coefficients of `F⁰, F¹` vanish: `A − u₀(f) + 6 f a₀ = 0` and `div u₀ − 5 a₀ = 0`
+(`u₀ = ũ(x,0)`), hence (*) for `u₀`. Conversely `v = (u, Y2 div u/5)` gives `K_A(v) = A − u(f) + (6/5) f div u = 0`
+with denominator `D²` coprime to `F` (F is monic in Y2, D is Y2-free).

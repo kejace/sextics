@@ -1,0 +1,4 @@
+built 675 quadrics in 36 vars (8.2s)
+GB: rc=0 1173 elements, 0 linear, 4.6s; msolve: 
+forms: 35/35 give empty V(I + (l-1)) (24.6s)
+exit 0

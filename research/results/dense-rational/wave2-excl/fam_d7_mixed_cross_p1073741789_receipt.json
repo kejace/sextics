@@ -1,0 +1,1 @@
+{"exp": "hessian-relaxation-family-system", "d": 7, "sector": "mixed", "family": "cross", "prime": 1073741789, "nvar_full": 126, "family_dim": 36, "gauge_in_family": 0, "unknowns": 36, "quotient": "J_8", "quotient_dim": 951, "equations": 951, "file": "/tmp/hodge/results/dense-rational/wave2-excl/fam_d7_mixed_cross_p1073741789.ms", "seconds": 5.0}

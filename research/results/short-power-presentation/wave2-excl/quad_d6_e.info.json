@@ -7,7 +7,7 @@
  "n_field_coords": 18,
  "unknowns_full": 18,
  "euler_directions": 1,
- "euler_invariance_violations": 35,
+ "euler_invariance_violations": 0,
  "unknowns_restricted": 17,
  "equations_raw": 599,
  "equations_independent": 39,
@@ -20,9 +20,9 @@
    "rank J (expected)": 2214
   }
  },
- "build_seconds": 123.6,
- "singular_seconds": 8.2,
+ "build_seconds": 126.2,
+ "singular_seconds": 12.6,
  "singular_dim": "0",
  "singular_vdim": "1216",
- "singular_hilb1": "1,0,-39,52,739,-2852,-629,27472,-71366,37808,223210,-708968,1113398,-1055224,508742,130832,-461227,428144,-241587,90836,-22441,3324,-225,0"
+ "singular_hilb2": "1,17,114,358,501,225,0"
 }

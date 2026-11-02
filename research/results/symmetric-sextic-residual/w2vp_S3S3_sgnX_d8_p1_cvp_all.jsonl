@@ -7,3 +7,14 @@
 {"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 6, "rel": 0.09426291108128403, "f": 7964.285383898328, "spurious": false, "div_rel": 1.0, "iters": 15}
 {"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 7, "rel": 0.09426291230368257, "f": 7964.285383898329, "spurious": false, "div_rel": 1.0, "iters": 20}
 {"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 8, "rel": 0.09426291071980582, "f": 7964.285383898336, "spurious": false, "div_rel": 1.0, "iters": 22}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 9, "rel": 0.09426291231588728, "f": 7964.2853838983265, "spurious": false, "div_rel": 1.0, "iters": 20}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 10, "rel": 0.09426291230335274, "f": 7964.285383898329, "spurious": false, "div_rel": 1.0, "iters": 18}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 11, "rel": 0.09426291231033485, "f": 7964.285383898328, "spurious": false, "div_rel": 1.0, "iters": 22}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 12, "rel": 0.09426291215949414, "f": 7964.285383898331, "spurious": false, "div_rel": 1.0, "iters": 17}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 13, "rel": 0.0942629123037276, "f": 7964.285383898327, "spurious": false, "div_rel": 1.0, "iters": 33}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 14, "rel": 0.0942629122184749, "f": 7964.285383898328, "spurious": false, "div_rel": 1.0, "iters": 28}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 15, "rel": 0.09426291230232281, "f": 7964.28538389833, "spurious": false, "div_rel": 1.0, "iters": 25}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 16, "rel": 0.09426291230335708, "f": 7964.285383898331, "spurious": false, "div_rel": 1.0, "iters": 23}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 17, "rel": 0.09426291230406843, "f": 7964.2853838983265, "spurious": false, "div_rel": 1.0, "iters": 23}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 18, "rel": 0.0942629122898613, "f": 7964.285383898331, "spurious": false, "div_rel": 1.0, "iters": 23}
+{"tag": "S3S3_sgnX_d8_p1_cvp_all", "seed": 0, "restart": 19, "rel": 0.09426291230368258, "f": 7964.285383898327, "spurious": false, "div_rel": 1.0, "iters": 28}

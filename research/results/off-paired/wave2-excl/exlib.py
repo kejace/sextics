@@ -401,8 +401,12 @@ def write_msolve(sysd, path, p, seed=1):
     with open(path, 'w') as f: f.write(','.join(names) + '\n' + str(p) + '\n' + ',\n'.join(polys) + '\n')
     return len(polys)
 
-def write_singular(sysd, path, p=0, seed=1, extra_cmds=''):
-    """Singular script: ring over QQ (p=0) or ZZ/p; prints 'UNIT' if std == 1 else 'NONUNIT dim=...'."""
+def write_singular(sysd, path, p=0, charts=True, seed=1):
+    """Singular script deciding the bilinear sector system RIGOROUSLY (over QQ when p=0):
+    the equations are homogeneous quadrics in (t,s); a legal D has t != 0, so we decompose {t != 0} into the
+    nt coordinate charts {t_a = 1, t_b = 0 for b < a} and test each chart ideal for being the unit ideal.
+    Prints one line per chart 'chart a: UNIT' / 'chart a: NONUNIT dim=.. size=..' and a final 'ALL-UNIT' or 'SOME-NONUNIT'.
+    charts=False: single random affine normalization (screen only)."""
     nt, ns = sysd['nt'], sysd['ns']
     names = [f't{i}' for i in range(nt)] + [f's{j}' for j in range(ns)]
     def cf(x):
@@ -414,13 +418,48 @@ def write_singular(sysd, path, p=0, seed=1, extra_cmds=''):
     for eq in sysd['eqs']:
         terms = [f'{cf(v)}*{vname(a)}*{vname(b)}' for (a, b), v in eq.items() if Fraction(v) != 0]
         if terms: polys.append('+'.join(terms))
-    rng = random.Random(seed)
-    polys.append('+'.join(f'{rng.randrange(1, 10**6)}*t{i}' for i in range(nt)) + '-1')
     with open(path, 'w') as f:
         f.write(f'ring r = {p},({",".join(names)}),dp;\noption(redSB);\nideal I = {",\n".join(polys)};\n')
-        f.write(extra_cmds)
-        f.write('int t0 = timer;\nideal G = std(I);\nif (size(G)==1 and deg(G[1])==0) { print("UNIT"); } else { print("NONUNIT dim=" + string(dim(G)) + " size=" + string(size(G))); }\nprint("seconds=" + string(timer-t0));\nquit;\n')
+        f.write('int t0 = timer; int bad = 0; ideal G; ideal J; int a;\n')
+        if charts:
+            f.write(f'for (a = 1; a <= {nt}; a++) {{\n  J = I; int b; for (b = 1; b < a; b++) {{ J = J + ideal(var(b)); }} kill b;\n  J = J + ideal(var(a) - 1);\n  G = std(J);\n')
+            f.write('  if (size(G)==1 and deg(G[1])==0) { print("chart " + string(a) + ": UNIT"); } else { bad = bad + 1; print("chart " + string(a) + ": NONUNIT dim=" + string(dim(G)) + " size=" + string(size(G))); }\n}\n')
+        else:
+            rng = random.Random(seed)
+            f.write('J = I + ideal(' + '+'.join(f'{rng.randrange(1, 10**6)}*t{i}' for i in range(nt)) + '-1);\nG = std(J);\n')
+            f.write('if (size(G)==1 and deg(G[1])==0) { print("chart r: UNIT"); } else { bad = 1; print("chart r: NONUNIT dim=" + string(dim(G)) + " size=" + string(size(G))); }\n')
+        f.write('if (bad == 0) { print("ALL-UNIT"); } else { print("SOME-NONUNIT"); }\nprint("seconds=" + string(timer-t0));\nquit;\n')
     return len(polys)
+
+def write_msolve_charts(sysd, pathbase, p):
+    """One msolve file per coordinate chart {t_a = 1, t_b = 0 (b<a)} (variables t_b, b<=a eliminated)."""
+    nt, ns = sysd['nt'], sysd['ns']
+    def cf(x):
+        if isinstance(x, Fraction): return (x.numerator * pow(x.denominator, -1, p)) % p
+        return int(x) % p
+    paths = []
+    for a in range(nt):
+        names = [f't{i}' for i in range(a+1, nt)] + [f's{j}' for j in range(ns)]
+        def vn(v):
+            if v[0] == 't':
+                if v[1] < a: return None
+                if v[1] == a: return '1'
+            return vname(v)
+        polys = []
+        for eq in sysd['eqs']:
+            terms = []
+            for (u, w), v in eq.items():
+                c = cf(v)
+                if not c: continue
+                nu, nw = vn(u), vn(w)
+                if nu is None or nw is None: continue
+                mon = '*'.join(x for x in (nu, nw) if x != '1') or '1'
+                terms.append(f'{c}*{mon}' if mon != '1' else f'{c}')
+            if terms: polys.append('+'.join(terms))
+        path = f'{pathbase}_chart{a}.ms'
+        with open(path, 'w') as f: f.write(','.join(names) + '\n' + str(p) + '\n' + ',\n'.join(polys) + '\n')
+        paths.append(path)
+    return paths
 
 def run_msolve(path, out, threads=1, timeout=3600):
     import subprocess

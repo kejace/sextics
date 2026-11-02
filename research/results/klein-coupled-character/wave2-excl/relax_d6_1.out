@@ -1,0 +1,11 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d=6 parmode=1: g-space dim n=18
+built 171 quadratic-form coefficient polys of degree 12 in 0.1s
+gauge vectors in V: 0
+dim(G o V) = 0 (expected 0*18 - 0 = 0)
+exact gauge identity checks: 0 checked, 0 failed
+  block par=1 ch=0: 24 classes, rank 20 in R (dim 128), dimJ=267  [0.4s]
+  block par=1 ch=1: 24 classes, rank 20 in R (dim 123), dimJ=336  [6.5s]
+  block par=1 ch=2: 24 classes, rank 20 in R (dim 123), dimJ=336  [14.0s]
+  block par=1 ch=3: 27 classes, rank 15 in R (dim 123), dimJ=313  [15.0s]
+  block par=1 ch=4: 24 classes, rank 20 in R (dim 123), dimJ=336  [24.6s]

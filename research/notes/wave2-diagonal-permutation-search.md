@@ -11,7 +11,7 @@ Scripts: `w2pt.py` (pointwise variable projection, see §2), `w2pt_search.py` (m
 
 | experiment | result |
 |---|---|
-| D8 (unique non-Jacobian E1-kernel element at d=8), full fixed-D system mod p=2147483647, compressed (40326 eq, 7497 unknowns) | **inconsistent** (rank 6703, nullity 794) — second prime pending |
+| D8 (unique non-Jacobian E1-kernel element at d=8), full fixed-D system (40326 eq, 7497 unknowns), compressed, mod p=2147483647 and p=2147483629 | **inconsistent at both primes** (rank 6703, nullity 794 both) ⇒ the only non-Jacobian denominator of degree ≤ 8 is excluded; every degree-8 denominator is Jacobian-type `w(F)` (w cubic) |
 
 ## 2. Method for the joint search (reduced E2, pointwise)
 

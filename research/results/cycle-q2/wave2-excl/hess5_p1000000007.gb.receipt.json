@@ -1,0 +1,31 @@
+{
+ "exp": "groebner",
+ "file": "wave2-excl/hess5_p1000000007.ms",
+ "nvars": 6,
+ "npolys": 264,
+ "prime": 1000000007,
+ "msolve_rc": 0,
+ "msolve_seconds": 0.0,
+ "msolve_stderr_tail": "    DRL\nbasis hash table resetting     OFF\nlinear algebra option            2\ninitial hash table size     131072 (2^17)\nmax pair selection             ALL\nreduce gb                        1\n#threads                         2\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\nDimension of quotient: 7\n------------------------------------------------------------------------------------\nmsolve overall time           0.01 sec (elapsed) /  0.02 sec (cpu)\n------------------------------------------------------------------------------------\n",
+ "msolve_stdout_tail": "  0.00 sec   0.3%\nlinear algebra          0.00 sec   1.1%\nreduce gb               0.00 sec   0.0%\n-----------------------------------------\n\n---------- COMPUTATIONAL DATA -----------\nsize of basis                    21\n#terms in basis                  21\n#pairs reduced                  313\n#GM criterion                 34403\n#redundant elements             243\n#rows reduced                   647\n#zero reductions                313\nmax. matrix data                120 x 50 (2.000%)\nmax. symbolic hash table size  2^11\nmax. basis hash table size     2^16\n-----------------------------------------\n\n",
+ "gb_size": 21,
+ "pure_power_vars": 6,
+ "lead_sample": [
+  "c6^2",
+  "c5^1*c6^1",
+  "c4^1*c6^1",
+  "c3^1*c6^1",
+  "c2^1*c6^1",
+  "c1^1*c6^1",
+  "c5^2",
+  "c4^1*c5^1",
+  "c3^1*c5^1",
+  "c2^1*c5^1"
+ ],
+ "verdict": "EMPTY projective variety over F_p-bar (ideal is m-primary: pure powers of all variables lead)",
+ "singular_seconds": 0.0,
+ "singular_out": "std done in 0 sec\ndim(G) = 0\nsize(G) = 21\nvdim = 7\nleading monomials:\n_[1]=c6^2\n_[2]=c5*c6\n_[3]=c4*c6\n_[4]=c3*c6\n_[5]=c2*c6\n_[6]=c1*c6\n_[7]=c5^2\n_[8]=c4*c5\n_[9]=c3*c5\n_[10]=c2*c5\n_[11]=c1*c5\n_[12]=c4^2\n_[13]=c3*c4\n_[14]=c2*c4\n_[15]=c1*c4\n_[16]=c3^2\n_[17]=c2*c3\n_[18]=c1*c3\n_[19]=c2^2\n_[20]=c1*c2\n_[21]=c1^2\n",
+ "singular_dim": 0,
+ "seconds": 0.0,
+ "job": "gb_check"
+}

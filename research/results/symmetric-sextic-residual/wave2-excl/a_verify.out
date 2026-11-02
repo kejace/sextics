@@ -16,3 +16,4 @@
 [   63.6s] mult_kernel {'p': 2147483629, 'd': 6, 'par': 1, 'dim_ker_mod_J': 0, 'kernel_dim': 18, 'jacobian_dim': 18, 'ring_dim': 208, 'ci_ring_dim': 208, 'rows': 3106, 'cols': 2602, 'seconds': 17.44}
 [  161.4s] mult_kernel {'p': 2147483629, 'd': 7, 'par': 0, 'dim_ker_mod_J': 1, 'kernel_dim': 64, 'jacobian_dim': 63, 'ring_dim': 333, 'ci_ring_dim': 333, 'rows': 4284, 'cols': 4257, 'seconds': 97.69}
 [  221.3s] mult_kernel {'p': 2147483629, 'd': 7, 'par': 1, 'dim_ker_mod_J': 1, 'kernel_dim': 64, 'jacobian_dim': 63, 'ring_dim': 333, 'ci_ring_dim': 333, 'rows': 4284, 'cols': 4257, 'seconds': 59.89}
+[  944.6s] mult_kernel {'p': 2147483629, 'd': 8, 'par': 0, 'dim_ker_mod_J': 6, 'kernel_dim': 174, 'jacobian_dim': 168, 'ring_dim': 483, 'ci_ring_dim': 483, 'rows': 5796, 'cols': 6657, 'seconds': 723.14}

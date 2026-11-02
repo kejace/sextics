@@ -1,0 +1,4 @@
+[0.4s] core kernel k=6 par=0: dim 20 mod p = exact dim (certified equal)
+[0.6s] core kernel k=6 par=1: dim 13 mod p = exact dim (certified equal)
+[0.6s] d=6 mode=even p=2147483629: unknowns 38 = 20 kernel + 18 Jacobian
+[129.7s] E1 particular solutions for parity 0: 20 rhs, rank 2214

@@ -1,13 +1,27 @@
 # Wave 2 — short-power-presentation — CONSTRUCTION lens
 
-STATUS: in progress (started 2026-11-01 ~19:00; prior work read: dossier, attack1, wave-1 logs, book maps 02/03/03a/04, thread #174). No witness. No experiments yet.
+STATUS: no witness (in progress, 2026-11-01 ~19:40). Remote jobs queued (remote at load 434/128: `construct-spp-vert`, `construct-spp-k7var`, waiting for capacity).
 
-Log: /tmp/hodge/results/short-power-presentation/wave2-construct.log.jsonl
+Log: /tmp/hodge/results/short-power-presentation/wave2-construct.log.jsonl  (scripts w2c_lib.py, w2c_vert.py, w2c_k7var.py in the lane dir)
 
-## Inherited facts (wave 1, rigorous unless marked)
-- F = e(X)+e(Y)+c((L+M)^6+(L-M)^6), c=5/7^7, L=X0+2X1+3X2, M=Y0+3Y1+5Y2 (exact).
-- E1 kernel K_d/J (A*D in J): 0 for d<=6 (both parities), dim 1 at d=7 (both parities), dim 6 at d=8 (even) [mod p=2^31-1, rigorous as upper bounds; dims mod p are lower bounds for Q-dims... see note].
-- Wave-1 unfinished: full fixed-D solve for the unique even E1-kernel D7 (system 26532x4497 built, never solved).
+## 0. Inherited facts (wave 1 + search lens, rigorous unless marked)
+- F = e(X)+e(Y)+c((L+M)^6+(L-M)^6), c = 5/7^7, L = X0+2X1+3X2, M = Y0+3Y1+5Y2; A = X0^3 Y0^3, q = 1. Only symmetry: tau.
+- E1 kernel K_d/J (A*D in J): 0 for d <= 6 (both parities, rigorous); dim 1 at d = 7 (both parities), 6 at d = 8 (even) [mod 2^31-1].
+- The unique even degree-7 E1-admissible D7 lies in C[X0,X1,X2,M] with M-degrees {0,2,4}; its full fixed-D system is INCONSISTENT mod p and its served space is J_6^- only (search lens job `search-spp-j1`, 2026-11-02 00:17 remote time). So V(D7) supports no primitive class at q=1 (modular evidence).
 
-## Plan (construction lens)
-(i) covers creating reflections/exchanges; (ii) Fano / surface-fibration companions; (iii) Galois closures + averaging ideal; (iv) q-raising / deformation; (v) n/a (no solved companion on this variety).
+## 1. Proven structural facts (this session; all verified exactly with sympy, log lines `identity-check`)
+1. **Shared-variable Thom–Sebastiani form.**  F = ft(L,X1,X2) + gt(M,Y1,Y2) + 30c·L²M²(L²+M²), with ft = e(X)+2cL⁶ = F|_{M=0}, gt = e(Y)+2cM⁶ = F|_{L=0}.  In coordinates (L,X1,X2 | M,Y1,Y2) the two ternary blocks share NO variable; the only coupling is the binary form 30c L²M²(L²+M²) in one linear form of each block.  Also B(L,M) := c((L+M)⁶+(L−M)⁶) = 2c·S(S²+12P²) with S = L²+M², P = LM, and B(1,t) = 2c(t²+1)(t⁴+14t²+1).
+2. **tau-quotient = cubic cover with constant middle coefficients.**  With eps_X = e(X)/L⁶, eps_Y = e(Y)/M⁶, w = (M/L)²:  (eps_X+2c) + 30c·w + 30c·w² + (eps_Y+2c)·w³ = 0.  Both pencils C_eps = {e(x) = eps·L(x)⁶}, D_s = {e(y) = s·M(y)⁶} are genus-10 plane sextic pencils through the Fermat curve (benediamond's model, re-derived).  X/tau is birational to the family of C_eps × D_s over the rational surface {(eps,s,w)} ≅ A²_{(eps,w)} (s is solved for).  The relation is a pure cube only on the single pencil member eps_Y = 8c.
+3. **Pencil + Fermat base change.**  X → P¹_t (t = M/L) has fibres X_t = sums of SEVEN sixth powers in P⁴ (general type, h^{3,0}=5, h^{2,1}=255); over the six roots of B(1,t) the fibre is a hyperplane section of the Fermat fourfold.  The Fermat cover T⁶ = −B(L,M) (equivalently T⁶ = e(X)+e(Y)) is exactly the base change of this pencil along the Fermat curve Φ¹ → P¹ branched at those six points; the cover is the Shioda–Katsura Φ¹×Φ⁵ model.  Deck group mu_6 acts on the base only.
+4. **No holdout-type exchange on any subset-sum cover (proof).**  For a cover T⁶ = Σ_{k∈I} l_k⁶ (I ⊂ {1..8}, l_k the eight forms, base coordinates α_k = l_k/T on a Fermat variety), the equation Σ_{k∉I} l_k⁶ + T⁶ = 0 is a Fermat form in the fibre coordinates, so any fibre automorphism is a signed permutation of {l_k, k∉I} ∪ {T} (uniqueness of Waring decompositions of Fermat forms) and must preserve the 2-dimensional span W_α of the two linear relations R1, R2 written in those coordinates: the T-column of W_α is (ρ1(α),ρ2(α)) with ρ_i(α) = Σ_{k∈I} r_ik α_k NON-constant on the base, while every physical column is constant.  Since the two relations have independent restrictions to any set of physical columns containing one of {1,2,3} and one of {4,5,6} (or one of 7,8), a swap T ↔ l_a would force ρ(α) ≡ r_a, i.e. restrict to a proper subvariety of the base.  Hence (combined with checks.json's "only tau" for I = ∅) no cover of this type carries a reflection or exchange beyond tau and the deck group; §2.7's mechanism (Fano fibres in P(1,1,1,2,2)) is not available.  The remaining fibre-symmetry on the Φ¹×Φ⁵ cover is mu_6 × ⟨tau⟩ only.
+5. **Natural degree-10 vertical divisor.**  On X, V(e(X)M⁶ − e(Y)L⁶) = (X∩H_i) ∪ (X∩H_{−i}) ∪ V(D_res) with
+   D_res = e(X)(L⁴−L²M²+M⁴) + 2c·L⁶(L⁴+14L²M²+M⁴)  (degree 10, Y-even, in C[e(X),L,M]);
+   the X↔Y mirror D'_res satisfies D_res + D'_res = (L⁴−L²M²+M⁴)·F.  V(D_res)∩X is the closure of the locus eps_X = eps_Y, fibred over P¹_t by the product surfaces C_eps(t) × D_eps(t) (eps(t) = −2c − 30ct²/(t⁴−t²+1)), and is non-normal (order 4 along the base surface X∩{L=M=0}).  Its E1 status is part of job `construct-spp-vert` (family `vert`, d = 10).
+
+## 2. Ideas / mechanisms under test (not proven)
+- "Vertical" denominator families: pullbacks of curves on the (eps_X, eps_Y, t) base (ring C[e(X),e(Y),L,M]), of surfaces on the (x,t) base (C[X0,X1,X2,M], contains D7), of surfaces on the (y,t) base (C[L,Y0,Y1,Y2]).  Restricted E1 kernels d = 7..10 both parities: job `construct-spp-vert`.
+- Is the degree-7 kernel a feature of the eight-power family or of A?  K_7 for other targets (incl. L³M³, X0³M³, L³Y0³), other c, other s in F_s = e(X)+e(Y)+B(sL,M): job `construct-spp-k7var`.
+- Fano fivefolds: every Y_λ = Φ⁶ ∩ H_λ ⊃ X (pencil of hyperplanes through Λ) is a sextic fivefold in P⁶, hence Fano, hence all of H⁵(Y_λ) is divisor-supported (book §3.2); H⁴_prim(X)(−1) ≅ H¹(P¹, R⁵) of this pencil (blow-up Leray).  Whether this transfers support to X is open (see §3).
+
+## 3. Where the book's mechanisms fail here (summary)
+(i) covers: no exchange (fact 4); (ii) quotients: Aut = {1,tau}, X/tau has κ = 0; the natural cubic cover of fact 2 has S_3 monodromy (not mu_3), so the elliptic-companion contraction of §3A needs the pure-cube relation and fails; (iii) averaging ideal of the S_3 Galois closure misses V_std (§4.7) — the special shape (constant middle coefficients, monomial L⁴M², L²M⁴) does not change the Galois group; (iv) q-raising needs a family certificate; the family F_s is split only at s = 0; (v) no solved companion.

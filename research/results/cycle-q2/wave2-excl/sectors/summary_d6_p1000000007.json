@@ -1,0 +1,42 @@
+[
+ {
+  "exp": "sector-d6",
+  "d": 6,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   0
+  ],
+  "dimS": 12,
+  "dimK": 6,
+  "dimJ": 6,
+  "complement": 0,
+  "relax_nquadrics": 6,
+  "relax_dim_affine": 3,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 3 (not decided)",
+  "seconds": 10.5,
+  "job": "sectors"
+ },
+ {
+  "exp": "sector-d6",
+  "d": 6,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   1
+  ],
+  "dimS": 7,
+  "dimK": 2,
+  "dimJ": 1,
+  "complement": 1,
+  "relax_nquadrics": 6,
+  "relax_dim_affine": 0,
+  "relax_vdim": 3,
+  "result": "sector family EXCLUDED by Hessian relaxation (affine dim 0)",
+  "seconds": 23.3,
+  "job": "sectors"
+ }
+]

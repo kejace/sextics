@@ -3,3 +3,9 @@
 cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] basis#0 -> d 7 e1 True cons False served 18 245.2 s
 cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] basis#1 -> d 7 e1 True cons False served 18 238.24 s
 cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] sum of basis -> d 7 e1 True cons False served 18 239.35 s
+cyc (r1,r2,s1,s2)^4 d7 [quadruple pts at S3-fixed pts] difference of basis -> d 7 e1 True cons False served 18 396.73 s
+== sigma (r,s)^3 d7 [triple along (01)-fixed surface]: dim 3
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#0 -> d 7 e1 True cons False served 18 477.75 s
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#1 -> d 7 e1 True cons False served 18 260.91 s
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] basis#2 -> d 7 e1 True cons False served 18 216.92 s
+sigma (r,s)^3 d7 [triple along (01)-fixed surface] sum of basis -> d 7 e1 True cons False served 18 238.96 s

@@ -1,96 +1,135 @@
-"""Multi-seed character-twisted varpro search over an exact family (kernel + J_d^chi or sub-family).
-
-usage: python3 w2_varpro.py --chi triv --d 10 --pD 0 --mode cvp|kvp|hess --sub all|kernel|jac --seeds 0-7
-                            --restarts 25 --maxiter 400 [--blocks S3S3] [--nproc 8] [--tag T]
-Per seed: random-restart L-BFGS; every candidate with rel < 1e-8 is rationally reconstructed and re-solved exactly
-(reduced solver) immediately.  Output: w2vp_<tag>.jsonl (one line per restart), batch line in wave2-search.log.jsonl.
-"""
-import sys, os, time, json, argparse, pickle
+"""Remote varpro driver.  python3 w2_varpro.py --job NAME --sectors triv:10:0,triv:10:1 [--restarts N] [--per-dim R]
+   [--seed S] [--maxiter M] [--workers W] [--sparse-frac f] [--stop-after-hours H]
+Per sector: build the admissible family (E1 kernel minus F-multiples), fork W workers, each runs its restarts and
+appends one JSON line per restart to w2/<job>_<sector>_w<i>.jsonl; the parent summarises to w2/<job>.log.jsonl and
+confirms (rational reconstruction + exact re-solve) every non-spurious candidate with rel < 1e-10."""
+import sys, os, time, json, argparse, math
 sys.path.insert(0, '/tmp/hodge/results/symmetric-sextic-residual')
-import numpy as np
-import w2lib as W
-from hodge import core
-from multiprocessing import Pool
+from w2lib import *
+import multiprocessing as mp
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--chi', default='triv'); ap.add_argument('--d', type=int, required=True); ap.add_argument('--pD', type=int, default=0)
-ap.add_argument('--blocks', default='S3S3'); ap.add_argument('--mode', default='cvp'); ap.add_argument('--sub', default='all')
-ap.add_argument('--seeds', default='0-3'); ap.add_argument('--restarts', type=int, default=20); ap.add_argument('--maxiter', type=int, default=400)
-ap.add_argument('--nproc', type=int, default=int(os.environ.get('W2_NPROC', '4'))); ap.add_argument('--tag', default='')
-ap.add_argument('--rel_confirm', type=float, default=1e-8)
+ap.add_argument('--job', required=True)
+ap.add_argument('--sectors', required=True)
+ap.add_argument('--restarts', type=int, default=200)
+ap.add_argument('--per-dim', type=int, default=0, help='if >0: restarts = min(restarts, per_dim * dimP)')
+ap.add_argument('--seed', type=int, default=1000)
+ap.add_argument('--maxiter', type=int, default=400)
+ap.add_argument('--workers', type=int, default=8)
+ap.add_argument('--sparse-frac', type=float, default=0.3)
+ap.add_argument('--stop-after-hours', type=float, default=100.0)
+ap.add_argument('--struct', default=None, help='python file defining families (used by w2_struct)')
+ap.add_argument('--dump-rel', type=float, default=1e-6, help='save the parameter vector a for restarts with rel below this')
 args = ap.parse_args()
-s0, s1 = [int(x) for x in args.seeds.split('-')]
-seeds = list(range(s0, s1 + 1))
-tag = args.tag or f'{args.blocks}_{args.chi}_d{args.d}_p{args.pD}_{args.mode}_{args.sub}'
-OUT = f'/tmp/hodge/results/symmetric-sextic-residual/w2vp_{tag}.jsonl'
+JOBLOG = f'{RES}/w2/{args.job}.log.jsonl'
+os.makedirs(f'{RES}/w2', exist_ok=True)
+F, A, q = load()
+T0 = time.time()
 
-F, A, q = W.load()
-G = W.group(args.chi, args.blocks)
-fam = W.family(F, A, q, args.d, args.pD, args.chi, args.blocks, verbose=True)
-kernel, jac = fam['kernel'], fam['jac']
-if args.sub == 'kernel': basis = kernel
-elif args.sub == 'jac': basis = jac
-else: basis = kernel + jac
-if not basis:
-    rec = {'batch': 'varpro', 'tag': tag, 'family': f'{args.blocks}/{args.chi}', 'd': args.d, 'pD': args.pD, 'mode': args.mode,
-           'sub': args.sub, 'K': 0, 'note': 'empty family'}
-    W.wlog(rec); print(json.dumps(rec)); sys.exit(0)
-t0 = time.time()
-if args.mode == 'cvp':
-    vp = W.CharVarPro(F, A, q, basis, G, verbose=True)
-else:
-    pairs = []
-    if args.sub in ('all', 'kernel'):
-        for P in kernel:
-            N0, relres = W.e1_lift_float(F, A, q, P, G)
-            if relres > 1e-8:
-                print(f'[w2_varpro] float lift residual {relres:.2e} for a kernel element; skipping it', file=sys.stderr); continue
-            pairs.append((P, N0))
-        print(f'[w2_varpro] {len(pairs)} kernel lifts', file=sys.stderr)
-    if args.sub in ('all', 'jac'):
-        pairs += W.jac_family_with_lifts(F, A, q, args.d, args.pD, G)
-    vp = W.KoszulVarPro(F, A, q, pairs, G, koszul=(args.mode == 'kvp'), verbose=True)
-build = time.time() - t0
-info = {'K': vp.K, 'dimP': vp.dimP, 'rows': vp.rows, 'cols': vp.ncols, 'nN': vp.nN, 'nQ': vp.nQ, 'excluded': vp.excluded_dim, 'build_s': round(build, 1)}
-print('[w2_varpro]', tag, info, flush=True)
 
-def run_seed(seed):
-    t0 = time.time(); out = []; hits = []
-    def on_cand(c):
-        rec = {'seed': seed, 'restart': c['restart'], 'rel': c['rel'], 'f': c['value'], 'spurious': bool(c['spurious']),
-               'div_rel': c['div_rel'], 'iters': c['iters']}
-        if c['rel'] < 1e-4 and not c['spurious']:
-            rec['a'] = [float(v) for v in c['a']]
-        if c['rel'] < args.rel_confirm and not c['spurious']:
-            st, data, fr = W.try_reconstruct_confirm(vp, c['a'], verbose=True, log_tag=f' seed{seed}')
-            rec['confirm'] = st; rec['frac'] = [str(x) for x in fr] if fr else None
-            if st == 'solved':
-                D = data['D']; W.save_witness_candidate(D, data['N'], data['Q'], extra={'tag': tag, 'seed': seed, 'a': [str(x) for x in fr]})
-                rec['WITNESS'] = True; hits.append(rec)
-                with open('/tmp/hodge/results/symmetric-sextic-residual/WITNESS_FOUND.txt', 'a') as f:
-                    f.write(json.dumps(rec) + '\n')
-        with open(OUT, 'a') as f:
-            f.write(json.dumps({'tag': tag, **rec}) + '\n')
-        out.append(rec)
-    res = vp.search(n_restarts=args.restarts, seed=seed, maxiter=args.maxiter, on_candidate=on_cand, stop_rel=1e-13)
-    best = res[0]
-    # rank statistics at the best point
-    a = best['a']; M, b = vp.assemble(a / np.linalg.norm(a))
-    sv = np.linalg.svd(M, compute_uv=False); rk = int(np.sum(sv > 1e-9 * sv[0]))
-    return {'seed': seed, 'best_rel': best['rel'], 'best_spurious': bool(best['spurious']), 'n': len(out),
-            'rels': [r['rel'] for r in out], 'rank': rk, 'nullity': M.shape[1] - rk, 'rows': M.shape[0],
-            'seconds': round(time.time() - t0, 1), 'hits': len(hits)}
+def worker(fam, seeds, out_path, maxiter, sparse_frac):
+    rng = np.random.default_rng(seeds[0] * 7919 + 17)
+    with open(out_path, 'a') as f:
+        for s in seeds:
+            inits = ()
+            if rng.random() < sparse_frac:
+                # sparse init in family coordinates (1-3 random directions of the ambient basis), projected
+                v = np.zeros(fam.K); idx = rng.choice(fam.K, size=int(rng.integers(1, 4)), replace=False)
+                v[idx] = rng.choice([-1.0, 1.0], size=len(idx)); inits = (v,)
+            def cb(c):
+                rec = {'seed': c['seed'], 'rel': c['rel'], 'iters': c['iters'], 'nfev': c['nfev'],
+                       'spurious': bool(c['spurious']), 'div_rel': c['div_rel'], 'sparse_init': bool(inits)}
+                if c['rel'] < args.dump_rel:
+                    rec['a'] = [float(x) for x in c['a']]
+                f.write(json.dumps(rec) + '\n'); f.flush()
+            fam.search(n_restarts=1, seed=s, maxiter=maxiter, inits=inits, callback=cb)
 
-if __name__ == '__main__':
-    t1 = time.time()
-    with Pool(min(args.nproc, len(seeds))) as pool:
-        results = pool.map(run_seed, seeds)
-    rels = sorted(r for res in results for r in res['rels'])
-    hist = {'<1e-10': sum(r < 1e-10 for r in rels), '<1e-6': sum(r < 1e-6 for r in rels), '<1e-3': sum(r < 1e-3 for r in rels),
-            '<1e-2': sum(r < 1e-2 for r in rels), '<1e-1': sum(r < 1e-1 for r in rels), 'total': len(rels)}
-    rec = {'batch': 'varpro', 'tag': tag, 'family': f'{args.blocks}/{args.chi}', 'd': args.d, 'pD': args.pD, 'mode': args.mode, 'sub': args.sub,
-           **info, 'seeds': args.seeds, 'restarts_per_seed': args.restarts, 'maxiter': args.maxiter, 'restarts': len(rels),
-           'best_rel': rels[0] if rels else None, 'median_rel': rels[len(rels)//2] if rels else None, 'hist': hist,
-           'rank': results[0]['rank'], 'nullity': results[0]['nullity'], 'hits': sum(r['hits'] for r in results),
-           'seconds': round(time.time() - t1, 1), 'quartiles': [rels[int(f*(len(rels)-1))] for f in (0, .25, .5, .75, 1)] if rels else None}
-    W.wlog(rec); print(json.dumps(rec), flush=True)
+
+def summarize(files):
+    recs = []
+    for fn in files:
+        if os.path.exists(fn):
+            for line in open(fn):
+                try: recs.append(json.loads(line))
+                except Exception: pass
+    if not recs:
+        return {'n': 0}, []
+    rels = np.array([r['rel'] for r in recs]); spur = np.array([r['spurious'] for r in recs])
+    good = rels[~spur] if (~spur).any() else rels
+    hist = {}
+    for r in good:
+        b = int(math.floor(math.log10(max(r, 1e-30))))
+        hist[b] = hist.get(b, 0) + 1
+    # distinct minima (rounded to 3 significant digits)
+    minima = {}
+    for r in good:
+        key = f'{r:.3g}'
+        minima[key] = minima.get(key, 0) + 1
+    top = sorted(minima.items(), key=lambda kv: float(kv[0]))[:8]
+    summ = {'n': len(recs), 'n_spurious': int(spur.sum()), 'best_rel': float(good.min()), 'median_rel': float(np.median(good)),
+            'n_below_1e-4': int((good < 1e-4).sum()), 'n_below_1e-6': int((good < 1e-6).sum()),
+            'n_below_1e-8': int((good < 1e-8).sum()), 'n_below_1e-10': int((good < 1e-10).sum()),
+            'hist_log10': dict(sorted(hist.items())), 'top_minima': top,
+            'mean_iters': float(np.mean([r['iters'] for r in recs]))}
+    cands = [r for r in recs if (not r['spurious']) and r['rel'] < 1e-10 and 'a' in r]
+    return summ, cands
+
+
+for sec in args.sectors.split(','):
+    if time.time() - T0 > args.stop_after_hours * 3600:
+        break
+    chi, d, pD = sec.split(':'); d = int(d); pD = int(pD)
+    label = f'{chi}/d{d}/p{pD}'
+    t0 = time.time()
+    try:
+        if chi == 'jac':
+            fam, info = build_jac_family(F, A, q, d, pD, with_kernel=True, verbose=True)
+            info.update(chi='jac', nD=info.get('K'), dimK=info.get('K'), dimJ=info.get('nW'), ker_beyond_J=info.get('n_kernel_extra'), nN=info.get('nT'))
+        elif chi == 'jacJ':
+            fam, info = build_jac_family(F, A, q, d, pD, with_kernel=False, verbose=True)
+            info.update(chi='jacJ', nD=info.get('K'), dimK=info.get('K'), dimJ=info.get('nW'), ker_beyond_J=0, nN=info.get('nT'))
+        else:
+            fam, info = build_sector_family(F, A, q, chi, d, pD, verbose=True, label=label)
+    except Exception as ex:
+        wlog({'job': args.job, 'family': 'varpro-sector', 'chi': chi, 'd': d, 'pD': pD, 'error': repr(ex)}, JOBLOG)
+        print('ERROR building', label, repr(ex), flush=True); continue
+    base = {'job': args.job, 'family': 'varpro-sector', 'chi': chi, 'd': d, 'pD': pD, 'nD': info.get('nD'),
+            'dimK': info.get('dimK'), 'dimJ': info.get('dimJ'), 'ker_beyond_J': info.get('ker_beyond_J'),
+            'dimF': info.get('dimF'), 'dimP': info.get('dimP'), 'rows': info.get('rows'), 'nN': info.get('nN'),
+            'nQ': info.get('nQ'), 'build_s': info.get('build_s'), 'maxiter': args.maxiter}
+    print('family', label, info, flush=True)
+    if fam is None or fam.dimP == 0:
+        wlog(dict(base, restarts=0, note='admissible subspace empty (nothing to search)'), JOBLOG); continue
+    n = args.restarts
+    if args.per_dim > 0:
+        n = min(n, args.per_dim * fam.dimP)
+    n = max(n, 1)
+    W = min(args.workers, n)
+    seeds = list(range(args.seed, args.seed + n))
+    files = [f'{RES}/w2/{args.job}_{chi}-{d}-{pD}_w{i}.jsonl' for i in range(W)]
+    ctx = mp.get_context('fork')
+    procs = []
+    for i in range(W):
+        pr = ctx.Process(target=worker, args=(fam, seeds[i::W], files[i], args.maxiter, args.sparse_frac))
+        pr.start(); procs.append(pr)
+    # periodic checkpoints while running
+    pollwait = 10
+    while any(p.is_alive() for p in procs):
+        time.sleep(pollwait); pollwait = min(120, pollwait + 10)
+        summ, cands = summarize(files)
+        if summ.get('n'):
+            print(f'[{label}] progress n={summ["n"]} best={summ["best_rel"]:.3e} ({(time.time()-t0)/60:.1f} min)', flush=True)
+    for p in procs: p.join()
+    summ, cands = summarize(files)
+    rec = dict(base, restarts=n, seeds=[seeds[0], seeds[-1]], seconds=round(time.time() - t0, 1), **summ)
+    # confirmation of candidates
+    conf = []
+    for c in cands[:20]:
+        ok, res = try_confirm(fam, {'a': np.array(c['a']), 'rel': c['rel']}, dict(rec, event='confirm'))
+        conf.append({'rel': c['rel'], 'ok': ok, 'res': res})
+        if ok:
+            rec['WITNESS'] = True
+    rec['confirmations'] = conf
+    wlog(rec, JOBLOG)
+    print('SECTOR DONE', label, json.dumps({k: v for k, v in rec.items() if k not in ('confirmations',)}, default=str), flush=True)
+print('ALL DONE', args.job, f'{(time.time()-T0)/3600:.2f} h', flush=True)

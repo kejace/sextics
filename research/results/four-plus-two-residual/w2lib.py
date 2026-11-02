@@ -473,6 +473,82 @@ class SectorVarPro:
         out.sort(key=lambda c_: (c_['spurious'], c_['rel']))
         return out
 
+    # ------------------------------------------------------------------
+    # Levenberg-Marquardt variable projection (Kaufman Jacobian)
+    def residual_and_jac(self, u):
+        """r(u) = M(a)x(a) - b(a) at a = Pu/|Pu| with x the min-norm least-squares solution (SVD cutoff self.cond),
+        and the Kaufman Jacobian  J = (I - U_r U_r^T) (dM/da x_N - db/da) da/du."""
+        u = np.asarray(u, float)
+        a_full = self.P @ u
+        na = np.linalg.norm(a_full)
+        a = a_full / na
+        M, b, c = self.assemble(a)
+        U, s, Vt = sla.svd(M, full_matrices=False, check_finite=False, lapack_driver='gesdd')
+        keep = s > self.cond * (s[0] if s.size else 1.0)
+        Ur = U[:, keep]
+        x = Vt[keep].T @ ((Ur.T @ b) / s[keep])
+        r = M @ x - b
+        xN = x[:self.nN]
+        K0 = self.K0
+        Kx = sp.kron(sp.eye(self.rows, format='csr'), sp.csr_matrix(xN[None, :]), format='csr')
+        Y = (Kx @ self.MstackT).toarray()                      # Y[:, j] = M^(j) x_N
+        dMx = Y @ self.Bmat
+        T = sp.kron(sp.eye(K0, format='csr'), sp.csr_matrix(c[:, None]), format='csr') + \
+            sp.kron(sp.csr_matrix(c[:, None]), sp.eye(K0, format='csr'), format='csr')
+        dbda = (self.Z @ T) @ self.Bmat if sp.issparse(self.Z @ T) is False else ((self.Z @ T).toarray() @ self.Bmat)
+        V = dMx - dbda
+        Ja = V - Ur @ (Ur.T @ V)
+        Ju = (Ja - np.outer(Ja @ a, a)) @ self.P / na
+        self._nfev += 1
+        return r, Ju
+
+    def search_lm(self, n_restarts=10, seed=0, max_nfev=200, verbose=False, stop_rel=1e-13, init=None):
+        """Random-restart Levenberg-Marquardt on the projected residual.  Same output format as search()."""
+        from scipy.optimize import least_squares
+        rng = np.random.default_rng(seed)
+        out = []
+        t0 = time.time()
+        for it in range(n_restarts):
+            if init is not None and it == 0:
+                u0 = self.P.T @ np.asarray(init, float)
+            else:
+                u0 = rng.standard_normal(self.dimP)
+            u0 /= np.linalg.norm(u0)
+            cache = {}
+
+            def fun(u):
+                key = u.tobytes()
+                if key not in cache:
+                    cache.clear(); cache[key] = self.residual_and_jac(u)
+                return cache[key][0]
+
+            def jac(u):
+                key = u.tobytes()
+                if key not in cache:
+                    cache.clear(); cache[key] = self.residual_and_jac(u)
+                return cache[key][1]
+            try:
+                res = least_squares(fun, u0, jac=jac, method='lm', xtol=1e-15, ftol=1e-15, gtol=1e-15, max_nfev=max_nfev)
+                uu = res.x; nit = int(res.nfev)
+            except Exception as ex:  # pragma: no cover
+                uu = u0; nit = -1
+            a = self.P @ uu; a /= np.linalg.norm(a)
+            f, x, r = self.value(a)
+            bn = self.bnorm(a)
+            rel = f / max(bn * bn, 1e-300)
+            spur, srel = self.is_spurious(a)
+            out.append({'value': f, 'rel': rel, 'a': a, 'spurious': spur, 'div_rel': srel, 'iters': nit, 'restart': it})
+            if verbose:
+                print(f'[sectorvarpro-lm] restart {it}: rel={rel:.3e} nfev={nit} spurious={spur} ({time.time()-t0:.1f}s)', file=sys.stderr)
+            if rel < stop_rel and not spur:
+                break
+        out.sort(key=lambda c_: (c_['spurious'], c_['rel']))
+        return out
+
+    def polish_lm(self, a, max_nfev=400):
+        res = self.search_lm(n_restarts=1, init=a, max_nfev=max_nfev)
+        return res[0]['a'], res[0]['rel']
+
     def polish(self, a, maxiter=3000, gtol=1e-16):
         from scipy.optimize import minimize
         u0 = self.P.T @ np.asarray(a, float)

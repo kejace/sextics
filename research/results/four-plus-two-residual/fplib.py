@@ -38,8 +38,12 @@ class Chars:
 
     def __init__(self, G, elements=None):
         self.n = G.order
-        self.gens = [tuple(g) for g in (G.generators if elements is None else elements)]
-        self.size = len(G.elements) if elements is None else len(elements)
+        if elements is None:
+            self.gens = [tuple(g) for g in G.generators]
+            self.size = len(G.elements)
+        else:
+            self.gens = generating_set([tuple(e) for e in elements], G.order)
+            self.size = len(elements)
         self.VARCHAR = [self.char(tuple(1 if j == i else 0 for j in range(6))) for i in range(6)]
         self._mc = {}
 
@@ -71,6 +75,31 @@ class Chars:
             out.setdefault(self.char(m), 0)
             out[self.char(m)] += 1
         return out
+
+
+def generating_set(elements, n):
+    """Greedy small generating set of a finite abelian group of weight vectors mod n."""
+    gens = []
+    span = {tuple([0] * 6)}
+    for w in elements:
+        w = tuple(x % n for x in w)
+        if w in span:
+            continue
+        gens.append(w)
+        new = set(span)
+        for s in span:
+            cur = s
+            for k in range(1, n):
+                cur = tuple((a + b) % n for a, b in zip(cur, w))
+                new.add(cur)
+        span = new
+    return gens
+
+
+def is_irreducible_sector(ch, d, c):
+    """True iff monomials of degree d and character c are even in X2 and in Y2 (otherwise X2|D or Y2|D)."""
+    ms = ch.monos_char(d, c)
+    return bool(ms) and all(m[2] % 2 == 0 and m[5] % 2 == 0 for m in ms)
 
 
 def key(e):

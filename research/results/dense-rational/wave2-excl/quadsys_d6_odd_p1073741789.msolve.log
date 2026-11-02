@@ -12,23 +12,23 @@ linear algebra option            2
 initial hash table size     131072 (2^17)
 max pair selection             ALL
 reduce gb                        1
-#threads                         2
+#threads                         4
 info level                       1
 generate pbm files               0
 ------------------------------------------
 Dimension of quotient: 39
 ------------------------------------------------------------------------------------
-msolve overall time          12.35 sec (elapsed) /  1.57 sec (cpu)
+msolve overall time           0.05 sec (elapsed) /  0.15 sec (cpu)
 ------------------------------------------------------------------------------------
 
 ---------------- TIMINGS ---------------
-overall(elapsed)       12.33 sec
-overall(cpu)            1.55 sec
-select                  0.02 sec   0.1%
-symbolic prep.          0.00 sec   0.0%
-update                 11.96 sec  97.0%
-convert                 0.25 sec   2.0%
-linear algebra          0.10 sec   0.8%
+overall(elapsed)        0.03 sec
+overall(cpu)            0.13 sec
+select                  0.00 sec   7.0%
+symbolic prep.          0.00 sec   1.4%
+update                  0.03 sec  80.0%
+convert                 0.00 sec   1.0%
+linear algebra          0.00 sec   7.8%
 reduce gb               0.00 sec   0.0%
 -----------------------------------------
 
@@ -45,4 +45,4 @@ max. symbolic hash table size  2^11
 max. basis hash table size     2^16
 -----------------------------------------
 
-msolve exit 0 after 13 s
+msolve exit 0 after 0 s

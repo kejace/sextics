@@ -1,92 +1,113 @@
-"""Batch: structured semi-invariant candidates (products of symmetric atoms, discriminants, E1 classes, Hessian blocks),
-degrees 6..12: twisted E1 test, then exact reduced solve for every E1-passing D."""
-import sys, time, json, itertools
+"""Structured families suggested by the geometry: cones with the G-stable vertex planes/lines
+(ternary D(X), D(Y), D(X1-X0,X2-X0,e1Y), D(e1X,Y1-Y0,Y2-Y0); line vertices D(u1,u2,v1,v2), D(e1X,Y), D(X,e1Y)),
+chi-symmetrised, degrees 7..12: restricted E1 kernel, single solves of random kernel points, varpro restarts.
+python3 w2_struct.py --job struct --families ternX,ternY,uuv,evv,line_tt,line_sX,line_sY --chis triv,sgnX,sgnY,sgnsgn
+   --dmin 7 --dmax 12 --restarts 150 --workers 8"""
+import sys, os, time, json, argparse
 sys.path.insert(0, '/tmp/hodge/results/symmetric-sextic-residual')
-import w2lib as W, charsolve as cs
-from h import var, X, Y, e_k, p_k
-from hodge import core
-from fractions import Fraction
-F, A, q = W.load()
+from w2lib import *
+import multiprocessing as mp
+ap = argparse.ArgumentParser(); ap.add_argument('--job', default='struct'); ap.add_argument('--families', default='ternX,ternY,uuv,evv,line_tt,line_sX,line_sY')
+ap.add_argument('--chis', default='triv,sgnX,sgnY,sgnsgn'); ap.add_argument('--dmin', type=int, default=7); ap.add_argument('--dmax', type=int, default=12)
+ap.add_argument('--restarts', type=int, default=150); ap.add_argument('--workers', type=int, default=8); ap.add_argument('--maxiter', type=int, default=400)
+args = ap.parse_args()
+JOBLOG = f'{RES}/w2/{args.job}.log.jsonl'; os.makedirs(f'{RES}/w2', exist_ok=True)
+F, A, q = load(); p = P0
 mul, add, sub, sc, pw = core.mul, core.add, core.sub, core.scale, core.power
-def dlt(vs): return mul(mul(sub(vs[0], vs[1]), sub(vs[0], vs[2])), sub(vs[1], vs[2]))
-def radial(P, idx):
-    out = {}
-    for i in idx: out = add(out, mul(var(i), core.pderiv(P, i)))
-    return out
-def det3(M):
-    t = {}
-    for perm, s in [((0,1,2),1),((1,2,0),1),((2,0,1),1),((0,2,1),-1),((2,1,0),-1),((1,0,2),-1)]:
-        t = add(t, sc(mul(mul(M[0][perm[0]], M[1][perm[1]]), M[2][perm[2]]), s))
-    return t
-DX, DY = dlt(X), dlt(Y)
-e1X, e2X, e3X = e_k(X,1), e_k(X,2), e_k(X,3); e1Y, e2Y, e3Y = e_k(Y,1), e_k(Y,2), e_k(Y,3)
-D7 = mul(DX, sub(pw(e2X,2), sc(mul(e1X,e3X),2))); D7Y = mul(DY, sub(pw(e2Y,2), sc(mul(e1Y,e3Y),2)))
-EXF, EYF = radial(F,(0,1,2)), radial(F,(3,4,5))
-H = [[core.pderiv(core.pderiv(F,i),j) for j in range(6)] for i in range(6)]
-HXX = det3([[H[i][j] for j in range(3)] for i in range(3)]); HYY = det3([[H[i+3][j+3] for j in range(3)] for i in range(3)])
-HXY = det3([[H[i][j+3] for j in range(3)] for i in range(3)])
-s2X = sub(sc(p_k(X,2),3), pw(e1X,2)); s2Y = sub(sc(p_k(Y,2),3), pw(e1Y,2))
-atoms = {'e1X':(e1X,1),'e2X':(e2X,2),'e3X':(e3X,3),'e1Y':(e1Y,1),'e2Y':(e2Y,2),'e3Y':(e3Y,3),'DX':(DX,3),'DY':(DY,3),
-         'D7':(D7,7),'D7Y':(D7Y,7),'EXF':(EXF,6),'EYF':(EYF,6),'HXX':(HXX,12),'HYY':(HYY,12),'HXY':(HXY,12),'s2X':(s2X,2),'s2Y':(s2Y,2),
-         'p6X':(p_k(X,6),6),'p6Y':(p_k(Y,6),6),'p3X':(p_k(X,3),3),'p3Y':(p_k(Y,3),3)}
-names = list(atoms)
-# enumerate exponent vectors with total degree in [6,12] (cap exponents of big atoms)
-cands = {}
-def rec(i, deg, cur):
-    if deg > 12: return
-    if i == len(names):
-        if 6 <= deg: cands[tuple(cur)] = deg
-        return
-    nm = names[i]; a = atoms[nm][1]
-    emax = 12 // a
-    if nm in ('EXF','EYF','p6X','p6Y','HXX','HYY','HXY','D7','D7Y'): emax = min(emax, 1)
-    if nm in ('p3X','p3Y','s2X','s2Y'): emax = min(emax, 2)
-    for e in range(emax + 1):
-        rec(i + 1, deg + e * a, cur + [e])
-rec(0, 0, [])
-print('candidates', len(cands), flush=True)
-groups = {c: W.group(c) for c in W.CHARS}
-t_all = time.time(); n_e1 = 0; n_solve = 0; passed = []
-log = open('/tmp/hodge/results/symmetric-sextic-residual/w2struct.jsonl', 'a')
-done = set()
-try:
-    for l in open('/tmp/hodge/results/symmetric-sextic-residual/w2struct.jsonl'):
-        done.add(json.loads(l)['label'])
-except Exception: pass
-for ev, deg in sorted(cands.items(), key=lambda kv: kv[1]):
-    label = '*'.join(f'{n}^{e}' if e > 1 else n for n, e in zip(names, ev) if e)
-    if label in done: continue
-    D = {(0,)*6: Fraction(1)}
-    for n, e in zip(names, ev):
-        if e: D = mul(D, pw(atoms[n][0], e))
-    if not D: continue
-    pD = core.parity_of(D)
-    # character: sign atoms DX, D7, HXY (X-sign), DY, D7Y, HXY (Y-sign)
-    sx = (-1) ** sum(e for n, e in zip(names, ev) if n in ('DX','D7','HXY'))
-    sy = (-1) ** sum(e for n, e in zip(names, ev) if n in ('DY','D7Y','HXY'))
-    chi = {(1,1):'triv',(-1,1):'sgnX',(1,-1):'sgnY',(-1,-1):'sgnsgn'}[(sx,sy)]
-    G = groups[chi]
-    t0 = time.time()
-    ok, info = cs.e1_char(F, A, q, D, G)
-    n_e1 += 1
-    r = {'label': label, 'd': deg, 'pD': pD, 'chi': chi, 'e1': ok, 'seconds': round(time.time()-t0, 2)}
-    if ok:
-        divF, _ = __import__('hodge.jacobian', fromlist=['x']).divisible_by(F, D)
-        r['F_divides_D'] = divF
-        if not divF:
-            st, data = cs.solve_char(F, A, q, D, G)
-            n_solve += 1
-            r.update(status=st, rank=data.get('rank'), nullity=data.get('nullity'), rows=data.get('rows'), cols=data.get('cols'))
-            r['seconds'] = round(time.time()-t0, 2)
-            if st == 'solved':
-                okv, _ = core.verify_witness(F, A, q, D, data['N'], data['Q'])
-                r['verified'] = okv
-                if okv:
-                    W.save_witness_candidate(D, data['N'], data['Q'], extra={'label': label, 'batch': 'struct'})
-                    open('/tmp/hodge/results/symmetric-sextic-residual/WITNESS_FOUND.txt','a').write(json.dumps(r)+'\n')
-        passed.append(r)
-    log.write(json.dumps(r) + '\n'); log.flush()
-    print(json.dumps(r), flush=True)
-W.wlog({'batch': 'struct', 'family': 'atom-products', 'degrees': '6-12', 'n_candidates': len(cands), 'n_e1_tested': n_e1,
-        'n_e1_pass': len(passed), 'n_full_solves': n_solve, 'passed': [p['label'] for p in passed],
-        'solved': [p['label'] for p in passed if p.get('status') == 'solved'], 'seconds': round(time.time()-t_all, 1)})
+u1, u2 = sub(var(1), var(0)), sub(var(2), var(0))
+v1, v2 = sub(var(4), var(3)), sub(var(5), var(3))
+e1X, e1Y = e_k(X, 1), e_k(Y, 1)
+COORDS = {'ternX': [var(0), var(1), var(2)], 'ternY': [var(3), var(4), var(5)], 'uuv': [u1, u2, e1Y], 'evv': [e1X, v1, v2],
+          'line_tt': [u1, u2, v1, v2], 'line_sX': [e1X, var(3), var(4), var(5)], 'line_sY': [var(0), var(1), var(2), e1Y]}
+
+def monomials_in(coords, d):
+    n = len(coords); out = []
+    def rec(i, left, cur):
+        if i == n - 1:
+            out.append(cur + [left]); return
+        for k in range(left + 1):
+            rec(i + 1, left - k, cur + [k])
+    rec(0, d, [])
+    polys = []
+    for ex in out:
+        P = {(0,) * 6: Fraction(1)}
+        for c, k in zip(coords, ex):
+            if k: P = mul(P, pw(c, k))
+        polys.append(P)
+    return polys
+
+def worker(fam, seeds, out_path, maxiter):
+    with open(out_path, 'a') as f:
+        for s in seeds:
+            def cb(c):
+                rec = {'seed': c['seed'], 'rel': c['rel'], 'iters': c['iters'], 'spurious': bool(c['spurious'])}
+                if c['rel'] < 1e-6: rec['a'] = [float(x) for x in c['a']]
+                f.write(json.dumps(rec) + '\n'); f.flush()
+            fam.search(n_restarts=1, seed=s, maxiter=maxiter, callback=cb)
+
+for famname in args.families.split(','):
+    coords = COORDS[famname]
+    for d in range(args.dmin, args.dmax + 1):
+        mons = monomials_in(coords, d)
+        for chi in args.chis.split(','):
+            G = GROUPS[chi]()
+            for pD in (0, 1):
+                t0 = time.time()
+                sub_ = [P for P in mons if core.parity_of(P) == pD]
+                basis = restricted_family(sub_, G, p) if sub_ else []
+                label = f'{famname}/{chi}/d{d}/p{pD}'
+                rec = {'job': args.job, 'family': 'structured-family', 'fam': famname, 'chi': chi, 'd': d, 'pD': pD, 'n_monomials': len(sub_), 'nD': len(basis)}
+                if not basis:
+                    rec['note'] = 'empty after symmetrisation'; wlog(rec, JOBLOG); continue
+                try:
+                    fam, info = build_family(F, A, q, G, basis, label, p=p)
+                except Exception as ex:
+                    rec['error'] = repr(ex)[:300]; wlog(rec, JOBLOG); print(json.dumps(rec), flush=True); continue
+                rec.update({k: info.get(k) for k in ('dimK', 'dimF', 'dimP', 'rows', 'nN', 'nQ', 'build_s')})
+                if fam is None or fam.dimP == 0:
+                    rec['note'] = 'no admissible D (E1 kernel trivial or only F-multiples)'
+                    wlog(rec, JOBLOG); print(json.dumps(rec), flush=True); continue
+                # single mod-p solves at 3 random admissible points (float kernel -> rationalised small ints is not exact;
+                # use the mod-p kernel vectors instead)
+                dimK, kvecs, _, _ = e1_family_modp(F, A, q, basis, G, pD, p)
+                rng = np.random.default_rng(d)
+                singles = []
+                for trial in range(min(3, len(kvecs))):
+                    coeff = [int(rng.integers(-2, 3)) for _ in kvecs]
+                    D = {}
+                    for c, kv in zip(coeff, kvecs):
+                        if c:
+                            for j, Bj in enumerate(basis):
+                                if kv[j]:
+                                    D = core.add(D, core.scale(core.reduce_mod(Bj, p), (c * kv[j]) % p, p), p)
+                    if not D: continue
+                    r = solve_single(F, A, q, D, G, p)
+                    singles.append({k: r.get(k) for k in ('e1', 'consistent', 'rank', 'nullity', 'rows', 'cols', 'seconds')})
+                rec['single_solves'] = singles
+                # varpro
+                n = min(args.restarts, 40 * fam.dimP); W = min(args.workers, n)
+                seeds = list(range(5000, 5000 + n))
+                files = [f'{RES}/w2/{args.job}_{famname}-{chi}-{d}-{pD}_w{i}.jsonl' for i in range(W)]
+                ctx = mp.get_context('fork'); procs = []
+                for i in range(W):
+                    pr = ctx.Process(target=worker, args=(fam, seeds[i::W], files[i], args.maxiter)); pr.start(); procs.append(pr)
+                for pr in procs: pr.join()
+                recs = []
+                for fn in files:
+                    if os.path.exists(fn):
+                        for line in open(fn):
+                            try: recs.append(json.loads(line))
+                            except Exception: pass
+                good = [r for r in recs if not r['spurious']] or recs
+                rels = np.array([r['rel'] for r in good]) if good else np.array([1.0])
+                rec.update(restarts=len(recs), best_rel=float(rels.min()), median_rel=float(np.median(rels)),
+                           n_below_1e_6=int((rels < 1e-6).sum()), n_below_1e_10=int((rels < 1e-10).sum()), seconds=round(time.time() - t0, 1))
+                cands = [r for r in good if r['rel'] < 1e-10 and 'a' in r]
+                conf = []
+                for c in cands[:10]:
+                    ok, res = try_confirm(fam, {'a': np.array(c['a']), 'rel': c['rel']}, dict(rec, event='confirm'))
+                    conf.append({'rel': c['rel'], 'ok': ok, 'res': res})
+                    if ok: rec['WITNESS'] = True
+                rec['confirmations'] = conf
+                wlog(rec, JOBLOG); print(json.dumps({k: v for k, v in rec.items() if k != 'confirmations'}, default=str), flush=True)
+print('ALL DONE', flush=True)

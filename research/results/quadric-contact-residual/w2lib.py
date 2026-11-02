@@ -802,3 +802,148 @@ def process_candidates(low, fam, family, d, sector, verbose=True):
                 print('!!!!! WITNESS FOUND', key[:200], file=sys.stderr, flush=True)
                 return results, True
     return results, False
+
+
+# ---------------------------------------------------------------- mod-p colon dimensions (cross-check)
+def colon_dims_modp(d, c):
+    """dim S_d[c], dim J_d[c], dim (J:A)_d[c] computed mod p by ranks."""
+    mons = mons_chi(d, c)
+    n = len(mons)
+    gens = [g[2] for g in jac_gens(d, [c])]
+    dimJ = len(indep_subset_modp(gens, mons)) if gens else 0
+    sigma = chi_add(c, CHI_A)
+    tmons = mons_chi(d + 6, sigma)
+    tidx = {e: j for j, e in enumerate(tmons)}
+    tg = [g[2] for g in jac_gens(d + 6, [sigma])]
+    cols = [shift(A, m, 1) for m in mons]
+    def mat(polys):
+        flat = [0] * (len(polys) * len(tmons))
+        for r, P in enumerate(polys):
+            for e, v in P.items():
+                flat[r * len(tmons) + tidx[e]] = modp(v)
+        return nmod_mat(len(polys), len(tmons), flat, p)
+    rg = mat(tg).rank() if tg else 0
+    ra = mat(cols + tg).rank() if (cols or tg) else 0
+    colon = n - (ra - rg)
+    return {'dimS': n, 'dimJ': dimJ, 'colon': colon, 'extra': colon - dimJ, 'dimR_d6': len(tmons) - rg}
+
+
+def sector_list(spec, d):
+    """Parse a sector spec: 'all' (one mixed family), 'each' (every character separately), 'even'/'odd'
+    (characters of that Y-parity, separately), or comma-separated 4-digit strings."""
+    chars = chars_of_degree(d)
+    if spec == 'all':
+        return [chars]
+    if spec == 'each':
+        return [[c] for c in chars]
+    if spec in ('even', 'odd'):
+        y = 0 if spec == 'even' else 1
+        return [[c] for c in chars if c[3] == y]
+    if spec == 'alleven' or spec == 'allodd':
+        y = 0 if spec == 'alleven' else 1
+        return [[c for c in chars if c[3] == y]]
+    out = []
+    for tok in spec.split(','):
+        out.append([tuple(int(x) for x in tok)])
+    return out
+
+
+# ---------------------------------------------------------------- sector-restricted served-target space (q = 1)
+_EPS_CACHE = {}
+
+
+def eps_sector_basis():
+    """Monomials of S_6[CHI_A] and the normal-form machinery of J_6[CHI_A] (mod p): returns (mons, idx, reducer rows)."""
+    if 'b' in _EPS_CACHE:
+        return _EPS_CACHE['b']
+    mons = mons_chi(6, CHI_A)
+    idx = {e: j for j, e in enumerate(mons)}
+    gens = [g[2] for g in jac_gens(6, [CHI_A])]
+    flat = [0] * (len(gens) * len(mons))
+    for r, P in enumerate(gens):
+        for e, v in P.items():
+            flat[r * len(mons) + idx[e]] = modp(v)
+    JM = nmod_mat(len(gens), len(mons), flat, p)
+    JR, rk = JM.rref()
+    Jrows = [[int(JR[i, j]) for j in range(len(mons))] for i in range(rk)]
+    _EPS_CACHE['b'] = (mons, idx, Jrows)
+    return _EPS_CACHE['b']
+
+
+def served_sector(D, verbose=False):
+    """Space of degree-6 targets A' in the CHI_A sector served by D (q=1), mod p, as row vectors over S_6[CHI_A]
+    together with J_6[CHI_A]; returns dict(dim_mod_J, rows (list of int vectors incl. J rows), nrows, ncols, A_in)."""
+    t0 = time.time()
+    cD = chi_of(D)
+    assert cD is not None, 'D must be a G_aff eigenvector'
+    d = core.degree(D)
+    Dp = core.reduce_mod(D, p)
+    Fp_ = Fp
+    Fi_ = Fip
+    Di = [pderiv(Dp, i, p) for i in range(NV)]
+    FD = mul(Fp_, Dp, p)
+    G = [scale(add(mul(Dp, Fi_[i], p), mul(Fp_, Di[i], p), p), p - 1, p) for i in range(NV)]
+    F2 = scale(power(Fp_, 2, p), p - 1, p)
+    D2 = mul(Dp, Dp, p)
+    cols, polys = [], []
+    for i in range(NV):
+        ci = chi_add(CHI_A, chi_add(cD, CHI_Z[i]))
+        for m in monomials(d + 1):
+            if chi(m) != ci: continue
+            col = shift(G[i], m, 1, p)
+            if m[i]:
+                m2 = list(m); m2[i] -= 1
+                col = add(col, shift(FD, tuple(m2), m[i], p), p)
+            cols.append(('N', i, m)); polys.append(col)
+    cQ = chi_add(CHI_A, chi_add(cD, cD))
+    if 2 * d - 6 >= 0:
+        for m in monomials(2 * d - 6):
+            if chi(m) == cQ:
+                cols.append(('Q', -1, m)); polys.append(shift(F2, m, 1, p))
+    amons, aidx, Jrows = eps_sector_basis()
+    for m in amons:
+        cols.append(('A', -1, m)); polys.append(shift(D2, m, 1, p))
+    rows = {}
+    for P in polys:
+        for e in P:
+            rows.setdefault(e, len(rows))
+    R, C = len(rows), len(cols)
+    flat = [0] * (R * C)
+    for j, P in enumerate(polys):
+        for e, v in P.items():
+            flat[rows[e] * C + j] = v
+    M = nmod_mat(R, C, flat, p)
+    X, nul = M.nullspace()
+    a_idx = [j for j, c in enumerate(cols) if c[0] == 'A']
+    vecs = []
+    if nul:
+        proj = nmod_mat(nul, len(amons), [int(X[j, k]) for k in range(nul) for j in a_idx], p)
+        PR, rk = proj.rref()
+        vecs = [[int(PR[i, j]) for j in range(len(amons))] for i in range(rk)]
+    allrows = Jrows + vecs
+    Mj = nmod_mat(len(Jrows), len(amons), [x for r in Jrows for x in r], p) if Jrows else None
+    Ma = nmod_mat(len(allrows), len(amons), [x for r in allrows for x in r], p)
+    rj = Mj.rank() if Mj is not None else 0
+    ra = Ma.rank()
+    Avec = [0] * len(amons)
+    for e, v in Ap.items():
+        Avec[aidx[e]] = v
+    Mb = nmod_mat(len(allrows) + 1, len(amons), [x for r in allrows + [Avec] for x in r], p)
+    A_in = (Mb.rank() == ra)
+    return {'dim_mod_J': ra - rj, 'dim_raw': len(vecs), 'rows': vecs, 'nrows': R, 'ncols': C, 'A_in': A_in,
+            'seconds': round(time.time() - t0, 1), 'd': d, 'chi': cstr(cD)}
+
+
+def span_test(list_of_rows):
+    """Given lists of served row vectors (mod p, over S_6[CHI_A]), return (dim span mod J, A in span)."""
+    amons, aidx, Jrows = eps_sector_basis()
+    allrows = list(Jrows)
+    for rows in list_of_rows:
+        allrows += rows
+    Avec = [0] * len(amons)
+    for e, v in Ap.items():
+        Avec[aidx[e]] = v
+    Ma = nmod_mat(len(allrows), len(amons), [x for r in allrows for x in r], p)
+    Mb = nmod_mat(len(allrows) + 1, len(amons), [x for r in allrows + [Avec] for x in r], p)
+    ra = Ma.rank()
+    return ra - len(Jrows), Mb.rank() == ra

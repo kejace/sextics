@@ -219,10 +219,39 @@ class Inst:
         return out, Jb, reps
 
     def e1_check_modp(self, D, p):
-        Dp = core.reduce_mod(D, p)
-        AD = core.mul(core.reduce_mod(self.A, p), Dp, p)
-        from hodge import jacobian
-        return jacobian.in_jacobian(core.reduce_mod(self.F, p), AD, p)
+        """Sector-wise check that A D lies in J(F)_{d+6} mod p (rank test on the sector matrix)."""
+        c = self.chi_of(D)
+        d = core.degree(D)
+        c1 = self.cadd(self.chiA, c)
+        dF = [sect.ideriv(self.Fz, i) for i in range(6)]
+        AD = sect.imul(self.Az, sect.integral(D))
+        cols = []
+        for i in range(6):
+            ci = self.cadd(c1, self.chi_ei(i))
+            for m in sect.mons(d + 1):
+                if self.chi(m) != ci:
+                    continue
+                col = {}
+                for e, v in dF[i].items():
+                    k = tuple(a + b for a, b in zip(m, e)); col[k] = (col.get(k, 0) + v) % p
+                cols.append(col)
+        rows = {}
+        for col in cols:
+            for e in col:
+                rows.setdefault(e, len(rows))
+        for e in AD:
+            rows.setdefault(e, len(rows))
+        R, C = len(rows), len(cols)
+        flat = [0] * (R * (C + 1))
+        for j, col in enumerate(cols):
+            for e, v in col.items():
+                flat[rows[e] * (C + 1) + j] = v
+        M0 = nmod_mat(R, C + 1, flat, p)
+        r0 = nmod_mat(R, C, [flat[r * (C + 1) + j] for r in range(R) for j in range(C)], p).rank()
+        for e, v in AD.items():
+            flat[rows[e] * (C + 1) + C] = v % p
+        r1 = nmod_mat(R, C + 1, flat, p).rank()
+        return r0 == r1, {'rank': r0, 'rank_aug': r1}
 
     def f_multiples(self, d, c):
         """Basis of F * S_{d-6} inside sector c (exact polys)."""

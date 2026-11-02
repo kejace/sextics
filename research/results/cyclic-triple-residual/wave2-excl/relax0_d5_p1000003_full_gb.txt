@@ -1,0 +1,28 @@
+#Reduced Groebner basis data
+#---
+#field characteristic: 1000003
+#variable order:       t0, t1, t2, t3, t4, t5
+#monomial order:       graded reverse lexicographical
+#length of basis:      21 elements sorted by increasing leading monomials
+#---
+[1*t5^2,
+1*t4^1*t5^1,
+1*t3^1*t5^1,
+1*t2^1*t5^1,
+1*t1^1*t5^1,
+1*t0^1*t5^1,
+1*t4^2,
+1*t3^1*t4^1,
+1*t2^1*t4^1,
+1*t1^1*t4^1,
+1*t0^1*t4^1,
+1*t3^2,
+1*t2^1*t3^1,
+1*t1^1*t3^1,
+1*t0^1*t3^1,
+1*t2^2,
+1*t1^1*t2^1,
+1*t0^1*t2^1,
+1*t1^2,
+1*t0^1*t1^1,
+1*t0^2]:

@@ -20,6 +20,33 @@ wave2-<job>.jsonl + wave2-search.remote.log.jsonl, merged here after each pull).
 4. Structured families (sub-linear-families and fixed candidates) via varpro / sweep; pending wave-1 Delta_t solve.
 5. Rational reconstruction + exact re-solve for every candidate with relres < 1e-10.
 
+
+## Methods (implemented in /tmp/hodge/results/off-paired/wave2-search/w2lib.py)
+
+* **Exact bases.** (J:A)_{d,chi} and J_{d,chi} are computed as canonical rref bases over Q (modular rref with 2^31-sized primes,
+  CRT, rational reconstruction, verification at a further prime); the Euler gauge F*R_{d-6} is removed by an orthogonal slice.
+* **Sector VarPro.** For D(a) in the family, the fixed-D system (all six numerators of degree d+1 and Q of degree 2d-6, restricted
+  to the characters forced by chi_D, which is lossless) is assembled matrix-free from a precomputed sparse tensor; the Q-block is
+  projected out once (QR); f(a) = min_x ||M(a)x - b(a)||^2 with b = -A D(a)^2, on the unit sphere of the gauge complement
+  (so D is never an F-multiple). Optimizer: Levenberg-Marquardt with the Kaufman variable-projection Jacobian (checked
+  against finite differences); L-BFGS was 0/8 on the control, LM 1/12.
+* **Free-target variant.** Parameters (D, A') with A' in the 24-dim target sector modulo its 2-dim Jacobian part (22 free
+  directions): a zero means D serves SOME nontrivial G-invariant (3,1)-class. By the sum principle served(D1 D2) =
+  served(D1) + served(D2), several such D could be multiplied to serve A. Exact confirmation of a hit: round D, compute
+  served(D_r) exactly (sector target_image mod p), round-and-project if trivial. On the Fermat control the hits lie on a
+  curved positive-dimensional variety and rounding leaves it (served = J only); a hit on off-paired would need structural
+  analysis before exact confirmation.
+* **Hessian relaxation (w2_hess.py).** D = sum w_i F_i, N_i = A w_i (exact E1), residual = distance of
+  D*div(A w) - A*w.grad(D) to F*R_{2d-6}; LM over the w-sphere modulo Koszul/gauge directions. Sufficient only.
+* **Homotopy (w2_homotopy.py).** F_t = Fermat + t*Qx tracked from the Fermat solution f6*X0^{d-6} in the full sector family.
+* **Structured candidates (w2_structured.py).** 3x3 / 4x4 Hessian minors (degrees 12, 16; not in wave 1 or the excl lens
+  which does 2x2), mixed Fermat-type cones times blocks (degrees 8-12). Full sector-reduced fixed-D solve after E1.
+
+## Job queue (remote, prefix search-off-paired-s2-; local runner w2_queue.py keeps <= 4 running)
+control (Fermat calibration d=6,7,8), d8c00 (800 restarts), d8h0 (sectors (a,0), a=1..5, 600 each), d9all (36 sectors x 300),
+ft-d9 (free-target, 36 sectors x 200), hess (d=8..12, six h-invariant sectors, 600 each), struct-hess3, homotopy (d=8,9,10),
+struct-cones, struct-hess4; then d10all / d11h0 / d12h0 sized from the calibration.
+
 ## Step 1 — E1-admissible denominator spaces (mod p = 2^31-1; verified against the dossier's exact colon dims 1,11,54,177,457,1014,2173,3753,5780)
 
 | d | total colon | J part | non-J (ker mult-[A]) | gauge | eff (colon-gauge) | (0,0): colon/J/nonJ/gauge/eff | largest sectors (eff/nonJ) |

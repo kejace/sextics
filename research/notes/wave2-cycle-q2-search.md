@@ -29,4 +29,18 @@ landscape has spurious local minima, so dozens of restarts per sector are needed
 
 ## Results so far
 
-(pending; see log)
+### Theorem (exact, this wave): every certificate for cycle-q2 has deg D >= 6, for arbitrary D
+
+E1 forces A D in J(F); the annihilator of [A] in R_d vanishes for d <= 5 (dossier A.3 at p = 10007; wave-1 sector
+kernels at p = 2^31-1 give K_5 = J_5), so d <= 4 is impossible and d = 5 forces D = sum_i w_i F_i with constant w.
+With the canonical lift N0 = (A/2) w, E2 modulo J(F) reads sum_{i,j} w_i w_j [A F_ij] = 0 in R_16 (im T_D, F^2 Q and
+D div N0 all lie in J).  The 21 classes [A F_ij] (i <= j) fall into 21 distinct character sectors of R_16 and each is
+nonzero mod 2^31-1 and mod 2^31-19 (`w2_hess.py d5`: rank 21/21); dim R_16 mod p = 951 for both primes, the
+characteristic-zero value, so J_16 mod p has full rank and the independence transfers to Q and C.  Hence all w_i w_j = 0,
+w = 0, D = 0.  No symmetry or parity assumption on D is needed.  (Closes gap 3 of the dossier; the previous bound was
+deg D >= 5 with only semi-invariant degree-5 denominators excluded.)
+
+### Numerical joint search
+
+(pending; remote jobs queued: e1dims d=4..12; kernel d=6 (300 restarts/sector) and d=7 (150); kernel d=8 (60);
+structured cone4/mult4/cone3 families d=7..10; J-type relaxation d=6)

@@ -29,7 +29,8 @@ import sect
 
 IID = 'cyclic-triple-residual'
 WD = '/tmp/hodge/results/cyclic-triple-residual'
-W2LOG = f'{WD}/wave2-search.log.jsonl'
+# per-process log file: remote jobs must not share a file with the local lane dir (rsync 'up' overwrites it)
+W2LOG = os.environ.get('W2LOG') or f'{WD}/w2log-{time.strftime("%Y%m%dT%H%M%S")}-{os.getpid()}.jsonl'
 PRIMES = core.PRIMES
 E6 = sect.E6
 

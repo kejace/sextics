@@ -247,7 +247,7 @@ def write_systems(quads, n, prefix, drop=()):
     names = [f'c{k}' for k in keep]
     eqs = []
     for cf in quads:
-        terms = [f'{v}*c{k}*c{l}' for (k, l), v in cf.items() if k in kidx and l in kidx]
+        terms = [(f'{v}*c{k}^2' if k == l else f'{v}*c{k}*c{l}') for (k, l), v in cf.items() if k in kidx and l in kidx]
         if terms:
             eqs.append('+'.join(terms))
     with open(prefix + '.ms', 'w') as f:

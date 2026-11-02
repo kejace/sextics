@@ -4,6 +4,11 @@ Polynomials of a fixed degree k are dense float64 vectors over mons(k) = core.mo
 Products / adjoints use precomputed index tables.  Everything is numerical (float64); exactness is restored only by the
 rational reconstruction + exact re-solve step (hodge.fixed_d / core.verify_witness)."""
 import sys, os, time, json, math
+for _v in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS'):
+    if 'W2S_THREADS' in os.environ:
+        os.environ[_v] = os.environ['W2S_THREADS']
+    else:
+        os.environ.setdefault(_v, '1')
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 import numpy as np
 import scipy.linalg as sla
@@ -14,7 +19,7 @@ from hodge.core import NV, monomials, pderiv, mul, add, sub, scale, shift, power
 
 IID = 'dense-rational'
 LANE = '/tmp/hodge/results/dense-rational'
-LOG = os.path.join(LANE, 'wave2-search.log.jsonl')
+LOG = os.path.join(LANE, 'wave2-search.remote.log.jsonl' if os.environ.get('W2S_REMOTE') else 'wave2-search.log.jsonl')
 CACHE = os.path.join(LANE, 'w2s_cache')
 os.makedirs(CACHE, exist_ok=True)
 PVEC = [0, 0, 0, 1, 1, 1]
@@ -239,6 +244,8 @@ def K_full(F, A, Fi, d, pD, verbose=True):
 
 def J_basis(Fi, d, pD):
     """Orthonormal basis of J_d^pD inside mons(d) (zeros off-parity) and its dimension."""
+    if d < 5:
+        return np.zeros((nmons(d), 0)), 0
     G, cols, rows = gen_matrix(Fi, d, pD)
     Gn, _ = column_normalize(G)
     U, s, Vt = sla.svd(Gn, full_matrices=False, check_finite=False)

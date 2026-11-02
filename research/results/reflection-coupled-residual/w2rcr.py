@@ -182,7 +182,7 @@ def crt_lift_reps(res1, res2, res3=None):
         for j, (a1, a2) in enumerate(zip(v1, v2)):
             if a1 == 0 and a2 == 0:
                 continue
-            a = core.crt_pair(a1, p1, a2, p2)
+            a, _ = core.crt_pair(a1, p1, a2, p2)
             fr = core.ratrecon(a, p1 * p2)
             if fr is None:
                 return None
@@ -699,3 +699,111 @@ def jacobian_family(F, d, chi, p=None, independent=True):
         if r2 > rk:
             rk = r2; rows.append(row); keep.append((g, P))
     return [P for g, P in keep], [g for g, P in keep]
+
+
+# =====================================================================================================
+# Part 3: E1 annihilator W (left null space of J_{d+6} in a sector) and fast E1 tests
+# =====================================================================================================
+def e1_annihilator(F, d, chi, p, verbose=False):
+    """W: list of row vectors (mod p) over S_{d+6}^{chi+CHI_A} spanning the annihilator of J_{d+6} there.
+    Returns (rows monomial list, W as nmod_mat (nul x R))."""
+    t0 = time.time()
+    Fp = core.reduce_mod(F, p)
+    Fi = [pderiv(Fp, i, p) for i in range(NV)]
+    tsec = sadd(chi, CHI_A)
+    rows = monos_sec(d + 6, tsec); ridx = {m: i for i, m in enumerate(rows)}; R = len(rows)
+    gens = [(i, m) for i in range(NV) for m in monos_sec(d + 1, sadd(tsec, VARSEC[i]))]
+    flat = [0] * (len(gens) * R)
+    for g, (i, m) in enumerate(gens):
+        base = g * R
+        for e, v in shift(Fi[i], m, 1, p).items():
+            flat[base + ridx[e]] = v
+    GT = nmod_mat(len(gens), R, flat, p)
+    del flat
+    X, nul = GT.nullspace()          # R x nul, GT X = 0
+    del GT
+    W = nmod_mat(nul, R, [int(X[i, k]) for k in range(nul) for i in range(R)], p)
+    del X
+    if verbose:
+        print(f'[ann] d={d} chi={chi} p={p}: rows={R} gens={len(gens)} dim R_(d+6) sector={nul} ({time.time()-t0:.0f}s)',
+              file=sys.stderr, flush=True)
+    return rows, ridx, W
+
+
+def e1_space_modp_v2(F, A, d, chi, p, want_basis=True, verbose=False, ann=None):
+    """Same output as e1_space_modp, via the annihilator W (much smaller nullspace)."""
+    t0 = time.time()
+    Fp = core.reduce_mod(F, p); Ap = core.reduce_mod(A, p)
+    Fi = [pderiv(Fp, i, p) for i in range(NV)]
+    rows, ridx, W = ann if ann is not None else e1_annihilator(F, d, chi, p, verbose)
+    R = len(rows); nul = W.nrows()
+    Dm = monos_sec(d, chi); nD = len(Dm)
+    flat = [0] * (R * nD)
+    for j, m in enumerate(Dm):
+        for e, v in mul(Ap, {m: 1}, p).items():
+            flat[ridx[e] * nD + j] = v
+    AM = nmod_mat(R, nD, flat, p)
+    del flat
+    T = W * AM                        # nul x nD
+    X, k = T.nullspace()              # nD x k
+    Xd = [[int(X[j, c]) for j in range(nD)] for c in range(k)]
+    rkD, Dr = _rref_rows(Xd, nD, p)
+    out = {'d': d, 'chi': list(chi), 'p': p, 'dim_S': nD, 'rows': R, 'dim_R_target': nul, 'dim_colon': rkD}
+    if d >= 5:
+        gens_d = [(i, m) for i in range(NV) for m in monos_sec(d - 5, sadd(chi, VARSEC[i]))]
+        didx = {m: i for i, m in enumerate(Dm)}
+        Jvecs = []
+        for (i, m) in gens_d:
+            row = [0] * nD
+            for e, v in shift(Fi[i], m, 1, p).items():
+                row[didx[e]] = v
+            Jvecs.append(row)
+        rkJ, Jr = _rref_rows(Jvecs, nD, p)
+    else:
+        rkJ, Jr = 0, None
+    out['dim_J'] = rkJ; out['dim_nonjac'] = rkD - rkJ
+    out['seconds'] = round(time.time() - t0, 1)
+    if want_basis and rkD > rkJ:
+        piv = []
+        if Jr is not None:
+            for r in range(rkJ):
+                j = 0
+                while int(Jr[r, j]) == 0:
+                    j += 1
+                piv.append(j)
+        reps = []
+        for r in range(rkD):
+            v = [int(Dr[r, j]) for j in range(nD)]
+            for r2, j in enumerate(piv):
+                if v[j]:
+                    c = v[j]
+                    for jj in range(nD):
+                        v[jj] = (v[jj] - c * int(Jr[r2, jj])) % p
+            if any(v):
+                reps.append(v)
+        rk2, Rr = _rref_rows(reps, nD, p)
+        assert rk2 == rkD - rkJ, (rk2, rkD, rkJ)
+        out['reps_modp'] = [[int(Rr[r, j]) for j in range(nD)] for r in range(rk2)]
+        out['Dmons'] = Dm
+        out['Jpivots'] = piv
+    if verbose:
+        print(f"[e1v2] d={d} chi={chi} p={p}: dim S={nD} dim R_target={nul} colon={rkD} J={rkJ} nonjac={rkD-rkJ} ({out['seconds']}s)",
+              file=sys.stderr, flush=True)
+    return out
+
+
+def e1_test_modp(F, A, D, p, ann_cache={}):
+    """Fast exact E1 test (A D in J mod p) for a sector-pure D using a cached annihilator."""
+    d = core.degree(D); chi = sector_of(D)
+    if chi is None:
+        return None
+    k = (d, chi, p)
+    if k not in ann_cache:
+        ann_cache[k] = e1_annihilator(F, d, chi, p)
+    rows, ridx, W = ann_cache[k]
+    Ap = core.reduce_mod(A, p); Dp = core.reduce_mod(D, p)
+    v = [0] * len(rows)
+    for e, c in mul(Ap, Dp, p).items():
+        v[ridx[e]] = c
+    r = W * nmod_mat(len(rows), 1, v, p)
+    return all(int(r[i, 0]) == 0 for i in range(r.nrows()))

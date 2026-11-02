@@ -17,6 +17,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--d', type=int, required=True)
 ap.add_argument('--pD', type=int, default=0)
 ap.add_argument('--prime-index', type=int, default=0)
+ap.add_argument('--prime', type=int, default=None, help='explicit prime (e.g. 1073741789 < 2^30 for msolve)')
 ap.add_argument('--tag', default='relax')
 ap.add_argument('--msolve-out', default=None)
 ap.add_argument('--kernel-json', default=None, help='out/e1kernel_d{d}_p{pD}.json (kernel reps + lifts mod p)')
@@ -24,7 +25,8 @@ args = ap.parse_args()
 
 F, A, q = load()
 d, pD = args.d, args.pD
-p = core.PRIMES[args.prime_index]
+p = args.prime or core.PRIMES[args.prime_index]
+PTAG = '' if p == core.PRIMES[0] else f'_q{p}'
 Ap = core.reduce_mod(A, p); Fp = core.reduce_mod(F, p)
 Fi = [pderiv(Fp, i, p) for i in range(NV)]
 pA = core.parity_of(A)
@@ -38,7 +40,7 @@ for i in range(NV):
         Nm = [{} for _ in range(NV)]; Nm[i] = shift(Ap, m, 1, p)
         fam.append(('J', i, m, Dm, Nm))
 nJ = len(fam)
-kpath = args.kernel_json or f'{OUT}/e1kernel_d{d}_p{pD}.json'
+kpath = args.kernel_json or f'{OUT}/e1kernel_d{d}_p{pD}{PTAG}.json'
 nker = 0
 if os.path.exists(kpath):
     kj = json.load(open(kpath))

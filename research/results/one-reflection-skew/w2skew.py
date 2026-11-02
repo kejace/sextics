@@ -497,3 +497,312 @@ def load_kernel(d, rD, sD, exact=True):
     with open(fn, 'wb') as fh:
         pickle.dump(k, fh)
     return k
+
+# ----------------------------------------------------------------------------- structured sub-families (5-var)
+def family_mask(mons, kind):
+    """Boolean mask over sector monomials for structured sub-families.
+    kind: 'all' | 'cone4:<i>' (omit variable i -> cone with vertex a line over a 4-variable hypersurface)
+          | 'cone3:<i>,<j>' (omit i and j -> cone with vertex a plane over a plane curve)
+          | 'bihom:<a>,<b>' (X-degree a, Y-degree b)."""
+    if kind == 'all':
+        return np.ones(len(mons), bool)
+    tag, _, arg = kind.partition(':')
+    if tag == 'cone4':
+        i = int(arg)
+        return np.array([m[i] == 0 for m in mons])
+    if tag == 'cone3':
+        i, j = (int(x) for x in arg.split(','))
+        return np.array([m[i] == 0 and m[j] == 0 for m in mons])
+    if tag == 'bihom':
+        a, b = (int(x) for x in arg.split(','))
+        return np.array([m[0] + m[1] + m[2] == a and m[3] + m[4] == b for m in mons])
+    raise ValueError(kind)
+
+def restrict_basis(Kb, mask):
+    """Orthonormal basis of (row space of Kb) intersected with the coordinate subspace given by mask."""
+    if mask.all():
+        return Kb
+    # vectors v = c Kb with v[~mask] = 0: nullspace of Kb[:, ~mask]^T acting on c
+    Bout = Kb[:, ~mask]
+    if Bout.shape[1] == 0:
+        return Kb
+    U, s, Vt = np.linalg.svd(Bout.T, full_matrices=True)       # Bout.T: (n_out x K)
+    rk = int(np.sum(s > 1e-9))
+    Cn = Vt[rk:, :]                                            # (K - rk) x K  : c with Bout.T c = 0 ... rows
+    V = Cn @ Kb
+    if V.shape[0] == 0:
+        return V
+    V[:, ~mask] = 0.0
+    Q, R = np.linalg.qr(V.T)
+    return Q.T
+
+# ----------------------------------------------------------------------------- 6-variable sector varpro (Y2-dependent D)
+from hodge import symmetry
+from hodge.core import monomials, NV
+
+class VP6:
+    """Six-variable varpro over D = sum_k a_k B_k (rows over `mons`, all of one diagonal character), with the
+    N_i / Q unknowns restricted to the forced character sector (symmetry.sector_filter).  rhs b = -A D^2."""
+    def __init__(self, d, mons, Basis, group=None, ridge=1e-10, verbose=False, exclude_F=True):
+        t0 = time.time()
+        self.d = d; self.mons = list(mons); self.nD = len(mons)
+        self.Basis = np.asarray(Basis, float); self.K = self.Basis.shape[0]
+        F, Aq, q = F6, A6, 1
+        self.group = group or symmetry.diagonal_group(F)
+        D0 = {self.mons[0]: Fraction(1)}
+        allowed, sub = symmetry.sector_filter(F, Aq, q, D0, self.group)
+        self.subgroup_size = len(sub)
+        pD = core.parity_of(D0)
+        pars = fixed_d.numerator_parities(D0, Aq)
+        degN, degQ = d + 1, 2 * d - 6
+        Ncols = [(i, m) for i in range(NV) for m in monomials(degN, pars[i]) if allowed('N', i, m)]
+        Qcols = [m for m in monomials(degQ, core.parity_of(Aq)) if allowed('Q', 0, m)] if degQ >= 0 else []
+        self.Ncols, self.Qcols = Ncols, Qcols; self.nN, self.nQ = len(Ncols), len(Qcols)
+        Fi = [pderiv(F, i) for i in range(NV)]
+        F2 = scale(mul(F, F), -1)
+        rows = {}
+        def ridx(e):
+            if e not in rows:
+                rows[e] = len(rows)
+            return rows[e]
+        EE, RR, CC, VV = [], [], [], []
+        for k, e in enumerate(self.mons):
+            De = {e: Fraction(1)}
+            FD = mul(F, De)
+            G = [scale(add(scale(mul(De, Fi[i]), q), mul(F, pderiv(De, i))), -1) for i in range(NV)]
+            for j, (i, m) in enumerate(Ncols):
+                col = shift(G[i], m, 1)
+                if m[i]:
+                    m2 = list(m); m2[i] -= 1
+                    col = add(col, shift(FD, tuple(m2), m[i]))
+                for ee, v in col.items():
+                    EE.append(k); RR.append(ridx(ee)); CC.append(j); VV.append(float(v))
+        qri, qci, qv = [], [], []
+        for j, m in enumerate(Qcols):
+            for ee, v in shift(F2, m, 1).items():
+                qri.append(ridx(ee)); qci.append(j); qv.append(float(v))
+        Ae = next(iter(Aq.keys())); self.Ac = float(Aq[Ae])
+        self.prod_idx = np.zeros((self.nD, self.nD), dtype=np.int64)
+        for k1, e1 in enumerate(self.mons):
+            for k2, e2 in enumerate(self.mons):
+                self.prod_idx[k1, k2] = ridx(tuple(a + b + c for a, b, c in zip(e1, e2, Ae)))
+        self.rows = len(rows); self.row_index = rows
+        self.ncols = self.nN + self.nQ
+        self.EE = np.array(EE, dtype=np.int64); self.RR = np.array(RR, dtype=np.int64); self.CC = np.array(CC, dtype=np.int64)
+        self.VV = np.array(VV); self.flat = self.RR * self.ncols + self.CC
+        self.MQ = np.zeros((self.rows, self.nQ))
+        for r_, c_, v_ in zip(qri, qci, qv):
+            self.MQ[r_, c_] = v_
+        self.ridge = ridge
+        # exclude F-multiples inside the family (spurious q=1 solutions)
+        self.P = np.eye(self.K); self.excluded = 0
+        if exclude_F and d >= 6:
+            Gm = [m for m in monomials(d - 6, pD) ]
+            idxD = {m: j for j, m in enumerate(self.mons)}
+            cols = []
+            for m in Gm:
+                P_ = shift(F, m, 1)
+                if all(e in idxD for e in P_):
+                    v = np.zeros(self.nD)
+                    for e, c in P_.items():
+                        v[idxD[e]] = float(c)
+                    cols.append(v)
+            if cols:
+                FM = np.array(cols)                              # nF x nD
+                # a with Basis^T a in rowspace(FM): solve least squares; subspace S = {a : exists g, Basis^T a = FM^T g}
+                # => a in Basis @ FM^T (if Basis orthonormal rows spanning a space containing the F-multiples)
+                S = self.Basis @ FM.T                            # K x nF
+                U, s, Vt = np.linalg.svd(S, full_matrices=True)
+                r = int(np.sum(s > 1e-9 * max(1.0, s[0])))
+                self.P = U[:, r:]; self.excluded = r
+        self.dimP = self.P.shape[1]
+        self.build_time = time.time() - t0
+        if verbose:
+            print(f'[vp6] d={d} K={self.K} nD={self.nD} rows={self.rows} cols={self.ncols} (N {self.nN}, Q {self.nQ}) '
+                  f'stab={self.subgroup_size} nnz={len(VV)} excludedF={self.excluded} built {self.build_time:.1f}s', file=sys.stderr)
+
+    def Dvec(self, a):
+        return self.Basis.T @ np.asarray(a, float)
+
+    def assemble(self, Dv):
+        M = np.bincount(self.flat, weights=Dv[self.EE] * self.VV, minlength=self.rows * self.ncols).reshape(self.rows, self.ncols)
+        if self.nQ:
+            M[:, self.nN:] = self.MQ
+        b = -self.Ac * np.bincount(self.prod_idx.ravel(), weights=np.outer(Dv, Dv).ravel(), minlength=self.rows)
+        return M, b
+
+    solve_inner = VP5.solve_inner
+
+    def value(self, a):
+        a = np.asarray(a, float); a = a / np.linalg.norm(a)
+        M, b = self.assemble(self.Dvec(a))
+        x = self.solve_inner(M, b); r = M @ x - b
+        return float(r @ r), x, r, b
+
+    def value_and_grad(self, u):
+        u = np.asarray(u, float)
+        af = self.P @ u; nu = np.linalg.norm(af); a = af / nu
+        Dv = self.Dvec(a)
+        M, b = self.assemble(Dv)
+        x = self.solve_inner(M, b); r = M @ x - b
+        fval = float(r @ r)
+        z = np.bincount(self.EE, weights=r[self.RR] * self.VV * x[self.CC], minlength=self.nD)
+        y = -2.0 * self.Ac * (r[self.prod_idx] @ Dv)
+        g = self.Basis @ (2.0 * (z - y))
+        g_full = (g - float(g @ a) * a) / nu
+        return fval, self.P.T @ g_full
+
+    def is_spurious(self, a, tol=1e-8):
+        """Is D(a) numerically divisible by F?  (least squares against F * R_{d-6})"""
+        if self.d < 6:
+            return False, 1.0
+        D = self.Dvec(np.asarray(a, float))
+        Dp = poly_from_vec(D, self.mons)
+        pD = core.parity_of({self.mons[0]: 1})
+        Gm = monomials(self.d - 6, pD)
+        Fcols = [shift(F6, m, 1) for m in Gm]
+        idx = {}
+        for C in Fcols + [Dp]:
+            for e in C:
+                idx.setdefault(e, len(idx))
+        Mb = np.zeros((len(idx), len(Fcols)))
+        for j, C in enumerate(Fcols):
+            for e, v in C.items():
+                Mb[idx[e], j] = float(v)
+        bv = np.zeros(len(idx))
+        for e, v in Dp.items():
+            bv[idx[e]] = v
+        xx = sla.lstsq(Mb, bv, check_finite=False)[0]
+        rel = float(np.linalg.norm(Mb @ xx - bv) / max(np.linalg.norm(bv), 1e-300))
+        return rel < tol, rel
+
+    def search(self, n_restarts=10, seed=0, maxiter=400, gtol=1e-12, verbose=False, stop_rel=1e-13, keep_rel=1e-6, on_restart=None):
+        rng = np.random.default_rng(seed)
+        out = []; t0 = time.time()
+        for it in range(n_restarts):
+            t1 = time.time()
+            u0 = rng.standard_normal(self.dimP); u0 /= np.linalg.norm(u0)
+            res = minimize(self.value_and_grad, u0, jac=True, method='L-BFGS-B',
+                           options={'maxiter': maxiter, 'gtol': gtol, 'ftol': 1e-18, 'maxcor': 20})
+            a = self.P @ res.x; a /= np.linalg.norm(a)
+            fval, x, r, b = self.value(a)
+            rel = fval / max(float(b @ b), 1e-300)
+            spur, srel = self.is_spurious(a) if rel < keep_rel else (False, None)
+            cand = {'rel': rel, 'value': fval, 'iters': int(res.nit), 'restart': it, 'seed': seed, 'spurious': spur,
+                    'secs': round(time.time() - t1, 2), 'a': a if rel < keep_rel else None}
+            out.append(cand)
+            if on_restart:
+                on_restart(cand)
+            if verbose:
+                print(f'[vp6] seed {seed} restart {it}: rel={rel:.3e} iters={res.nit} spur={spur} ({time.time()-t0:.1f}s)', file=sys.stderr)
+            if rel < stop_rel and not spur:
+                break
+        return out
+
+    def D_float(self, a):
+        return poly_from_vec(self.Dvec(np.asarray(a, float) / np.linalg.norm(a)), self.mons)
+
+def char6(e, n=None):
+    """Diagonal character label of a 6-var monomial: (e5 mod 6, rho = e3+e4 mod 2, sigma = e1+e4 mod 2)."""
+    return (e[5] % 6, (e[3] + e[4]) % 2, (e[1] + e[4]) % 2)
+
+def mons6_sector(d, chi):
+    return [m for m in monomials(d) if char6(m) == tuple(chi)]
+
+def e1_kernel6_exact(d, chi, primes=None, max_primes=6, verbose=False):
+    """Exact E1 kernel {D in S6_d[chi] : A D in J(F)} (rref basis via CRT), J_d[chi] generators and float bases."""
+    t0 = time.time()
+    Dm = mons6_sector(d, chi); nD = len(Dm)
+    chiA = char6(next(iter(A6)))
+    tgt = tuple((a + b) % m for a, b, m in zip(chiA, chi, (6, 2, 2)))
+    Fi = [pderiv(F6, i) for i in range(NV)]
+    Jm = [(i, m) for i in range(NV) for m in monomials(d + 1) if char6(tuple(a + b for a, b in zip(m, next(iter(Fi[i]))))) == tgt] if True else []
+    def build(p):
+        fp = core.reduce_mod(F6, p); Ap = core.reduce_mod(A6, p)
+        fi_p = [pderiv(fp, i, p) for i in range(NV)]
+        cols = [shift(Ap, m, 1, p) for m in Dm] + [shift(fi_p[i], m, 1, p) for i, m in Jm]
+        rows = {}
+        for col in cols:
+            for e in col:
+                rows.setdefault(e, len(rows))
+        R = len(rows); C = len(cols)
+        flat = [0] * (R * C)
+        for j, col in enumerate(cols):
+            for e, v in col.items():
+                flat[rows[e] * C + j] = v
+        M = nmod_mat(R, C, flat, p)
+        Xn, nullity = M.nullspace()
+        if not nullity:
+            return [], [], R, C
+        proj = nmod_mat(nD, nullity, [int(Xn[j, k]) for j in range(nD) for k in range(nullity)], p)
+        Tr, kerD = proj.transpose().rref()
+        rowsK = []; pivs = []
+        for i in range(kerD):
+            row = [int(Tr[i, j]) for j in range(nD)]
+            pivs.append(next(j for j, v in enumerate(row) if v)); rowsK.append(row)
+        return pivs, rowsK, R, C
+    primes = list(primes or core.PRIMES[:max_primes])
+    acc = mod = pivs0 = None; result = None
+    for k, p in enumerate(primes):
+        pivs, rowsK, R, C = build(p)
+        if not rowsK:
+            result = []; break
+        if pivs0 is None or pivs != pivs0:
+            pivs0 = pivs; acc = rowsK; mod = p
+            if k > 0 and pivs != pivs0:
+                continue
+        else:
+            acc = [[core.crt_pair(a, mod, b, p)[0] for a, b in zip(ra, rb)] for ra, rb in zip(acc, rowsK)]
+            mod *= p
+        rat = [[core.ratrecon(v, mod) for v in row] for row in acc]
+        if all(v is not None for row in rat for v in row):
+            pn = primes[k + 1] if k + 1 < len(primes) else core.PRIMES[max_primes]
+            pivs2, rowsK2, _, _ = build(pn)
+            if pivs2 == pivs0 and all((v.numerator * pow(v.denominator, -1, pn) - w) % pn == 0
+                                      for row, row2 in zip(rat, rowsK2) for v, w in zip(row, row2)):
+                result = rat; break
+    if result is None:
+        raise RuntimeError('6-var kernel reconstruction failed')
+    kerD = len(result)
+    idxD = {m: j for j, m in enumerate(Dm)}
+    Jd = [(i, m) for i in range(NV) for m in monomials(d - 5) if char6(tuple(a + b for a, b in zip(m, next(iter(Fi[i]))))) == tuple(chi)] if d >= 5 else []
+    JdM = np.zeros((nD, len(Jd)))
+    for j, (i, m) in enumerate(Jd):
+        for e, v in shift(Fi[i], m, 1).items():
+            JdM[idxD[e], j] = float(v)
+    if Jd:
+        p = core.PRIMES[0]
+        fi_p = [pderiv(core.reduce_mod(F6, p), i, p) for i in range(NV)]
+        flatJ = [0] * (nD * len(Jd))
+        for j, (i, m) in enumerate(Jd):
+            for e, v in shift(fi_p[i], m, 1, p).items():
+                flatJ[idxD[e] * len(Jd) + j] = v
+        dimJ = nmod_mat(nD, len(Jd), flatJ, p).rank()
+        Qd, Rd, pv = sla.qr(JdM, mode='economic', pivoting=True); Jb = Qd[:, :dimJ].T
+    else:
+        dimJ = 0; Jb = np.zeros((0, nD))
+    out = {'d': d, 'chi': tuple(chi), 'mons': Dm, 'nD': nD, 'kerD': kerD, 'dimJ': dimJ, 'nonJ': kerD - dimJ,
+           'Kexact': result, 'rows': R, 'cols': C, 'Jgens': Jd}
+    if kerD:
+        Kf = np.array([[float(v) for v in row] for row in result])
+        Qk, Rk = np.linalg.qr(Kf.T); Kb = Qk.T
+        Cb = Kb - (Kb @ Jb.T) @ Jb if dimJ else Kb
+        Uc, sc, Vtc = np.linalg.svd(Cb, full_matrices=False)
+        Cb = Vtc[:kerD - dimJ, :]
+    else:
+        Kb = np.zeros((0, nD)); Cb = Kb
+    out['Kbasis'] = Kb; out['Jbasis'] = Jb; out['Cbasis'] = Cb
+    out['seconds'] = round(time.time() - t0, 1)
+    if verbose:
+        print(json.dumps({kk: v for kk, v in out.items() if kk not in ('mons', 'Kexact', 'Kbasis', 'Jbasis', 'Cbasis', 'Jgens')}), file=sys.stderr)
+    return out
+
+def load_kernel6(d, chi):
+    fn = f'{WD}/w2ker6x_d{d}_c{chi[0]}{chi[1]}{chi[2]}.pkl'
+    if os.path.exists(fn):
+        with open(fn, 'rb') as fh:
+            return pickle.load(fh)
+    k = e1_kernel6_exact(d, chi)
+    with open(fn, 'wb') as fh:
+        pickle.dump(k, fh)
+    return k

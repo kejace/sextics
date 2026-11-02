@@ -12,7 +12,7 @@ os.environ.setdefault('OMP_NUM_THREADS', '1'); os.environ.setdefault('OPENBLAS_N
 sys.path.insert(0, '/tmp/hodge/results/off-paired')
 import numpy as np
 from scipy.optimize import least_squares
-import w2lib as W
+import w2lib as W, w2fast as WF
 from hodge import core
 import multiprocessing as mp
 
@@ -29,12 +29,13 @@ ap.add_argument('--chunk', type=int, default=10)
 ap.add_argument('--name', type=str, required=True)
 ap.add_argument('--polish_tol', type=float, default=1e-5)
 ap.add_argument('--cand_tol', type=float, default=1e-7)
+ap.add_argument('--qproj', type=int, default=1)
 args = ap.parse_args()
 chi = tuple(int(x) for x in args.chi.split(','))
 
 F, A, q = W.load()
 t0 = time.time()
-fam, S = W.build_family(F, A, q, args.d, chi, args.kind, hessian=bool(args.hess), verbose=True)
+fam, S = WF.build_family(F, A, q, args.d, chi, args.kind, hessian=bool(args.hess), verbose=True, qproj=bool(args.qproj))
 if fam is None:
     W.log_batch({'step': 'varpro', 'name': args.name, 'd': args.d, 'chi': list(chi), 'kind': args.kind,
                  'hess': args.hess, 'restarts': 0, 'note': 'empty family', 'spaces': S.summary()})
@@ -53,9 +54,7 @@ print('[info]', json.dumps(info), flush=True)
 
 
 def residual_vec(a):
-    a = np.asarray(a, float); a = a / np.linalg.norm(a)
-    f, x, r = fam.value(a)
-    return r
+    return fam.residual_vec(a)
 
 
 def polish(a, max_nfev=None):
@@ -65,8 +64,7 @@ def polish(a, max_nfev=None):
                         max_nfev=max_nfev or 40 * K, xtol=1e-15, ftol=1e-15, gtol=1e-15)
     a1 = res.x / np.linalg.norm(res.x)
     f, x, r = fam.value(a1)
-    bn = fam.bnorm(a1)
-    return a1, f / max(bn * bn, 1e-300)
+    return a1, fam.rel(f)
 
 
 def work(task):
@@ -89,6 +87,20 @@ def work(task):
             rec['a'] = [float(v) for v in c['a']]
         recs.append(rec)
     return recs, time.time() - t
+
+
+def D_float_str(a):
+    Dv = fam.DB.T @ np.asarray(a, float)
+    Dm = W.mons_chi(fam.d, fam.c)
+    terms = sorted(zip(np.abs(Dv), range(len(Dv))), reverse=True)
+    out = []
+    for mag, j in terms[:12]:
+        if mag < 1e-6 * terms[0][0]:
+            break
+        e = Dm[j]
+        mon = '*'.join(f'{v}**{k}' if k > 1 else v for v, k in zip(['X0','X1','X2','Y0','Y1','Y2'], e) if k)
+        out.append(f'{Dv[j]:+.6f}*{mon}')
+    return ' '.join(out)
 
 
 def try_exact(a, rel):
@@ -129,7 +141,7 @@ with mp.get_context('fork').Pool(args.workers) as pool, open(per_job, 'a') as fj
             if r['rel'] < args.cand_tol and not r['spurious']:
                 ncand += 1
                 with open(cand_path, 'a') as fc:
-                    fc.write(json.dumps({'name': args.name, **r, 'D_float': W.D_str({m: round(float(sum(aa * float(B.get(m, 0)) for aa, B in zip(r['a'], fam.basis))), 6) for m in set().union(*[set(B) for B in fam.basis])})}) + '\n')
+                    fc.write(json.dumps({'name': args.name, **r, 'D_float': D_float_str(r['a'])}) + '\n')
                 if r['rel'] < 1e-10:
                     st, data, fr = try_exact(np.array(r['a']), r['rel'])
                     if st == 'solved':

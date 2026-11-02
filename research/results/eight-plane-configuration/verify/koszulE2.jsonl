@@ -1,0 +1,1 @@
+{"rows": 1491, "cols": 105, "rank": 102, "rank_aug": 103, "consistent": false, "D": "dF/dX0", "d": 5, "p": "exact-Q", "seconds": 130.4, "method": "own Koszul-reduced E2 (koszulE2.py)"}

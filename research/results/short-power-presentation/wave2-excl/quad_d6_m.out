@@ -1,0 +1,5 @@
+kernel basis d=6 par=0 from /tmp/hodge/results/short-power-presentation/wave2-excl/e1kernel_d6_p0.json: 0 elements
+kernel basis d=6 par=1 from /tmp/hodge/results/short-power-presentation/wave2-excl/e1kernel_d6_p1.json: 0 elements
+d=6 mode=m: 0 kernel reps, 36 field coordinates, 36 unknowns
+666 bilinear coefficient polynomials built (1s)
+parity 0: 885 coordinate equations (130s)

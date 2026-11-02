@@ -1,1 +1,9 @@
 [relax d=6] params=36 (a 36) E2 monomials=3798 built 1.0s
+quadratic monomials: 666
+L_12 generators: 4935
+block 0 {'rows': 935, 'Lcols': 1361, 'rankL': 603, 'rank_LT': 713, 'constraints': 332, 'rank_constraints': 110, 'seconds': 222.2}
+block 1 {'rows': 955, 'Lcols': 1089, 'rankL': 558, 'rank_LT': 715, 'constraints': 397, 'rank_constraints': 157, 'seconds': 282.4}
+block 2 {'rows': 1049, 'Lcols': 558, 'rankL': 396, 'rank_LT': 617, 'constraints': 653, 'rank_constraints': 221, 'seconds': 11.4}
+block 3 {'rows': 1100, 'Lcols': 280, 'rankL': 260, 'rank_LT': 470, 'constraints': 840, 'rank_constraints': 210, 'seconds': 5.7}
+block 4 {'rows': 1049, 'Lcols': 558, 'rankL': 396, 'rank_LT': 617, 'constraints': 653, 'rank_constraints': 221, 'seconds': 11.3}
+block 5 {'rows': 955, 'Lcols': 1089, 'rankL': 558, 'rank_LT': 715, 'constraints': 397, 'rank_constraints': 157, 'seconds': 180.9}

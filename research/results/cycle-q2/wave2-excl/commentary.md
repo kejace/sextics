@@ -2,3 +2,13 @@
 
 - E0 (validation): independent solver `xlib.py` (no engine code except parsing) reproduces the accepted `block-q2` and `fermat-q2` witnesses exactly (identity verified in own arithmetic; sector solver returns SOLVED-EXACT), and its matrix agrees with direct polynomial evaluation on a random (N,Q) for `cycle-q2`, `D = F_{X2}`.
 - Rigor note: a mod-p inconsistency (rank/aug = r/r+1) is NOT by itself a characteristic-zero proof (p could divide all r x r minors of M). The packet therefore attaches an exact Farkas certificate (integer vector Y with Y^T M = 0, Y^T b != 0, checked in exact integer arithmetic) to every exclusion, which proves inconsistency over Q and hence over C.
+
+### Rigorous chain for characteristic-zero transfer (used throughout)
+1. F is smooth over Q: Singular at p=1000003 and own sector-wise check at p=2147483629 (R_25 = 0 and the Hilbert function of S/J equals (1+t+..+t^4)^6 in every degree <= 25). A singular point over Q-bar would reduce to one mod p, so smoothness mod p implies smoothness over C.
+2. Because the mod-p Hilbert function equals the regular-sequence series, rank_p(J-generators in degree k) = rank_Q for every k, hence J_k(Z_(p)) is saturated. Consequently (i) a zero E1-annihilator mod p is zero over Q (dim Ann_Q <= dim Ann_p), (ii) linear independence of classes modulo J mod p implies independence over Q, (iii) a particular solution N^0 of 2N(F) = AD can be chosen p-integral, so the Hessian relaxation computed mod p contains the reduction of every Q-bar solution.
+3. Fixed-D exclusions are certified over Q by exact integer Farkas vectors (no good-prime assumption).
+
+### Established so far
+- E1 (group): |G| = 72 (432 with scalars), chi_A values {1, w, w^2}, |K| = 24, tau, s0, s1, gamma in K, chi_A(h) = zeta^2, chi_A(g) = zeta^4, element orders as in the dossier, exactly 3 support permutations (1, R, R^2), R exact on F, chi_{R(A)} != chi_A as characters, 90 degree-12 monomials in chi_A (all Y-odd). Dossier A.1 confirmed.
+- E4 (NEW, RIGOROUS): the 21 classes [A F_{ij}] (i <= j) in R_16 are linearly independent (they lie in 21 pairwise distinct G-characters and each is nonzero mod J at p = 2147483629 and p = 1000003). With Ann_5 = 0 this excludes EVERY denominator of degree 5 (any parity, any coefficients): deg D = 5 forces D = sum c_i F_i, N = c A/2 + Koszul, and E2 mod J reads sum c_i c_j [A F_ij] = 0, so all c_i c_j = 0. Together with Ann_d = 0 for d <= 4: **every certificate has deg D >= 6**.
+- A (re-verification, Farkas-certified over Q): F_X0 (442/443), F_X1 (427/428), F_X2 (427/428), F_Y0 (433/434), F_Y1 (430/431), F_Y2 (441/442), B6 (628/629), Grad0 (609/610), Grad1 (610/611), ... (ranks identical to dossier A.5 at the new primes 1000003 and 2147483629; the F_Y_i are new).

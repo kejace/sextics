@@ -12,7 +12,7 @@ sys.path.insert(0, '/tmp/hodge/results/reflection-coupled-residual/wave2-excl')
 from common import *
 args = sys.argv[1:]
 d = int(args[0]); p = int(args[1])
-kfiles = []; threads = 4; run = True
+kfiles = []; threads = 4; run = True; sector = None; slots = None
 i = 2
 while i < len(args):
     if args[i] == '--kernel':
@@ -22,16 +22,23 @@ while i < len(args):
         continue
     if args[i] == '--threads': threads = int(args[i + 1]); i += 2; continue
     if args[i] == '--no-run': run = False; i += 1; continue
+    if args[i] == '--sector': sector = tuple(int(c) for c in args[i + 1].split(',')); i += 2; continue
+    if args[i] == '--slots': slots = [int(c) for c in args[i + 1].split(',')]; i += 2; continue
     i += 1
 F, A, q, rec = load()
 Fp = reduce_mod(F, p); Ap = reduce_mod(A, p)
 Fi = [pderiv(Fp, i, p) for i in range(NV)]
 t_start = time.time()
-tag = f'obsys_d{d}_p{p}'
+tag = f'obsys_d{d}_p{p}' + (f'_sec{sector[0]}{sector[1]}' if sector else '') + (('_slots' + ''.join(map(str, slots))) if slots else '')
+def chi_w(i, m):
+    return ((m[5] - (1 if i == 5 else 0)) % 2, (m[3] + m[4] - (1 if i in (3, 4) else 0)) % 2)
+
 # ---- unknown basis
 U = []   # entries: ('w', i, m) or ('K', k)
 for i in range(NV):
     for m in monomials(d - 5):
+        if sector is not None and chi_w(i, m) != sector: continue
+        if slots is not None and i not in slots: continue
         if i == 5 and m[5] >= 1:
             continue   # dropped: (5, l*Y2) spans a complement of {l*z : l in S_{d-6}}  (D = 6 l F)
         U.append(('w', i, m))
@@ -41,6 +48,7 @@ for kf in kfiles:
     J = json.load(open(kf))
     for s in J['basis']:
         K = reduce_mod(core.parse(s), p)
+        if sector is not None and klein(next(iter(K))) != sector: continue
         N, info = e1_solve(F, A, K, p)
         assert N is not None, f'kernel class from {kf} is not E1-admissible mod {p}: {info}'
         Ks.append(K); Ns.append(N)
@@ -143,6 +151,7 @@ for c0 in range(0, len(pairs), CH):
     print(f'[{tag}] pairs {c0 + len(chunk)}/{len(pairs)} done ({time.time() - t0:.0f}s), eqs so far {len(eqs)}', flush=True)
 neq = len(eqs)
 print(f'[{tag}] {neq} nonzero quadrics in {nU} unknowns; pairs with nonzero ob: {nnz_pairs}', flush=True)
+json.dump({'nU': nU, 'eqs': [[list(t) for t in eqs[key]] for key in sorted(eqs)]}, open(f'{PK}/{tag}.eqs.json', 'w'))
 # ---- msolve file
 msf = f'{PK}/{tag}.ms'
 with open(msf, 'w') as f:

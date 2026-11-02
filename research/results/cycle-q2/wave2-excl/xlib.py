@@ -522,3 +522,146 @@ def load_cycle_q2():
     F2 = pint({e: Fraction(c) * 2 for e, c in F.items()})
     A = pint(A)
     return F2, A, q
+
+# ----------------------------------------------------------------------------- J-combinations
+def express_in_J(JS, P, deg, key):
+    """mod p: return dict {(i, m): coeff} with P == sum coeff * m * F2_i  (deg P = deg, sector key),
+    or None if P is not in J.  Uses the generator order of JS.jgens."""
+    p = JS.p
+    ms = sector_monos(deg, JS.gens, key)
+    idx = {m: i for i, m in enumerate(ms)}
+    gens = []; labels = []
+    for i in range(NV):
+        need = key_add(key, key_neg(JS.kF), JS.kx[i])
+        for m in sector_monos(deg - 5, JS.gens, need):
+            gens.append(pshift(JS.Fi[i], m)); labels.append((i, m))
+    n = len(ms); g = len(gens)
+    flat = [0] * (n * (g + 1))
+    for j, G in enumerate(gens):
+        for e, c in G.items():
+            flat[idx[e] * (g + 1) + j] = c % p
+    for e, c in P.items():
+        flat[idx[e] * (g + 1) + g] = c % p
+    M = nmod_mat(n, g + 1, flat, p)
+    R, rk = M.rref()
+    piv = pivots_of_rref(R, rk, g + 1)
+    if g in piv:
+        return None
+    sol = {}
+    for r, j in enumerate(piv):
+        v = int(R[r, g])
+        if v:
+            sol[labels[j]] = v
+    return sol
+
+def inv_mod(a, p):
+    return pow(a % p, p - 2, p)
+
+def relaxation_data(JS, A, D_list, dN_from_d=lambda d: d + 7):
+    """For E1-admissible D_k (mod p, semi-invariant each), compute particular N^0_k with
+    sum_i N_i F2_i = A D_k, then the symmetric bilinear forms
+       B(D_k, D_l) = (1/2)[D_k div N_l + D_l div N_k - N_l(D_k) - N_k(D_l)]  (degree 2d+6q-6... = deg D + deg N - 1)
+    returned as polys mod p.  Returns (N0 list, dict {(k,l): poly})."""
+    p = JS.p; kA = key_of_poly(A, JS.gens)
+    N0 = []
+    for D in D_list:
+        kD = key_of_poly(D, JS.gens)
+        AD = pmod(pmul(A, D), p)
+        sol = express_in_J(JS, AD, pdeg(D) + pdeg(A), key_add(kD, kA))
+        assert sol is not None, 'D not E1-admissible'
+        N = [dict() for _ in range(NV)]
+        for (i, m), c in sol.items():
+            N[i][m] = c
+        # check
+        chk = {}
+        for i in range(NV):
+            chk = padd(chk, pmul(N[i], JS.Fi[i]))
+        assert not pmod(padd(chk, AD, -1), p), 'E1 particular solution failed'
+        N0.append(N)
+    def divN(N):
+        out = {}
+        for i in range(NV):
+            out = padd(out, pderiv(N[i], i))
+        return out
+    def NofD(N, D):
+        out = {}
+        for i in range(NV):
+            out = padd(out, pmul(N[i], pderiv(D, i)))
+        return out
+    half = inv_mod(2, p)
+    B = {}
+    dv = [divN(N) for N in N0]
+    for k in range(len(D_list)):
+        for l in range(k, len(D_list)):
+            t = padd(pmul(D_list[k], dv[l]), pmul(D_list[l], dv[k]))
+            t = padd(t, NofD(N0[l], D_list[k]), -1)
+            t = padd(t, NofD(N0[k], D_list[l]), -1)
+            B[(k, l)] = pmod(pscale(t, half), p)
+    return N0, B
+
+# ----------------------------------------------------------------------------- rational reconstruction
+def ratrec(a, p, bound=None):
+    """rational reconstruction of a mod p: returns Fraction n/d with |n|,d <= sqrt(p/2) (or None)."""
+    a %= p
+    if bound is None:
+        bound = int((p // 2) ** 0.5)
+    r0, r1 = p, a; s0, s1 = 0, 1
+    while r1 > bound:
+        qq = r0 // r1
+        r0, r1 = r1, r0 - qq * r1
+        s0, s1 = s1, s0 - qq * s1
+    if s1 == 0 or abs(s1) > bound:
+        return None
+    return Fraction(r1, s1) if s1 > 0 else Fraction(-r1, -s1)
+
+def poly_ratrec(P, p):
+    """reconstruct an integer polynomial (primitive) from a mod-p polynomial; None on failure."""
+    out = {}
+    for e, c in P.items():
+        f = ratrec(c, p)
+        if f is None:
+            return None
+        out[e] = f
+    L = 1
+    for f in out.values():
+        L = L * f.denominator // math.gcd(L, f.denominator)
+    out = {e: int(f * L) for e, f in out.items() if f != 0}
+    g = 0
+    for c in out.values():
+        g = math.gcd(g, abs(c))
+    if g > 1:
+        out = {e: c // g for e, c in out.items()}
+    # sign normalisation
+    first = out[min(out)]
+    if first < 0:
+        out = {e: -c for e, c in out.items()}
+    return out
+
+def nonJ_representatives(JS, A, d, key):
+    """mod-p E1 kernel of the sector, split into a J_d part and non-J representatives (rref-reduced
+    against the J part).  Returns (nonJ list of polys mod p, jdim, kernel_dim)."""
+    r = JS.e1_kernel(A, d, key)
+    if r['kernel_dim'] == 0:
+        return [], 0, 0
+    p = JS.p
+    ms = sector_monos(d, JS.gens, key); idx = {m: i for i, m in enumerate(ms)}
+    jg = JS.jgens(d, key)
+    rows = []
+    for g in jg:
+        v = [0] * len(ms)
+        for e, c in g.items():
+            v[idx[e]] = c % p
+        rows.append(v)
+    jrank = nmod_mat(len(rows), len(ms), [x for v in rows for x in v], p).rank() if rows else 0
+    reps = []
+    cur = list(rows)
+    currank = jrank
+    for Dk in r['basis']:
+        v = [0] * len(ms)
+        for e, c in Dk.items():
+            v[idx[e]] = c % p
+        test = cur + [v]
+        rk = nmod_mat(len(test), len(ms), [x for u in test for x in u], p).rank()
+        if rk > currank:
+            cur = test; currank = rk; reps.append(Dk)
+    return reps, jrank, r['kernel_dim']

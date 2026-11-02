@@ -2,3 +2,6 @@
 [system] d=7 q=1 rows=26532 cols=4497 (N 3861, Q 636) nnz=8720317 built in 12.5s
 [compressed p=2147483647] k=4538 consistent=False rank=4042 nullity=455 (compress 168.5s, rref 55.9s)
 X0^2*F_X0: d=7 e1=True consistent=False rank=4042 nullity=455 (289.1s)
+[system] d=7 q=1 rows=26532 cols=4497 (N 3861, Q 636) nnz=11286195 built in 123.5s
+[compressed p=2147483647] k=4538 consistent=False rank=4042 nullity=455 (compress 244.4s, rref 41.0s)
+X0*F_X0 + Y0*F_Y0 ... times X0? no: X0*E_X(F): d=7 e1=True consistent=False rank=4042 nullity=455 (567.8s)

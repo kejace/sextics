@@ -1,1 +1,8 @@
 98 tasks, 3 workers
+{"lane": "symmetric-sextic-residual", "d": 6, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 100.7, "error": null}
+{"lane": "symmetric-sextic-residual", "d": 6, "parity": 0, "ann_mod_J": 0, "expected": "0", "seconds": 110.7, "error": null}
+{"lane": "short-power-presentation", "d": 6, "parity": 0, "ann_mod_J": 0, "expected": "0", "seconds": 18.8, "error": null}
+{"lane": "short-power-presentation", "d": 6, "parity": 1, "ann_mod_J": 0, "expected": "0", "seconds": 177.7, "error": null}
+{"lane": "symmetric-sextic-residual", "d": 7, "parity": 0, "ann_mod_J": 1, "expected": "1 (D7)", "seconds": 309.6, "error": null}
+{"lane": "symmetric-sextic-residual", "d": 7, "parity": 1, "ann_mod_J": 1, "expected": "1 (D7Y)", "seconds": 375.2, "error": null}
+{"lane": "short-power-presentation", "d": 7, "parity": 0, "ann_mod_J": 1, "expected": "1 (wave-1)", "seconds": 284.3, "error": null}

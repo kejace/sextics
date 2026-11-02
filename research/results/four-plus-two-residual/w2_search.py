@@ -17,6 +17,7 @@ ap.add_argument('--sectors', default='all'); ap.add_argument('--restarts', type=
 ap.add_argument('--procs', type=int, default=8); ap.add_argument('--threads', type=int, default=1); ap.add_argument('--maxiter', type=int, default=300)
 ap.add_argument('--seed0', type=int, default=1000); ap.add_argument('--instance', default='four-plus-two-residual')
 ap.add_argument('--cand-rel', type=float, default=1e-8); ap.add_argument('--max-K', type=int, default=100000)
+ap.add_argument('--method', default='lbfgs', choices=['lbfgs', 'lm'])
 args = ap.parse_args()
 os.environ['OPENBLAS_NUM_THREADS'] = str(args.threads); os.environ['OMP_NUM_THREADS'] = str(args.threads); os.environ['MKL_NUM_THREADS'] = str(args.threads)
 sys.path.insert(0, '/tmp/hodge/results/four-plus-two-residual')
@@ -149,8 +150,11 @@ def run_task(task):
         rec['mode'] = 'grid'
         rec['restarts'] = len(cands)
     else:
-        cands = obj.search(n_restarts=args.restarts, seed=seed, maxiter=args.maxiter)
-        rec['mode'] = 'lbfgs'
+        if args.method == 'lm' and spec != 'hess':
+            cands = obj.search_lm(n_restarts=args.restarts, seed=seed, max_nfev=args.maxiter)
+        else:
+            cands = obj.search(n_restarts=args.restarts, seed=seed, maxiter=args.maxiter)
+        rec['mode'] = args.method
         rec['restarts'] = len(cands)
     rels = [c['rel'] for c in cands if not c.get('spurious', False)]
     rec['n_spurious'] = sum(1 for c in cands if c.get('spurious', False))
@@ -166,7 +170,9 @@ def run_task(task):
         if c.get('spurious', False) or c['rel'] >= args.cand_rel:
             continue
         nc += 1
-        a1, r1 = (obj.polish(c['a']) if spec != 'hess' else (c['a'], c['rel']))
+        a1, r1 = (obj.polish_lm(c['a']) if spec != 'hess' else (c['a'], c['rel']))
+        if spec != 'hess' and r1 > c['rel']:
+            a1, r1 = obj.polish(c['a'])
         Dfl = obj.D_float(a1)
         tag = f'{args.job}:{spec}:d{d}:{lab}:b{batch}'
         crec = {'kind': 'cand', 'job': args.job, 'family': spec, 'd': d, 'sector': list(lab), 'batch': batch, 'seed': seed,

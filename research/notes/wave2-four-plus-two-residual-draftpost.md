@@ -1,0 +1,23 @@
+# Draft discussion comment — `four-plus-two-residual` (thread #120) — exclusion/rigor results, wave 2
+
+(DRAFT, not posted. Numbers marked «pending» are filled from the log when the remote jobs finish.)
+
+### Rigorous degree bound and exhaustive low-degree screens for the denominator
+
+Setting: `F = H(X0,X1,Y0,Y1) + B(X2,Y2)`, `q = 1`, `A = X0^3 Y0^3`. A certificate with denominator `D` needs (E1) `A·D ∈ J(F)` (from the cleared identity modulo `F`, using `gcd(D,F) = 1`) and (E2) the remaining identity modulo `F`. Everything below is exact linear algebra (python-flint, fraction-free over `Q`) unless marked "mod p".
+
+**1. The E1-admissible denominators are known exactly.** Since `J(F) = J(H) + J(B)` in disjoint variables, `R(F) = R(H) ⊗ R(B)` and `{D : A·D ∈ J(F)}_d = Σ_k ker(a· on R(H)_{d−k}) ⊗ C[X2,Y2]_k + J(F)_d`. The kernels of `a = X0^3Y0^3` on the core Jacobian ring, by `(Y0,Y1)`-parity (even, odd), computed exactly over `Q` and modulo three primes (2^31−1, 10^9+7, 998244353, all with smooth reduction): `k ≤ 5: (0,0)`, `k = 6: (20,13)`, `7: (30,30)`, `8: (41,34)`, `9: (38,38)`, «k=10..12: pending». Hence there is **no E1-admissible denominator of degree ≤ 4** (any Y-parity), and **every E1-admissible denominator of degree 5 is a polar `F_v = v·∇F`, `v ∈ C^6`**.
+
+**2. Degree 5 is excluded over C.** For `D = F_v` the general solution of E1 is `N = A v + (m/6) z + K` with `K` a Koszul field (`K = Σ_{i<j} ℓ_ij (F_j ∂_i − F_i ∂_j)`, `ℓ_ij` linear), and E2 becomes (the free `m` cancels)
+`F_v A_v − A F_vv + F_v div K − K(F_v) = F·Q` with `F_vv = vᵀ Hess(F) v`.
+Relaxing the rank-one tensors `v⊗v ∈ Sym²C^6` and `v⊗ℓ` to free tensors gives a homogeneous linear system (2078 equations, 21 + 540 + 126 unknowns) whose exact kernel projects onto an 8-dimensional subspace `W ⊂ Sym²C^6`; every degree-5 certificate would give `v⊗v ∈ W`. The annihilator of `W` is the monomial ideal `(v0²,…,v5², v0v1, v0v3, v1v3, v0v4, v3v4, v1v4, v2v5)` (Groebner basis; Singular and sympy agree), so `W` contains no nonzero rank-one tensor. (Control: for a target in `J(F)`, which every `D` serves, the same computation gives `W = Sym²`.) **Therefore every certificate for this instance has `deg D ≥ 6`.**
+
+**3. Degree 6, full 6-variable system (two primes, exact gauge count).** «pending: the 33 kernel representatives, H, B, structural D, random members of `J(F)_6 ⊕ ker` of both pure parities and mixed parity — all inconsistent; for rational D the modular inconsistency is made rigorous over C by matching the modular nullity with the exact dimension `#m + dim{K Koszul : D div K − K(D) ∈ (F)}` of the homogeneous solution space.»
+
+**4. Core-only kernel elements up to degree 12, exact.** «pending: all exact representatives of `ker(a·)` on `R(H)_k`, `k = 7..12`, both parities, tested in the full 6-variable system restricted (losslessly, by averaging over the diagonal group of order 24) to the forced character sector; ranks of `M` and `[M|b]` computed exactly over `Q`: all inconsistent.»
+
+**5. Products (sum principle).** «pending: served-target sectors of the binary lines (the six linear factors of B over a splitting prime, X2, Y2, random lines) and of the core kernel representatives; A is not in the sum of any tested core and binary served spaces, so no product `c(x)·b(X2,Y2)` of tested factors serves A (mod p).»
+
+**6. Generic members of the E1-admissible family at degrees 7–10.** «pending.»
+
+What this does and does not say: the degree-5 exclusion and the E1-kernel structure are theorems (exact computations over Q, field-independent). The degree ≥ 6 results are exclusions of specific denominators and families (rigorous for each tested rational D, modular for random members); they are not a nonexistence statement. Scripts, receipts (primes, ranks, dimensions) and a replay recipe: `wave2-excl/` packet (README inside).

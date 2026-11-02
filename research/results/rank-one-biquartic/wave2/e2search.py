@@ -34,9 +34,11 @@ ap.add_argument('--cand-rel', type=float, default=1e-6)
 ap.add_argument('--confirm-rel', type=float, default=1e-8)
 ap.add_argument('--batch-note', default='')
 ap.add_argument('--report-every', type=int, default=25)
+ap.add_argument('--instance', default=None, help='override instance id (validation runs)')
 args = ap.parse_args()
 
-F, A, q = load()
+F, A, q = load(args.instance)
+IID_RUN = args.instance or IID
 d, pD = args.d, args.pD
 prob = E2Float(F, A, d, pD)
 t0 = time.time()
@@ -193,9 +195,10 @@ def reconstruct_and_confirm(Dv, tag):
                     rec['verified'] = bool(okw)
                     if okw:
                         rec['status'] = 'WITNESS'
-                        w = {'instance': IID, 'd': d, 'D': core.to_str(Dq), 'N': [core.to_str(n) for n in res['N']],
+                        w = {'instance': IID_RUN, 'd': d, 'D': core.to_str(Dq), 'N': [core.to_str(n) for n in res['N']],
                              'Q': core.to_str(res['Q']), 'family': tag}
-                        with open(f'{LANE}/witness-candidate.json', 'w') as fh:
+                        wpath = f'{LANE}/witness-candidate.json' if args.instance is None else f'{OUT}/witness-{IID_RUN}-{tag}.json'
+                        with open(wpath, 'w') as fh:
                             json.dump(w, fh, indent=1)
                         print('!!!!!!!!!! WITNESS FOUND !!!!!!!!!!', key[:200], file=sys.stderr, flush=True)
                         out.append(rec)

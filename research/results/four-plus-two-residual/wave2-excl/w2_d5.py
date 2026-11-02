@@ -151,6 +151,7 @@ else:
 save_json(JOB, 'relax', {'nS': nS, 'nT': nT, 'nQ': nQ, 'rank': rank, 'nullity': nul, 'dim_W': rW,
                          'W_basis': [[str(x) for x in vec] for vec in Wbasis], 'S_index': Sidx, 'result': result})
 
+if os.environ.get('W2_RELAX_ONLY'): sys.exit(0)
 # ---------- 3. direct fixed-D tests (partials, random rational members), [RANK] ----------
 names = ['dF/dX0', 'dF/dX1', 'dF/dX2', 'dF/dY0', 'dF/dY1', 'dF/dY2']
 for p in (W.P2, W.P3):

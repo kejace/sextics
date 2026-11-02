@@ -37,9 +37,9 @@ if __name__ == '__main__':
     t0 = time.time()
     reps = {}
     for par in (0, 1):
-        r = W.mult_kernel(W.H, W.CORE, W.A, 6, par, p=None)
-        reps[par] = W.small_height_reps(r['reps'])
-        log(JOB, {'exp': 'd6-exact-reps', 'parity': par, 'n_reps': len(reps[par]), 'dim_modJ': r['dim_modJ'],
+        r = W.small_kernel_reps(W.H, W.CORE, W.A, 6, par)
+        reps[par] = r['reps_modJ']
+        log(JOB, {'exp': 'd6-exact-reps', 'parity': par, 'n_reps': len(reps[par]), 'dim_modJ': len(r['reps_modJ']), 'verified_exact': r['verified'],
                   'max_abs_coeff': max(abs(int(c)) for rp in reps[par] for c in rp.values()), 'seconds': round(time.time() - t0, 1)})
     rng = random.Random(2026)
     tasks = []

@@ -135,8 +135,8 @@ class ProdTable:
 # ----------------------------------------------------------------------------
 # instance structure
 # ----------------------------------------------------------------------------
-def load():
-    F, A, q, rec = core.load_instance(IID)
+def load(iid=None):
+    F, A, q, rec = core.load_instance(iid or os.environ.get('HODGE_IID', IID))
     assert q == 1
     return F, A, q
 

@@ -144,6 +144,66 @@ def k3_windows(par, p):
     return out
 
 
+def k3_surface_windows(par, p):
+    """Denominators of multiplicity >= 2 along the K3 surfaces S = {Q_a + z Q_b = Q_c + z' Q_d = Q_e + z'' Q_f = 0}
+    (pullbacks of the 405 planes of the Fermat cubic; z^3 = 1).  Rational for z = z' = z'' = 1 (15 pairings).
+    For the complex ones we use a primitive cube root of unity in F_p (p = 1 mod 3): mod-p screening only."""
+    out = {}
+    pairings = []
+    idx = list(range(6))
+    def rec(rem, cur):
+        if not rem:
+            pairings.append(list(cur)); return
+        a = rem[0]
+        for b in rem[1:]:
+            rec([x for x in rem if x not in (a, b)], cur + [(a, b)])
+    rec(idx, [])
+    # cube root of unity mod p
+    w3 = None
+    if p % 3 == 1:
+        for g in range(2, 200):
+            c = pow(g, (p - 1) // 3, p)
+            if c != 1:
+                w3 = c; break
+    import itertools as it
+    for pr in pairings:
+        tag = ''.join(f'{a}{b}' for a, b in pr)
+        for zs in it.product(range(3), repeat=3):
+            exact = (zs == (0, 0, 0))
+            if not exact and w3 is None:
+                continue
+            Ls = []
+            for (a, b), zk in zip(pr, zs):
+                if exact:
+                    Ls.append(add(Qs[a], Qs[b]))
+                else:
+                    z = pow(w3, zk, p)
+                    Ls.append(add({e: modp(v, p) for e, v in Qs[a].items()}, scale({e: modp(v, p) for e, v in Qs[b].items()}, z, p), p))
+            gens = []
+            for i in range(3):
+                for j in range(i, 3):
+                    LL = mul(Ls[i], Ls[j]) if exact else mul(Ls[i], Ls[j], p)
+                    for m in monomials(DD - 4, par):
+                        gens.append(shift(LL, m, 1) if exact else shift(LL, m, 1, p))
+            name = f'K3double_{tag}_z{zs[0]}{zs[1]}{zs[2]}'
+            out[name] = (gens, f'I(S)^2 in degree d, S = K3 surface over the plane pairing {pr} with zeta exponents {zs}' + ('' if exact else ' (mod-p, omega in F_p)'))
+    return out
+
+
+def qS_cube_windows(par, p):
+    out = {}
+    for S in [(0, 1, 2), (3, 4, 5)]:
+        gens = []
+        for c in itertools.combinations_with_replacement(S, 3):
+            Pl = {(0,) * 6: Fraction(1)}
+            for i in c:
+                Pl = mul(Pl, Qs[i])
+            for m in monomials(DD - 6, par):
+                gens.append(shift(Pl, m, 1))
+        out[f'QS{"".join(map(str,S))}_cube'] = (gens, f'(Q_S)^3 in degree d, S={S} (triple along the K3 curve)')
+    return out
+
+
 def span_intersection_gens(G1, G2, mons, p):
     """Generators (mod p) of span(G1) cap span(G2)."""
     rW, rK, dimI, avecs = intersection(G1, G2, mons, p)
@@ -180,6 +240,8 @@ def main():
     allW.update(structured_subspaces(PAR))
     allW.update(plane_windows(PAR, mons))
     allW.update(k3_windows(PAR, P))
+    allW.update(qS_cube_windows(PAR, P))
+    allW.update(k3_surface_windows(PAR, P))
     # join window: (Q_S)^2 cap (Q_S')^2
     g1, _ = allW['QS012_sq']; g2, _ = allW['QS345_sq']
     gI, dI = span_intersection_gens(g1, g2, mons, P)

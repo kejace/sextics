@@ -1,2 +1,3 @@
 {"ts":"2026-11-02T00:12:47+00:00","step":"start","note":"theory group permutation: lanes symmetric-sextic-residual, diagonal-permutation, polarized-k3-remainder, four-plus-two-residual"}
 {"ts":"2026-11-02T00:13:30+00:00","step":"read","note":"read 4 dossiers + attack1 + probes (SSR, DP, PK3R, FP2R); next: book ch 03/03a/04"}
+{"ts":"2026-11-02T00:36:43+00:00","step":"read-book","note":"read book ch 03,03a,04; key: averaging-ideal Maschke criterion (rho^K != 0), quotient-transfer lemma, surface-fibration theorem, descent-through-deck-and-exchange prop (4.6), one-generic-target (4.4), KS exterior-power (3A.6)"}

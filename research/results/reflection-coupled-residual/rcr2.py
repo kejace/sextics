@@ -262,8 +262,12 @@ def e1_space(d, sec, force=False, verbose=True):
     Kb = np.ascontiguousarray(Vt[K - fdim:, :]) if fdim else np.zeros((0, K))
     sgap = float(s[K - fdim - 1] / s[K - fdim]) if (0 < K - fdim <= len(s) - 1 and fdim and s[K - fdim] > 0) else float('inf')
     sval_min_nonzero = float(s[K - fdim - 1]) if K - fdim - 1 >= 0 and K - fdim - 1 < len(s) else None
+    vecs_arr = np.zeros((len(vecs), K), dtype=np.int64)
+    for r, v in enumerate(vecs):
+        for e, c in v.items():
+            vecs_arr[r, didx[e]] = c
     tmp = f'{base}.{os.getpid()}.tmp.npz'
-    np.savez_compressed(tmp, Kb=Kb, mons=np.array(Dm, dtype=np.int16))
+    np.savez_compressed(tmp, Kb=Kb, mons=np.array(Dm, dtype=np.int16), vecs_modp=vecs_arr, p=P)
     os.replace(tmp, base + '.npz')
     def sym(v):
         return {core.to_str({e: Fraction(c if c <= P // 2 else c - P)}) : None for e, c in v.items()}
@@ -278,6 +282,32 @@ def e1_space(d, sec, force=False, verbose=True):
     if verbose:
         print('[e1space]', {k: v for k, v in info.items() if k != 'basis_modp'}, flush=True)
     return info
+
+
+def e1_member_modp(D):
+    """Exact mod-p test: is D (pure Klein sector) in the E1-admissible space?  Uses the saved rref kernel basis."""
+    secs = {chi(e) for e in D}
+    d = core.degree(D)
+    if len(secs) != 1:
+        # mixed Klein character: test each component separately (E1 is linear and sector-graded)
+        comps = {}
+        for e, c in D.items():
+            comps.setdefault(chi(e), {})[e] = c
+        return all(e1_member_modp(c) for c in comps.values())
+    sec = secs.pop()
+    z = np.load(e1_path(d, sec) + '.npz')
+    mons = [tuple(int(x) for x in row) for row in z['mons']]
+    idx = {e: i for i, e in enumerate(mons)}
+    V = z['vecs_modp']
+    Dp = core.reduce_mod(D, P)
+    row = [0] * len(mons)
+    for e, c in Dp.items():
+        row[idx[e]] = c
+    if V.shape[0] == 0:
+        return not any(row)
+    flat = [int(x) for x in V.ravel()] + row
+    M = nmod_mat(V.shape[0] + 1, len(mons), flat, P)
+    return M.rank() == V.shape[0]
 
 
 def load_e1_basis(d, sec):
@@ -358,10 +388,42 @@ class Relaxation:
         if D0 is not None:
             self._affine_part(D0)
         self.scale = float(np.sqrt(np.mean(np.sum(T ** 2, axis=2)))) or 1.0
+        # spurious subspace Z' = {g : D(g) in F*S_{d-6}} (contains the syzygies); ob is invariant under Z'
+        self.P, self.dimZ = self._complement_of_spurious()
+        self.dimP = self.P.shape[1]
         self.build_time = time.time() - t0
         if verbose:
             print(f'[relax] d={d} secs={[sec_str(s) for s in self.dsecs]} K={K} m={off} affine={D0 is not None} '
-                  f'built in {self.build_time:.1f}s', flush=True)
+                  f'spurious dim={self.dimZ} search dim={self.dimP} built in {self.build_time:.1f}s', flush=True)
+
+    def _complement_of_spurious(self):
+        F, A, q, Fi, Hs = instance()
+        K = self.K
+        dmons = {}
+        cols = []
+        for (i, m) in self.gb:
+            cols.append(shift(Fi[i], m, 1))
+        Fcols = []
+        if self.d >= 6:
+            for s in self.dsecs:
+                Fcols += [shift(F, h, 1) for h in sector_monomials(self.d - 6, s)]
+        for Cc in cols + Fcols:
+            for e in Cc:
+                dmons.setdefault(e, len(dmons))
+        Mb = np.zeros((len(dmons), K + len(Fcols)))
+        for k, Cc in enumerate(cols):
+            for e, v in Cc.items():
+                Mb[dmons[e], k] = float(v)
+        for j, Cc in enumerate(Fcols):
+            for e, v in Cc.items():
+                Mb[dmons[e], K + j] = -float(v)
+        ns = sla.null_space(Mb)
+        S = ns[:K, :] if ns.size else np.zeros((K, 0))
+        if S.shape[1] == 0:
+            return np.eye(K), 0
+        U, s, _ = np.linalg.svd(S, full_matrices=True)
+        r = int(np.sum(s > 1e-10 * max(1.0, s[0])))
+        return np.ascontiguousarray(U[:, r:]), r
 
     def _affine_part(self, D0):
         F, A, q, Fi, Hs = instance()
@@ -433,6 +495,11 @@ class Relaxation:
         J = self.L + 2.0 * Tg                           # K x m  (d ob / d g_k)
         return ob, J
 
+    def residual_u(self, u):
+        g = self.P @ u
+        r, J = self.residual_fun(g)
+        return r, J @ self.P
+
     def residual_fun(self, g):
         if self.D0 is None:
             n2 = float(g @ g)
@@ -451,14 +518,14 @@ class Relaxation:
         results = []
         t0 = time.time()
         for it in range(restarts):
-            g0 = rng.standard_normal(self.K)
+            u0 = rng.standard_normal(self.dimP)
             if self.D0 is None:
-                g0 /= np.linalg.norm(g0)
-            method = 'lm' if self.m + 1 >= self.K else 'trf'
-            res = least_squares(lambda g: self.residual_fun(g)[0], g0,
-                                jac=lambda g: self.residual_fun(g)[1], method=method,
+                u0 /= np.linalg.norm(u0)
+            method = 'lm' if self.m + 1 >= self.dimP else 'trf'
+            res = least_squares(lambda u: self.residual_u(u)[0], u0,
+                                jac=lambda u: self.residual_u(u)[1], method=method,
                                 xtol=1e-15, ftol=1e-15, gtol=1e-15, max_nfev=maxfev)
-            g = res.x
+            g = self.P @ res.x
             if self.D0 is None:
                 g = g / np.linalg.norm(g)
             r = float(np.linalg.norm(self.ob(g) / (g @ g if self.D0 is None else 1.0))) / self.scale
@@ -799,12 +866,65 @@ def relaxation_quadrics_modp(d, dsecs):
     return gb, coords
 
 
+def spurious_pivots_modp(d, dsecs, gb):
+    """Pivot coordinates (rref mod p) of Z' = {g : D(g) in F*S_{d-6}}: z*h/6 (h monomial) and Koszul syzygies."""
+    F, A, q, Fi, Hs = instance()
+    gidx = {g: k for k, g in enumerate(gb)}
+    K = len(gb)
+    vecs = []
+    if d >= 6:
+        for s in dsecs:
+            for h in sector_monomials(d - 6, s):
+                v = {}
+                for i in range(NV):
+                    m = list(h); m[i] += 1; m = tuple(m)
+                    if (i, m) in gidx:
+                        v[gidx[(i, m)]] = 1
+                if len(v) == NV:
+                    vecs.append(v)
+    if d >= 10:
+        Fip = [core.reduce_mod(f, P) for f in Fi]
+        for i in range(NV):
+            for j in range(i + 1, NV):
+                # syzygy: F_j e_i - F_i e_j, times monomials h of degree d-10
+                for h in monomials(d - 10):
+                    v = {}
+                    ok = True
+                    for (slot, poly, sgn) in ((i, Fip[j], 1), (j, Fip[i], P - 1)):
+                        for e, c in shift(poly, h, 1, P).items():
+                            key = (slot, e)
+                            if key not in gidx:
+                                ok = False; break
+                            v[gidx[key]] = (v.get(gidx[key], 0) + sgn * c) % P
+                        if not ok:
+                            break
+                    if ok and v:
+                        vecs.append(v)
+    if not vecs:
+        return []
+    flat = [0] * (len(vecs) * K)
+    for r, v in enumerate(vecs):
+        for k, c in v.items():
+            flat[r * K + k] = c % P
+    Zr, rank = nmod_mat(len(vecs), K, flat, P).rref()
+    piv = []
+    for i in range(rank):
+        j = 0
+        while j < K and int(Zr[i, j]) == 0:
+            j += 1
+        piv.append(j)
+    return piv
+
+
 def write_msolve(d, dsecs, path):
     gb, coords = relaxation_quadrics_modp(d, dsecs)
     K = len(gb)
     names = [f'g{k}' for k in range(K)]
     lines = [','.join(names), str(P)]
     polys = []
+    piv = spurious_pivots_modp(d, dsecs, gb)
+    for j in piv:
+        polys.append(names[j])
     for (s, e), q in coords.items():
         terms = []
         for (k, l), c in q.items():
@@ -846,7 +966,7 @@ def cmd_relax(a):
     rels = np.array([c['rel'] for c in res])
     hist = {f'<1e-{k}': int(np.sum(rels < 10.0 ** (-k))) for k in (2, 4, 6, 8, 10, 12)}
     rec = {'event': 'relax', 'd': d, 'secs': [sec_str(s) for s in dsecs], 'affine': a.affine, 'K': rel.K,
-           'm': rel.m, 'restarts': len(res), 'seed': a.seed, 'best_rel': float(rels.min()),
+           'dimZ': rel.dimZ, 'dimP': rel.dimP, 'm': rel.m, 'restarts': len(res), 'seed': a.seed, 'best_rel': float(rels.min()),
            'median_rel': float(np.median(rels)), 'hist': hist, 'seconds': round(time.time() - t0, 1),
            'e1_residual': getattr(rel, 'e1_residual', None)}
     print('[relax] summary', rec, flush=True)
@@ -880,7 +1000,7 @@ def cmd_msolve(a):
     dsecs = sectors_of(parse_sec(a.sec))
     path = os.path.join(HERE, f'relax_d{d}_{a.sec}.ms')
     K, n = write_msolve(d, dsecs, path)
-    print(f'[msolve] d={d} secs={a.sec}: {n} quadrics in {K} unknowns -> {path}', flush=True)
+    print(f'[msolve] d={d} secs={a.sec}: {n} polys (quadrics + spurious pivot kills) in {K} unknowns -> {path}', flush=True)
     log_event({'event': 'msolve-export', 'd': d, 'secs': a.sec, 'K': K, 'nquadrics': n, 'path': path})
     if a.run:
         # dehomogenise with a random affine chart: add sum r_k g_k - 1
@@ -895,7 +1015,7 @@ def cmd_msolve(a):
         out = path2.replace('.ms', '.out')
         r = subprocess.run(['msolve', '-v', '1', '-t', str(a.threads), '-f', path2, '-o', out], capture_output=True, text=True)
         res = open(out).read() if os.path.exists(out) else ''
-        empty = res.strip().startswith('[1]') or res.strip() == '[1]:' or '[1]' == res.strip()[:3]
+        empty = res.strip().startswith('[-1]')
         rec = {'event': 'msolve', 'd': d, 'secs': a.sec, 'K': K, 'nquadrics': n, 'empty_projective': bool(empty),
                'out_head': res[:300], 'stderr_tail': r.stderr[-500:], 'seconds': round(time.time() - t0, 1)}
         print('[msolve]', rec, flush=True)
@@ -929,6 +1049,35 @@ def cmd_varpro(a):
             exact_confirm(D, note=f'varpro d={d} sec={a.sec} fam={a.family} rel={c["rel"]:.2e}')
 
 
+def cmd_screen(a):
+    """E1-screen a candidate file (lines: tag<TAB>expr) against the saved E1 spaces; confirm survivors exactly."""
+    F, A, q, Fi, Hs = instance()
+    for line in open(a.file):
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        tag, expr = line.split('\t', 1) if '\t' in line else ('cand', line)
+        try:
+            D = core.parse(expr)
+        except Exception as ex:
+            log_event({'event': 'screen', 'tag': tag, 'error': str(ex)}); continue
+        d = core.degree(D)
+        if not D or not core.is_homogeneous(D) or core.parity_of(D) is None:
+            log_event({'event': 'screen', 'tag': tag, 'd': d, 'note': 'not homogeneous / mixed Y-parity'}); continue
+        t0 = time.time()
+        try:
+            ok = e1_member_modp(D)
+        except FileNotFoundError:
+            ok2, info = fixed_d.e1_solvable(F, A, q, D)
+            ok = bool(ok2)
+        rec = {'event': 'screen', 'tag': tag, 'd': d, 'terms': len(D), 'e1': bool(ok), 'seconds': round(time.time() - t0, 1),
+               'D': core.to_str(D)[:200]}
+        print('[screen]', rec, flush=True)
+        log_event(rec)
+        if ok:
+            exact_confirm(D, note=f'screen {tag}')
+
+
 def cmd_confirm(a):
     D = core.parse(a.D)
     exact_confirm(D, note=a.note, symmetric=not a.full)
@@ -946,9 +1095,572 @@ def main(argv=None):
     p = sp.add_parser('varpro'); p.add_argument('--d', type=int, required=True); p.add_argument('--sec', required=True); p.add_argument('--family', default='J')
     p.add_argument('--restarts', type=int, default=20); p.add_argument('--seed', type=int, default=0); p.add_argument('--maxiter', type=int, default=400)
     p.add_argument('--thresh', type=float, default=1e-9); p.add_argument('--keep', type=int, default=20)
+    p = sp.add_parser('screen'); p.add_argument('--file', required=True)
     p = sp.add_parser('confirm'); p.add_argument('--D', required=True); p.add_argument('--note', default=''); p.add_argument('--full', action='store_true')
     a = ap.parse_args(argv)
-    {'prep': cmd_prep, 'e1': cmd_e1, 'relax': cmd_relax, 'msolve': cmd_msolve, 'varpro': cmd_varpro, 'confirm': cmd_confirm}[a.cmd](a)
+    {'prep': cmd_prep, 'e1': cmd_e1, 'relax': cmd_relax, 'msolve': cmd_msolve, 'varpro': cmd_varpro, 'confirm': cmd_confirm, 'screen': cmd_screen}[a.cmd](a)
+
+
+
+
+# ----------------------------------------------------------------------------
+# Generalised E1-family relaxation: pairs (D_k, N_k) with N_k an E1 solution for D_k;
+# ob(c) = [B(D(c), N(c))],  B(D, N) = D div N - N(D), bilinear  ->  tensor T[k,l] = Pi B(D_k, N_l)
+# ----------------------------------------------------------------------------
+
+def _pack(E):
+    """int64 keys of exponent rows (base 64)."""
+    E = np.asarray(E, dtype=np.int64)
+    return E @ (64 ** np.arange(6, dtype=np.int64))
+
+
+def jacobian_pairs(d, sec):
+    """Exact pairs (m F_i, A m e_i) spanning J_d^sec."""
+    F, A, q, Fi, Hs = instance()
+    pairs = []
+    for (i, m) in g_basis(d, sec):
+        N = [dict() for _ in range(NV)]
+        N[i] = shift(A, m, 1)
+        pairs.append((shift(Fi[i], m, 1), N, f'J:{i}:{m}'))
+    return pairs
+
+
+def e1_particular_solutions(Ds, sec, verbose=False):
+    """Float least-squares E1 solutions N (sector restricted) for a list of float D's of one sector."""
+    F, A, q, Fi, Hs = instance()
+    d = core.degree(Ds[0])
+    Ncols = []
+    for i in range(NV):
+        s = sadd(sadd((0, 1), sec), chi_var(i))
+        Ncols += [(i, m) for m in sector_monomials(d + 1, s)]
+    tsec = sadd((0, 1), sec)
+    tm = sector_monomials(d + 6, tsec)
+    tidx = {e: i for i, e in enumerate(tm)}
+    M = np.zeros((len(tm), len(Ncols)))
+    for j, (i, m) in enumerate(Ncols):
+        for e, v in shift(Fi[i], m, 1).items():
+            M[tidx[e], j] = float(v)
+    Bm = np.zeros((len(tm), len(Ds)))
+    for c, D in enumerate(Ds):
+        for e, v in mul(A, D).items():
+            Bm[tidx[e], c] += float(v)
+    X, *_ = sla.lstsq(M, Bm, cond=1e-12, lapack_driver='gelsd', check_finite=False)
+    resid = np.linalg.norm(M @ X - Bm, axis=0) / np.maximum(np.linalg.norm(Bm, axis=0), 1e-300)
+    Ns = []
+    for c in range(len(Ds)):
+        N = [dict() for _ in range(NV)]
+        for j, (i, m) in enumerate(Ncols):
+            if abs(X[j, c]) > 1e-14:
+                N[i][m] = float(X[j, c])
+        Ns.append(N)
+    if verbose:
+        print(f'[e1sol] {len(Ds)} systems {M.shape}: max rel residual {resid.max():.2e}', flush=True)
+    return Ns, resid
+
+
+def kernel_pairs(d, sec, verbose=True):
+    """Float pairs for a complement of J_d^sec inside the E1-admissible space (the non-Jacobian classes)."""
+    F, A, q, Fi, Hs = instance()
+    info = e1_space(d, sec, verbose=verbose)
+    Kb, mons = load_e1_basis(d, sec)
+    if info['nonJ'] == 0 or Kb.shape[0] == 0:
+        return []
+    idx = {e: i for i, e in enumerate(mons)}
+    # J_d^sec in the same coordinates
+    gens = gens_in_sector(d, sec)
+    G = np.zeros((len(mons), len(gens)))
+    for j, (_, _, g) in enumerate(gens):
+        for e, v in g.items():
+            G[idx[e], j] = float(v)
+    # project the E1 basis rows onto the orthogonal complement of colspace(G), take the top nonJ directions
+    if len(gens):
+        Qg, _ = np.linalg.qr(G)
+        rk = info['dimJ']
+        Qg = Qg[:, :rk]
+        R = Kb - (Kb @ Qg) @ Qg.T
+    else:
+        R = Kb
+    U, s, Vt = np.linalg.svd(R, full_matrices=False)
+    nonJ = info['nonJ']
+    W = Vt[:nonJ, :]            # nonJ x |mons|, orthonormal, spans E1 space mod J (numerically)
+    Ds = [{m: float(W[r, j]) for j, m in enumerate(mons) if abs(W[r, j]) > 1e-14} for r in range(nonJ)]
+    Ns, resid = e1_particular_solutions(Ds, sec, verbose=verbose)
+    if verbose:
+        print(f'[kernel_pairs] d={d} sec={sec_str(sec)} nonJ={nonJ} singular values of complement: '
+              f'{s[:nonJ].round(3)} next {s[nonJ] if len(s) > nonJ else 0:.2e}; E1 residuals max {resid.max():.1e}', flush=True)
+    return [(Ds[r], Ns[r], f'ker{r}') for r in range(nonJ)]
+
+
+class FamilyRelaxation:
+    def __init__(self, d, pairs, verbose=True):
+        F, A, q, Fi, Hs = instance()
+        self.d = d
+        self.pairs = pairs
+        K = len(pairs); self.K = K
+        self.tags = [p[2] for p in pairs]
+        dsecs = sorted({chi(e) for p in pairs for e in p[0]})
+        self.dsecs = dsecs
+        outsecs = sorted({sadd((0, 1), sadd(sk, sl)) for sk in dsecs for sl in dsecs})
+        self.cok = {}
+        self.offsets = {}
+        off = 0
+        for s in outsecs:
+            B, mons, rank = prep_coker(2 * d, s, verbose=verbose)
+            self.cok[s] = (B, mons, {e: i for i, e in enumerate(mons)})
+            self.offsets[s] = off
+            off += B.shape[0]
+        self.m = off
+        t0 = time.time()
+        # global row index over the union of output-sector monomials; stacked cokernel matrix
+        allmons = []
+        for s in outsecs:
+            allmons += self.cok[s][1]
+        keys = _pack(allmons)
+        order = np.argsort(keys)
+        skeys = keys[order]
+        Bstack = np.zeros((off, len(allmons)))
+        col0 = 0
+        for s in outsecs:
+            B, mons, _ = self.cok[s]
+            o = self.offsets[s]
+            Bstack[o:o + B.shape[0], col0:col0 + len(mons)] = B
+            col0 += len(mons)
+        # N-monomial columns: union over slots of all monomials of degree d+1 of the needed sectors
+        nsecs = sorted({sadd(sadd((0, 1), s), chi_var(i)) for s in dsecs for i in range(NV)})
+        Ncols = []
+        for i in range(NV):
+            for s in sorted({sadd(sadd((0, 1), sd), chi_var(i)) for sd in dsecs}):
+                Ncols += [(i, m) for m in sector_monomials(d + 1, s)]
+        nidx = {c: j for j, c in enumerate(Ncols)}
+        nN = len(Ncols)
+        Em = [np.array([m for (i, m) in Ncols if i == ii], dtype=np.int64) for ii in range(NV)]
+        Ecol = [np.array([nidx[(ii, m)] for (i, m) in Ncols if i == ii], dtype=np.int64) for ii in range(NV)]
+        # N matrix (nN x K)
+        Nmat = np.zeros((nN, K))
+        for l, (Dl, Nl, tag) in enumerate(pairs):
+            for i in range(NV):
+                for m, v in Nl[i].items():
+                    Nmat[nidx[(i, m)], l] += float(v)
+        import scipy.sparse as sp
+        T = np.zeros((K, K, off))
+        for k, (Dk, Nk, tag) in enumerate(pairs):
+            Ed = np.array(list(Dk.keys()), dtype=np.int64)
+            cd = np.array([float(v) for v in Dk.values()])
+            rows_all, cols_all, vals_all = [], [], []
+            for i in range(NV):
+                if Em[i].shape[0] == 0:
+                    continue
+                # exponent of (t, m): Ed[t] + Em[m] - e_i ; coefficient cd[t]*(m_i - Ed[t,i])
+                E = Ed[:, None, :] + Em[i][None, :, :]
+                E[:, :, i] -= 1
+                coef = cd[:, None] * (Em[i][None, :, i] - Ed[:, None, i])
+                valid = (E[:, :, i] >= 0) & (coef != 0)
+                kk = _pack(E[valid])
+                pos = np.searchsorted(skeys, kk)
+                pos = np.clip(pos, 0, len(skeys) - 1)
+                ok = skeys[pos] == kk
+                if not np.all(ok):
+                    raise RuntimeError('monomial outside the output sectors')
+                rows_all.append(order[pos])
+                cols_all.append(np.broadcast_to(Ecol[i][None, :], valid.shape)[valid])
+                vals_all.append(coef[valid])
+            Mk = sp.csr_matrix((np.concatenate(vals_all), (np.concatenate(rows_all), np.concatenate(cols_all))),
+                               shape=(len(allmons), nN))
+            PM = (Mk.T @ Bstack.T).T          # off x nN
+            T[k] = (PM @ Nmat).T               # K x off : row l = Pi B(D_k, N_l)
+        self.T = 0.5 * (T + T.transpose(1, 0, 2))
+        self.c0 = np.zeros(off)
+        self.L = np.zeros((K, off))
+        self.D0 = None
+        self.scale = float(np.sqrt(np.mean(np.sum(self.T ** 2, axis=2)))) or 1.0
+        # spurious subspace {c : D(c) in F*S}
+        self.P, self.dimZ = self._complement()
+        self.dimP = self.P.shape[1]
+        self.build_time = time.time() - t0
+        if verbose:
+            print(f'[famrelax] d={d} secs={[sec_str(s) for s in dsecs]} K={K} m={off} nN={nN} spurious={self.dimZ} '
+                  f'search dim={self.dimP} built in {self.build_time:.1f}s', flush=True)
+
+    def _complement(self):
+        F, A, q, Fi, Hs = instance()
+        K = self.K
+        dmons = {}
+        cols = [p[0] for p in self.pairs]
+        Fcols = []
+        if self.d >= 6:
+            for s in self.dsecs:
+                Fcols += [shift(F, h, 1) for h in sector_monomials(self.d - 6, s)]
+        for Cc in cols + Fcols:
+            for e in Cc:
+                dmons.setdefault(e, len(dmons))
+        Mb = np.zeros((len(dmons), K + len(Fcols)))
+        for k, Cc in enumerate(cols):
+            for e, v in Cc.items():
+                Mb[dmons[e], k] = float(v)
+        for j, Cc in enumerate(Fcols):
+            for e, v in Cc.items():
+                Mb[dmons[e], K + j] = -float(v)
+        ns = sla.null_space(Mb, rcond=1e-10)
+        S = ns[:K, :] if ns.size else np.zeros((K, 0))
+        if S.shape[1] == 0:
+            return np.eye(K), 0
+        U, s, _ = np.linalg.svd(S, full_matrices=True)
+        r = int(np.sum(s > 1e-10 * max(1.0, s[0])))
+        return np.ascontiguousarray(U[:, r:]), r
+
+    ob = Relaxation.ob
+    ob_and_jac = Relaxation.ob_and_jac
+    residual_fun = Relaxation.residual_fun
+    residual_u = Relaxation.residual_u
+    search = Relaxation.search
+
+    def D_of(self, c):
+        D = {}
+        for k, (Dk, Nk, tag) in enumerate(self.pairs):
+            if c[k]:
+                D = add(D, scale({e: float(v) for e, v in Dk.items()}, float(c[k])))
+        return D
+
+
+def reconstruct_poly(Df, max_dens=(1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84, 168, 294, 588, 1176, 2352, 4116, 8232, 10000, 100000, 1000000), tol=1e-7):
+    """Rational reconstruction of a float polynomial (normalised so that its largest coefficient is 1)."""
+    if not Df:
+        return []
+    e0 = max(Df, key=lambda e: abs(Df[e]))
+    s = Df[e0]
+    vals = {e: v / s for e, v in Df.items() if abs(v / s) > 1e-10}
+    out = []
+    for md in max_dens:
+        fr = {e: Fraction(v).limit_denominator(md) for e, v in vals.items()}
+        err = max(abs(float(fr[e]) - vals[e]) for e in vals)
+        if err < tol:
+            D = {e: f for e, f in fr.items() if f}
+            if D not in out:
+                out.append(D)
+    return out
+
+
+def cmd_famrelax(a):
+    d = a.d
+    sec = parse_sec(a.sec)
+    secs = sectors_of(sec)
+    pairs = []
+    for s in secs:
+        if 'J' in a.family:
+            pairs += jacobian_pairs(d, s)
+        if 'K' in a.family:
+            pairs += kernel_pairs(d, s)
+    rel = FamilyRelaxation(d, pairs)
+    t0 = time.time()
+    res = rel.search(a.restarts, a.seed, verbose=True, maxfev=a.maxfev)
+    rels = np.array([c['rel'] for c in res])
+    hist = {f'<1e-{k}': int(np.sum(rels < 10.0 ** (-k))) for k in (2, 4, 6, 8, 10, 12)}
+    rec = {'event': 'famrelax', 'd': d, 'secs': [sec_str(s) for s in secs], 'family': a.family, 'K': rel.K,
+           'dimZ': rel.dimZ, 'dimP': rel.dimP, 'm': rel.m, 'restarts': len(res), 'seed': a.seed,
+           'best_rel': float(rels.min()), 'median_rel': float(np.median(rels)), 'hist': hist,
+           'seconds': round(time.time() - t0, 1), 'build_seconds': round(rel.build_time, 1)}
+    print('[famrelax] summary', rec, flush=True)
+    log_event(rec)
+    json.dump([{'rel': c['rel'], 'g': [float(x) for x in c['g']]} for c in res[:a.keep]],
+              open(os.path.join(HERE, f'famrelax_d{d}_{a.sec}_{a.family}_s{a.seed}.json'), 'w'))
+    for c in res:
+        if c['rel'] > a.thresh:
+            break
+        Df = rel.D_of(c['g'])
+        for D in reconstruct_poly(Df):
+            exact_confirm(D, note=f'famrelax d={d} secs={a.sec} fam={a.family} rel={c["rel"]:.2e}')
+
+
+
+# ----------------------------------------------------------------------------
+# exact (mod p) quadrics of the family relaxation for msolve
+# ----------------------------------------------------------------------------
+
+def _parse_key(key):
+    e = [0] * 6
+    if key != '1':
+        for part in key.split('|'):
+            v, k = part.split('^')
+            e[core.VARS.index(v)] = int(k)
+    return tuple(e)
+
+
+def family_pairs_modp(d, sec, family):
+    """Pairs (D_k mod p, N_k mod p, tag): Jacobian pairs and/or the non-Jacobian E1 classes (exact mod p)."""
+    F, A, q, Fi, Hs = instance()
+    Ap = core.reduce_mod(A, P)
+    Fip = [core.reduce_mod(f, P) for f in Fi]
+    pairs = []
+    if 'J' in family:
+        for (i, m) in g_basis(d, sec):
+            N = [dict() for _ in range(NV)]
+            N[i] = shift(Ap, m, 1, P)
+            pairs.append((shift(Fip[i], m, 1, P), N, f'J:{i}:{m}'))
+    if 'K' in family:
+        info = e1_space(d, sec, verbose=False)
+        classes = [{_parse_key(k): v % P for k, v in b.items()} for b in info['basis_modp']]
+        if classes:
+            Ncols = []
+            for i in range(NV):
+                s = sadd(sadd((0, 1), sec), chi_var(i))
+                Ncols += [(i, m) for m in sector_monomials(d + 1, s)]
+            tsec = sadd((0, 1), sec)
+            tm = sector_monomials(d + 6, tsec)
+            tidx = {e: i for i, e in enumerate(tm)}
+            R, C = len(tm), len(Ncols)
+            nc = len(classes)
+            flat = [0] * (R * (C + nc))
+            for j, (i, m) in enumerate(Ncols):
+                for e, v in shift(Fip[i], m, 1, P).items():
+                    flat[tidx[e] * (C + nc) + j] = v
+            for c, Dk in enumerate(classes):
+                for e, v in mul(Ap, Dk, P).items():
+                    flat[tidx[e] * (C + nc) + C + c] = v
+            Mr, rk = nmod_mat(R, C + nc, flat, P).rref()
+            pivots = []
+            for r in range(rk):
+                j = 0
+                while j < C + nc and int(Mr[r, j]) == 0:
+                    j += 1
+                pivots.append(j)
+            assert all(j < C for j in pivots), 'E1 inconsistent for a kernel class (mod p)'
+            # particular solutions: x_piv = -Mr[r, C+c]  (system  M x = b  written as [M | -b]?  we stored +b, so x = -coef)
+            for c, Dk in enumerate(classes):
+                N = [dict() for _ in range(NV)]
+                for r, j in enumerate(pivots):
+                    v = int(Mr[r, C + c])
+                    if v:
+                        i, m = Ncols[j]
+                        N[i][m] = (-v) % P
+                # verify
+                acc = {}
+                for i in range(NV):
+                    acc = add(acc, mul(N[i], Fip[i], P), P)
+                assert sub(acc, mul(Ap, Dk, P), P) == {}, 'E1 particular solution check failed'
+                pairs.append((Dk, N, f'ker{c}'))
+    return pairs
+
+
+def family_quadrics_modp(d, pairs):
+    """Exact quadrics mod p: for ob(c) = sum_{k,l} c_k c_l NF[B(D_k, N_l)] over the output sectors.
+    Returns (coords dict {(sector, std monomial): {(k,l): coeff}} , reducers)."""
+    import scipy.sparse as sp
+    K = len(pairs)
+    dsecs = sorted({chi(e) for p in pairs for e in p[0]})
+    outsecs = sorted({sadd((0, 1), sadd(sk, sl)) for sk in dsecs for sl in dsecs})
+    # exact normal-form maps NF_s (dimR_s x |S_2d^s|)
+    NFs, stds, allmons = {}, {}, []
+    for s in outsecs:
+        mons = sector_monomials(2 * d, s)
+        gens = gens_in_sector(2 * d, s, p=P)
+        idx = {e: i for i, e in enumerate(mons)}
+        flat = [0] * (len(gens) * len(mons))
+        for r, (_, _, g) in enumerate(gens):
+            for e, v in g.items():
+                flat[r * len(mons) + idx[e]] = v
+        Jr, rank = nmod_mat(len(gens), len(mons), flat, P).rref()
+        pivots = []
+        for i in range(rank):
+            j = 0
+            while j < len(mons) and int(Jr[i, j]) == 0:
+                j += 1
+            pivots.append(j)
+        pset = set(pivots)
+        std = [j for j in range(len(mons)) if j not in pset]
+        sidx = {j: r for r, j in enumerate(std)}
+        NF = np.zeros((len(std), len(mons)), dtype=np.int64)
+        for r, j in enumerate(std):
+            NF[r, j] = 1
+        for i, j in enumerate(pivots):
+            for jj in std:
+                v = int(Jr[i, jj])
+                if v:
+                    NF[sidx[jj], j] = (-v) % P
+        NFs[s] = NF
+        stds[s] = [mons[j] for j in std]
+        allmons += mons
+    keys = _pack(allmons)
+    order = np.argsort(keys)
+    skeys = keys[order]
+    # stacked NF over the union of monomials
+    dimR = sum(NFs[s].shape[0] for s in outsecs)
+    NFstack = np.zeros((dimR, len(allmons)), dtype=np.int64)
+    r0 = 0; c0 = 0
+    rowsec = []
+    for s in outsecs:
+        NF = NFs[s]
+        NFstack[r0:r0 + NF.shape[0], c0:c0 + NF.shape[1]] = NF
+        rowsec += [(s, m) for m in stds[s]]
+        r0 += NF.shape[0]; c0 += NF.shape[1]
+    NF_lo = NFstack & 0xFFFF
+    NF_hi = NFstack >> 16
+    # N columns
+    Ncols = []
+    for i in range(NV):
+        for s in sorted({sadd(sadd((0, 1), sd), chi_var(i)) for sd in dsecs}):
+            Ncols += [(i, m) for m in sector_monomials(d + 1, s)]
+    nidx = {c: j for j, c in enumerate(Ncols)}
+    nN = len(Ncols)
+    Em = [np.array([m for (i, m) in Ncols if i == ii], dtype=np.int64).reshape(-1, 6) for ii in range(NV)]
+    Ecol = [np.array([nidx[(ii, m)] for (i, m) in Ncols if i == ii], dtype=np.int64) for ii in range(NV)]
+    Nmat = np.zeros((nN, K), dtype=np.int64)
+    for l, (Dl, Nl, tag) in enumerate(pairs):
+        for i in range(NV):
+            for m, v in Nl[i].items():
+                Nmat[nidx[(i, m)], l] = (Nmat[nidx[(i, m)], l] + v) % P
+    N_lo = Nmat & 0xFFFF
+    N_hi = Nmat >> 16
+    T = np.zeros((K, K, dimR), dtype=np.int64)
+    for k, (Dk, Nk, tag) in enumerate(pairs):
+        Ed = np.array(list(Dk.keys()), dtype=np.int64).reshape(-1, 6)
+        cd = np.array([int(v) % P for v in Dk.values()], dtype=np.int64)
+        rows_all, cols_all, vals_all = [], [], []
+        for i in range(NV):
+            if Em[i].shape[0] == 0:
+                continue
+            E = Ed[:, None, :] + Em[i][None, :, :]
+            E[:, :, i] -= 1
+            coef = (cd[:, None] * ((Em[i][None, :, i] - Ed[:, None, i]) % P)) % P
+            valid = (E[:, :, i] >= 0) & (coef != 0)
+            kk = _pack(E[valid])
+            pos = np.clip(np.searchsorted(skeys, kk), 0, len(skeys) - 1)
+            assert np.all(skeys[pos] == kk), 'monomial outside the output sectors'
+            rows_all.append(order[pos]); cols_all.append(np.broadcast_to(Ecol[i][None, :], valid.shape)[valid]); vals_all.append(coef[valid])
+        Mk = sp.csr_matrix((np.concatenate(vals_all), (np.concatenate(rows_all), np.concatenate(cols_all))),
+                           shape=(len(allmons), nN), dtype=np.int64)
+        Mk.sum_duplicates(); Mk.data %= P
+        MkT = Mk.T.tocsr()
+        PM = ((MkT @ NF_lo.T) % P + (((MkT @ NF_hi.T) % P) << 16) % P) % P      # nN x dimR
+        PM_lo = PM & 0xFFFF; PM_hi = PM >> 16
+        Tk = ((N_lo.T @ PM_lo) % P + (((N_lo.T @ PM_hi) % P) << 16) % P + (((N_hi.T @ PM_lo) % P) << 16) % P
+              + (((N_hi.T @ PM_hi) % P) << 32) % P) % P                        # K x dimR : row l = NF B(D_k, N_l)
+        T[k] = Tk
+    coords = {}
+    for r, (s, m) in enumerate(rowsec):
+        qd = {}
+        for k in range(K):
+            v = int(T[k, k, r])
+            if v:
+                qd[(k, k)] = v
+            for l in range(k + 1, K):
+                v = (int(T[k, l, r]) + int(T[l, k, r])) % P
+                if v:
+                    qd[(k, l)] = v
+        if qd:
+            coords[(s, m)] = qd
+    return coords
+
+
+def spurious_pivots_family_modp(d, pairs):
+    """Pivots (rref mod p) of {c : D(c) in F*S_{d-6}} for a general pair family."""
+    F, A, q, Fi, Hs = instance()
+    Fp = core.reduce_mod(F, P)
+    K = len(pairs)
+    dsecs = sorted({chi(e) for p in pairs for e in p[0]})
+    Fcols = []
+    if d >= 6:
+        for s in dsecs:
+            Fcols += [shift(Fp, h, 1, P) for h in sector_monomials(d - 6, s)]
+    cols = [p[0] for p in pairs] + Fcols
+    mons = {}
+    for Cc in cols:
+        for e in Cc:
+            mons.setdefault(e, len(mons))
+    R, C = len(mons), len(cols)
+    flat = [0] * (R * C)
+    for j, Cc in enumerate(cols):
+        for e, v in Cc.items():
+            flat[mons[e] * C + j] = v % P
+    X, nullity = nmod_mat(R, C, flat, P).nullspace()
+    if nullity == 0:
+        return []
+    proj = nmod_mat(nullity, K, [int(X[j, k]) for k in range(nullity) for j in range(K)], P)
+    Pr, rk = proj.rref()
+    piv = []
+    for i in range(rk):
+        j = 0
+        while j < K and int(Pr[i, j]) == 0:
+            j += 1
+        if j < K:
+            piv.append(j)
+    return piv
+
+
+def write_msolve_family(d, sec, family, path):
+    pairs = []
+    for s in sectors_of(sec):
+        pairs += family_pairs_modp(d, s, family)
+    K = len(pairs)
+    coords = family_quadrics_modp(d, pairs)
+    piv = spurious_pivots_family_modp(d, pairs)
+    names = [f'g{k}' for k in range(K)]
+    polys = [names[j] for j in piv]
+    for (s, e), qd in coords.items():
+        terms = [f'{c}*{names[k]}*{names[l]}' if k != l else f'{c}*{names[k]}^2' for (k, l), c in qd.items()]
+        polys.append('+'.join(terms))
+    with open(path, 'w') as f:
+        f.write(','.join(names) + '\n' + str(P) + '\n' + ',\n'.join(polys) + '\n')
+    return K, len(polys), len(piv), [p[2] for p in pairs]
+
+
+def run_msolve_file(path, threads=8, seed=1, timeout=None):
+    import random
+    random.seed(seed)
+    txt = open(path).read().rstrip('\n')
+    names = txt.split('\n')[0].split(',')
+    chart = '+'.join(f'{random.randrange(1, P)}*{nm}' for nm in names) + f'+{P-1}'
+    path2 = path.replace('.ms', '_chart.ms')
+    open(path2, 'w').write(txt + ',\n' + chart + '\n')
+    out = path2.replace('.ms', '.out')
+    if os.path.exists(out):
+        os.remove(out)
+    t0 = time.time()
+    try:
+        r = subprocess.run(['msolve', '-v', '1', '-t', str(threads), '-f', path2, '-o', out], capture_output=True, text=True, timeout=timeout)
+        err = r.stderr[-400:]
+    except subprocess.TimeoutExpired:
+        err = 'TIMEOUT'
+    res = open(out).read() if os.path.exists(out) else ''
+    return {'empty_projective': bool(res.strip().startswith('[-1]')), 'out_head': res[:200], 'stderr_tail': err,
+            'seconds': round(time.time() - t0, 1), 'timed_out': err == 'TIMEOUT'}
+
+
+def cmd_msolvef(a):
+    path = os.path.join(HERE, f'famrelax_d{a.d}_{a.sec}_{a.family}.ms')
+    t0 = time.time()
+    K, n, npiv, tags = write_msolve_family(a.d, parse_sec(a.sec), a.family, path)
+    rec = {'event': 'msolve-family-export', 'd': a.d, 'secs': a.sec, 'family': a.family, 'K': K, 'npolys': n,
+           'spurious_pivots': npiv, 'kernel_classes': sum(1 for t in tags if t.startswith('ker')), 'seconds': round(time.time() - t0, 1)}
+    print('[msolvef]', rec, flush=True)
+    log_event(rec)
+    if a.run:
+        res = run_msolve_file(path, threads=a.threads, seed=a.seed, timeout=a.timeout)
+        rec2 = {'event': 'msolve-family', 'd': a.d, 'secs': a.sec, 'family': a.family, 'K': K, 'npolys': n, **res}
+        print('[msolvef]', rec2, flush=True)
+        log_event(rec2)
+
+
+_old_main = main
+
+
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv[1:]
+    if argv and argv[0] == 'msolvef':
+        ap = argparse.ArgumentParser()
+        ap.add_argument('--d', type=int, required=True); ap.add_argument('--sec', required=True)
+        ap.add_argument('--family', default='JK'); ap.add_argument('--run', action='store_true')
+        ap.add_argument('--threads', type=int, default=8); ap.add_argument('--seed', type=int, default=1)
+        ap.add_argument('--timeout', type=float, default=None)
+        return cmd_msolvef(ap.parse_args(argv[1:]))
+    if argv and argv[0] == 'famrelax':
+        ap = argparse.ArgumentParser()
+        ap.add_argument('--d', type=int, required=True); ap.add_argument('--sec', required=True)
+        ap.add_argument('--family', default='JK'); ap.add_argument('--restarts', type=int, default=200)
+        ap.add_argument('--seed', type=int, default=0); ap.add_argument('--maxfev', type=int, default=2000)
+        ap.add_argument('--thresh', type=float, default=1e-9); ap.add_argument('--keep', type=int, default=20)
+        return cmd_famrelax(ap.parse_args(argv[1:]))
+    return _old_main(argv)
 
 
 if __name__ == '__main__':

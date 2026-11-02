@@ -13,6 +13,7 @@ which is still sound. Sortedness only matters for the final syntactic comparison
 -/
 
 set_option autoImplicit false
+set_option linter.unusedSimpArgs false
 
 namespace HodgeComputer.Reflect
 
@@ -114,9 +115,7 @@ theorem eval_addAux (n : ℕ) (p q : SPoly) : eval (addAux n p q) = eval p + eva
           subst hm
           rw [← evalTerm_add, h3, evalTerm_zero]
         simp only [eval_cons, ih]
-        calc evalTerm (m, c) + eval p + (evalTerm (m', c') + eval q)
-            = (evalTerm (m, c) + evalTerm (m', c')) + (eval p + eval q) := by ring
-          _ = eval p + eval q := by rw [hz, zero_add]
+        linear_combination -hz
       · have hm : m = m' := by
           rcases m with ⟨a0, a1, a2, a3, a4, a5⟩; rcases m' with ⟨b0, b1, b2, b3, b4, b5⟩
           simp only [Mono.lt, Bool.or_eq_true, Bool.and_eq_true, Nat.blt_eq, Nat.beq_eq] at h1 h2
@@ -209,62 +208,62 @@ def pderivP (i : Fin 6) (p : SPoly) : SPoly := p.flatMap (pderivTerm i)
 
 theorem pderiv_evalTerm0 (t : Term) : pderiv (0 : Fin 6) (evalTerm t) = eval (pderivTerm0 t) := by
   rcases t with ⟨⟨a, b, c, d, e, f⟩, k⟩
-  simp only [evalTerm, evalMono, pderivTerm0, pderiv_C_mul, pderiv_mul, pderiv_X_pow_self,
+  simp only [evalTerm, evalMono, pderivTerm0, pderiv_mul, pderiv_C, pderiv_X_pow_self,
     pderiv_X_pow_ne (show (1 : Fin 6) ≠ 0 by decide), pderiv_X_pow_ne (show (2 : Fin 6) ≠ 0 by decide),
     pderiv_X_pow_ne (show (3 : Fin 6) ≠ 0 by decide), pderiv_X_pow_ne (show (4 : Fin 6) ≠ 0 by decide),
     pderiv_X_pow_ne (show (5 : Fin 6) ≠ 0 by decide), mul_zero, zero_mul, add_zero, zero_add]
   split_ifs with h
-  · subst h; simp
+  · subst h; simp [pderiv_C]
   · simp only [eval_cons, eval_nil, evalTerm, evalMono, Int.cast_mul, Int.cast_natCast, C_mul, add_zero]; ring
 
 theorem pderiv_evalTerm1 (t : Term) : pderiv (1 : Fin 6) (evalTerm t) = eval (pderivTerm1 t) := by
   rcases t with ⟨⟨a, b, c, d, e, f⟩, k⟩
-  simp only [evalTerm, evalMono, pderivTerm1, pderiv_C_mul, pderiv_mul, pderiv_X_pow_self,
+  simp only [evalTerm, evalMono, pderivTerm1, pderiv_mul, pderiv_C, pderiv_X_pow_self,
     pderiv_X_pow_ne (show (0 : Fin 6) ≠ 1 by decide), pderiv_X_pow_ne (show (2 : Fin 6) ≠ 1 by decide),
     pderiv_X_pow_ne (show (3 : Fin 6) ≠ 1 by decide), pderiv_X_pow_ne (show (4 : Fin 6) ≠ 1 by decide),
     pderiv_X_pow_ne (show (5 : Fin 6) ≠ 1 by decide), mul_zero, zero_mul, add_zero, zero_add]
   split_ifs with h
-  · subst h; simp
+  · subst h; simp [pderiv_C]
   · simp only [eval_cons, eval_nil, evalTerm, evalMono, Int.cast_mul, Int.cast_natCast, C_mul, add_zero]; ring
 
 theorem pderiv_evalTerm2 (t : Term) : pderiv (2 : Fin 6) (evalTerm t) = eval (pderivTerm2 t) := by
   rcases t with ⟨⟨a, b, c, d, e, f⟩, k⟩
-  simp only [evalTerm, evalMono, pderivTerm2, pderiv_C_mul, pderiv_mul, pderiv_X_pow_self,
+  simp only [evalTerm, evalMono, pderivTerm2, pderiv_mul, pderiv_C, pderiv_X_pow_self,
     pderiv_X_pow_ne (show (0 : Fin 6) ≠ 2 by decide), pderiv_X_pow_ne (show (1 : Fin 6) ≠ 2 by decide),
     pderiv_X_pow_ne (show (3 : Fin 6) ≠ 2 by decide), pderiv_X_pow_ne (show (4 : Fin 6) ≠ 2 by decide),
     pderiv_X_pow_ne (show (5 : Fin 6) ≠ 2 by decide), mul_zero, zero_mul, add_zero, zero_add]
   split_ifs with h
-  · subst h; simp
+  · subst h; simp [pderiv_C]
   · simp only [eval_cons, eval_nil, evalTerm, evalMono, Int.cast_mul, Int.cast_natCast, C_mul, add_zero]; ring
 
 theorem pderiv_evalTerm3 (t : Term) : pderiv (3 : Fin 6) (evalTerm t) = eval (pderivTerm3 t) := by
   rcases t with ⟨⟨a, b, c, d, e, f⟩, k⟩
-  simp only [evalTerm, evalMono, pderivTerm3, pderiv_C_mul, pderiv_mul, pderiv_X_pow_self,
+  simp only [evalTerm, evalMono, pderivTerm3, pderiv_mul, pderiv_C, pderiv_X_pow_self,
     pderiv_X_pow_ne (show (0 : Fin 6) ≠ 3 by decide), pderiv_X_pow_ne (show (1 : Fin 6) ≠ 3 by decide),
     pderiv_X_pow_ne (show (2 : Fin 6) ≠ 3 by decide), pderiv_X_pow_ne (show (4 : Fin 6) ≠ 3 by decide),
     pderiv_X_pow_ne (show (5 : Fin 6) ≠ 3 by decide), mul_zero, zero_mul, add_zero, zero_add]
   split_ifs with h
-  · subst h; simp
+  · subst h; simp [pderiv_C]
   · simp only [eval_cons, eval_nil, evalTerm, evalMono, Int.cast_mul, Int.cast_natCast, C_mul, add_zero]; ring
 
 theorem pderiv_evalTerm4 (t : Term) : pderiv (4 : Fin 6) (evalTerm t) = eval (pderivTerm4 t) := by
   rcases t with ⟨⟨a, b, c, d, e, f⟩, k⟩
-  simp only [evalTerm, evalMono, pderivTerm4, pderiv_C_mul, pderiv_mul, pderiv_X_pow_self,
+  simp only [evalTerm, evalMono, pderivTerm4, pderiv_mul, pderiv_C, pderiv_X_pow_self,
     pderiv_X_pow_ne (show (0 : Fin 6) ≠ 4 by decide), pderiv_X_pow_ne (show (1 : Fin 6) ≠ 4 by decide),
     pderiv_X_pow_ne (show (2 : Fin 6) ≠ 4 by decide), pderiv_X_pow_ne (show (3 : Fin 6) ≠ 4 by decide),
     pderiv_X_pow_ne (show (5 : Fin 6) ≠ 4 by decide), mul_zero, zero_mul, add_zero, zero_add]
   split_ifs with h
-  · subst h; simp
+  · subst h; simp [pderiv_C]
   · simp only [eval_cons, eval_nil, evalTerm, evalMono, Int.cast_mul, Int.cast_natCast, C_mul, add_zero]; ring
 
 theorem pderiv_evalTerm5 (t : Term) : pderiv (5 : Fin 6) (evalTerm t) = eval (pderivTerm5 t) := by
   rcases t with ⟨⟨a, b, c, d, e, f⟩, k⟩
-  simp only [evalTerm, evalMono, pderivTerm5, pderiv_C_mul, pderiv_mul, pderiv_X_pow_self,
+  simp only [evalTerm, evalMono, pderivTerm5, pderiv_mul, pderiv_C, pderiv_X_pow_self,
     pderiv_X_pow_ne (show (0 : Fin 6) ≠ 5 by decide), pderiv_X_pow_ne (show (1 : Fin 6) ≠ 5 by decide),
     pderiv_X_pow_ne (show (2 : Fin 6) ≠ 5 by decide), pderiv_X_pow_ne (show (3 : Fin 6) ≠ 5 by decide),
     pderiv_X_pow_ne (show (4 : Fin 6) ≠ 5 by decide), mul_zero, zero_mul, add_zero, zero_add]
   split_ifs with h
-  · subst h; simp
+  · subst h; simp [pderiv_C]
   · simp only [eval_cons, eval_nil, evalTerm, evalMono, Int.cast_mul, Int.cast_natCast, C_mul, add_zero]; ring
 
 theorem pderiv_evalTerm (i : Fin 6) (t : Term) : pderiv i (evalTerm t) = eval (pderivTerm i t) := by

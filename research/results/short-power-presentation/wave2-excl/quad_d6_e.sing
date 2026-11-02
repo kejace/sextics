@@ -45,7 +45,7 @@ ideal G = std(I);
 print("dim = " + string(dim(G)));
 print("vdim = " + string(vdim(G)));
 print("time = " + string(timer - t));
-intvec hv = hilb(G, 1);
-print("hilb1 = " + string(hv));
+intvec hv = hilb(G, 2);
+print("hilb2 = " + string(hv));
 if (dim(G) > 0) { LIB "primdec.lib"; list L = minAssGTZ(G); print("ncomp = " + string(size(L))); L; }
 quit;

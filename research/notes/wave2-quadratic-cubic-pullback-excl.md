@@ -1,6 +1,6 @@
 # Wave 2 — lane `quadratic-cubic-pullback` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness.  Rigorous so far: K_d = J(F)_d re-verified at prime 2147483629 for d in {3,5,6(odd)} (local smoke), NO Y-even polar denominator of degree 5 exists (exact relaxation, pi_W(ker)=0 over Z), all wave-1 structural claims reconfirmed at a second prime.  Remote jobs (kernels d<=12, 58 structured polars, relaxation d=5/6) queued (remote saturated at 19:30).
+STATUS: in progress — no witness.  BEST RIGOROUS BOUND SO FAR: every certificate for (F,1,X0^3Y0^3) has deg D >= 6 (K_d = 0 for d<=4 and K_5 = J_5 [wave-1 prime, re-verified at a second prime], and the complete degree-5 polar family D = w.grad F, w in C^6 (no parity assumption), is excluded by the exact relaxation: pi_W(ker) = 0 over Z).  Remote jobs queued.
 
 Started 2026-11-01 (wave 2).  Log: `/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl.log.jsonl`.
 Packet: `/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/`.
@@ -33,3 +33,50 @@ Packet: `/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/`.
   (6 W + 135 V + 60 Q unknowns), exact integer nullspace has dimension 12 and projects to ZERO on the W-coordinates,
   so no w gives a certificate.  Self-test of the E2 reduction E = F (Phi(w) + L(c,w)) passed exactly.
 * gradX0sq = 2 X0 F_0 (d = 6, reducible control): serves nothing, rank-certified (nullity 244 = structural).
+
+## Tools and statements developed in this lens (mathematics)
+
+### T1. Certification lemma for modular fixed-D results
+Let M be the (N,Q)-coefficient matrix of the fixed-D system over Q and M_p its reduction.  rank M_p <= rank M.
+If an explicit rational kernel of M of dimension n_str = ncols - rank M_p is known, then rank M = rank M_p and
+(i) "M_p x = b_p inconsistent" implies inconsistency over Q; (ii) the modular served dimension (= #targets -
+(rank[M|B]_p - rank M_p)) is an UPPER bound for the rational served dimension.  Explicit kernel for every D
+(deg d, N_i of parity par(N_i)):  (G z, 0) with G in S_d of parity par(A)-par(D)  [E(Gz,0) = 0 identically],
+(g F, D div g - g.grad D) with g_i in S_{d-5} of parity par(N_i), overlap {G = hF, g = h z}.
+n_str(d) = dim S_d^{parG} + sum_i dim S_{d-5}^{par N_i} - dim S_{d-6}^{parG}: 129 (d=5), 244 (d=6).
+A fixed-D verdict is logged "rigorous" only when the modular nullity equals n_str.
+
+### T2. E1 rigor
+"A D not in J(F)" mod p is rigorous when the modular rank of the degree-(d+6) Jacobian block equals the Hilbert
+value dim J_{d+6}^{par} = dim S - dim R (parity-split Hilbert series (1-t^5)^3(1-ut^5)^3/((1-t)^3(1-ut)^3), u^2=1;
+totals 1,6,21,56,126,246,426,666,951,1246,1506,...; splits R_6 = 218+208, R_10 = 762+744, R_16 = 483+468).
+Kernel statement: dim K_d(p) >= dim K_d(Q) >= dim J_d, so K_d(p) = J_d (with certified J-rank) proves K_d(Q) = J_d.
+
+### T3. Jacobian-type (polar) reduction and the exact relaxation
+If K_d = J_d then every admissible D of degree d is D = w.grad F.  Write N = A w + H z/6 + c.grad F (complete:
+(N - A w).grad F in (F), Koszul syzygies).  Then E = F.(Phi(w) + L(c,w)) with
+   Phi(w) = D (grad A.w + A div w) - A w.grad D,      L(c,w) = sum_{i,j} F_j [(d_i c_ij) D - c_ij d_i D],
+all H-terms cancel, and the certificate condition is Phi(w) + L(c,w) = F Q.  (Checked exactly on random data.)
+Relaxation: W = w w^T, V = c (x) w independent => linear system in (W, V, Q).  Admissible w satisfy
+w w^T in pi_W(ker).  pi_W(ker) = 0 (exact integer nullspace) proves that NO polar denominator of that degree/sector
+admits a certificate for A.  Result at d = 5: see below.
+
+### Result R1 (rigorous, exact): no denominator of degree 5
+Sector even (w = (w0,w1,w2,0,0,0)): relaxation 1491 x 201, exact nullity 12, pi_W(ker) = 0.
+Sector odd (w = (0,0,0,w3,w4,w5)): 1491 x 201, exact nullity 12, pi_W(ker) = 0.
+Unrestricted w in C^6: 3003 x 687, exact nullity 156, pi_W(ker) = 0.   (log entries relaxL5o, relaxL5a, smokerelax)
+Together with K_5 = J_5 (both parities; mod-p kernel dimension is an upper bound, J-rank Hilbert-certified) this
+proves: no certificate with deg D = 5 exists.  With K_d = 0 for d <= 4: deg D >= 6 for every certificate.
+
+### Hilbert bookkeeping (exact; Koszul series of the regular sequence dF, parity-graded)
+| d | R_d^even, R_d^odd | R_{d+6}^odd, R_{d+6}^even | Gorenstein lower bound on dim K_d/J_d (even, odd) | dim J_d (even, odd) | structural fixed-D nullity n_str (even, odd D) |
+|---|---|---|---|---|---|
+| 5 | 123, 123 | 843, 843 | 0, 0 | 3, 3 | 129, 129 |
+| 6 | 218, 208 | 866, 885 | 0, 0 | 18, 18 | 244, 253 |
+| 7 | 333, 333 | 843, 843 | 0, 0 | 63, 63 | 456, 456 |
+| 8 | 483, 468 | 744, 762 | 0, 0 | 168, 168 | 795, 807 |
+| 9 | 623, 623 | 623, 623 | 0, 0 | 378, 378 | 1351, 1351 |
+| 10 | 762, 744 | 468, 483 | 294, 261 | 750, 747 | 2187, 2202 |
+| 11 | 843, 843 | 333, 333 | 510, 510 | 1341, 1341 | 3444, 3444 |
+| 12 | 885, 866 | 208, 218 | 677, 648 | 2223, 2214 | 5230, 5248 |
+(dim K_d/J_d computed mod p is an upper bound; when it equals the Gorenstein lower bound the rational value is pinned.)
