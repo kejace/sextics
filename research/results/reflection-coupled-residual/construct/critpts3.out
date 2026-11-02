@@ -1,0 +1,15 @@
+vdim_total
+3750
+vdim_Y2eq0
+750
+vdim_Xeq0 (restriction)
+30
+   ? `Y1` is not defined
+   ? error occurred in or before critpts3.sing line 19: `Fl = subst(Fl, Y1, 1);`
+local_mult_m (P5 critical scheme at the Klein-fixed point)
+0
+local_mult_mprime (Y2=0 system at the same point)
+0
+milnor_check: Fl value and order at origin
+-1
+0

@@ -5,3 +5,6 @@ loaded: 61 unknowns, 1891 pairs, exact pairs 1891 [7s]
 [exact_dependencies] lift failed with 3 primes; continuing
 [exact_dependencies] lift failed with 4 primes; continuing
 [exact_dependencies] lift failed with 5 primes; continuing
+[exact_dependencies] lift failed with 6 primes; continuing
+[exact_dependencies] lift failed with 7 primes; continuing
+[exact_dependencies] lift failed with 8 primes; continuing

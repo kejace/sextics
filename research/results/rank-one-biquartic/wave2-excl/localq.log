@@ -7,3 +7,4 @@
 [22:10:09] START timeout 3000 Singular -q quotJA_p65521.sing
 [22:25:25] END rc=0 timeout 3000 Singular -q quotJA_p65521.sing
 [22:25:25] START timeout 2400 python3 verify_e1kernel.py 1000000007
+[22:52:30] END rc=0 timeout 2400 python3 verify_e1kernel.py 1000000007

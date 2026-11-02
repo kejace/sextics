@@ -7,3 +7,6 @@
 [stage1 d=8] restart 0: rel=1.718e-06 |B|=3.107e+01 nfev=150 (940s)
 [stage1 d=8] restart 0: rel=1.327e-06 |B|=3.621e+01 nfev=196 (1037s)
 [stage1 d=8] restart 0: rel=1.718e-06 |B|=3.107e+01 nfev=183 (1134s)
+[stage1 d=8] restart 0: rel=1.867e-06 |B|=3.346e+01 nfev=200 (1314s)
+[stage1 d=8] restart 0: rel=2.283e-06 |B|=2.909e+01 nfev=200 (1345s)
+[stage1 d=8] restart 1: rel=1.501e-06 |B|=3.595e+01 nfev=144 (1771s)

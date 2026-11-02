@@ -1,0 +1,7 @@
+X: dim(cone) = 0 vdim = 15625
+section var(1)=0: dim(cone) = 0 vdim = 3125
+section var(2)=0: dim(cone) = 0 vdim = 3125
+section var(3)=0: dim(cone) = 0 vdim = 3125
+section var(4)=0: dim(cone) = 0 vdim = 3125
+section var(5)=0: dim(cone) = 0 vdim = 3125
+section var(6)=0: dim(cone) = 0 vdim = 3125

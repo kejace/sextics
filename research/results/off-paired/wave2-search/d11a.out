@@ -1,1 +1,3 @@
 [03:04:16] start d11a-c00 (eff 127) elapsed 0s
+   -> best 5.083e-04 median 5.240e-04 restarts 17 dimP 127 t/restart 1470.4 witness False
+[04:03:55] start d11a-c30 (eff 128) elapsed 3579s

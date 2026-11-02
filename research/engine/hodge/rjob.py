@@ -82,7 +82,8 @@ def remote_capacity():
         return 0.0, 1e9, 0, 0
 
 
-def submit(lane, name, command, cpus=1, force=False, max_load=700.0, min_avail_gb=110.0, wait_s=0, max_alloc_cpus=200):
+def submit(lane, name, command, cpus=1, force=False, max_load=700.0, min_avail_gb=110.0, wait_s=0, max_alloc_cpus=200, blas=1):
+    """BLAS/OpenMP threads default to 1 (python multiprocessing jobs otherwise spawn cpus x workers threads); pass --blas-threads N for single-process numpy-heavy jobs."""
     """Submit, but refuse (exit code 3) when the remote is near capacity unless --force.
     With wait_s > 0, poll every 60 s up to wait_s seconds for capacity instead of refusing."""
     t0 = time.time()
@@ -104,7 +105,7 @@ def submit(lane, name, command, cpus=1, force=False, max_load=700.0, min_avail_g
     cpuset = f'{start}-{start + cpus - 1}' if cpus > 1 else f'{start}'
     mem_kb = int(os.environ.get('HODGE_JOB_MEM_GB', max(32, 6 * cpus))) * 1024 * 1024  # address-space cap; override with HODGE_JOB_MEM_GB
     remote_cmd = (f'mkdir -p /tmp/hodge/jobs {RESULTS}/{lane} && cd {RESULTS}/{lane} && '
-                  f'export PYTHONPATH={ENGINE} OMP_NUM_THREADS={cpus} OPENBLAS_NUM_THREADS={cpus} FLINT_NUM_THREADS={cpus} HODGE_JOB_CPUS={cpus} && '
+                  f'export PYTHONPATH={ENGINE} OMP_NUM_THREADS={blas} OPENBLAS_NUM_THREADS={blas} MKL_NUM_THREADS={blas} FLINT_NUM_THREADS={cpus} HODGE_JOB_CPUS={cpus} && '
                   f'echo {cpus} > /tmp/hodge/jobs/{name}.cpus && '
                   f'nohup setsid taskset -c {cpuset} bash -c {shlex.quote("ulimit -v " + str(mem_kb) + "; " + command)} > /tmp/hodge/jobs/{name}.log 2>&1 < /dev/null & '
                   f'echo $! > /tmp/hodge/jobs/{name}.pid; echo $!')
@@ -167,7 +168,7 @@ def main():
     sub = ap.add_subparsers(dest='cmd', required=True)
     p = sub.add_parser('up'); p.add_argument('--lane')
     p = sub.add_parser('notes'); p.add_argument('--direction', default='both')
-    p = sub.add_parser('submit'); p.add_argument('--lane', required=True); p.add_argument('--name', required=True); p.add_argument('--cpus', type=int, default=1); p.add_argument('--force', action='store_true'); p.add_argument('--wait', type=int, default=0, help='seconds to wait for remote capacity'); p.add_argument('command', nargs=argparse.REMAINDER)
+    p = sub.add_parser('submit'); p.add_argument('--lane', required=True); p.add_argument('--name', required=True); p.add_argument('--cpus', type=int, default=1); p.add_argument('--force', action='store_true'); p.add_argument('--blas-threads', type=int, default=1); p.add_argument('--wait', type=int, default=0, help='seconds to wait for remote capacity'); p.add_argument('command', nargs=argparse.REMAINDER)
     p = sub.add_parser('status'); p.add_argument('--name')
     p = sub.add_parser('log'); p.add_argument('--name', required=True); p.add_argument('--tail', type=int, default=50)
     p = sub.add_parser('wait'); p.add_argument('--name', required=True); p.add_argument('--timeout', type=int, default=3600)
@@ -178,7 +179,7 @@ def main():
     elif a.cmd == 'notes': notes(a.direction)
     elif a.cmd == 'submit':
         cmd = a.command[1:] if a.command and a.command[0] == '--' else a.command
-        submit(a.lane, a.name, ' '.join(cmd), a.cpus, force=a.force, wait_s=a.wait)
+        submit(a.lane, a.name, ' '.join(cmd), a.cpus, force=a.force, wait_s=a.wait, blas=a.blas_threads)
     elif a.cmd == 'status': status(a.name)
     elif a.cmd == 'log': log(a.name, a.tail)
     elif a.cmd == 'wait': wait(a.name, a.timeout)

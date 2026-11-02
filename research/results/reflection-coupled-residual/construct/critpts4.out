@@ -1,0 +1,11 @@
+Fl(0) (must be 0) and order:
+0
+1
+local_mult_m (P5 critical scheme at the Klein-fixed point, chart Y1=1)
+15
+local_mult_mprime (Y2=0 system at the same point)
+3
+milnor number of Fl at the origin (ambient 5 variables; the fibre singularity is Fl restricted to the hyperplane Y0=eta):
+0
+milnor number of the degenerate fibre singularity (Fl at Y0 = 0, 4 variables):
+-1

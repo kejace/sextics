@@ -63,7 +63,8 @@ class Poly:
 
 def parse(expr):
     env = {n: Poly.var(i) for i, n in enumerate(NAMES)}
-    return eval(expr.replace('\n', ' '), {'__builtins__': {}}, env)
+    r = eval(expr.replace('\n', ' '), {'__builtins__': {}}, env)
+    return r if isinstance(r, Poly) else Poly.const(r)
 
 def load_instance(path=INSTANCE):
     txt = open(path).read()
