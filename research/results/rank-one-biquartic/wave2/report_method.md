@@ -40,8 +40,8 @@
   degree.  Numerical search results are evidence only; a failed multistart search excludes nothing.
 
 **Invariance lemma (used for the exact exclusions).**  For `D' = D + F G` (G in S_{d-6}) with lift `N' = N0 + A G Z/6`
-one has `B_{D'}(N') - B_D(N0) = 6 A G D ... in J(F)` exactly (the cross terms are `A G D(a)`, `F G div N0 - G A D(a) - F N0(G)`
-and `A F G^2`, all in J), so the Jacobian-quotient relaxation is a condition on `P(V / F S_{d-6})`: the spurious
+one has `B_{D'}(N') - B_D(N0) = F (G div N0 - N0(G) + A G^2)`, an element of `F S` (the three cross terms are
+`B_D(A G Z/6) = A G D`, `B_{FG}(N0) = F G div N0 - G A D - F N0(G)` and `B_{FG}(A G Z/6) = A F G^2`; the `A G D` terms cancel), so the Jacobian-quotient relaxation is a condition on `P(V / F S_{d-6})`: the spurious
 F-multiples form the vertex of a cone and can be sliced away (one triangular coordinate per spurious direction set to 0,
 `slice_ms.py`, invariance verified numerically: 0 violations for the 82 (d=6) and 432x3 (d=7) checks).  Emptiness of the
 sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by the Macaulay-rank semicontinuity.
@@ -52,8 +52,11 @@ sliced projective scheme over F_q-bar (msolve: finite quotient) lifts to C by th
   spurious component is bounded (|s| <= 5), and the per-restart records carry `resnorm`, `scale`, `scale0`, `s_norm`.
   Records written before the fix (tags d7e_b0, d7k_a, lmtest_*) used the old metric; their `resnorm` values
   (0.011-0.013 at d=7) are directly comparable.  Local optimizer: Levenberg-Marquardt with the Kaufman
-  variable-projection Jacobian (`--method lm`, default from 20:50) which converges in tens of iterations; the
-  earlier L-BFGS restarts (tags *_b0, d7k_a) all stopped at the 400-iteration cap.
+  variable-projection Jacobian (`--method lm`, default from 20:50): on the solved validation instance it reaches the
+  witness in 7 iterations (1e-16); on this lane it reaches the same ~1e-2 floor as L-BFGS but also stops at its
+  60-iteration cap, and at d = 9 each iteration costs minutes under the machine load (2K+1 bilinear evaluations and
+  a 13717x1890 least squares per line-search trial).  The earlier L-BFGS restarts (tags *_b0, d7k_a, d8k_a) all
+  stopped at the 400-iteration cap.
 
 **Why the mod-q emptiness statements lift to C (precise form).**  Let G be the Jacobian-generator matrix in degree 2d
 (integer entries after clearing 7).  Its rank over Q equals its rank mod q (the Jacobian-ring dimensions computed mod q
