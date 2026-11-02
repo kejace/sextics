@@ -6,3 +6,16 @@
 [gmrank_sep2] degree 7: dim R_d^ee = 90, rank J = 30, inverse built (0s)
 [gmrank_sep2] degree 13: dim R_d^ee = 90, rank J = 666, inverse built (3s)
 [gmrank_sep2] degree 19: dim R_d^ee = 3, rank J = 2637, inverse built (117s)
+[gmrank_sep2] degree 25: dim R_d^ee = 0, rank J = 6825, inverse built (1648s)
+[gmrank_sep2] Hodge-type dimensions {1: 3, 7: 90, 13: 90, 19: 3, 25: 0}
+[gmrank_sep2] basis size 186
+[gmrank_sep2] connection column 0/186 (0s)
+[gmrank_sep2] connection column 20/186 (13s)
+[gmrank_sep2] connection column 40/186 (26s)
+[gmrank_sep2] connection column 60/186 (40s)
+[gmrank_sep2] connection column 80/186 (55s)
+[gmrank_sep2] connection column 100/186 (105s)
+[gmrank_sep2] connection column 120/186 (207s)
+[gmrank_sep2] connection column 140/186 (316s)
+[gmrank_sep2] connection column 160/186 (394s)
+[gmrank_sep2] connection column 180/186 (483s)

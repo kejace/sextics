@@ -249,3 +249,4 @@ d=8: 6v non-Jacobian basis directions 232
 6v:d8:(0, 0, 2):24 EXCLUDED-exact 1274 1275 1410.05
 6v:d8:(0, 0, 2):11 EXCLUDED-exact 1274 1275 1413.46
 6v:d8:(0, 0, 2):25 EXCLUDED-exact 1274 1275 1442.38
+6v:d8:(0, 0, 2):26 EXCLUDED-exact 1274 1275 1094.95

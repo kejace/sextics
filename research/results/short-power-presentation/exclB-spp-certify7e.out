@@ -38,3 +38,11 @@ LOG {"exp": "block-elimination-exact-certificate", "d": 7, "pars": "e", "scheme"
 [exact_dependencies] lift failed with 3 primes; continuing
 [exact_dependencies] lift failed with 4 primes; continuing
 [exact_dependencies] lift failed with 5 primes; continuing
+[exact_dependencies] {"n_polys": 1131, "n_gens": 6006, "rank_modp_span_mod_J": 231, "n_deps_modp": 900, "n_deps_verified": 900, "n_deps_failed": 0, "primes": [2147483647, 2147483629, 2147483587, 2147483579, 2147483563, 2147483549], "dim_span_mod_J_exact_upper": 231, "exact_equals_modp": true, "seconds": 1277.5}
+LOG {"exp": "block-elimination-exact-certificate", "d": 7, "pars": "e", "scheme": "comp", "block": "w5", "pass_": 0, "prime": [2147483647, 2147483629, 2147483587, 2147483579, 2147483563, 2147483549], "eliminated": 6, "others": 1131, "rank_modp_others": 231, "result": "exact", "n_deps_verified": 900, "n_deps_modp": 900, "seconds": 1277.9, "job": "exclB-spp-certify7e", "note": "dim_Q of the span of the other pair polynomials modulo J_{2d} equals the mod-p dimension => the annihilator functionals of this step are reductions of rational ones", "ts": "2026-11-02T05:43:33", "lens": "excl"}
+   exact certificate: True (900/900 dependencies) [1278s]
+[pass 1 block w0] quadrics 32 in 9 visible, m-primary False, others span 199
+[pass 1 block w1] quadrics 32 in 9 visible, m-primary False, others span 199
+[pass 1 block w2] quadrics 32 in 9 visible, m-primary False, others span 199
+remaining 42 all certificates ok: False [8055s]
+LOG {"exp": "block-elimination-certified", "d": 7, "pars": "e", "prime": 1073741789, "remaining": 42, "steps": 4, "result": "incomplete", "seconds": 8055.4, "job": "exclB-spp-certify7e", "ts": "2026-11-02T05:43:44", "lens": "excl"}

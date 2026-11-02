@@ -46,3 +46,4 @@
 [stage1 d=8] restart 4: rel=2.283e-06 |B|=2.909e+01 nfev=200 (6647s)
 [stage1 d=8] restart 5: rel=1.367e-06 |B|=3.619e+01 nfev=154 (6750s)
 [stage1 d=8] restart 5: rel=1.352e-06 |B|=3.345e+01 nfev=158 (6863s)
+[stage1 d=8] restart 5: rel=2.124e-06 |B|=4.055e+01 nfev=200 (7389s)
