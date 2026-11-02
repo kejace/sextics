@@ -88,10 +88,16 @@ Certificate convention: A D^2 - D N(F) + F (D div N - N(D)) = F^2 Q, deg N = d+1
    d = 7: every stage-1 restart converges to ONE minimizer (rank-1 set of all best points) at rel 1.32e-4, with
    w_0 ~ 0.46 X0^2 + 0.53 X1 X2 + 0.52 Y0 Y1 dominant (D ~ Q_0-like quadric times d_{{X0}}F, leading terms X0 Q_0^3); its full
    E2 (stage-2) residual is 3.7e-3 compressed (~3.5e-2 unscaled) and random stage-2 restarts give 2.6e-3 -- no certificate.
-   d = 8, 9, 10: the stage-2 machinery was built (d = 10: K = 1050 parameters, 978 after gauge removal, 26532 rows,
-   3480 Koszul + 5796 quotient columns) but the shared box ran at load 300-1750 on 128 cores and the d = 10 job was killed
-   before completing a restart; d = 8/9 counts are in the landscape table.  No candidate reached 1e-10, so no rational
-   reconstruction was attempted.
+   d = 8 Y-odd (K_8 = J_8, 168 w's, 159 after gauge removal, 468 equations): the stage-1 landscape is a flat valley at
+   rel ~ 1e-6 (18 restarts, all between 1.0e-6 and 2.0e-6, most stopping at the LM iteration cap); long LM refinement of the
+   four best points converges (status 3) to genuine local minima at 9.57e-7, 9.57e-7, 1.03e-6, 1.08e-6 -- i.e. two orders of
+   magnitude below d = 7 but NOT zeros (||P_J B||/||B|| ~ 1e-3).  Full-E2 stage 2 from these points is still running
+   (job d8oddseed; chain job jvp-d89 continues with d = 8 odd stage 2 and d = 9 both parities); results append to
+   w2_jvp_d8_odd_seed*.jsonl / w2_jvp_d8_odd_r1_s*.jsonl / w2_jvp_d9_*.jsonl on the remote lane dir.
+   d = 8 Y-even, 9, 10: the stage-2 machinery was built (d = 10: K = 1050 parameters, 978 after gauge removal, 26532 rows,
+   3480 Koszul + 5796 quotient columns) but the shared box ran at load 300-1750 on 128 cores; the d = 10 job was killed
+   before completing a restart and d = 8 even / 9 are still queued in the chains.  No candidate reached 1e-10, so no
+   rational reconstruction was attempted.
 
 ## Batch 1 (item 1): exact E1-admissible spaces K_d (job search-quadratic-cubic-pullback-kernels, mod p = 2^31-1)
 Nullspace of [A*m | J(F)_{{d+6}} generators]; d <= 8 Y-even and d <= 6 Y-odd were closed in wave 1 (K_d = J_d).

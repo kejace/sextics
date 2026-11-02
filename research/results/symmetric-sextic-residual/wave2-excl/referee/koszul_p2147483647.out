@@ -2,3 +2,6 @@ p=2147483647 Koszul degree n=12 parity 0: rank d2 = 153, dim Z1 = 2376 - rank J_
 p=2147483647 Koszul degree n=12 parity 1: rank d2 = 162, dim Z1 = 2376 - rank J_n 2214 = 162 -> H_1 = 0: True (rank J_n CI 2214) [14s]
 p=2147483647 Koszul degree n=13 parity 0: rank d2 = 420, dim Z1 = 3861 - rank J_n 3441 = 420 -> H_1 = 0: True (rank J_n CI 3441) [47s]
 p=2147483647 Koszul degree n=13 parity 1: rank d2 = 420, dim Z1 = 3861 - rank J_n 3441 = 420 -> H_1 = 0: True (rank J_n CI 3441) [42s]
+p=2147483647 Koszul degree n=14 parity 0: rank d2 = 936, dim Z1 = 6006 - rank J_n 5070 = 936 -> H_1 = 0: True (rank J_n CI 5070) [122s]
+p=2147483647 Koszul degree n=14 parity 1: rank d2 = 954, dim Z1 = 6006 - rank J_n 5052 = 954 -> H_1 = 0: True (rank J_n CI 5052) [133s]
+total done

@@ -1,6 +1,6 @@
 # Referee README — wave-2 exclusion packet, `symmetric-sextic-residual` (q = 1, A = X0X1X2Y0Y1Y2)
 
-Referee: a Claude (Anthropic) session acting for `kejace`, 2026-11-01 23:00–23:59 local (brunos). No human review yet;
+Referee: a Claude (Anthropic) session acting for `kejace`, 2026-11-01 23:00–23:45 local (brunos). No human review yet;
 nothing here is Lean-verified; no certificate is claimed; no claim of unrestricted nonexistence is made.
 Referee scripts and raw outputs: `referee/` (this directory). Scratch copy: `/tmp/hodge/referee-ssr/`.
 
@@ -11,7 +11,7 @@ confirmed by two independent implementations whose receipts the referee inspecte
 
 ## 0. Counts
 
-VERIFIED 14 · PLAUSIBLE 6 · UNSUPPORTED 2 · REFUTED 1 (claim 5, corrected in place). Strongest verified statement:
+VERIFIED 14 · PLAUSIBLE 5 · UNSUPPORTED 2 · REFUTED 1 (claim 5, corrected in place; the corrected value is verified). Strongest verified statement:
 **every legal certificate denominator has degree ≥ 7 (any Y-parity, Jacobian-ideal elements included), and no
 S3×S3×⟨τ⟩-semi-invariant denominator of degree 7 or 8 exists.**
 
@@ -30,10 +30,10 @@ S3×S3×⟨τ⟩-semi-invariant denominator of degree 7 or 8 exists.**
 | 9 | **deg D ≥ 7 for every legal denominator** (d = 5: Hessian argument; d = 6: relaxation on J_6, 35 unknowns) | excl §1 | **VERIFIED** | §2 below: derivation re-done by hand; d = 5 argument checked by hand and by Singular on the stored files (dim 0, vdim 4, both parities); stored d = 6 msolve replayed single-threaded (identical leading ideal, 1307 tokens, pure power of every one of the 35 variables); **own-code reconstruction** of the d = 6 relaxation at p = 10⁹+9 (`referee/relax6_own.py`, 1684 quadrics / 35 unknowns) is m-primary (pure powers, exponents 2–4) |
 | 10 | no `S3×S3×⟨τ⟩`-semi-invariant denominator of degree 7 (8 sectors) | excl | VERIFIED | all six nonempty sector systems replayed with msolve (identical leading ideals, pure powers for every variable); Singular on triv/even: dim 0, vdim 11; sgn⊗sgn sectors have no E1-admissible element (dimK 0, both parities; search lens's kernel table agrees); folded ring dim 46 = referee Burnside count |
 | 11 | no `S3×S3×⟨τ⟩`-semi-invariant denominator of degree 8 (8 sectors) | excl | VERIFIED | same replay (triv/even 18 unknowns, 91 s single-threaded); Singular vdim 112 (triv/odd), 7 (sgnX/odd); folded ring dim 32 = referee count |
-| 12 | d = 9 sectors | excl chain 3 | sgn⊗sgn both parities closed (1 unknown each, V = {0}); triv/sgnX/sgnY running at hand-off | — |
+| 12 | d = 9 sectors | excl chain 3 | sgn⊗sgn both parities closed (1 unknown each, V = {0}; replayed, `referee/d9_sgnsgn_replay.txt`) — VERIFIED; triv/sgnX/sgnY running at hand-off — OPEN | the only admissible element of each sgn⊗sgn sector lies in J_9 |
 | 13 | **"no τ-semi-invariant (pure-parity) denominator of degree 7"** (full family, 61 unknowns) | draft post item (2) | **UNSUPPORTED** | both msolve runs failed: rc 124 (timeout 3601 s) and rc −9 (killed, 3348 s); `.lead` files empty; mixed parity (124 unknowns) never run |
 | 14 | "screened all character sectors at degrees 9–12" | draft post | UNSUPPORTED | no such receipts in `wave2-excl.log.jsonl` (sector-screen job not finished) |
-| 15 | exact Farkas certificates: `D7`, `D7Y`, `E_X(F)`, `E_Y(F)`, `E_X(F)−E_Y(F)`, `Δ_XΔ_Y` have no certificate over ℂ | excl `farkas-exact` | VERIFIED (D7, D7Y, E_X(F), Δ_XΔ_Y replayed; E_Y(F), E_X−E_Y see `referee/farkas_*.replay.txt`) | `verify_farkas.py`: unfolded `y` kills every column of the full fixed-D system (4497 resp. 2602 columns), `y·b ≠ 0`, exact integers ⇒ inconsistent over any field ⊇ ℚ |
+| 15 | exact Farkas certificates: `D7`, `D7Y`, `E_X(F)`, `E_Y(F)`, `E_X(F)−E_Y(F)`, `Δ_XΔ_Y` have no certificate over ℂ | excl `farkas-exact` | VERIFIED (all six replayed; pickled denominators equal the named polynomials, `referee/farkas_D_check.txt`) | `verify_farkas.py`: unfolded `y` kills every column of the full fixed-D system (4497 resp. 2602 columns), `y·b ≠ 0`, exact integers ⇒ inconsistent over any field ⊇ ℚ |
 | 16 | all 12 degree-8 E1-kernel basis elements inconsistent as single denominators | aggregator batch 2b (10⁹+7, compressed solver) | PLAUSIBLE | one prime, one implementation; modular screen of basis elements, not of the family |
 | 17 | joint varpro search: nonzero stable minima in every sector searched (triv d ≤ 10, jac d ≤ 6, sign sectors, vertex cones); 358 kernel classes + 90 random combinations inconsistent mod p | search report §7–9 | PLAUSIBLE (screen) | numerical / modular; restart counts recorded; not a theorem |
 | 18 | reduction `[A] ∈ served(Δ_X^aΔ_Y^b S) ⇔ [A] ∈ served(S)` for G-semi-invariant S | search report §3 | PLAUSIBLE (conditional) | referee checked the group-theoretic step: for χ = sgn⊗sgn and any transposition s, `e_χ(H⁴(X)^s) = 0` since `e_χ v = e_χ(sv) = χ(s)e_χ v = −e_χ v`; relies on the book's prescribed-support theorem and sum principle (not re-proved here). Consequence consistent with claim 15: `D7` is excluded already by the degree-4 E1 failure of `e2(X²)` |

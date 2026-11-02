@@ -1,6 +1,6 @@
 # Wave 2 search report — `eight-plane-configuration` (q = 1, A = X0^3 Y0^3)
 
-STATUS: NO WITNESS. Updated 2026-11-01T23:16:46. 281 search restarts collected over 10 batches; 2 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1900 on 128 cores); the runner's capacity gate has refused all submissions so far; results below are exact local computations plus bounded local numerical batches; remote queues (w2_queue1.sh, w2_queue2.sh) submit automatically when capacity appears.
+STATUS: NO WITNESS. Updated 2026-11-01T23:27:01. 282 search restarts collected over 10 batches; 2 Hessian-relaxation systems, 0 new kernel dimensions, 12 family intersections, 0 reconstruction attempts. Remote box saturated by other agents since ~19:30 EST (load 400-1900 on 128 cores); the runner's capacity gate has refused all submissions so far; results below are exact local computations plus bounded local numerical batches; remote queues (w2_queue1.sh, w2_queue2.sh) submit automatically when capacity appears.
 
 ## Inherited facts (wave 1, engine v2, mod p)
 - E1-kernel mod J(F) is 0 for every degree d <= 9 and both Y-parities: every E1-admissible denominator of degree <= 9 is Jacobian-type, D = w(F) = sum_i w_i dF/dz_i (rigorous over Q by the rank argument).
@@ -56,6 +56,7 @@ Exact confirmation for d = 11, 12 is queued on the remote (`w2_kernel.py`); the 
 - d = 8 family statistics (local build, 71 min single-threaded for the R-projector): 168 w-parameters per parity (spurious subspace {g*Euler, g quadratic} of dim 12, 156 free), R-part conditions 468 = dim R_16^-, full E2 in degree 16: 10152 equations, Koszul corrections 954 + Q 1491 unknowns, nnz(Omega) = 2.95M. Stage-1 batches (20 restarts per parity) running locally.
 - d = 7, mixed parity (local, mod p, 20 min): 126 w-parameters, 951 independent quadrics = 483 (odd target sector) + 468 (even target sector from the cross term Hess(w_+, w_-)), dim R_14 (both parities) = 1506; the spurious subspace {g*Euler, g linear} has dim 6, so 951 quadrics on P^119: generically empty (a Groebner/Hilbert computation on 126 variables is beyond local reach; a bounded Singular attempt was made).
 - d = 8 numerical Hessian relaxation (local, even parity, 20 restarts, 156 free parameters vs 468 conditions): minima between 1.6e-4 and 1.1e-3 (median 7e-4), the best one stationary (|grad|/|r| = 2.3e-8 under a 600-evaluation continuation). The floor is lower than at d = 7 (as the parameter count grows) but no restart approaches zero; odd parity (20 restarts): minima between 9.8e-5 and 1.4e-3 (median 7.8e-4), the best one stationary (|grad|/|r| = 6e-9 under an 800-evaluation continuation). (The queued remote batches, 160 full-E2 restarts per parity with stage-1 initialization, would sharpen this.)
+- d = 8 full-E2 variable projection (local, even parity, stage-1 initialized, 954 Koszul + 1491 Q unknowns, 10152 equations; Koszul block rank 795): first restarts at rel ~0.19 (24 min each single-threaded under load); batch of 8 left running, results appended to `local-search-d8-p0.jsonl` and picked up by `w2_collect.py`.
 
 
 ## 1. E1-admissible denominator spaces per degree (mod p = 2147483629)
@@ -87,7 +88,7 @@ rel = ||E2 residual|| / ||Omega(D) N_0|| after optimal Koszul corrections and Q;
 | local-search-d6-p1 | jacobian-d6-p1 | 6 | 1 | 18 (18) | 3080 | 153+226 (136-136) | 60 | 0.682 | 0.704 | 0.731 | 0.985 | - | 0 | 0 | 17.8 | 67.4 | 0 |
 | local-search-d7-p0 | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (360-360) | 16 | 0.111 | 0.113 | 0.289 | 0.459 | 0.0143 | 0 | 0 | 187.3 | 95.3 | 0 |
 | local-search-d7-p1 | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (360-360) | 16 | 0.23 | 0.299 | 0.335 | 0.38 | 0.0514 | 0 | 0 | 198.0 | 96.0 | 0 |
-| local-search-d8-p0 | jacobian-d8-p0 | | | | | | 0 (started) | | | | | | | | | | |
+| local-search-d8-p0 (running) | jacobian-d8-p0 | 8 | 0 | 168 (156) | 10152 | 954+1491 (795-795) | 1 | 0.189 | 0.189 | 0.189 | 0.189 | 0.0493 | 0 | 0 | 1428.1 | 120.0 | 0 |
 | local-stage1-d7-p0 (stage 1 only) | jacobian-d7-p0 | 7 | 0 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00441 | 0.00503 | 0.0124 | 0.0185 | 0.00441 | 0 | 0 | 19.9 | 102.8 | 0 |
 | local-stage1-d7-p1 (stage 1 only) | jacobian-d7-p1 | 7 | 1 | 63 (60) | 5796 | 420+636 (None-None) | 40 | 0.00387 | 0.0039 | 0.004 | 0.0151 | 0.00387 | 0 | 0 | 19.8 | 120.0 | 0 |
 | local-stage1-d8-p0 (stage 1 only) | jacobian-d8-p0 | 8 | 0 | 168 (156) | 10152 | 954+1491 (None-None) | 20 | 0.000161 | 0.00029 | 0.000642 | 0.00116 | 0.000161 | 0 | 0 | 107.5 | 172.7 | 0 |

@@ -1,6 +1,6 @@
 # Wave 2 — quadric-contact-residual — SEARCH lens (joint (D,N,Q) search)
 
-STATUS: NO WITNESS. Updated 2026-11-01 22:58 local. Batches logged: 216 (39 varpro sector batches, 2 Hessian-relaxation batches, 6 E1 profiles, 163 structured candidates); random restarts so far: 6243; best full-E2 relative residual: 6.34e-07.
+STATUS: NO WITNESS. Updated 2026-11-01 23:26 local. Batches logged: 244 (44 varpro sector batches, 2 Hessian-relaxation batches, 6 E1 profiles, 186 structured candidates); random restarts so far: 6802; best full-E2 relative residual: 6.34e-07.
 
 Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residue character trivial on G_aff (order 48), odd under s0 (X0<->Y0) and r1 (X1<->Y1). Prior rigorous exclusions (fqlx #125, replicated in wave 1): deg D <= 6; deg 7 in every pure parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.
 
@@ -22,10 +22,10 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
 * `excl-lattice7` (submitted 2026-11-01T21:26:18): `cd wave2-excl && bash lattice7.sh`
   - search-quadric-contact-residual-e1prof.log: last line: `{"task": "e1-profile", "d": 11, "n_sectors": 24, "tot_dimS": 4368, "tot_dimJ": 2682, "tot_kernel": 3702, "tot_extra": 1020, "tot_gauge": 252, "per_sector_extra"`
   - search-quadric-contact-residual-pipeA.log: last line: `[koszul-varpro] d=9 chi=0011 K=41 rows=1356 cols=427 (K 187, Q 240) Mstack nnz=275283 Vstack nnz=12423 dimP=38 excluded=3 built 1.2s`
-  - search-quadric-contact-residual-pipeA2.log: last line: `{"task": "varpro", "d": 9, "chi": "1000", "mode": "gens", "tag": "w2a", "vars": null, "dimS": 117, "dim_kernel": 58, "dimJ": 58, "n_extra": 0, "dim_gauge": 6, "`
+  - search-quadric-contact-residual-pipeA2.log: last line: `{"task": "varpro", "d": 9, "chi": "1021", "mode": "gens", "tag": "w2a", "vars": null, "dimS": 71, "dim_kernel": 20, "dimJ": 20, "n_extra": 0, "dim_gauge": 1, "n`
   - search-quadric-contact-residual-pipeB.log: last line: `=== 2026-11-02 00:47:52 w2_hess.py --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e`
   - search-quadric-contact-residual-pipeB2.log: last line: `=== 2026-11-02 03:00:57 w2_hess.py --d 7 --parity 1 --restarts 1500 --procs 8 --seed 12 --tag hd7o`
-  - search-quadric-contact-residual-pipeC.log: last line: `=== 2026-11-02 03:19:45 w2_struct.py 10`
+  - search-quadric-contact-residual-pipeC.log: last line: `rad1^2 -> {'d': 12, 'family': 'w2struct-d12', 'e1': True, 'consistent': False, 'rank': 3463, 'nullity': 662, 'seconds': 146.65, 'note': 'rad1^2 [sector chi=(0, `
   - search-quadric-contact-residual-vp-d8.log: last line: `[koszul-varpro] d=8 chi=0000 K=33 rows=1002 cols=303 (K 130, Q 173) Mstack nnz=155331 Vstack nnz=43948 dimP=29 excluded=4 built 0.7s`
 
 ## (1) E1-admissible denominator spaces per degree and character sector (exact over Q)
@@ -98,6 +98,11 @@ Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian 
 | w2a | 9 | 0140 | - | 20 | 19 | 1356 | 118+240 | 0.0256 | 114 | 0 | 0.0387 | 0.0387 | 0 | 0 | 43.71 | 121.7 |
 | w2a | 9 | 0141 | - | 20 | 19 | 1356 | 118+240 | 0.0266 | 114 | 0 | 0.03835 | 0.03835 | 0 | 0 | 45.04 | 114.8 |
 | w2a | 9 | 1000 | - | 58 | 52 | 1611 | 234+332 | 0.0808 | 98 | 0 | 8.44e-04 | 0.006893 | 0 | 0 | 296.5 | 1501.1 |
+| w2a | 9 | 1001 | - | 58 | 52 | 1611 | 234+332 | 0.0866 | 103 | 0 | 8.53e-04 | 0.006893 | 0 | 0 | 298.5 | 1521.5 |
+| w2a | 9 | 1020 | - | 20 | 19 | 1356 | 118+240 | 0.038 | 114 | 0 | 0.008672 | 0.01148 | 0 | 0 | 65.63 | 134.1 |
+| w2a | 9 | 1021 | - | 20 | 19 | 1356 | 118+240 | 0.0288 | 114 | 0 | 0.01144 | 0.01148 | 0 | 0 | 66.54 | 139.3 |
+| w2a | 9 | 1040 | - | 20 | 19 | 1356 | 118+240 | 0.0293 | 114 | 0 | 0.01144 | 0.01148 | 0 | 0 | 67.26 | 146.1 |
+| w2a | 9 | 1041 | - | 20 | 19 | 1356 | 118+240 | 0.0396 | 114 | 0 | 0.008679 | 0.01148 | 0 | 0 | 66.61 | 168.9 |
 
 Reconstruction attempts (rel < 1e-10): 0
 
@@ -275,11 +280,34 @@ Reconstruction attempts (rel < 1e-10): 0
 | 10 | D8* * S0 | 0000 | True | False | 1666 | 268 | 7639x1934 | 34.1 |
 | 10 | D8r * S0 | None | False | None | 9684 | 3420 | NonexNone | 1240.6 |
 | 10 | D8* * X0^2 | 0000 | True | False | 1666 | 268 | 7639x1934 | 33.9 |
+| 12 | D8* * S0^2 | 0000 | True | False | 3531 | 594 | 14354x4125 | 150.4 |
+| 12 | D8* * P0^2 | 0000 | True | False | 3531 | 594 | 14354x4125 | 148.7 |
+| 12 | D8* * delta^2 | 0000 | True | False | 3531 | 594 | 14354x4125 | 147.7 |
+| 12 | D8* * GS | 0000 | True | False | 3523 | 602 | 14354x4125 | 146.3 |
+| 12 | D8* * GP | 0001 | True | False | 3523 | 608 | 14354x4131 | 144.0 |
+| 12 | D8* * Q1 | 0000 | True | False | 3538 | 587 | 14354x4125 | 142.2 |
+| 12 | D8* * S1^2 | None | None | None | None | None | NonexNone | None |
+| 12 | D8r * S1^2 | None | None | None | None | None | NonexNone | None |
+| 12 | D8r * GS | None | None | None | None | None | NonexNone | None |
+| 12 | D8r * P1^2 | None | None | None | None | None | NonexNone | None |
+| 12 | D8r * d1^2 | None | None | None | None | None | NonexNone | None |
+| 12 | rad0^2 | 0000 | True | False | 3477 | 648 | 14354x4125 | 141.3 |
+| 12 | rad0*rad1 | 0000 | True | False | 3542 | 583 | 14354x4125 | 153.1 |
+| 12 | rad1^2 | 0000 | True | False | 3463 | 662 | 14354x4125 | 146.8 |
+| 12 | rad0*rad2 | 0000 | True | False | 3542 | 583 | 14354x4125 | 152.2 |
+| 12 | minor(X0,Y0)^... S0^2 | 0000 | False | None | 1581 | 933 | NonexNone | 8.9 |
+| 12 | minor(X0,Y0)*GS | 0000 | False | None | 1581 | 933 | NonexNone | 8.7 |
+| 12 | det Hess(X0,Y0,X1) (deg12) | 0040 | False | None | 1342 | 677 | NonexNone | 5.9 |
+| 12 | det Hess(X0,Y0,Y1) | 0020 | False | None | 1342 | 677 | NonexNone | 5.7 |
+| 12 | det Hess(X0,Y0,X2) | 0000 | False | None | 1581 | 933 | NonexNone | 9.6 |
+| 12 | det Hess(X1,Y1,X2) | 0000 | False | None | 1581 | 933 | NonexNone | 9.0 |
+| 12 | det Hess(X0,X1,X2) | 0040 | False | None | 1342 | 677 | NonexNone | 6.1 |
+| 12 | det Hess(X0,Y1,Y2) | 0020 | False | None | 1342 | 677 | NonexNone | 6.3 |
 
 ## Best residual landscape (full-E2 rel, log10 histogram of local minima over all restarts)
 
 * d=8: 1e-3: 452, 1e-2: 1854, 1e-1: 863
-* d=9: 1e-7: 120, 1e-4: 317, 1e-3: 381, 1e-2: 751, 1e-1: 1
+* d=9: 1e-7: 120, 1e-4: 318, 1e-3: 485, 1e-2: 1205, 1e-1: 1
 
 Reading: a genuine witness in a family shows up as rel ~ 1e-14..1e-12 (float64 floor); the smallest values seen so far are listed above; all minima are separated from the floor by many orders of magnitude unless stated otherwise.
 

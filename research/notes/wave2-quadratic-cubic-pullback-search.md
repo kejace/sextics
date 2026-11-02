@@ -1,6 +1,6 @@
 # Wave 2 search report: quadratic-cubic-pullback
 
-STATUS: NO WITNESS FOUND.  (Report regenerated 2026-11-01 22:24 EST by w2_report.py from wave2-search.log.jsonl; 1660 records.)
+STATUS: NO WITNESS FOUND.  (Report regenerated 2026-11-01 23:26 EST by w2_report.py from wave2-search.log.jsonl; 1705 records.)
 
 Lane: F = sum_{i=0}^5 Q_i^3 (six Y-even quadrics), q = 1, A = X0^3 Y0^3.  Diagonal symmetry group of F: only Z/2 = {1, tau}
 (Y-parity), so the only character sectors are the two Y-parities of D (a mixed-parity D can be replaced by D*tau(D)).
@@ -27,10 +27,16 @@ Certificate convention: A D^2 - D N(F) + F (D div N - N(D)) = F^2 Q, deg N = d+1
    d = 7: every stage-1 restart converges to ONE minimizer (rank-1 set of all best points) at rel 1.32e-4, with
    w_0 ~ 0.46 X0^2 + 0.53 X1 X2 + 0.52 Y0 Y1 dominant (D ~ Q_0-like quadric times d_{X0}F, leading terms X0 Q_0^3); its full
    E2 (stage-2) residual is 3.7e-3 compressed (~3.5e-2 unscaled) and random stage-2 restarts give 2.6e-3 -- no certificate.
-   d = 8, 9, 10: the stage-2 machinery was built (d = 10: K = 1050 parameters, 978 after gauge removal, 26532 rows,
-   3480 Koszul + 5796 quotient columns) but the shared box ran at load 300-1750 on 128 cores and the d = 10 job was killed
-   before completing a restart; d = 8/9 counts are in the landscape table.  No candidate reached 1e-10, so no rational
-   reconstruction was attempted.
+   d = 8 Y-odd (K_8 = J_8, 168 w's, 159 after gauge removal, 468 equations): the stage-1 landscape is a flat valley at
+   rel ~ 1e-6 (18 restarts, all between 1.0e-6 and 2.0e-6, most stopping at the LM iteration cap); long LM refinement of the
+   four best points converges (status 3) to genuine local minima at 9.57e-7, 9.57e-7, 1.03e-6, 1.08e-6 -- i.e. two orders of
+   magnitude below d = 7 but NOT zeros (||P_J B||/||B|| ~ 1e-3).  Full-E2 stage 2 from these points is still running
+   (job d8oddseed; chain job jvp-d89 continues with d = 8 odd stage 2 and d = 9 both parities); results append to
+   w2_jvp_d8_odd_seed*.jsonl / w2_jvp_d8_odd_r1_s*.jsonl / w2_jvp_d9_*.jsonl on the remote lane dir.
+   d = 8 Y-even, 9, 10: the stage-2 machinery was built (d = 10: K = 1050 parameters, 978 after gauge removal, 26532 rows,
+   3480 Koszul + 5796 quotient columns) but the shared box ran at load 300-1750 on 128 cores; the d = 10 job was killed
+   before completing a restart and d = 8 even / 9 are still queued in the chains.  No candidate reached 1e-10, so no
+   rational reconstruction was attempted.
 
 ## Batch 1 (item 1): exact E1-admissible spaces K_d (job search-quadratic-cubic-pullback-kernels, mod p = 2^31-1)
 Nullspace of [A*m | J(F)_{d+6} generators]; d <= 8 Y-even and d <= 6 Y-odd were closed in wave 1 (K_d = J_d).
@@ -199,9 +205,10 @@ d = 10 real kernel (job d10): dim K = 1044, dim J = 750, non-J part 294; singula
 |---|---|---|---|---|---|
 | 6 | even | stage 1 (Hessian relaxation, LM) | n=361 min=1.890e-02 q10=2.303e-02 median=3.463e-02 max=4.660e-02 | 23 | 27 s |
 | 7 | even | stage 1 (Hessian relaxation, LM) | n=80 min=1.318e-04 q10=1.318e-04 median=1.318e-04 max=1.843e-04 | 2 | 316 s |
-| 8 | odd | stage 1 (Hessian relaxation, LM) | n=2 min=1.611e-06 q10=1.611e-06 median=1.994e-06 max=1.994e-06 | 1 | 667 s |
+| 8 | even | stage 1 (Hessian relaxation, LM) | n=17 min=1.140e-06 q10=1.179e-06 median=1.555e-06 max=2.468e-06 | 1 | 1092 s |
+| 8 | odd | stage 1 (Hessian relaxation, LM) | n=28 min=9.571e-07 q10=1.002e-06 median=1.647e-06 max=3.130e-06 | 1 | 985 s |
 | 6 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=34 min=1.635e-02 q10=1.972e-02 median=2.418e-02 max=3.052e-02 | 27 | 303 s |
-| 7 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=12 min=2.412e-03 q10=2.626e-03 median=3.435e-03 max=3.987e-03 | 10 | 2495 s |
+| 7 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=14 min=2.412e-03 q10=2.626e-03 median=3.053e-03 max=3.987e-03 | 10 | 2395 s |
 
 ## What remains open after wave 2
 * Degree 7 (both parities): stage 1 is 483 quadrics in 60 variables; the degree-3 Macaulay matrix cannot be full (28980 < 37820

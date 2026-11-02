@@ -558,3 +558,203 @@ polarized-k3's companion `W_{23,f}` (verified) and, conditionally, for off-paire
 fails the recipe at **dominance** (the auxiliary variety carrying the character has `κ ≥ 0`: cycle-q2's `S3`, cyclic-triple's
 elliptic sweeps, reflection-coupled's genus-one lifts, the skew lane's base cover, all honest quotients by F2/F3), not at
 seed-finding or lifting. That is why the two L-A routes rank first: an explicit witness needs no auxiliary uniruled variety.
+
+## 5. Work orders for the top three routes
+
+Each work order is self-contained: a fresh agent needs only this section, the engine, and the named files. Common rules:
+log every step to `<lane dir>/wave3-construct.log.jsonl` (append, one JSON object per step, immediately); rewrite the lane
+report `/tmp/hodge/notes/wave3-<lane>-construct.md` after every result; heavy jobs go through
+`cd /home/kejace/devel/sextics-work && python3 -m hodge.rjob submit --lane <lane> --name <job> --cpus N --wait 3600 -- <cmd>`
+(outputs to files named after the job inside the lane dir; `python3 -m hodge.rjob pull --lane <lane>` to collect); never
+`rjob up` a lane whose remote jobs are appending to local-named files; write squares as `^` in msolve inputs; use primes
+`< 2^28` or `998244353` for msolve; a modular "consistent" is only a witness after the exact rational re-solve
+(`fixed_d.solve_fixed_D_fast(..., want_exact=True)` + `core.verify_witness`). Never post; never run git.
+
+### WO-1 — four-plus-two-residual: designed singular core surfaces tested in the exact 5-variable model
+
+**Goal.** Find a core-only denominator `D(X0,X1,Y0,Y1)` of degree `k ≤ 14` such that the reduced strict system is consistent
+(then a strict 6-variable witness follows by the proved lift), or establish that every core surface whose `μ6`-cover has
+positive `ζ6²`-irregularity budget up to degree 14 fails.
+
+**Inputs.** `data/four-plus-two-residual/instance.rec` (`F = H + B`, `H = f(X0,X1) + g(Y0,Y1) + K`, `f = X0⁶ + (5/7)X0⁵X1 +
+(10/7)X0X1⁵ + X1⁶`, `g = Y0⁶ + (5/7)Y0⁵Y1 + (15/7)Y0Y1⁵ + Y1⁶`, `K = (5/7)X0³X1Y0Y1 + (10/7)X0X1Y0³Y1`, `B = X2⁶ + (15/7)X2⁴Y2² +
+(10/7)X2²Y2⁴ + Y2⁶`; `A = X0³Y0³`). Engine `/home/kejace/devel/sextics-work/hodge` (`core.load_instance`, `fixed_d.e1_solvable`,
+`fixed_d.target_image`, `fixed_d.solve_fixed_D_fast`, `core.verify_witness`). Lane dir `/tmp/hodge/results/four-plus-two-residual/`:
+`threefold.py` (`reduced_test(Hcore, a, core_idx, D, p)` — fixed-`D` system of `(H + U⁶, aU, D)` in the `U`-degree sector,
+returns rank/augmented rank; `e1_kernel_core(k, par, p)`; `lift_basis(k, par, nprimes)`; `run3(D, note, family)` logs to
+`log.jsonl`), `corekernel.json`, `wave2-excl/excl-kernels-corereps.json` (exact rational core-kernel representatives,
+`k ≤ 12`), `h.py`, `threefold_cones.py` (template for cone families), `prym.py` (point-count template). Reference for the
+geometry: attack1 §1.5/§4.2 (`/tmp/hodge/notes/attack1-four-plus-two-residual.md`), cyclic-triple construct part 4 (the
+`x³ = c3(n1,n2)` Ẽ6 mechanism), quadratic-cubic attack1 §1.3 (adjoint-condition criterion).
+
+**Mathematical frame (what the scripts implement).** `Y_H: U⁶ = −H ⊂ P⁴` (sextic threefold, `μ6` acting on `U`),
+`S_H = {H = 0} ⊂ P³` smooth. For a core `D` of degree `k`, `S_D = V(D) ∩ Y_H` is the `μ6`-cover of the surface `V = V(D) ⊂ P³`
+branched along `Γ = V ∩ S_H ∈ |O_V(6)|`. The target's core class `[aU] ∈ H^{2,1}(Y_H)` lies in a fixed `μ6`-eigenspace; it is
+supported on `S_D` only if the resolution `S̃_D` has `H^{1,0}` in the matching character (`ζ6²` in the convention of
+attack1 §1.1: `aU ↔ (2,4)` sectors; verify the convention against the reduced solver on `family-hesse-web`). For smooth `V`
+and smooth `Γ`, `H¹(S_D, O)_{χ^i} = H¹(V, O_V(−i)) = 0` (Lefschetz), so **irregularity can only come from singularities**:
+(S1) singular points of `Γ` created by tangency of `V` with `S_H` or by singular points of `V` on `S_H` — by Esnault–Viehweg
+/ Libgober, the `χ^i`-irregularity of the resolution equals the superabundance `h¹(V, O_V(−i) ⊗ J((i/6)Γ))` (`J` = multiplier
+ideal); for the character paired with `ζ6²` the contributing singularities are those with log-canonical threshold `≤ 2/3`:
+ordinary triple points of `Γ` (`lct = 2/3`, `J = m_p`), i.e. **ordinary triple points of `V` lying on `S_H`** (each imposes 10
+linear conditions on `D`), `D4`-type and worse; cusps (`lct 5/6`) feed the `ζ6^{±1}` characters and are useless here;
+(S2) non-normal `V` along a curve `C ⊂ S_H` (`D ∈ I_C²`), whose normalisation data can carry `H⁰(C̃, …)`-type classes;
+(S3) curves of non-rational transversal type (`D ∈ I_C³` for a curve `C ⊄ S_H` meeting `S_H` in `6·deg C` points, each an
+Ẽ6-type point of `S_D` with a j = 0 elliptic exceptional curve of character `ζ3`).
+Before any search, the required budget must be known.
+
+**Step 0 (sector-variation bound, local, minutes).** In the 4-variable Jacobian ring `R(H)` (Hilbert function
+`(1,4,10,20,35,52,68,80,85,…)`), with `Def = R(H)_6^{ι1-even}` (the `(Y0,Y1)`-even sextics in 4 variables modulo `J(H)`) and
+`ξ = [a]`, compute `dim Def·ξ ⊂ R(H)_{12}^{odd}`, `dim Def²·ξ ⊂ R(H)_{18}^{odd}`, `K = {v ∈ R(H)_6^{odd} : Def·v ⊂ J}`,
+`K2 = {u ∈ R(H)_{12}^{odd} : Def·u ⊂ J}` mod two primes (copy `c5_sector_vhs.py` / `c5b_K2.py` from
+`/tmp/hodge/results/cyclic-triple-residual/wave2-construct/`, replacing the ring and parity filter). If `K = K2 = 0` the
+smallest sub-VHS containing `[a]` over the `ι1`-symmetric family is the whole `(32,80,32)` sector, and every support of the
+core class on a very general member needs `h^{1,0}(S̃_D)_χ ≥ 32`: then (S1) needs `≥ 32` superabundant triple points
+(`k ≥ 12` by the count `10m ≤ dim S_k − 1`), and (S3) needs curves with `Σ genus ≥ 32`. Record the numbers; they set the
+degree range below. (If `K` or `K2` is nonzero the bound is smaller and low degrees come back into play — report it.)
+
+**Step 1 (budget calculator, write `w3_budget.py`, local, seconds per candidate).** Input: a candidate configuration
+(list of triple points `p_j ∈ S_H(F_p)` with chosen tangent data, or a curve `C` with multiplicity). Output: (a) the linear
+space `L_k = {D ∈ S_k : D has ordinary triple points at the p_j}` (or `D ∈ I_C^m`), its dimension, and its intersection with the
+exact core E1 kernel (`A·D ∈ J(H)` — use `e1_kernel_core` or the stored representatives; the intersection must leave `J(H)_k`);
+(b) the superabundance `h¹(V, O_V(−i) ⊗ ∏ m_{p_j})` for the relevant `i` computed as
+`dim H⁰(V, O_V(d_i) ⊗ ∏m_{p_j}) − (dim H⁰(V, O_V(d_i)) − #conditions)` with `d_i` the Serre-dual twist (`K_V = O_V(k − 4)`;
+write out the exact twist for `i = 2` and `i = 4` and check both against the known Fermat join control in attack1 §1.3);
+the count is a rank of an evaluation matrix of monomials at the points mod `p`. Keep only configurations with positive budget
+in the target character.
+
+**Step 2 (enumeration + reduced solve, remote).** Write `w3_design_sweep.py`: for `k = 9..14` and `m = 1..⌊(dim S_k − 1)/10⌋`
+triple points sampled among `F_p`-rational points of `S_H` (random and structured: points on the curves `C_f = {X0 = X1 = 0}`,
+`C_g`, on the lines `X_i = 0`, on the hyperplane sections through the coordinate points), build `L_k ∩ (core E1 kernel)`,
+take random members and all basis members, and run `reduced_test` (modular, `p = 2147483647` then a second prime);
+for (S3) use `D ∈ I_C³` for lines and conics `C ⊂ P³` (twisted cubics at `k ≥ 12`); for (S2) `D ∈ I_C²` with `C = S_H ∩ V(G)`,
+`deg G ≤ 3`. Submit as `python3 -m hodge.rjob submit --lane four-plus-two-residual --name w3-design-k<k> --cpus 8 --wait 3600 --
+python3 w3_design_sweep.py --k <k> --out w3-design-k<k>.jsonl` (one job per degree; each reduced solve is 3–10 k unknowns,
+seconds to minutes; budget ≈ 2–6 h per degree). Every "consistent" hit: re-solve exactly (CRT lift of `D`, then
+`solve_fixed_D_fast(want_exact=True)` on the 6-variable system with the lifted strict field) and `core.verify_witness`.
+
+**Step 3 (theory probe, remote, optional but cheap).** Point counts of `S_H` over `F_{p^n}` (`n ≤ 4`, `p ≤ 200`) and of the
+genus-4 curves `C_f`, `C_g` to get Frobenius on `H³(Y_H)`/`H²(S_H)` sectors (template `prym.py`); test whether the core
+sector's Frobenius polynomials factor more than `Q(ζ3)` forces. Extra endomorphisms would point to an explicit Prym
+correspondence (name the surfaces for Step 2).
+
+**Success criterion.** A rational core `D` with a strict reduced certificate verified exactly, lifted to a strict
+6-variable witness (`Q = 0`) passing `core.verify_witness` and `IsRelPrime` by specialization (`D` omits `X2, Y2`, in which
+`F` is monic) → `Witness.lean` via the Kronecker route (`lean-capacity.md`), `Solution.lean` in the accepted template.
+Negative result worth posting (thread #120): the budget bound from Step 0 plus "every positive-budget configuration of
+degree ≤ 14 is inconsistent" (modular, two primes), with the exact E1-kernel representatives.
+
+### WO-2 — cycle-q2: decide `[σ] = 0` in the rank-12 Kummer-twisted cohomology, and build the q = 2 certificate if it holds
+
+**Goal.** Compute the Gauss–Manin connection of the rank-12 local system `V = V_{ω²}` over the `(c1,c2)`-plane carrying the
+target's `(3,1)`-part, express DiamondJM's second-variation source `σ` in it, and decide whether `σ` is `∇`-exact with
+rational coefficients (poles along the discriminant only, or along a chosen horizontal divisor). A rational primitive `Ψ`
+yields an explicit `q = 2` certificate through fqlx's pole-three clearing adapter.
+
+**Inputs.** `data/cycle-q2/instance.rec` (`F = Σ(X_i⁶ + Y_i⁶) + ½(X0³X1Y0Y1 + X1³X2Y1Y2 + X0X2³Y0Y2)`, `q = 2`,
+`A = X0²X1²X2³Y0²Y1²Y2`). Lane dir `/tmp/hodge/results/cycle-q2/`: `w2c_s3.py` (the Weierstrass data `s4, s6` of the cubic `U`
+over `(t; c1, c2)`), `w2c_qraise.py` (the verified q-raising identity, useful as a template for certificate-level identities),
+`w2c_factor.json`. Construct report parts 1–5 (`/tmp/hodge/notes/wave2-cycle-q2-construct-part*.md`), dossier
+`/tmp/hodge/notes/dossier-cycle-q2.md` (§5 P2/P5, A.7: the adapter and the pole-three clearing), DiamondJM's repository mirror
+`/tmp/hodge/ext/hodgeHoldout` (second-variation frames; the facts "P ∉ J37, P ∈ J37 + ∂_{c1}G·S19 + ∂_{c2}G·S19"), the accepted
+`data/cycle-three/` proof (`PhysicalPrimitive.lean`, `solution.md`: the RES transport at `q = 1`, moving-map and normal-change
+corrections, and the Lean modules `ResidueTransport`, `TransitiveCubic` that already encode the cubic's covariants).
+
+**Objects.** Paired-sign chart: `u = (X0², X1², X2²)`, `v = Y0/X0`, `c_i = (Y_i/X_i)/v`, `t = v²`; cubic
+`U = a x³ + b y³ + c z³ + d x²y + e y²z + f z²x`, `(a,b,c) = (1 + t³, 1 + c1⁶t³, 1 + c2⁶t³)`, `(d,e,f) = (t/2)(c1, c1c2, c2)`;
+Jacobian `η² = ξ³ + s4 ξ − s6/4` (`s4, s6 ∈ Q[c1,c2][t³]`, degrees 6 and 18 in `t`); `S3 = S3(c1,c2)` the elliptic surface over
+`P¹_t` (χ = 3, `p_g = 2`), `RES` the same over `P¹_T`, `T = t³`; `μ3` acts on `S3` by `t ↦ ωt`; `V := H²_tr(S3)_{(sector of ω₀ = dt∧dξ/η)}
+≅ H¹(P¹_T, R¹_RES ⊗ L_{ω²})`, rank 12, Hodge type (1,10,1), a local system over `B° = C²_{c1,c2} ∖ Δ` (Δ = locus where the
+Weierstrass fibration degenerates further: vanishing of the discriminant's leading/constant coefficients, `c1c2 = 0`, …).
+
+**Step 1 (frame and connection, write `w3_gm.py` with sympy/flint; remote, hours).** Use the Griffiths–Dwork method on the
+Weierstrass surface: with `G(t, ξ, η) = η² − ξ³ − s4 ξ + s6/4` (weighted-homogenised in a `P(1,1,2,3)`-bundle chart over `P¹_t`
+or simply affine in `(t, ξ, η)` with pole-order filtration in `t` at `∞` and at the singular fibres), the classes
+`t^j ξ^i dt∧dξ/η` (`i ∈ {0,1}`, `j` in the residue class fixed by the `ω`-character under `t ↦ ωt`) span `V` after reduction;
+pick the 12-dimensional basis by Gaussian elimination mod `p` at a random rational `(c1,c2)` first (to learn the degrees),
+then over `Q(c1,c2)` by evaluation at ≈ 100 points mod `p` and rational reconstruction (the connection matrices
+`Ω_1 = ∇_{c1}`, `Ω_2 = ∇_{c2}` are `12 × 12` with entries in `Q(c1,c2)`; expect denominators = factors of `Δ`). Reduction rule:
+`∇_{c_i}[P dt∧dξ/η] = [(∂_{c_i}P) dt∧dξ/η − P·(∂_{c_i}G/(2η²))·… ]` — i.e. differentiate under the integral and reduce the
+pole order of `η` with the Weierstrass relation and the `t`-derivative (standard Picard–Fuchs reduction for elliptic surfaces;
+Schütt–Shioda §§6–8 fix the minimal model and `χ`). Check: integrability `∂_{c2}Ω_1 − ∂_{c1}Ω_2 + [Ω_1, Ω_2] = 0`, and the local
+monodromy around `Δ` has the expected finite/unipotent form.
+
+**Step 2 (the source `σ`).** Transport the second-variation source `2AΩ/F³ = ∂_{s1}∂_{s2}(Ω/F_s)|_0`, `F_s = F + s1·X0X1X2Y0Y1Y2 +
+s2·X0X1X2²Y0Y1`, through the paired-sign cubic exactly as `cycle-three` transports its `q = 1` source (`source −V_α/(144r)`,
+multiplier `−144 r v³`, moving-map and normal-change corrections, now applied twice — the dossier's A.7 and DiamondJM's
+second-variation identity give the formulas); keep the factor `t = v²`; reduce the result to the frame of Step 1: `σ = Σ_{k}
+σ_k(c1,c2) e_k ⊗ dc1∧dc2` with `σ_k ∈ Q(c1,c2)`. Check H4 (DiamondJM): the fibrewise `(0,2)`-component of `σ` is absorbed, i.e.
+`σ` has no component along the `(0,2)`-direction after adding `∇`-exact terms — a consistency test of the frame.
+
+**Step 3 (decision).** Solve `∇(Ψ_1 dc1 + Ψ_2 dc2) = σ dc1∧dc2`, i.e. `∇_{c1}Ψ_2 − ∇_{c2}Ψ_1 = σ`, for `Ψ_i ∈ V ⊗ Q(c1,c2)` with
+denominators `Δ^N` and numerator degrees `≤ M`, increasing `(N, M)` (linear algebra over `Q`, sizes `12·C(M+2,2)` unknowns;
+mod `p` first). If a solution appears: lift to `Q` (CRT), verify exactly, go to Step 4. If none up to `(N, M) = (8, 40)`:
+compute `dim H²_dR(B°, V)` by the pole-order filtration (the complex `V → V ⊗ Ω¹ → V ⊗ Ω²` with polynomial coefficients and
+poles along `Δ`; the reduction algorithm bounds the pole order needed to represent every class — regular singularities —
+so exactness is decidable); if `[σ] ≠ 0`, test the candidate horizontal divisors of the dossier's P5 (Noether–Lefschetz
+loci of the `ω₀`-sector: curves `Γ_c ⊂ S3` found by the lens's sector solver at low degree) by allowing poles along their
+images. Record the dimension of `H²_dR(B°, V)` and the class of `σ` in it.
+
+**Step 4 (certificate).** With rational `Ψ`, the dossier's P2/A.7 adapter (fqlx) produces the `q = 2` field: pull `Ψ` back
+through the paired-sign chart (`u_i = X_i²`, `v`, `c_i`), apply the two moving-map corrections, clear poles along the polar
+locus of `Ψ` (horizontal, non-normal — this is the expected support), and obtain `(D, N, Q)` with `D = (polar locus)·(chart
+divisors)`; verify with `core.verify_witness` (`q = 2`, `deg N_i = deg D + 7`); legality by specialization. Expect `deg D`
+in the tens; the Lean witness goes through the Kronecker checker (`lean-capacity.md`: slice if products exceed 3 M).
+
+**Remote jobs.** `w3-gm-frame` (Step 1, `--cpus 8`, sympy/flint evaluation-interpolation, 1–4 h), `w3-gm-source` (Step 2,
+`--cpus 4`), `w3-gm-solve` (Step 3, `--cpus 16`, the linear systems; hours), all under `--lane cycle-q2`, outputs
+`w3-gm-*.json` in the lane dir.
+**Success criterion.** A verified rational `Ψ` and a `q = 2` witness passing `verify_witness`; or the rigorous statement
+`[σ] ≠ 0 ∈ H²_dR(B°, V)` with the computed dimension, posted to thread #61 as the first exact obstruction at the base level.
+
+### WO-3 — off-paired: decide whether the descent-through-reflection criterion can be realised (`φ`), and if so seed it
+
+**Goal.** Either exhibit a birational involution `φ` of the Fano fourfold `W = X/σ2` not lifting to `X` such that
+`Z = X ×_W X^φ` modulo `⟨swap, (τ,τ)⟩` has a Fano fibration or `p_g = q = 0` surface fibration (then the holdout recipe gives
+existence and a seed), or prove that no such `φ` exists (closing the only new criterion of the lane).
+
+**Inputs.** `data/off-paired/instance.rec` (`F = H(x) + C(x)X2Y2 + X2⁶ + Y2⁶`, `x = (X0,X1,Y0,Y1)`, `H = X0⁶ + X1⁶ + Y0⁶ + Y1⁶ +
+X0³X1Y0Y1/2`, `C = X1³Y1/2 + X0²X1Y0/3`; `A = X0³Y0³`). Construct report parts 1–4 (`/tmp/hodge/notes/wave2-off-paired-construct-part*.md`;
+the lemma of part 3 §E with proof, the no-hub theorem, the Hodge-bundle table), lane scripts
+`/tmp/hodge/results/off-paired/wave2-construct/` (`c1_identities.py`, Singular files `c2*`, `c4_Skappa.sing`, `c6*`; `run_mw.sh` and
+`mw_sections_eps±1.ms` for the Mordell–Weil systems; `c5_served.py` for served-space scans with `oplib.served_targets`),
+`/tmp/hodge/results/off-paired/wave2-search/oplib.py`, `w2lib.py`. Geometry: `W = {H + Cm + s⁶ − 6s⁴m + 9s²m² − 2m³ = 0} ⊂
+P(1,1,1,1,1,2)` (`s = X2 + Y2` weight 1, `m = X2Y2` weight 2; smooth: the ambient singular point `[0:…:0:1]` is not on `W` since the
+`m³`-coefficient is `−2`; `−K_W = O(1)`), `Y_∓ = {t² = ±2m³ − Cm − H} ⊂ P(1,1,1,1,2,3)` (Fano Weierstrass fibrations over `P³_x`,
+`j` a function of `κ = C³/H²`), `W → Y_−` of degree 3 (`t = i·s(s² − 3m)`), fibres of `W → P³_x` genus 4 (`Aut = {1, s ↦ −s}`
+generically).
+
+**Step 1 (Mordell–Weil rank of `Y_−`, `Y_+`; local + remote, a day).** (a) Shioda–Tate on the resolution: `ρ(Y_∓) = 1`
+(Lefschetz for quasi-smooth weighted hypersurfaces) and the only singular point is `p_∞ = [0:0:0:0:1:±√2]` (where all fibres
+meet); resolve `p_∞` (weighted blow-up; count exceptional divisors `e`), count reducible fibres over the discriminant surface
+`2C³ ∓ 27H² = 0` (generic fibre over it is nodal: no extra components except over its singular curves), and apply
+`rank MW = ρ(Ỹ) − 2 − Σ(fibre components)`; alternatively compute `h^{1,1}(Ỹ_∓)` by Griffiths–Steenbrink for the weighted
+hypersurface (`h^{2,2}`-type counts) and `b_2`. If `rank MW = 0`, no fibrewise-translation `φ` exists at all (torsion sections
+are the 2-torsion mirrors `t = 0`, which lift to `X`). (b) Only if (a) gives rank `> 0`: search sections with denominators
+`m = M/d², t = T/d³` (`deg d = 1`: `M` quartic 35, `T` sextic 84, `d` linear 4 → 123 unknowns, 455 equations of degree 12;
+msolve `-g 1`, `p = 998244353`, `--cpus 8`, cap 4 h; `deg d = 2`: 314 unknowns, run only if `deg d = 1` finishes).
+
+**Step 2 (birational rigidity of `W`; literature + one computation).** `W` is a smooth Fano fourfold hypersurface of
+degree 6 and index 1 in `P(1,1,1,1,1,2)`, a triple cover of `P⁴` via the cubic in `m`. Check the literature on birational
+(super)rigidity of such weighted Fano hypersurfaces (Pukhlikov; Cheltsov–Park; "triple spaces"); if rigid, `Bir(W) =
+Aut(W) = ⟨g², h³⟩`-image and no `φ` exists — the route is closed rigorously. If not covered, test the maximal-singularity
+candidates: compute the locus of points of `W` where the triple cover `W → P⁴_(x,s)` is totally ramified (`m`-discriminant
+of the cubic has a triple root) and the curves of `W` of degree 1 in `O(1)` (lines through the cover), the natural centres
+of untwisting involutions; for each centre write the candidate Geiser/Bertini-type involution explicitly (fibrewise over the
+pencil of hyperplane sections through the centre) and test whether it preserves `W` (Singular, `p = 32003`).
+
+**Step 3 (only if a `φ` exists).** Build `Z = X ×_W X^φ` as a subvariety of `X × X` (equations: `π(x1) = φ(π(x2))` cleared),
+`e = (1,σ2)`, `d = (σ2,1)`, `σ = swap`, `r = (τ,τ)`; verify `σeσ = d` and `p∘d = σ2∘p` on the equations; compute the
+quotient `Z/⟨σ,r⟩` fibrewise over `P³_x` (or over `W/φ`) and its canonical class by weighted adjunction; if Fano-fibred over a
+curve or `p_g = q = 0`-fibred over a surface, run the book recipe: covering-curve incidence over `F_p` (polynomial curves of
+weighted degree `≤ 2n` on the Fano fibre with a square incidence system and invertible Jacobian — model on
+`w23_seed_search.py` of the polarized lane), polynomial normal, source identity `J·B = A − C·T^e` with a trace-zero
+correction, integration, trace; Lean = `PolynomialCurves.square_system_generic_lift` + `normalized_data_from_polynomial_family`
++ a new cover-field layer + `CertificateOperations.add` for the `σ2`-averaging.
+
+**Remote jobs.** `w3-mw-rank` (Step 1a, Singular/flint, `--cpus 4`), `w3-mw-d1` (Step 1b, msolve, `--cpus 8`, 4 h cap),
+`w3-rigidity-centres` (Step 2, Singular, `--cpus 4`); lane `off-paired`; outputs `w3-*.out/.jsonl`.
+**Success criterion.** Either (i) an explicit `φ` with `Z/⟨σ,r⟩` uniruled, a finite-field seed with invertible incidence
+Jacobian and the source identity verified (then a holdout-style PR is in reach), or (ii) a proof that `rank MW(Y_∓) = 0`
+and `Bir(W) = Aut(W)` (post to thread #57: the descent-through-reflection lemma, the Klein-cover structure, the rational
+genus-2 surface, the `p_g` table of base changes, and the closure of the realisation).

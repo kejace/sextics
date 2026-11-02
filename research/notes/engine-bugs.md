@@ -104,3 +104,15 @@ make `hodge/__init__.py` override rather than setdefault when running under rjob
 * `hodge.varpro.VarProFamily` (unreduced dense least squares) is impractical for the symmetric lanes (16811 × 2607 at
   d = 6 for this F); the lane's `w2b/w2lib.py` has a character-reduced version (36× smaller) and a Jacobian-type
   w-space version (explicit E1 lift + Koszul corrections) with the same interface, validated on the Fermat sextic.
+
+## quadratic-cubic-pullback wave 2 (2026-11-01, search agent) -- engine observations, worked around in the lane dir
+- jacobian.mult_kernel returns only the quotient basis K_d/J_d; the full kernel vectors (needed for structured
+  intersections) are discarded -> re-implemented in w2_kernels.py (same code path, saves kernel_basis + quotient_basis).
+- varpro.VarProFamily precomputes all K(K+1)/2 pair products v_kl = -A M_k M_l and dense (rows x cols) least squares on the
+  full fixed-D system: fine for K <= ~60 at d <= 7, infeasible for the degree-10 kernel family (K ~ 1000, 85k rows).
+  w2_jvp.py uses the reduced E2 formulation of docs/05 §5.2 (unknowns = Koszul corrections + quotient; rows S_{2d}^odd),
+  product tables + bincount, and a precomputed row compression that annihilates F*S_{2d-6}.
+- rjob.up excludes *.npz and files > 50 MB, so large numerical artefacts (real kernel bases) must stay on the remote.
+- rjob submit's capacity guard (load <= 150) never passes while ~40 agent jobs run; --wait polls were killed by the harness
+  after ~3 min; --force was used with self-limiting jobs (time limits per stage).
+- Useful identity (verified exactly): for D = sum w_l F_l, N0 = A w, q = 1: D div N0 - N0(D) == -A (w^T Hess(F) w) mod J(F).
