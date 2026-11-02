@@ -62,3 +62,5 @@ put the repo root / engine on `PYTHONPATH`.  `w2_job{A,C,D}.py <prime> ...` are 
 4. `jobC_local.out`: only characters 0 and 1 of the degree-9 fixed-D tests finished (12 of 132 systems).
 5. `local_hfsandwich/*.out` start with a `poly.lib` error; the numbers after it are valid (replayed: `HS_L = (1+t)^3 (1-t)^9`).
 6. The scripts hard-code `p = 1000003`; the README's "prime as first argument" applies only to the remote jobs.
+
+Synced to the research branch of kejace/sextics on 2026-11-02 (referee pass complete; (7, odd, 0) left open).
