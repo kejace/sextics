@@ -1,0 +1,16 @@
+cone6-plane-X0X1Y0-fermat	X0**6 + X1**6 + Y0**6
+cone6-plane-X0X1Y0-hesseweb	X0**6 - 2*X0**4*X1**2 + 3*X0**4*Y0**2 - 4*X0**2*X1**2*Y0**2 + 3*X0**2*Y0**4 + 4*X1**6 - 2*X1**2*Y0**4 + Y0**6
+cone6-plane-X0X1Y2-fermat	X0**6 + X1**6 + Y2**6
+cone6-plane-X0Y0Y2-fermat	X0**6 + Y0**6 + Y2**6
+cone6-plane-X2Y1Y2-fermat	X2**6 + Y1**6 + Y2**6
+cone6-plane-X0Y0Y1-fermat	X0**6 + Y0**6 + Y1**6
+cone6-plane-X0Y0Y2-mixed	X0**6 + Y0**6 + Y2**6 - 3*X0**2*Y0**2*Y2**2 + X0**4*Y2**2
+cone3-plane-X0X1Y0-cubic-sq	(X0**3 + X1**3 + Y0**3)**2
+cone6-line-X0X1Y0Y1-fermat	X0**6 + X1**6 + Y0**6 + Y1**6
+cone6-line-X0X1X2Y2-fermat	X0**6 + X1**6 + X2**6 + Y2**6
+binary6-X0Y0	X0**6 + Y0**6
+binary6-X0Y0-phi	X0**6 - X0**4*Y0**2 + X0**2*Y0**4 - Y0**6
+quartic-cofactor-sq	(X0**3*X1 + X0*X1*Y0**2 + 3*X0*X2**3 + 2*X1**3*X2 + X1*X2*Y1**2)*X0*X1 + Y0**6
+Y2sq-times-G2	Y2**2*X0*X1*(Y0**2 + 2*Y1**2) + Y2**6
+F-minus-Y2-block	X0**6 + 5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + X1**6 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + X2**6 + Y0**6 + Y1**6
+F-minus-X-block	5*X0**3*X1*Y0*Y1/7 + 5*X0*X1*Y0**3*Y1/7 + 5*X0*X1*Y0**2*Y2**2/7 + 10*X0*X1*Y1**2*Y2**2/7 + 15*X0*X2**3*Y0*Y1/7 + 10*X1**3*X2*Y0*Y1/7 + 5*X1*X2*Y0*Y1**3/7 + Y0**6 + Y1**6 + Y2**6

@@ -1,0 +1,2 @@
+[pf d=1] rows=733 cols=588 (targets 462) nullity=41 served_dim=35 build 1.0s null 0.5s
+U0 {'d': 1, 'rows': 733, 'cols': 588, 'nullity': 41, 'served_dim': 35, 'seconds': 1.5} {'class_dim_mod_J': 0, 'class_dim_tau_invariant(anti-swap)': 0, 'class_dim_tau_anti(sym-swap)': 0, 'block_projection_dims': {'(6,0)': 0, '(5,1)': 0, '(4,2)': 0, '(3,3)': 0, '(2,4)': 0, '(1,5)': 0, '(0,6)': 0}, 'K3_projection_dim': 0, 'target_in_span_mod_J': False}

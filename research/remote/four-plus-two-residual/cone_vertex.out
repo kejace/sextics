@@ -1,0 +1,2 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{'D': 'Y0^3+Y1^3+l^2 Y0 (Y-odd cubic), vertex on S_H', 'd': 3, 'consistent': False, 'rank': 351, 'nullity': 27, 'rows': 2681, 'cols': 378, 'seconds': 4.35}

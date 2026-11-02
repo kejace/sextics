@@ -1,0 +1,133 @@
+d=9: sectors with kernel (mod p dims): [((0, 0), 19), ((0, 1), 20), ((0, 2), 17), ((0, 3), 19), ((0, 4), 16), ((0, 5), 19), ((2, 5), 1), ((4, 0), 3), ((4, 1), 1), ((4, 2), 3), ((4, 4), 2)]
+  sector (2, 5): {'dim': 1, 'kerA_in_S': 40, 'verified': 1, 'rank_J_d': 39, 'max_abs_coeff': 370440, 't_nullspace': 2.2, 't_lll': 0.4, 'seconds': 4.5, 'e1_rows': 874, 'e1_cols': 1057}
+  sector (4, 1): {'dim': 1, 'kerA_in_S': 30, 'verified': 1, 'rank_J_d': 29, 'max_abs_coeff': 194494117545000, 't_nullspace': 2.1, 't_lll': 0.7, 'seconds': 15.5, 'e1_rows': 664, 'e1_cols': 877}
+  sector (4, 4): {'dim': 2, 'kerA_in_S': 33, 'verified': 2, 'rank_J_d': 31, 'max_abs_coeff': 164191901620857747141686237357861664838350112136595294187970220197502873565414126943509130032792825709762296031490104895414000, 't_nullspace': 55.1, 't_lll': 29.3, 'seconds': 90.9, 'e1_rows': 657, 'e1_cols': 876}
+  sector (4, 2): {'dim': 3, 'kerA_in_S': 25, 'verified': 3, 'rank_J_d': 22, 'max_abs_coeff': 14402224754738299584010341758789702901306268192122599174729530661460348997144827485641369758507536274000, 't_nullspace': 37.8, 't_lll': 55.9, 'seconds': 110.2, 'e1_rows': 613, 'e1_cols': 812}
+  sector (4, 0): {'dim': 3, 'kerA_in_S': 24, 'verified': 3, 'rank_J_d': 21, 'max_abs_coeff': 641367465292584455304680397689441075420890331938776861272471692916834578203462207056877234564636601573200000, 't_nullspace': 49.0, 't_lll': 45.8, 'seconds': 119.1, 'e1_rows': 616, 'e1_cols': 812}
+  sector (0, 1): {'dim': 20, 'kerA_in_S': 82, 'verified': 20, 'rank_J_d': 62, 'max_abs_coeff': 257942738949110156445413985504576000, 't_nullspace': 200.7, 't_lll': 1013.2, 'seconds': 1256.6, 'e1_rows': 1093, 'e1_cols': 1466}
+  sector (0, 5): {'dim': 19, 'kerA_in_S': 83, 'verified': 19, 'rank_J_d': 64, 'max_abs_coeff': 416655430845347157763915024181702134884000, 't_nullspace': 192.5, 't_lll': 1057.6, 'seconds': 1280.6, 'e1_rows': 1090, 'e1_cols': 1464}
+  sector (0, 2): {'dim': 17, 'kerA_in_S': 82, 'verified': 17, 'rank_J_d': 65, 'max_abs_coeff': 629459844884022032828145863012465006400, 't_nullspace': 229.9, 't_lll': 1046.1, 'seconds': 1296.8, 'e1_rows': 1087, 'e1_cols': 1460}
+  sector (0, 4): {'dim': 16, 'kerA_in_S': 83, 'verified': 16, 'rank_J_d': 67, 'max_abs_coeff': 12289981582138485499160242501346354697600000, 't_nullspace': 226.0, 't_lll': 1093.3, 'seconds': 1333.0, 'e1_rows': 1084, 'e1_cols': 1458}
+  sector (0, 0): {'dim': 19, 'kerA_in_S': 96, 'verified': 19, 'rank_J_d': 77, 'max_abs_coeff': 5998370278694434454548881230188104000, 't_nullspace': 193.9, 't_lll': 1178.1, 'seconds': 1381.5, 'e1_rows': 1150, 'e1_cols': 1550}
+  sector (0, 3): {'dim': 19, 'kerA_in_S': 95, 'verified': 19, 'rank_J_d': 76, 'max_abs_coeff': 2778256836233532621095366701008000, 't_nullspace': 161.9, 't_lll': 1219.5, 'seconds': 1391.6, 'e1_rows': 1153, 'e1_cols': 1554}
+saved kernel_exact_d9.json with 120 elements (1416.9s)
+element 4 sector [4, 2]: inconsistent mod p, not sealed rank=[1049, 1049] aug=[1050, 1050] null=[23, 23] sealed=0 114.1s
+element 5 sector [4, 2]: inconsistent mod p, not sealed rank=[1049, 1049] aug=[1050, 1050] null=[23, 23] sealed=0 114.1s
+element 0 sector [2, 5]: SEALED INCONSISTENT over Q rank=[1155, 1155] aug=[1156, 1156] null=[33, 33] sealed=33 128.1s
+element 6 sector [4, 2]: inconsistent mod p, not sealed rank=[1049, 1049] aug=[1050, 1050] null=[23, 23] sealed=0 128.4s
+element 7 sector [4, 0]: inconsistent mod p, not sealed rank=[1051, 1051] aug=[1052, 1052] null=[23, 23] sealed=0 130.5s
+element 8 sector [4, 0]: inconsistent mod p, not sealed rank=[1051, 1051] aug=[1052, 1052] null=[23, 23] sealed=0 131.7s
+element 9 sector [4, 0]: inconsistent mod p, not sealed rank=[1051, 1051] aug=[1052, 1052] null=[23, 23] sealed=0 131.9s
+element 3 sector [4, 4]: inconsistent mod p, not sealed rank=[1126, 1126] aug=[1127, 1127] null=[28, 28] sealed=0 138.0s
+element 2 sector [4, 4]: inconsistent mod p, not sealed rank=[1126, 1126] aug=[1127, 1127] null=[28, 28] sealed=0 138.2s
+element 1 sector [4, 1]: SEALED INCONSISTENT over Q rank=[1129, 1129] aug=[1130, 1130] null=[29, 29] sealed=0 269.7s
+element 15 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 334.1s
+element 10 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 334.4s
+element 12 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 335.0s
+element 11 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 335.3s
+element 14 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 335.7s
+element 13 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 335.9s
+element 17 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 314.8s
+element 16 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 319.1s
+element 19 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 313.4s
+element 18 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 313.9s
+element 20 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 312.9s
+element 22 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 312.3s
+element 21 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 313.1s
+element 24 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 313.4s
+element 23 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 313.9s
+element 25 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 309.6s
+element 30 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 308.3s
+element 28 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 309.1s
+element 26 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 310.4s
+element 27 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 310.3s
+element 29 sector [0, 1]: inconsistent mod p, not sealed rank=[1702, 1702] aug=[1703, 1703] null=[61, 61] sealed=0 311.3s
+element 31 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 311.1s
+element 32 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 308.1s
+element 33 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 314.2s
+element 34 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 307.7s
+element 35 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 308.2s
+element 36 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 309.1s
+element 38 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 308.4s
+element 37 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 309.9s
+element 39 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 308.3s
+element 40 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 309.3s
+element 41 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 403.7s
+element 44 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 476.0s
+element 43 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 479.6s
+element 42 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 481.3s
+element 45 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 481.0s
+element 47 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 480.0s
+element 46 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 482.0s
+element 48 sector [0, 5]: inconsistent mod p, not sealed rank=[1699, 1699] aug=[1700, 1700] null=[60, 60] sealed=0 584.7s
+element 49 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 598.2s
+element 50 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 599.3s
+element 52 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 596.5s
+element 51 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 599.9s
+element 53 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 598.0s
+element 54 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 597.2s
+element 56 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 594.7s
+element 55 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 596.9s
+element 57 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 514.5s
+element 60 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 446.0s
+element 58 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 451.0s
+element 62 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 444.8s
+element 59 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 448.5s
+element 61 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 446.7s
+element 63 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 444.4s
+element 64 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 350.6s
+element 68 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 335.5s
+element 66 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 336.9s
+element 67 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 336.8s
+element 70 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 334.7s
+element 65 sector [0, 2]: inconsistent mod p, not sealed rank=[1695, 1695] aug=[1696, 1696] null=[59, 59] sealed=0 340.6s
+element 69 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 335.9s
+element 71 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 334.3s
+element 72 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 334.0s
+element 73 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 467.2s
+element 75 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.0s
+element 74 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.4s
+element 76 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.1s
+element 77 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.7s
+element 79 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 548.4s
+element 78 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 549.2s
+element 80 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 650.7s
+element 81 sector [0, 4]: inconsistent mod p, not sealed rank=[1692, 1692] aug=[1693, 1693] null=[58, 58] sealed=0 659.0s
+element 82 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 721.5s
+element 86 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 737.5s
+element 84 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 740.2s
+element 85 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 741.8s
+element 87 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 751.0s
+element 88 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 751.3s
+element 89 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 803.2s
+element 92 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 796.8s
+element 95 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 796.3s
+element 94 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 796.7s
+element 91 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 798.6s
+element 93 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 797.9s
+element 90 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 801.4s
+element 96 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 813.7s
+element 97 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 832.7s
+element 98 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 815.7s
+element 99 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 814.6s
+element 100 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 818.8s
+element 103 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 821.9s
+element 102 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 827.7s
+element 83 sector [0, 0]: SEALED INCONSISTENT over Q rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 1796.9s
+element 104 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 825.7s
+element 107 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 817.7s
+element 108 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 818.0s
+element 109 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 817.8s
+element 106 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 818.7s
+element 105 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 824.2s
+element 110 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 826.2s
+element 111 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 766.3s
+element 112 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 744.9s
+element 113 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 726.3s
+element 114 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 720.0s
+element 115 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 718.8s
+element 116 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 703.5s
+element 117 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 701.9s
+element 118 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 530.4s
+element 119 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 433.5s
+element 101 sector [0, 3]: SEALED INCONSISTENT over Q rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=14 1649.5s

@@ -1,0 +1,1 @@
+bash: line 1: 3079563 Killed                  python3 wave2-search/w2_structured.py --set cones --workers 8 --job struct-cones > wave2-search/struct-cones.out 2>&1

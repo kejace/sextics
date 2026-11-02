@@ -1,0 +1,833 @@
+277 checks to run (0 already done), 28 workers
+[start] cycle-q2:diag_group
+[start] cycle-q2:hilbert_d5
+[start] cycle-q2:hilbert_d6
+[start] cycle-q2:hilbert_d7
+[start] cycle-q2:hilbert_d8
+[start] cycle-q2:hilbert_d9
+[start] cycle-q2:A_notin_J
+[start] cyclic-triple-residual:diag_group
+[start] cyclic-triple-residual:hilbert_d5
+[start] cyclic-triple-residual:hilbert_d6
+[start] cyclic-triple-residual:hilbert_d7
+[start] cyclic-triple-residual:hilbert_d8
+[start] cyclic-triple-residual:hilbert_d9
+[start] cyclic-triple-residual:A_notin_J
+[start] dense-rational:diag_group
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] dense-rational:hilbert_d5
+[start] dense-rational:hilbert_d6
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] dense-rational:hilbert_d7
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] dense-rational:hilbert_d8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] dense-rational:hilbert_d9
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] dense-rational:A_notin_J
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] diagonal-permutation:diag_group
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] diagonal-permutation:hilbert_d5
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] diagonal-permutation:hilbert_d6
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] diagonal-permutation:hilbert_d7
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] diagonal-permutation:hilbert_d8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] diagonal-permutation:hilbert_d9
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] diagonal-permutation:A_notin_J
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cycle-q2:diag_group (2s, exit 0)
+[done] cycle-q2:hilbert_d5 (2s, exit 0)
+[done] cycle-q2:hilbert_d6 (2s, exit 0)
+[done] cycle-q2:hilbert_d7 (2s, exit 0)
+[done] cycle-q2:hilbert_d8 (2s, exit 0)
+[done] cycle-q2:hilbert_d9 (2s, exit 0)
+[done] cyclic-triple-residual:diag_group (2s, exit 0)
+[done] cyclic-triple-residual:hilbert_d5 (2s, exit 0)
+[done] cyclic-triple-residual:hilbert_d6 (2s, exit 0)
+[done] cyclic-triple-residual:hilbert_d7 (2s, exit 0)
+[done] cyclic-triple-residual:hilbert_d8 (2s, exit 0)
+[done] cyclic-triple-residual:hilbert_d9 (2s, exit 0)
+[done] cyclic-triple-residual:A_notin_J (2s, exit 0)
+[done] dense-rational:diag_group (2s, exit 0)
+[done] dense-rational:hilbert_d5 (2s, exit 0)
+[done] dense-rational:hilbert_d6 (2s, exit 0)
+[done] dense-rational:hilbert_d7 (2s, exit 0)
+[done] dense-rational:hilbert_d8 (2s, exit 0)
+[done] dense-rational:hilbert_d9 (2s, exit 0)
+[done] dense-rational:A_notin_J (2s, exit 0)
+[done] diagonal-permutation:diag_group (2s, exit 0)
+[done] diagonal-permutation:hilbert_d5 (2s, exit 0)
+[done] diagonal-permutation:hilbert_d6 (2s, exit 0)
+[done] diagonal-permutation:hilbert_d7 (2s, exit 0)
+[done] diagonal-permutation:hilbert_d8 (2s, exit 0)
+[done] diagonal-permutation:hilbert_d9 (2s, exit 0)
+[done] diagonal-permutation:A_notin_J (2s, exit 0)
+[start] eight-plane-configuration:diag_group
+[start] eight-plane-configuration:hilbert_d5
+[start] eight-plane-configuration:hilbert_d6
+[start] eight-plane-configuration:hilbert_d7
+[start] eight-plane-configuration:hilbert_d8
+[start] eight-plane-configuration:hilbert_d9
+[start] eight-plane-configuration:A_notin_J
+[start] four-plus-two-residual:diag_group
+[start] four-plus-two-residual:hilbert_d5
+[start] four-plus-two-residual:hilbert_d6
+[start] four-plus-two-residual:hilbert_d7
+[start] four-plus-two-residual:hilbert_d8
+[start] four-plus-two-residual:hilbert_d9
+[start] four-plus-two-residual:A_notin_J
+[start] klein-coupled-character:diag_group
+[start] klein-coupled-character:hilbert_d5
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] klein-coupled-character:hilbert_d6
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] klein-coupled-character:hilbert_d7
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] klein-coupled-character:hilbert_d8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] klein-coupled-character:hilbert_d9
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] klein-coupled-character:A_notin_J
+[start] off-paired:diag_group
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] off-paired:hilbert_d5
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] off-paired:hilbert_d6
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] off-paired:hilbert_d7
+[start] off-paired:hilbert_d8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] off-paired:hilbert_d9
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] eight-plane-configuration:diag_group (2s, exit 0)
+[done] eight-plane-configuration:hilbert_d5 (2s, exit 0)
+[done] eight-plane-configuration:hilbert_d6 (2s, exit 0)
+[done] eight-plane-configuration:hilbert_d7 (2s, exit 0)
+[done] eight-plane-configuration:hilbert_d8 (2s, exit 0)
+[done] eight-plane-configuration:hilbert_d9 (2s, exit 0)
+[done] eight-plane-configuration:A_notin_J (2s, exit 0)
+[done] four-plus-two-residual:diag_group (2s, exit 0)
+[done] four-plus-two-residual:hilbert_d5 (2s, exit 0)
+[done] four-plus-two-residual:hilbert_d6 (2s, exit 0)
+[done] four-plus-two-residual:hilbert_d7 (2s, exit 0)
+[done] four-plus-two-residual:hilbert_d8 (2s, exit 0)
+[done] four-plus-two-residual:hilbert_d9 (2s, exit 0)
+[done] four-plus-two-residual:A_notin_J (2s, exit 0)
+[done] klein-coupled-character:diag_group (2s, exit 0)
+[done] klein-coupled-character:hilbert_d5 (2s, exit 0)
+[done] klein-coupled-character:hilbert_d6 (2s, exit 0)
+[done] klein-coupled-character:hilbert_d7 (2s, exit 0)
+[done] klein-coupled-character:hilbert_d8 (2s, exit 0)
+[done] klein-coupled-character:hilbert_d9 (2s, exit 0)
+[done] klein-coupled-character:A_notin_J (2s, exit 0)
+[done] off-paired:diag_group (2s, exit 0)
+[done] off-paired:hilbert_d5 (2s, exit 0)
+[done] off-paired:hilbert_d6 (2s, exit 0)
+[done] off-paired:hilbert_d7 (2s, exit 0)
+[done] off-paired:hilbert_d8 (2s, exit 0)
+[done] off-paired:hilbert_d9 (2s, exit 0)
+[start] off-paired:A_notin_J
+[start] one-reflection-skew:diag_group
+[start] one-reflection-skew:hilbert_d5
+[start] one-reflection-skew:hilbert_d6
+[start] one-reflection-skew:hilbert_d7
+[start] one-reflection-skew:hilbert_d8
+[start] one-reflection-skew:hilbert_d9
+[start] one-reflection-skew:A_notin_J
+[start] polarized-k3-remainder:diag_group
+[start] polarized-k3-remainder:hilbert_d5
+[start] polarized-k3-remainder:hilbert_d6
+[start] polarized-k3-remainder:hilbert_d7
+[start] polarized-k3-remainder:hilbert_d8
+[start] polarized-k3-remainder:hilbert_d9
+[start] polarized-k3-remainder:A_notin_J
+[start] quadratic-cubic-pullback:diag_group
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadratic-cubic-pullback:hilbert_d5
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadratic-cubic-pullback:hilbert_d6
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadratic-cubic-pullback:hilbert_d7
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadratic-cubic-pullback:hilbert_d8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadratic-cubic-pullback:hilbert_d9
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadratic-cubic-pullback:A_notin_J
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadric-contact-residual:diag_group
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadric-contact-residual:hilbert_d5
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadric-contact-residual:hilbert_d6
+[start] quadric-contact-residual:hilbert_d7
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] quadric-contact-residual:hilbert_d8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] off-paired:A_notin_J (2s, exit 0)
+[done] one-reflection-skew:diag_group (2s, exit 0)
+[done] one-reflection-skew:hilbert_d5 (2s, exit 0)
+[done] one-reflection-skew:hilbert_d6 (2s, exit 0)
+[done] one-reflection-skew:hilbert_d7 (2s, exit 0)
+[done] one-reflection-skew:hilbert_d8 (2s, exit 0)
+[done] one-reflection-skew:hilbert_d9 (2s, exit 0)
+[done] one-reflection-skew:A_notin_J (2s, exit 0)
+[done] polarized-k3-remainder:diag_group (2s, exit 0)
+[done] polarized-k3-remainder:hilbert_d5 (2s, exit 0)
+[done] polarized-k3-remainder:hilbert_d6 (2s, exit 0)
+[done] polarized-k3-remainder:hilbert_d7 (2s, exit 0)
+[done] polarized-k3-remainder:hilbert_d8 (2s, exit 0)
+[done] polarized-k3-remainder:hilbert_d9 (2s, exit 0)
+[done] polarized-k3-remainder:A_notin_J (2s, exit 0)
+[done] quadratic-cubic-pullback:diag_group (2s, exit 0)
+[done] quadratic-cubic-pullback:hilbert_d5 (2s, exit 0)
+[done] quadratic-cubic-pullback:hilbert_d6 (2s, exit 0)
+[done] quadratic-cubic-pullback:hilbert_d7 (2s, exit 0)
+[done] quadratic-cubic-pullback:hilbert_d8 (2s, exit 0)
+[done] quadratic-cubic-pullback:hilbert_d9 (2s, exit 0)
+[done] quadratic-cubic-pullback:A_notin_J (2s, exit 0)
+[done] quadric-contact-residual:diag_group (2s, exit 0)
+[done] quadric-contact-residual:hilbert_d5 (2s, exit 0)
+[done] quadric-contact-residual:hilbert_d6 (2s, exit 0)
+[done] quadric-contact-residual:hilbert_d7 (2s, exit 0)
+[done] quadric-contact-residual:hilbert_d8 (2s, exit 0)
+[start] quadric-contact-residual:hilbert_d9
+[start] quadric-contact-residual:A_notin_J
+[start] rank-one-biquartic:diag_group
+[start] rank-one-biquartic:hilbert_d5
+[start] rank-one-biquartic:hilbert_d6
+[start] rank-one-biquartic:hilbert_d7
+[start] rank-one-biquartic:hilbert_d8
+[start] rank-one-biquartic:hilbert_d9
+[start] rank-one-biquartic:A_notin_J
+[start] reflection-coupled-residual:diag_group
+[start] reflection-coupled-residual:hilbert_d5
+[start] reflection-coupled-residual:hilbert_d6
+[start] reflection-coupled-residual:hilbert_d7
+[start] reflection-coupled-residual:hilbert_d8
+[start] reflection-coupled-residual:hilbert_d9
+[start] reflection-coupled-residual:A_notin_J
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] short-power-presentation:diag_group
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] short-power-presentation:hilbert_d5
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] short-power-presentation:hilbert_d6
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] short-power-presentation:hilbert_d7
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] short-power-presentation:hilbert_d8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] short-power-presentation:hilbert_d9
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] short-power-presentation:A_notin_J
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] symmetric-sextic-residual:diag_group
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] symmetric-sextic-residual:hilbert_d5
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] symmetric-sextic-residual:hilbert_d6
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] symmetric-sextic-residual:hilbert_d7
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadric-contact-residual:hilbert_d9 (2s, exit 0)
+[done] quadric-contact-residual:A_notin_J (2s, exit 0)
+[done] rank-one-biquartic:diag_group (2s, exit 0)
+[done] rank-one-biquartic:hilbert_d5 (2s, exit 0)
+[done] rank-one-biquartic:hilbert_d6 (2s, exit 0)
+[done] rank-one-biquartic:hilbert_d7 (2s, exit 0)
+[done] rank-one-biquartic:hilbert_d8 (2s, exit 0)
+[done] rank-one-biquartic:hilbert_d9 (2s, exit 0)
+[done] rank-one-biquartic:A_notin_J (2s, exit 0)
+[done] reflection-coupled-residual:diag_group (2s, exit 0)
+[done] reflection-coupled-residual:hilbert_d5 (2s, exit 0)
+[done] reflection-coupled-residual:hilbert_d6 (2s, exit 0)
+[done] reflection-coupled-residual:hilbert_d7 (2s, exit 0)
+[done] reflection-coupled-residual:hilbert_d8 (2s, exit 0)
+[done] reflection-coupled-residual:hilbert_d9 (2s, exit 0)
+[done] reflection-coupled-residual:A_notin_J (2s, exit 0)
+[done] short-power-presentation:diag_group (2s, exit 0)
+[done] short-power-presentation:hilbert_d5 (2s, exit 0)
+[done] short-power-presentation:hilbert_d6 (2s, exit 0)
+[done] short-power-presentation:hilbert_d7 (2s, exit 0)
+[done] short-power-presentation:hilbert_d8 (2s, exit 0)
+[done] short-power-presentation:hilbert_d9 (2s, exit 0)
+[done] short-power-presentation:A_notin_J (2s, exit 0)
+[done] symmetric-sextic-residual:diag_group (2s, exit 0)
+[done] symmetric-sextic-residual:hilbert_d5 (2s, exit 0)
+[done] symmetric-sextic-residual:hilbert_d6 (2s, exit 0)
+[done] symmetric-sextic-residual:hilbert_d7 (2s, exit 0)
+[start] symmetric-sextic-residual:hilbert_d8
+[start] symmetric-sextic-residual:hilbert_d9
+[start] symmetric-sextic-residual:A_notin_J
+[start] cycle-q2:e1kernel_d1_par0
+[start] cycle-q2:e1kernel_d1_par1
+[start] cycle-q2:e1kernel_d2_par0
+[start] cycle-q2:e1kernel_d2_par1
+[start] cycle-q2:e1kernel_d3_par0
+[start] cycle-q2:e1kernel_d3_par1
+[start] cycle-q2:e1kernel_d4_par0
+[start] cycle-q2:e1kernel_d4_par1
+[start] cycle-q2:e1kernel_d5_par0
+[start] cycle-q2:e1kernel_d5_par1
+[start] cycle-q2:fixedD_FX2_compressed
+[start] cycle-q2:fixedD_FX0_compressed
+[start] cyclic-triple-residual:e1kernel_d5_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:e1kernel_d5_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:e1kernel_d6_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:e1kernel_d6_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:e1kernel_d7_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:e1kernel_d8_par0
+[start] cyclic-triple-residual:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:e1_D8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:fixedD_D8_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[start] cyclic-triple-residual:fixedD_EX_dense
+[start] cyclic-triple-residual:fixedD_EY_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cycle-q2:A_notin_J (10s, exit 0)
+[done] symmetric-sextic-residual:hilbert_d8 (2s, exit 0)
+[done] symmetric-sextic-residual:hilbert_d9 (2s, exit 0)
+[done] symmetric-sextic-residual:A_notin_J (2s, exit 0)
+[done] cyclic-triple-residual:e1kernel_d5_par0 (2s, exit 0)
+[done] cyclic-triple-residual:e1kernel_d5_par1 (2s, exit 0)
+[start] cyclic-triple-residual:fermat_join_control
+[start] cyclic-triple-residual:fermat_cone_control
+[start] dense-rational:e1kernel_d7_par0
+[start] dense-rational:e1kernel_d7_par1
+[start] dense-rational:e1kernel_d8_par0
+[start] dense-rational:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cyclic-triple-residual:e1kernel_d6_par0 (6s, exit 0)
+[done] cyclic-triple-residual:e1kernel_d6_par1 (6s, exit 0)
+[start] dense-rational:e1kernel_d9_par0
+[start] dense-rational:e1kernel_d9_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cycle-q2:e1kernel_d1_par0 (14s, exit 0)
+[done] cycle-q2:e1kernel_d1_par1 (14s, exit 0)
+[start] dense-rational:fixedD_FX0_dense
+[start] dense-rational:fixedD_EX_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cyclic-triple-residual:e1kernel_d7_par0 (16s, exit 0)
+[done] cyclic-triple-residual:e1kernel_d7_par1 (16s, exit 0)
+[start] diagonal-permutation:e1kernel_d6_par0
+[start] diagonal-permutation:e1kernel_d6_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cyclic-triple-residual:fermat_cone_control (16s, exit 0)
+[done] dense-rational:e1kernel_d7_par1 (16s, exit 0)
+[start] diagonal-permutation:e1kernel_d7_par0
+[start] diagonal-permutation:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cyclic-triple-residual:fermat_join_control (18s, exit 0)
+[done] dense-rational:e1kernel_d7_par0 (18s, exit 0)
+[start] diagonal-permutation:e1kernel_d8_par0
+[start] diagonal-permutation:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] diagonal-permutation:e1kernel_d6_par0 (6s, exit 0)
+[done] diagonal-permutation:e1kernel_d6_par1 (6s, exit 0)
+[start] diagonal-permutation:e1_D8
+[start] diagonal-permutation:fixedD_D8_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] dense-rational:fixedD_FX0_dense (12s, exit 0)
+[start] diagonal-permutation:fixedD_FX0_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cyclic-triple-residual:fixedD_EX_dense (34s, exit 0)
+[done] cyclic-triple-residual:fixedD_EY_dense (34s, exit 0)
+[done] diagonal-permutation:e1kernel_d7_par0 (16s, exit 0)
+[done] diagonal-permutation:e1kernel_d7_par1 (16s, exit 0)
+[start] diagonal-permutation:fixedD_blockEuler_dense
+[start] eight-plane-configuration:e1kernel_d7_par0
+[start] eight-plane-configuration:e1kernel_d8_par0
+[start] eight-plane-configuration:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cycle-q2:e1kernel_d2_par0 (36s, exit 0)
+[done] diagonal-permutation:fixedD_FX0_dense (10s, exit 0)
+[start] eight-plane-configuration:e1kernel_d8_par1
+[start] eight-plane-configuration:fixedD_FX0_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cycle-q2:e1kernel_d2_par1 (38s, exit 0)
+[start] eight-plane-configuration:fixedD_FY0_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cyclic-triple-residual:e1kernel_d8_par0 (44s, exit 0)
+[done] cyclic-triple-residual:e1kernel_d8_par1 (44s, exit 0)
+[start] four-plus-two-residual:F_eq_H_plus_B
+[start] four-plus-two-residual:e1kernel_d4_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] four-plus-two-residual:F_eq_H_plus_B (2s, exit 0)
+[done] four-plus-two-residual:e1kernel_d4_par0 (2s, exit 0)
+[start] four-plus-two-residual:e1kernel_d5_par0
+[start] four-plus-two-residual:e1kernel_d6_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] dense-rational:e1kernel_d8_par0 (46s, exit 0)
+[done] dense-rational:e1kernel_d8_par1 (46s, exit 0)
+[done] eight-plane-configuration:fixedD_FX0_dense (12s, exit 0)
+[done] four-plus-two-residual:e1kernel_d5_par0 (2s, exit 0)
+[start] four-plus-two-residual:e1kernel_d7_par0
+[start] four-plus-two-residual:e1kernel_d6_par1
+[start] four-plus-two-residual:fixedD_B_dense
+[start] four-plus-two-residual:fixedD_H_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] eight-plane-configuration:e1kernel_d7_par0 (16s, exit 0)
+[done] eight-plane-configuration:e1kernel_d7_par1 (16s, exit 0)
+[done] eight-plane-configuration:fixedD_FY0_dense (12s, exit 0)
+[start] four-plus-two-residual:fixedD_FX0_dense
+[start] klein-coupled-character:e1kernel_d7_par0
+[start] klein-coupled-character:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] four-plus-two-residual:e1kernel_d6_par0 (6s, exit 0)
+[start] klein-coupled-character:e1kernel_d8_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] four-plus-two-residual:e1kernel_d6_par1 (6s, exit 0)
+[start] klein-coupled-character:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] dense-rational:fixedD_EX_dense (44s, exit 0)
+[done] four-plus-two-residual:fixedD_FX0_dense (8s, exit 0)
+[start] klein-coupled-character:e1kernel_d9_par0
+[start] klein-coupled-character:e1kernel_d9_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cyclic-triple-residual:e1_D8 (64s, exit 0)
+[done] diagonal-permutation:e1kernel_d8_par0 (44s, exit 0)
+[done] diagonal-permutation:e1kernel_d8_par1 (44s, exit 0)
+[done] four-plus-two-residual:e1kernel_d7_par0 (16s, exit 0)
+[start] klein-coupled-character:fixedD_FX0_dense
+[start] klein-coupled-character:fixedD_kernel9_rat0_compressed
+[start] off-paired:e1kernel_d4_par0
+[start] off-paired:e1kernel_d4_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] klein-coupled-character:e1kernel_d7_par0 (16s, exit 0)
+[done] klein-coupled-character:e1kernel_d7_par1 (16s, exit 0)
+[done] off-paired:e1kernel_d4_par0 (2s, exit 0)
+[done] off-paired:e1kernel_d4_par1 (2s, exit 0)
+[start] off-paired:e1kernel_d5_par0
+[start] off-paired:e1kernel_d5_par1
+[start] off-paired:e1kernel_d6_par0
+[start] off-paired:e1kernel_d6_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] off-paired:e1kernel_d5_par0 (2s, exit 0)
+[done] off-paired:e1kernel_d5_par1 (2s, exit 0)
+[start] off-paired:e1kernel_d7_par0
+[start] off-paired:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] diagonal-permutation:fixedD_blockEuler_dense (36s, exit 0)
+[start] off-paired:e1_D0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] klein-coupled-character:fixedD_FX0_dense (8s, exit 0)
+[done] off-paired:e1kernel_d6_par0 (6s, exit 0)
+[done] off-paired:e1kernel_d6_par1 (6s, exit 0)
+[done] off-paired:e1_D0 (2s, exit 0)
+[start] off-paired:fixedD_D0_dense
+[start] off-paired:e1_f6
+[start] off-paired:e1_g6
+[start] off-paired:fermat_control_f6_exact
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] off-paired:fixedD_D0_dense (2s, exit 0)
+[start] off-paired:fixedD_FX0m_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] four-plus-two-residual:fixedD_B_dense (30s, exit 0)
+[start] one-reflection-skew:e1kernel_d5_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] eight-plane-configuration:e1kernel_d8_par0 (46s, exit 0)
+[done] one-reflection-skew:e1kernel_d5_par0 (2s, exit 0)
+[start] one-reflection-skew:e1kernel_d5_par1
+[start] one-reflection-skew:e1kernel_d6_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] eight-plane-configuration:e1kernel_d8_par1 (46s, exit 0)
+[done] four-plus-two-residual:fixedD_H_dense (34s, exit 0)
+[done] off-paired:e1_f6 (10s, exit 0)
+[done] off-paired:e1_g6 (10s, exit 0)
+[done] one-reflection-skew:e1kernel_d5_par1 (2s, exit 0)
+[start] one-reflection-skew:e1kernel_d6_par1
+[start] one-reflection-skew:e1kernel_d7_par0
+[start] one-reflection-skew:e1kernel_d7_par1
+[start] one-reflection-skew:e1kernel_d8_par0
+[start] one-reflection-skew:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] off-paired:e1kernel_d7_par0 (16s, exit 0)
+[done] off-paired:e1kernel_d7_par1 (16s, exit 0)
+[start] one-reflection-skew:fixedD_EX_dense
+[start] one-reflection-skew:fixedD_X0FX0_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:e1kernel_d6_par0 (6s, exit 0)
+[start] one-reflection-skew:fixedD_kernel7_even_0_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] diagonal-permutation:e1_D8 (66s, exit 0)
+[done] one-reflection-skew:e1kernel_d6_par1 (6s, exit 0)
+[start] one-reflection-skew:fixedD_kernel7_even_1_compressed
+[start] one-reflection-skew:fixedD_kernel7_even_2_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] off-paired:fermat_control_f6_exact (18s, exit 0)
+[start] one-reflection-skew:fixedD_kernel7_even_3_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] klein-coupled-character:e1kernel_d8_par0 (44s, exit 0)
+[start] one-reflection-skew:fixedD_kernel7_even_4_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cycle-q2:e1kernel_d3_par0 (98s, exit 0)
+[done] one-reflection-skew:e1kernel_d7_par1 (16s, exit 0)
+[start] one-reflection-skew:fixedD_kernel7_even_5_compressed
+[start] one-reflection-skew:fixedD_kernel7_even_6_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cycle-q2:e1kernel_d3_par1 (100s, exit 0)
+[done] klein-coupled-character:e1kernel_d8_par1 (46s, exit 0)
+[done] one-reflection-skew:e1kernel_d7_par0 (18s, exit 0)
+[start] one-reflection-skew:fixedD_kernel7_even_7_compressed
+[start] one-reflection-skew:fixedD_kernel7_even_8_compressed
+[start] polarized-k3-remainder:e1kernel_d7_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] cyclic-triple-residual:fixedD_D8_compressed (104s, exit 0)
+[start] polarized-k3-remainder:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_X0FX0_dense (34s, exit 0)
+[start] polarized-k3-remainder:e1kernel_d8_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] dense-rational:e1kernel_d9_par1 (120s, exit 0)
+[start] polarized-k3-remainder:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] polarized-k3-remainder:e1kernel_d7_par0 (28s, exit 0)
+[start] polarized-k3-remainder:e1kernel_d9_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:e1kernel_d8_par0 (48s, exit 0)
+[start] polarized-k3-remainder:e1kernel_d9_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_kernel7_even_8_compressed (32s, exit 0)
+[start] polarized-k3-remainder:fixedD_FX0_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_EX_dense (52s, exit 0)
+[done] polarized-k3-remainder:e1kernel_d7_par1 (32s, exit 0)
+[start] polarized-k3-remainder:e1_X02mY02
+[start] quadratic-cubic-pullback:F_eq_sumQ3
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] dense-rational:e1kernel_d9_par0 (132s, exit 0)
+[done] polarized-k3-remainder:e1_X02mY02 (2s, exit 0)
+[done] quadratic-cubic-pullback:F_eq_sumQ3 (2s, exit 0)
+[start] quadratic-cubic-pullback:e1kernel_d7_par0
+[start] quadratic-cubic-pullback:e1kernel_d8_par0
+[start] quadratic-cubic-pullback:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:e1kernel_d8_par1 (72s, exit 0)
+[done] polarized-k3-remainder:fixedD_FX0_dense (22s, exit 0)
+[start] quadratic-cubic-pullback:e1_delta
+[start] quadratic-cubic-pullback:e1_join012
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_kernel7_even_3_compressed (72s, exit 0)
+[start] quadratic-cubic-pullback:fixedD_join012_target_delta_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadratic-cubic-pullback:e1kernel_d7_par0 (28s, exit 0)
+[start] quadratic-cubic-pullback:fixedD_FX0_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_kernel7_even_0_compressed (82s, exit 0)
+[done] one-reflection-skew:fixedD_kernel7_even_1_compressed (80s, exit 0)
+[start] quadric-contact-residual:e1kernel_d7_par0
+[start] quadric-contact-residual:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadratic-cubic-pullback:e1kernel_d7_par1 (34s, exit 0)
+[start] quadric-contact-residual:e1kernel_d8_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadratic-cubic-pullback:e1_delta (20s, exit 0)
+[done] quadratic-cubic-pullback:e1_join012 (20s, exit 0)
+[start] quadric-contact-residual:e1kernel_d8_par1
+[start] quadric-contact-residual:e1kernel_d9_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_kernel7_even_2_compressed (98s, exit 0)
+[done] quadric-contact-residual:e1kernel_d7_par1 (18s, exit 0)
+[start] quadric-contact-residual:e1kernel_d9_par1
+[start] quadric-contact-residual:e1_D8star
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadratic-cubic-pullback:fixedD_FX0_dense (26s, exit 0)
+[start] quadric-contact-residual:e1_GS2
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_kernel7_even_7_compressed (96s, exit 0)
+[start] quadric-contact-residual:fixedD_D8star_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_kernel7_even_4_compressed (104s, exit 0)
+[done] quadric-contact-residual:e1kernel_d7_par0 (32s, exit 0)
+[start] quadric-contact-residual:fixedD_FX0_dense
+[start] rank-one-biquartic:F_eq_f_g_LLM
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_kernel7_even_6_compressed (104s, exit 0)
+[done] polarized-k3-remainder:e1kernel_d8_par0 (84s, exit 0)
+[done] rank-one-biquartic:F_eq_f_g_LLM (2s, exit 0)
+[start] rank-one-biquartic:e1kernel_d5_par0
+[start] rank-one-biquartic:e1kernel_d6_par0
+[start] rank-one-biquartic:e1kernel_d7_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] one-reflection-skew:fixedD_kernel7_even_5_compressed (106s, exit 0)
+[start] rank-one-biquartic:fixedD_f_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] rank-one-biquartic:e1kernel_d5_par0 (6s, exit 0)
+[start] rank-one-biquartic:fixedD_g_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] polarized-k3-remainder:e1kernel_d8_par1 (88s, exit 0)
+[done] rank-one-biquartic:e1kernel_d6_par0 (12s, exit 0)
+[start] rank-one-biquartic:fixedD_RX_dense
+[start] rank-one-biquartic:split_control_f_exact
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] klein-coupled-character:e1kernel_d9_par1 (160s, exit 0)
+[done] quadric-contact-residual:fixedD_FX0_dense (18s, exit 0)
+[start] reflection-coupled-residual:e1kernel_d6_par0
+[start] reflection-coupled-residual:e1kernel_d6_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] reflection-coupled-residual:e1kernel_d6_par0 (12s, exit 0)
+[done] reflection-coupled-residual:e1kernel_d6_par1 (12s, exit 0)
+[start] reflection-coupled-residual:e1kernel_d7_par0
+[start] reflection-coupled-residual:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadric-contact-residual:e1kernel_d8_par0 (62s, exit 0)
+[start] reflection-coupled-residual:e1kernel_d8_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] rank-one-biquartic:e1kernel_d7_par0 (34s, exit 0)
+[start] reflection-coupled-residual:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadratic-cubic-pullback:e1kernel_d8_par0 (100s, exit 0)
+[start] reflection-coupled-residual:e1_K8
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] klein-coupled-character:e1kernel_d9_par0 (186s, exit 0)
+[done] quadratic-cubic-pullback:fixedD_join012_target_delta_dense (82s, exit 0)
+[start] reflection-coupled-residual:fixedD_K8_compressed
+[start] reflection-coupled-residual:e1_Hu
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] reflection-coupled-residual:e1_Hu (4s, exit 0)
+[start] reflection-coupled-residual:fixedD_FX0_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] off-paired:fixedD_FX0m_dense (192s, exit 0)
+[start] short-power-presentation:F_eq_8powers
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] reflection-coupled-residual:e1kernel_d7_par0 (38s, exit 0)
+[done] short-power-presentation:F_eq_8powers (2s, exit 0)
+[start] short-power-presentation:e1kernel_d5_par0
+[start] short-power-presentation:e1kernel_d6_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:e1kernel_d5_par0 (6s, exit 0)
+[start] short-power-presentation:e1kernel_d7_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadric-contact-residual:e1kernel_d8_par1 (102s, exit 0)
+[start] short-power-presentation:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] reflection-coupled-residual:e1kernel_d7_par1 (52s, exit 0)
+[start] short-power-presentation:e1kernel_d8_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:e1kernel_d6_par0 (16s, exit 0)
+[start] short-power-presentation:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] rank-one-biquartic:fixedD_g_dense (78s, exit 0)
+[done] reflection-coupled-residual:fixedD_FX0_dense (38s, exit 0)
+[start] short-power-presentation:e1kernel_d6_par1
+[start] short-power-presentation:fixedD_eX_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] rank-one-biquartic:fixedD_f_dense (104s, exit 0)
+[start] short-power-presentation:fixedD_eX2cL6_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:e1kernel_d6_par1 (30s, exit 0)
+[start] symmetric-sextic-residual:e1kernel_d5_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] symmetric-sextic-residual:e1kernel_d5_par0 (12s, exit 0)
+[start] symmetric-sextic-residual:e1kernel_d5_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] rank-one-biquartic:split_control_f_exact (120s, exit 0)
+[start] symmetric-sextic-residual:e1kernel_d6_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] symmetric-sextic-residual:e1kernel_d5_par1 (14s, exit 0)
+[start] symmetric-sextic-residual:e1kernel_d6_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:e1kernel_d7_par1 (68s, exit 0)
+[start] symmetric-sextic-residual:e1kernel_d7_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] rank-one-biquartic:fixedD_RX_dense (140s, exit 0)
+[start] symmetric-sextic-residual:e1kernel_d8_par0
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:e1kernel_d7_par0 (82s, exit 0)
+[start] symmetric-sextic-residual:e1kernel_d7_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] quadric-contact-residual:e1_D8star (172s, exit 0)
+[start] symmetric-sextic-residual:e1kernel_d8_par1
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] symmetric-sextic-residual:e1kernel_d6_par0 (28s, exit 0)
+[start] symmetric-sextic-residual:e1_D7even
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] reflection-coupled-residual:e1kernel_d8_par0 (132s, exit 0)
+[start] symmetric-sextic-residual:fixedD_D7even_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] polarized-k3-remainder:e1kernel_d9_par0 (248s, exit 0)
+[done] symmetric-sextic-residual:e1kernel_d6_par1 (34s, exit 0)
+[start] symmetric-sextic-residual:fixedD_EX_dense
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] reflection-coupled-residual:e1kernel_d8_par1 (142s, exit 0)
+[done] cycle-q2:e1kernel_d4_par1 (394s, exit 0)
+[done] cycle-q2:e1kernel_d4_par0 (400s, exit 0)
+[done] quadric-contact-residual:e1_GS2 (222s, exit 0)
+[done] polarized-k3-remainder:e1kernel_d9_par1 (286s, exit 0)
+[done] symmetric-sextic-residual:e1kernel_d7_par0 (88s, exit 0)
+[done] symmetric-sextic-residual:e1kernel_d7_par1 (76s, exit 0)
+[done] short-power-presentation:e1kernel_d8_par1 (168s, exit 0)
+[done] short-power-presentation:fixedD_eX_dense (178s, exit 0)
+[done] short-power-presentation:e1kernel_d8_par0 (188s, exit 0)
+[done] symmetric-sextic-residual:e1_D7even (112s, exit 0)
+[done] symmetric-sextic-residual:fixedD_D7even_compressed (128s, exit 0)
+[done] reflection-coupled-residual:e1_K8 (278s, exit 0)
+[done] short-power-presentation:fixedD_eX2cL6_dense (208s, exit 0)
+[done] symmetric-sextic-residual:fixedD_EX_dense (150s, exit 0)
+[done] symmetric-sextic-residual:e1kernel_d8_par0 (178s, exit 0)
+[done] quadric-contact-residual:fixedD_D8star_compressed (344s, exit 0)
+[done] symmetric-sextic-residual:e1kernel_d8_par1 (186s, exit 0)
+[done] quadric-contact-residual:e1kernel_d9_par1 (366s, exit 0)
+[done] quadric-contact-residual:e1kernel_d9_par0 (382s, exit 0)
+[done] reflection-coupled-residual:fixedD_K8_compressed (376s, exit 0)
+[done] klein-coupled-character:fixedD_kernel9_rat0_compressed (719s, exit 0)
+[done] diagonal-permutation:fixedD_D8_compressed (893s, exit 0)
+[done] cycle-q2:e1kernel_d5_par1 (999s, exit 0)
+[done] cycle-q2:e1kernel_d5_par0 (1233s, exit 0)
+[done] cycle-q2:fixedD_FX2_compressed (1725s, exit 0)
+[done] cycle-q2:fixedD_FX0_compressed (1727s, exit 0)
+all done

@@ -1,0 +1,7 @@
+{"d": 7, "parD": 0, "rows": 4284, "cols": 4257, "nJcols": 3861, "nD": 396, "nullity": 486, "dim_E1_space": 66, "dim_J_d": 63, "kernel_mod_J": 3, "t_build": 10.1, "t_null": 46.0}
+  nonzero kernel at d=7 parity=0: 3 (E1 space 66, J_d 63)
+{"d": 7, "parD": 1, "rows": 4284, "cols": 4257, "nJcols": 3861, "nD": 396, "nullity": 483, "dim_E1_space": 63, "dim_J_d": 63, "kernel_mod_J": 0, "t_build": 18.2, "t_null": 70.0}
+{"d": 8, "parD": 0, "rows": 5796, "cols": 6657, "nJcols": 6006, "nD": 651, "nullity": 1131, "dim_E1_space": 177, "dim_J_d": 168, "kernel_mod_J": 9, "t_build": 54.9, "t_null": 199.1}
+  nonzero kernel at d=8 parity=0: 9 (E1 space 177, J_d 168)
+{"d": 8, "parD": 1, "rows": 5832, "cols": 6642, "nJcols": 6006, "nD": 636, "nullity": 1113, "dim_E1_space": 177, "dim_J_d": 168, "kernel_mod_J": 9, "t_build": 50.4, "t_null": 292.7}
+  nonzero kernel at d=8 parity=1: 9 (E1 space 177, J_d 168)

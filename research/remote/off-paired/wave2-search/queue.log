@@ -1,0 +1,286 @@
+19:57:05 submitting d9all (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00', 'search-off-paired-s2-d8h0']
+20:07:05 submit call timed out (ssh hang); verifying via pid file
+20:07:27 d9all confirmed submitted
+20:08:04 submitting servedscan (cpus 4); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00', 'search-off-paired-s2-d8h0']
+20:18:04 submit call timed out (ssh hang); verifying via pid file
+20:18:25 servedscan confirmed submitted
+20:18:59 submitting d8c00b (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-servedscan']
+20:28:59 submit call timed out (ssh hang); verifying via pid file
+20:29:20 d8c00b confirmed submitted
+20:29:54 submitting d8h0b (cpus 8); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-servedscan']
+20:35:30 d8h0b: pid file exists on remote -> already submitted; popping
+20:35:35 submitting firstorder (cpus 1); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b']
+20:38:06 submit call timed out (ssh hang); verifying via pid file
+20:38:27 firstorder confirmed submitted
+20:39:01 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:41:35 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:44:08 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:46:42 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:49:15 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:51:48 4 running: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-firstorder']; waiting
+20:54:23 submitting fe-control (cpus 4); running now: ['search-off-paired-s2-control', 'search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b']
+20:56:53 submit call timed out (ssh hang); verifying via pid file
+20:57:14 fe-control confirmed submitted
+20:57:48 submitting smallt (cpus 4); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-fe-control']
+21:00:18 submit call timed out (ssh hang); verifying via pid file
+21:00:39 smallt confirmed submitted
+21:01:12 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-fe-control', 'search-off-paired-s2-smallt']; waiting
+21:03:46 submitting d9h0 (cpus 8); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-smallt']
+21:06:16 submit call timed out (ssh hang); verifying via pid file
+21:06:37 d9h0 confirmed submitted
+21:07:09 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-smallt']; waiting
+21:09:43 submitting hess (cpus 4); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0']
+21:12:13 submit call timed out (ssh hang); verifying via pid file
+21:12:34 hess confirmed submitted
+21:13:10 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:15:43 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:18:16 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:20:53 submitting struct-hess3 (cpus 8); running now: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']
+21:23:23 submit call timed out (ssh hang); verifying via pid file
+21:23:44 struct-hess3 confirmed submitted
+21:24:17 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-struct-hess3']; waiting
+21:26:51 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-struct-hess3']; waiting
+21:29:24 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-struct-hess3']; waiting
+21:31:57 submitting homotopy (cpus 4); running now: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']
+21:34:27 submit call timed out (ssh hang); verifying via pid file
+21:34:49 homotopy confirmed submitted
+21:35:22 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:37:56 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:40:30 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:43:05 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:45:39 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:48:14 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:50:49 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:53:24 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:56:00 submitting d10h0 (cpus 8); running now: ['search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']
+up: done ['off-paired']
+submit search-off-paired-s2-d10h0: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d10h0)
+21:58:25 d10h0 confirmed submitted
+21:59:00 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+22:01:34 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+22:04:11 submitting d11c00c30 (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']
+up: done ['off-paired']
+submit search-off-paired-s2-d11c00c30: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d11c00c30)
+22:06:36 d11c00c30 confirmed submitted
+22:07:11 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:09:46 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:12:21 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:14:57 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:17:31 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:20:05 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:22:40 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:25:15 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:27:49 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:30:24 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:32:58 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:35:33 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:38:08 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:40:43 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:43:17 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:45:52 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:48:26 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:51:01 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:53:35 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:56:11 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:58:45 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:01:20 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:03:54 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:06:29 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:09:03 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:11:37 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:14:12 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:16:47 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:19:22 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:21:57 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:24:32 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:27:07 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:29:41 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:32:16 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:34:51 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:37:25 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:40:00 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:42:36 submitting homotopy2 (cpus 2); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0']
+up: done ['off-paired']
+submit search-off-paired-s2-homotopy2: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-homotopy2)
+23:45:01 homotopy2 confirmed submitted
+23:45:36 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:48:12 submitting ft-d9h0 (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-homotopy2']
+up: done ['off-paired']
+submit search-off-paired-s2-ft-d9h0: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-ft-d9h0)
+23:50:37 ft-d9h0 confirmed submitted
+23:51:11 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:53:46 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:56:21 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:58:56 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:01:30 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:04:05 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:06:40 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:09:15 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:11:51 submitting d8hmix (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']
+up: done ['off-paired']
+submit search-off-paired-s2-d8hmix: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d8hmix)
+00:14:15 d8hmix confirmed submitted
+00:14:50 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:17:25 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:20:01 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:22:35 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:25:09 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:27:45 submitting d12c00 (cpus 8); running now: ['search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']
+up: done ['off-paired']
+submit search-off-paired-s2-d12c00: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d12c00)
+00:30:10 d12c00 confirmed submitted
+00:30:44 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:33:19 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:35:53 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:38:28 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:41:02 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:43:36 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:46:11 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:48:45 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:51:20 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:53:55 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:56:30 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+00:59:05 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:01:40 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:04:15 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:06:49 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:09:22 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:11:57 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:14:32 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:17:07 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:19:41 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:22:16 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:24:51 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:27:26 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:30:00 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:32:35 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:35:10 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:37:45 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:40:19 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:42:55 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:45:31 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:48:05 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:50:39 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:53:14 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:55:49 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+01:58:24 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+02:00:59 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+02:03:33 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+02:06:08 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+02:08:42 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+02:11:17 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-ft-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+02:13:53 submitting d9h0more (cpus 8); running now: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-homotopy2']
+up: done ['off-paired']
+submit search-off-paired-s2-d9h0more: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d9h0more)
+02:16:17 d9h0more confirmed submitted
+02:16:52 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:19:27 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:22:01 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:24:36 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:27:10 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:29:45 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:32:19 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:34:55 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:37:29 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:40:03 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:42:37 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:45:12 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:47:46 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:50:20 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:52:54 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:55:29 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+02:58:03 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:00:37 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:03:12 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:05:47 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:08:21 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:10:56 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:13:31 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:16:05 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:18:40 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:21:14 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:23:48 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:26:23 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:28:56 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:31:32 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:34:07 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8hmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']; waiting
+03:36:43 submitting struct-cones (cpus 8); running now: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-homotopy2']
+up: done ['off-paired']
+submit search-off-paired-s2-struct-cones: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-struct-cones)
+03:39:07 struct-cones confirmed submitted
+03:39:43 submitting d8gmix (cpus 8); running now: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']
+up: done ['off-paired']
+submit search-off-paired-s2-d8gmix: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d8gmix)
+03:42:07 d8gmix confirmed submitted
+03:42:42 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+03:45:17 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+03:47:51 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+03:50:26 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+03:53:00 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+03:55:35 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+03:58:10 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:00:44 4 running: ['search-off-paired-s2-d12c00', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:03:20 submitting d10rest (cpus 8); running now: ['search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']
+up: done ['off-paired']
+submit search-off-paired-s2-d10rest: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d10rest)
+04:05:44 d10rest confirmed submitted
+04:06:18 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:08:53 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:11:27 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:14:02 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:16:37 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:19:12 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:21:46 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:24:21 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:26:56 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:29:30 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:32:05 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:34:39 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:37:13 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:39:48 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:42:23 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:44:57 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:47:32 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:50:06 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:52:40 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:55:15 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:57:50 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+05:00:24 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+05:03:05 submitting ft-d8h0 (cpus 8); running now: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones']
+up: done ['off-paired']
+submit search-off-paired-s2-ft-d8h0: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-ft-d8h0)
+05:05:30 ft-d8h0 confirmed submitted
+05:06:05 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:08:40 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:11:14 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:13:49 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:16:24 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:18:59 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:21:33 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:24:08 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:26:42 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:29:17 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:31:52 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:34:27 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:37:01 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:39:37 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:42:11 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:44:46 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:47:20 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:49:56 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:52:29 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:55:04 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:57:39 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:00:14 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:02:49 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:05:23 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:07:58 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:10:33 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:13:07 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:15:42 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:18:15 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:20:50 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:23:25 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:26:01 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:28:35 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+06:31:11 submitting struct-hess4 (cpus 8); running now: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones']

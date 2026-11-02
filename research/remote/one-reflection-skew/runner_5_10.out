@@ -1,0 +1,124 @@
+365 candidates, degrees 5..10
+skip f_X0
+skip f_X1
+skip f_X2
+skip G0
+skip Y6
+skip cp
+skip skew
+skip f0
+skip pure
+skip c1
+skip c2
+skip f-G0
+skip f-Y6
+skip f-c1
+skip f-c2
+skip radial0
+skip radial1
+skip radial2
+skip G0*X0
+skip G0*X1
+skip G0*X2
+skip Y6*X0
+skip Y6*X1
+skip Y6*X2
+skip f*X0
+skip f*X1
+skip f*X2
+X0*cp                                                                  d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 14.7s
+X0*skew                                                                d=7 served=6/0 A=False A+=False A-=False rank=528 null=87 3.7s
+X1*cp                                                                  d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 3.0s
+X1*skew                                                                d=7 served=6/0 A=False A+=False A-=False rank=528 null=87 2.8s
+X2*cp                                                                  d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 2.7s
+X2*skew                                                                d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 3.3s
+c*e*X0                                                                 d=7 served=6/0 A=False A+=False A-=False rank=517 null=98 1.9s
+c*e*X1                                                                 d=7 served=6/0 A=False A+=False A-=False rank=517 null=98 4.6s
+c*e*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=518 null=97 9.2s
+c*t*X0                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 11.0s
+c*t*X1                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 4.3s
+c*t*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 6.9s
+c*m*X0                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 6.2s
+c*m*X1                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 5.2s
+c*m*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 7.5s
+s*s*X0                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 38.2s
+s*s*X1                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 32.3s
+s*s*X2                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 33.8s
+s*S*X0                                                                 d=7 served=6/0 A=False A+=False A-=False rank=521 null=94 10.3s
+s*S*X1                                                                 d=7 served=6/0 A=False A+=False A-=False rank=521 null=94 6.7s
+s*S*X2                                                                 d=7 served=6/0 A=False A+=False A-=False rank=521 null=94 4.0s
+S*S*X0                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 31.2s
+S*S*X1                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 37.0s
+S*S*X2                                                                 d=7 served=12/0 A=False A+=False A-=False rank=1035 null=195 36.9s
+cone-dropX0-fermat7                                                    d=7 served=12/0 A=False A+=False A-=False rank=1016 null=214 27.9s
+cone-dropX0-f|*X1^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 7.3s
+cone-dropX0-f|*X2^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 9.5s
+cone-dropX1-fermat7                                                    d=7 served=6/0 A=False A+=False A-=False rank=508 null=107 2.5s
+cone-dropX1-f|*X0^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 8.7s
+cone-dropX1-f|*X2^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 5.6s
+cone-dropX2-fermat7                                                    d=7 served=12/0 A=False A+=False A-=False rank=1016 null=214 30.9s
+cone-dropX2-f|*X0^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=534 null=81 9.1s
+cone-dropX2-f|*X1^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=532 null=83 8.8s
+cone-dropY0-fermat7                                                    d=7 served=12/0 A=False A+=False A-=False rank=1054 null=176 29.4s
+cone-dropY0-f|*X0^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 10.7s
+cone-dropY0-f|*X1^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 8.9s
+cone-dropY0-f|*X2^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 9.2s
+cone-dropY1-fermat7                                                    d=7 served=12/0 A=False A+=False A-=False rank=1054 null=176 40.9s
+cone-dropY1-f|*X0^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 6.2s
+cone-dropY1-f|*X1^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 8.6s
+cone-dropY1-f|*X2^1                                                    d=7 served=6/0 A=False A+=False A-=False rank=535 null=80 14.4s
+cone3-X0X1X2-fermat7                                                   d=7 served=12/0 A=False A+=False A-=False rank=1054 null=176 42.7s
+cone3-X0X1Y0-fermat7                                                   d=7 served=12/0 A=False A+=False A-=False rank=1016 null=214 19.9s
+cone3-X0X1Y1-fermat7                                                   d=7 served=12/0 A=False A+=False A-=False rank=1016 null=214 24.0s
+cone3-X0X2Y0-fermat7                                                   d=7 served=6/0 A=False A+=False A-=False rank=508 null=107 3.9s
+cone3-X0X2Y1-fermat7                                                   d=7 served=6/0 A=False A+=False A-=False rank=508 null=107 6.6s
+cone3-X1X2Y0-fermat7                                                   d=7 served=12/0 A=False A+=False A-=False rank=1016 null=214 35.7s
+cone3-X1X2Y1-fermat7                                                   d=7 served=12/0 A=False A+=False A-=False rank=1016 null=214 20.9s
+random-dense-d7-#0                                                     d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 48.8s
+random-dense-d7-#1                                                     d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 63.0s
+Hess[0,1]                                                              d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 13.5s
+Hess[0,2]                                                              d=8 served=6/0 A=False A+=False A-=False rank=756 null=134 7.0s
+Hess[0,3]                                                              d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 16.4s
+Hess[0,4]                                                              d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 13.2s
+Hess[1,2]                                                              d=8 served=6/0 A=False A+=False A-=False rank=762 null=128 6.9s
+Hess[1,3]                                                              d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 14.6s
+Hess[1,4]                                                              d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 21.6s
+Hess[2,3]                                                              d=8 served=6/0 A=False A+=False A-=False rank=765 null=125 12.1s
+Hess[2,4]                                                              d=8 served=6/0 A=False A+=False A-=False rank=767 null=123 11.6s
+Hess[3,4]                                                              d=8 served=6/0 A=False A+=False A-=False rank=770 null=120 15.1s
+G0*e                                                                   d=8 served=6/0 A=False A+=False A-=False rank=754 null=136 9.7s
+G0*p                                                                   d=8 served=6/0 A=False A+=False A-=False rank=766 null=124 16.7s
+G0*t                                                                   d=8 served=6/0 A=False A+=False A-=False rank=766 null=124 18.2s
+G0*m                                                                   d=8 served=6/0 A=False A+=False A-=False rank=766 null=124 13.4s
+c*c                                                                    d=8 served=6/0 A=False A+=False A-=False rank=725 null=165 8.4s
+e*Y6                                                                   d=8 served=6/0 A=False A+=False A-=False rank=751 null=139 11.4s
+e*f                                                                    d=8 served=6/0 A=False A+=False A-=False rank=689 null=201 15.3s
+e*cp                                                                   d=8 served=6/0 A=False A+=False A-=False rank=761 null=129 8.3s
+e*skew                                                                 d=8 served=6/0 A=False A+=False A-=False rank=750 null=140 11.4s
+p*Y6                                                                   d=8 served=6/0 A=False A+=False A-=False rank=722 null=168 7.6s
+p*f                                                                    d=8 served=6/0 A=False A+=False A-=False rank=698 null=192 11.8s
+p*cp                                                                   d=8 served=6/0 A=False A+=False A-=False rank=758 null=132 12.9s
+p*skew                                                                 d=8 served=6/0 A=False A+=False A-=False rank=750 null=140 12.3s
+t*Y6                                                                   d=8 served=6/0 A=False A+=False A-=False rank=722 null=168 8.6s
+t*f                                                                    d=8 served=6/0 A=False A+=False A-=False rank=698 null=192 15.9s
+t*cp                                                                   d=8 served=6/0 A=False A+=False A-=False rank=765 null=125 14.4s
+t*skew                                                                 d=8 served=6/0 A=False A+=False A-=False rank=750 null=140 11.3s
+m*Y6                                                                   d=8 served=6/0 A=False A+=False A-=False rank=722 null=168 9.6s
+m*f                                                                    d=8 served=6/0 A=False A+=False A-=False rank=698 null=192 8.9s
+m*cp                                                                   d=8 served=6/0 A=False A+=False A-=False rank=765 null=125 13.9s
+m*skew                                                                 d=8 served=6/0 A=False A+=False A-=False rank=751 null=139 16.4s
+G0*X0*X0                                                               d=8 served=6/0 A=False A+=False A-=False rank=754 null=136 11.9s
+G0*X0*X2                                                               d=8 served=6/0 A=False A+=False A-=False rank=754 null=136 7.1s
+G0*X1*X1                                                               d=8 served=6/0 A=False A+=False A-=False rank=754 null=136 12.3s
+G0*X1*X2                                                               d=8 served=6/0 A=False A+=False A-=False rank=754 null=136 10.8s
+G0*X2*X2                                                               d=8 served=6/0 A=False A+=False A-=False rank=754 null=136 9.7s
+G0*Y0*Y0                                                               d=8 served=6/0 A=False A+=False A-=False rank=761 null=129 5.8s
+G0*Y1*Y1                                                               d=8 served=6/0 A=False A+=False A-=False rank=758 null=132 6.2s
+c*e*e                                                                  d=8 served=6/0 A=False A+=False A-=False rank=732 null=158 6.1s
+c*e*t                                                                  d=8 served=6/0 A=False A+=False A-=False rank=761 null=129 5.9s
+c*e*m                                                                  d=8 served=6/0 A=False A+=False A-=False rank=761 null=129 7.5s
+c*t*t                                                                  d=8 served=6/0 A=False A+=False A-=False rank=758 null=132 14.5s
+c*t*m                                                                  d=8 served=6/0 A=False A+=False A-=False rank=765 null=125 15.0s
+c*m*m                                                                  d=8 served=6/0 A=False A+=False A-=False rank=758 null=132 10.2s
+c*s*Y0                                                                 d=8 served=12/0 A=False A+=False A-=False rank=1530 null=250 68.6s
+c*s*Y1                                                                 d=8 served=12/0 A=False A+=False A-=False rank=1530 null=250 43.9s

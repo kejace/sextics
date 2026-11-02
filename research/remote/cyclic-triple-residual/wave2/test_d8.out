@@ -1,0 +1,14 @@
+[    0.3s] chars [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5)] chiA (0, 3)
+[   47.6s] d8 (0,4): {'d': 8, 'c': [0, 4], 'dim_S': 118, 'dimJ': 39, 'kerA_in_S': 40, 'ker_mod_J': 1, 'seconds': 5.32} nJ 39 nreps 1
+[   47.6s] rep == D8 ? True terms rep 25
+[svp] d=8 c=(0, 4) K=40 (rank 40) relax=False n1=874 n2=1483 nN=939 nQ=249 rank1=777 dimK=162 e1_resid=3.2e-15 excludedF=4 dimP=36 built 15.7s
+[   63.3s] built
+[   63.4s] rel at D8: (0.9347398528495924, 0.1146078226765397, 0.3621732510770428)
+[   63.6s] rel random: 0.8703706965980444
+[   63.7s] rel random: 0.9199856266226121
+[   64.7s] rel random: 0.942719926992853
+[svp] restart 0: f=2.017e-03 rel=6.218e-01 iters=60 (287.8s)
+[svp] restart 1: f=2.017e-03 rel=6.218e-01 iters=62 (500.8s)
+[svp] restart 2: f=2.132e-03 rel=7.481e-01 iters=48 (1133.1s)
+[ 1197.9s] search 3 restarts; best rel 0.6218079937010568 nfev 198
+[svp] d=8 c=(0, 4) K=40 (rank 40) relax=True n1=874 n2=1483 nN=939 nQ=249 rank1=777 dimK=0 e1_resid=3.2e-15 excludedF=4 dimP=36 built 86.9s

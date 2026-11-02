@@ -1,0 +1,1 @@
+chains/chain3.sh: line 9: 4118546 Killed                  $S --job ker-d11-r0s0 --d 11 --rho 0 --sigma 0 --family kernel --restarts 150 --method lm --seed0 11000 --time-limit 10800 >> chain3.out 2>> chain3.err

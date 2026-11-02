@@ -1,0 +1,8 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[numerators] d=8 p=536870909: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (264s)
+[relaxation_terms] K=174: 15225 nonzero symmetrized terms (936s)
+[JRef] e=16 par=1 p=536870909: gens=13104 mons=10152 rank=9684 dimR=468 (build 110s, rref 547s)
+[reduce_terms] par=1: 15225 terms -> 465 equations (dim R_16^1 = 468)
+[reduce_terms] total 465 equations (3790s)
+{"kind": "relaxation", "d": 8, "parspec": "1", "p": 536870909, "K_total": 174, "n_kernel": 6, "gauge_removed": 9, "n_vars": 165, "n_equations": 465, "kernel_sources": {"1": "modp-536870909"}, "t_build": 5042.4, "tag": "w2"}
+[msolve chart] {"rc": -9, "stderr": "\n--------------- INPUT DATA ---------------\n#variables                     165\n#equations                     466\n#invalid equations               0\nfield characteristic     536870909\nhomogeneous input?               0\nsignature-based computation      0\nmonomial order                 DRL\nbasis hash table resetting     OFF\nlinear algebra option            2\ninitial hash table size     131072 (2^17)\nmax pair selection             ALL\nreduce gb                        1\n#threads                         2\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\n", "stdout": "", "out_head": "", "out_len": 0, "seconds": 2438.5}

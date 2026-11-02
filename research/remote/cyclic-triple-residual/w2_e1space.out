@@ -1,0 +1,38 @@
+d=4 {'dim_S': 126, 'dim_J': 0, 'kerA_in_S': 0, 'ker_mod_J': 0, 'forced': 0, 'dim_R_d': 126, 'sporadic': 0} (0.3s) errors=0
+d=5 {'dim_S': 252, 'dim_J': 6, 'kerA_in_S': 6, 'ker_mod_J': 0, 'forced': 0, 'dim_R_d': 246, 'sporadic': 0} (0.4s) errors=0
+d=6 {'dim_S': 462, 'dim_J': 36, 'kerA_in_S': 36, 'ker_mod_J': 0, 'forced': 0, 'dim_R_d': 426, 'sporadic': 0} (0.6s) errors=0
+d=7 {'dim_S': 792, 'dim_J': 126, 'kerA_in_S': 126, 'ker_mod_J': 0, 'forced': 0, 'dim_R_d': 666, 'sporadic': 0} (1.2s) errors=0
+d=8 {'dim_S': 1287, 'dim_J': 336, 'kerA_in_S': 337, 'ker_mod_J': 1, 'forced': 0, 'dim_R_d': 951, 'sporadic': 1} (4.1s) errors=0
+   sector [0, 4] {'dim_S': 118, 'dim_J': 39, 'kerA_in_S': 40, 'ker_mod_J': 1, 'dim_R_d': 79, 'dim_R_t': 97, 'forced': 0, 'seconds': 4.0}
+d=9 {'dim_S': 2002, 'dim_J': 756, 'kerA_in_S': 876, 'ker_mod_J': 120, 'forced': 116, 'dim_R_d': 1246, 'sporadic': 4} (83.0s) errors=0
+   sector [0, 0] {'dim_S': 174, 'dim_J': 77, 'kerA_in_S': 96, 'ker_mod_J': 19, 'dim_R_d': 97, 'dim_R_t': 79, 'forced': 18, 'seconds': 64.8}
+   sector [0, 1] {'dim_S': 151, 'dim_J': 62, 'kerA_in_S': 82, 'ker_mod_J': 20, 'dim_R_d': 89, 'dim_R_t': 69, 'forced': 20, 'seconds': 82.6}
+   sector [0, 2] {'dim_S': 154, 'dim_J': 65, 'kerA_in_S': 82, 'ker_mod_J': 17, 'dim_R_d': 89, 'dim_R_t': 72, 'forced': 17, 'seconds': 67.7}
+   sector [0, 3] {'dim_S': 173, 'dim_J': 76, 'kerA_in_S': 95, 'ker_mod_J': 19, 'dim_R_d': 97, 'dim_R_t': 78, 'forced': 19, 'seconds': 60.0}
+   sector [0, 4] {'dim_S': 156, 'dim_J': 67, 'kerA_in_S': 83, 'ker_mod_J': 16, 'dim_R_d': 89, 'dim_R_t': 73, 'forced': 16, 'seconds': 67.3}
+   sector [0, 5] {'dim_S': 153, 'dim_J': 64, 'kerA_in_S': 83, 'ker_mod_J': 19, 'dim_R_d': 89, 'dim_R_t': 70, 'forced': 19, 'seconds': 72.0}
+   sector [2, 5] {'dim_S': 118, 'dim_J': 39, 'kerA_in_S': 40, 'ker_mod_J': 1, 'dim_R_d': 79, 'dim_R_t': 97, 'forced': 0, 'seconds': 3.8}
+   sector [4, 0] {'dim_S': 63, 'dim_J': 21, 'kerA_in_S': 24, 'ker_mod_J': 3, 'dim_R_d': 42, 'dim_R_t': 39, 'forced': 3, 'seconds': 10.9}
+   sector [4, 1] {'dim_S': 74, 'dim_J': 29, 'kerA_in_S': 30, 'ker_mod_J': 1, 'dim_R_d': 45, 'dim_R_t': 46, 'forced': 0, 'seconds': 2.7}
+   sector [4, 2] {'dim_S': 65, 'dim_J': 22, 'kerA_in_S': 25, 'ker_mod_J': 3, 'dim_R_d': 43, 'dim_R_t': 40, 'forced': 3, 'seconds': 10.7}
+   sector [4, 4] {'dim_S': 77, 'dim_J': 31, 'kerA_in_S': 33, 'ker_mod_J': 2, 'dim_R_d': 46, 'dim_R_t': 45, 'forced': 1, 'seconds': 13.0}
+d=10 {'dim_S': 3003, 'dim_J': 1497, 'kerA_in_S': 2053, 'ker_mod_J': 556, 'forced': 555, 'dim_R_d': 1506, 'sporadic': 1} (210.9s) errors=0
+   sector [0, 0] {'dim_S': 229, 'dim_J': 125, 'kerA_in_S': 177, 'ker_mod_J': 52, 'dim_R_d': 104, 'dim_R_t': 52, 'forced': 52, 'seconds': 130.8}
+   sector [0, 1] {'dim_S': 223, 'dim_J': 122, 'kerA_in_S': 172, 'ker_mod_J': 50, 'dim_R_d': 101, 'dim_R_t': 51, 'forced': 50, 'seconds': 150.2}
+   sector [0, 2] {'dim_S': 253, 'dim_J': 141, 'kerA_in_S': 194, 'ker_mod_J': 53, 'dim_R_d': 112, 'dim_R_t': 59, 'forced': 53, 'seconds': 180.8}
+   sector [0, 3] {'dim_S': 223, 'dim_J': 121, 'kerA_in_S': 172, 'ker_mod_J': 51, 'dim_R_d': 102, 'dim_R_t': 51, 'forced': 51, 'seconds': 153.9}
+   sector [0, 4] {'dim_S': 229, 'dim_J': 124, 'kerA_in_S': 177, 'ker_mod_J': 53, 'dim_R_d': 105, 'dim_R_t': 52, 'forced': 53, 'seconds': 132.9}
+   sector [0, 5] {'dim_S': 249, 'dim_J': 137, 'kerA_in_S': 189, 'ker_mod_J': 52, 'dim_R_d': 112, 'dim_R_t': 60, 'forced': 52, 'seconds': 177.7}
+   sector [2, 0] {'dim_S': 153, 'dim_J': 64, 'kerA_in_S': 83, 'ker_mod_J': 19, 'dim_R_d': 89, 'dim_R_t': 70, 'forced': 19, 'seconds': 88.1}
+   sector [2, 1] {'dim_S': 174, 'dim_J': 77, 'kerA_in_S': 96, 'ker_mod_J': 19, 'dim_R_d': 97, 'dim_R_t': 79, 'forced': 18, 'seconds': 71.1}
+   sector [2, 2] {'dim_S': 151, 'dim_J': 62, 'kerA_in_S': 82, 'ker_mod_J': 20, 'dim_R_d': 89, 'dim_R_t': 69, 'forced': 20, 'seconds': 75.7}
+   sector [2, 3] {'dim_S': 154, 'dim_J': 65, 'kerA_in_S': 82, 'ker_mod_J': 17, 'dim_R_d': 89, 'dim_R_t': 72, 'forced': 17, 'seconds': 76.6}
+   sector [2, 4] {'dim_S': 173, 'dim_J': 76, 'kerA_in_S': 95, 'ker_mod_J': 19, 'dim_R_d': 97, 'dim_R_t': 78, 'forced': 19, 'seconds': 55.7}
+   sector [2, 5] {'dim_S': 156, 'dim_J': 67, 'kerA_in_S': 83, 'ker_mod_J': 16, 'dim_R_d': 89, 'dim_R_t': 73, 'forced': 16, 'seconds': 71.6}
+   sector [4, 0] {'dim_S': 118, 'dim_J': 61, 'kerA_in_S': 85, 'ker_mod_J': 24, 'dim_R_d': 57, 'dim_R_t': 33, 'forced': 24, 'seconds': 40.0}
+   sector [4, 1] {'dim_S': 98, 'dim_J': 49, 'kerA_in_S': 67, 'ker_mod_J': 18, 'dim_R_d': 49, 'dim_R_t': 31, 'forced': 18, 'seconds': 33.2}
+   sector [4, 2] {'dim_S': 102, 'dim_J': 48, 'kerA_in_S': 75, 'ker_mod_J': 27, 'dim_R_d': 54, 'dim_R_t': 27, 'forced': 27, 'seconds': 42.9}
+   sector [4, 3] {'dim_S': 114, 'dim_J': 59, 'kerA_in_S': 80, 'ker_mod_J': 21, 'dim_R_d': 55, 'dim_R_t': 34, 'forced': 21, 'seconds': 32.5}
+   sector [4, 4] {'dim_S': 104, 'dim_J': 49, 'kerA_in_S': 76, 'ker_mod_J': 27, 'dim_R_d': 55, 'dim_R_t': 28, 'forced': 27, 'seconds': 32.0}
+   sector [4, 5] {'dim_S': 100, 'dim_J': 50, 'kerA_in_S': 68, 'ker_mod_J': 18, 'dim_R_d': 50, 'dim_R_t': 32, 'forced': 18, 'seconds': 29.2}
+done

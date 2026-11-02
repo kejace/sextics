@@ -1,0 +1,10 @@
+ours   sanity             d=2 'X0**2 + Y0**2'                                              E1=False cons=False rank=168 null=0 imgdim=18 0.4s
+ours   sanity             d=2 'X0**2 - Y0**2'                                              E1=False cons=False rank=168 null=0 imgdim=18 0.5s
+ours   cone3              d=3 'X0**3 + X1**3 + X0*Y0**2'                                   E1=False cons=False rank=378 null=0 imgdim=18 1.7s
+ours   cone3              d=3 'X0**3 + X1**3 + X2**3'                                      E1=False cons=False rank=378 null=0 imgdim=18 1.7s
+ours   cone3              d=3 'X0**3 + X0*Y0**2 + X2**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 1.7s
+ours   cone3              d=3 'X0*Y0**2 + X1**3 + X2**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 1.7s
+ours   cone3              d=3 'X0**3 + X1*Y0**2 + X1**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 1.7s
+ours   cone3              d=3 'X0**3 + 2*X1**3 - X0*Y0**2 + 3*X1*Y0**2 + X0**2*X1'         E1=False cons=False rank=378 null=0 imgdim=18 1.8s
+ours   cone4              d=4 'X0**4 + X1**4 + Y0**4 + X2**4'                              E1=False cons=False rank=747 null=9 imgdim=18 6.8s
+ours   cone4              d=4 'X0**4 + X1**4 + Y0**4'                                      E1=False cons=False rank=747 null=9 imgdim=18 6.4s

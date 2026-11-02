@@ -1,0 +1,10 @@
+chainA start Mon Nov  2 00:47:55 UTC 2026
+relax 5,6 done Mon Nov  2 00:48:43 UTC 2026
+e1spaces 4-10 done Mon Nov  2 01:58:14 UTC 2026
+relax 5-7 done Mon Nov  2 02:02:24 UTC 2026
+d5,d6 searches done Mon Nov  2 02:02:27 UTC 2026
+structured 6-10 done Mon Nov  2 02:32:57 UTC 2026
+msolve d6 exit 0
+msolve d7 exit 124
+msolve done Mon Nov  2 07:13:51 UTC 2026
+wave2/chainA.sh: line 33: 65171 Killed                  python3 wave2/e1spaces.py --dmin 12 --dmax 12 --tag e1spaces_d12 > $O/e1spaces_d12.out 2> $O/e1spaces_d12.err

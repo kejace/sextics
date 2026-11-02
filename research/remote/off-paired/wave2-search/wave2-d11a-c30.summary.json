@@ -1,0 +1,61 @@
+{
+ "ts": "2026-11-02T05:09:25",
+ "job": "d11a-c30",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 11,
+ "sector": [
+  3,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 143,
+ "rank": 143,
+ "gauge": 15,
+ "dimP": 128,
+ "rows": 7076,
+ "nN": 1253,
+ "nQ": 674,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 23,
+ "best_relres": 0.0005998476795384285,
+ "median_relres": 0.0006026960785086788,
+ "hist": {
+  "lt1e-2": 23
+ },
+ "top_minima": [
+  [
+   "5.998e-04",
+   11
+  ],
+  [
+   "6.027e-04",
+   8
+  ],
+  [
+   "2.725e-03",
+   2
+  ],
+  [
+   "8.528e-03",
+   1
+  ],
+  [
+   "9.970e-03",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 80,
+ "mean_time_per_restart": 1280.83,
+ "statuses": {
+  "flat": 1,
+  "maxiter": 21,
+  "stalled": 1
+ },
+ "wall": 3928.3,
+ "confirm_attempts": [],
+ "witness": false
+}

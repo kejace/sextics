@@ -1,0 +1,15 @@
+{
+ "instance": "fermat-pair-rational-d4-strict",
+ "d": 4,
+ "D": "X0**4 - X0**2*X1**2 + X1**4",
+ "N": [
+  "X0**2*X1*X2*Y0/6 - X1**3*X2*Y0/6",
+  "X0**3*X2*Y0/6",
+  "0",
+  "0",
+  "0",
+  "0"
+ ],
+ "Q": "0",
+ "note": "kvp d=4 secs=00 fam=K rel=2.56e-31"
+}

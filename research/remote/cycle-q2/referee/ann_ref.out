@@ -1,0 +1,117 @@
+prime 999999937 vdim J = 15625 (smooth iff 15625)
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+target A inJ=0 Ann_d(d=0..9): 0:0/1 1:0/6 2:0/21 3:0/56 4:0/126 5:0/246 6:26/426 7:420/666 8:825/951 9:1190/1246
+// ** redefining tg (    poly tg = T[t][2];) ::run:11
+// ** redefining JA (    ideal JA = quotient(J, tg);) ::run:12
+// ** redefining s (target " + T[t][1] + " inJ=" + string(reduce(tg, J) == 0) + " Ann_d(d=0..9):";) ::run:14
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+target B inJ=0 Ann_d(d=0..9): 0:0/1 1:0/6 2:0/21 3:0/56 4:0/126 5:0/246 6:0/426 7:0/666 8:3/951 9:60/1246
+// ** redefining tg (    poly tg = T[t][2];) ::run:11
+// ** redefining JA (    ideal JA = quotient(J, tg);) ::run:12
+// ** redefining s (target " + T[t][1] + " inJ=" + string(reduce(tg, J) == 0) + " Ann_d(d=0..9):";) ::run:14
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+target Bbal inJ=0 Ann_d(d=0..9): 0:0/1 1:0/6 2:0/21 3:0/56 4:0/126 5:0/246 6:0/426 7:0/666 8:6/951 9:60/1246
+// ** redefining tg (    poly tg = T[t][2];) ::run:11
+// ** redefining JA (    ideal JA = quotient(J, tg);) ::run:12
+// ** redefining s (target " + T[t][1] + " inJ=" + string(reduce(tg, J) == 0) + " Ann_d(d=0..9):";) ::run:14
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+target C1 inJ=0 Ann_d(d=0..9): 0:0/1 1:0/6 2:0/21 3:0/56 4:0/126 5:0/246 6:0/426 7:0/666 8:4/951 9:82/1246
+// ** redefining tg (    poly tg = T[t][2];) ::run:11
+// ** redefining JA (    ideal JA = quotient(J, tg);) ::run:12
+// ** redefining s (target " + T[t][1] + " inJ=" + string(reduce(tg, J) == 0) + " Ann_d(d=0..9):";) ::run:14
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+// ** redefining rd (      int rd = size(kbase(J, d));) ::run:17
+// ** redefining rq (      int rq = size(kbase(JA, d));) ::run:18
+target A_cycle3 inJ=0 Ann_d(d=0..9): 0:0/1 1:0/6 2:0/21 3:0/56 4:0/126 5:0/246 6:0/426 7:0/666 8:2/951 9:52/1246
+Hilbert R_d: 1 6 21 56 126 246 426 666 951 1246 1506 1686 1751 1686 1506 1246 951 666 426 246 126 56 21 6 1 0

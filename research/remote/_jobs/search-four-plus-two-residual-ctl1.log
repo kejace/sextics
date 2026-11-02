@@ -1,0 +1,7 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[control] family-hesse-web: group order 2592 (mod 6), gens [(3, 0, 0, 0, 0, 0), (5, 1, 0, 0, 0, 0), (0, 0, 1, 0, 0, 0), (5, 0, 0, 1, 0, 0), (0, 0, 0, 0, 1, 0)]; witness d=6 label=None
+Traceback (most recent call last):
+  File "/tmp/hodge/results/four-plus-two-residual/w2_control.py", line 19, in <module>
+    assert lab is not None, 'witness D is not a character eigenvector; control not applicable'
+           ^^^^^^^^^^^^^^^
+AssertionError: witness D is not a character eigenvector; control not applicable

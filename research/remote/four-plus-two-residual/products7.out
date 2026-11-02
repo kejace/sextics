@@ -1,0 +1,3 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{'D': 'c(x)*X2, c = random combo #0 of the 20 even d=6 core-kernel elements', 'consistent': False, 'rank': 4036, 'nullity': 461, 'rows': 26532, 'cols': 4497, 'seconds': 383.5}
+{'D': 'c(x)*Y2, c = random combo #0 of the 13 odd d=6 core-kernel elements', 'consistent': False, 'rank': 4038, 'nullity': 459, 'rows': 26532, 'cols': 4497, 'seconds': 343.2}

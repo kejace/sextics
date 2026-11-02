@@ -1,0 +1,25 @@
+F_X0                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=442 | D^2 d=10: cons=False rk=1714 nul=701 cols=2415 |H|=432 (p2 cons=False rk=1714) [11s]
+F_X1                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=427 | D^2 d=10: cons=False rk=1694 nul=697 cols=2391 |H|=432 (p2 cons=False rk=1694) [20s]
+F_X2                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=427 | D^2 d=10: cons=False rk=1690 nul=674 cols=2364 |H|=432 (p2 cons=False rk=1690) [29s]
+F_Y0                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=433 | D^2 d=10: cons=False rk=1724 nul=676 cols=2400 |H|=432 (p2 cons=False rk=1724) [38s]
+F_Y1                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=430 | D^2 d=10: cons=False rk=1701 nul=663 cols=2364 |H|=432 (p2 cons=False rk=1701) [46s]
+F_Y2                         d=5 |H|=432 new 0 (unserved 32/32 of 90) cons=False rk=441 | D^2 d=10: cons=False rk=1718 nul=688 cols=2406 |H|=432 (p2 cons=False rk=1718) [55s]
+Traceback (most recent call last):
+  File "/tmp/hodge/results/cycle-q2/exp_g_deg5.py", line 27, in <module>
+    run([1, 1, 1, 0, 0, 0], 'F_X0+F_X1+F_X2'); run([0, 0, 0, 1, 1, 1], 'F_Y0+F_Y1+F_Y2'); run([1, 1, 1, 1, 1, 1], 'sum all F_i')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cycle-q2/exp_g_deg5.py", line 21, in run
+    r2 = eq.test_D_fast(F, A, q, D2, 'deg5-J', note=note + ' [D^2]', verbose=False, Dstr='(' + Ds + ')**2')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cycle-q2/eq.py", line 494, in test_D_fast
+    res = solve_fast(S, verbose=verbose)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cycle-q2/eq.py", line 469, in solve_fast
+    Mc = _compressed_int(S, k_extra=k_extra, seed=seed)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cycle-q2/eq.py", line 458, in _compressed_int
+    R = rng.integers(0, p, size=(k, S.nrows), dtype=np.int64)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/_generator.pyx", line 682, in numpy.random._generator.Generator.integers
+  File "numpy/random/_bounded_integers.pyx", line 1343, in numpy.random._bounded_integers._rand_int64
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 138. GiB for an array with shape (84839, 217872) and data type int64

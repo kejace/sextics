@@ -1,0 +1,50 @@
+
+--------------- INPUT DATA ---------------
+#variables                      30
+#equations                      84
+#invalid equations               0
+field characteristic    1073741827
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         2
+info level                       1
+generate pbm files               0
+------------------------------------------
+Time for rational param:         30.04 (elapsed) sec / 29.97 sec (cpu)
+
+------------------------------------------------------------------------------------
+msolve overall time          30.04 sec (elapsed) / 29.98 sec (cpu)
+------------------------------------------------------------------------------------
+
+---------------- TIMINGS ---------------
+overall(elapsed)       30.03 sec
+overall(cpu)           29.96 sec
+select                  0.08 sec   0.3%
+symbolic prep.          0.21 sec   0.7%
+update                 29.20 sec  97.2%
+convert                 0.16 sec   0.5%
+linear algebra          0.37 sec   1.2%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                 4725
+#GM criterion               2858225
+#redundant elements            2393
+#rows reduced                  9451
+#zero reductions               2415
+max. matrix data               8999 x 27239 (0.044%)
+max. symbolic hash table size  2^15
+max. basis hash table size     2^21
+-----------------------------------------
+
+Grobner basis has a single element
+No solution

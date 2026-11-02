@@ -1,0 +1,5 @@
+c345-hesse1 | core.add(core.add(core.add(core.power(Q[3],3),core.power(Q[4],3)),core.power(Q[5],3)), core.mul(core.mul(Q[3],Q[4]),Q[5]))
+c345-hesse-2 | core.add(core.add(core.add(core.power(Q[3],3),core.power(Q[4],3)),core.power(Q[5],3)), core.scale(core.mul(core.mul(Q[3],Q[4]),Q[5]),-2))
+c345-rand1 | core.add(core.add(core.add(core.power(Q[3],3),core.scale(core.power(Q[4],3),2)),core.scale(core.power(Q[5],3),3)), core.add(core.mul(core.power(Q[3],2),Q[4]), core.scale(core.mul(Q[4],core.power(Q[5],2)),5)))
+c345-rand2 | core.add(core.add(core.add(core.power(Q[3],3),core.scale(core.power(Q[4],3),-1)),core.scale(core.power(Q[5],3),2)), core.add(core.scale(core.mul(core.power(Q[3],2),Q[5]),3), core.scale(core.mul(core.mul(Q[3],Q[4]),Q[5]),-7)))
+c345-nodal | core.add(core.power(Q[3],3), core.sub(core.mul(core.power(Q[4],2),Q[5]), core.mul(Q[3],core.mul(Q[4],Q[4]))))

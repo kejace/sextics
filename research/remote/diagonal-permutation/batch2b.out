@@ -1,0 +1,17 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d/dX0 F -> d 5 e1 True cons False served 18 45.37 s
+d/dX1 F -> d 5 e1 True cons False served 18 33.28 s
+d/dX2 F -> d 5 e1 True cons False served 18 49.68 s
+d/dY0 F -> d 5 e1 True cons False served 18 46.62 s
+d/dY1 F -> d 5 e1 True cons False served 18 43.84 s
+d/dY2 F -> d 5 e1 True cons False served 18 79.34 s
+F_X0+F_X1+F_X2 -> d 5 e1 True cons False served 18 66.29 s
+F_X0-F_X1 -> d 5 e1 True cons False served 18 31.22 s
+F_Y0-F_Y1 -> d 5 e1 True cons False served 18 45.25 s
+F_Y0+F_Y1+F_Y2 -> d 5 e1 True cons False served 18 58.13 s
+E_X(F)=sum X_i F_Xi -> d 6 e1 True cons False served 18 104.61 s
+pair radial 0: X0F_X0+Y0F_Y0 -> d 6 e1 True cons False served 18 458.51 s
+g_A(F) = (X0d0+Y0d3-X1d1-Y1d4)F -> d 6 e1 True cons False served 18 425.03 s
+(X0d1+X1d0+Y0d4+Y1d3)F -> d 6 e1 True cons False served 18 476.07 s
+(X0d1-X1d0+Y0d4-Y1d3)F -> d 6 e1 True cons False served 18 362.19 s
+cyclic shift field (X_{i+1}d_i + Y_{i+1}d_{i+3})F -> d 6 e1 True cons False served 18 370.4 s

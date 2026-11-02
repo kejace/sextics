@@ -1,0 +1,6 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+[hessrelax d=8 sector=0] eq parity 0: dim K_full(10)=1044 (num rank 1044) n_eq=468
+[hessrelax hr8e] nw=168 dimP=156 neq=468 f(random) median 6.385e+01 build 23s
+[hessrelax hr8e] 100 restarts best f 1.113e-06 (seed 52) median 7.366e-05 (1051s)
+[hessrelax hr8e] 200 restarts best f 2.276e-07 (seed 172) median 7.275e-05 (2021s)
+[hessrelax hr8e] 300 restarts best f 1.413e-07 (seed 309) median 7.366e-05 (2879s)

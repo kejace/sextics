@@ -1,0 +1,100 @@
+{
+ "d": 6,
+ "parD": 1,
+ "p": 1000000007,
+ "exact": true,
+ "n": 18,
+ "nK": 153,
+ "nQ": 226,
+ "dimWT": 20,
+ "dimGauge": 0,
+ "decisive": false,
+ "zero_T_columns": 0,
+ "blocks": {
+  "1,0": {
+   "rows": 358,
+   "nT": 24,
+   "nY": 315,
+   "nQ": 19,
+   "rank": 226,
+   "nullity": 132,
+   "dimWT": 3,
+   "dimGauge": 0,
+   "rank_YQ": 205,
+   "nullity_YQ": 129
+  },
+  "1,1": {
+   "rows": 433,
+   "nT": 24,
+   "nY": 399,
+   "nQ": 40,
+   "rank": 254,
+   "nullity": 209,
+   "dimWT": 3,
+   "dimGauge": 0,
+   "rank_YQ": 233,
+   "nullity_YQ": 206
+  },
+  "1,2": {
+   "rows": 433,
+   "nT": 24,
+   "nY": 399,
+   "nQ": 40,
+   "rank": 254,
+   "nullity": 209,
+   "dimWT": 3,
+   "dimGauge": 0,
+   "rank_YQ": 233,
+   "nullity_YQ": 206
+  },
+  "1,3": {
+   "rows": 374,
+   "nT": 27,
+   "nY": 414,
+   "nQ": 29,
+   "rank": 257,
+   "nullity": 213,
+   "dimWT": 2,
+   "dimGauge": 0,
+   "rank_YQ": 232,
+   "nullity_YQ": 211
+  },
+  "1,4": {
+   "rows": 435,
+   "nT": 24,
+   "nY": 399,
+   "nQ": 40,
+   "rank": 254,
+   "nullity": 209,
+   "dimWT": 3,
+   "dimGauge": 0,
+   "rank_YQ": 233,
+   "nullity_YQ": 206
+  },
+  "1,5": {
+   "rows": 378,
+   "nT": 24,
+   "nY": 414,
+   "nQ": 29,
+   "rank": 253,
+   "nullity": 214,
+   "dimWT": 3,
+   "dimGauge": 0,
+   "rank_YQ": 232,
+   "nullity_YQ": 211
+  },
+  "1,6": {
+   "rows": 377,
+   "nT": 24,
+   "nY": 414,
+   "nQ": 29,
+   "rank": 253,
+   "nullity": 214,
+   "dimWT": 3,
+   "dimGauge": 0,
+   "rank_YQ": 232,
+   "nullity_YQ": 211
+  }
+ },
+ "seconds": 43.3
+}

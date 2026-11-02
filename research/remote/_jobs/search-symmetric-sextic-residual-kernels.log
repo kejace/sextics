@@ -1,0 +1,294 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 4, "pD": 0, "nD": 12, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 97, "e1_nN": 52, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 4, "pD": 1, "nD": 6, "dimK": 0, "dimJ": null, "ker_beyond_J": 0, "e1_rows": 124, "e1_nN": 64, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 5, "pD": 0, "nD": 15, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "e1_rows": 151, "e1_nN": 97, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 5, "pD": 1, "nD": 15, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "e1_rows": 151, "e1_nN": 97, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 6, "pD": 0, "nD": 30, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "e1_rows": 184, "e1_nN": 142, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 6, "pD": 1, "nD": 19, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "e1_rows": 223, "e1_nN": 164, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 7, "pD": 0, "nD": 37, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "e1_rows": 268, "e1_nN": 233, "seconds": 0.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 7, "pD": 1, "nD": 37, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "e1_rows": 268, "e1_nN": 233, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 8, "pD": 0, "nD": 64, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "e1_rows": 322, "e1_nN": 324, "seconds": 0.2, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 8, "pD": 1, "nD": 46, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "e1_rows": 376, "e1_nN": 360, "seconds": 0.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 9, "pD": 0, "nD": 79, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "e1_rows": 448, "e1_nN": 489, "seconds": 0.4, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 9, "pD": 1, "nD": 79, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "e1_rows": 448, "e1_nN": 489, "seconds": 0.4, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 10, "pD": 0, "nD": 124, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "e1_rows": 532, "e1_nN": 654, "seconds": 0.8, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 10, "pD": 1, "nD": 97, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "e1_rows": 604, "e1_nN": 708, "seconds": 0.8, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 11, "pD": 0, "nD": 151, "dimK": 122, "dimJ": 94, "ker_beyond_J": 28, "e1_rows": 712, "e1_nN": 930, "seconds": 1.5}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 11, "pD": 1, "nD": 151, "dimK": 122, "dimJ": 94, "ker_beyond_J": 28, "e1_rows": 712, "e1_nN": 930, "seconds": 1.6}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 12, "pD": 0, "nD": 223, "dimK": 206, "dimJ": 156, "ker_beyond_J": 50, "e1_rows": 838, "e1_nN": 1206, "seconds": 2.6}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 12, "pD": 1, "nD": 184, "dimK": 158, "dimJ": 132, "ker_beyond_J": 26, "e1_rows": 932, "e1_nN": 1284, "seconds": 2.7}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 13, "pD": 0, "nD": 268, "dimK": 254, "dimJ": 211, "ker_beyond_J": 43, "e1_rows": 1088, "e1_nN": 1641, "seconds": 4.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 13, "pD": 1, "nD": 268, "dimK": 254, "dimJ": 211, "ker_beyond_J": 43, "e1_rows": 1088, "e1_nN": 1641, "seconds": 4.6}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 14, "pD": 0, "nD": 376, "dimK": 370, "dimJ": 316, "ker_beyond_J": 54, "e1_rows": 1268, "e1_nN": 2076, "seconds": 7.5}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "triv", "d": 14, "pD": 1, "nD": 322, "dimK": 310, "dimJ": 276, "ker_beyond_J": 34, "e1_rows": 1388, "e1_nN": 2184, "seconds": 9.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 4, "pD": 0, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 37, "e1_nN": 52, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 4, "pD": 1, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 37, "e1_nN": 64, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 5, "pD": 0, "nD": 4, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 46, "e1_nN": 97, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 5, "pD": 1, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 64, "e1_nN": 97, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 6, "pD": 0, "nD": 5, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "e1_rows": 79, "e1_nN": 142, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 6, "pD": 1, "nD": 5, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 79, "e1_nN": 164, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 7, "pD": 0, "nD": 12, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "e1_rows": 97, "e1_nN": 233, "seconds": 0.1, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 7, "pD": 1, "nD": 6, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "e1_rows": 124, "e1_nN": 233, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 8, "pD": 0, "nD": 15, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "e1_rows": 151, "e1_nN": 324, "seconds": 0.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 8, "pD": 1, "nD": 15, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "e1_rows": 151, "e1_nN": 360, "seconds": 0.2, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 9, "pD": 0, "nD": 30, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "e1_rows": 184, "e1_nN": 489, "seconds": 0.4, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 9, "pD": 1, "nD": 19, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "e1_rows": 223, "e1_nN": 489, "seconds": 0.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 10, "pD": 0, "nD": 37, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "e1_rows": 268, "e1_nN": 654, "seconds": 0.6, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 10, "pD": 1, "nD": 37, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "e1_rows": 268, "e1_nN": 708, "seconds": 0.5, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 11, "pD": 0, "nD": 64, "dimK": 59, "dimJ": 40, "ker_beyond_J": 19, "e1_rows": 322, "e1_nN": 930, "seconds": 0.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 11, "pD": 1, "nD": 46, "dimK": 37, "dimJ": 31, "ker_beyond_J": 6, "e1_rows": 376, "e1_nN": 930, "seconds": 0.9}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 12, "pD": 0, "nD": 79, "dimK": 74, "dimJ": 61, "ker_beyond_J": 13, "e1_rows": 448, "e1_nN": 1206, "seconds": 1.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 12, "pD": 1, "nD": 79, "dimK": 75, "dimJ": 57, "ker_beyond_J": 18, "e1_rows": 448, "e1_nN": 1284, "seconds": 1.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 13, "pD": 0, "nD": 124, "dimK": 123, "dimJ": 100, "ker_beyond_J": 23, "e1_rows": 532, "e1_nN": 1641, "seconds": 2.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 13, "pD": 1, "nD": 97, "dimK": 93, "dimJ": 82, "ker_beyond_J": 11, "e1_rows": 604, "e1_nN": 1641, "seconds": 2.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 14, "pD": 0, "nD": 151, "dimK": 150, "dimJ": 136, "ker_beyond_J": 14, "e1_rows": 712, "e1_nN": 2076, "seconds": 3.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnX", "d": 14, "pD": 1, "nD": 151, "dimK": 150, "dimJ": 132, "ker_beyond_J": 18, "e1_rows": 712, "e1_nN": 2184, "seconds": 3.9}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 4, "pD": 0, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 37, "e1_nN": 52, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 4, "pD": 1, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 37, "e1_nN": 64, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 5, "pD": 0, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 64, "e1_nN": 97, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 5, "pD": 1, "nD": 4, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 46, "e1_nN": 97, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 6, "pD": 0, "nD": 5, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "e1_rows": 79, "e1_nN": 142, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 6, "pD": 1, "nD": 5, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 79, "e1_nN": 164, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 7, "pD": 0, "nD": 6, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "e1_rows": 124, "e1_nN": 233, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 7, "pD": 1, "nD": 12, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "e1_rows": 97, "e1_nN": 233, "seconds": 0.1, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 8, "pD": 0, "nD": 15, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "e1_rows": 151, "e1_nN": 324, "seconds": 0.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 8, "pD": 1, "nD": 15, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "e1_rows": 151, "e1_nN": 360, "seconds": 0.2, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 9, "pD": 0, "nD": 19, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "e1_rows": 223, "e1_nN": 489, "seconds": 0.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 9, "pD": 1, "nD": 30, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "e1_rows": 184, "e1_nN": 489, "seconds": 0.4, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 10, "pD": 0, "nD": 37, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "e1_rows": 268, "e1_nN": 654, "seconds": 0.5, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 10, "pD": 1, "nD": 37, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "e1_rows": 268, "e1_nN": 708, "seconds": 0.5, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 11, "pD": 0, "nD": 46, "dimK": 37, "dimJ": 31, "ker_beyond_J": 6, "e1_rows": 376, "e1_nN": 930, "seconds": 0.9}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 11, "pD": 1, "nD": 64, "dimK": 59, "dimJ": 40, "ker_beyond_J": 19, "e1_rows": 322, "e1_nN": 930, "seconds": 0.9}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 12, "pD": 0, "nD": 79, "dimK": 74, "dimJ": 61, "ker_beyond_J": 13, "e1_rows": 448, "e1_nN": 1206, "seconds": 1.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 12, "pD": 1, "nD": 79, "dimK": 75, "dimJ": 57, "ker_beyond_J": 18, "e1_rows": 448, "e1_nN": 1284, "seconds": 1.5}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 13, "pD": 0, "nD": 97, "dimK": 93, "dimJ": 82, "ker_beyond_J": 11, "e1_rows": 604, "e1_nN": 1641, "seconds": 2.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 13, "pD": 1, "nD": 124, "dimK": 123, "dimJ": 100, "ker_beyond_J": 23, "e1_rows": 532, "e1_nN": 1641, "seconds": 2.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 14, "pD": 0, "nD": 151, "dimK": 150, "dimJ": 136, "ker_beyond_J": 14, "e1_rows": 712, "e1_nN": 2076, "seconds": 3.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnY", "d": 14, "pD": 1, "nD": 151, "dimK": 150, "dimJ": 132, "ker_beyond_J": 18, "e1_rows": 712, "e1_nN": 2184, "seconds": 3.9}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 4, "pD": 0, "nD": 0, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 12, "e1_nN": 52, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 4, "pD": 1, "nD": 0, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 6, "e1_nN": 64, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 5, "pD": 0, "nD": 0, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 15, "e1_nN": 97, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 5, "pD": 1, "nD": 0, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 15, "e1_nN": 97, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 6, "pD": 0, "nD": 0, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 30, "e1_nN": 142, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 6, "pD": 1, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 19, "e1_nN": 164, "seconds": 0.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 7, "pD": 0, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 37, "e1_nN": 233, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 7, "pD": 1, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 37, "e1_nN": 233, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 8, "pD": 0, "nD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 64, "e1_nN": 324, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 8, "pD": 1, "nD": 4, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "e1_rows": 46, "e1_nN": 360, "seconds": 0.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 9, "pD": 0, "nD": 5, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "e1_rows": 79, "e1_nN": 489, "seconds": 0.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 9, "pD": 1, "nD": 5, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "e1_rows": 79, "e1_nN": 489, "seconds": 0.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 10, "pD": 0, "nD": 6, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "e1_rows": 124, "e1_nN": 654, "seconds": 0.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 10, "pD": 1, "nD": 12, "dimK": 11, "dimJ": 4, "ker_beyond_J": 7, "e1_rows": 97, "e1_nN": 708, "seconds": 0.4, "served_random_points": [{"served_total": 2, "beyond_J": 0}, {"served_total": 2, "beyond_J": 0}]}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 11, "pD": 0, "nD": 15, "dimK": 14, "dimJ": 8, "ker_beyond_J": 6, "e1_rows": 151, "e1_nN": 930, "seconds": 0.6}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 11, "pD": 1, "nD": 15, "dimK": 14, "dimJ": 8, "ker_beyond_J": 6, "e1_rows": 151, "e1_nN": 930, "seconds": 0.6}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 12, "pD": 0, "nD": 19, "dimK": 18, "dimJ": 13, "ker_beyond_J": 5, "e1_rows": 223, "e1_nN": 1206, "seconds": 0.9}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 12, "pD": 1, "nD": 30, "dimK": 30, "dimJ": 20, "ker_beyond_J": 10, "e1_rows": 184, "e1_nN": 1284, "seconds": 0.9}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 13, "pD": 0, "nD": 37, "dimK": 37, "dimJ": 30, "ker_beyond_J": 7, "e1_rows": 268, "e1_nN": 1641, "seconds": 1.5}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 13, "pD": 1, "nD": 37, "dimK": 37, "dimJ": 30, "ker_beyond_J": 7, "e1_rows": 268, "e1_nN": 1641, "seconds": 1.5}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 14, "pD": 0, "nD": 46, "dimK": 46, "dimJ": 42, "ker_beyond_J": 4, "e1_rows": 376, "e1_nN": 2076, "seconds": 2.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "sgnsgn", "d": 14, "pD": 1, "nD": 64, "dimK": 64, "dimJ": 56, "ker_beyond_J": 8, "e1_rows": 322, "e1_nN": 2184, "seconds": 2.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S22_++", "d": 10, "pD": 0, "nD": 560, "dimK": 400, "dimJ": 282, "ker_beyond_J": 118, "e1_rows": 3168, "e1_nN": 4032, "seconds": 36.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S22_++", "d": 10, "pD": 1, "nD": 504, "dimK": 321, "dimJ": 260, "ker_beyond_J": 61, "e1_rows": 3333, "e1_nN": 4144, "seconds": 34.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S22_-+", "d": 10, "pD": 0, "nD": 364, "dimK": 252, "dimJ": 182, "ker_beyond_J": 70, "e1_rows": 2508, "e1_nN": 4032, "seconds": 24.6}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S22_-+", "d": 10, "pD": 1, "nD": 364, "dimK": 251, "dimJ": 182, "ker_beyond_J": 69, "e1_rows": 2508, "e1_nN": 4144, "seconds": 26.0}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S22_+-", "d": 10, "pD": 0, "nD": 364, "dimK": 252, "dimJ": 182, "ker_beyond_J": 70, "e1_rows": 2508, "e1_nN": 4032, "seconds": 24.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S22_+-", "d": 10, "pD": 1, "nD": 364, "dimK": 251, "dimJ": 182, "ker_beyond_J": 69, "e1_rows": 2508, "e1_nN": 4144, "seconds": 24.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S22_--", "d": 10, "pD": 0, "nD": 224, "dimK": 146, "dimJ": 104, "ker_beyond_J": 42, "e1_rows": 1968, "e1_nN": 4032, "seconds": 17.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S22_--", "d": 10, "pD": 1, "nD": 259, "dimK": 191, "dimJ": 123, "ker_beyond_J": 68, "e1_rows": 1848, "e1_nN": 4144, "seconds": 17.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S3S2_++", "d": 10, "pD": 0, "nD": 267, "dimK": 195, "dimJ": 138, "ker_beyond_J": 57, "e1_rows": 1302, "e1_nN": 1632, "seconds": 4.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S3S2_++", "d": 10, "pD": 1, "nD": 222, "dimK": 134, "dimJ": 116, "ker_beyond_J": 18, "e1_rows": 1428, "e1_nN": 1731, "seconds": 4.5}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S3S2_-+", "d": 10, "pD": 0, "nD": 71, "dimK": 47, "dimJ": 38, "ker_beyond_J": 9, "e1_rows": 642, "e1_nN": 1632, "seconds": 1.7}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S3S2_-+", "d": 10, "pD": 1, "nD": 82, "dimK": 64, "dimJ": 38, "ker_beyond_J": 26, "e1_rows": 603, "e1_nN": 1731, "seconds": 1.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S3S2_+-", "d": 10, "pD": 0, "nD": 180, "dimK": 129, "dimJ": 96, "ker_beyond_J": 33, "e1_rows": 1038, "e1_nN": 1632, "seconds": 3.1}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S3S2_+-", "d": 10, "pD": 1, "nD": 162, "dimK": 107, "dimJ": 83, "ker_beyond_J": 24, "e1_rows": 1092, "e1_nN": 1731, "seconds": 3.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S3S2_--", "d": 10, "pD": 0, "nD": 40, "dimK": 23, "dimJ": 18, "ker_beyond_J": 5, "e1_rows": 498, "e1_nN": 1632, "seconds": 1.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S3S2_--", "d": 10, "pD": 1, "nD": 57, "dimK": 47, "dimJ": 24, "ker_beyond_J": 23, "e1_rows": 432, "e1_nN": 1731, "seconds": 1.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S2S3_++", "d": 10, "pD": 0, "nD": 267, "dimK": 195, "dimJ": 138, "ker_beyond_J": 57, "e1_rows": 1302, "e1_nN": 1632, "seconds": 4.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S2S3_++", "d": 10, "pD": 1, "nD": 222, "dimK": 134, "dimJ": 116, "ker_beyond_J": 18, "e1_rows": 1428, "e1_nN": 1731, "seconds": 4.5}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S2S3_-+", "d": 10, "pD": 0, "nD": 180, "dimK": 129, "dimJ": 96, "ker_beyond_J": 33, "e1_rows": 1038, "e1_nN": 1632, "seconds": 3.2}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S2S3_-+", "d": 10, "pD": 1, "nD": 162, "dimK": 107, "dimJ": 83, "ker_beyond_J": 24, "e1_rows": 1092, "e1_nN": 1731, "seconds": 3.4}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S2S3_+-", "d": 10, "pD": 0, "nD": 71, "dimK": 47, "dimJ": 38, "ker_beyond_J": 9, "e1_rows": 642, "e1_nN": 1632, "seconds": 1.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S2S3_+-", "d": 10, "pD": 1, "nD": 82, "dimK": 64, "dimJ": 38, "ker_beyond_J": 26, "e1_rows": 603, "e1_nN": 1731, "seconds": 1.8}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S2S3_--", "d": 10, "pD": 0, "nD": 40, "dimK": 23, "dimJ": 18, "ker_beyond_J": 5, "e1_rows": 498, "e1_nN": 1632, "seconds": 1.3}
+{"job": "kernels", "family": "e1-kernel-dims", "chi": "S2S3_--", "d": 10, "pD": 1, "nD": 57, "dimK": 47, "dimJ": 24, "ker_beyond_J": 23, "e1_rows": 432, "e1_nN": 1731, "seconds": 1.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 6, "pD": 0, "dimK": 12, "dimJ": 4, "ker_beyond_J": 8, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 6, "pD": 1, "dimK": 4, "dimJ": 2, "ker_beyond_J": 2, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 7, "pD": 0, "dimK": 17, "dimJ": 8, "ker_beyond_J": 9, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 7, "pD": 1, "dimK": 17, "dimJ": 8, "ker_beyond_J": 9, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 8, "pD": 0, "dimK": 41, "dimJ": 20, "ker_beyond_J": 21, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 8, "pD": 1, "dimK": 24, "dimJ": 14, "ker_beyond_J": 10, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 9, "pD": 0, "dimK": 55, "dimJ": 33, "ker_beyond_J": 22, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 9, "pD": 1, "dimK": 55, "dimJ": 33, "ker_beyond_J": 22, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 10, "pD": 0, "dimK": 102, "dimJ": 64, "ker_beyond_J": 38, "seconds": 0.6}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "triv", "d": 10, "pD": 1, "dimK": 74, "dimJ": 51, "ker_beyond_J": 23, "seconds": 0.7}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 2, "dimJ": 1, "ker_beyond_J": 1, "seconds": 0.0}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 1, "dimJ": 0, "ker_beyond_J": 1, "seconds": 0.0}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 7, "dimJ": 2, "ker_beyond_J": 5, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 2, "dimJ": 1, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 10, "dimJ": 6, "ker_beyond_J": 4, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 9, "dimJ": 3, "ker_beyond_J": 6, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 24, "dimJ": 12, "ker_beyond_J": 12, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 13, "dimJ": 8, "ker_beyond_J": 5, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 31, "dimJ": 22, "ker_beyond_J": 9, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "0", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 32, "dimJ": 18, "ker_beyond_J": 14, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 6, "pD": 0, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 6, "pD": 1, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 7, "pD": 0, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 7, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 8, "pD": 0, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 8, "pD": 1, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 9, "pD": 0, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 9, "pD": 1, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 10, "pD": 0, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "triv", "d": 10, "pD": 1, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "5/7", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 6, "pD": 0, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 6, "pD": 1, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 7, "pD": 0, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 7, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 8, "pD": 0, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 8, "pD": 1, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 9, "pD": 0, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 9, "pD": 1, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 10, "pD": 0, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "seconds": 0.8}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "triv", "d": 10, "pD": 1, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "seconds": 0.8}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 6, "pD": 0, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 6, "pD": 1, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 7, "pD": 0, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 7, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 8, "pD": 0, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 8, "pD": 1, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 9, "pD": 0, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 9, "pD": 1, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 10, "pD": 0, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "seconds": 0.8}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "triv", "d": 10, "pD": 1, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "seconds": 0.8}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "2", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 6, "pD": 0, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 6, "pD": 1, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 7, "pD": 0, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 7, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 8, "pD": 0, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 8, "pD": 1, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 9, "pD": 0, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 9, "pD": 1, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 10, "pD": 0, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "triv", "d": 10, "pD": 1, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "seconds": 0.8}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "1/3", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 6, "pD": 0, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 6, "pD": 1, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 7, "pD": 0, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 7, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 8, "pD": 0, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 8, "pD": 1, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 9, "pD": 0, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 9, "pD": 1, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 10, "pD": 0, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "triv", "d": 10, "pD": 1, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-1", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 6, "pD": 0, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 6, "pD": 1, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 7, "pD": 0, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 7, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 8, "pD": 0, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 8, "pD": 1, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 9, "pD": 0, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 9, "pD": 1, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 10, "pD": 0, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "triv", "d": 10, "pD": 1, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "7/5", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 6, "pD": 0, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 6, "pD": 1, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 7, "pD": 0, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 7, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 8, "pD": 0, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 8, "pD": 1, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 9, "pD": 0, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 9, "pD": 1, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 10, "pD": 0, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "triv", "d": 10, "pD": 1, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "3/11", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 6, "pD": 0, "dimK": 4, "dimJ": 4, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 6, "pD": 1, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 7, "pD": 0, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 7, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 8, "pD": 0, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 8, "pD": 1, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 9, "pD": 0, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 9, "pD": 1, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "seconds": 0.4}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 10, "pD": 0, "dimK": 92, "dimJ": 64, "ker_beyond_J": 28, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "triv", "d": 10, "pD": 1, "dimK": 55, "dimJ": 51, "ker_beyond_J": 4, "seconds": 0.9}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 6, "pD": 0, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.0}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 6, "pD": 1, "dimK": 0, "dimJ": 0, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 7, "pD": 0, "dimK": 3, "dimJ": 2, "ker_beyond_J": 1, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 7, "pD": 1, "dimK": 1, "dimJ": 1, "ker_beyond_J": 0, "seconds": 0.1}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 8, "pD": 0, "dimK": 6, "dimJ": 6, "ker_beyond_J": 0, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 8, "pD": 1, "dimK": 4, "dimJ": 3, "ker_beyond_J": 1, "seconds": 0.2}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 9, "pD": 0, "dimK": 19, "dimJ": 12, "ker_beyond_J": 7, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 9, "pD": 1, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "seconds": 0.3}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 10, "pD": 0, "dimK": 26, "dimJ": 22, "ker_beyond_J": 4, "seconds": 0.5}
+{"job": "kernels", "family": "fermat-deformation-kernel", "t": "-5/7", "chi": "sgnX", "d": 10, "pD": 1, "dimK": 28, "dimJ": 18, "ker_beyond_J": 10, "seconds": 0.6}
+ALL DONE

@@ -1,0 +1,15 @@
+import sys, time
+sys.path.insert(0, '/tmp/hodge/results/short-power-presentation')
+from w2_varpro import *
+F, A, q, rec = core.load_instance('short-power-presentation')
+d = int(sys.argv[1]); parD = int(sys.argv[2]); n = int(sys.argv[3])
+mems = J_members(F, A, d, parD)
+fam = ReducedVarPro(F, A, mems)
+u0 = np.random.default_rng(1).standard_normal(fam.dimP)
+f0, g0 = fam.value_and_grad(u0)
+h = 1e-6; du = np.random.default_rng(2).standard_normal(fam.dimP)
+f1, _ = fam.value_and_grad(u0 + h * du); f2, _ = fam.value_and_grad(u0 - h * du)
+print('grad check:', (f1 - f2) / (2 * h), 'vs', g0 @ du, flush=True)
+t0 = time.time()
+cands = fam.search(n_restarts=n, seed=0, verbose=True)
+print('best', cands[0]['rel'], cands[0]['f'], 'time/restart', (time.time()-t0)/n, 'nevals', fam.nevals)

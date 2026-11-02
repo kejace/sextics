@@ -1,0 +1,9 @@
+random-bihom-(7,0)-#0                                                  d=7 served=12/0 A=False A+=False A-=False rank=1054 null=176 50.7s
+random-bihom-(7,0)-#1                                                  d=7 served=12/0 A=False A+=False A-=False rank=1054 null=176 57.5s
+random-bihom-(5,2)-#0                                                  d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 49.6s
+random-bihom-(5,2)-#1                                                  d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 50.2s
+random-bihom-(3,4)-#0                                                  d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 53.7s
+random-bihom-(3,4)-#1                                                  d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 49.3s
+random-bihom-(1,6)-#0                                                  d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 33.6s
+random-bihom-(1,6)-#1                                                  d=7 served=12/0 A=False A+=False A-=False rank=1070 null=160 34.1s
+random-bihom-(8,0)-#0                                                  d=8 served=12/0 A=False A+=False A-=False rank=1508 null=272 92.1s

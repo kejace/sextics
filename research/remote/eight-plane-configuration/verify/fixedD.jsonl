@@ -1,0 +1,1 @@
+{"d": 5, "p": 4294967291, "rows": 10152, "cols": 1446, "nN": 1386, "nQ": 60, "rank": 1317, "rank_aug": 1318, "consistent_mod_p": false, "nullity": 129, "t_build": 514.4, "t_rank": 580.3, "method": "own code fixedD.py dense rank, no compression", "D": "dF/dX0"}

@@ -1,0 +1,10 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[e1-kernel] d=10 k=0 parD=0: #Dmon=255 dimR_(d+6)=72 kernel(total)=183 J_d=159 nontrivial=24
+d=10 parD=0 k=0: nontrivial kernel 24, J_d block 162 gens  [15.9s]
+   rep #0: consistent=False rank=1240 nullity=116 rows=3711 cols=1356 17.35s
+   rep #1: consistent=False rank=1240 nullity=116 rows=3713 cols=1356 48.58s
+   random kernel combo 0: consistent=False rank=1240 nullity=116 49.08s
+   random kernel combo 1: consistent=False rank=1240 nullity=116 39.99s
+   random kernel+J 0: consistent=False rank=1240 nullity=116 28.44s
+   random kernel+J 1: consistent=False rank=1240 nullity=116 57.17s
+A2_DONE

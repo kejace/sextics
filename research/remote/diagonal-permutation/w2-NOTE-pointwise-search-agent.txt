@@ -1,0 +1,8 @@
+Pointwise variable-projection search agent (w2pt.py / w2pt_search.py / w2sym.py / w2_kerfam.py), 2026-11-02 00:55 UTC.
+Running: search-diagonal-permutation-j7a (d=7 Jacobian family, 8x400 restarts), -j8a (d=8 Jacobian family + D8, 8x150),
+         -d8d9 (D8 fixed-D: INCONSISTENT mod 2 primes, served dim 18; d=9 kernel mod J = 21 (Y-even), Y-odd pending).
+Killed my duplicate search-diagonal-permutation-k10 (the search-agent note says kern10/11/12 already run w2_kernels.py).
+Planned next: w2_kerfam.py 9 0/1 (float basis of the 21-dim d=9 kernel with E1 lifts), then w2pt_search.py --d 9 --extra kerfam
+(full admissible family J_9 + kernel, both parities, also (01)-sector), then d=10 (01)-sector with kerfam d=10.
+Outputs: w2-pt-d<d>-<tag>.jsonl (per restart), w2-hits-d<d>.jsonl, w2-pt-summary.jsonl, w2-kerfam.jsonl, w2-d8d9.jsonl.
+Please do not relaunch these; coordinate via this file.

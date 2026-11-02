@@ -1,0 +1,37 @@
+d=8 {'kerA': 337, 'dimJ': 336, 'kermodJ': 1, 'dimS': 1287} 43.7s
+  sector (0, 4) {'dim_S': 118, 'kerA_in_S': 40, 'dimJ': 39, 'ker_mod_J': 1, 'rows': 874, 'cols': 1057, 'seconds': 5.25}
+  kernel element d=8 sector=(0, 4) parity=0 terms=25:
+    X0**6*X1**2/2 - 54*X0**6*Y0*Y1/5 + 3*X0**6*Y1**2/2 - 25*X0**4*X1**2*Y0*Y2/588 + 6*X0**4*Y1**3*Y2 - 882*X0**4*Y2**4/25 + 252*X0**3*X1**5/5 + 5*X0**3*X1**3*Y0*Y1/28 + 5*X0**3*X1**2*X2**3/28 - 6*X0**3*X1*Y0**2*Y1**2 + 5*X0**3*X1*Y0*Y1**3/7 - 25*X0**3*X1*Y0*Y2**3/588 + 5*X0**3*X2**3*Y1**2/14 + 5*X0**2*X1**2*Y0*Y1*Y2**2/84 - 25*X0**2*X1**2*Y1**2*Y2**2/196 - 25*X0**2*X1*X2**3*Y2**2/588 - 2*X0**2*Y0**2*Y1**2*Y2**2 + 5*X0**2*Y0*Y1**3*Y2**2/14 - 5*X0*X1**3*Y1**3*Y2/84 - 25*X0*X1**2*X2**3*Y0*Y2/588 - 63*X0*X1*Y0*Y1*Y2**4/5 - 63*X0*X2**3*Y2**4/5 + X1**8/2 + 3*X1**6*Y1**2/2 + X1*X2**3*Y1**4
+d=9 {'kerA': 876, 'dimJ': 756, 'kermodJ': 120, 'dimS': 2002} 73.6s
+  sector (0, 0) {'dim_S': 174, 'kerA_in_S': 96, 'dimJ': 77, 'ker_mod_J': 19, 'rows': 1150, 'cols': 1550, 'seconds': 4.18}
+  sector (0, 1) {'dim_S': 151, 'kerA_in_S': 82, 'dimJ': 62, 'ker_mod_J': 20, 'rows': 1093, 'cols': 1466, 'seconds': 6.95}
+  sector (0, 2) {'dim_S': 154, 'kerA_in_S': 82, 'dimJ': 65, 'ker_mod_J': 17, 'rows': 1087, 'cols': 1460, 'seconds': 10.35}
+  sector (0, 3) {'dim_S': 173, 'kerA_in_S': 95, 'dimJ': 76, 'ker_mod_J': 19, 'rows': 1153, 'cols': 1554, 'seconds': 8.84}
+  sector (0, 4) {'dim_S': 156, 'kerA_in_S': 83, 'dimJ': 67, 'ker_mod_J': 16, 'rows': 1084, 'cols': 1458, 'seconds': 7.75}
+  sector (0, 5) {'dim_S': 153, 'kerA_in_S': 83, 'dimJ': 64, 'ker_mod_J': 19, 'rows': 1090, 'cols': 1464, 'seconds': 7.83}
+  sector (2, 5) {'dim_S': 118, 'kerA_in_S': 40, 'dimJ': 39, 'ker_mod_J': 1, 'rows': 874, 'cols': 1057, 'seconds': 2.96}
+  sector (4, 0) {'dim_S': 63, 'kerA_in_S': 24, 'dimJ': 21, 'ker_mod_J': 3, 'rows': 616, 'cols': 812, 'seconds': 1.29}
+  sector (4, 1) {'dim_S': 74, 'kerA_in_S': 30, 'dimJ': 29, 'ker_mod_J': 1, 'rows': 664, 'cols': 877, 'seconds': 1.25}
+  sector (4, 2) {'dim_S': 65, 'kerA_in_S': 25, 'dimJ': 22, 'ker_mod_J': 3, 'rows': 613, 'cols': 812, 'seconds': 1.21}
+  sector (4, 4) {'dim_S': 77, 'kerA_in_S': 33, 'dimJ': 31, 'ker_mod_J': 2, 'rows': 657, 'cols': 876, 'seconds': 2.36}
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  rational reconstruction failed in sector (0, 0)
+  kernel element d=9 sector=(0, 0) parity=1 terms=33:
+    5*X0**6*X1**2*Y0/21 + 7*X0**6*X1**2*Y1/3 - 26*X0**6*Y0*Y1**2/5 + X0**6*Y1**3 + 1764*X0**6*Y2**3/25 - 25*X0**4*X1**2*Y0*Y1*Y2/294 + 25*X0**4*X1*X2**3*Y2/882 - 4*X0**4*Y0**2*Y1**2*Y2 + 6*X0**4*Y1**4*Y2 - 588*X0**4*Y1*Y2**4/25 + 252*X0**3*X1**5*Y1/5 + 25*X0**3*X1**3*Y0**2*Y1/441 + 5*X0**3*X1**3*Y0*Y1**2/6 + 5*X0**3*X1**2*X2**3*Y0/147 + 5*X0**3*X1**2*X2**3*Y1/6 - 4*X0**3*X1*Y0**2*Y1**3 - 32*X0**3*X1*Y0*Y1**4/21 + 111007*X0**3*X1*Y0*Y1*Y2**3/4410 + 5*X0**3*X2**3*Y1**3/21 + 126*X0**3*X2**3*Y2**3/5 + 25*X0**2*X1**2*Y0**2*Y1*Y2**2/441 + 65*X0**2*X1**2*Y0*Y1**2*Y2**2/126 - 125*X0**2*X1**2*Y1**3*Y2**2/882 - 5*X0**2*X1*X2**3*Y0*Y2**2/63 - 4*X0**2*Y0**2*Y1**3*Y2**2/3 + 5*X0**2*Y0*Y1**4*Y2**2/21 - 10*X0*X1**7*Y2/21 + 25*X0*X1**3*Y1**4*Y2/126 - 42*X0*X1*Y0*Y1**2*Y2**4/5 + 42*X0*X1*Y1**3*Y2**4/5 - 5*X1**8*Y0/21 + X1**8*Y1/3 + X1**6*Y1**3
+  kernel element d=9 sector=(0, 0) parity=1 terms=45:
+    -2*X0**7*X1*Y2/3 + 2*X0**6*X1**2*Y0 + 196*X0**6*X1**2*Y1/15 - 36*X0**6*Y0**2*Y1/5 - 15563*X0**6*Y0*Y1**2/525 + 28*X0**6*Y1**3/5 + 49392*X0**6*Y2**3/125 - 25*X0**5*X1*Y0*Y2**2/882 - 95*X0**4*X1**2*Y0*Y1*Y2/126 - 5*X0**4*X1*X2**3*Y2/63 - 112*X0**4*Y0**2*Y1**2*Y2/5 + 89*X0**4*Y0*Y1**3*Y2/21 - 519241*X0**4*Y0*Y2**4/22050 + 3578*X0**4*Y1**4*Y2/105 - 16464*X0**4*Y1*Y2**4/125 + 168*X0**3*X1**5*Y0/5 + 7156*X0**3*X1**5*Y1/25 + 5*X0**3*X1**3*Y0**2*Y1/9 + 14*X0**3*X1**3*Y0*Y1**2/3 + 3*X0**3*X1**2*X2**3*Y0/7 + 14*X0**3*X1**2*X2**3*Y1/3 - 4*X0**3*X1*Y0**3*Y1**2 - 2377*X0**3*X1*Y0**2*Y1**3/105 - 46*X0**3*X1*Y0*Y1**4/5 + 73963*X0**3*X1*Y0*Y1*Y2**3/525 - 25*X0**3*X1*Y1**2*Y2**3/294 + 4*X0**3*X2**3*Y1**3/3 + 3111071*X0**3*X2**3*Y2**3/22050 + 55*X0**2*X1**2*Y0**2*Y1*Y2**2/126 + 26*X0**2*X1**2*Y0*Y1**2*Y2**2/9 - 95*X0**2*X1**2*Y1**3*Y2**2/126 - 139*X0**2*X1*X2**3*Y0*Y2**2/294 - 4*X0**2*Y0**3*Y1**2*Y2**2/3 - 809*X0**2*Y0**2*Y1**3*Y2**2/105 + 4*X0**2*Y0*Y1**4*Y2**2/3 - 11*X0*X1**7*Y2/3 + 2*X0*X1**5*Y1**2*Y2 + 10*X0*X1**3*Y1**4*Y2/9 - 42*X0*X1*Y0**2*Y1*Y2**4/5 - 1176*X0*X1*Y0*Y1**2*Y2**4/25 + 1176*X0*X1*Y1**3*Y2**4/25 - 42*X0*X2**3*Y0*Y2**4/5 - X1**8*Y0 + 28*X1**8*Y1/15 + X1**6*Y0*Y1**2

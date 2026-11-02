@@ -1,0 +1,1 @@
+bash: line 1: 1186639 Killed                  SKIP_FORMS=1 python3 relax_run.py 8 1000003 32 > relax8.out 2> relax8.err

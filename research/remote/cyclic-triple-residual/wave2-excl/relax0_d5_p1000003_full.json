@@ -1,0 +1,142 @@
+{
+ "d": 5,
+ "p": 1000003,
+ "mode": "full",
+ "sector": null,
+ "n_theta": 6,
+ "n_quadrics": 71,
+ "gb_size": 21,
+ "gb_linear": 0,
+ "n_forms": 6,
+ "n_empty": 6,
+ "forms": [
+  {
+   "k": 0,
+   "form": "1*t0",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 1,
+   "form": "1*t1",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 2,
+   "form": "1*t2",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 3,
+   "form": "1*t3",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 4,
+   "form": "1*t4",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 5,
+   "form": "1*t5",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  }
+ ],
+ "seconds_forms": 0.1,
+ "sectors": {
+  "(0, 0)": {
+   "mons": 172,
+   "rank_W": 32,
+   "n_functionals": 140,
+   "n_vpairs": 2,
+   "n_quadrics": 14
+  },
+  "(0, 1)": {
+   "mons": 169,
+   "rank_W": 31,
+   "n_functionals": 138,
+   "n_vpairs": 3,
+   "n_quadrics": 12
+  },
+  "(0, 2)": {
+   "mons": 188,
+   "rank_W": 33,
+   "n_functionals": 155,
+   "n_vpairs": 3,
+   "n_quadrics": 10
+  },
+  "(0, 3)": {
+   "mons": 159,
+   "rank_W": 34,
+   "n_functionals": 125,
+   "n_vpairs": 2,
+   "n_quadrics": 5
+  },
+  "(0, 4)": {
+   "mons": 138,
+   "rank_W": 35,
+   "n_functionals": 103,
+   "n_vpairs": 1,
+   "n_quadrics": 1
+  },
+  "(0, 5)": {
+   "mons": 175,
+   "rank_W": 35,
+   "n_functionals": 140,
+   "n_vpairs": 4,
+   "n_quadrics": 13
+  },
+  "(2, 1)": {
+   "mons": 100,
+   "rank_W": 10,
+   "n_functionals": 90,
+   "n_vpairs": 1,
+   "n_quadrics": 4
+  },
+  "(4, 0)": {
+   "mons": 82,
+   "rank_W": 21,
+   "n_functionals": 61,
+   "n_vpairs": 2,
+   "n_quadrics": 6
+  },
+  "(4, 1)": {
+   "mons": 79,
+   "rank_W": 17,
+   "n_functionals": 62,
+   "n_vpairs": 1,
+   "n_quadrics": 4
+  },
+  "(4, 2)": {
+   "mons": 73,
+   "rank_W": 18,
+   "n_functionals": 55,
+   "n_vpairs": 1,
+   "n_quadrics": 1
+  },
+  "(4, 3)": {
+   "mons": 78,
+   "rank_W": 23,
+   "n_functionals": 55,
+   "n_vpairs": 1,
+   "n_quadrics": 1
+  }
+ }
+}

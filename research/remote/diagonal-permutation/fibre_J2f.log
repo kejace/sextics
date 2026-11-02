@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/tmp/hodge/results/diagonal-permutation/w2c_fibre_tests.py", line 68, in <module>
+    run('fibre_reflection_chart%d.ms'%ch, unknowns, eqs, 'J2f-fibre-hidden-reflection chart v%d=1'%ch)
+  File "/tmp/hodge/results/diagonal-permutation/w2c_fibre_tests.py", line 36, in run
+    r = subprocess.run(['msolve','-v','1','-t',str(nthreads),'-f',fname,'-o',fname.replace('.ms','.out')], capture_output=True, text=True, timeout=7000)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['msolve', '-v', '1', '-t', '4', '-f', 'fibre_reflection_chart0.ms', '-o', 'fibre_reflection_chart0.out']' timed out after 7000 seconds

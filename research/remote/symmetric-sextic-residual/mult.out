@@ -1,0 +1,61 @@
+d par | triv.triv sign.sign triv.sign sign.triv std.triv triv.std std.std std.sign sign.std | dim
+ 0 0 |    1    0    0    0    0    0    0    0    0 | 1
+ 0 1 |    0    0    0    0    0    0    0    0    0 | 0
+ 1 0 |    1    0    0    0    1    0    0    0    0 | 3
+ 1 1 |    1    0    0    0    0    1    0    0    0 | 3
+ 2 0 |    4    0    0    0    2    2    0    0    0 | 12
+ 2 1 |    1    0    0    0    1    1    1    0    0 | 9
+ 3 0 |    5    0    0    1    5    2    2    0    0 | 28
+ 3 1 |    5    0    1    0    2    5    2    0    0 | 28
+ 4 0 |   12    0    1    1    9    9    4    0    0 | 66
+ 4 1 |    6    0    1    1    6    6    6    1    1 | 60
+ 5 0 |   14    0    1    4   16   11   11    1    2 | 123
+ 5 1 |   14    0    4    1   11   16   11    2    1 | 123
+ 6 0 |   26    0    4    4   24   24   20    2    2 | 218
+ 6 1 |   17    1    5    5   19   19   21    5    5 | 208
+ 7 0 |   29    1    5   10   35   29   33    5    9 | 333
+ 7 1 |   29    1   10    5   29   35   33    9    5 | 333
+ 8 0 |   44    1    9    9   47   47   49    9    9 | 483
+ 8 1 |   32    4   12   12   40   40   48   14   14 | 468
+ 9 0 |   46    4   11   18   58   51   65   13   20 | 623
+ 9 1 |   46    4   18   11   51   58   65   20   13 | 623
+10 0 |   60    4   15   15   69   69   80   18   18 | 762
+10 1 |   46    8   19   19   60   60   78   25   25 | 744
+11 0 |   57    7   15   24   75   67   89   21   29 | 843
+11 1 |   57    7   24   15   67   75   89   29   21 | 843
+12 0 |   67    6   18   18   78   78   94   22   22 | 885
+12 1 |   52   10   22   22   68   68   92   30   30 | 866
+13 0 |   57    7   15   24   75   67   89   21   29 | 843
+13 1 |   57    7   24   15   67   75   89   29   21 | 843
+14 0 |   60    4   15   15   69   69   80   18   18 | 762
+14 1 |   46    8   19   19   60   60   78   25   25 | 744
+15 0 |   46    4   11   18   58   51   65   13   20 | 623
+15 1 |   46    4   18   11   51   58   65   20   13 | 623
+16 0 |   44    1    9    9   47   47   49    9    9 | 483
+16 1 |   32    4   12   12   40   40   48   14   14 | 468
+17 0 |   29    1    5   10   35   29   33    5    9 | 333
+17 1 |   29    1   10    5   29   35   33    9    5 | 333
+18 0 |   26    0    4    4   24   24   20    2    2 | 218
+18 1 |   17    1    5    5   19   19   21    5    5 | 208
+19 0 |   14    0    1    4   16   11   11    1    2 | 123
+19 1 |   14    0    4    1   11   16   11    2    1 | 123
+20 0 |   12    0    1    1    9    9    4    0    0 | 66
+20 1 |    6    0    1    1    6    6    6    1    1 | 60
+21 0 |    5    0    0    1    5    2    2    0    0 | 28
+21 1 |    5    0    1    0    2    5    2    0    0 | 28
+22 0 |    4    0    0    0    2    2    0    0    0 | 12
+22 1 |    1    0    0    0    1    1    1    0    0 | 9
+23 0 |    1    0    0    0    1    0    0    0    0 | 3
+23 1 |    1    0    0    0    0    1    0    0    0 | 3
+24 0 |    1    0    0    0    0    0    0    0    0 | 1
+24 1 |    0    0    0    0    0    0    0    0    0 | 0
+
+forced kernel of [A] on R_d^{par} (per irrep, multiplicity excess m_d - m_{d+6}):
+  d=9 par=0: {'signxtriv': 7, 'signxstd': 7, 'stdxtriv': 7}  total forced dim 35
+  d=9 par=1: {'trivxsign': 7, 'trivxstd': 7, 'stdxsign': 7}  total forced dim 35
+  d=10 par=0: {'trivxtriv': 28, 'trivxsign': 3, 'trivxstd': 29, 'signxtriv': 3, 'signxstd': 4, 'stdxtriv': 29, 'stdxsign': 4, 'stdxstd': 32}  total forced dim 294
+  d=10 par=1: {'trivxtriv': 2, 'trivxsign': 10, 'trivxstd': 13, 'signxtriv': 10, 'signxsign': 7, 'signxstd': 16, 'stdxtriv': 13, 'stdxsign': 16, 'stdxstd': 29}  total forced dim 261
+  d=11 par=0: {'trivxtriv': 28, 'trivxsign': 5, 'trivxstd': 32, 'signxtriv': 19, 'signxsign': 6, 'signxstd': 24, 'stdxtriv': 46, 'stdxsign': 12, 'stdxstd': 56}  total forced dim 510
+  d=11 par=1: {'trivxtriv': 28, 'trivxsign': 19, 'trivxstd': 46, 'signxtriv': 5, 'signxsign': 6, 'signxstd': 12, 'stdxtriv': 32, 'stdxsign': 24, 'stdxstd': 56}  total forced dim 510
+  d=12 par=0: {'trivxtriv': 50, 'trivxsign': 13, 'trivxstd': 59, 'signxtriv': 13, 'signxsign': 5, 'signxstd': 17, 'stdxtriv': 59, 'stdxsign': 17, 'stdxstd': 73}  total forced dim 677
+  d=12 par=1: {'trivxtriv': 26, 'trivxsign': 18, 'trivxstd': 44, 'signxtriv': 18, 'signxsign': 10, 'signxstd': 28, 'stdxtriv': 44, 'stdxsign': 28, 'stdxstd': 72}  total forced dim 648

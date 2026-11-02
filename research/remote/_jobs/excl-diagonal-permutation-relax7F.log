@@ -1,0 +1,21 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[Red n=14 par=0 sigma=None p=1000000007] C=5832 gens=6006 rank(J)=5070 dim R=762 (67.1s)
+[Red n=14 par=1 sigma=None p=1000000007] C=5796 gens=6006 rank(J)=5052 dim R=744 (60.4s)
+[Relaxation d=7 eps=[0] D8=False] unknowns=60 pairs=1830 equations=744 (266.3s)
+{'d': 7, 'sector': 'e', 'with_D8': False, 'prime': 1000000007, 'unknowns': 60, 'pair_monomials': 1830, 'raw_equations': 744, 'independent_equations': 480, 'good_reduction_2d': True, 'build_seconds': 268.8, 'names_head': ['w0_000002_e0', 'w0_000011_e0', 'w0_000020_e0', 'w0_000101_e0', 'w0_000110_e0'], 'all_quadratic_monomials_in_I': False}
+running msolve -f /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d7e.ms -o /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d7e.gb -t 4 -g 2 -v 1
+DONE msolve failed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[Red n=14 par=0 sigma=None p=1000000007] C=5832 gens=6006 rank(J)=5070 dim R=762 (76.0s)
+[Red n=14 par=1 sigma=None p=1000000007] C=5796 gens=6006 rank(J)=5052 dim R=744 (76.7s)
+[Relaxation d=7 eps=[1] D8=False] unknowns=60 pairs=1830 equations=744 (345.3s)
+{'d': 7, 'sector': 'o', 'with_D8': False, 'prime': 1000000007, 'unknowns': 60, 'pair_monomials': 1830, 'raw_equations': 744, 'independent_equations': 480, 'good_reduction_2d': True, 'build_seconds': 348.1, 'names_head': ['w0_001001_e1', 'w0_001010_e1', 'w0_001100_e1', 'w0_010001_e1', 'w0_010010_e1'], 'all_quadratic_monomials_in_I': False}
+running msolve -f /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d7o.ms -o /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d7o.gb -t 4 -g 2 -v 1
+DONE msolve failed
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+[Red n=14 par=0 sigma=None p=1000000007] C=5832 gens=6006 rank(J)=5070 dim R=762 (60.6s)
+[Red n=14 par=1 sigma=None p=1000000007] C=5796 gens=6006 rank(J)=5052 dim R=744 (59.3s)
+[Relaxation d=7 eps=[0, 1] D8=False] unknowns=120 pairs=7260 equations=1506 (1190.4s)
+{'d': 7, 'sector': 'm', 'with_D8': False, 'prime': 1000000007, 'unknowns': 120, 'pair_monomials': 7260, 'raw_equations': 1506, 'independent_equations': 950, 'good_reduction_2d': True, 'build_seconds': 1211.7, 'names_head': ['w0_000002_e0', 'w0_000011_e0', 'w0_000020_e0', 'w0_000101_e0', 'w0_000110_e0'], 'all_quadratic_monomials_in_I': False}
+running msolve -f /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d7m.ms -o /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d7m.gb -t 4 -g 2 -v 1
+DONE msolve failed

@@ -1,0 +1,4 @@
+[relax d=7] params=126 (a 126) E2 monomials=9181 built 2.1s
+params 126 gauge-fixed 6 remaining 120
+quadratic monomials after gauge: 7260
+wrote deg7_nf.sing 8501 KB 3.6s

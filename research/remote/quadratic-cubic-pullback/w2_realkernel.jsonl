@@ -1,0 +1,1 @@
+{"lane": "quadratic-cubic-pullback", "item": "realkernel", "d": 10, "dimK": 1044, "dimJ": 750, "dim_nonJ": 294, "s_rank_minus1": 0.5627755626592854, "s_rank": 5.943316115573844e-14, "s_min": 1.0382627658881142e-14, "lift_relres_max": 1.472284941384562e-14, "seconds": 660.2, "ts": "2026-11-02T00:42:33"}

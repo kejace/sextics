@@ -1,0 +1,7 @@
+[closure d=6 par=0] n=18 spurious m=1 quotient dim nq=17; rJ = dim R_12^odd = 866 (J rank 2214); reducer 20.5s
+[closure] 153 pair products + normal forms in 1.2s
+{"lane": "quadratic-cubic-pullback", "item": "closure", "d": 6, "parity": 0, "n_w": 18, "spurious": 1, "nq": 17, "rJ": 866, "deg2_forms_rank": 135, "deg2_dim": 153, "closed_at_k": null, "p": 2147483647, "fermat_control": false}
+[closure] Macaulay degree 3: 2295 x 969 (full column rank needed)
+{"lane": "quadratic-cubic-pullback", "item": "closure", "d": 6, "parity": 0, "n_w": 18, "spurious": 1, "nq": 17, "rJ": 866, "deg2_forms_rank": 135, "deg2_dim": 153, "closed_at_k": null, "p": 2147483647, "fermat_control": false, "deg3_rank": 967, "deg3_dim": 969, "t_deg3": 2.5}
+[closure] Macaulay degree 4: 20655 x 4845 (full column rank needed)
+{"lane": "quadratic-cubic-pullback", "item": "closure", "d": 6, "parity": 0, "n_w": 18, "spurious": 1, "nq": 17, "rJ": 866, "deg2_forms_rank": 135, "deg2_dim": 153, "closed_at_k": null, "p": 2147483647, "fermat_control": false, "deg3_rank": 967, "deg3_dim": 969, "t_deg3": 2.5, "deg4_rank": 4845, "deg4_dim": 4845, "t_deg4": 265.3}

@@ -1,0 +1,177 @@
+[hess d=5 mixed p=1073741827] nvar=6 gauge=0 kept=6; target R_4 dims (66, 60); 120 nonzero quadratic equations (0.0s)
+{"exp": "hessian_relaxation", "d": 5, "mode": "mixed", "p": 1073741827, "nvar": 6, "gauge_dim": 0, "kept": 6, "target_deg": 4, "R_target_dims": [66, 60], "J_rank_attained": true, "n_equations": 120, "generic_certificate_degree": 2, "seconds_build": 0.0, "msolve_file": "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/hess_d5_mixed_p1073741827.ms", "macaulay_delta": 2, "macaulay_cols": 21, "macaulay_rows": 120, "macaulay_rank": 21, "macaulay_full_column_rank": true, "seconds_macaulay": 0.0, "conclusion": "projective zero set of the Hessian relaxation is EMPTY (rigorous over Q): no degree-5 polar denominator in mode mixed passes E2", "seconds": 0.0}
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/hess.py", line 11, in <module>
+    from qx import *
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/qx.py", line 6, in <module>
+    from hodge import core, fixed_d, jacobian
+  File "/home/kejace/devel/sextics-work/hodge/fixed_d.py", line 281, in <module>
+    import numpy as np
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__init__.py", line 109, in <module>
+    from numpy.__config__ import show_config
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/__init__.py", line 111, in <module>
+    from . import einsumfunc, fromnumeric, function_base, getlimits, numeric, shape_base
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/einsumfunc.py", line 10, in <module>
+    from numpy._core.numeric import asanyarray, reshape
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/numeric.py", line 13, in <module>
+    from . import multiarray, numerictypes, numerictypes as nt, overrides, shape_base, umath
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/shape_base.py", line 8, in <module>
+    from . import fromnumeric as _from_nx, numeric as _nx, overrides
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/fromnumeric.py", line 11, in <module>
+    from . import _methods, multiarray as mu, numerictypes as nt, overrides, umath as um
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/_methods.py", line 7, in <module>
+    import pickle
+  File "/usr/lib/python3.12/pickle.py", line 33, in <module>
+    from struct import pack, unpack
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/struct.py", line 10, in <module>
+    data = json.load(open(sys.argv[1])); p = data['p']; d = data['d']; parD = data['parD']
+                     ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '6'
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/hess.py", line 11, in <module>
+    from qx import *
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/qx.py", line 6, in <module>
+    from hodge import core, fixed_d, jacobian
+  File "/home/kejace/devel/sextics-work/hodge/fixed_d.py", line 281, in <module>
+    import numpy as np
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__init__.py", line 109, in <module>
+    from numpy.__config__ import show_config
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/__init__.py", line 111, in <module>
+    from . import einsumfunc, fromnumeric, function_base, getlimits, numeric, shape_base
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/einsumfunc.py", line 10, in <module>
+    from numpy._core.numeric import asanyarray, reshape
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/numeric.py", line 13, in <module>
+    from . import multiarray, numerictypes, numerictypes as nt, overrides, shape_base, umath
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/shape_base.py", line 8, in <module>
+    from . import fromnumeric as _from_nx, numeric as _nx, overrides
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/fromnumeric.py", line 11, in <module>
+    from . import _methods, multiarray as mu, numerictypes as nt, overrides, umath as um
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/_methods.py", line 7, in <module>
+    import pickle
+  File "/usr/lib/python3.12/pickle.py", line 33, in <module>
+    from struct import pack, unpack
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/struct.py", line 10, in <module>
+    data = json.load(open(sys.argv[1])); p = data['p']; d = data['d']; parD = data['parD']
+                     ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '6'
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/hess.py", line 11, in <module>
+    from qx import *
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/qx.py", line 6, in <module>
+    from hodge import core, fixed_d, jacobian
+  File "/home/kejace/devel/sextics-work/hodge/fixed_d.py", line 281, in <module>
+    import numpy as np
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__init__.py", line 109, in <module>
+    from numpy.__config__ import show_config
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/__init__.py", line 111, in <module>
+    from . import einsumfunc, fromnumeric, function_base, getlimits, numeric, shape_base
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/einsumfunc.py", line 10, in <module>
+    from numpy._core.numeric import asanyarray, reshape
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/numeric.py", line 13, in <module>
+    from . import multiarray, numerictypes, numerictypes as nt, overrides, shape_base, umath
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/shape_base.py", line 8, in <module>
+    from . import fromnumeric as _from_nx, numeric as _nx, overrides
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/fromnumeric.py", line 11, in <module>
+    from . import _methods, multiarray as mu, numerictypes as nt, overrides, umath as um
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/_methods.py", line 7, in <module>
+    import pickle
+  File "/usr/lib/python3.12/pickle.py", line 33, in <module>
+    from struct import pack, unpack
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/struct.py", line 10, in <module>
+    data = json.load(open(sys.argv[1])); p = data['p']; d = data['d']; parD = data['parD']
+                     ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '6'
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/hess.py", line 11, in <module>
+    from qx import *
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/qx.py", line 6, in <module>
+    from hodge import core, fixed_d, jacobian
+  File "/home/kejace/devel/sextics-work/hodge/fixed_d.py", line 281, in <module>
+    import numpy as np
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__init__.py", line 109, in <module>
+    from numpy.__config__ import show_config
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/__init__.py", line 111, in <module>
+    from . import einsumfunc, fromnumeric, function_base, getlimits, numeric, shape_base
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/einsumfunc.py", line 10, in <module>
+    from numpy._core.numeric import asanyarray, reshape
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/numeric.py", line 13, in <module>
+    from . import multiarray, numerictypes, numerictypes as nt, overrides, shape_base, umath
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/shape_base.py", line 8, in <module>
+    from . import fromnumeric as _from_nx, numeric as _nx, overrides
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/fromnumeric.py", line 11, in <module>
+    from . import _methods, multiarray as mu, numerictypes as nt, overrides, umath as um
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/_methods.py", line 7, in <module>
+    import pickle
+  File "/usr/lib/python3.12/pickle.py", line 33, in <module>
+    from struct import pack, unpack
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/struct.py", line 10, in <module>
+    data = json.load(open(sys.argv[1])); p = data['p']; d = data['d']; parD = data['parD']
+                     ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '7'
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/hess.py", line 11, in <module>
+    from qx import *
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/qx.py", line 6, in <module>
+    from hodge import core, fixed_d, jacobian
+  File "/home/kejace/devel/sextics-work/hodge/fixed_d.py", line 281, in <module>
+    import numpy as np
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__init__.py", line 109, in <module>
+    from numpy.__config__ import show_config
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/__init__.py", line 111, in <module>
+    from . import einsumfunc, fromnumeric, function_base, getlimits, numeric, shape_base
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/einsumfunc.py", line 10, in <module>
+    from numpy._core.numeric import asanyarray, reshape
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/numeric.py", line 13, in <module>
+    from . import multiarray, numerictypes, numerictypes as nt, overrides, shape_base, umath
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/shape_base.py", line 8, in <module>
+    from . import fromnumeric as _from_nx, numeric as _nx, overrides
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/fromnumeric.py", line 11, in <module>
+    from . import _methods, multiarray as mu, numerictypes as nt, overrides, umath as um
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/_methods.py", line 7, in <module>
+    import pickle
+  File "/usr/lib/python3.12/pickle.py", line 33, in <module>
+    from struct import pack, unpack
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/struct.py", line 10, in <module>
+    data = json.load(open(sys.argv[1])); p = data['p']; d = data['d']; parD = data['parD']
+                     ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '7'
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/hess.py", line 11, in <module>
+    from qx import *
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/qx.py", line 6, in <module>
+    from hodge import core, fixed_d, jacobian
+  File "/home/kejace/devel/sextics-work/hodge/fixed_d.py", line 281, in <module>
+    import numpy as np
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__init__.py", line 109, in <module>
+    from numpy.__config__ import show_config
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/__init__.py", line 111, in <module>
+    from . import einsumfunc, fromnumeric, function_base, getlimits, numeric, shape_base
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/einsumfunc.py", line 10, in <module>
+    from numpy._core.numeric import asanyarray, reshape
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/numeric.py", line 13, in <module>
+    from . import multiarray, numerictypes, numerictypes as nt, overrides, shape_base, umath
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/shape_base.py", line 8, in <module>
+    from . import fromnumeric as _from_nx, numeric as _nx, overrides
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/fromnumeric.py", line 11, in <module>
+    from . import _methods, multiarray as mu, numerictypes as nt, overrides, umath as um
+  File "/home/kejace/.local/lib/python3.12/site-packages/numpy/_core/_methods.py", line 7, in <module>
+    import pickle
+  File "/usr/lib/python3.12/pickle.py", line 33, in <module>
+    from struct import pack, unpack
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/struct.py", line 10, in <module>
+    data = json.load(open(sys.argv[1])); p = data['p']; d = data['d']; parD = data['parD']
+                     ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '7'
+CHAIN_B_DONE

@@ -1,0 +1,11 @@
+{"exp": "ann6", "p": 999999937, "D": "p2X", "deg_D": 2, "D_parity": 0, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 0.3}
+{"exp": "ann6", "p": 999999937, "D": "pXY", "deg_D": 2, "D_parity": 1, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 0.3}
+{"exp": "ann6", "p": 999999937, "D": "VdmX", "deg_D": 3, "D_parity": 0, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 0.7}
+{"exp": "ann6", "p": 999999937, "D": "Hesse", "deg_D": 3, "D_parity": 0, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 0.7}
+{"exp": "ann6", "p": 999999937, "D": "sX2Y2", "deg_D": 4, "D_parity": 0, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 1.9}
+{"exp": "ann6", "p": 999999937, "D": "A", "deg_D": 6, "D_parity": 1, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 22.0}
+{"exp": "ann6", "p": 999999937, "D": "sumT", "deg_D": 6, "D_parity": 1, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 17.9}
+{"exp": "ann6", "p": 999999937, "D": "B2", "deg_D": 6, "D_parity": 1, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 22.1}
+{"exp": "ann6", "p": 999999937, "D": "p6X", "deg_D": 6, "D_parity": 0, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 20.9}
+{"exp": "ann6", "p": 999999937, "D": "H(d0,d0)=F_00 [D=F_X0]", "deg_D": 4, "D_parity": 0, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 2.1}
+{"exp": "ann6", "p": 999999937, "D": "H(EX,EX) [D=X-Euler(F)]", "deg_D": 6, "D_parity": 0, "dim_R6_minus": 208, "good_reduction_6e": true, "dim_Ann6": 0, "seconds": 18.8}

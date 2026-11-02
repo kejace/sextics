@@ -1,0 +1,15 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+randomJ_d5_par0_r0 {'d': 5, 'e1': True, 'consistent': False, 'rank': 1318, 'nullity': 128, 'rows': 10152, 'cols': 1446, 'seconds': 13.24}
+randomJ_d5_par1_r0 {'d': 5, 'e1': True, 'consistent': False, 'rank': 1318, 'nullity': 128, 'rows': 10152, 'cols': 1446, 'seconds': 13.07}
+randomJ_d5_par0_r1 {'d': 5, 'e1': True, 'consistent': False, 'rank': 1318, 'nullity': 128, 'rows': 10152, 'cols': 1446, 'seconds': 13.01}
+randomJ_d5_par1_r1 {'d': 5, 'e1': True, 'consistent': False, 'rank': 1318, 'nullity': 128, 'rows': 10152, 'cols': 1446, 'seconds': 12.91}
+randomJ_d6_par0_r0 {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 50.1}
+randomJ_d6_par1_r0 {'d': 6, 'e1': True, 'consistent': False, 'rank': 2350, 'nullity': 252, 'rows': 16797, 'cols': 2602, 'seconds': 49.76}
+randomJ_d6_par0_r1 {'d': 6, 'e1': True, 'consistent': False, 'rank': 2359, 'nullity': 243, 'rows': 16797, 'cols': 2602, 'seconds': 49.27}
+randomJ_d6_par1_r1 {'d': 6, 'e1': True, 'consistent': False, 'rank': 2350, 'nullity': 252, 'rows': 16797, 'cols': 2602, 'seconds': 49.66}
+randomJ_d7_par0_r0 {'d': 7, 'e1': True, 'consistent': False, 'rank': 4042, 'nullity': 455, 'rows': 26532, 'cols': 4497, 'seconds': 174.79}
+randomJ_d7_par1_r0 {'d': 7, 'e1': True, 'consistent': False, 'rank': 4042, 'nullity': 455, 'rows': 26532, 'cols': 4497, 'seconds': 175.81}
+randomJ_d7_par0_r1 {'d': 7, 'e1': True, 'consistent': False, 'rank': 4042, 'nullity': 455, 'rows': 26532, 'cols': 4497, 'seconds': 175.77}
+randomJ_d7_par1_r1 {'d': 7, 'e1': True, 'consistent': False, 'rank': 4042, 'nullity': 455, 'rows': 26532, 'cols': 4497, 'seconds': 176.33}
+randomJ_d8_par0_r0 {'d': 8, 'e1': True, 'consistent': False, 'rank': 6703, 'nullity': 794, 'rows': 40326, 'cols': 7497, 'seconds': 582.96}
+randomJ_d8_par1_r0 {'d': 8, 'e1': True, 'consistent': False, 'rank': 6691, 'nullity': 806, 'rows': 40326, 'cols': 7497, 'seconds': 747.2}

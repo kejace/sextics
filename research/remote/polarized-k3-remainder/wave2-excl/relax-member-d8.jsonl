@@ -1,0 +1,3 @@
+{"label": "fU*U0sq", "d": 8, "target": "k3", "prime": 65521, "B_terms": 14, "B_chars": [0], "blocks": [{"char": 0, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "aug_rank_p": 3237, "in_L_p": true}], "in_L_p": true, "seconds": 339.3}
+{"label": "fU*U0V0", "d": 8, "target": "k3", "prime": 65521, "B_terms": 14, "B_chars": [2], "blocks": [{"char": 2, "rows": 3465, "L_cols": 10188, "L_rank_p": 3240, "aug_rank_p": 3240, "in_L_p": true}], "in_L_p": true, "seconds": 406.4}
+{"label": "fU*V0sq", "d": 8, "target": "k3", "prime": 65521, "B_terms": 14, "B_chars": [4], "blocks": [{"char": 4, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "aug_rank_p": 3237, "in_L_p": true}], "in_L_p": true, "seconds": 147.2}

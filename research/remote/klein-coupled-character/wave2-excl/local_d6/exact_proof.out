@@ -1,0 +1,8 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+even: diagonal unknown indices [3, 5, 10, 12, 14] off-diagonal [0, 1, 2, 4, 6, 7, 8, 9, 11, 13, 15, 16]
+[even] radical membership: gb_size 201 dim 2 | u0 power 2 in I | u1 power 2 in I | u2 power 2 in I | u4 power 2 in I | u6 power 2 in I | u7 power 2 in I | u8 power 2 in I | u9 power 2 in I | u11 power 2 in I | u13 power 2 in I | u15 power 2 in I | u16 power 2 in I  [0.2s]
+mixed: n 35 diag [9, 14, 19, 24, 29] off count 30
+[mixed] radical membership: gb_size 1354 dim 2 | u0 power 2 in I | u1 power 2 in I | u2 power 2 in I | u3 power 2 in I | u4 power 2 in I | u5 power 2 in I | u6 power 2 in I | u7 power 2 in I | u8 power 2 in I | u10 power 2 in I | u11 power 2 in I | u12 power 2 in I | u13 power 2 in I | u15 power 2 in I | u16 power 2 in I | u17 power 2 in I | u18 power 2 in I | u20 power 2 in I | u21 power 2 in I | u22 power 2 in I | u23 power 2 in I | u25 power 2 in I | u26 power 2 in I | u27 power 2 in I | u28 power 2 in I | u30 power 2 in I | u31 power 2 in I | u32 power 2 in I | u33 power 2 in I | u34 power 2 in I  [16.6s]
+Traceback (most recent call last):
+  File "<stdin>", line 85, in <module>
+AttributeError: 'flint.types.fmpq_mat.fmpq_mat' object has no attribute 'nullspace'

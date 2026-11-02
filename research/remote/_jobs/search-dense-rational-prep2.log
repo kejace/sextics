@@ -1,0 +1,1 @@
+bash: line 1: 252402 Killed                  W2S_REMOTE=1 W2S_THREADS=8 python3 w2s_e1spaces.py > w2s_e1spaces.out 2> w2s_e1spaces.err

@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[E2Family jacobian-d6-p0] d=6 pD=0 K=18 (spurious dim 1, free 17) rows=3080 nN=2376 nc=162 nQ=226 nnz(Omega)=393300 built in 0.5s
+build 0.5762128829956055 dimZ 1 C dim 866
+pD 0 residual assembly max abs diff 1.8189894035458565e-11 scale 40624.039237098805
+pD 0 jac fd rel errs [np.float64(0.288593506192569), np.float64(0.19509026859868656), np.float64(0.05682918449562498)]
+pD 0 |C^T (Om Kmat c)| 1.315500735510912e-10 |C^T TF Q| 2.815897248038192e-13
+pD 0 LM restart {'seed': 1, 'f': 182.30441234289222, 'res': 13.502015121562122, 'bnorm': 16.31796601216937, 'rel': 0.827432482179016, 'r_part_rel': 0.5186838295833484, 'nfev': 60, 'status': 0, 'seconds': 16.52, 'rankB': 144} time 16.52
+[E2Family jacobian-d6-p1] d=6 pD=1 K=18 (spurious dim 0, free 18) rows=3080 nN=2376 nc=153 nQ=226 nnz(Omega)=380826 built in 0.2s
+build 0.24637556076049805 dimZ 0 C dim 866
+pD 1 residual assembly max abs diff 4.3655745685100555e-11 scale 111806.20828393518
+pD 1 jac fd rel errs [np.float64(0.32601439060049275), np.float64(0.1209876137736942), np.float64(0.5416344943028043)]
+pD 1 |C^T (Om Kmat c)| 3.2686770403785597e-10 |C^T TF Q| 2.8901832151996166e-13
+pD 1 LM restart {'seed': 1, 'f': 100.49795027851242, 'res': 10.024866596544436, 'bnorm': 14.241925151188164, 'rel': 0.7038982785068274, 'r_part_rel': 0.2933486232949706, 'nfev': 56, 'status': 2, 'seconds': 15.93, 'rankB': 136} time 15.94
+EXIT 0

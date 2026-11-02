@@ -1,0 +1,35 @@
+=== exact D7 (excl_kernel.py 7) Mon Nov  2 01:29:03 UTC 2026
+Traceback (most recent call last):
+  File "/tmp/hodge/results/short-power-presentation/excl_kernel.py", line 53, in <module>
+    assert N7 is not None, ('exact membership failed', minfo)
+           ^^^^^^^^^^^^^^
+AssertionError: ('exact membership failed', {'lift_failed': True})
+=== mixed d=6 exact Mon Nov  2 01:50:48 UTC 2026
+kernel elements: even 0, odd 0 (exact: True)
+[x] visible unknowns 12 of 17; invisible: [('w', 1, (0, 1, 0, 0, 0, 0)), ('w', 2, (0, 0, 1, 0, 0, 0)), ('w', 3, (0, 0, 0, 1, 0, 0)), ('w', 4, (0, 0, 0, 0, 1, 0)), ('w', 5, (0, 0, 0, 0, 0, 1))]
+[x] dim L_0 = 39, dim L_1 = 57, functionals 809, independent quadrics in x: 18 in 12 unknowns [41s]
+[x] msolve h = [1, 12, 60, 160, 240, 192]; singular dim = 0 vdim = 729 -> proj_empty = True
+[exact_dependencies] {"n_polys": 171, "n_gens": 2376, "rank_modp_span_mod_J": 57, "n_deps_modp": 114, "n_deps_verified": 114, "n_deps_failed": 0, "primes": [2147483647, 2147483629], "dim_span_mod_J_exact_upper": 57, "exact_equals_modp": true, "seconds": 31.8}
+[x] exact dependency certificate: {'n_polys': 171, 'n_gens': 2376, 'rank_modp_span_mod_J': 57, 'n_deps_modp': 114, 'n_deps_verified': 114, 'n_deps_failed': 0, 'primes': [2147483647, 2147483629], 'dim_span_mod_J_exact_upper': 57, 'exact_equals_modp': True, 'seconds': 31.8}
+[y] visible unknowns 18 of 18; invisible: []
+[y] dim L_1 = 57, dim L_0 = 39, functionals 827, independent quadrics in y: 36 in 18 unknowns [42s]
+[y] msolve h = [1, 18, 135, 540, 1215, 1458]; singular dim = 0 vdim = 4096 -> proj_empty = True
+[exact_dependencies] {"n_polys": 153, "n_gens": 2376, "rank_modp_span_mod_J": 39, "n_deps_modp": 114, "n_deps_verified": 114, "n_deps_failed": 0, "primes": [2147483647, 2147483629], "dim_span_mod_J_exact_upper": 39, "exact_equals_modp": true, "seconds": 32.0}
+[y] exact dependency certificate: {'n_polys': 153, 'n_gens': 2376, 'rank_modp_span_mod_J': 39, 'n_deps_modp': 114, 'n_deps_verified': 114, 'n_deps_failed': 0, 'primes': [2147483647, 2147483629], 'dim_span_mod_J_exact_upper': 39, 'exact_equals_modp': True, 'seconds': 32.0}
+{"_invisible": {"x": [["w", 1, [0, 1, 0, 0, 0, 0]], ["w", 2, [0, 0, 1, 0, 0, 0]], ["w", 3, [0, 0, 0, 1, 0, 0]], ["w", 4, [0, 0, 0, 0, 1, 0]], ["w", 5, [0, 0, 0, 0, 0, 1]]], "y": []}, "x": {"dimLx": 39, "dimLy": 57, "nphi": 809, "quadrics": 18, "unknowns": 12, "msolve_hilbert": [1, 12, 60, 160, 240, 192], "singular_dim": "0", "singular_vdim": "729", "singular_hilbert": [1, 12, 60, 160, 240, 192, 64, 0, 0], "proj_empty": true, "rank_JY_modp": 2271, "seconds": 42.0, "exact_dependencies": {"n_polys": 171, "n_gens": 2376, "rank_modp_span_mod_J": 57, "n_deps_modp": 114, "n_deps_verified": 114, "n_deps_failed": 0, "primes": [2147483647, 2147483629], "dim_span_mod_J_exact_upper": 57, "exact_equals_modp": true, "seconds": 31.8}}, "y": {"dimLx": 57, "dimLy": 39, "nphi": 827, "quadrics": 36, "unknowns": 18, "msolve_hilbert": [1, 18, 135, 540, 1215, 1458], "singular_dim": "0", "singular_vdim": "4096", "singular_hilbert": [1, 18, 135, 540, 1215, 1458, 729, 0, 0], "proj_empty": true, "rank_JY_modp": 2253, "seconds": 43.4, "exact_dependencies": {"n_polys": 153, "n_gens": 2376, "rank_modp_span_mod_J": 39, "n_deps_modp": 114, "n_deps_verified": 114, "n_deps_failed": 0, "primes": [2147483647, 2147483629], "dim_span_mod_J_exact_upper": 39, "exact_equals_modp": true, "seconds": 32.0}}}
+done 150 s
+=== mixed d=6 pidx 1 Mon Nov  2 01:53:19 UTC 2026
+kernel elements: even 0, odd 0 (exact: True)
+[x] visible unknowns 12 of 17; invisible: [('w', 1, (0, 1, 0, 0, 0, 0)), ('w', 2, (0, 0, 1, 0, 0, 0)), ('w', 3, (0, 0, 0, 1, 0, 0)), ('w', 4, (0, 0, 0, 0, 1, 0)), ('w', 5, (0, 0, 0, 0, 0, 1))]
+[x] dim L_0 = 39, dim L_1 = 57, functionals 809, independent quadrics in x: 18 in 12 unknowns [50s]
+[x] msolve h = [1, 12, 60, 160, 240, 192]; singular dim = 0 vdim = 729 -> proj_empty = True
+[y] visible unknowns 18 of 18; invisible: []
+[y] dim L_1 = 57, dim L_0 = 39, functionals 827, independent quadrics in y: 36 in 18 unknowns [43s]
+[y] msolve h = [1, 18, 135, 540, 1215, 1458]; singular dim = 0 vdim = 4096 -> proj_empty = True
+{"_invisible": {"x": [["w", 1, [0, 1, 0, 0, 0, 0]], ["w", 2, [0, 0, 1, 0, 0, 0]], ["w", 3, [0, 0, 0, 1, 0, 0]], ["w", 4, [0, 0, 0, 0, 1, 0]], ["w", 5, [0, 0, 0, 0, 0, 1]]], "y": []}, "x": {"dimLx": 39, "dimLy": 57, "nphi": 809, "quadrics": 18, "unknowns": 12, "msolve_hilbert": [1, 12, 60, 160, 240, 192], "singular_dim": "0", "singular_vdim": "729", "singular_hilbert": [1, 12, 60, 160, 240, 192, 64, 0, 0], "proj_empty": true, "rank_JY_modp": 2271, "seconds": 51.0}, "y": {"dimLx": 57, "dimLy": 39, "nphi": 827, "quadrics": 36, "unknowns": 18, "msolve_hilbert": [1, 18, 135, 540, 1215, 1458], "singular_dim": "0", "singular_vdim": "4096", "singular_hilbert": [1, 18, 135, 540, 1215, 1458, 729, 0, 0], "proj_empty": true, "rank_JY_modp": 2253, "seconds": 45.4}}
+done 97 s
+=== mixed d=7 Mon Nov  2 01:54:57 UTC 2026
+kernel elements: even 1, odd 1 (exact: False)
+[x] visible unknowns 61 of 61; invisible: []
+[x] dim L_0 = 305, dim L_1 = 305, functionals 439, independent quadrics in x: 62 in 61 unknowns [455s]
+=== done Mon Nov  2 12:29:39 UTC 2026

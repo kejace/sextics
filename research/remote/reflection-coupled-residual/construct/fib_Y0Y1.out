@@ -1,0 +1,14 @@
+[fib_Y0Y1] n=5 unknowns=4 equations=112 charts=2 k1only=True elim=True maxdeg=26 built in 22.0s
+[fib_Y0Y1] msolve rc=-11 in 18342.1s; stderr tail: algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         6
+info level                       1
+generate pbm files               0
+------------------------------------------
+Dimension of quotient: 27
+Prime 2147483647 is too large.
+One needs to use updated linear algebra fglm functions
+
+{"name": "fib_Y0Y1", "p": 2147483647, "seed": 7, "n": 5, "vars": ["X0", "X1", "X2", "Y1", "Y2"], "subst": [["Y0", "l*Y1", 695425566]], "G": [[2035525362, 323946139, 847876999, 1397871144, 103694312], [155555737, 1763673106, 1150797845, 202142728, 785310972], [1251527726, 124551738, 1953574602, 1089709946, 461060838], [80521324, 184570285, 931247021, 898017869, 150013383], [516819858, 194804716, 1183364967, 911648019, 126938843]], "n_eqs": 112, "msolve_rc": -11, "seconds": 18405.572968006134, "msout_head": "", "param_rc": -11}

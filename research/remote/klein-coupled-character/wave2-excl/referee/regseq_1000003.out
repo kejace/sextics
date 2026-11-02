@@ -1,0 +1,3 @@
+prime 1000003 vdim 15625 dim 0
+second_hilbert_numerator 1,6,21,56,126,246,426,666,951,1246,1506,1686,1751,1686,1506,1246,951,666,426,246,126,56,21,6,1,0
+timeout 600 Singular -q regseq_$P.sing  2.74s user 0.03s system 96% cpu 2.877 total

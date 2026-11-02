@@ -1,0 +1,1 @@
+bash: line 1: 3115530 Killed                  python3 wave2-search/w2_batch_sectors.py --d 8 --sectors "0,0;3,0;2,0;4,0;1,0;5,0" --group g --kind colon --restarts 120 --workers 8 --seed0 0 --maxiter 100 --job d8gmix --per-time 1500 > wave2-search/d8gmix.out 2>&1

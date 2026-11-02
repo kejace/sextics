@@ -1,0 +1,10 @@
+fermat sanity             d=2 'X0**2 + Y0**2'                                              E1=True cons=False rank=160 null=8 imgdim=28 0.2s
+fermat sanity             d=2 'X0**2 - Y0**2'                                              E1=True cons=False rank=160 null=8 imgdim=18 0.2s
+fermat cone3              d=3 'X0**3 + X1**3 + X0*Y0**2'                                   E1=False cons=False rank=378 null=0 imgdim=18 0.9s
+fermat cone3              d=3 'X0**3 + X1**3 + X2**3'                                      E1=False cons=False rank=378 null=0 imgdim=18 0.9s
+fermat cone3              d=3 'X0**3 + X0*Y0**2 + X2**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 0.9s
+fermat cone3              d=3 'X0*Y0**2 + X1**3 + X2**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 1.0s
+fermat cone3              d=3 'X0**3 + X1*Y0**2 + X1**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 0.9s
+fermat cone3              d=3 'X0**3 + 2*X1**3 - X0*Y0**2 + 3*X1*Y0**2 + X0**2*X1'         E1=False cons=False rank=378 null=0 imgdim=18 1.1s
+fermat cone4              d=4 'X0**4 + X1**4 + Y0**4 + X2**4'                              E1=False cons=False rank=747 null=9 imgdim=18 3.8s
+fermat cone4              d=4 'X0**4 + X1**4 + Y0**4'                                      E1=False cons=False rank=747 null=9 imgdim=18 3.2s

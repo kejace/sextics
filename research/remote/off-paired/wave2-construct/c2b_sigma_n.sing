@@ -1,0 +1,49 @@
+// Singular points of Sigma_n (tridegree (n,3,2) in (P^1)^3) with local type data.
+// Chart coords: a (rho or 1/rho), b (w or 1/w), c (s or 1/s).
+proc chartpoly(int n, int ia, int ib, int ic)
+{
+  poly r0,r1,w0,w1,s0,s1;
+  if (ia==0) { r0=1; r1=var(1); } else { r0=var(1); r1=1; }
+  if (ib==0) { w0=1; w1=var(2); } else { w0=var(2); w1=1; }
+  if (ic==0) { s0=1; s1=var(3); } else { s0=var(3); s1=1; }
+  return((w0+w1)*w0^2*(s0^2-s1^2)*r0^n - 2*r1^n*w1^3*(s0^2+s1^2));
+}
+proc study(int n)
+{
+  int ia,ib,ic;
+  for (ia=0; ia<=1; ia++) { for (ib=0; ib<=1; ib++) { for (ic=0; ic<=1; ic++) {
+    ring R = (0,i),(a,b,c),dp; minpoly = i^2+1;
+    poly G = chartpoly(n,ia,ib,ic);
+    ideal J = std(ideal(G, diff(G,a), diff(G,b), diff(G,c)));
+    if (dim(J) >= 0) {
+      // only report points NOT already visible in a chart with smaller index for the same coordinate at infinity:
+      // we report everything; duplicates across charts are recognised by the printed coordinates.
+      LIB "solve.lib"; LIB "sing.lib";
+      list L = facstd(J);
+      int k;
+      for (k=1; k<=size(L); k++) {
+        ideal P = std(L[k]);
+        if (dim(P) == 0) {
+          // find the point(s): triangular; print generators
+          "n=",n," chart(rho^",ia,",w^",ib,",s^",ic,") component:", string(P);
+          // local Tjurina number at the component: use Tjurina of G at points via local ordering after substitution if rational
+        }
+      }
+    }
+    kill R;
+  } } }
+}
+study(1); study(2); study(3); study(6);
+// local types at the rational points found: translate and compute (multiplicity, Tjurina, corank of Hessian)
+proc localtype(int n, int ia, int ib, int ic, number pa, number pb, number pc)
+{
+  ring S = (0,i),(a,b,c),ds; minpoly = i^2+1;
+  poly G = chartpoly(n,ia,ib,ic);
+  G = subst(G, a, a+pa, b, b+pb, c, c+pc);
+  ideal T = std(ideal(G, diff(G,a), diff(G,b), diff(G,c)));
+  matrix Hs[3][3] = diff(diff(G,a),a), diff(diff(G,a),b), diff(diff(G,a),c), diff(diff(G,b),a), diff(diff(G,b),b), diff(diff(G,b),c), diff(diff(G,c),a), diff(diff(G,c),b), diff(diff(G,c),c);
+  matrix H0 = subst(Hs, a,0,b,0,c,0);
+  "  n=",n," pt(",pa,",",pb,",",pc,") chart(",ia,ib,ic,"): mult=", mult(std(G)), " tjurina=", vdim(T), " hess-rank=", rank(H0);
+  kill S;
+}
+quit;

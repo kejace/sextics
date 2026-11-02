@@ -1,0 +1,8 @@
+{"seed": 1002, "rel": 0.00015444246910817944, "iters": 32, "nfev": 89, "spurious": false, "div_rel": 0.9474050310622313, "sparse_init": true}
+{"seed": 1010, "rel": 0.00015444246894019293, "iters": 25, "nfev": 60, "spurious": false, "div_rel": 0.9474050310997969, "sparse_init": true}
+{"seed": 1018, "rel": 0.0001544424687725215, "iters": 22, "nfev": 51, "spurious": false, "div_rel": 0.9474050310276249, "sparse_init": false}
+{"seed": 1026, "rel": 0.00015444246915224626, "iters": 22, "nfev": 49, "spurious": false, "div_rel": 0.9474050310830162, "sparse_init": false}
+{"seed": 1034, "rel": 0.00015444246915930268, "iters": 23, "nfev": 60, "spurious": false, "div_rel": 0.9474050310843487, "sparse_init": false}
+{"seed": 1042, "rel": 0.0001544424691515521, "iters": 21, "nfev": 57, "spurious": false, "div_rel": 0.947405031083156, "sparse_init": false}
+{"seed": 1050, "rel": 0.00015444246917952774, "iters": 38, "nfev": 67, "spurious": false, "div_rel": 0.9474050310817654, "sparse_init": true}
+{"seed": 1058, "rel": 0.0001544424688398567, "iters": 31, "nfev": 69, "spurious": false, "div_rel": 0.9474050310854907, "sparse_init": false}

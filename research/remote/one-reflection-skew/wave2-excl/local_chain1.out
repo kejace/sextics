@@ -1,0 +1,18 @@
+90 (3, 0, 4) EXCLUDED-exact 819 820 15.6
+92 (3, 0, 4) EXCLUDED-exact 819 820 10.9
+122 (3, 3, 1) EXCLUDED-exact 819 820 11.6
+extra tests done
+a 0 cols 640 2.1
+a 10 cols 8822 3.0
+a 20 cols 17212 4.4
+a 30 cols 24914 6.3
+a 40 cols 32998 7.3
+a 50 cols 41348 8.4
+a 60 cols 49346 9.3
+a 70 cols 57538 10.3
+a 80 cols 65704 11.2
+a 90 cols 74104 18.4
+a 100 cols 82118 19.8
+a 110 cols 90308 20.8
+a 120 cols 98698 21.9
+bank done 105016 correction columns 23.2

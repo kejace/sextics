@@ -1,0 +1,6 @@
+[{"name":"smoke:hilbert","lane":"off-paired","kind":"hilbert","d":6,"p":1000000007},
+ {"name":"smoke:A_notin_J","lane":"off-paired","kind":"a_in_j","p":1000000007,"expect":{"in_jacobian":false}},
+ {"name":"smoke:diag","lane":"off-paired","kind":"diag_group"},
+ {"name":"smoke:e1_D0","lane":"off-paired","kind":"e1","p":1000000007,"D":{"expr":"X0**4 + X0*X1*Y0*Y1/4 + X1*X2*Y0*Y2/9"},"expect":{"e1":true}},
+ {"name":"smoke:kernel_d4","lane":"off-paired","kind":"e1kernel","d":4,"parity":0,"p":1000000007,"expect":{"dim":1}},
+ {"name":"smoke:polyeq","lane":"off-paired","kind":"poly_eq","lhs":{"partial":0},"rhs":{"product":["6*X0",{"expr":"X0**4 + X0*X1*Y0*Y1/4 + X1*X2*Y0*Y2/9"}]},"expect":{"equal":true}}]

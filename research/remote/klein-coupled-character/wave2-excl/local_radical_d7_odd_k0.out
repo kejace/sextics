@@ -1,0 +1,10 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+msolve rc 0  [1034s]
+d7_odd_k0: n=24 eqs=59 GB size 6358; lifted family: 15 matrix coords, 9 vanishing coords, 30 minors, 18 C-quadric images
+gb_size 6358 dim 4
+group vanishing-coordinates: 9 generators
+group rank-one-minors: 30 generators
+group C-quadrics: 18 generators
+total failures 0  [92s]
+RADICAL_DONE True
+ALL_DONE

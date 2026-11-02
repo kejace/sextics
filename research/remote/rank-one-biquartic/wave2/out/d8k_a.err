@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[E2Float d=8 pD=0] rows=10152 n_c=954 n_C=1491 nN=6006 n_red=8661 col_nnz=6546960 built 3.4s
+[E1Family d=8 pD=0] Jm (5796, 6006) rank=5052 ring_dim=744 gap=(0.11806924133961862, 2.285222775054947e-13) K=177 C_gap=(5.24130595680141e-07, 1.971116332427788e-14) e1_rel=1.76e-14 (212.0s)
+[family] F-multiples not inside family (fit 1.00e+00) -> no spurious directions removed
+[search] d=8 pD=0 K=9 spurious=0 n_u=9 n_c=954 rows_red=8661 rows=10152 build 212.1s
+[search] generic reduced Koszul rank {'Mred_shape': [8661, 954], 'rank': 795, 'nullity': 159, 'sv_min_kept': 4.177998708733746, 'sv_next': 3.4851021159169896e-10, 'sv_max': 2638345.5250506094}

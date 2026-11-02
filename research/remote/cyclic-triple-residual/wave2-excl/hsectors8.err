@@ -1,0 +1,1 @@
+sectors_hess.sh: line 6: 509353 Killed                  SKIP_FORMS=1 SECTOR=$c0,$c1 python3 relax_run.py $d $p $T > hsector_d${d}_${c0}${c1}.out 2> hsector_d${d}_${c0}${c1}.err

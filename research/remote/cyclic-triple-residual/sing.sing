@@ -1,0 +1,16 @@
+ring r = 32003, (X0,X1,X2,Y0,Y1,Y2), dp;
+poly F = 7*X0^6 + 5*X0^3*X1*Y0*Y1 + 5*X0^3*X2^3 + 5*X0^2*Y0*Y1*Y2^2 + 5*X0*X1*Y1^3*Y2 + 5*X0*X2^3*Y1*Y2 + 7*X1^6 + 5*X1*X2^3*Y0*Y1 + 7*X2^6 + 7*Y0^6 + 7*Y1^6 + 7*Y2^6;
+poly F0 = X0^6+X1^6+X2^6+Y0^6+Y1^6+Y2^6;
+poly D = 7350*X0^6*X1^2 - 158760*X0^6*Y0*Y1 + 22050*X0^6*Y1^2 - 625*X0^4*X1^2*Y0*Y2 + 88200*X0^4*Y1^3*Y2 - 518616*X0^4*Y2^4 + 740880*X0^3*X1^5 + 2625*X0^3*X1^3*Y0*Y1 + 2625*X0^3*X1^2*X2^3 - 88200*X0^3*X1*Y0^2*Y1^2 + 10500*X0^3*X1*Y0*Y1^3 - 625*X0^3*X1*Y0*Y2^3 + 5250*X0^3*X2^3*Y1^2 + 875*X0^2*X1^2*Y0*Y1*Y2^2 - 1875*X0^2*X1^2*Y1^2*Y2^2 - 625*X0^2*X1*X2^3*Y2^2 - 29400*X0^2*Y0^2*Y1^2*Y2^2 + 5250*X0^2*Y0*Y1^3*Y2^2 - 875*X0*X1^3*Y1^3*Y2 - 625*X0*X1^2*X2^3*Y0*Y2 - 185220*X0*X1*Y0*Y1*Y2^4 - 185220*X0*X2^3*Y2^4 + 7350*X1^8 + 22050*X1^6*Y1^2 + 14700*X1*X2^3*Y1^4;
+ideal I = F, D, minor(jacob(ideal(F, D)), 2);
+ideal G = std(I);
+print("== T8 = X cap V(D8): affine dim of Sing(T) = " + string(dim(G)) + ", degree = " + string(mult(G)));
+poly D = 42*X0^6 + 20*X0^3*X1*Y0*Y1 + 30*X0^3*X2^3 + 10*X0^2*Y0*Y1*Y2^2 + 10*X0*X1*Y1^3*Y2 + 20*X0*X2^3*Y1*Y2 + 42*X1^6 + 20*X1*X2^3*Y0*Y1 + 42*X2^6;
+ideal I = F, D, minor(jacob(ideal(F, D)), 2);
+ideal G = std(I);
+print("== TEX = X cap V(E_X F): affine dim of Sing(T) = " + string(dim(G)) + ", degree = " + string(mult(G)));
+poly D = X0^6+X1^6+X2^6;
+ideal I = F0, D, minor(jacob(ideal(F0, D)), 2);
+ideal G = std(I);
+print("== Fermat join control: affine dim of Sing(T) = " + string(dim(G)) + ", degree = " + string(mult(G)));
+quit;

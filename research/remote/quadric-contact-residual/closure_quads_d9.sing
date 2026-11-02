@@ -1,0 +1,8 @@
+ring r = 2147483647, (c(1..0)), dp;
+ideal I;
+I = simplify(I,2);
+ideal G = std(I);
+print("dim = " + string(dim(G)) + "  (0 means only c=0 over the algebraic closure, projectively empty)");
+print("vdim = " + string(vdim(G)));
+if (dim(G) > 0) { print("--- components (minAssGTZ) ---"); LIB "primdec.lib"; list L = minAssGTZ(G); int i; for (i=1;i<=size(L);i++){ print(L[i]); print("----"); } }
+quit;

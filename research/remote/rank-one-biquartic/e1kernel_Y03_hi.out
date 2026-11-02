@@ -1,0 +1,3 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"d": 9, "parD": 0, "rows": 3080, "cols": 3377, "nJcols": 2376, "nD": 1001, "nullity": 540, "dim_E1_space": 378, "dim_J_d": 378, "kernel_mod_J": 0, "t_build": 46.6, "t_null": 89.9}
+{"d": 9, "parD": 1, "rows": 3108, "cols": 3377, "nJcols": 2376, "nD": 1001, "nullity": 531, "dim_E1_space": 378, "dim_J_d": 378, "kernel_mod_J": 0, "t_build": 33.7, "t_null": 100.0}

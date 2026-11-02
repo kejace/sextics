@@ -1,0 +1,773 @@
+[
+{
+"name": "short-power-presentation:e1kernel_d7_par0_basis",
+"lane": "short-power-presentation",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 7,
+"parity": 0,
+"save_basis": true,
+"source": "wave-1 log via wave-2 lenses: kernel 1 at d=7 both parities; aggregator batch-1 confirmed; basis saved for inspection",
+"expect": {
+"dim": 1
+}
+},
+{
+"name": "short-power-presentation:fixedD_kernel7_par0_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 7,
+"parity": 0,
+"index": 0
+}
+},
+"method": "compressed",
+"source": "wave-2 short-power excl: D7+ full E2 test never finished in wave 1 (26532x4497 system built); aggregator computes (mod p)"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par0_0_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 0
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par0_1_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 1
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par0_2_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 2
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par0_3_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 3
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par0_4_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 4
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par0_5_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 5
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:e1kernel_d7_par1_basis",
+"lane": "short-power-presentation",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 7,
+"parity": 1,
+"save_basis": true,
+"source": "wave-1 log via wave-2 lenses: kernel 1 at d=7 both parities; aggregator batch-1 confirmed; basis saved for inspection",
+"expect": {
+"dim": 1
+}
+},
+{
+"name": "short-power-presentation:fixedD_kernel7_par1_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 7,
+"parity": 1,
+"index": 0
+}
+},
+"method": "compressed",
+"source": "wave-2 short-power excl: D7+ full E2 test never finished in wave 1 (26532x4497 system built); aggregator computes (mod p)"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par1_0_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 0
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par1_1_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 1
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par1_2_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 2
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par1_3_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 3
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par1_4_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 4
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "short-power-presentation:fixedD_kernel8_par1_5_compressed",
+"lane": "short-power-presentation",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 5
+}
+},
+"method": "compressed",
+"source": "d=8 kernel elements (6 per parity) never tested; aggregator screens basis elements mod p"
+},
+{
+"name": "symmetric-sextic-residual:e1kernel_d7_par0_basis",
+"lane": "symmetric-sextic-residual",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 7,
+"parity": 0,
+"save_basis": true,
+"expect": {
+"dim": 1
+}
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par0_0_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 0
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par0_1_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 1
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par0_2_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 2
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par0_3_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 3
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par0_4_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 4
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par0_5_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 0,
+"index": 5
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par1_0_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 0
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par1_1_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 1
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par1_2_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 2
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par1_3_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 3
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par1_4_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 4
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "symmetric-sextic-residual:fixedD_kernel8_par1_5_compressed",
+"lane": "symmetric-sextic-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 8,
+"parity": 1,
+"index": 5
+}
+},
+"method": "compressed",
+"source": "attack1 \u00a72.1: d=8 kernel 6 per parity; non-invariant classes untested (wave-2 search plans single-D solves); aggregator screens mod p"
+},
+{
+"name": "rank-one-biquartic:e1kernel_d7_par0_basis",
+"lane": "rank-one-biquartic",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 7,
+"parity": 0,
+"save_basis": true,
+"expect": {
+"dim": 3
+}
+},
+{
+"name": "rank-one-biquartic:e1kernel_d7_par1",
+"lane": "rank-one-biquartic",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 7,
+"parity": 1
+},
+{
+"name": "rank-one-biquartic:e1kernel_d8_par0",
+"lane": "rank-one-biquartic",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 8,
+"parity": 0
+},
+{
+"name": "rank-one-biquartic:e1kernel_d8_par1",
+"lane": "rank-one-biquartic",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 8,
+"parity": 1
+},
+{
+"name": "rank-one-biquartic:fixedD_kernel7_even_0_compressed",
+"lane": "rank-one-biquartic",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 7,
+"parity": 0,
+"index": 0
+}
+},
+"method": "compressed",
+"source": "new 3-dim Y-even E1 kernel at d=7 (aggregator batch 1); never tested"
+},
+{
+"name": "rank-one-biquartic:fixedD_kernel7_even_1_compressed",
+"lane": "rank-one-biquartic",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 7,
+"parity": 0,
+"index": 1
+}
+},
+"method": "compressed",
+"source": "new 3-dim Y-even E1 kernel at d=7 (aggregator batch 1); never tested"
+},
+{
+"name": "rank-one-biquartic:fixedD_kernel7_even_2_compressed",
+"lane": "rank-one-biquartic",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"kernel_rep": {
+"d": 7,
+"parity": 0,
+"index": 2
+}
+},
+"method": "compressed",
+"source": "new 3-dim Y-even E1 kernel at d=7 (aggregator batch 1); never tested"
+},
+{
+"name": "eight-plane-configuration:e1kernel_d9_par0",
+"lane": "eight-plane-configuration",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 9,
+"parity": 0,
+"source": "wave-2 search lens (wave-1 log): kernel 0 for all d<=9 both parities",
+"expect": {
+"dim": 0
+}
+},
+{
+"name": "eight-plane-configuration:e1kernel_d9_par1",
+"lane": "eight-plane-configuration",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 9,
+"parity": 1,
+"source": "wave-2 search lens (wave-1 log): kernel 0 for all d<=9 both parities",
+"expect": {
+"dim": 0
+}
+},
+{
+"name": "reflection-coupled-residual:e1kernel_d9_par0",
+"lane": "reflection-coupled-residual",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 9,
+"parity": 0,
+"source": "attack1 \u00a71.3: first symmetry-forced kernel at d=9 (>=21 in the (+,+) sector); value not computed in wave 1"
+},
+{
+"name": "four-plus-two-residual:e1kernel_d8_par0",
+"lane": "four-plus-two-residual",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 8,
+"parity": 0,
+"source": "attack1: core kernel at k=8 is 41 even / 34 odd; 6-var value not stated"
+},
+{
+"name": "diagonal-permutation:e1kernel_d9_par0",
+"lane": "diagonal-permutation",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 9,
+"parity": 0,
+"source": "attack1 \u00a71.3: d=9 is the only undetermined degree (k_9^+ = k_9^-); wave-2 search lens wrote e1kernel_d9.json"
+},
+{
+"name": "reflection-coupled-residual:e1kernel_d9_par1",
+"lane": "reflection-coupled-residual",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 9,
+"parity": 1,
+"source": "attack1 \u00a71.3: first symmetry-forced kernel at d=9 (>=21 in the (+,+) sector); value not computed in wave 1"
+},
+{
+"name": "four-plus-two-residual:e1kernel_d8_par1",
+"lane": "four-plus-two-residual",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 8,
+"parity": 1,
+"source": "attack1: core kernel at k=8 is 41 even / 34 odd; 6-var value not stated"
+},
+{
+"name": "diagonal-permutation:e1kernel_d9_par1",
+"lane": "diagonal-permutation",
+"kind": "e1kernel",
+"p": 1000000007,
+"d": 9,
+"parity": 1,
+"source": "attack1 \u00a71.3: d=9 is the only undetermined degree (k_9^+ = k_9^-); wave-2 search lens wrote e1kernel_d9.json"
+},
+{
+"name": "quadric-contact-residual:fixedD_D8star_X1_compressed",
+"lane": "quadric-contact-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"expr": "(4*(3*(X0**2+Y0**2)**2 + 2*(X0*Y0)**2 + 5*((X1*Y1)**2 + (X1*Y1)*(X2*Y2) + (X2*Y2)**2))**2 - (4*(X0*Y0)*(X0**2+Y0**2) + 5*(X1*Y1)*(X2**2 + 2*Y2**2)/7)**2)*X1"
+},
+"method": "compressed",
+"source": "attack1: d=9 E1 kernel = D8*\u00b7{X1,Y1,X2,Y2}; full solves pending in wave 1; aggregator computes (mod p)"
+},
+{
+"name": "quadric-contact-residual:fixedD_D8star_X2_compressed",
+"lane": "quadric-contact-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"expr": "(4*(3*(X0**2+Y0**2)**2 + 2*(X0*Y0)**2 + 5*((X1*Y1)**2 + (X1*Y1)*(X2*Y2) + (X2*Y2)**2))**2 - (4*(X0*Y0)*(X0**2+Y0**2) + 5*(X1*Y1)*(X2**2 + 2*Y2**2)/7)**2)*X2"
+},
+"method": "compressed",
+"source": "attack1: d=9 E1 kernel = D8*\u00b7{X1,Y1,X2,Y2}; full solves pending in wave 1; aggregator computes (mod p)"
+},
+{
+"name": "quadric-contact-residual:fixedD_D8star_Y1_compressed",
+"lane": "quadric-contact-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"expr": "(4*(3*(X0**2+Y0**2)**2 + 2*(X0*Y0)**2 + 5*((X1*Y1)**2 + (X1*Y1)*(X2*Y2) + (X2*Y2)**2))**2 - (4*(X0*Y0)*(X0**2+Y0**2) + 5*(X1*Y1)*(X2**2 + 2*Y2**2)/7)**2)*Y1"
+},
+"method": "compressed",
+"source": "attack1: d=9 E1 kernel = D8*\u00b7{X1,Y1,X2,Y2}; full solves pending in wave 1; aggregator computes (mod p)"
+},
+{
+"name": "quadric-contact-residual:fixedD_D8star_Y2_compressed",
+"lane": "quadric-contact-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"expr": "(4*(3*(X0**2+Y0**2)**2 + 2*(X0*Y0)**2 + 5*((X1*Y1)**2 + (X1*Y1)*(X2*Y2) + (X2*Y2)**2))**2 - (4*(X0*Y0)*(X0**2+Y0**2) + 5*(X1*Y1)*(X2**2 + 2*Y2**2)/7)**2)*Y2"
+},
+"method": "compressed",
+"source": "attack1: d=9 E1 kernel = D8*\u00b7{X1,Y1,X2,Y2}; full solves pending in wave 1; aggregator computes (mod p)"
+},
+{
+"name": "cyclic-triple-residual:fixedD_kernel_d9_0_0_17_compressed",
+"lane": "cyclic-triple-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"file": "/tmp/hodge/results/cyclic-triple-residual/kernel_d9_0_0_17.json",
+"key": "D"
+},
+"method": "compressed",
+"source": "attack1 \u00a72.7: kernel9.py sporadic d=9 elements were running at shutdown; aggregator tests the saved elements (mod p)"
+},
+{
+"name": "cyclic-triple-residual:e1_kernel_d9_0_0_17",
+"lane": "cyclic-triple-residual",
+"kind": "e1",
+"p": 1000000007,
+"D": {
+"file": "/tmp/hodge/results/cyclic-triple-residual/kernel_d9_0_0_17.json",
+"key": "D"
+},
+"expect": {
+"e1": true
+}
+},
+{
+"name": "cyclic-triple-residual:fixedD_kernel_d9_0_0_18_compressed",
+"lane": "cyclic-triple-residual",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"file": "/tmp/hodge/results/cyclic-triple-residual/kernel_d9_0_0_18.json",
+"key": "D"
+},
+"method": "compressed",
+"source": "attack1 \u00a72.7: kernel9.py sporadic d=9 elements were running at shutdown; aggregator tests the saved elements (mod p)"
+},
+{
+"name": "cyclic-triple-residual:e1_kernel_d9_0_0_18",
+"lane": "cyclic-triple-residual",
+"kind": "e1",
+"p": 1000000007,
+"D": {
+"file": "/tmp/hodge/results/cyclic-triple-residual/kernel_d9_0_0_18.json",
+"key": "D"
+},
+"expect": {
+"e1": true
+}
+},
+{
+"name": "klein-coupled-character:fixedD_kernel9_rat_0_0_1_compressed",
+"lane": "klein-coupled-character",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"file": "/tmp/hodge/results/klein-coupled-character/kernel_d9_rational.json",
+"key": "(0, 0)",
+"index": 1
+},
+"method": "compressed",
+"source": "attack1 \u00a71.4(ii): all 48 canonical d=9 kernel representatives inconsistent (mod p)",
+"expect": {
+"consistent": false
+}
+},
+{
+"name": "klein-coupled-character:fixedD_kernel9_rat_0_3_0_compressed",
+"lane": "klein-coupled-character",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"file": "/tmp/hodge/results/klein-coupled-character/kernel_d9_rational.json",
+"key": "(0, 3)",
+"index": 0
+},
+"method": "compressed",
+"source": "attack1 \u00a71.4(ii): all 48 canonical d=9 kernel representatives inconsistent (mod p)",
+"expect": {
+"consistent": false
+}
+},
+{
+"name": "klein-coupled-character:fixedD_kernel9_rat_0_3_1_compressed",
+"lane": "klein-coupled-character",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"file": "/tmp/hodge/results/klein-coupled-character/kernel_d9_rational.json",
+"key": "(0, 3)",
+"index": 1
+},
+"method": "compressed",
+"source": "attack1 \u00a71.4(ii): all 48 canonical d=9 kernel representatives inconsistent (mod p)",
+"expect": {
+"consistent": false
+}
+},
+{
+"name": "off-paired:e1_hessian_minor",
+"lane": "off-paired",
+"kind": "e1",
+"p": 1000000007,
+"D": {
+"expr": "-X0**4*X1*X2*Y0*Y2/6"
+},
+"source": "attack1 \u00a72.3: 60 Hessian 2x2 minors fail E1",
+"expect": {
+"e1": false
+}
+},
+{
+"name": "quadratic-cubic-pullback:fixedD_EX_dense",
+"lane": "quadratic-cubic-pullback",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"euler": [
+0,
+1,
+2
+]
+},
+"method": "dense",
+"source": "wave-2 qcp excl: E_I F in J for every I; block-Euler denominators never tested in wave 1 (queued there); aggregator runs E_X F"
+},
+{
+"name": "quadratic-cubic-pullback:fixedD_EY_dense",
+"lane": "quadratic-cubic-pullback",
+"kind": "fixedD",
+"p": 1000000007,
+"D": {
+"euler": [
+3,
+4,
+5
+]
+},
+"method": "dense"
+}
+]

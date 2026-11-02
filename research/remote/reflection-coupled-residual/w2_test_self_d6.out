@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[rf] E1 lstsq (1764, 1368) rank 1272: relres 4.03e-15 (33.0s)
+[rf] d=6 chi=(0, 0) K=14 rows=1764 nK=96 nQ=138 excludedF=1 built in 39.2s
+[rf] E1 lstsq (1764, 1368) rank 1272: relres 4.03e-15 (58.7s)
+[rf] ob projector: rows 1764 gens 1368 -> dim R_2d sector = 492 (32.2s)
+[rf] d=6 chi=(0, 0) K=14 rows=1764 dim R_2d sector=492 excludedF=1 built in 96.3s
+d 6 J family size 14
+build 39.2s nK 96 nQ 138 rows 1764
+kos_matrix 0.07s
+Kos identity relerr 1.82e-16
+e1 relres 4.028093110814154e-15
+full value 4.1556e+02  eval time 0.043s gradcheck (f, analytic, numeric): (656.1779036185458, 240.8774698449402, 240.8774697642002) (629.5380008976927, 43.70424103952631, 43.704241068098774)
+ob value 5.3187e+01  eval time 0.012s gradcheck (f, analytic, numeric): (107.03426559757294, -72.9338671652846, 72.93386714479766) (150.04624610533114, -25.593698553489478, 25.59369855674731)
+3 restarts 399.6s [(0.681507, 24, 222), (0.909557, 34, 222), (0.916429, 38, 222)]

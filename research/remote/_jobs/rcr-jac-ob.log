@@ -1,0 +1,7 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[search] d=5 chi=(0, 0) family=jac K=3 (nonjac 0, jac 3) mode=ob
+[rf] E1 lstsq (1260, 808) rank 780: relres 3.96e-15 (0.7s)
+[rf] ob projector: rows 868 gens 448 -> dim R_2d sector = 426 (2.0s)
+[rf] d=5 chi=(0, 0) K=3 rows=868 dim R_2d sector=426 excludedF=0 built in 2.9s
+[search] built in 2.9s; e1 relres 3.96e-15; dimP=3
+[search] gradcheck f=8.432e+02 analytic=-4.664360e+02 numeric=-4.664360e+02

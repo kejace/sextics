@@ -1,0 +1,1 @@
+{"exp": "ref-gb", "file": "ref_hess_d7_W00_p1000000021.ms", "d": 7, "p": 1000000021, "chis": [[0, 0]], "dim_W": 42, "n_quadrics": 426, "rank_quadrics": 274, "good_reduction": true, "gb_size": 7424, "msolve_quotient_dim": 3028, "singular_dim": 0, "singular_vdim": 3028, "HF": [1, 42, 629, 1986, 359, 1

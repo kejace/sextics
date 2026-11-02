@@ -1,0 +1,143 @@
+{
+ "d": 6,
+ "p": 1000003,
+ "r": 6,
+ "sector": null,
+ "family_size": 36,
+ "n_koszul": 315,
+ "sectors": {
+  "(0, 0)": {
+   "quotient_dim": 444,
+   "rank_W": 258,
+   "rank_piJ": 324,
+   "extra_functionals": 66,
+   "hessian_functionals": 120
+  },
+  "(0, 1)": {
+   "quotient_dim": 411,
+   "rank_W": 239,
+   "rank_piJ": 299,
+   "extra_functionals": 60,
+   "hessian_functionals": 112
+  },
+  "(0, 2)": {
+   "quotient_dim": 415,
+   "rank_W": 245,
+   "rank_piJ": 302,
+   "extra_functionals": 57,
+   "hessian_functionals": 113
+  },
+  "(0, 3)": {
+   "quotient_dim": 439,
+   "rank_W": 256,
+   "rank_piJ": 320,
+   "extra_functionals": 64,
+   "hessian_functionals": 119
+  },
+  "(0, 4)": {
+   "quotient_dim": 415,
+   "rank_W": 255,
+   "rank_piJ": 304,
+   "extra_functionals": 49,
+   "hessian_functionals": 111
+  },
+  "(0, 5)": {
+   "quotient_dim": 411,
+   "rank_W": 243,
+   "rank_piJ": 301,
+   "extra_functionals": 58,
+   "hessian_functionals": 110
+  },
+  "(2, 0)": {
+   "quotient_dim": 301,
+   "rank_W": 135,
+   "rank_piJ": 188,
+   "extra_functionals": 53,
+   "hessian_functionals": 113
+  },
+  "(2, 1)": {
+   "quotient_dim": 303,
+   "rank_W": 136,
+   "rank_piJ": 191,
+   "extra_functionals": 55,
+   "hessian_functionals": 112
+  },
+  "(2, 2)": {
+   "quotient_dim": 325,
+   "rank_W": 145,
+   "rank_piJ": 205,
+   "extra_functionals": 60,
+   "hessian_functionals": 120
+  },
+  "(2, 3)": {
+   "quotient_dim": 303,
+   "rank_W": 136,
+   "rank_piJ": 193,
+   "extra_functionals": 57,
+   "hessian_functionals": 110
+  },
+  "(2, 4)": {
+   "quotient_dim": 301,
+   "rank_W": 136,
+   "rank_piJ": 190,
+   "extra_functionals": 54,
+   "hessian_functionals": 111
+  },
+  "(2, 5)": {
+   "quotient_dim": 327,
+   "rank_W": 145,
+   "rank_piJ": 208,
+   "extra_functionals": 63,
+   "hessian_functionals": 119
+  },
+  "(4, 0)": {
+   "quotient_dim": 217,
+   "rank_W": 132,
+   "rank_piJ": 152,
+   "extra_functionals": 20,
+   "hessian_functionals": 65
+  },
+  "(4, 1)": {
+   "quotient_dim": 234,
+   "rank_W": 143,
+   "rank_piJ": 168,
+   "extra_functionals": 25,
+   "hessian_functionals": 66
+  },
+  "(4, 2)": {
+   "quotient_dim": 217,
+   "rank_W": 143,
+   "rank_piJ": 152,
+   "extra_functionals": 9,
+   "hessian_functionals": 65
+  },
+  "(4, 3)": {
+   "quotient_dim": 213,
+   "rank_W": 141,
+   "rank_piJ": 154,
+   "extra_functionals": 13,
+   "hessian_functionals": 59
+  },
+  "(4, 4)": {
+   "quotient_dim": 237,
+   "rank_W": 157,
+   "rank_piJ": 170,
+   "extra_functionals": 13,
+   "hessian_functionals": 67
+  },
+  "(4, 5)": {
+   "quotient_dim": 213,
+   "rank_W": 138,
+   "rank_piJ": 154,
+   "extra_functionals": 16,
+   "hessian_functionals": 59
+  }
+ },
+ "total": {
+  "quotient_dim": 5726,
+  "rank_W": 3183,
+  "rank_piJ": 3975,
+  "extra_functionals": 792,
+  "hessian_functionals": 1751
+ }
+}

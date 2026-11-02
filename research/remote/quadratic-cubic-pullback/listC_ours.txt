@@ -1,0 +1,28 @@
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[3],3))
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[4],3))
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[5],3))
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[2],3)),core.power(Q[3],3))
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[2],3)),core.power(Q[4],3))
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[2],3)),core.power(Q[5],3))
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[3],3)),core.power(Q[4],3))
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[3],3)),core.power(Q[5],3))
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[4],3)),core.power(Q[5],3))
+join3 | core.add(core.add(core.power(Q[3],3),core.power(Q[4],3)),core.power(Q[5],3))
+Fpart | Fpart(6)
+Fpart | Fpart(0)
+Fpart | core.add(Fpart(6),Fpart(0))
+Fpart | core.add(Fpart(4),Fpart(2))
+fermatX | 'X0**6 + X1**6 + X2**6'
+fermatY | 'Y0**6 + Y1**6 + Y2**6'
+EIblock | EI([0,1,2])
+EIblock | EI([3,4,5])
+EIpair | EI([0,3])
+EIpair | EI([0,1,2,3])
+qcube | core.add(core.power(Q[0],3),core.power(Q[3],3))
+qcube | core.add(core.power(Q[0],3),core.power(Q[1],3))
+qcube | core.sub(F, core.power(Q[0],3))
+qsq | core.power(Q[0],2)
+qsq | core.add(core.power(Q[0],2),core.power(Q[3],2))
+binary | 'X0**6 + Y0**6'
+binary | 'X0**4 + Y0**4'
+blockcube | '8*X0**6/243 + 4*X0**4*Y0**2/9 + 2*X0**2*Y0**4 + 3*Y0**6 + Y1**6 + 1681*Y2**6/1701'

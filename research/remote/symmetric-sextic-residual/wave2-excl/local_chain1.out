@@ -1,0 +1,91 @@
+[SectorFamily] chi=triv d=8 pD=0 p=2147483647 rows=322 nN=324 nD=64 dimK=22 dimJd=20 ker=2 radial=4 0.3s
+[{"pD": 0, "rows": 322, "nN": 324, "nD": 64, "dimK": 22, "dimJd": 20, "ker_R": 2, "radial": 4, "complement": 18, "rankM": 318}]
+products done 0.7s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 18 unknowns (1.7s)
+{"msolve_rc": 0, "msolve_seconds": 32.6, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1, "a7": 1, "a8": 1, "a9": 1, "a10": 1, "a11": 1, "a12": 1, "a13": 1, "a14": 1, "a15": 1, "a16": 1, "a17": 1, "a18": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "halt 1", "singular_seconds": 231.7}
+[SectorFamily] chi=triv d=8 pD=1 p=2147483647 rows=376 nN=360 nD=46 dimK=14 dimJd=14 ker=0 radial=1 0.2s
+[{"pD": 1, "rows": 376, "nN": 360, "nD": 46, "dimK": 14, "dimJd": 14, "ker_R": 0, "radial": 1, "complement": 13, "rankM": 348}]
+products done 0.3s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 13 unknowns (1.2s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1, "a7": 1, "a8": 1, "a9": 1, "a10": 1, "a11": 1, "a12": 1, "a13": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 112 time(s) = 0", "singular_seconds": 2.7}
+[SectorFamily] chi=sgnX d=8 pD=0 p=2147483647 rows=151 nN=324 nD=15 dimK=6 dimJd=6 ker=0 radial=0 0.3s
+[{"pD": 0, "rows": 151, "nN": 324, "nD": 15, "dimK": 6, "dimJd": 6, "ker_R": 0, "radial": 0, "complement": 6, "rankM": 141}]
+products done 0.0s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 6 unknowns (0.9s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 10 time(s) = 0", "singular_seconds": 0.0}
+[SectorFamily] chi=sgnX d=8 pD=1 p=2147483647 rows=151 nN=360 nD=15 dimK=4 dimJd=3 ker=1 radial=0 0.3s
+[{"pD": 1, "rows": 151, "nN": 360, "nD": 15, "dimK": 4, "dimJd": 3, "ker_R": 1, "radial": 0, "complement": 4, "rankM": 147}]
+products done 0.0s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.4s
+quadrics: 32 in 4 unknowns (0.9s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 7 time(s) = 0", "singular_seconds": 0.0}
+[SectorFamily] chi=sgnY d=8 pD=0 p=2147483647 rows=151 nN=324 nD=15 dimK=6 dimJd=6 ker=0 radial=0 0.3s
+[{"pD": 0, "rows": 151, "nN": 324, "nD": 15, "dimK": 6, "dimJd": 6, "ker_R": 0, "radial": 0, "complement": 6, "rankM": 141}]
+products done 0.0s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 6 unknowns (1.0s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1, "a5": 1, "a6": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 10 time(s) = 0", "singular_seconds": 0.0}
+[SectorFamily] chi=sgnY d=8 pD=1 p=2147483647 rows=151 nN=360 nD=15 dimK=4 dimJd=3 ker=1 radial=0 0.3s
+[{"pD": 1, "rows": 151, "nN": 360, "nD": 15, "dimK": 4, "dimJd": 3, "ker_R": 1, "radial": 0, "complement": 4, "rankM": 147}]
+products done 0.0s
+[FoldedReducer] deg=16 par=1 p=2147483647 orbits=532 gens=654 rank=500 (CI 500) ring=32 (CI 32) 0.5s
+quadrics: 32 in 4 unknowns (1.0s)
+{"msolve_rc": 0, "msolve_seconds": 0.0, "pure_powers": {"a1": 2, "a2": 1, "a3": 1, "a4": 1}, "missing_pure_power": [], "verdict": "V={0} (only trivial solution)", "max_pure_power": 2, "singular_out": "dim(std(I)) = 0 vdim = 7 time(s) = 0", "singular_seconds": 0.0}
+[SectorFamily] chi=sgnsgn d=8 pD=0 p=2147483647 rows=64 nN=324 nD=1 dimK=0 dimJd=0 ker=0 radial=0 0.3s
+[{"pD": 0, "rows": 64, "nN": 324, "nD": 1, "dimK": 0, "dimJd": 0, "ker_R": 0, "radial": 0, "complement": 0, "rankM": 57}]
+products done 0.0s
+quadrics: 0 in 0 unknowns (0.3s)
+{"verdict": "empty family"}
+[SectorFamily] chi=sgnsgn d=8 pD=1 p=2147483647 rows=46 nN=360 nD=4 dimK=0 dimJd=0 ker=0 radial=0 0.3s
+[{"pD": 1, "rows": 46, "nN": 360, "nD": 4, "dimK": 0, "dimJd": 0, "ker_R": 0, "radial": 0, "complement": 0, "rankM": 46}]
+products done 0.0s
+quadrics: 0 in 0 unknowns (0.3s)
+{"verdict": "empty family"}
+[E1Family] d=7 pD=0 p=2147483647 rows=4284 nA=396 nJ=3861 nullity=484 dimK=64 dimJd=63 ker_R=1 (CI dimJd 63) 41.8s
+[{"pD": 0, "rows": 4284, "nA": 396, "nJ": 3861, "dimK": 64, "dimJd": 63, "ci_dimJd": 63, "ker_R": 1, "rankJtop_modp": 3441, "rankJtop_CI": 3441, "radial": 3, "complement": 61}]
+products done 2.3s
+[Reducer] deg=14 par=1 p=2147483647 mons=5796 gens=6006 rank=5052 (CI 5052) ring=744 121.1s
+quadrics: 741 in 61 unknowns (269.6s)
+{"msolve_rc": 124, "msolve_seconds": 3601.3, "verdict": "msolve failed/timeout"}
+[E1Family] d=7 pD=1 p=2147483647 rows=4284 nA=396 nJ=3861 nullity=484 dimK=64 dimJd=63 ker_R=1 (CI dimJd 63) 108.3s
+[{"pD": 1, "rows": 4284, "nA": 396, "nJ": 3861, "dimK": 64, "dimJd": 63, "ci_dimJd": 63, "ker_R": 1, "rankJtop_modp": 3441, "rankJtop_CI": 3441, "radial": 3, "complement": 61}]
+products done 5.2s
+[Reducer] deg=14 par=1 p=2147483647 mons=5796 gens=6006 rank=5052 (CI 5052) ring=744 309.5s
+quadrics: 741 in 61 unknowns (651.9s)
+{"msolve_rc": -9, "msolve_seconds": 3347.6, "verdict": "msolve failed/timeout"}
+[E1Family] d=1 pD=0 p=2147483629 rows=396 nA=3 nJ=63 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.0s
+{"exp": "e1-kernel", "d": 1, "pD": 0, "prime": 2147483629, "rows": 396, "nA": 3, "nJ": 63, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 63, "rankJtop_CI": 63, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.1}
+[E1Family] d=1 pD=1 p=2147483629 rows=396 nA=3 nJ=63 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.0s
+{"exp": "e1-kernel", "d": 1, "pD": 1, "prime": 2147483629, "rows": 396, "nA": 3, "nJ": 63, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 63, "rankJtop_CI": 63, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.1}
+[E1Family] d=2 pD=0 p=2147483629 rows=636 nA=12 nJ=168 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.1s
+{"exp": "e1-kernel", "d": 2, "pD": 0, "prime": 2147483629, "rows": 636, "nA": 12, "nJ": 168, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 168, "rankJtop_CI": 168, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.2}
+[E1Family] d=2 pD=1 p=2147483629 rows=651 nA=9 nJ=168 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.1s
+{"exp": "e1-kernel", "d": 2, "pD": 1, "prime": 2147483629, "rows": 651, "nA": 9, "nJ": 168, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 168, "rankJtop_CI": 168, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.2}
+[E1Family] d=3 pD=0 p=2147483629 rows=1001 nA=28 nJ=378 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.5s
+{"exp": "e1-kernel", "d": 3, "pD": 0, "prime": 2147483629, "rows": 1001, "nA": 28, "nJ": 378, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 378, "rankJtop_CI": 378, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.9}
+[E1Family] d=3 pD=1 p=2147483629 rows=1001 nA=28 nJ=378 nullity=0 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 0.4s
+{"exp": "e1-kernel", "d": 3, "pD": 1, "prime": 2147483629, "rows": 1001, "nA": 28, "nJ": 378, "nullity": 0, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 378, "rankJtop_CI": 378, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 0.9}
+[E1Family] d=4 pD=0 p=2147483629 rows=1491 nA=66 nJ=756 nullity=9 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 1.5s
+{"exp": "e1-kernel", "d": 4, "pD": 0, "prime": 2147483629, "rows": 1491, "nA": 66, "nJ": 756, "nullity": 9, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 747, "rankJtop_CI": 747, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 2.9}
+[E1Family] d=4 pD=1 p=2147483629 rows=1512 nA=60 nJ=756 nullity=6 dimK=0 dimJd=0 ker_R=0 (CI dimJd 0) 1.7s
+{"exp": "e1-kernel", "d": 4, "pD": 1, "prime": 2147483629, "rows": 1512, "nA": 60, "nJ": 756, "nullity": 6, "dimK": 0, "dimJd": 0, "ci_dimJd": 0, "ker_R": 0, "rankJtop_modp": 750, "rankJtop_CI": 750, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 3.1}
+[E1Family] d=5 pD=0 p=2147483629 rows=2184 nA=126 nJ=1386 nullity=48 dimK=3 dimJd=3 ker_R=0 (CI dimJd 3) 5.3s
+{"exp": "e1-kernel", "d": 5, "pD": 0, "prime": 2147483629, "rows": 2184, "nA": 126, "nJ": 1386, "nullity": 48, "dimK": 3, "dimJd": 3, "ci_dimJd": 3, "ker_R": 0, "rankJtop_modp": 1341, "rankJtop_CI": 1341, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 18.6}
+[E1Family] d=5 pD=1 p=2147483629 rows=2184 nA=126 nJ=1386 nullity=48 dimK=3 dimJd=3 ker_R=0 (CI dimJd 3) 13.3s
+{"exp": "e1-kernel", "d": 5, "pD": 1, "prime": 2147483629, "rows": 2184, "nA": 126, "nJ": 1386, "nullity": 48, "dimK": 3, "dimJd": 3, "ci_dimJd": 3, "ker_R": 0, "rankJtop_modp": 1341, "rankJtop_CI": 1341, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 17.7}
+[E1Family] d=6 pD=0 p=2147483629 rows=3080 nA=236 nJ=2376 nullity=180 dimK=18 dimJd=18 ker_R=0 (CI dimJd 18) 29.5s
+{"exp": "e1-kernel", "d": 6, "pD": 0, "prime": 2147483629, "rows": 3080, "nA": 236, "nJ": 2376, "nullity": 180, "dimK": 18, "dimJd": 18, "ci_dimJd": 18, "ker_R": 0, "rankJtop_modp": 2214, "rankJtop_CI": 2214, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 63.1}
+[E1Family] d=6 pD=1 p=2147483629 rows=3108 nA=226 nJ=2376 nullity=171 dimK=18 dimJd=18 ker_R=0 (CI dimJd 18) 18.8s
+{"exp": "e1-kernel", "d": 6, "pD": 1, "prime": 2147483629, "rows": 3108, "nA": 226, "nJ": 2376, "nullity": 171, "dimK": 18, "dimJd": 18, "ci_dimJd": 18, "ker_R": 0, "rankJtop_modp": 2223, "rankJtop_CI": 2223, "rigorous_zero": true, "job": "e1kernel_P2", "seconds": 43.9}
+[E1Family] d=7 pD=0 p=2147483629 rows=4284 nA=396 nJ=3861 nullity=484 dimK=64 dimJd=63 ker_R=1 (CI dimJd 63) 98.9s
+{"exp": "e1-kernel", "d": 7, "pD": 0, "prime": 2147483629, "rows": 4284, "nA": 396, "nJ": 3861, "nullity": 484, "dimK": 64, "dimJd": 63, "ci_dimJd": 63, "ker_R": 1, "rankJtop_modp": 3441, "rankJtop_CI": 3441, "rigorous_zero": false, "job": "e1kernel_P2", "isotypic": {"sgnxtriv": {"dim": 1, "mult": 1}, "sgnxsgn": {"dim": 1, "mult": 1}}, "seconds": 168.8}
+[E1Family] d=7 pD=1 p=2147483629 rows=4284 nA=396 nJ=3861 nullity=484 dimK=64 dimJd=63 ker_R=1 (CI dimJd 63) 99.7s
+{"exp": "e1-kernel", "d": 7, "pD": 1, "prime": 2147483629, "rows": 4284, "nA": 396, "nJ": 3861, "nullity": 484, "dimK": 64, "dimJd": 63, "ci_dimJd": 63, "ker_R": 1, "rankJtop_modp": 3441, "rankJtop_CI": 3441, "rigorous_zero": false, "job": "e1kernel_P2", "isotypic": {"trivxsgn": {"dim": 1, "mult": 1}, "sgnxsgn": {"dim": 1, "mult": 1}}, "seconds": 171.4}
+[E1Family] d=8 pD=0 p=2147483629 rows=5796 nA=651 nJ=6006 nullity=1128 dimK=174 dimJd=168 ker_R=6 (CI dimJd 168) 521.0s
+{"exp": "e1-kernel", "d": 8, "pD": 0, "prime": 2147483629, "rows": 5796, "nA": 651, "nJ": 6006, "nullity": 1128, "dimK": 174, "dimJd": 168, "ci_dimJd": 168, "ker_R": 6, "rankJtop_modp": 5052, "rankJtop_CI": 5052, "rigorous_zero": false, "job": "e1kernel_P2", "isotypic": {"trivxtriv": {"dim": 2, "mult": 2}, "trivxsgn": {"dim": 4, "mult": 4}, "trivxstd": {"dim": 2, "mult": 1}, "sgnxtriv": {"dim": 4, "mult": 4}, "sgnxsgn": {"dim": 6, "mult": 6}, "sgnxstd": {"dim": 2, "mult": 1}, "stdxtriv": {"dim": 2, "mult": 1}, "stdxsgn": {"dim": 2, "mult": 1}}, "seconds": 1017.7}
+[E1Family] d=8 pD=1 p=2147483629 rows=5832 nA=636 nJ=6006 nullity=1110 dimK=174 dimJd=168 ker_R=6 (CI dimJd 168) 353.6s
+{"exp": "e1-kernel", "d": 8, "pD": 1, "prime": 2147483629, "rows": 5832, "nA": 636, "nJ": 6006, "nullity": 1110, "dimK": 174, "dimJd": 168, "ci_dimJd": 168, "ker_R": 6, "rankJtop_modp": 5070, "rankJtop_CI": 5070, "rigorous_zero": false, "job": "e1kernel_P2", "isotypic": {"trivxsgn": {"dim": 1, "mult": 1}, "sgnxtriv": {"dim": 1, "mult": 1}, "sgnxsgn": {"dim": 6, "mult": 6}, "sgnxstd": {"dim": 2, "mult": 1}, "stdxsgn": {"dim": 2, "mult": 1}}, "seconds": 479.7}
+CHAIN1 DONE

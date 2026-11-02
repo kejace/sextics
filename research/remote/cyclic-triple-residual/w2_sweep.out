@@ -1,0 +1,78 @@
+102 candidates
+d= 5 e1=True cons=False rank=256/257 7.2s polar-pencil           polar F_a, a = e_Y1  
+d= 5 e1=True cons=False rank=713/714 9.3s polar-pencil           polar F_a, a on line {X0=Y1=X1=0}  
+d= 5 e1=True cons=False rank=723/724 9.9s polar-pencil           polar F_a, a=e_X0+e_X1  
+d= 6 e1=False cons=False rank=None/None 21.4s F-restriction-1        F|_{X1=0}  
+d= 6 e1=False cons=False rank=None/None 21.8s F-restriction-1        F|_{Y1=0}  
+d= 6 e1=False cons=False rank=None/None 23.7s F-restriction-1        F|_{X2=0}  
+d= 6 e1=False cons=False rank=None/None 25.3s F-restriction-1        F|_{Y0=0}  
+d= 6 e1=False cons=False rank=None/None 28.2s F-restriction-1        F|_{X0=0}  
+d= 6 e1=False cons=False rank=None/None 23.4s F-restriction-1        F|_{Y2=0}  
+d= 6 e1=False cons=False rank=None/None 21.9s F-restriction-2        F|_{X0,X2=0}  
+d= 6 e1=False cons=False rank=None/None 26.5s F-restriction-2        F|_{X0,X1=0}  
+d= 6 e1=False cons=False rank=None/None 20.2s F-restriction-2        F|_{X0,Y0=0}  
+d= 6 e1=False cons=False rank=None/None 22.4s F-restriction-2        F|_{X0,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 21.5s F-restriction-2        F|_{X0,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 21.9s F-restriction-2        F|_{X1,X2=0}  
+d= 6 e1=False cons=False rank=None/None 23.9s F-restriction-2        F|_{X1,Y0=0}  
+d= 6 e1=False cons=False rank=None/None 21.0s F-restriction-2        F|_{X1,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 23.7s F-restriction-2        F|_{X1,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 24.6s F-restriction-2        F|_{X2,Y0=0}  
+d= 6 e1=False cons=False rank=None/None 21.6s F-restriction-2        F|_{X2,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 20.1s F-restriction-2        F|_{Y0,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 21.1s F-restriction-2        F|_{Y0,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 27.0s F-restriction-2        F|_{X2,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 21.9s F-restriction-3        F|_{X0,X1,X2=0}  
+d= 6 e1=False cons=False rank=None/None 21.3s F-restriction-3        F|_{X0,X1,Y0=0}  
+d= 6 e1=False cons=False rank=None/None 25.1s F-restriction-2        F|_{Y1,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 24.4s F-restriction-3        F|_{X0,X1,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 22.1s F-restriction-3        F|_{X0,X1,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 21.1s F-restriction-3        F|_{X0,X2,Y0=0}  
+d= 6 e1=False cons=False rank=None/None 22.7s F-restriction-3        F|_{X0,X2,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 22.4s F-restriction-3        F|_{X0,Y0,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 26.6s F-restriction-3        F|_{X0,X2,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 23.1s F-restriction-3        F|_{X0,Y0,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 22.8s F-restriction-3        F|_{X0,Y1,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 22.4s F-restriction-3        F|_{X1,X2,Y0=0}  
+d= 6 e1=False cons=False rank=None/None 21.0s F-restriction-3        F|_{X1,X2,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 24.7s F-restriction-3        F|_{X1,X2,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 21.7s F-restriction-3        F|_{X1,Y0,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 21.8s F-restriction-3        F|_{X1,Y0,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 22.5s F-restriction-3        F|_{X2,Y0,Y1=0}  
+d= 6 e1=False cons=False rank=None/None 21.4s F-restriction-3        F|_{X2,Y0,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 24.9s F-restriction-3        F|_{X1,Y1,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 25.0s F-restriction-3        F|_{X2,Y1,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 23.1s F-pieces               F - F|_{X2=0}  
+d= 6 e1=False cons=False rank=None/None 25.7s F-restriction-3        F|_{Y0,Y1,Y2=0}  
+d= 6 e1=False cons=False rank=None/None 22.6s F-pieces               Fermat part sum Z_i^6  
+d= 6 e1=False cons=False rank=None/None 20.5s F-pieces               coupling part (F - Fermat)  
+d= 6 e1=False cons=False rank=None/None 21.6s join-pencil            F_X + -1 F_Y  
+d= 6 e1=False cons=False rank=None/None 21.9s join-pencil            F_X + 1 F_Y  
+d= 6 e1=False cons=False rank=None/None 22.1s join-pencil            F_X + 1/2 F_Y  
+d= 6 e1=False cons=False rank=None/None 20.7s FX-pencil              X0^6+X1^6+X2^6 + 0 X0^3X2^3  
+d= 6 e1=False cons=False rank=None/None 23.1s join-pencil            F_X + 2 F_Y  
+d= 6 e1=False cons=False rank=None/None 23.8s FX-pencil              X0^6+X1^6+X2^6 + 1 X0^3X2^3  
+d= 6 e1=False cons=False rank=None/None 21.7s FX-pencil              X0^6+X1^6+X2^6 + -5/7 X0^3X2^3  
+d= 6 e1=False cons=False rank=None/None 20.1s FX-pencil              X0^6+X1^6+X2^6 + 10/7 X0^3X2^3  
+d= 6 e1=False cons=False rank=None/None 23.0s FX-pencil              X0^6+X1^6+X2^6 + 1/7 X0^3X2^3  
+d= 8 e1=True cons=False rank=685/686 159.2s pieces-8               X2^2*H'  
+d= 8 e1=True cons=False rank=685/686 162.4s pieces-8               X2^2*C*Z'  
+d= 8 e1=False cons=False rank=None/None 181.6s pieces-8               X2^2*H  
+d= 8 e1=False cons=False rank=None/None 180.9s pieces-8               X2^2*C^2  
+d= 8 e1=True cons=False rank=685/686 188.0s pieces-8               X2^2*Z'^2  
+d= 9 e1=False cons=False rank=None/None 538.7s pieces-9               X2^3*H  
+d= 9 e1=True cons=False rank=1155/1156 565.6s D8-products            X2*D8  
+d= 9 e1=True cons=False rank=1738/1739 576.7s pieces-9               X2^3*H'  
+d= 9 e1=False cons=False rank=None/None 558.8s pieces-9               C*H'  
+d= 9 e1=False cons=False rank=None/None 553.1s pieces-9               Z'*H'  
+d= 9 e1=False cons=False rank=None/None 573.3s pieces-9               C^3  
+d= 9 e1=False cons=False rank=None/None 566.9s pieces-9               Z'^3  
+d= 9 e1=False cons=False rank=None/None 584.6s pieces-9               C^2*Z'  
+d= 9 e1=False cons=False rank=None/None 582.0s pieces-9               C*Z'^2  
+d=10 e1=True cons=False rank=1738/1739 3468.4s polar-products         F_X2*F_X2  
+d=10 e1=True cons=False rank=2587/2588 4027.7s polar-products         F_X0*F_Y0  
+d=10 e1=True cons=False rank=2670/2671 5614.2s polar-products         F_Y0*F_Y0  
+d=10 e1=True cons=False rank=1681/1682 5639.6s polar-products         F_X2*F_Y2  
+d=10 e1=True cons=False rank=2553/2554 5824.8s polar-products         F_X0*F_X0  
+d=10 e1=True cons=False rank=1786/1787 5837.0s D8-products            X2^2*D8  
+d=10 e1=True cons=False rank=2710/2711 6198.1s polar-products         F_X1*F_Y1  

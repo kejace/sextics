@@ -1,0 +1,2 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[koszul] d=7 K=126 rows=11618 cols=2127 (a-dependent 840, const 1287) gauge dim=6 dimP=120 built 345.6s

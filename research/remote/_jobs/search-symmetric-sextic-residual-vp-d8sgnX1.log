@@ -1,0 +1,3 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[cvp] d=8 pD=1 K=4 rows=1858 cols=457 (N 360, Q 97) excl F-mult dim=0 dimP=4 built 7.7s
+[w2_varpro] S3S3_sgnX_d8_p1_cvp_all {'K': 4, 'dimP': 4, 'rows': 1858, 'cols': 457, 'nN': 360, 'nQ': 97, 'excluded': 0, 'build_s': 7.7}

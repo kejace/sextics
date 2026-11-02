@@ -1,0 +1,61 @@
+{
+ "d": 5,
+ "p": 1000003,
+ "n_theta": 6,
+ "n_quadrics": 50,
+ "gb_size": 21,
+ "gb_linear": 0,
+ "n_forms": 6,
+ "n_empty": 6,
+ "forms": [
+  {
+   "k": 0,
+   "form": "1*t0",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 1,
+   "form": "1*t1",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 2,
+   "form": "1*t2",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 3,
+   "form": "1*t3",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 4,
+   "form": "1*t4",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 5,
+   "form": "1*t5",
+   "rc": 0,
+   "seconds": 0.0,
+   "empty": true,
+   "out": "[-1]:"
+  }
+ ],
+ "seconds_forms": 0.1
+}

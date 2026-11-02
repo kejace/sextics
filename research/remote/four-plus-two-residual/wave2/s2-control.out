@@ -1,0 +1,37 @@
+=== family-hesse-web
+[sector basis] d=6 c=(0, 0, 0, 0, 0) nD=13 adm=13 rankJ=39 rankT=0 (1.49s)
+[sector varpro family-hesse-web] d=6 c=(0, 0, 0, 0, 0) K=13 gauge=1 dimP=12 rows=144 N=50 Q=6 nnz(TN)=4060 built in 1.9s
+family-hesse-web q 1 group DiagonalGroup(size=2592, order=6) stabilizer size 864 gens [(0, 0, 0, 0, 1, 0), (3, 0, 0, 3, 0, 0), (0, 0, 1, 0, 0, 0), (4, 1, 0, 1, 0, 0), (3, 0, 0, 0, 0, 0)] A X0**3*Y0**3 cA (0, 0, 0, 3, 3) witness d 6 char (0, 0, 0, 0, 0)
+modp dims {'nD': 13, 'adm': 13, 'jac': 6, 'nonjac': 7, 'rows': 39, 'rankJ': 39, 'rankT': 39}
+{'nD': 13, 'adm': 13, 'rows': 39, 'rankJ': 39, 'rankT': 0, 'sv_gap': None, 'smin_kept': None, 'smax_dropped': 2.3591066792167065e-15, 'time': 1.49}
+witness in span: rel err 2.69506719679882e-16
+fd check (-0.6056091161069355, -0.6056091161332766) (-0.2920679580137278, -0.29206795815195363)
+relres at witness 0.7632405771085913
+LM from witness {'relres': 5.857043550447242e-14, 'iters': 150, 'status': 'maxiter', 'time': 3.11}
+LBFGS seed 0 {'relres': 0.06611249935388755, 'iters': 34, 'time': 4.15}
+   LM polish {'relres': 0.06611249935360175, 'iters': 3, 'status': 'stalled', 'time': 0.8}
+LBFGS seed 1 {'relres': 0.0027379694300518538, 'iters': 77, 'time': 25.79}
+   LM polish {'relres': 0.002737969429606322, 'iters': 4, 'status': 'stalled', 'time': 1.25}
+LBFGS seed 2 {'relres': 0.002737969428957249, 'iters': 48, 'time': 5.03}
+   LM polish {'relres': 0.0027379694295566444, 'iters': 3, 'status': 'stalled', 'time': 1.76}
+LBFGS seed 3 {'relres': 0.03081565601579027, 'iters': 41, 'time': 6.17}
+   LM polish {'relres': 0.030815656016165923, 'iters': 3, 'status': 'stalled', 'time': 2.1}
+LBFGS seed 4 {'relres': 0.0027379694279922187, 'iters': 69, 'time': 7.38}
+   LM polish {'relres': 0.0027379694281811037, 'iters': 3, 'status': 'stalled', 'time': 1.29}
+LBFGS seed 5 {'relres': 0.06676966284308124, 'iters': 39, 'time': 8.2}
+   LM polish {'relres': 0.06676966284329465, 'iters': 5, 'status': 'flat', 'time': 0.07}
+hits 0 rels [0.06611249935360175, 0.002737969429606322, 0.0027379694295566444, 0.030815656016165923, 0.0027379694281811037, 0.06676966284329465]
+=== block-q2
+[sector basis] d=6 c=(0, 0, 0, 0, 0) nD=8 adm=8 rankJ=63 rankT=0 (7.87s)
+block-q2 q 2 group DiagonalGroup(size=2592, order=6) stabilizer size 2592 gens [(0, 0, 0, 0, 1, 0), (4, 0, 0, 1, 0, 0), (0, 0, 1, 0, 0, 0), (0, 1, 0, 0, 0, 0), (3, 0, 0, 0, 0, 0)] A X0*Y0**11 - 610*X0*Y0**5*Y2**6/87 cA (0, 3, 0, 0, 3) witness d 6 char (0, 0, 0, 0, 0)
+modp dims {'nD': 8, 'adm': 8, 'jac': 6, 'nonjac': 2, 'rows': 63, 'rankJ': 63, 'rankT': 63}
+{'nD': 8, 'adm': 8, 'rows': 63, 'rankJ': 63, 'rankT': 0, 'sv_gap': None, 'smin_kept': None, 'smax_dropped': 1.8538245237523287e-15, 'time': 7.87}
+witness in span: rel err 1.853013210420596e-16
+Traceback (most recent call last):
+  File "/tmp/hodge/results/four-plus-two-residual/s2_control.py", line 20, in <module>
+    fam = fplib.SectorVarPro(F, A, q, B, Dm, c, ch, verbose=True, tag=iid)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/four-plus-two-residual/fplib.py", line 394, in __init__
+    assert len(A) == 1, 'A must be a monomial'
+           ^^^^^^^^^^^
+AssertionError: A must be a monomial

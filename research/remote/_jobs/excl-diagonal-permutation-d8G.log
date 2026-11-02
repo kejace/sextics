@@ -1,0 +1,27 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+prime 1000000007: rank 5052 of 6006 cols; lift not yet (122s)
+prime 998244353: rank 5052 of 6006 cols; lift not yet (243s)
+prime 2147483647: rank 5052 of 6006 cols; lift not yet (380s)
+prime 2147483629: rank 5052 of 6006 cols; lift not yet (505s)
+[Red n=16 par=1 sigma=None p=1000000007] C=10152 gens=13104 rank(J)=9684 dim R=468 (319.1s)
+relaxation at 1000000007 {'in_J': False, 'nf_nonzero_coords': 468, 'ring_dim_16_odd': 468, 'good_reduction': True, 'exact_u8': False, 'seconds': 428.3}
+[Red n=16 par=1 sigma=None p=998244353] C=10152 gens=13104 rank(J)=9684 dim R=468 (304.7s)
+relaxation at 998244353 {'in_J': False, 'nf_nonzero_coords': 468, 'ring_dim_16_odd': 468, 'good_reduction': True, 'exact_u8': False, 'seconds': 389.6}
+[ReducedE2 d=8 sigma=None] rows=10152 cols=2445 (c: 954, Q: 1491) built in 11.6s
+[ReducedE2.solve p=1000000007] {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 1000000007, 'seconds': 905.2}
+reducedE2 1000000007 {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 1000000007, 'seconds': 905.2}
+full nullspace mod 1000000007: nullity 159 (40s)
+[ReducedE2 d=8 sigma=None] rows=10152 cols=2445 (c: 954, Q: 1491) built in 11.8s
+[ReducedE2.solve p=998244353] {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 998244353, 'seconds': 699.7}
+reducedE2 998244353 {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 998244353, 'seconds': 699.7}
+full nullspace mod 998244353: nullity 159 (35s)
+[ReducedE2 d=8 sigma=None] rows=10152 cols=2445 (c: 954, Q: 1491) built in 10.4s
+[ReducedE2.solve p=2147483647] {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 2147483647, 'seconds': 1276.0}
+reducedE2 2147483647 {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 2147483647, 'seconds': 1276.0}
+full nullspace mod 2147483647: nullity 159 (86s)
+nullvector 0 lift failed with 3 primes
+rank certification {'nullity_modp': 159, 'certified_exact_nullvectors': 0, 'primes': [1000000007, 998244353, 2147483647], 'seconds': 0.0}
+[system] d=8 q=1 rows=40326 cols=7497 (N 6006, Q 1491) nnz=23155113 built in 118.4s
+[compressed p=1000000007] k=7538 consistent=False rank=6703 nullity=794 (compress 1331.3s, rref 185.5s)
+[system] d=8 q=1 rows=40326 cols=7723 (N 6006, Q 1491) nnz=24975543 built in 77.8s
+DONE {'u8': {'primes': [1000000007, 998244353, 2147483647, 2147483629], 'lift': 'failed', 'seconds': 504.6}, 'relax_p1000000007': {'in_J': False, 'nf_nonzero_coords': 468, 'ring_dim_16_odd': 468, 'good_reduction': True, 'exact_u8': False, 'seconds': 428.3}, 'relax_p998244353': {'in_J': False, 'nf_nonzero_coords': 468, 'ring_dim_16_odd': 468, 'good_reduction': True, 'exact_u8': False, 'seconds': 389.6}, 'reducedE2_p1000000007': {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 1000000007, 'seconds': 905.2, 'full_nullity': 159}, 'reducedE2_p998244353': {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 998244353, 'seconds': 699.7, 'full_nullity': 159}, 'reducedE2_p2147483647': {'consistent': False, 'rank': 2286, 'rank_aug': 2287, 'nullity': 159, 'rows': 10152, 'cols': 2445, 'k': 2486, 'p': 2147483647, 'seconds': 1276.0, 'full_nullity': 159}, 'rankcert': {'nullity_modp': 159, 'certified_exact_nullvectors': 0, 'primes': [1000000007, 998244353, 2147483647], 'seconds': 0.0}, 'engine_full_P1': {'consistent': False, 'rank': 6703, 'nullity': 794, 'rows': 40326, 'cols': 7497}, 'served_P1': {'dim': 18, 'contains_A': False}}

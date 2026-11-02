@@ -1,0 +1,12 @@
+d=9: sectors with kernel: [((0, 0), 19), ((0, 1), 20), ((0, 2), 17), ((0, 3), 19), ((0, 4), 16), ((0, 5), 19), ((2, 5), 1), ((4, 0), 3), ((4, 1), 1), ((4, 2), 3), ((4, 4), 2)] (22.6s)
+  sector (0, 0): {'dim': 19, 'reconstructed': 2, 'verified': 2, 'seconds': 20.1, 'e1_rows': 1150, 'e1_cols': 1376}
+  sector (0, 1): {'dim': 20, 'reconstructed': 0, 'verified': 0, 'seconds': 16.9, 'e1_rows': 1093, 'e1_cols': 1315}
+  sector (0, 2): {'dim': 17, 'reconstructed': 0, 'verified': 0, 'seconds': 16.8, 'e1_rows': 1087, 'e1_cols': 1306}
+  sector (0, 3): {'dim': 19, 'reconstructed': 1, 'verified': 1, 'seconds': 20.6, 'e1_rows': 1153, 'e1_cols': 1381}
+  sector (0, 4): {'dim': 16, 'reconstructed': 0, 'verified': 0, 'seconds': 16.7, 'e1_rows': 1084, 'e1_cols': 1302}
+  sector (0, 5): {'dim': 19, 'reconstructed': 0, 'verified': 0, 'seconds': 17.4, 'e1_rows': 1090, 'e1_cols': 1311}
+  sector (2, 5): {'dim': 1, 'reconstructed': 1, 'verified': 1, 'seconds': 10.8, 'e1_rows': 874, 'e1_cols': 939}   sector (4, 0): {'dim': 3, 'reconstructed': 0, 'verified': 0, 'seconds': 5.5, 'e1_rows': 616, 'e1_cols': 749}   sector (4, 1): {'dim': 1, 'reconstructed': 1, 'verified': 1, 'seconds': 5.9, 'e1_rows': 664, 'e1_cols': 803}   sector (4, 2): {'dim': 3, 'reconstructed': 0, 'verified': 0, 'seconds': 4.5, 'e1_rows': 613, 'e1_cols': 747}   sector (4, 4): {'dim': 2, 'reconstructed': 0, 'verified': 0, 'seconds': 5.4, 'e1_rows': 658, 'e1_cols': 799}
+saved kernel_exact_d9.json with 120 elements (163.9s)eelement 114 sector [4, 1]: False rank=[1129, 1129] aug=[1130, 1130] null=[29, 29] sealed=0 17.3s
+element 110 sector [2, 5]: True rank=[1155, 1155] aug=[1156, 1156] null=[33, 33] sealed=33 19.7seelement 17 sector [0, 0]: False rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=59 45.4s
+element 60 sector [0, 3]: False rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 47.8s
+element 18 sector [0, 0]: False rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 48.6s

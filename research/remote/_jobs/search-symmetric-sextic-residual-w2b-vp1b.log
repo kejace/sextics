@@ -1,0 +1,109 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[charfamily triv/d8/p0] d=8 pD=0 K=64 rows=1858 cols=421 (N 324, Q 97) nnz(M)=2055368 built in 13.7s
+family triv/d8/p0 {'chi': 'triv', 'd': 8, 'pD': 0, 'nD': 64, 'dimK': 22, 'e1_rows': 322, 'e1_nN': 324, 'dimJ': 20, 'ker_beyond_J': 2, 'sv_gap': (np.float64(0.5283689778717905), np.float64(5.156412595384046e-14)), 'F_in_kernel_resid': 3.312084344616867e-15, 'dimF': 4, 'dimP': 18, 'rows': 1858, 'nN': 324, 'nQ': 97, 'build_s': 14.1}
+[triv/d8/p0] progress n=2 best=6.414e-04 (0.7 min)
+[triv/d8/p0] progress n=8 best=6.392e-04 (1.2 min)
+[triv/d8/p0] progress n=15 best=6.392e-04 (1.9 min)
+[triv/d8/p0] progress n=19 best=6.392e-04 (2.7 min)
+[triv/d8/p0] progress n=32 best=6.392e-04 (3.7 min)
+[triv/d8/p0] progress n=44 best=6.392e-04 (4.9 min)
+[triv/d8/p0] progress n=60 best=6.392e-04 (6.2 min)
+SECTOR DONE triv/d8/p0 {"job": "vp1b", "family": "varpro-sector", "chi": "triv", "d": 8, "pD": 0, "nD": 64, "dimK": 22, "dimJ": 20, "ker_beyond_J": 2, "dimF": 4, "dimP": 18, "rows": 1858, "nN": 324, "nQ": 97, "build_s": 14.1, "maxiter": 400, "restarts": 60, "seeds": [1000, 1059], "seconds": 374.4, "n": 60, "n_spurious": 0, "best_rel": 0.0006391739038893791, "median_rel": 0.0006413861501707849, "n_below_1e-4": 0, "n_below_1e-6": 0, "n_below_1e-8": 0, "n_below_1e-10": 0, "hist_log10": {"-4": 46, "-3": 14}, "top_minima": [["0.000639", 18], ["0.000641", 28], ["0.0032", 8], ["0.00328", 6]], "mean_iters": 53.21666666666667}
+[charfamily triv/d8/p1] d=8 pD=1 K=46 rows=1858 cols=457 (N 360, Q 97) nnz(M)=1770974 built in 8.7s
+family triv/d8/p1 {'chi': 'triv', 'd': 8, 'pD': 1, 'nD': 46, 'dimK': 14, 'e1_rows': 376, 'e1_nN': 360, 'dimJ': 14, 'ker_beyond_J': 0, 'sv_gap': (np.float64(0.6274439426433479), np.float64(2.058127028820343e-14)), 'F_in_kernel_resid': 1.3231774405905896e-15, 'dimF': 1, 'dimP': 13, 'rows': 1858, 'nN': 360, 'nQ': 97, 'build_s': 9.0}
+[triv/d8/p1] progress n=4 best=1.001e-04 (1.8 min)
+[triv/d8/p1] progress n=10 best=1.001e-04 (2.7 min)
+[triv/d8/p1] progress n=17 best=1.001e-04 (3.7 min)
+[triv/d8/p1] progress n=23 best=1.001e-04 (4.8 min)
+[triv/d8/p1] progress n=28 best=1.001e-04 (6.2 min)
+[triv/d8/p1] progress n=35 best=1.001e-04 (7.7 min)
+[triv/d8/p1] progress n=44 best=1.001e-04 (9.3 min)
+[triv/d8/p1] progress n=53 best=1.001e-04 (11.2 min)
+[triv/d8/p1] progress n=60 best=1.001e-04 (13.2 min)
+SECTOR DONE triv/d8/p1 {"job": "vp1b", "family": "varpro-sector", "chi": "triv", "d": 8, "pD": 1, "nD": 46, "dimK": 14, "dimJ": 14, "ker_beyond_J": 0, "dimF": 1, "dimP": 13, "rows": 1858, "nN": 360, "nQ": 97, "build_s": 9.0, "maxiter": 400, "restarts": 60, "seeds": [1000, 1059], "seconds": 789.9, "n": 60, "n_spurious": 0, "best_rel": 0.00010005740129691697, "median_rel": 0.0001000574031600031, "n_below_1e-4": 0, "n_below_1e-6": 0, "n_below_1e-8": 0, "n_below_1e-10": 0, "hist_log10": {"-4": 60}, "top_minima": [["0.0001", 60]], "mean_iters": 55.0}
+[charfamily triv/d9/p0] d=9 pD=0 K=79 rows=2648 cols=673 (N 489, Q 184) nnz(M)=4537131 built in 32.0s
+family triv/d9/p0 {'chi': 'triv', 'd': 9, 'pD': 0, 'nD': 79, 'dimK': 34, 'e1_rows': 448, 'e1_nN': 489, 'dimJ': 33, 'ker_beyond_J': 1, 'sv_gap': (np.float64(0.4625517664491055), np.float64(3.648670895266151e-12)), 'F_in_kernel_resid': 1.043237500620319e-13, 'dimF': 5, 'dimP': 29, 'rows': 2648, 'nN': 489, 'nQ': 184, 'build_s': 32.6}
+[triv/d9/p0] progress n=1 best=3.838e-05 (11.6 min)
+[triv/d9/p0] progress n=5 best=3.838e-05 (13.6 min)
+[triv/d9/p0] progress n=6 best=3.838e-05 (15.6 min)
+[triv/d9/p0] progress n=8 best=3.838e-05 (17.6 min)
+[triv/d9/p0] progress n=8 best=3.838e-05 (19.6 min)
+[triv/d9/p0] progress n=8 best=3.838e-05 (21.6 min)
+[triv/d9/p0] progress n=10 best=3.838e-05 (23.6 min)
+[triv/d9/p0] progress n=10 best=3.838e-05 (25.6 min)
+[triv/d9/p0] progress n=13 best=3.838e-05 (27.6 min)
+[triv/d9/p0] progress n=15 best=3.838e-05 (29.6 min)
+[triv/d9/p0] progress n=16 best=3.838e-05 (31.6 min)
+[triv/d9/p0] progress n=17 best=3.838e-05 (33.6 min)
+[triv/d9/p0] progress n=17 best=3.838e-05 (35.6 min)
+[triv/d9/p0] progress n=18 best=3.838e-05 (37.6 min)
+[triv/d9/p0] progress n=19 best=3.838e-05 (39.6 min)
+[triv/d9/p0] progress n=20 best=3.838e-05 (41.6 min)
+[triv/d9/p0] progress n=22 best=3.838e-05 (43.6 min)
+[triv/d9/p0] progress n=22 best=3.838e-05 (45.6 min)
+[triv/d9/p0] progress n=22 best=3.838e-05 (47.6 min)
+[triv/d9/p0] progress n=23 best=3.838e-05 (49.6 min)
+[triv/d9/p0] progress n=24 best=3.838e-05 (51.6 min)
+[triv/d9/p0] progress n=26 best=3.838e-05 (53.6 min)
+[triv/d9/p0] progress n=27 best=3.838e-05 (55.6 min)
+[triv/d9/p0] progress n=27 best=3.838e-05 (57.6 min)
+[triv/d9/p0] progress n=27 best=3.838e-05 (59.6 min)
+[triv/d9/p0] progress n=27 best=3.838e-05 (61.6 min)
+[triv/d9/p0] progress n=27 best=3.838e-05 (63.6 min)
+[triv/d9/p0] progress n=28 best=3.838e-05 (65.6 min)
+[triv/d9/p0] progress n=31 best=3.838e-05 (67.6 min)
+[triv/d9/p0] progress n=31 best=3.838e-05 (69.6 min)
+[triv/d9/p0] progress n=31 best=3.838e-05 (71.6 min)
+[triv/d9/p0] progress n=33 best=3.838e-05 (73.6 min)
+[triv/d9/p0] progress n=33 best=3.838e-05 (75.6 min)
+[triv/d9/p0] progress n=34 best=3.838e-05 (77.6 min)
+[triv/d9/p0] progress n=34 best=3.838e-05 (79.6 min)
+[triv/d9/p0] progress n=35 best=3.838e-05 (81.6 min)
+[triv/d9/p0] progress n=36 best=3.838e-05 (83.6 min)
+[triv/d9/p0] progress n=41 best=3.838e-05 (85.6 min)
+[triv/d9/p0] progress n=45 best=3.838e-05 (87.6 min)
+[triv/d9/p0] progress n=51 best=3.838e-05 (89.6 min)
+[triv/d9/p0] progress n=53 best=3.838e-05 (91.6 min)
+[triv/d9/p0] progress n=58 best=3.838e-05 (93.6 min)
+[triv/d9/p0] progress n=60 best=3.838e-05 (95.6 min)
+SECTOR DONE triv/d9/p0 {"job": "vp1b", "family": "varpro-sector", "chi": "triv", "d": 9, "pD": 0, "nD": 79, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "dimF": 5, "dimP": 29, "rows": 2648, "nN": 489, "nQ": 184, "build_s": 32.6, "maxiter": 400, "restarts": 60, "seeds": [1000, 1059], "seconds": 5735.7, "n": 60, "n_spurious": 0, "best_rel": 3.838312800145555e-05, "median_rel": 3.838312944803523e-05, "n_below_1e-4": 59, "n_below_1e-6": 0, "n_below_1e-8": 0, "n_below_1e-10": 0, "hist_log10": {"-5": 59, "-4": 1}, "top_minima": [["3.84e-05", 51], ["5.76e-05", 7], ["6.02e-05", 1], ["0.00017", 1]], "mean_iters": 96.08333333333333}
+[charfamily triv/d9/p1] d=9 pD=1 K=79 rows=2648 cols=673 (N 489, Q 184) nnz(M)=4537131 built in 30.8s
+family triv/d9/p1 {'chi': 'triv', 'd': 9, 'pD': 1, 'nD': 79, 'dimK': 34, 'e1_rows': 448, 'e1_nN': 489, 'dimJ': 33, 'ker_beyond_J': 1, 'sv_gap': (np.float64(0.4708017294290648), np.float64(9.116011971611163e-13)), 'F_in_kernel_resid': 5.178526905253551e-14, 'dimF': 5, 'dimP': 29, 'rows': 2648, 'nN': 489, 'nQ': 184, 'build_s': 31.6}
+[triv/d9/p1] progress n=1 best=7.117e-05 (4.0 min)
+[triv/d9/p1] progress n=4 best=1.632e-05 (5.2 min)
+[triv/d9/p1] progress n=6 best=1.632e-05 (6.5 min)
+[triv/d9/p1] progress n=9 best=1.632e-05 (8.0 min)
+[triv/d9/p1] progress n=12 best=1.632e-05 (9.7 min)
+[triv/d9/p1] progress n=16 best=1.632e-05 (11.5 min)
+[triv/d9/p1] progress n=21 best=1.632e-05 (13.5 min)
+[triv/d9/p1] progress n=26 best=1.632e-05 (15.5 min)
+[triv/d9/p1] progress n=31 best=1.632e-05 (17.5 min)
+[triv/d9/p1] progress n=34 best=1.632e-05 (19.5 min)
+[triv/d9/p1] progress n=36 best=1.632e-05 (21.5 min)
+[triv/d9/p1] progress n=44 best=1.632e-05 (23.5 min)
+[triv/d9/p1] progress n=48 best=1.632e-05 (25.5 min)
+[triv/d9/p1] progress n=55 best=1.632e-05 (27.5 min)
+[triv/d9/p1] progress n=59 best=1.632e-05 (29.5 min)
+[triv/d9/p1] progress n=60 best=1.632e-05 (31.5 min)
+SECTOR DONE triv/d9/p1 {"job": "vp1b", "family": "varpro-sector", "chi": "triv", "d": 9, "pD": 1, "nD": 79, "dimK": 34, "dimJ": 33, "ker_beyond_J": 1, "dimF": 5, "dimP": 29, "rows": 2648, "nN": 489, "nQ": 184, "build_s": 31.6, "maxiter": 400, "restarts": 60, "seeds": [1000, 1059], "seconds": 1892.1, "n": 60, "n_spurious": 0, "best_rel": 1.632367385068629e-05, "median_rel": 1.632367436215963e-05, "n_below_1e-4": 60, "n_below_1e-6": 0, "n_below_1e-8": 0, "n_below_1e-10": 0, "hist_log10": {"-5": 60}, "top_minima": [["1.63e-05", 58], ["7.12e-05", 2]], "mean_iters": 84.75}
+[charfamily triv/d6/p1] d=6 pD=1 K=19 rows=838 cols=183 (N 164, Q 19) nnz(M)=237400 built in 1.7s
+family triv/d6/p1 {'chi': 'triv', 'd': 6, 'pD': 1, 'nD': 19, 'dimK': 2, 'e1_rows': 223, 'e1_nN': 164, 'dimJ': 2, 'ker_beyond_J': 0, 'sv_gap': (np.float64(0.9067253689936211), np.float64(3.416698677966547e-15)), 'dimF': 0, 'dimP': 2, 'rows': 838, 'nN': 164, 'nQ': 19, 'build_s': 1.8}
+[triv/d6/p1] progress n=54 best=1.690e-04 (0.2 min)
+[triv/d6/p1] progress n=60 best=1.690e-04 (0.5 min)
+SECTOR DONE triv/d6/p1 {"job": "vp1b", "family": "varpro-sector", "chi": "triv", "d": 6, "pD": 1, "nD": 19, "dimK": 2, "dimJ": 2, "ker_beyond_J": 0, "dimF": 0, "dimP": 2, "rows": 838, "nN": 164, "nQ": 19, "build_s": 1.8, "maxiter": 400, "restarts": 60, "seeds": [1000, 1059], "seconds": 32.3, "n": 60, "n_spurious": 0, "best_rel": 0.00016899524011189577, "median_rel": 0.00016899524176773064, "n_below_1e-4": 0, "n_below_1e-6": 0, "n_below_1e-8": 0, "n_below_1e-10": 0, "hist_log10": {"-4": 60}, "top_minima": [["0.000169", 60]], "mean_iters": 9.833333333333334}
+[charfamily triv/d7/p0] d=7 pD=0 K=37 rows=1268 cols=279 (N 233, Q 46) nnz(M)=747854 built in 5.3s
+family triv/d7/p0 {'chi': 'triv', 'd': 7, 'pD': 0, 'nD': 37, 'dimK': 8, 'e1_rows': 268, 'e1_nN': 233, 'dimJ': 8, 'ker_beyond_J': 0, 'sv_gap': (np.float64(0.6822066180510518), np.float64(2.600977274017228e-13)), 'F_in_kernel_resid': 5.570494754432428e-15, 'dimF': 1, 'dimP': 7, 'rows': 1268, 'nN': 233, 'nQ': 46, 'build_s': 5.6}
+[triv/d7/p0] progress n=4 best=4.340e-04 (0.3 min)
+[triv/d7/p0] progress n=18 best=4.340e-04 (0.6 min)
+[triv/d7/p0] progress n=35 best=4.340e-04 (1.1 min)
+[triv/d7/p0] progress n=57 best=4.340e-04 (1.8 min)
+[triv/d7/p0] progress n=60 best=4.340e-04 (2.6 min)
+SECTOR DONE triv/d7/p0 {"job": "vp1b", "family": "varpro-sector", "chi": "triv", "d": 7, "pD": 0, "nD": 37, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "dimF": 1, "dimP": 7, "rows": 1268, "nN": 233, "nQ": 46, "build_s": 5.6, "maxiter": 400, "restarts": 60, "seeds": [1000, 1059], "seconds": 156.0, "n": 60, "n_spurious": 0, "best_rel": 0.00043400596887466816, "median_rel": 0.0004340059712192715, "n_below_1e-4": 0, "n_below_1e-6": 0, "n_below_1e-8": 0, "n_below_1e-10": 0, "hist_log10": {"-4": 60}, "top_minima": [["0.000434", 60]], "mean_iters": 30.216666666666665}
+[charfamily triv/d7/p1] d=7 pD=1 K=37 rows=1268 cols=279 (N 233, Q 46) nnz(M)=747854 built in 4.4s
+family triv/d7/p1 {'chi': 'triv', 'd': 7, 'pD': 1, 'nD': 37, 'dimK': 8, 'e1_rows': 268, 'e1_nN': 233, 'dimJ': 8, 'ker_beyond_J': 0, 'sv_gap': (np.float64(0.7540584400617054), np.float64(1.3287808561645228e-13)), 'F_in_kernel_resid': 9.15275478020473e-15, 'dimF': 1, 'dimP': 7, 'rows': 1268, 'nN': 233, 'nQ': 46, 'build_s': 4.7}
+[triv/d7/p1] progress n=7 best=1.544e-04 (0.3 min)
+[triv/d7/p1] progress n=25 best=1.544e-04 (0.6 min)
+[triv/d7/p1] progress n=42 best=1.544e-04 (1.1 min)
+[triv/d7/p1] progress n=60 best=1.544e-04 (1.8 min)
+SECTOR DONE triv/d7/p1 {"job": "vp1b", "family": "varpro-sector", "chi": "triv", "d": 7, "pD": 1, "nD": 37, "dimK": 8, "dimJ": 8, "ker_beyond_J": 0, "dimF": 1, "dimP": 7, "rows": 1268, "nN": 233, "nQ": 46, "build_s": 4.7, "maxiter": 400, "restarts": 60, "seeds": [1000, 1059], "seconds": 105.5, "n": 60, "n_spurious": 0, "best_rel": 0.00015444246753017082, "median_rel": 0.00015444246915266276, "n_below_1e-4": 0, "n_below_1e-6": 0, "n_below_1e-8": 0, "n_below_1e-10": 0, "hist_log10": {"-4": 60}, "top_minima": [["0.000154", 60]], "mean_iters": 27.716666666666665}
+ALL DONE vp1b 2.52 h

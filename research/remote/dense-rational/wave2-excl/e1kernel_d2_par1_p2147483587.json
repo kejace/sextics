@@ -1,0 +1,1 @@
+{"exp": "e1-kernel-direct", "d": 2, "parD": 1, "prime": 2147483587, "rows": 651, "cols": 177, "nD": 9, "rank": 177, "nullity": 0, "dim_Kfull_mod_p": 0, "dim_J_d_exact": 0, "dim_J_d_mod_p": 0, "kernel_mod_J": 0, "forced_kernel_lower_bound_Q": 0, "dim_R_d": 9, "dim_R_d6": 483, "rigorous": true, "seconds": 0.0, "result": "(J:A)_d = J_d over Q"}

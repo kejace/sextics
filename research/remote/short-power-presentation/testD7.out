@@ -1,0 +1,3 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[E1] d=7 par=0 E1-kernel d=7 even (D7): True {'rank': 3441, 'rank_aug': 3441, 'rows': 4284, 'cols': 3861} (297s)
+[system] d=7 q=1 rows=26532 cols=4497 (N 3861, Q 636) nnz=11325408 built in 114.0s

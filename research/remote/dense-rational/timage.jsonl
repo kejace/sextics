@@ -1,0 +1,4 @@
+{"D": "F_X0", "d": 5, "target_image_dim": 18, "seconds": 25.7, "engine": 2}
+{"D": "E_X(F)", "d": 6, "target_image_dim": 18, "seconds": 106.2, "engine": 2}
+{"D": "X0*F_X0 + Y0*F_Y0", "d": 6, "target_image_dim": 18, "seconds": 83.0, "engine": 2}
+{"D": "X0^2*F_X0", "d": 7, "target_image_dim": 18, "seconds": 253.1, "engine": 2}

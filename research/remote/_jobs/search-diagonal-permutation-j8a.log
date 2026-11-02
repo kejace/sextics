@@ -1,0 +1,17 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[extra] D8 float E1 lift residual 6.34e-15
+[00:42:44] {"type": "setup", "wid": 6, "r": 1183, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 4.1, "Fres": 5.917738672376486e-14, "label": "jac-d8+1extra", "nKsector": 954}
+[extra] D8 float E1 lift residual 6.34e-15
+[00:43:10] {"type": "setup", "wid": 3, "r": 1183, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 3.0, "Fres": 6.199778028840532e-14, "label": "jac-d8+1extra", "nKsector": 954}
+[extra] D8 float E1 lift residual 6.34e-15
+[00:43:14] {"type": "setup", "wid": 4, "r": 1183, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 2.3, "Fres": 3.4837659259521535e-14, "label": "jac-d8+1extra", "nKsector": 954}
+[extra] D8 float E1 lift residual 6.34e-15
+[00:43:36] {"type": "setup", "wid": 1, "r": 1183, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 2.4, "Fres": 4.8588337039306567e-14, "label": "jac-d8+1extra", "nKsector": 954}
+[extra] D8 float E1 lift residual 6.34e-15
+[extra] D8 float E1 lift residual 6.34e-15
+[00:43:48] {"type": "setup", "wid": 2, "r": 1183, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 5.8, "Fres": 4.6725091599240024e-14, "label": "jac-d8+1extra", "nKsector": 954}
+[00:43:53] {"type": "setup", "wid": 5, "r": 1183, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 4.9, "Fres": 4.589936442921475e-14, "label": "jac-d8+1extra", "nKsector": 954}
+[extra] D8 float E1 lift residual 6.34e-15
+[extra] D8 float E1 lift residual 6.34e-15
+[00:43:58] {"type": "setup", "wid": 7, "r": 1183, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 1.9, "Fres": 5.938354537718533e-14, "label": "jac-d8+1extra", "nKsector": 954}
+[00:44:02] {"type": "setup", "wid": 0, "r": 1183, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 4.4, "Fres": 3.864979601044666e-14, "label": "jac-d8+1extra", "nKsector": 954}

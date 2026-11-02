@@ -1,0 +1,3 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[charfamily triv/d10/p0] d=10 pD=0 K=124 rows=3683 cols=976 (N 654, Q 322) nnz(M)=10624720 built in 49.6s
+family triv/d10/p0 {'chi': 'triv', 'd': 10, 'pD': 0, 'nD': 124, 'dimK': 92, 'e1_rows': 532, 'e1_nN': 654, 'dimJ': 64, 'ker_beyond_J': 28, 'sv_gap': (np.float64(0.2687167131679076), np.float64(9.458029707741216e-15)), 'F_in_kernel_resid': 1.8025388418133598e-15, 'dimF': 12, 'dimP': 80, 'rows': 3683, 'nN': 654, 'nQ': 322, 'build_s': 52.9}

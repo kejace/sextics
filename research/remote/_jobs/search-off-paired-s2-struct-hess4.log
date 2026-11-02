@@ -1,0 +1,1 @@
+bash: line 1: 830234 Killed                  python3 wave2-search/w2_structured.py --set hess4 --workers 8 --job struct-hess4 > wave2-search/struct-hess4.out 2>&1

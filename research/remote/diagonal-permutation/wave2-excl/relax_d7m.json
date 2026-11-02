@@ -1,0 +1,24 @@
+{
+ "d": 7,
+ "sector": "m",
+ "with_D8": false,
+ "prime": 1000000007,
+ "unknowns": 120,
+ "pair_monomials": 7260,
+ "raw_equations": 1506,
+ "independent_equations": 950,
+ "good_reduction_2d": true,
+ "build_seconds": 1211.7,
+ "names_head": [
+  "w0_000002_e0",
+  "w0_000011_e0",
+  "w0_000020_e0",
+  "w0_000101_e0",
+  "w0_000110_e0"
+ ],
+ "all_quadratic_monomials_in_I": false,
+ "msolve_status": "timeout",
+ "msolve_seconds": 14404.8,
+ "msolve_tail": "",
+ "verdict": "msolve failed"
+}

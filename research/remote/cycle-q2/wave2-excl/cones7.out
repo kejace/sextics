@@ -1,0 +1,38 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d=7: 35 coordinate subsets
+X0X1X2Y1 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 354.1
+X0X1Y1Y2 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 376.5
+X0X2Y0Y1 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 381.0
+X0X1X2Y0 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 385.8
+X0X1X2Y2 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 437.5
+X0X1Y0Y2 dimV 120 | E1-admissible cone family of dim 7 in 5 sectors; all sector relaxations: 1,0; element tests: 9 excluded(Farkas), 0 consistent, 0 errors 643.1
+X1X2Y0Y2 dimV 120 | E1-admissible cone family of dim 4 in 4 sectors; ; element tests: 4 excluded(Farkas), 0 consistent, 0 errors 313.8
+X1X2Y0Y1 dimV 120 | E1-admissible cone family of dim 5 in 4 sectors; all sector relaxations: 0; element tests: 6 excluded(Farkas), 0 consistent, 0 errors 455.2
+X0X2Y0Y2 dimV 120 | E1-admissible cone family of dim 12 in 6 sectors; all sector relaxations: 2,0,1,1; element tests: 16 excluded(Farkas), 0 consistent, 0 errors 850.0
+X0X1Y0Y1 dimV 120 | E1-admissible cone family of dim 12 in 6 sectors; all sector relaxations: 0,0,0,1; element tests: 16 excluded(Farkas), 0 consistent, 0 errors 914.3
+X0X1X2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0X1X2 (zero kernel in every sector) 84.3
+X0X1Y0 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0X1Y0 (zero kernel in every sector) 90.9
+X0X2Y1Y2 dimV 120 | E1-admissible cone family of dim 8 in 5 sectors; all sector relaxations: 1,0,0; element tests: 11 excluded(Farkas), 0 consistent, 0 errors 631.5
+X0X1Y1 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0X1Y1 (zero kernel in every sector) 78.7
+X0X1Y2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0X1Y2 (zero kernel in every sector) 80.9
+X0X2Y0 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0X2Y0 (zero kernel in every sector) 73.2
+X0Y0Y1 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0Y0Y1 (zero kernel in every sector) 79.4
+X0Y0Y1Y2 dimV 120 | E1-admissible cone family of dim 7 in 4 sectors; all sector relaxations: 1,0,0; element tests: 10 excluded(Farkas), 0 consistent, 0 errors 708.0
+X0X2Y1 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0X2Y1 (zero kernel in every sector) 103.0
+X0X2Y2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0X2Y2 (zero kernel in every sector) 122.5
+X0Y0Y2 dimV 36 | E1-admissible cone family of dim 2 in 2 sectors; ; element tests: 2 excluded(Farkas), 0 consistent, 0 errors 133.0
+X0Y1Y2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X0Y1Y2 (zero kernel in every sector) 75.8
+X1X2Y1 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X1X2Y1 (zero kernel in every sector) 92.3
+X1Y0Y1Y2 dimV 120 | E1-admissible cone family of dim 6 in 4 sectors; all sector relaxations: 1,0; element tests: 8 excluded(Farkas), 0 consistent, 0 errors 538.1
+X1X2Y0 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X1X2Y0 (zero kernel in every sector) 96.5
+X1X2Y2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X1X2Y2 (zero kernel in every sector) 97.0
+X1Y0Y1 dimV 36 | E1-admissible cone family of dim 1 in 1 sectors; ; element tests: 1 excluded(Farkas), 0 consistent, 0 errors 80.8
+X1Y0Y2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X1Y0Y2 (zero kernel in every sector) 95.7
+X2Y0Y1 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X2Y0Y1 (zero kernel in every sector) 83.0
+X2Y0Y2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X2Y0Y2 (zero kernel in every sector) 91.1
+X2Y0Y1Y2 dimV 120 | E1-admissible cone family of dim 7 in 5 sectors; all sector relaxations: 1,0; element tests: 9 excluded(Farkas), 0 consistent, 0 errors 581.3
+X1Y1Y2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables X1Y1Y2 (zero kernel in every sector) 105.4
+Y0Y1Y2 dimV 36 | EXCLUDED: no E1-admissible form of degree 7 in variables Y0Y1Y2 (zero kernel in every sector) 74.3
+X2Y1Y2 dimV 36 | E1-admissible cone family of dim 3 in 3 sectors; ; element tests: 3 excluded(Farkas), 0 consistent, 0 errors 107.1
+X1X2Y1Y2 dimV 120 | E1-admissible cone family of dim 18 in 10 sectors; all sector relaxations: 2,0,0,1,1,0; element tests: 24 excluded(Farkas), 0 consistent, 0 errors 922.5
+ALL DONE

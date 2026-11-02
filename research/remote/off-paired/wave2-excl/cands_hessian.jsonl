@@ -1,0 +1,213 @@
+{"D": "900*X0**4*X1**4 + 90*X0**4*X1*X2*Y1*Y2 - 9*X0**4*Y0**2*Y1**2/4 - 2*X0**3*X2*Y0**2*Y1*Y2 - 4*X0**2*X2**2*Y0**2*Y2**2/9 + 90*X0*X1**5*Y0*Y1 + 9*X0*X1**2*X2*Y0*Y1**2*Y2 + 20*X1**5*X2*Y0*Y2 + 2*X1**2*X2**2*Y0*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|01]"}
+{"D": "10*X0**6*Y0*Y2 + 45*X0**4*X1**2*Y1*Y2 - 2*X0**2*X1*X2*Y0**2*Y2**2/9 + 9*X0*X1**3*Y0*Y1**2*Y2/2 + X1**3*X2*Y0*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|02]"}
+{"D": "15*X0**7*Y1 + 10*X0**6*X2*Y2 - 3*X0**4*X1*Y0*Y1**2/4 - 2*X0**3*X1*X2*Y0*Y1*Y2/3 - 2*X0**2*X1*X2**2*Y0*Y2**2/9", "family": "hessian-2x2-minor", "label": "hess[01|03]"}
+{"D": "15*X0**7*Y0 + 45*X0**4*X1**2*X2*Y2 - 3*X0**4*X1*Y0**2*Y1/4 - 2*X0**3*X1*X2*Y0**2*Y2/3 + 9*X0*X1**3*X2*Y0*Y1*Y2/2 + X1**3*X2**2*Y0*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|04]"}
+{"D": "10*X0**6*X2*Y0 + 45*X0**4*X1**2*X2*Y1 - 2*X0**2*X1*X2**2*Y0**2*Y2/9 + 9*X0*X1**3*X2*Y0*Y1**2/2 + X1**3*X2**2*Y0*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[01|05]"}
+{"D": "X0**4*Y0**2*Y1*Y2/2 + 2*X0**3*X2*Y0**2*Y2**2/9 + 9*X0**2*X1**2*Y0*Y1**2*Y2/4 - 20*X0*X1**5*Y0*Y2 - X0*X1**2*X2*Y0*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|12]"}
+{"D": "3*X0**5*Y0*Y1**2/4 + 5*X0**4*X2*Y0*Y1*Y2/6 + 2*X0**3*X2**2*Y0*Y2**2/9 - 45*X0**2*X1**5*Y1 - 9*X0**2*X1**2*X2*Y1**2*Y2/2 - 20*X0*X1**5*X2*Y2 - 2*X0*X1**2*X2**2*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|13]"}
+{"D": "3*X0**5*Y0**2*Y1/4 + X0**4*X2*Y0**2*Y2/3 - 45*X0**2*X1**5*Y0 - 9*X0**2*X1**2*X2*Y0*Y1*Y2/4 + X0*X1**2*X2**2*Y0*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|14]"}
+{"D": "X0**4*X2*Y0**2*Y1/2 + 2*X0**3*X2**2*Y0**2*Y2/9 + 9*X0**2*X1**2*X2*Y0*Y1**2/4 - 20*X0*X1**5*X2*Y0 - X0*X1**2*X2**2*Y0*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[01|15]"}
+{"D": "-X0**4*X1*Y0*Y1*Y2/6 - 9*X0**2*X1**3*Y1**2*Y2/4 - X0*X1**3*X2*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|23]"}
+{"D": "-X0**4*X1*Y0**2*Y2/6 - 9*X0**2*X1**3*Y0*Y1*Y2/4 + X0*X1**3*X2*Y0*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|24]"}
+{"D": "-X0**4*X1*X2*Y0*Y2/6 + 9*X0**2*X1**3*X2*Y1*Y2/4 + X0*X1**3*X2**2*Y2**2", "family": "hessian-2x2-minor", "label": "hess[01|34]"}
+{"D": "X0**4*X1*X2*Y0*Y1/6 + 9*X0**2*X1**3*X2*Y1**2/4 + X0*X1**3*X2**2*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[01|35]"}
+{"D": "X0**4*X1*X2*Y0**2/6 + 9*X0**2*X1**3*X2*Y0*Y1/4 - X0*X1**3*X2**2*Y0*Y2", "family": "hessian-2x2-minor", "label": "hess[01|45]"}
+{"D": "10*X0**6*Y0*Y2 + 45*X0**4*X1**2*Y1*Y2 - 2*X0**2*X1*X2*Y0**2*Y2**2/9 + 9*X0*X1**3*Y0*Y1**2*Y2/2 + X1**3*X2*Y0*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[02|01]"}
+{"D": "900*X0**4*X2**4 - 4*X0**2*X1**2*Y0**2*Y2**2/9 + 90*X0*X1*X2**4*Y0*Y1 + 20*X1*X2**5*Y0*Y2", "family": "hessian-2x2-minor", "label": "hess[02|02]"}
+{"D": "10*X0**6*X1*Y2 - 2*X0**2*X1**2*X2*Y0*Y2**2/9", "family": "hessian-2x2-minor", "label": "hess[02|03]"}
+{"D": "15*X0**4*X1**3*Y2 - X0**3*X1**2*Y0**2*Y2 + 3*X0*X1**4*Y0*Y1*Y2/2 + X1**4*X2*Y0*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[02|04]"}
+{"D": "10*X0**6*X1*Y0 + 15*X0**4*X1**3*Y1 + X0**3*X1**2*Y0**2*Y1 - 2*X0**2*X1**2*X2*Y0**2*Y2/9 + 3*X0*X1**4*Y0*Y1**2/2 + X1**4*X2*Y0*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[02|05]"}
+{"D": "-2*X0**3*X1*Y0**2*Y2**2/9 + 45*X0**2*X2**4*Y0*Y1 - X0*X1**3*Y0*Y1*Y2**2 + 20*X0*X2**5*Y0*Y2", "family": "hessian-2x2-minor", "label": "hess[02|12]"}
+{"D": "-9*X0**2*X1**3*Y1**2*Y2/4 - X0*X1**3*X2*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[02|13]"}
+{"D": "-X0**4*X1*Y0**2*Y2/2 - 3*X0**2*X1**3*Y0*Y1*Y2/2 + X0*X1**3*X2*Y0*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[02|14]"}
+{"D": "X0**4*X1*Y0**2*Y1/2 + 3*X0**2*X1**3*Y0*Y1**2/4 - 2*X0*X1**3*X2*Y0*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[02|15]"}
+{"D": "2*X0**3*X1**2*Y0*Y2**2/9 - 45*X0**2*X1*X2**4*Y1 - 20*X0*X1*X2**5*Y2", "family": "hessian-2x2-minor", "label": "hess[02|23]"}
+{"D": "-45*X0**2*X1*X2**4*Y0 + X0*X1**4*Y0*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[02|24]"}
+{"D": "2*X0**3*X1**2*Y0**2*Y2/9 + X0*X1**4*Y0*Y1*Y2/3 - 20*X0*X1*X2**5*Y0", "family": "hessian-2x2-minor", "label": "hess[02|25]"}
+{"D": "-X0**4*X1**2*Y0*Y2/2 + 3*X0**2*X1**4*Y1*Y2/4 + X0*X1**4*X2*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[02|34]"}
+{"D": "X0**4*X1**2*Y0*Y1/2 + 3*X0**2*X1**4*Y1**2/4 + X0*X1**4*X2*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[02|35]"}
+{"D": "X0**4*X1**2*Y0**2/2 + 3*X0**2*X1**4*Y0*Y1/4 - X0*X1**4*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[02|45]"}
+{"D": "15*X0**7*Y1 + 10*X0**6*X2*Y2 - 3*X0**4*X1*Y0*Y1**2/4 - 2*X0**3*X1*X2*Y0*Y1*Y2/3 - 2*X0**2*X1*X2**2*Y0*Y2**2/9", "family": "hessian-2x2-minor", "label": "hess[03|01]"}
+{"D": "10*X0**6*X1*Y2 - 2*X0**2*X1**2*X2*Y0*Y2**2/9", "family": "hessian-2x2-minor", "label": "hess[03|02]"}
+{"D": "-9*X0**4*X1**2*Y1**2/4 + 900*X0**4*Y0**4 - 2*X0**3*X1**2*X2*Y1*Y2 - 4*X0**2*X1**2*X2**2*Y2**2/9 + 90*X0*X1*Y0**5*Y1 + 20*X1*X2*Y0**5*Y2", "family": "hessian-2x2-minor", "label": "hess[03|03]"}
+{"D": "15*X0**7*X1 - 3*X0**4*X1**2*Y0*Y1/4 - 2*X0**3*X1**2*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[03|04]"}
+{"D": "10*X0**6*X1*X2 - 2*X0**2*X1**2*X2**2*Y0*Y2/9", "family": "hessian-2x2-minor", "label": "hess[03|05]"}
+{"D": "X0**4*X1*Y0*Y1*Y2/6", "family": "hessian-2x2-minor", "label": "hess[03|12]"}
+{"D": "-3*X0**5*X1*Y1**2/4 - 5*X0**4*X1*X2*Y1*Y2/6 - 2*X0**3*X1*X2**2*Y2**2/9 + 45*X0**2*Y0**5*Y1 + 20*X0*X2*Y0**5*Y2", "family": "hessian-2x2-minor", "label": "hess[03|13]"}
+{"D": "-X0**4*X1*X2*Y0*Y2/6", "family": "hessian-2x2-minor", "label": "hess[03|14]"}
+{"D": "X0**4*X1*X2*Y0*Y1/6", "family": "hessian-2x2-minor", "label": "hess[03|15]"}
+{"D": "-X0**4*X1**2*Y1*Y2/2 - 2*X0**3*X1**2*X2*Y2**2/9 + 20*X0*X1*Y0**5*Y2", "family": "hessian-2x2-minor", "label": "hess[03|23]"}
+{"D": "-X0**4*X1**2*Y0*Y2/6", "family": "hessian-2x2-minor", "label": "hess[03|24]"}
+{"D": "3*X0**5*X1**2*Y1/4 + X0**4*X1**2*X2*Y2/3 - 45*X0**2*X1*Y0**5", "family": "hessian-2x2-minor", "label": "hess[03|34]"}
+{"D": "X0**4*X1**2*X2*Y1/2 + 2*X0**3*X1**2*X2**2*Y2/9 - 20*X0*X1*X2*Y0**5", "family": "hessian-2x2-minor", "label": "hess[03|35]"}
+{"D": "X0**4*X1**2*X2*Y0/6", "family": "hessian-2x2-minor", "label": "hess[03|45]"}
+{"D": "15*X0**7*Y0 + 45*X0**4*X1**2*X2*Y2 - 3*X0**4*X1*Y0**2*Y1/4 - 2*X0**3*X1*X2*Y0**2*Y2/3 + 9*X0*X1**3*X2*Y0*Y1*Y2/2 + X1**3*X2**2*Y0*Y2**2", "family": "hessian-2x2-minor", "label": "hess[04|01]"}
+{"D": "15*X0**4*X1**3*Y2 - X0**3*X1**2*Y0**2*Y2 + 3*X0*X1**4*Y0*Y1*Y2/2 + X1**4*X2*Y0*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[04|02]"}
+{"D": "15*X0**7*X1 - 3*X0**4*X1**2*Y0*Y1/4 - 2*X0**3*X1**2*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[04|03]"}
+{"D": "-9*X0**4*X1**2*Y0**2/4 + 900*X0**4*Y1**4 + 90*X0*X1*Y0*Y1**5 + 20*X1*X2*Y0*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[04|04]"}
+{"D": "15*X0**4*X1**3*X2 - X0**3*X1**2*X2*Y0**2 + 3*X0*X1**4*X2*Y0*Y1/2 + X1**4*X2**2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[04|05]"}
+{"D": "-X0**4*X1*Y0**2*Y2/3 + 3*X0**2*X1**3*Y0*Y1*Y2/4 - 2*X0*X1**3*X2*Y0*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[04|12]"}
+{"D": "-9*X0**2*X1**3*X2*Y1*Y2/4 - X0*X1**3*X2**2*Y2**2", "family": "hessian-2x2-minor", "label": "hess[04|13]"}
+{"D": "-3*X0**5*X1*Y0**2/4 - 9*X0**2*X1**3*X2*Y0*Y2/4 + 45*X0**2*Y0*Y1**5 + 20*X0*X2*Y0*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[04|14]"}
+{"D": "-X0**4*X1*X2*Y0**2/3 + 3*X0**2*X1**3*X2*Y0*Y1/4 - 2*X0*X1**3*X2**2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[04|15]"}
+{"D": "X0**4*X1**2*Y0*Y2/3 - 3*X0**2*X1**4*Y1*Y2/4 - X0*X1**4*X2*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[04|23]"}
+{"D": "-3*X0**2*X1**4*Y0*Y2/4 + 20*X0*X1*Y0*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[04|24]"}
+{"D": "-3*X0**5*X1**2*Y0/4 + 45*X0**2*X1*Y1**5 + 20*X0*X1*X2*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[04|34]"}
+{"D": "-X0**4*X1**2*X2*Y0/3 + 3*X0**2*X1**4*X2*Y1/4 + X0*X1**4*X2**2*Y2/3", "family": "hessian-2x2-minor", "label": "hess[04|35]"}
+{"D": "3*X0**2*X1**4*X2*Y0/4 - 20*X0*X1*X2*Y0*Y1**4", "family": "hessian-2x2-minor", "label": "hess[04|45]"}
+{"D": "10*X0**6*X2*Y0 + 45*X0**4*X1**2*X2*Y1 - 2*X0**2*X1*X2**2*Y0**2*Y2/9 + 9*X0*X1**3*X2*Y0*Y1**2/2 + X1**3*X2**2*Y0*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[05|01]"}
+{"D": "10*X0**6*X1*Y0 + 15*X0**4*X1**3*Y1 + X0**3*X1**2*Y0**2*Y1 - 2*X0**2*X1**2*X2*Y0**2*Y2/9 + 3*X0*X1**4*Y0*Y1**2/2 + X1**4*X2*Y0*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[05|02]"}
+{"D": "10*X0**6*X1*X2 - 2*X0**2*X1**2*X2**2*Y0*Y2/9", "family": "hessian-2x2-minor", "label": "hess[05|03]"}
+{"D": "15*X0**4*X1**3*X2 - X0**3*X1**2*X2*Y0**2 + 3*X0*X1**4*X2*Y0*Y1/2 + X1**4*X2**2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[05|04]"}
+{"D": "900*X0**4*Y2**4 - 4*X0**2*X1**2*X2**2*Y0**2/9 + 90*X0*X1*Y0*Y1*Y2**4 + 20*X1*X2*Y0*Y2**5", "family": "hessian-2x2-minor", "label": "hess[05|05]"}
+{"D": "X0**4*X1*Y0**2*Y1/2 + 3*X0**2*X1**3*Y0*Y1**2/4 - 2*X0*X1**3*X2*Y0*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[05|12]"}
+{"D": "-9*X0**2*X1**3*X2*Y1**2/4 - X0*X1**3*X2**2*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[05|13]"}
+{"D": "-X0**4*X1*X2*Y0**2/2 - 3*X0**2*X1**3*X2*Y0*Y1/2 + X0*X1**3*X2**2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[05|14]"}
+{"D": "-2*X0**3*X1*X2**2*Y0**2/9 + 45*X0**2*Y0*Y1*Y2**4 - X0*X1**3*X2**2*Y0*Y1 + 20*X0*X2*Y0*Y2**5", "family": "hessian-2x2-minor", "label": "hess[05|15]"}
+{"D": "-X0**4*X1**2*Y0*Y1/2 - 3*X0**2*X1**4*Y1**2/4 - X0*X1**4*X2*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[05|23]"}
+{"D": "-X0**4*X1**2*Y0**2/2 - 3*X0**2*X1**4*Y0*Y1/4 + X0*X1**4*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[05|24]"}
+{"D": "-2*X0**3*X1**2*X2*Y0**2/9 - X0*X1**4*X2*Y0*Y1/3 + 20*X0*X1*Y0*Y2**5", "family": "hessian-2x2-minor", "label": "hess[05|25]"}
+{"D": "-X0**4*X1**2*X2*Y0/2 + 3*X0**2*X1**4*X2*Y1/4 + X0*X1**4*X2**2*Y2/3", "family": "hessian-2x2-minor", "label": "hess[05|34]"}
+{"D": "-2*X0**3*X1**2*X2**2*Y0/9 + 45*X0**2*X1*Y1*Y2**4 + 20*X0*X1*X2*Y2**5", "family": "hessian-2x2-minor", "label": "hess[05|35]"}
+{"D": "45*X0**2*X1*Y0*Y2**4 - X0*X1**4*X2**2*Y0/3", "family": "hessian-2x2-minor", "label": "hess[05|45]"}
+{"D": "X0**4*Y0**2*Y1*Y2/2 + 2*X0**3*X2*Y0**2*Y2**2/9 + 9*X0**2*X1**2*Y0*Y1**2*Y2/4 - 20*X0*X1**5*Y0*Y2 - X0*X1**2*X2*Y0*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[12|01]"}
+{"D": "-2*X0**3*X1*Y0**2*Y2**2/9 + 45*X0**2*X2**4*Y0*Y1 - X0*X1**3*Y0*Y1*Y2**2 + 20*X0*X2**5*Y0*Y2", "family": "hessian-2x2-minor", "label": "hess[12|02]"}
+{"D": "X0**4*X1*Y0*Y1*Y2/6", "family": "hessian-2x2-minor", "label": "hess[12|03]"}
+{"D": "-X0**4*X1*Y0**2*Y2/3 + 3*X0**2*X1**3*Y0*Y1*Y2/4 - 2*X0*X1**3*X2*Y0*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[12|04]"}
+{"D": "X0**4*X1*Y0**2*Y1/2 + 3*X0**2*X1**3*Y0*Y1**2/4 - 2*X0*X1**3*X2*Y0*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[12|05]"}
+{"D": "-X0**4*Y0**2*Y2**2/9 - X0**2*X1**2*Y0*Y1*Y2**2 + 900*X1**4*X2**4 - 9*X1**4*Y1**2*Y2**2/4 + 90*X1*X2**5*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[12|12]"}
+{"D": "-X0**5*Y0*Y1*Y2/6 - X0**4*X2*Y0*Y2**2/9 - 3*X0**3*X1**2*Y1**2*Y2/4 + 10*X0**2*X1**5*Y2 + X0**2*X1**2*X2*Y1*Y2**2/2", "family": "hessian-2x2-minor", "label": "hess[12|13]"}
+{"D": "-X0**5*Y0**2*Y2/6 - 3*X0**3*X1**2*Y0*Y1*Y2/4 - X0**2*X1**2*X2*Y0*Y2**2/2 + 15*X1**7*Y2 - 3*X1**4*X2*Y1*Y2**2/4", "family": "hessian-2x2-minor", "label": "hess[12|14]"}
+{"D": "-X0**4*X2*Y0**2*Y2/9 + 10*X0**2*X1**5*Y0 + 15*X1**7*Y1 - 3*X1**4*X2*Y1**2*Y2/4", "family": "hessian-2x2-minor", "label": "hess[12|15]"}
+{"D": "X0**4*X1*Y0*Y2**2/9 - 15*X0**3*X2**4*Y1 + X0**2*X1**3*Y1*Y2**2/2 - 10*X0**2*X2**5*Y2", "family": "hessian-2x2-minor", "label": "hess[12|23]"}
+{"D": "-15*X0**3*X2**4*Y0 + X0**2*X1**3*Y0*Y2**2/6 + 3*X1**5*Y1*Y2**2/4 - 45*X1**2*X2**5*Y2", "family": "hessian-2x2-minor", "label": "hess[12|24]"}
+{"D": "X0**4*X1*Y0**2*Y2/9 + 2*X0**2*X1**3*Y0*Y1*Y2/3 - 10*X0**2*X2**5*Y0 + 3*X1**5*Y1**2*Y2/4 - 45*X1**2*X2**5*Y1", "family": "hessian-2x2-minor", "label": "hess[12|25]"}
+{"D": "-X0**5*X1*Y0*Y2/6 + X0**3*X1**3*Y1*Y2/4 - X0**2*X1**3*X2*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[12|34]"}
+{"D": "X0**5*X1*Y0*Y1/6 + X0**3*X1**3*Y1**2/4 - X0**2*X1**3*X2*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[12|35]"}
+{"D": "X0**5*X1*Y0**2/6 + X0**3*X1**3*Y0*Y1/4 + X0**2*X1**3*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[12|45]"}
+{"D": "3*X0**5*Y0*Y1**2/4 + 5*X0**4*X2*Y0*Y1*Y2/6 + 2*X0**3*X2**2*Y0*Y2**2/9 - 45*X0**2*X1**5*Y1 - 9*X0**2*X1**2*X2*Y1**2*Y2/2 - 20*X0*X1**5*X2*Y2 - 2*X0*X1**2*X2**2*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[13|01]"}
+{"D": "-9*X0**2*X1**3*Y1**2*Y2/4 - X0*X1**3*X2*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[13|02]"}
+{"D": "-3*X0**5*X1*Y1**2/4 - 5*X0**4*X1*X2*Y1*Y2/6 - 2*X0**3*X1*X2**2*Y2**2/9 + 45*X0**2*Y0**5*Y1 + 20*X0*X2*Y0**5*Y2", "family": "hessian-2x2-minor", "label": "hess[13|03]"}
+{"D": "-9*X0**2*X1**3*X2*Y1*Y2/4 - X0*X1**3*X2**2*Y2**2", "family": "hessian-2x2-minor", "label": "hess[13|04]"}
+{"D": "-9*X0**2*X1**3*X2*Y1**2/4 - X0*X1**3*X2**2*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[13|05]"}
+{"D": "-X0**5*Y0*Y1*Y2/6 - X0**4*X2*Y0*Y2**2/9 - 3*X0**3*X1**2*Y1**2*Y2/4 + 10*X0**2*X1**5*Y2 + X0**2*X1**2*X2*Y1*Y2**2/2", "family": "hessian-2x2-minor", "label": "hess[13|12]"}
+{"D": "-X0**6*Y1**2/4 - X0**5*X2*Y1*Y2/3 - X0**4*X2**2*Y2**2/9 + 900*X1**4*Y0**4 + 90*X1*X2*Y0**4*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[13|13]"}
+{"D": "-X0**6*Y0*Y1/4 - X0**5*X2*Y0*Y2/6 + 15*X0**3*X1**5 + 3*X0**3*X1**2*X2*Y1*Y2/4 - X0**2*X1**2*X2**2*Y2**2/2", "family": "hessian-2x2-minor", "label": "hess[13|14]"}
+{"D": "-X0**5*X2*Y0*Y1/6 - X0**4*X2**2*Y0*Y2/9 - 3*X0**3*X1**2*X2*Y1**2/4 + 10*X0**2*X1**5*X2 + X0**2*X1**2*X2**2*Y1*Y2/2", "family": "hessian-2x2-minor", "label": "hess[13|15]"}
+{"D": "-X0**5*X1*Y1*Y2/6 - X0**4*X1*X2*Y2**2/9 + 10*X0**2*Y0**5*Y2 + 45*X1**2*Y0**4*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[13|23]"}
+{"D": "3*X0**3*X1**3*Y1*Y2/4 - X0**2*X1**3*X2*Y2**2/2", "family": "hessian-2x2-minor", "label": "hess[13|24]"}
+{"D": "X0**6*X1*Y1/4 + X0**5*X1*X2*Y2/6 - 15*X0**3*Y0**5 - 45*X1**2*X2*Y0**4*Y2", "family": "hessian-2x2-minor", "label": "hess[13|34]"}
+{"D": "X0**5*X1*X2*Y1/6 + X0**4*X1*X2**2*Y2/9 - 10*X0**2*X2*Y0**5 - 45*X1**2*X2*Y0**4*Y1", "family": "hessian-2x2-minor", "label": "hess[13|35]"}
+{"D": "-3*X0**3*X1**3*X2*Y1/4 + X0**2*X1**3*X2**2*Y2/2", "family": "hessian-2x2-minor", "label": "hess[13|45]"}
+{"D": "3*X0**5*Y0**2*Y1/4 + X0**4*X2*Y0**2*Y2/3 - 45*X0**2*X1**5*Y0 - 9*X0**2*X1**2*X2*Y0*Y1*Y2/4 + X0*X1**2*X2**2*Y0*Y2**2", "family": "hessian-2x2-minor", "label": "hess[14|01]"}
+{"D": "-X0**4*X1*Y0**2*Y2/2 - 3*X0**2*X1**3*Y0*Y1*Y2/2 + X0*X1**3*X2*Y0*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[14|02]"}
+{"D": "-X0**4*X1*X2*Y0*Y2/6", "family": "hessian-2x2-minor", "label": "hess[14|03]"}
+{"D": "-3*X0**5*X1*Y0**2/4 - 9*X0**2*X1**3*X2*Y0*Y2/4 + 45*X0**2*Y0*Y1**5 + 20*X0*X2*Y0*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[14|04]"}
+{"D": "-X0**4*X1*X2*Y0**2/2 - 3*X0**2*X1**3*X2*Y0*Y1/2 + X0*X1**3*X2**2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[14|05]"}
+{"D": "-X0**5*Y0**2*Y2/6 - 3*X0**3*X1**2*Y0*Y1*Y2/4 - X0**2*X1**2*X2*Y0*Y2**2/2 + 15*X1**7*Y2 - 3*X1**4*X2*Y1*Y2**2/4", "family": "hessian-2x2-minor", "label": "hess[14|12]"}
+{"D": "-X0**6*Y0*Y1/4 - X0**5*X2*Y0*Y2/6 + 15*X0**3*X1**5 + 3*X0**3*X1**2*X2*Y1*Y2/4 - X0**2*X1**2*X2**2*Y2**2/2", "family": "hessian-2x2-minor", "label": "hess[14|13]"}
+{"D": "-X0**6*Y0**2/4 - 3*X0**3*X1**2*X2*Y0*Y2/2 - 9*X1**4*X2**2*Y2**2/4 + 900*X1**4*Y1**4 + 90*X1*X2*Y1**5*Y2", "family": "hessian-2x2-minor", "label": "hess[14|14]"}
+{"D": "-X0**5*X2*Y0**2/6 - 3*X0**3*X1**2*X2*Y0*Y1/4 - X0**2*X1**2*X2**2*Y0*Y2/2 + 15*X1**7*X2 - 3*X1**4*X2**2*Y1*Y2/4", "family": "hessian-2x2-minor", "label": "hess[14|15]"}
+{"D": "X0**5*X1*Y0*Y2/6 + X0**3*X1**3*Y1*Y2/2 - X0**2*X1**3*X2*Y2**2/6", "family": "hessian-2x2-minor", "label": "hess[14|23]"}
+{"D": "-X0**3*X1**3*Y0*Y2/4 + 10*X0**2*Y0*Y1**4*Y2 - 3*X1**5*X2*Y2**2/4 + 45*X1**2*Y1**5*Y2", "family": "hessian-2x2-minor", "label": "hess[14|24]"}
+{"D": "-X0**6*X1*Y0/4 - 3*X0**3*X1**3*X2*Y2/4 + 15*X0**3*Y1**5 + 10*X0**2*X2*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[14|34]"}
+{"D": "-X0**5*X1*X2*Y0/6 - X0**3*X1**3*X2*Y1/2 + X0**2*X1**3*X2**2*Y2/6", "family": "hessian-2x2-minor", "label": "hess[14|35]"}
+{"D": "X0**3*X1**3*X2*Y0/4 - 10*X0**2*X2*Y0*Y1**4 + 3*X1**5*X2**2*Y2/4 - 45*X1**2*X2*Y1**5", "family": "hessian-2x2-minor", "label": "hess[14|45]"}
+{"D": "X0**4*X2*Y0**2*Y1/2 + 2*X0**3*X2**2*Y0**2*Y2/9 + 9*X0**2*X1**2*X2*Y0*Y1**2/4 - 20*X0*X1**5*X2*Y0 - X0*X1**2*X2**2*Y0*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[15|01]"}
+{"D": "X0**4*X1*Y0**2*Y1/2 + 3*X0**2*X1**3*Y0*Y1**2/4 - 2*X0*X1**3*X2*Y0*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[15|02]"}
+{"D": "X0**4*X1*X2*Y0*Y1/6", "family": "hessian-2x2-minor", "label": "hess[15|03]"}
+{"D": "-X0**4*X1*X2*Y0**2/3 + 3*X0**2*X1**3*X2*Y0*Y1/4 - 2*X0*X1**3*X2**2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[15|04]"}
+{"D": "-2*X0**3*X1*X2**2*Y0**2/9 + 45*X0**2*Y0*Y1*Y2**4 - X0*X1**3*X2**2*Y0*Y1 + 20*X0*X2*Y0*Y2**5", "family": "hessian-2x2-minor", "label": "hess[15|05]"}
+{"D": "-X0**4*X2*Y0**2*Y2/9 + 10*X0**2*X1**5*Y0 + 15*X1**7*Y1 - 3*X1**4*X2*Y1**2*Y2/4", "family": "hessian-2x2-minor", "label": "hess[15|12]"}
+{"D": "-X0**5*X2*Y0*Y1/6 - X0**4*X2**2*Y0*Y2/9 - 3*X0**3*X1**2*X2*Y1**2/4 + 10*X0**2*X1**5*X2 + X0**2*X1**2*X2**2*Y1*Y2/2", "family": "hessian-2x2-minor", "label": "hess[15|13]"}
+{"D": "-X0**5*X2*Y0**2/6 - 3*X0**3*X1**2*X2*Y0*Y1/4 - X0**2*X1**2*X2**2*Y0*Y2/2 + 15*X1**7*X2 - 3*X1**4*X2**2*Y1*Y2/4", "family": "hessian-2x2-minor", "label": "hess[15|14]"}
+{"D": "-X0**4*X2**2*Y0**2/9 - X0**2*X1**2*X2**2*Y0*Y1 - 9*X1**4*X2**2*Y1**2/4 + 900*X1**4*Y2**4 + 90*X1*X2*Y1*Y2**5", "family": "hessian-2x2-minor", "label": "hess[15|15]"}
+{"D": "-X0**5*X1*Y0*Y1/6 - X0**3*X1**3*Y1**2/4 + X0**2*X1**3*X2*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[15|23]"}
+{"D": "-X0**5*X1*Y0**2/6 - X0**3*X1**3*Y0*Y1/4 - X0**2*X1**3*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[15|24]"}
+{"D": "-X0**4*X1*X2*Y0**2/9 - 2*X0**2*X1**3*X2*Y0*Y1/3 + 10*X0**2*Y0*Y2**5 - 3*X1**5*X2*Y1**2/4 + 45*X1**2*Y1*Y2**5", "family": "hessian-2x2-minor", "label": "hess[15|25]"}
+{"D": "-X0**5*X1*X2*Y0/6 + X0**3*X1**3*X2*Y1/4 - X0**2*X1**3*X2**2*Y2/3", "family": "hessian-2x2-minor", "label": "hess[15|34]"}
+{"D": "-X0**4*X1*X2**2*Y0/9 + 15*X0**3*Y1*Y2**4 - X0**2*X1**3*X2**2*Y1/2 + 10*X0**2*X2*Y2**5", "family": "hessian-2x2-minor", "label": "hess[15|35]"}
+{"D": "15*X0**3*Y0*Y2**4 - X0**2*X1**3*X2**2*Y0/6 - 3*X1**5*X2**2*Y1/4 + 45*X1**2*X2*Y2**5", "family": "hessian-2x2-minor", "label": "hess[15|45]"}
+{"D": "-X0**4*X1*Y0*Y1*Y2/6 - 9*X0**2*X1**3*Y1**2*Y2/4 - X0*X1**3*X2*Y1*Y2**2", "family": "hessian-2x2-minor", "label": "hess[23|01]"}
+{"D": "2*X0**3*X1**2*Y0*Y2**2/9 - 45*X0**2*X1*X2**4*Y1 - 20*X0*X1*X2**5*Y2", "family": "hessian-2x2-minor", "label": "hess[23|02]"}
+{"D": "-X0**4*X1**2*Y1*Y2/2 - 2*X0**3*X1**2*X2*Y2**2/9 + 20*X0*X1*Y0**5*Y2", "family": "hessian-2x2-minor", "label": "hess[23|03]"}
+{"D": "X0**4*X1**2*Y0*Y2/3 - 3*X0**2*X1**4*Y1*Y2/4 - X0*X1**4*X2*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[23|04]"}
+{"D": "-X0**4*X1**2*Y0*Y1/2 - 3*X0**2*X1**4*Y1**2/4 - X0*X1**4*X2*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[23|05]"}
+{"D": "X0**4*X1*Y0*Y2**2/9 - 15*X0**3*X2**4*Y1 + X0**2*X1**3*Y1*Y2**2/2 - 10*X0**2*X2**5*Y2", "family": "hessian-2x2-minor", "label": "hess[23|12]"}
+{"D": "-X0**5*X1*Y1*Y2/6 - X0**4*X1*X2*Y2**2/9 + 10*X0**2*Y0**5*Y2 + 45*X1**2*Y0**4*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[23|13]"}
+{"D": "X0**5*X1*Y0*Y2/6 + X0**3*X1**3*Y1*Y2/2 - X0**2*X1**3*X2*Y2**2/6", "family": "hessian-2x2-minor", "label": "hess[23|14]"}
+{"D": "-X0**5*X1*Y0*Y1/6 - X0**3*X1**3*Y1**2/4 + X0**2*X1**3*X2*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[23|15]"}
+{"D": "-X0**4*X1**2*Y2**2/9 + 900*X2**4*Y0**4", "family": "hessian-2x2-minor", "label": "hess[23|23]"}
+{"D": "15*X0**3*X1*X2**4 - X0**2*X1**4*Y2**2/6", "family": "hessian-2x2-minor", "label": "hess[23|24]"}
+{"D": "-X0**4*X1**2*Y0*Y2/9 - X0**2*X1**4*Y1*Y2/6 + 10*X0**2*X1*X2**5", "family": "hessian-2x2-minor", "label": "hess[23|25]"}
+{"D": "X0**5*X1**2*Y2/6 - 15*X1**3*Y0**4*Y2", "family": "hessian-2x2-minor", "label": "hess[23|34]"}
+{"D": "X0**4*X1**2*X2*Y2/9 - 10*X0**2*X1*Y0**5 - 15*X1**3*Y0**4*Y1", "family": "hessian-2x2-minor", "label": "hess[23|35]"}
+{"D": "-X0**5*X1**2*Y0/6 - X0**3*X1**4*Y1/4 + X0**2*X1**4*X2*Y2/6", "family": "hessian-2x2-minor", "label": "hess[23|45]"}
+{"D": "-X0**4*X1*Y0**2*Y2/6 - 9*X0**2*X1**3*Y0*Y1*Y2/4 + X0*X1**3*X2*Y0*Y2**2", "family": "hessian-2x2-minor", "label": "hess[24|01]"}
+{"D": "-45*X0**2*X1*X2**4*Y0 + X0*X1**4*Y0*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[24|02]"}
+{"D": "-X0**4*X1**2*Y0*Y2/6", "family": "hessian-2x2-minor", "label": "hess[24|03]"}
+{"D": "-3*X0**2*X1**4*Y0*Y2/4 + 20*X0*X1*Y0*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[24|04]"}
+{"D": "-X0**4*X1**2*Y0**2/2 - 3*X0**2*X1**4*Y0*Y1/4 + X0*X1**4*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[24|05]"}
+{"D": "-15*X0**3*X2**4*Y0 + X0**2*X1**3*Y0*Y2**2/6 + 3*X1**5*Y1*Y2**2/4 - 45*X1**2*X2**5*Y2", "family": "hessian-2x2-minor", "label": "hess[24|12]"}
+{"D": "3*X0**3*X1**3*Y1*Y2/4 - X0**2*X1**3*X2*Y2**2/2", "family": "hessian-2x2-minor", "label": "hess[24|13]"}
+{"D": "-X0**3*X1**3*Y0*Y2/4 + 10*X0**2*Y0*Y1**4*Y2 - 3*X1**5*X2*Y2**2/4 + 45*X1**2*Y1**5*Y2", "family": "hessian-2x2-minor", "label": "hess[24|14]"}
+{"D": "-X0**5*X1*Y0**2/6 - X0**3*X1**3*Y0*Y1/4 - X0**2*X1**3*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[24|15]"}
+{"D": "15*X0**3*X1*X2**4 - X0**2*X1**4*Y2**2/6", "family": "hessian-2x2-minor", "label": "hess[24|23]"}
+{"D": "-X1**6*Y2**2/4 + 900*X2**4*Y1**4", "family": "hessian-2x2-minor", "label": "hess[24|24]"}
+{"D": "-X0**2*X1**4*Y0*Y2/6 - X1**6*Y1*Y2/4 + 15*X1**3*X2**5", "family": "hessian-2x2-minor", "label": "hess[24|25]"}
+{"D": "-X0**3*X1**4*Y2/4 + 10*X0**2*X1*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[24|34]"}
+{"D": "-X0**5*X1**2*Y0/6 - X0**3*X1**4*Y1/4 + X0**2*X1**4*X2*Y2/6", "family": "hessian-2x2-minor", "label": "hess[24|35]"}
+{"D": "-10*X0**2*X1*Y0*Y1**4 + X1**6*X2*Y2/4 - 15*X1**3*Y1**5", "family": "hessian-2x2-minor", "label": "hess[24|45]"}
+{"D": "2*X0**3*X1**2*Y0**2*Y2/9 + X0*X1**4*Y0*Y1*Y2/3 - 20*X0*X1*X2**5*Y0", "family": "hessian-2x2-minor", "label": "hess[25|02]"}
+{"D": "-2*X0**3*X1**2*X2*Y0**2/9 - X0*X1**4*X2*Y0*Y1/3 + 20*X0*X1*Y0*Y2**5", "family": "hessian-2x2-minor", "label": "hess[25|05]"}
+{"D": "X0**4*X1*Y0**2*Y2/9 + 2*X0**2*X1**3*Y0*Y1*Y2/3 - 10*X0**2*X2**5*Y0 + 3*X1**5*Y1**2*Y2/4 - 45*X1**2*X2**5*Y1", "family": "hessian-2x2-minor", "label": "hess[25|12]"}
+{"D": "-X0**4*X1*X2*Y0**2/9 - 2*X0**2*X1**3*X2*Y0*Y1/3 + 10*X0**2*Y0*Y2**5 - 3*X1**5*X2*Y1**2/4 + 45*X1**2*Y1*Y2**5", "family": "hessian-2x2-minor", "label": "hess[25|15]"}
+{"D": "-X0**4*X1**2*Y0*Y2/9 - X0**2*X1**4*Y1*Y2/6 + 10*X0**2*X1*X2**5", "family": "hessian-2x2-minor", "label": "hess[25|23]"}
+{"D": "-X0**2*X1**4*Y0*Y2/6 - X1**6*Y1*Y2/4 + 15*X1**3*X2**5", "family": "hessian-2x2-minor", "label": "hess[25|24]"}
+{"D": "-X0**4*X1**2*Y0**2/9 - X0**2*X1**4*Y0*Y1/3 - X1**6*Y1**2/4 + 900*X2**4*Y2**4", "family": "hessian-2x2-minor", "label": "hess[25|25]"}
+{"D": "-X0**4*X1**2*X2*Y0/9 - X0**2*X1**4*X2*Y1/6 + 10*X0**2*X1*Y2**5", "family": "hessian-2x2-minor", "label": "hess[25|35]"}
+{"D": "-X0**2*X1**4*X2*Y0/6 - X1**6*X2*Y1/4 + 15*X1**3*Y2**5", "family": "hessian-2x2-minor", "label": "hess[25|45]"}
+{"D": "-X0**4*X1*X2*Y0*Y2/6 + 9*X0**2*X1**3*X2*Y1*Y2/4 + X0*X1**3*X2**2*Y2**2", "family": "hessian-2x2-minor", "label": "hess[34|01]"}
+{"D": "-X0**4*X1**2*Y0*Y2/2 + 3*X0**2*X1**4*Y1*Y2/4 + X0*X1**4*X2*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[34|02]"}
+{"D": "3*X0**5*X1**2*Y1/4 + X0**4*X1**2*X2*Y2/3 - 45*X0**2*X1*Y0**5", "family": "hessian-2x2-minor", "label": "hess[34|03]"}
+{"D": "-3*X0**5*X1**2*Y0/4 + 45*X0**2*X1*Y1**5 + 20*X0*X1*X2*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[34|04]"}
+{"D": "-X0**4*X1**2*X2*Y0/2 + 3*X0**2*X1**4*X2*Y1/4 + X0*X1**4*X2**2*Y2/3", "family": "hessian-2x2-minor", "label": "hess[34|05]"}
+{"D": "-X0**5*X1*Y0*Y2/6 + X0**3*X1**3*Y1*Y2/4 - X0**2*X1**3*X2*Y2**2/3", "family": "hessian-2x2-minor", "label": "hess[34|12]"}
+{"D": "X0**6*X1*Y1/4 + X0**5*X1*X2*Y2/6 - 15*X0**3*Y0**5 - 45*X1**2*X2*Y0**4*Y2", "family": "hessian-2x2-minor", "label": "hess[34|13]"}
+{"D": "-X0**6*X1*Y0/4 - 3*X0**3*X1**3*X2*Y2/4 + 15*X0**3*Y1**5 + 10*X0**2*X2*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[34|14]"}
+{"D": "-X0**5*X1*X2*Y0/6 + X0**3*X1**3*X2*Y1/4 - X0**2*X1**3*X2**2*Y2/3", "family": "hessian-2x2-minor", "label": "hess[34|15]"}
+{"D": "X0**5*X1**2*Y2/6 - 15*X1**3*Y0**4*Y2", "family": "hessian-2x2-minor", "label": "hess[34|23]"}
+{"D": "-X0**3*X1**4*Y2/4 + 10*X0**2*X1*Y1**4*Y2", "family": "hessian-2x2-minor", "label": "hess[34|24]"}
+{"D": "-X0**6*X1**2/4 + 900*Y0**4*Y1**4", "family": "hessian-2x2-minor", "label": "hess[34|34]"}
+{"D": "-X0**5*X1**2*X2/6 + 15*X1**3*X2*Y0**4", "family": "hessian-2x2-minor", "label": "hess[34|35]"}
+{"D": "X0**3*X1**4*X2/4 - 10*X0**2*X1*X2*Y1**4", "family": "hessian-2x2-minor", "label": "hess[34|45]"}
+{"D": "X0**4*X1*X2*Y0*Y1/6 + 9*X0**2*X1**3*X2*Y1**2/4 + X0*X1**3*X2**2*Y1*Y2", "family": "hessian-2x2-minor", "label": "hess[35|01]"}
+{"D": "X0**4*X1**2*Y0*Y1/2 + 3*X0**2*X1**4*Y1**2/4 + X0*X1**4*X2*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[35|02]"}
+{"D": "X0**4*X1**2*X2*Y1/2 + 2*X0**3*X1**2*X2**2*Y2/9 - 20*X0*X1*X2*Y0**5", "family": "hessian-2x2-minor", "label": "hess[35|03]"}
+{"D": "-X0**4*X1**2*X2*Y0/3 + 3*X0**2*X1**4*X2*Y1/4 + X0*X1**4*X2**2*Y2/3", "family": "hessian-2x2-minor", "label": "hess[35|04]"}
+{"D": "-2*X0**3*X1**2*X2**2*Y0/9 + 45*X0**2*X1*Y1*Y2**4 + 20*X0*X1*X2*Y2**5", "family": "hessian-2x2-minor", "label": "hess[35|05]"}
+{"D": "X0**5*X1*Y0*Y1/6 + X0**3*X1**3*Y1**2/4 - X0**2*X1**3*X2*Y1*Y2/3", "family": "hessian-2x2-minor", "label": "hess[35|12]"}
+{"D": "X0**5*X1*X2*Y1/6 + X0**4*X1*X2**2*Y2/9 - 10*X0**2*X2*Y0**5 - 45*X1**2*X2*Y0**4*Y1", "family": "hessian-2x2-minor", "label": "hess[35|13]"}
+{"D": "-X0**5*X1*X2*Y0/6 - X0**3*X1**3*X2*Y1/2 + X0**2*X1**3*X2**2*Y2/6", "family": "hessian-2x2-minor", "label": "hess[35|14]"}
+{"D": "-X0**4*X1*X2**2*Y0/9 + 15*X0**3*Y1*Y2**4 - X0**2*X1**3*X2**2*Y1/2 + 10*X0**2*X2*Y2**5", "family": "hessian-2x2-minor", "label": "hess[35|15]"}
+{"D": "X0**4*X1**2*X2*Y2/9 - 10*X0**2*X1*Y0**5 - 15*X1**3*Y0**4*Y1", "family": "hessian-2x2-minor", "label": "hess[35|23]"}
+{"D": "-X0**5*X1**2*Y0/6 - X0**3*X1**4*Y1/4 + X0**2*X1**4*X2*Y2/6", "family": "hessian-2x2-minor", "label": "hess[35|24]"}
+{"D": "-X0**4*X1**2*X2*Y0/9 - X0**2*X1**4*X2*Y1/6 + 10*X0**2*X1*Y2**5", "family": "hessian-2x2-minor", "label": "hess[35|25]"}
+{"D": "-X0**5*X1**2*X2/6 + 15*X1**3*X2*Y0**4", "family": "hessian-2x2-minor", "label": "hess[35|34]"}
+{"D": "-X0**4*X1**2*X2**2/9 + 900*Y0**4*Y2**4", "family": "hessian-2x2-minor", "label": "hess[35|35]"}
+{"D": "15*X0**3*X1*Y2**4 - X0**2*X1**4*X2**2/6", "family": "hessian-2x2-minor", "label": "hess[35|45]"}
+{"D": "X0**4*X1*X2*Y0**2/6 + 9*X0**2*X1**3*X2*Y0*Y1/4 - X0*X1**3*X2**2*Y0*Y2", "family": "hessian-2x2-minor", "label": "hess[45|01]"}
+{"D": "X0**4*X1**2*Y0**2/2 + 3*X0**2*X1**4*Y0*Y1/4 - X0*X1**4*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[45|02]"}
+{"D": "X0**4*X1**2*X2*Y0/6", "family": "hessian-2x2-minor", "label": "hess[45|03]"}
+{"D": "3*X0**2*X1**4*X2*Y0/4 - 20*X0*X1*X2*Y0*Y1**4", "family": "hessian-2x2-minor", "label": "hess[45|04]"}
+{"D": "45*X0**2*X1*Y0*Y2**4 - X0*X1**4*X2**2*Y0/3", "family": "hessian-2x2-minor", "label": "hess[45|05]"}
+{"D": "X0**5*X1*Y0**2/6 + X0**3*X1**3*Y0*Y1/4 + X0**2*X1**3*X2*Y0*Y2/3", "family": "hessian-2x2-minor", "label": "hess[45|12]"}
+{"D": "-3*X0**3*X1**3*X2*Y1/4 + X0**2*X1**3*X2**2*Y2/2", "family": "hessian-2x2-minor", "label": "hess[45|13]"}
+{"D": "X0**3*X1**3*X2*Y0/4 - 10*X0**2*X2*Y0*Y1**4 + 3*X1**5*X2**2*Y2/4 - 45*X1**2*X2*Y1**5", "family": "hessian-2x2-minor", "label": "hess[45|14]"}
+{"D": "15*X0**3*Y0*Y2**4 - X0**2*X1**3*X2**2*Y0/6 - 3*X1**5*X2**2*Y1/4 + 45*X1**2*X2*Y2**5", "family": "hessian-2x2-minor", "label": "hess[45|15]"}
+{"D": "-X0**5*X1**2*Y0/6 - X0**3*X1**4*Y1/4 + X0**2*X1**4*X2*Y2/6", "family": "hessian-2x2-minor", "label": "hess[45|23]"}
+{"D": "-10*X0**2*X1*Y0*Y1**4 + X1**6*X2*Y2/4 - 15*X1**3*Y1**5", "family": "hessian-2x2-minor", "label": "hess[45|24]"}
+{"D": "-X0**2*X1**4*X2*Y0/6 - X1**6*X2*Y1/4 + 15*X1**3*Y2**5", "family": "hessian-2x2-minor", "label": "hess[45|25]"}
+{"D": "X0**3*X1**4*X2/4 - 10*X0**2*X1*X2*Y1**4", "family": "hessian-2x2-minor", "label": "hess[45|34]"}
+{"D": "15*X0**3*X1*Y2**4 - X0**2*X1**4*X2**2/6", "family": "hessian-2x2-minor", "label": "hess[45|35]"}
+{"D": "-X1**6*X2**2/4 + 900*Y1**4*Y2**4", "family": "hessian-2x2-minor", "label": "hess[45|45]"}

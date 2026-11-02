@@ -1,0 +1,43 @@
+58 checks to run (0 already done), 6 workers
+[start] short-power-presentation:e1kernel_d7_par0_basis
+[start] short-power-presentation:fixedD_kernel7_par0_compressed
+[start] short-power-presentation:fixedD_kernel8_par0_0_compressed
+[start] short-power-presentation:fixedD_kernel8_par0_1_compressed
+[start] short-power-presentation:fixedD_kernel8_par0_2_compressed
+[start] short-power-presentation:fixedD_kernel8_par0_3_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:e1kernel_d7_par0_basis (36s, exit 0)
+[start] short-power-presentation:fixedD_kernel8_par0_4_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:fixedD_kernel7_par0_compressed (310s, exit 0)
+[start] short-power-presentation:fixedD_kernel8_par0_5_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:fixedD_kernel8_par0_3_compressed (1053s, exit 0)
+[start] short-power-presentation:e1kernel_d7_par1_basis
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:e1kernel_d7_par1_basis (46s, exit 0)
+[start] short-power-presentation:fixedD_kernel7_par1_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:fixedD_kernel8_par0_4_compressed (1075s, exit 0)
+[start] short-power-presentation:fixedD_kernel8_par1_0_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:fixedD_kernel8_par0_5_compressed (1169s, exit 0)
+[start] short-power-presentation:fixedD_kernel8_par1_1_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:fixedD_kernel8_par0_0_compressed (1956s, exit 0)
+[start] short-power-presentation:fixedD_kernel8_par1_2_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:fixedD_kernel8_par0_2_compressed (1982s, exit 0)
+[start] short-power-presentation:fixedD_kernel8_par1_3_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:fixedD_kernel8_par0_1_compressed (2100s, exit 0)
+[start] short-power-presentation:fixedD_kernel8_par1_4_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[done] short-power-presentation:fixedD_kernel7_par1_compressed (1079s, exit 0)
+[start] short-power-presentation:fixedD_kernel8_par1_5_compressed
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.

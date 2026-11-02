@@ -1,0 +1,90 @@
+
+--------------- INPUT DATA ---------------
+#variables                       1
+#equations                       1
+#invalid equations               0
+field characteristic     999999937
+homogeneous input?               1
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                        16
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+reduce final basis        1 x 1         100.00%        1 new       0 zeroDimension of quotient: 2
+------------------------------------------------------------------------------------
+msolve overall time           0.38 sec (elapsed) /  0.37 sec (cpu)
+------------------------------------------------------------------------------------
+         0.29 | 0.29         
+------------------------------------------------------------------------------------------------------
+
+---------------- TIMINGS ---------------
+overall(elapsed)        0.37 sec
+overall(cpu)            0.37 sec
+select                  0.00 sec   0.0%
+symbolic prep.          0.00 sec   0.0%
+update                  0.08 sec  21.6%
+convert                 0.29 sec  78.3%
+linear algebra          0.00 sec   0.0%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                    0
+#GM criterion                     0
+#redundant elements               0
+#rows reduced                     1
+#zero reductions                  0
+max. matrix data                  1 x 1 (100.000%)
+max. symbolic hash table size  2^11
+max. basis hash table size     2^16
+-----------------------------------------
+
+Grobner basis has a single element
+	Command being timed: "timeout 7200 msolve -v 2 -t 16 -g 1 -f /tmp/hodge/results/cyclic-triple-residual/wave2-referee/hess_d7_p999999937_X0_s44.ms -o /tmp/hodge/results/cyclic-triple-residual/wave2-referee/wave3/hess_d7_p999999937_X0_s44.ms.wave3-B1.lead"
+	User time (seconds): 0.37
+	System time (seconds): 0.00
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.38
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5264
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 485
+	Voluntary context switches: 5
+	Involuntary context switches: 162
+	Swaps: 0
+	File system inputs: 8
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

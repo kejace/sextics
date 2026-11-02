@@ -1,0 +1,28 @@
+1000/15180 done [19s]
+2000/15180 done [24s]
+3000/15180 done [27s]
+4000/15180 done [31s]
+5000/15180 done [34s]
+6000/15180 done [37s]
+7000/15180 done [41s]
+8000/15180 done [45s]
+9000/15180 done [48s]
+10000/15180 done [52s]
+11000/15180 done [56s]
+12000/15180 done [60s]
+13000/15180 done [64s]
+14000/15180 done [68s]
+15000/15180 done [71s]
+15180/15180 done [72s]
+{
+ "n_nontrivial_unions": 14190,
+ "nontrivial_unions_with_nonempty_variety": [],
+ "n_trivial_containing_unions": 990,
+ "trivial_containing_dims": {
+  "3": 990
+ },
+ "trivial_containing_unions_NOT_inside_V0": [],
+ "n_triv_bad": 0,
+ "n_nontriv_bad": 0,
+ "seconds": 71.8
+}

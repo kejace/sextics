@@ -1,0 +1,341 @@
+{
+ "mode": "exact",
+ "prime": null,
+ "group_order": 18,
+ "generators": [
+  [
+   0,
+   0,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   5,
+   1,
+   2,
+   2,
+   0
+  ]
+ ],
+ "chiA": [
+  0,
+  3
+ ],
+ "degrees": {
+  "8": {
+   "d": 8,
+   "sum_kerA_in_S": 337,
+   "sum_dimJ_d": 336,
+   "ci_dimJ_d": 336,
+   "sum_dimJ_dplus6": 10122,
+   "ci_dimJ_dplus6": 10122,
+   "ann_mod_J_total": 1,
+   "seconds": 36.7,
+   "sectors": {
+    "(0, 0)": {
+     "dimS": 102,
+     "kerA_in_S": 29,
+     "dimJ_d": 29,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 734,
+     "rankM": 807
+    },
+    "(0, 1)": {
+     "dimS": 114,
+     "kerA_in_S": 36,
+     "dimJ_d": 36,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 786,
+     "rankM": 864
+    },
+    "(0, 2)": {
+     "dimS": 104,
+     "kerA_in_S": 32,
+     "dimJ_d": 32,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 731,
+     "rankM": 803
+    },
+    "(0, 3)": {
+     "dimS": 100,
+     "kerA_in_S": 31,
+     "dimJ_d": 31,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 740,
+     "rankM": 809
+    },
+    "(0, 4)": {
+     "dimS": 118,
+     "kerA_in_S": 40,
+     "dimJ_d": 39,
+     "ann_mod_J": 1,
+     "dimJ_dplus6_sector": 777,
+     "rankM": 855
+    },
+    "(0, 5)": {
+     "dimS": 98,
+     "kerA_in_S": 28,
+     "dimJ_d": 28,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 743,
+     "rankM": 813
+    },
+    "(2, 0)": {
+     "dimS": 74,
+     "kerA_in_S": 14,
+     "dimJ_d": 14,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 552,
+     "rankM": 612
+    },
+    "(2, 1)": {
+     "dimS": 65,
+     "kerA_in_S": 13,
+     "dimJ_d": 13,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 508,
+     "rankM": 560
+    },
+    "(2, 2)": {
+     "dimS": 64,
+     "kerA_in_S": 13,
+     "dimJ_d": 13,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 514,
+     "rankM": 565
+    },
+    "(2, 3)": {
+     "dimS": 77,
+     "kerA_in_S": 18,
+     "dimJ_d": 18,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 546,
+     "rankM": 605
+    },
+    "(2, 4)": {
+     "dimS": 62,
+     "kerA_in_S": 11,
+     "dimJ_d": 11,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 518,
+     "rankM": 569
+    },
+    "(2, 5)": {
+     "dimS": 63,
+     "kerA_in_S": 11,
+     "dimJ_d": 11,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 512,
+     "rankM": 564
+    },
+    "(4, 0)": {
+     "dimS": 39,
+     "kerA_in_S": 7,
+     "dimJ_d": 7,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 398,
+     "rankM": 430
+    },
+    "(4, 1)": {
+     "dimS": 37,
+     "kerA_in_S": 9,
+     "dimJ_d": 9,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 399,
+     "rankM": 427
+    },
+    "(4, 2)": {
+     "dimS": 49,
+     "kerA_in_S": 15,
+     "dimJ_d": 15,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 429,
+     "rankM": 463
+    },
+    "(4, 3)": {
+     "dimS": 37,
+     "kerA_in_S": 10,
+     "dimJ_d": 10,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 400,
+     "rankM": 427
+    },
+    "(4, 4)": {
+     "dimS": 39,
+     "kerA_in_S": 8,
+     "dimJ_d": 8,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 399,
+     "rankM": 430
+    },
+    "(4, 5)": {
+     "dimS": 45,
+     "kerA_in_S": 12,
+     "dimJ_d": 12,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 436,
+     "rankM": 469
+    }
+   }
+  },
+  "9": {
+   "d": 9,
+   "sum_kerA_in_S": 876,
+   "sum_dimJ_d": 756,
+   "ci_dimJ_d": 756,
+   "sum_dimJ_dplus6": 14258,
+   "ci_dimJ_dplus6": 14258,
+   "ann_mod_J_total": 120,
+   "seconds": 1123.8,
+   "sectors": {
+    "(0, 0)": {
+     "dimS": 174,
+     "kerA_in_S": 96,
+     "dimJ_d": 77,
+     "ann_mod_J": 19,
+     "dimJ_dplus6_sector": 1071,
+     "rankM": 1149
+    },
+    "(0, 1)": {
+     "dimS": 151,
+     "kerA_in_S": 82,
+     "dimJ_d": 62,
+     "ann_mod_J": 20,
+     "dimJ_dplus6_sector": 1024,
+     "rankM": 1093
+    },
+    "(0, 2)": {
+     "dimS": 154,
+     "kerA_in_S": 82,
+     "dimJ_d": 65,
+     "ann_mod_J": 17,
+     "dimJ_dplus6_sector": 1015,
+     "rankM": 1087
+    },
+    "(0, 3)": {
+     "dimS": 173,
+     "kerA_in_S": 95,
+     "dimJ_d": 76,
+     "ann_mod_J": 19,
+     "dimJ_dplus6_sector": 1075,
+     "rankM": 1153
+    },
+    "(0, 4)": {
+     "dimS": 156,
+     "kerA_in_S": 83,
+     "dimJ_d": 67,
+     "ann_mod_J": 16,
+     "dimJ_dplus6_sector": 1011,
+     "rankM": 1084
+    },
+    "(0, 5)": {
+     "dimS": 153,
+     "kerA_in_S": 83,
+     "dimJ_d": 64,
+     "ann_mod_J": 19,
+     "dimJ_dplus6_sector": 1020,
+     "rankM": 1090
+    },
+    "(2, 0)": {
+     "dimS": 98,
+     "kerA_in_S": 28,
+     "dimJ_d": 28,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 743,
+     "rankM": 813
+    },
+    "(2, 1)": {
+     "dimS": 102,
+     "kerA_in_S": 29,
+     "dimJ_d": 29,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 734,
+     "rankM": 807
+    },
+    "(2, 2)": {
+     "dimS": 114,
+     "kerA_in_S": 36,
+     "dimJ_d": 36,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 786,
+     "rankM": 864
+    },
+    "(2, 3)": {
+     "dimS": 104,
+     "kerA_in_S": 32,
+     "dimJ_d": 32,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 731,
+     "rankM": 803
+    },
+    "(2, 4)": {
+     "dimS": 100,
+     "kerA_in_S": 31,
+     "dimJ_d": 31,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 740,
+     "rankM": 809
+    },
+    "(2, 5)": {
+     "dimS": 118,
+     "kerA_in_S": 40,
+     "dimJ_d": 39,
+     "ann_mod_J": 1,
+     "dimJ_dplus6_sector": 777,
+     "rankM": 855
+    },
+    "(4, 0)": {
+     "dimS": 63,
+     "kerA_in_S": 24,
+     "dimJ_d": 21,
+     "ann_mod_J": 3,
+     "dimJ_dplus6_sector": 577,
+     "rankM": 616
+    },
+    "(4, 1)": {
+     "dimS": 74,
+     "kerA_in_S": 30,
+     "dimJ_d": 29,
+     "ann_mod_J": 1,
+     "dimJ_dplus6_sector": 618,
+     "rankM": 662
+    },
+    "(4, 2)": {
+     "dimS": 65,
+     "kerA_in_S": 25,
+     "dimJ_d": 22,
+     "ann_mod_J": 3,
+     "dimJ_dplus6_sector": 573,
+     "rankM": 613
+    },
+    "(4, 3)": {
+     "dimS": 64,
+     "kerA_in_S": 24,
+     "dimJ_d": 24,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 573,
+     "rankM": 613
+    },
+    "(4, 4)": {
+     "dimS": 77,
+     "kerA_in_S": 33,
+     "dimJ_d": 31,
+     "ann_mod_J": 2,
+     "dimJ_dplus6_sector": 613,
+     "rankM": 657
+    },
+    "(4, 5)": {
+     "dimS": 62,
+     "kerA_in_S": 23,
+     "dimJ_d": 23,
+     "ann_mod_J": 0,
+     "dimJ_dplus6_sector": 577,
+     "rankM": 616
+    }
+   }
+  }
+ }
+}

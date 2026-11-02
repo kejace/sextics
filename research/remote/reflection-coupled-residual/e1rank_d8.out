@@ -1,0 +1,5 @@
+[A-X0Y1] d=8 A=X0**3*Y1**3 dim R_d^even=483 dim R_(d+6)=744 (Fermat count 744, smooth=True) KER=1 (130s)
+[A-mixed] d=8 A=X0*X1*X2*Y0**2*Y1 dim R_d^even=483 dim R_(d+6)=744 (Fermat count 744, smooth=True) KER=1 (120s)
+[F-coupling1] d=8 A=X0**3*Y0**3 dim R_d^even=483 dim R_(d+6)=744 (Fermat count 744, smooth=True) KER=1 (119s)
+[F-randsym] d=8 A=X0**3*Y0**3 dim R_d^even=483 dim R_(d+6)=744 (Fermat count 744, smooth=True) KER=1 (119s)
+[A-companion] d=8 A=X0**3*Y2**3 dim R_d^even=483 dim R_(d+6)=744 (Fermat count 744, smooth=True) KER=38 (119s)

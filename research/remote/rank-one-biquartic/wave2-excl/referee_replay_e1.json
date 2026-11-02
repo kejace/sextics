@@ -1,0 +1,52 @@
+{
+ "e1": {
+  "result": "dim_p V_d >= dim_Q V_d whenever rankJ_ok; kernel_mod_J = 0 => V_d = J_d over Q",
+  "table": {
+   "4": {
+    "p": 1000000009,
+    "dim_S_d": 126,
+    "rank_J": 1497,
+    "rank_J_expected": 1497,
+    "rankJ_ok": true,
+    "dim_V_d_modp": 0,
+    "dim_J_d": 0,
+    "kernel_mod_J": 0,
+    "seconds": 15.8
+   },
+   "5": {
+    "p": 1000000009,
+    "dim_S_d": 252,
+    "rank_J": 2682,
+    "rank_J_expected": 2682,
+    "rankJ_ok": true,
+    "dim_V_d_modp": 6,
+    "dim_J_d": 6,
+    "kernel_mod_J": 0,
+    "seconds": 54.8
+   },
+   "6": {
+    "p": 1000000009,
+    "dim_S_d": 462,
+    "rank_J": 4437,
+    "rank_J_expected": 4437,
+    "rankJ_ok": true,
+    "dim_V_d_modp": 36,
+    "dim_J_d": 36,
+    "kernel_mod_J": 0,
+    "seconds": 152.2
+   },
+   "7": {
+    "p": 1000000009,
+    "dim_S_d": 792,
+    "rank_J": 6882,
+    "rank_J_expected": 6882,
+    "rankJ_ok": true,
+    "dim_V_d_modp": 129,
+    "dim_J_d": 126,
+    "kernel_mod_J": 3,
+    "seconds": 431.5
+   }
+  },
+  "seconds": 654.3
+ }
+}

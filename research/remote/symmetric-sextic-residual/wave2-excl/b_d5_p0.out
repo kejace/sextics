@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[    0.1s] d=5 par=0 p=2147483629 fermat=False: n_J=3 n_vars=3
+[   13.8s] R_10^odd dim 744; left nullspace built
+[   13.8s] Hessian block built 0.0 s
+[   13.8s] quadric coefficient matrix 744 x 6: rank 6 (full = 6)
+[   13.8s] EXCLUDED: quadrics span Sym^2 => only w = 0; no denominator of degree 5 parity 0

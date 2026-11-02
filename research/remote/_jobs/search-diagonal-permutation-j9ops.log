@@ -1,0 +1,17 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[extra] loaded 21 kernel members from w2-kerfam-d9-p1.npz
+[02:46:32] {"type": "setup", "wid": 5, "r": 1260, "K": 399, "nK": 1890, "dimP": 201, "nspur": 28, "setup_s": 103.8, "Fres": 4.065539092991635e-14, "label": "jac-d9-odd+21extra|pD1|sector+1", "nKsector": 950, "ref_B0norm2": 1769109.815604608}
+[02:46:32] {"type": "setup", "wid": 6, "r": 1260, "K": 399, "nK": 1890, "dimP": 201, "nspur": 28, "setup_s": 103.8, "Fres": 4.8424054361127774e-14, "label": "jac-d9-odd+21extra|pD1|sector+1", "nKsector": 950, "ref_B0norm2": 1591006.9921454997}
+[02:46:37] {"type": "setup", "wid": 1, "r": 1260, "K": 399, "nK": 1890, "dimP": 201, "nspur": 28, "setup_s": 111.5, "Fres": 7.7882916711373e-14, "label": "jac-d9-odd+21extra|pD1|sector+1", "nKsector": 950, "ref_B0norm2": 1553128.305051867}
+[02:46:41] {"type": "setup", "wid": 2, "r": 1260, "K": 399, "nK": 1890, "dimP": 201, "nspur": 28, "setup_s": 112.3, "Fres": 3.6622048992929335e-14, "label": "jac-d9-odd+21extra|pD1|sector+1", "nKsector": 950, "ref_B0norm2": 1444689.0236988645}
+[02:46:49] {"type": "setup", "wid": 3, "r": 1260, "K": 399, "nK": 1890, "dimP": 201, "nspur": 28, "setup_s": 123.6, "Fres": 5.3290705182007514e-14, "label": "jac-d9-odd+21extra|pD1|sector+1", "nKsector": 950, "ref_B0norm2": 1482641.3768257962}
+[02:47:37] {"type": "setup", "wid": 4, "r": 1260, "K": 399, "nK": 1890, "dimP": 201, "nspur": 28, "setup_s": 173.1, "Fres": 4.3090528908515386e-14, "label": "jac-d9-odd+21extra|pD1|sector+1", "nKsector": 950, "ref_B0norm2": 1637124.2456498907}
+[02:47:38] {"type": "setup", "wid": 0, "r": 1260, "K": 399, "nK": 1890, "dimP": 201, "nspur": 28, "setup_s": 172.6, "Fres": 4.903165214907213e-14, "label": "jac-d9-odd+21extra|pD1|sector+1", "nKsector": 950, "ref_B0norm2": 1579060.6795249213}
+[02:47:46] {"type": "setup", "wid": 7, "r": 1260, "K": 399, "nK": 1890, "dimP": 201, "nspur": 28, "setup_s": 176.6, "Fres": 4.601630020807302e-14, "label": "jac-d9-odd+21extra|pD1|sector+1", "nKsector": 950, "ref_B0norm2": 1579405.8882893221}

@@ -1,0 +1,1 @@
+w2s_phase2.sh: line 15: 3058428 Killed                  python3 w2s_hessrelax.py --d 9 --sector 0 --mode real --restarts 1500 --seed0 0 --procs 8 --name hr9e --max-minutes 60 > hr9e.out 2> hr9e.err

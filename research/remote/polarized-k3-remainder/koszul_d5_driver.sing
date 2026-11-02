@@ -1,0 +1,17 @@
+< "koszul_d5.sing";
+int i;
+ideal G = std(I);
+print("dim V(I) (affine) = " + string(dim(G)));
+ideal Ja0_000000 = std(I + ideal(a0_000000-1));
+print("a0_000000=1: unit ideal? " + string(size(Ja0_000000)==1 && Ja0_000000[1]==1) + "  dim=" + string(dim(Ja0_000000)));
+ideal Ja1_000000 = std(I + ideal(a1_000000-1));
+print("a1_000000=1: unit ideal? " + string(size(Ja1_000000)==1 && Ja1_000000[1]==1) + "  dim=" + string(dim(Ja1_000000)));
+ideal Ja2_000000 = std(I + ideal(a2_000000-1));
+print("a2_000000=1: unit ideal? " + string(size(Ja2_000000)==1 && Ja2_000000[1]==1) + "  dim=" + string(dim(Ja2_000000)));
+ideal Ja3_000000 = std(I + ideal(a3_000000-1));
+print("a3_000000=1: unit ideal? " + string(size(Ja3_000000)==1 && Ja3_000000[1]==1) + "  dim=" + string(dim(Ja3_000000)));
+ideal Ja4_000000 = std(I + ideal(a4_000000-1));
+print("a4_000000=1: unit ideal? " + string(size(Ja4_000000)==1 && Ja4_000000[1]==1) + "  dim=" + string(dim(Ja4_000000)));
+ideal Ja5_000000 = std(I + ideal(a5_000000-1));
+print("a5_000000=1: unit ideal? " + string(size(Ja5_000000)==1 && Ja5_000000[1]==1) + "  dim=" + string(dim(Ja5_000000)));
+quit;

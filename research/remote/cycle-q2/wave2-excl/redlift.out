@@ -1,0 +1,10 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+exact reduced system: rows 467, K-cols 271, Q-cols 7  [0.6s]
+exact Farkas equations 5733 x 2802
+rank 2647, nullity 155  [47.4s]
+vectors with nonzero cubic mod p: 135 of 155
+vector 0: verified exactly (max bits 188)  [123.6s]
+vector 5: verified exactly (max bits 199)  [272.9s]
+vector 10: verified exactly (max bits 194)  [424.2s]
+vector 15: verified exactly (max bits 202)  [588.4s]
+vector 20: verified exactly (max bits 188)  [754.4s]

@@ -1,0 +1,7 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[numerators] d=7 p=2147483647: 1 systems, rows=4284 cols=3861 rank=3441, 1 consistent (19s)
+[relaxation_terms] K=64: 2080 nonzero symmetrized terms (7s)
+[JRef] e=14 par=1 p=2147483647: gens=6006 mons=5796 rank=5052 dimR=744 (build 13s, rref 40s)
+[reduce_terms] par=1: 2080 terms -> 734 equations (dim R_14^1 = 744)
+[reduce_terms] total 734 equations (117s)
+{"kind": "relaxation", "d": 7, "parspec": "0", "p": 2147483647, "K_total": 64, "n_kernel": 1, "gauge_removed": 3, "n_vars": 61, "n_equations": 734, "kernel_sources": {"0": "rational"}, "t_build": 147.7, "tag": "w2"}

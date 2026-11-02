@@ -1,0 +1,1 @@
+{"module": "Reflect.Kron", "label": "kron-lib-v3", "compile_rc": 0, "compile": {"wall": 62.11, "user": 54.42, "sys": 3.76, "maxrss_gb": 3.61}, "kernel_rc": 0, "kernel": {"wall": 20.71, "user": 10.75, "sys": 7.23, "maxrss_gb": 2.94}, "errors": [], "meta": {}, "host": "hodge-sextics.us-east1-b.c.gluck-proof.internal", "ts": "2026-11-02T02:36:04"}

@@ -1,0 +1,1 @@
+# Copies of receipts produced on the remote box (/tmp/hodge/remote/diagonal-permutation/wave2-excl/ mirror), taken by the referee on 2026-11-02T02:57Z; the agent's packet README cites them but sync.sh does not mirror /tmp/hodge/remote.

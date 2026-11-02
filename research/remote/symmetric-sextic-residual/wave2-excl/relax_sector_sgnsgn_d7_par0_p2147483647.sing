@@ -1,0 +1,7 @@
+ring r = 2147483647, (), dp;
+ideal I;
+option(redSB);
+int t0 = timer;
+ideal G = std(I);
+"dim(std(I)) ="; dim(G); "vdim ="; vdim(G); "time(s) ="; (timer - t0) div 1000;
+quit;

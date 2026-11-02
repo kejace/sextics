@@ -1,0 +1,12 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+prime 1000000007: rank 5052 of 6006 cols; lift not yet (122s)
+prime 998244353: rank 5052 of 6006 cols; lift not yet (243s)
+prime 2147483647: rank 5052 of 6006 cols; lift not yet (374s)
+prime 2147483629: rank 5052 of 6006 cols; lift not yet (499s)
+prime 2147483587: rank 5052 of 6006 cols; lift not yet (624s)
+prime 2147483579: rank 5052 of 6006 cols; lift not yet (757s)
+Traceback (most recent call last):
+  File "/tmp/hodge/results/diagonal-permutation/wave2-excl/w2_d8.py", line 88, in <module>
+    lifted = None
+   ^^^^^^^^^^^^^^^
+AssertionError: exact lift failed

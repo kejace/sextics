@@ -1,0 +1,3 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[e1] d=8 chi=(0, 1) p=2147483647: dim S=378 rows=3396 cols=3836 colon=104 J=104 nonjac=0 (218.9s)
+{"d": 8, "chi": [0, 1], "p": 2147483647, "dim_S": 378, "rows": 3396, "ncols": 3836, "nullity": 626, "dim_colon": 104, "dim_J": 104, "dim_nonjac": 0, "seconds": 218.9, "primes": [2147483647], "total_seconds": 218.9}

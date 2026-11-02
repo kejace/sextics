@@ -1,0 +1,60 @@
+{
+ "k7": {
+  "gens": {
+   "K7_8": {
+    "E1_exact": true,
+    "deg_D": 7,
+    "terms_D": 64,
+    "deg_N": [
+     8,
+     8,
+     8,
+     0,
+     0,
+     0
+    ],
+    "y_parity": [
+     0
+    ]
+   },
+   "K7_9": {
+    "E1_exact": true,
+    "deg_D": 7,
+    "terms_D": 64,
+    "deg_N": [
+     8,
+     8,
+     8,
+     0,
+     0,
+     0
+    ],
+    "y_parity": [
+     0
+    ]
+   },
+   "K7_10": {
+    "E1_exact": true,
+    "deg_D": 7,
+    "terms_D": 64,
+    "deg_N": [
+     8,
+     8,
+     8,
+     0,
+     0,
+     0
+    ],
+    "y_parity": [
+     0
+    ]
+   }
+  },
+  "rank_J7": 126,
+  "rank_J7_expected": 126,
+  "rank_aug": 129,
+  "independent_mod_J": 3,
+  "result": "VERIFIED: 3 exact non-Jacobian E1 directions in degree 7",
+  "seconds": 16.5
+ }
+}

@@ -1,0 +1,142 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[e1-kernel] d=9 k=0 parD=0: #Dmon=116 dimR_(d+6)=90 kernel(total)=35 J_d=33 nontrivial=2
+d=9 parD=0 k=0: nontrivial kernel 2, J_d block 33 gens  [2.9s]
+   rep #0: e1=True consistent=False rank=633 nullity=43 rows=2353 cols=676 8.4s
+   rep #1: e1=True consistent=False rank=633 nullity=43 rows=2350 cols=676 12.71s
+   random kernel combo 0: consistent=False rank=633 nullity=43 17.91s
+   random kernel combo 1: consistent=False rank=633 nullity=43 9.35s
+   random kernel combo 2: consistent=False rank=633 nullity=43 14.36s
+   random kernel+J 0: consistent=False rank=633 nullity=43 22.86s
+   random kernel+J 1: consistent=False rank=633 nullity=43 27.17s
+   random kernel+J 2: consistent=False rank=633 nullity=43 25.23s
+[e1-kernel] d=9 k=1 parD=0: #Dmon=156 dimR_(d+6)=90 kernel(total)=66 J_d=63 nontrivial=3
+d=9 parD=0 k=1: nontrivial kernel 3, J_d block 63 gens  [2.7s]
+   rep #0: e1=True consistent=False rank=659 nullity=49 rows=2352 cols=708 9.56s
+   rep #1: e1=True consistent=False rank=659 nullity=49 rows=2352 cols=708 21.76s
+   rep #2: e1=True consistent=False rank=659 nullity=49 rows=2357 cols=708 16.68s
+   random kernel combo 0: consistent=False rank=659 nullity=49 31.44s
+   random kernel combo 1: consistent=False rank=659 nullity=49 42.6s
+   random kernel combo 2: consistent=False rank=659 nullity=49 26.89s
+   random kernel+J 0: consistent=False rank=659 nullity=49 11.8s
+   random kernel+J 1: consistent=False rank=659 nullity=49 19.58s
+   random kernel+J 2: consistent=False rank=659 nullity=49 30.09s
+[e1-kernel] d=9 k=2 parD=0: #Dmon=156 dimR_(d+6)=90 kernel(total)=66 J_d=63 nontrivial=3
+d=9 parD=0 k=2: nontrivial kernel 3, J_d block 63 gens  [12.5s]
+   rep #0: e1=True consistent=False rank=592 nullity=43 rows=2306 cols=635 18.44s
+   rep #1: e1=True consistent=False rank=592 nullity=43 rows=2303 cols=635 8.06s
+   rep #2: e1=True consistent=False rank=592 nullity=43 rows=2306 cols=635 12.72s
+   random kernel combo 0: consistent=False rank=592 nullity=43 7.9s
+   random kernel combo 1: consistent=False rank=592 nullity=43 22.43s
+   random kernel combo 2: consistent=False rank=592 nullity=43 15.38s
+   random kernel+J 0: consistent=False rank=592 nullity=43 17.3s
+   random kernel+J 1: consistent=False rank=592 nullity=43 24.34s
+   random kernel+J 2: consistent=False rank=592 nullity=43 21.81s
+[e1-kernel] d=9 k=3 parD=0: #Dmon=139 dimR_(d+6)=90 kernel(total)=54 J_d=52 nontrivial=2
+d=9 parD=0 k=3: nontrivial kernel 2, J_d block 52 gens  [7.1s]
+   rep #0: e1=True consistent=False rank=656 nullity=43 rows=2356 cols=699 17.63s
+   rep #1: e1=True consistent=False rank=656 nullity=43 rows=2362 cols=699 14.67s
+   random kernel combo 0: consistent=False rank=656 nullity=43 21.49s
+   random kernel combo 1: consistent=False rank=656 nullity=43 16.22s
+   random kernel combo 2: consistent=False rank=656 nullity=43 8.77s
+   random kernel+J 0: consistent=False rank=656 nullity=43 16.56s
+   random kernel+J 1: consistent=False rank=656 nullity=43 7.55s
+   random kernel+J 2: consistent=False rank=656 nullity=43 31.55s
+[e1-kernel] d=9 k=4 parD=0: #Dmon=156 dimR_(d+6)=83 kernel(total)=73 J_d=63 nontrivial=10
+d=9 parD=0 k=4: nontrivial kernel 10, J_d block 63 gens  [132.3s]
+   rep #0: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 36.87s
+   rep #1: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 27.97s
+   rep #2: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 20.87s
+   rep #3: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 27.38s
+   rep #4: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 26.85s
+   rep #5: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 15.72s
+   rep #6: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 31.3s
+   rep #7: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 18.32s
+   rep #8: e1=True consistent=False rank=729 nullity=84 rows=2385 cols=813 26.77s
+   rep #9: e1=True consistent=False rank=729 nullity=84 rows=2380 cols=813 36.87s
+   random kernel combo 0: consistent=False rank=729 nullity=84 33.22s
+   random kernel combo 1: consistent=False rank=729 nullity=84 47.16s
+   random kernel combo 2: consistent=False rank=729 nullity=84 24.55s
+   random kernel+J 0: consistent=False rank=729 nullity=84 56.84s
+   random kernel+J 1: consistent=False rank=729 nullity=84 29.57s
+   random kernel+J 2: consistent=False rank=729 nullity=84 42.56s
+[e1-kernel] d=9 k=5 parD=0: #Dmon=139 dimR_(d+6)=90 kernel(total)=53 J_d=52 nontrivial=1
+d=9 parD=0 k=5: nontrivial kernel 1, J_d block 52 gens  [10.0s]
+   rep #0: e1=True consistent=False rank=659 nullity=49 rows=2348 cols=708 20.76s
+   random kernel+J 0: consistent=False rank=659 nullity=49 27.9s
+   random kernel+J 1: consistent=False rank=659 nullity=49 10.17s
+   random kernel+J 2: consistent=False rank=659 nullity=49 31.05s
+[e1-kernel] d=9 k=6 parD=0: #Dmon=139 dimR_(d+6)=90 kernel(total)=55 J_d=52 nontrivial=3
+d=9 parD=0 k=6: nontrivial kernel 3, J_d block 52 gens  [8.3s]
+   rep #0: e1=True consistent=False rank=682 nullity=49 rows=2400 cols=731 25.83s
+   rep #1: e1=True consistent=False rank=682 nullity=49 rows=2390 cols=731 25.02s
+   rep #2: e1=True consistent=False rank=682 nullity=49 rows=2396 cols=731 34.1s
+   random kernel combo 0: consistent=False rank=682 nullity=49 33.49s
+   random kernel combo 1: consistent=False rank=682 nullity=49 29.54s
+   random kernel combo 2: consistent=False rank=682 nullity=49 21.21s
+   random kernel+J 0: consistent=False rank=682 nullity=49 13.03s
+   random kernel+J 1: consistent=False rank=682 nullity=49 19.06s
+   random kernel+J 2: consistent=False rank=682 nullity=49 26.55s
+[e1-kernel] d=9 k=0 parD=1: #Dmon=176 dimR_(d+6)=93 kernel(total)=93 J_d=93 nontrivial=0
+d=9 parD=1 k=0: nontrivial kernel 0, J_d block 93 gens  [13.5s]
+[e1-kernel] d=9 k=1 parD=1: #Dmon=139 dimR_(d+6)=87 kernel(total)=54 J_d=49 nontrivial=5
+d=9 parD=1 k=1: nontrivial kernel 5, J_d block 49 gens  [13.3s]
+   rep #0: e1=True consistent=False rank=644 nullity=56 rows=2360 cols=700 22.56s
+   rep #1: e1=True consistent=False rank=644 nullity=56 rows=2369 cols=700 19.54s
+   rep #2: e1=True consistent=False rank=644 nullity=56 rows=2369 cols=700 35.73s
+   rep #3: e1=True consistent=False rank=644 nullity=56 rows=2369 cols=700 20.67s
+   rep #4: e1=True consistent=False rank=644 nullity=56 rows=2374 cols=700 17.54s
+   random kernel combo 0: consistent=False rank=644 nullity=56 23.51s
+   random kernel combo 1: consistent=False rank=644 nullity=56 14.82s
+   random kernel combo 2: consistent=False rank=644 nullity=56 29.46s
+   random kernel+J 0: consistent=False rank=644 nullity=56 20.78s
+   random kernel+J 1: consistent=False rank=644 nullity=56 36.07s
+   random kernel+J 2: consistent=False rank=644 nullity=56 22.9s
+[e1-kernel] d=9 k=2 parD=1: #Dmon=139 dimR_(d+6)=93 kernel(total)=49 J_d=49 nontrivial=0
+d=9 parD=1 k=2: nontrivial kernel 0, J_d block 49 gens  [9.7s]
+[e1-kernel] d=9 k=3 parD=1: #Dmon=136 dimR_(d+6)=93 kernel(total)=46 J_d=46 nontrivial=0
+d=9 parD=1 k=3: nontrivial kernel 0, J_d block 46 gens  [7.0s]
+[e1-kernel] d=9 k=4 parD=1: #Dmon=139 dimR_(d+6)=83 kernel(total)=58 J_d=49 nontrivial=9
+d=9 parD=1 k=4: nontrivial kernel 9, J_d block 49 gens  [10.6s]
+   rep #0: e1=True consistent=False rank=642 nullity=33 rows=2385 cols=675 15.93s
+   rep #1: e1=True consistent=False rank=642 nullity=33 rows=2396 cols=675 22.22s
+   rep #2: e1=True consistent=False rank=642 nullity=33 rows=2407 cols=675 29.71s
+   rep #3: e1=True consistent=False rank=642 nullity=33 rows=2409 cols=675 25.42s
+   rep #4: e1=True consistent=False rank=642 nullity=33 rows=2409 cols=675 26.92s
+   rep #5: e1=True consistent=False rank=642 nullity=33 rows=2409 cols=675 21.98s
+   rep #6: e1=True consistent=False rank=642 nullity=33 rows=2409 cols=675 9.74s
+   rep #7: e1=True consistent=False rank=642 nullity=33 rows=2407 cols=675 13.21s
+   rep #8: e1=True consistent=False rank=642 nullity=33 rows=2407 cols=675 20.45s
+   random kernel combo 0: consistent=False rank=642 nullity=33 13.86s
+   random kernel combo 1: consistent=False rank=642 nullity=33 20.67s
+   random kernel combo 2: consistent=False rank=642 nullity=33 25.0s
+   random kernel+J 0: consistent=False rank=642 nullity=33 19.29s
+   random kernel+J 1: consistent=False rank=642 nullity=33 23.49s
+   random kernel+J 2: consistent=False rank=642 nullity=33 27.24s
+[e1-kernel] d=9 k=5 parD=1: #Dmon=136 dimR_(d+6)=87 kernel(total)=52 J_d=46 nontrivial=6
+d=9 parD=1 k=5: nontrivial kernel 6, J_d block 46 gens  [11.6s]
+   rep #0: e1=True consistent=False rank=644 nullity=56 rows=2338 cols=700 23.38s
+   rep #1: e1=True consistent=False rank=644 nullity=56 rows=2358 cols=700 20.65s
+   rep #2: e1=True consistent=False rank=644 nullity=56 rows=2358 cols=700 27.15s
+   rep #3: e1=True consistent=False rank=644 nullity=56 rows=2358 cols=700 24.44s
+   rep #4: e1=True consistent=False rank=644 nullity=56 rows=2358 cols=700 24.07s
+   rep #5: e1=True consistent=False rank=644 nullity=56 rows=2361 cols=700 22.21s
+   random kernel combo 0: consistent=False rank=644 nullity=56 12.38s
+   random kernel combo 1: consistent=False rank=644 nullity=56 9.98s
+   random kernel combo 2: consistent=False rank=644 nullity=56 13.75s
+   random kernel+J 0: consistent=False rank=644 nullity=56 19.02s
+   random kernel+J 1: consistent=False rank=644 nullity=56 20.53s
+   random kernel+J 2: consistent=False rank=644 nullity=56 24.53s
+[e1-kernel] d=9 k=6 parD=1: #Dmon=136 dimR_(d+6)=87 kernel(total)=50 J_d=46 nontrivial=4
+d=9 parD=1 k=6: nontrivial kernel 4, J_d block 46 gens  [8.6s]
+   rep #0: e1=True consistent=False rank=667 nullity=56 rows=2360 cols=723 17.9s
+   rep #1: e1=True consistent=False rank=667 nullity=56 rows=2385 cols=723 19.23s
+   rep #2: e1=True consistent=False rank=667 nullity=56 rows=2385 cols=723 18.91s
+   rep #3: e1=True consistent=False rank=667 nullity=56 rows=2385 cols=723 25.25s
+   random kernel combo 0: consistent=False rank=667 nullity=56 20.36s
+   random kernel combo 1: consistent=False rank=667 nullity=56 13.67s
+   random kernel combo 2: consistent=False rank=667 nullity=56 20.2s
+   random kernel+J 0: consistent=False rank=667 nullity=56 28.3s
+   random kernel+J 1: consistent=False rank=667 nullity=56 14.37s
+   random kernel+J 2: consistent=False rank=667 nullity=56 7.15s
+[e1-kernel] d=10 k=0 parD=0: #Dmon=255 dimR_(d+6)=72 kernel(total)=183 J_d=159 nontrivial=24
+d=10 parD=0 k=0: nontrivial kernel 24, J_d block 162 gens  [8.7s]

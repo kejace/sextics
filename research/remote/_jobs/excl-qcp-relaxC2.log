@@ -1,0 +1,27 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"exp": "relax", "d": 6, "parity": "0", "nw": 18, "nc": 162, "nq": 226, "nW": 171, "nV": 2916, "rows": 3080, "cols": 3313, "selftest_E_eq_F_PhiL": true, "job": "relaxC6e"}
+{"rank_full_modp": 2016, "rank_VQ_modp": 1864, "dim_piW_ker_modp": 19}
+{"rank_full_exact": 2016, "nullity_exact": 1297, "dim_piW_ker_exact": 19}
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2_excl_relax.py", line 246, in <module>
+    rec['msolve_out_head'] = out[:600]
+
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2_excl_relax.py", line 205, in main
+    Wrows = [[int(X[a, k]) for k in range(nul)] for a in range(nW)]
+        ^^^^^^
+ValueError: too many values to unpack (expected 2)
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"exp": "relax", "d": 6, "parity": "1", "nw": 18, "nc": 153, "nq": 226, "nW": 171, "nV": 2754, "rows": 3080, "cols": 3151, "selftest_E_eq_F_PhiL": true, "job": "relaxC6o"}
+{"rank_full_modp": 1925, "rank_VQ_modp": 1772, "dim_piW_ker_modp": 18}
+{"rank_full_exact": 1925, "nullity_exact": 1226, "dim_piW_ker_exact": 18}
+Traceback (most recent call last):
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2_excl_relax.py", line 256, in <module>
+    main()
+  File "/tmp/hodge/results/quadratic-cubic-pullback/wave2_excl_relax.py", line 215, in main
+    Wr, rk = WT.rref()
+    ^^^^^^
+ValueError: too many values to unpack (expected 2)
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"exp": "relax", "d": 6, "parity": "all", "nw": 36, "nc": 315, "nq": 462, "nW": 666, "nV": 11340, "rows": 6188, "cols": 12468, "selftest_E_eq_F_PhiL": "skipped", "job": "relaxC6a"}
+{"rank_full_modp": 4507, "rank_VQ_modp": 4067, "dim_piW_ker_modp": 226}
+{"exp": "relax", "d": 6, "parity": "all", "nw": 36, "nc": 315, "nq": 462, "nW": 666, "nV": 11340, "rows": 6188, "cols": 12468, "selftest_E_eq_F_PhiL": "skipped", "job": "relaxC6a", "prime": 2147483629, "rank_full_modp": 4507, "rank_VQ_modp": 4067, "dim_piW_ker_modp": 226, "seconds_build": 13.6, "seconds_modp": 361.2, "seconds": 361.2}

@@ -1,0 +1,12 @@
+ring r = 2147483629,(c0),dp;
+ideal I = 892224131*c0^2,
+1614908927*c0^2,
+1251752476*c0^2,
+551854532*c0^2,
+1733979456*c0^2,
+1882282432*c0^2;
+option(redSB); ideal G = std(I);
+print("DIM " + string(dim(G)));
+print("MULT " + string(mult(G)));
+print("SIZE " + string(size(G)));
+print("GB"); print(G); quit;

@@ -1,0 +1,13 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"event": "family", "d": 10, "par": 0, "family": "G_k(Q)", "n_gens": 21, "dim_fam": 21, "fam_cap_admissible": 0, "fam_cap_J": 0, "new_directions": 0, "seconds": 6.6}
+{"event": "family", "d": 10, "par": 0, "family": "C[Q,K,H,diag]", "n_gens": 246, "dim_fam": 144, "fam_cap_admissible": 12, "fam_cap_J": 12, "new_directions": 0, "seconds": 8.8}
+{"event": "family", "d": 10, "par": 0, "family": "(Q)^4*S_2", "n_gens": 180, "dim_fam": 156, "fam_cap_admissible": 0, "fam_cap_J": 0, "new_directions": 0, "seconds": 11.2}
+{"event": "family", "d": 10, "par": 0, "family": "(Q)^3*S_4", "n_gens": 660, "dim_fam": 486, "fam_cap_admissible": 18, "fam_cap_J": 18, "new_directions": 0, "seconds": 41.7}
+{"event": "family", "d": 10, "par": 0, "family": "I_Pi^5 cap I_Pibar^5", "n_gens": 231, "dim_fam": 231, "fam_cap_admissible": 0, "fam_cap_J": 0, "new_directions": 0, "seconds": 25.6}
+{"event": "family", "d": 10, "par": 0, "family": "F_i*F_j", "n_gens": 12, "dim_fam": 12, "fam_cap_admissible": 12, "fam_cap_J": 12, "new_directions": 0, "seconds": 6.6}
+{"event": "family", "d": 10, "par": 0, "family": "X-only (cone over plane curve, vertex Y-plane)", "n_gens": 66, "dim_fam": 66, "fam_cap_admissible": 0, "fam_cap_J": 0, "new_directions": 0, "seconds": 9.6}
+{"event": "family", "d": 10, "par": 0, "family": "Y-only (cone, vertex X-plane)", "n_gens": 66, "dim_fam": 66, "fam_cap_admissible": 0, "fam_cap_J": 0, "new_directions": 0, "seconds": 7.6}
+{"event": "family", "d": 10, "par": 1, "family": "oddquad*G_k(Q)", "n_gens": 135, "dim_fam": 135, "fam_cap_admissible": 0, "fam_cap_J": 0, "new_directions": 0, "seconds": 9.7}
+{"event": "family", "d": 10, "par": 1, "family": "X0Y0*C[Q,K,H,diag]", "n_gens": 114, "dim_fam": 72, "fam_cap_admissible": 3, "fam_cap_J": 3, "new_directions": 0, "seconds": 7.5}
+{"event": "family", "d": 10, "par": 1, "family": "I_Pi^5 cap I_Pibar^5", "n_gens": 210, "dim_fam": 210, "fam_cap_admissible": 0, "fam_cap_J": 0, "new_directions": 0, "seconds": 11.3}
+{"event": "family", "d": 10, "par": 1, "family": "F_i*F_j", "n_gens": 9, "dim_fam": 9, "fam_cap_admissible": 9, "fam_cap_J": 9, "new_directions": 0, "seconds": 6.4}

@@ -1,0 +1,383 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[search] job kJ56: family kernelJ degrees [5, 6] -> 1720 tasks (0 done before), procs 8
+[search] kernelJ d=5 sec=[0, 0, 0] b=0 K=1 dimP=1 rows=888 cols=64 restarts=1 best=2.04e-01 med=2.0e-01 cands=0 0.0s  
+[search] kernelJ d=5 sec=[2, 0, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[2, 3, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[2, 0, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[2, 3, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[0, 3, 0] b=0 K=1 dimP=1 rows=888 cols=64 restarts=1 best=1.87e-01 med=1.9e-01 cands=0 0.0s  
+[search] kernelJ d=5 sec=[3, 0, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[3, 3, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[3, 3, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[4, 0, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[4, 3, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[3, 0, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[4, 0, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[5, 3, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[5, 0, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[5, 0, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[4, 3, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[5, 3, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[0, 3, 0] b=0 K=2 dimP=2 rows=1788 cols=144 restarts=20 best=1.17e-01 med=1.2e-01 cands=0 17.3s  
+[search] kernelJ d=5 sec=[1, 0, 0] b=0 K=2 dimP=2 rows=1152 cols=248 restarts=20 best=7.05e-02 med=7.1e-02 cands=0 19.0s  
+[search] kernelJ d=6 sec=[2, 0, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[2, 0, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[2, 3, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[2, 3, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[3, 0, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[3, 0, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[3, 3, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[3, 3, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[4, 0, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[4, 0, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[4, 3, 0] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=6 sec=[4, 3, 3] b=0 K=0 dimP=0 rows=None cols=None restarts=0 best=- med=nan cands=0 0s empty family (or all F-multiples) 
+[search] kernelJ d=5 sec=[1, 0, 3] b=0 K=2 dimP=2 rows=1152 cols=248 restarts=20 best=5.29e-02 med=5.3e-02 cands=0 20.3s  
+[search] kernelJ d=6 sec=[5, 0, 3] b=0 K=2 dimP=2 rows=1524 cols=146 restarts=20 best=1.45e-01 med=1.4e-01 cands=0 12.0s  
+[search] kernelJ d=6 sec=[5, 0, 0] b=0 K=2 dimP=2 rows=1524 cols=146 restarts=20 best=1.54e-01 med=1.5e-01 cands=0 13.4s  
+[search] kernelJ d=6 sec=[1, 3, 0] b=0 K=2 dimP=2 rows=1788 cols=292 restarts=20 best=6.90e-02 med=6.9e-02 cands=0 33.3s  
+[search] kernelJ d=6 sec=[1, 0, 3] b=0 K=2 dimP=2 rows=1788 cols=292 restarts=20 best=5.23e-02 med=5.2e-02 cands=0 33.4s  
+[search] kernelJ d=6 sec=[1, 0, 0] b=0 K=2 dimP=2 rows=1788 cols=292 restarts=20 best=6.93e-02 med=6.9e-02 cands=0 34.7s  
+[search] kernelJ d=6 sec=[5, 3, 0] b=0 K=2 dimP=2 rows=1524 cols=146 restarts=20 best=1.41e-01 med=1.4e-01 cands=0 12.3s  
+[search] kernelJ d=6 sec=[5, 3, 3] b=0 K=2 dimP=2 rows=1524 cols=146 restarts=20 best=1.33e-01 med=1.3e-01 cands=0 16.3s  
+[search] kernelJ d=6 sec=[1, 3, 3] b=0 K=2 dimP=2 rows=1788 cols=292 restarts=20 best=5.21e-02 med=5.2e-02 cands=0 38.4s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=0 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 134.4s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=2 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 125.8s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=1 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 149.2s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=3 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 180.2s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=0 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 251.5s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=1 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 217.4s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=2 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=7.3e-04 cands=0 211.4s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=3 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 229.6s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=4 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 179.2s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=4 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 212.3s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=5 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=1.9e-03 cands=0 231.5s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=5 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 207.0s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=6 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 199.5s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=6 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=7.3e-04 cands=0 219.7s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=7 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 188.7s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=7 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.0e-03 cands=0 266.0s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=8 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 184.9s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=8 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 188.5s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=9 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 192.8s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=10 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 181.9s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=9 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 250.2s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=11 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 164.0s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=10 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=1.9e-03 cands=0 256.6s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=12 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=7.3e-04 cands=0 191.3s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=12 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 200.0s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=11 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=2.8e-03 cands=0 275.2s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=13 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 200.4s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=14 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 168.5s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=13 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=6.6e-04 cands=0 232.4s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=14 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 245.1s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=15 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 232.0s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=16 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 211.6s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=15 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=7.3e-04 cands=0 261.6s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=17 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 188.4s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=16 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=6.6e-04 cands=0 310.9s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=18 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 187.4s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=17 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=7.3e-04 cands=0 250.6s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=18 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=6.53e-04 med=3.2e-03 cands=0 273.4s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=19 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 229.5s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=19 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=1.9e-03 cands=0 280.2s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=20 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 221.1s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=20 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 322.8s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=21 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 227.8s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=22 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 262.1s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=21 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.0e-03 cands=0 387.9s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=23 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 208.9s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=22 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=2.8e-03 cands=0 373.5s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=23 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.0e-03 cands=0 434.3s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=24 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 379.9s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=24 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 448.4s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=26 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 270.7s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=25 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 406.0s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=25 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=2.8e-03 cands=0 490.5s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=27 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=7.3e-04 cands=0 488.2s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=27 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 492.8s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=26 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=1.9e-03 cands=0 714.9s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=28 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 456.8s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=29 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 570.9s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=28 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.2e-03 cands=0 858.1s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=29 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=3.0e-03 cands=0 822.9s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=30 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=7.3e-04 cands=0 844.5s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=30 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 726.5s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=31 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 788.2s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=32 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=3.0e-03 cands=0 704.3s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=32 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=7.3e-04 cands=0 977.0s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=33 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 744.2s  
+[search] kernelJ d=6 sec=[0, 0, 0] b=31 K=30 dimP=29 rows=1836 cols=392 restarts=25 best=5.47e-04 med=1.9e-03 cands=0 1223.1s  
+[search] kernelJ d=6 sec=[0, 0, 3] b=34 K=21 dimP=21 rows=1836 cols=408 restarts=25 best=1.49e-03 med=2.0e-03 cands=0 831.3s  
+Process ForkPoolWorker-7:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-2:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-8:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-5:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-4:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-6:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-3:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe

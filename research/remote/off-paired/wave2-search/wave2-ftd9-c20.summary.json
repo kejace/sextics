@@ -1,0 +1,65 @@
+{
+ "ts": "2026-11-02T06:01:33",
+ "job": "ftd9-c20",
+ "step": "varpro-free-target",
+ "F": "offpaired",
+ "d": 9,
+ "sector": [
+  2,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 46,
+ "rank": 46,
+ "gauge": 3,
+ "dimP": 43,
+ "rows": 3526,
+ "nN": 617,
+ "nQ": 209,
+ "dimT": 22,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 8,
+ "best_relres": 0.0021933723310816346,
+ "median_relres": 0.002828250522577669,
+ "hist": {
+  "lt1e-2": 8
+ },
+ "top_minima": [
+  [
+   "2.193e-03",
+   3
+  ],
+  [
+   "2.327e-03",
+   1
+  ],
+  [
+   "2.828e-03",
+   1
+  ],
+  [
+   "5.362e-03",
+   1
+  ],
+  [
+   "6.068e-03",
+   1
+  ],
+  [
+   "9.431e-03",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 1221.06,
+ "statuses": {
+  "maxiter": 2,
+  "stalled": 5,
+  "flat": 1
+ },
+ "wall": 1334.6,
+ "confirm_attempts": [],
+ "witness": false
+}

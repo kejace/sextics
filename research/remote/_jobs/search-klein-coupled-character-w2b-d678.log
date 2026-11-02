@@ -1,0 +1,65 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+[sector d=6 par=0 chi=0] nD=50 nN=343 nP=30 nQ=29 rows=436 (0.0s)
+[e1 d=6 par=0 chi=0] dim(J:A)=12 syz=30 check=3.0e-15 (0.1s)
+[build d=6 par=0 chi=0] Tall nnz=5290 Vb nnz=11141 MFQ (436, 29) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 0, "chi": 0, "tag": "w2b", "K": 12, "dimP": 11, "excluded_F_multiples": 1, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.0959470208854618, "best_f": 0.008075098445726838, "hist_rel": {"<0.5": 149, "<0.1": 191, "<0.2": 240, "<1": 20}, "distinct_minima": [0.0959, 0.1564, 0.1792, 0.1827, 0.2613, 0.3292, 0.3361, 0.356, 0.3722, 0.3822, 0.4121, 0.4312], "median_iters": 29.0, "mean_restart_seconds": 0.27965, "rankT_at_best": 27, "nP": 30, "nQ": 29, "rows": 436, "search_seconds": 67.0, "total_seconds": 67.4, "procs": 4, "loadavg": "524.29", "time": "2026-11-02T00:41:29", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=0 chi=1] nD=31 nN=357 nP=21 nQ=29 rows=436 (0.0s)
+[e1 d=6 par=0 chi=1] dim(J:A)=1 syz=21 check=1.6e-15 (0.2s)
+[build d=6 par=0 chi=1] Tall nnz=2305 Vb nnz=8011 MFQ (436, 29) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 0, "chi": 1, "tag": "w2b", "K": 1, "dimP": 1, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9573112110577245, "best_f": 0.02707438515151351, "hist_rel": {"<1": 600}, "distinct_minima": [0.9573], "median_iters": 0.0, "mean_restart_seconds": 0.028949999999999997, "rankT_at_best": 18, "nP": 21, "nQ": 29, "rows": 436, "search_seconds": 11.2, "total_seconds": 11.4, "procs": 4, "loadavg": "525.49", "time": "2026-11-02T00:41:41", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=0 chi=2] nD=31 nN=343 nP=30 nQ=19 rows=395 (0.0s)
+[e1 d=6 par=0 chi=2] dim(J:A)=1 syz=30 check=2.3e-15 (0.1s)
+[build d=6 par=0 chi=2] Tall nnz=3229 Vb nnz=6983 MFQ (395, 19) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 0, "chi": 2, "tag": "w2b", "K": 1, "dimP": 1, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 1.0, "best_f": 0.33796787269663725, "hist_rel": {"<10": 600}, "distinct_minima": [1.0], "median_iters": 0.0, "mean_restart_seconds": 0.0105, "rankT_at_best": 27, "nP": 30, "nQ": 19, "rows": 395, "search_seconds": 3.3, "total_seconds": 4.3, "procs": 4, "loadavg": "525.49", "time": "2026-11-02T00:41:45", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=0 chi=3] nD=31 nN=343 nP=30 nQ=40 rows=459 (0.8s)
+[e1 d=6 par=0 chi=3] dim(J:A)=1 syz=30 check=1.8e-15 (3.8s)
+[build d=6 par=0 chi=3] Tall nnz=3873 Vb nnz=7532 MFQ (459, 40) (0.5s)
+{"lens": "search", "family": "full", "d": 6, "parD": 0, "chi": 3, "tag": "w2b", "K": 1, "dimP": 1, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.95614541696718, "best_f": 0.02704141451683348, "hist_rel": {"<1": 600}, "distinct_minima": [0.9561], "median_iters": 0.0, "mean_restart_seconds": 0.021316666666666664, "rankT_at_best": 27, "nP": 30, "nQ": 40, "rows": 459, "search_seconds": 9.2, "total_seconds": 14.9, "procs": 4, "loadavg": "526.45", "time": "2026-11-02T00:42:00", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=0 chi=4] nD=31 nN=276 nP=9 nQ=40 rows=459 (0.4s)
+[e1 d=6 par=0 chi=4] dim(J:A)=1 syz=9 check=1.8e-15 (0.4s)
+[build d=6 par=0 chi=4] Tall nnz=920 Vb nnz=5479 MFQ (459, 40) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 0, "chi": 4, "tag": "w2b", "K": 1, "dimP": 1, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9777507455658452, "best_f": 0.1148686919717334, "hist_rel": {"<1": 600}, "distinct_minima": [0.9778], "median_iters": 0.0, "mean_restart_seconds": 0.0238, "rankT_at_best": 9, "nP": 9, "nQ": 40, "rows": 459, "search_seconds": 9.7, "total_seconds": 11.9, "procs": 4, "loadavg": "522.84", "time": "2026-11-02T00:42:12", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=0 chi=5] nD=31 nN=357 nP=21 nQ=29 rows=436 (1.3s)
+[e1 d=6 par=0 chi=5] dim(J:A)=1 syz=21 check=2.6e-15 (0.7s)
+[build d=6 par=0 chi=5] Tall nnz=2377 Vb nnz=8034 MFQ (436, 29) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 0, "chi": 5, "tag": "w2b", "K": 1, "dimP": 1, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 1.0, "best_f": 0.11748259205392543, "hist_rel": {"<10": 600}, "distinct_minima": [1.0], "median_iters": 0.0, "mean_restart_seconds": 0.07568333333333332, "rankT_at_best": 18, "nP": 21, "nQ": 29, "rows": 436, "search_seconds": 16.6, "total_seconds": 19.6, "procs": 4, "loadavg": "527.21", "time": "2026-11-02T00:42:32", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=0 chi=6] nD=31 nN=357 nP=21 nQ=40 rows=459 (0.0s)
+[e1 d=6 par=0 chi=6] dim(J:A)=1 syz=21 check=1.9e-15 (0.1s)
+[build d=6 par=0 chi=6] Tall nnz=2383 Vb nnz=7886 MFQ (459, 40) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 0, "chi": 6, "tag": "w2b", "K": 1, "dimP": 1, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9251782211080002, "best_f": 0.31268051525312873, "hist_rel": {"<1": 600}, "distinct_minima": [0.9252], "median_iters": 0.0, "mean_restart_seconds": 0.0033499999999999997, "rankT_at_best": 18, "nP": 21, "nQ": 40, "rows": 459, "search_seconds": 1.5, "total_seconds": 1.7, "procs": 4, "loadavg": "527.21", "time": "2026-11-02T00:42:34", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=1 chi=0] nD=19 nN=317 nP=15 nQ=29 rows=436 (0.0s)
+[e1 d=6 par=1 chi=0] dim(J:A)=0 syz=15 check=0.0e+00 (0.1s)
+empty family 1 0
+[sector d=6 par=1 chi=1] nD=40 nN=331 nP=20 nQ=29 rows=436 (0.0s)
+[e1 d=6 par=1 chi=1] dim(J:A)=3 syz=20 check=2.2e-15 (0.1s)
+[build d=6 par=1 chi=1] Tall nnz=3039 Vb nnz=9041 MFQ (436, 29) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 1, "chi": 1, "tag": "w2b", "K": 3, "dimP": 3, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9067219028513658, "best_f": 0.10193288178598978, "hist_rel": {"<1": 600}, "distinct_minima": [0.9067], "median_iters": 14.0, "mean_restart_seconds": 0.19201666666666667, "rankT_at_best": 19, "nP": 20, "nQ": 29, "rows": 436, "search_seconds": 65.5, "total_seconds": 65.8, "procs": 4, "loadavg": "547.93", "time": "2026-11-02T00:43:40", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=1 chi=2] nD=40 nN=317 nP=15 nQ=19 rows=395 (0.0s)
+[e1 d=6 par=1 chi=2] dim(J:A)=3 syz=15 check=2.3e-15 (0.2s)
+[build d=6 par=1 chi=2] Tall nnz=2159 Vb nnz=8758 MFQ (395, 19) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 1, "chi": 2, "tag": "w2b", "K": 3, "dimP": 3, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9955837455045473, "best_f": 0.11137637126496187, "hist_rel": {"<1": 600}, "distinct_minima": [0.9956], "median_iters": 14.0, "mean_restart_seconds": 0.2599, "rankT_at_best": 14, "nP": 15, "nQ": 19, "rows": 395, "search_seconds": 88.3, "total_seconds": 98.0, "procs": 4, "loadavg": "612.95", "time": "2026-11-02T00:45:18", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=1 chi=3] nD=29 nN=317 nP=15 nQ=40 rows=459 (0.0s)
+[e1 d=6 par=1 chi=3] dim(J:A)=3 syz=15 check=2.7e-15 (0.1s)
+[build d=6 par=1 chi=3] Tall nnz=1576 Vb nnz=6444 MFQ (459, 40) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 1, "chi": 3, "tag": "w2b", "K": 3, "dimP": 3, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9540540147835397, "best_f": 0.11208473861622441, "hist_rel": {"<1": 415, "<10": 185}, "distinct_minima": [0.9541, 0.9692, 1.0], "median_iters": 8.0, "mean_restart_seconds": 0.1729, "rankT_at_best": 14, "nP": 15, "nQ": 40, "rows": 459, "search_seconds": 64.6, "total_seconds": 66.5, "procs": 4, "loadavg": "627.78", "time": "2026-11-02T00:46:25", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=1 chi=4] nD=40 nN=432 nP=48 nQ=40 rows=459 (0.4s)
+[e1 d=6 par=1 chi=4] dim(J:A)=3 syz=48 check=2.3e-15 (0.2s)
+[build d=6 par=1 chi=4] Tall nnz=7495 Vb nnz=12488 MFQ (459, 40) (0.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 1, "chi": 4, "tag": "w2b", "K": 3, "dimP": 3, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9749365077377792, "best_f": 0.10946285664040968, "hist_rel": {"<1": 600}, "distinct_minima": [0.9749, 0.9775], "median_iters": 13.0, "mean_restart_seconds": 1.2993999999999999, "rankT_at_best": 36, "nP": 48, "nQ": 40, "rows": 459, "search_seconds": 241.1, "total_seconds": 243.0, "procs": 4, "loadavg": "697.62", "time": "2026-11-02T00:50:28", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=1 chi=5] nD=29 nN=331 nP=20 nQ=29 rows=436 (0.5s)
+[e1 d=6 par=1 chi=5] dim(J:A)=3 syz=20 check=2.6e-15 (1.8s)
+[build d=6 par=1 chi=5] Tall nnz=2136 Vb nnz=6571 MFQ (436, 29) (1.0s)
+{"lens": "search", "family": "full", "d": 6, "parD": 1, "chi": 5, "tag": "w2b", "K": 3, "dimP": 3, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9627367760499985, "best_f": 0.32537410016843615, "hist_rel": {"<10": 196, "<1": 404}, "distinct_minima": [0.9627, 0.9798, 1.0], "median_iters": 8.0, "mean_restart_seconds": 0.8119833333333333, "rankT_at_best": 19, "nP": 20, "nQ": 29, "rows": 436, "search_seconds": 168.7, "total_seconds": 172.0, "procs": 4, "loadavg": "772.45", "time": "2026-11-02T00:53:20", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=6 par=1 chi=6] nD=29 nN=331 nP=20 nQ=40 rows=459 (0.1s)
+[e1 d=6 par=1 chi=6] dim(J:A)=3 syz=20 check=1.7e-15 (0.6s)
+[build d=6 par=1 chi=6] Tall nnz=2072 Vb nnz=6705 MFQ (459, 40) (0.1s)
+{"lens": "search", "family": "full", "d": 6, "parD": 1, "chi": 6, "tag": "w2b", "K": 3, "dimP": 3, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2000, "maxiter": 300, "best_rel": 0.9507700292485157, "best_f": 0.02688938943266762, "hist_rel": {"<1": 600}, "distinct_minima": [0.9508, 0.9572, 0.9573], "median_iters": 7.0, "mean_restart_seconds": 0.4194833333333333, "rankT_at_best": 19, "nP": 20, "nQ": 40, "rows": 459, "search_seconds": 236.5, "total_seconds": 250.8, "procs": 4, "loadavg": "899.39", "time": "2026-11-02T00:57:31", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+SEARCH_DONE
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[sector d=7 par=0 chi=0] nD=39 nN=522 nP=48 nQ=87 rows=824 (0.2s)
+[e1 d=7 par=0 chi=0] dim(J:A)=3 syz=48 check=1.6e-15 (0.7s)
+[build d=7 par=0 chi=0] Tall nnz=7551 Vb nnz=15074 MFQ (824, 87) (0.1s)
+{"lens": "search", "family": "full", "d": 7, "parD": 0, "chi": 0, "tag": "w2b", "K": 3, "dimP": 3, "excluded_F_multiples": 0, "restarts": 600, "spurious": 0, "seed": 2100, "maxiter": 300, "best_rel": 0.7047010669858592, "best_f": 0.026423857241643083, "hist_rel": {"<1": 600}, "distinct_minima": [0.7047, 0.9343], "median_iters": 12.0, "mean_restart_seconds": 2.1085833333333333, "rankT_at_best": 42, "nP": 48, "nQ": 87, "rows": 824, "search_seconds": 470.7, "total_seconds": 501.7, "procs": 4, "loadavg": "1184.79", "time": "2026-11-02T01:06:02", "engine": "w2fast-koszul-varpro", "instance": "klein-coupled-character"}
+[sector d=7 par=0 chi=1] nD=66 nN=543 nP=58 nQ=87 rows=824 (0.9s)
+[e1 d=7 par=0 chi=1] dim(J:A)=12 syz=58 check=3.3e-15 (42.8s)
+[build d=7 par=0 chi=1] Tall nnz=15189 Vb nnz=25623 MFQ (824, 87) (4.7s)

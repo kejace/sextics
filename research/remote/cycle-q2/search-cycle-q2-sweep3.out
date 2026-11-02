@@ -1,0 +1,261 @@
+[struct-sweep] 420 candidates, 172 new
+  hess-minor3 d=12 e1=True cons=False rk=3389 217.84s det H[X0,Y0,Y1;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3447 227.54s det H[X0,Y0,Y2;X0,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3375 219.68s det H[X0,Y0,Y2;X0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3024 258.16s det H[X0,Y0,Y2;X1,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3028 282.22s det H[X0,Y0,Y2;X1,X2,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=2614 251.21s det H[X0,Y0,Y1;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=2984 251.49s det H[X0,Y0,Y1;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3371 266.9s det H[X0,Y0,Y2;X1,X2,Y0] 
+  hess-minor3 d=12 e1=True cons=False rk=3027 53.53s det H[X0,Y0,Y2;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3423 214.05s det H[X0,Y0,Y2;X1,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3358 255.54s det H[X0,Y0,Y2;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=2630 284.75s det H[X0,Y0,Y2;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3364 175.88s det H[X0,Y1,Y2;X1,X2,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3288 253.16s det H[X0,Y0,Y2;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3367 247.01s det H[X0,Y1,Y2;X1,X2,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3390 290.67s det H[X0,Y0,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3454 281.4s det H[X0,Y1,Y2;X0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3372 159.87s det H[X0,Y1,Y2;X1,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3413 192.42s det H[X0,Y1,Y2;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3420 183.01s det H[X0,Y1,Y2;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3369 196.52s det H[X0,Y1,Y2;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3455 194.08s det H[X0,Y1,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3358 199.46s det H[X0,Y1,Y2;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3392 253.12s det H[X0,Y1,Y2;X1,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3411 149.21s det H[X1,X2,Y0;X1,X2,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3465 201.96s det H[X1,X2,Y0;X1,X2,Y0] 
+  hess-minor3 d=12 e1=True cons=False rk=3373 133.89s det H[X1,X2,Y0;X1,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3357 223.45s det H[X1,X2,Y0;X1,X2,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3395 159.83s det H[X1,X2,Y0;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3310 174.67s det H[X1,X2,Y0;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3386 185.79s det H[X1,X2,Y0;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3477 217.67s det H[X1,X2,Y0;X1,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3320 226.93s det H[X1,X2,Y0;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3483 228.58s det H[X1,X2,Y0;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3492 157.66s det H[X1,X2,Y1;X1,X2,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3415 162.66s det H[X1,X2,Y1;X1,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3241 222.48s det H[X1,X2,Y1;X1,X2,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3320 210.0s det H[X1,X2,Y1;X1,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3463 161.9s det H[X1,X2,Y1;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3436 223.91s det H[X1,X2,Y1;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=2934 217.02s det H[X1,X2,Y1;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3268 249.18s det H[X1,X2,Y1;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3368 170.94s det H[X1,X2,Y1;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3290 178.22s det H[X1,X2,Y2;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3427 163.31s det H[X1,X2,Y2;X1,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3442 213.14s det H[X1,X2,Y2;X1,X2,Y2] 
+  hess-minor3 d=12 e1=False cons=False rk=-1 95.15s det H[X1,X2,Y2;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3014 224.57s det H[X1,X2,Y2;X1,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3310 177.89s det H[X1,X2,Y2;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3376 150.04s det H[X1,X2,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3450 151.25s det H[X1,Y0,Y1;X1,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3416 219.43s det H[X1,X2,Y2;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3375 152.96s det H[X1,Y0,Y1;X1,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3443 159.42s det H[X1,Y0,Y1;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3020 135.84s det H[X1,Y0,Y1;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3411 180.37s det H[X1,Y0,Y1;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3414 149.65s det H[X1,Y0,Y1;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=2623 176.98s det H[X1,Y0,Y1;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3441 163.89s det H[X1,Y0,Y2;X1,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3430 165.55s det H[X1,Y0,Y2;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3394 216.07s det H[X1,Y0,Y2;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3382 231.23s det H[X1,Y0,Y2;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3376 175.59s det H[X1,Y0,Y2;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=2982 111.15s det H[X1,Y1,Y2;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3465 133.17s det H[X1,Y1,Y2;X1,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3499 203.78s det H[X1,Y0,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3368 193.17s det H[X1,Y1,Y2;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=False cons=False rk=-1 62.13s det H[X2,Y0,Y1;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3465 147.75s det H[X2,Y0,Y1;X2,Y0,Y1] 
+  hess-minor3 d=12 e1=True cons=False rk=3307 157.67s det H[X1,Y1,Y2;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3404 196.21s det H[X1,Y1,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3377 177.04s det H[X2,Y0,Y1;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3369 157.3s det H[X2,Y0,Y1;X2,Y1,Y2] 
+  subset-euler d=6 e1=True cons=False rk=595 1.96s E_{X0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2819 128.29s E_{X0}(F) squared 
+  hess-minor3 d=12 e1=True cons=False rk=3441 257.82s det H[X2,Y0,Y2;X2,Y0,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3411 172.5s det H[X2,Y0,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3406 190.17s det H[X2,Y0,Y2;X2,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3401 193.18s det H[X2,Y1,Y2;Y0,Y1,Y2] 
+  subset-euler d=6 e1=True cons=False rk=598 4.59s E_{X1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2824 186.74s E_{X1}(F) squared 
+  hess-minor3 d=12 e1=True cons=False rk=3405 192.88s det H[Y0,Y1,Y2;Y0,Y1,Y2] 
+  hess-minor3 d=12 e1=True cons=False rk=3455 204.31s det H[X2,Y1,Y2;X2,Y1,Y2] 
+  subset-euler d=6 e1=True cons=False rk=596 4.62s E_{X2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2818 167.59s E_{X2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=601 4.22s E_{Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2861 169.91s E_{Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=600 3.34s E_{Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2864 215.61s E_{Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=602 7.28s E_{Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2866 203.51s E_{Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=625 4.38s E_{X0,X1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2977 208.15s E_{X0,X1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=624 6.22s E_{X0,X2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2973 186.21s E_{X0,X2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=609 1.75s E_{X0,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2911 195.61s E_{X0,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=626 5.27s E_{X0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3003 196.3s E_{X0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=627 2.38s E_{X0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2999 181.99s E_{X0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=625 5.35s E_{X1,X2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2973 167.82s E_{X1,X2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=626 5.25s E_{X1,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2996 162.01s E_{X1,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=610 3.55s E_{X1,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2907 209.52s E_{X1,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 4.81s E_{X1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3001 213.96s E_{X1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=611 8.64s E_{X2,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2912 160.66s E_{X2,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=627 5.94s E_{Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3015 192.31s E_{Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=626 7.58s E_{X2,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2998 229.53s E_{X2,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=625 5.53s E_{X2,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2992 229.28s E_{X2,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 8.6s E_{Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3014 209.3s E_{Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 2.45s E_{Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3014 221.03s E_{Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 7.5s E_{X0,X1,X2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2988 205.64s E_{X0,X1,X2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 2.37s E_{X0,X1,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3010 206.85s E_{X0,X1,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.57s E_{X0,X1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3010 171.24s E_{X0,X1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 5.68s E_{X0,X1,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3015 233.42s E_{X0,X1,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 7.24s E_{X0,X2,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3010 191.02s E_{X0,X2,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 6.63s E_{X0,X2,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3012 228.21s E_{X0,X2,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 4.35s E_{X0,X2,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3007 238.52s E_{X0,X2,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.16s E_{X0,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3024 223.57s E_{X0,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.66s E_{X0,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3020 206.26s E_{X0,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 1.16s E_{X0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3019 184.87s E_{X0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 8.14s E_{X1,X2,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3008 235.07s E_{X1,X2,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 1.11s E_{X1,X2,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3014 200.11s E_{X1,X2,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 5.16s E_{X1,X2,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3009 244.49s E_{X1,X2,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 1.65s E_{X1,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3022 236.35s E_{X1,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 5.66s E_{X1,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3019 228.02s E_{X1,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 5.99s E_{X2,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3024 200.96s E_{X2,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 7.82s E_{X1,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3025 246.66s E_{X1,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 5.45s E_{X2,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3018 235.7s E_{X2,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 7.15s E_{X2,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3019 213.46s E_{X2,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.28s E_{Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3018 211.81s E_{Y0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 1.2s E_{X0,X1,X2,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3015 237.45s E_{X0,X1,X2,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 7.17s E_{X0,X1,X2,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3018 208.97s E_{X0,X1,X2,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.69s E_{X0,X1,X2,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3016 237.66s E_{X0,X1,X2,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 2.88s E_{X0,X1,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3024 212.38s E_{X0,X1,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 5.59s E_{X0,X1,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3018 232.08s E_{X0,X1,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=622 5.59s E_{X0,X1,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2981 251.84s E_{X0,X1,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=620 1.99s E_{X0,X2,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2976 239.26s E_{X0,X2,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 3.64s E_{X0,X2,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3023 247.28s E_{X0,X2,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 4.03s E_{X0,X2,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3020 216.81s E_{X0,X2,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.95s E_{X1,X2,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3020 180.96s E_{X1,X2,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 4.92s E_{X0,Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3013 237.14s E_{X0,Y0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 9.39s E_{X1,X2,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3025 210.76s E_{X1,X2,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 9.11s E_{X1,Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3013 209.95s E_{X1,Y0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=620 6.05s E_{X1,X2,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2979 240.48s E_{X1,X2,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=615 1.11s E_{X0,X1,X2,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2951 171.33s E_{X0,X1,X2,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=615 1.45s E_{X0,X1,X2,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2949 207.61s E_{X0,X1,X2,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 6.17s E_{X2,Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3016 232.04s E_{X2,Y0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=616 8.74s E_{X0,X1,X2,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2952 223.9s E_{X0,X1,X2,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=612 3.24s E_{X0,X1,Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2922 180.24s E_{X0,X1,Y0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=613 3.87s E_{X0,X2,Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2925 212.59s E_{X0,X2,Y0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=611 1.28s E_{X1,X2,Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2922 209.29s E_{X1,X2,Y0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=448 1.47s E_{X0,X1,X2,Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=True rk=1678 207.66s E_{X0,X1,X2,Y0,Y1,Y2}(F) squared CONSISTENT!!!
+  block-cubic d=6 e1=False cons=False rk=-1 0.75s X1^6 - Y1^6 
+  block-cubic^2 d=12 e1=True cons=False rk=2582 193.72s X1^6 - Y1^6 squared 
+  block-cubic d=6 e1=False cons=False rk=-1 3.36s X0^6 - Y0^6 
+  block-cubic^2 d=12 e1=True cons=False rk=2589 215.46s X0^6 - Y0^6 squared 
+  block-cubic d=6 e1=False cons=False rk=-1 2.21s X2^6 - Y2^6 
+  block-cubic^2 d=12 e1=True cons=False rk=2587 162.37s X2^6 - Y2^6 squared 
+  F_i*F_j d=10 e1=True cons=False rk=1714 46.25s F_X0*F_X0 
+  F_i*F_j d=10 e1=True cons=False rk=1957 55.31s F_X0*F_X1 
+  F_i*F_j d=10 e1=True cons=False rk=1965 70.15s F_X0*F_X2 
+  pair-fermat-product d=12 e1=True cons=False rk=2998 190.6s (X0^6+Y0^6)(X2^6+Y2^6) 
+  F_i*F_j d=10 e1=True cons=False rk=1959 47.77s F_X0*F_Y0 
+  F_i*F_j d=10 e1=True cons=False rk=1986 61.31s F_X0*F_Y2 
+  pair-fermat-product d=12 e1=True cons=False rk=2995 234.7s (X0^6+Y0^6)(X1^6+Y1^6) 
+  F_i*F_j d=10 e1=True cons=False rk=1694 61.56s F_X1*F_X1 
+  F_i*F_j d=10 e1=True cons=False rk=1973 78.05s F_X0*F_Y1 
+  pair-fermat-product d=12 e1=True cons=False rk=2995 204.42s (X1^6+Y1^6)(X2^6+Y2^6) 
+  F_i*F_j d=10 e1=True cons=False rk=1957 19.81s F_X1*F_Y1 
+  F_i*F_j d=10 e1=True cons=False rk=1950 42.48s F_X1*F_X2 
+  F_i*F_j d=10 e1=True cons=False rk=1974 81.86s F_X1*F_Y0 
+  F_i*F_j d=10 e1=True cons=False rk=1956 48.48s F_X2*F_Y0 
+  F_i*F_j d=10 e1=True cons=False rk=1980 74.01s F_X1*F_Y2 
+  F_i*F_j d=10 e1=True cons=False rk=1690 85.22s F_X2*F_X2 
+  F_i*F_j d=10 e1=True cons=False rk=1959 70.18s F_X2*F_Y1 
+  F_i*F_j d=10 e1=True cons=False rk=1724 51.48s F_Y0*F_Y0 
+  F_i*F_j d=10 e1=True cons=False rk=1701 32.44s F_Y1*F_Y1 
+  F_i*F_j d=10 e1=True cons=False rk=1945 63.11s F_X2*F_Y2 
+  F_i*F_j d=10 e1=True cons=False rk=1997 52.71s F_Y0*F_Y2 
+  F_i*F_j d=10 e1=True cons=False rk=1975 72.58s F_Y0*F_Y1 
+  F_i*F_j d=10 e1=True cons=False rk=1983 36.19s F_Y1*F_Y2 
+  F_i*F_j d=10 e1=True cons=False rk=1718 41.85s F_Y2*F_Y2 
+  block-cubic d=6 e1=False cons=False rk=-1 39.11s P_blockq2(X2^2,Y2^2) 
+  block-cubic^2 d=12 e1=True cons=False rk=7730 1551.53s P_blockq2(X2^2,Y2^2) squared 
+  block-cubic d=6 e1=False cons=False rk=-1 20.51s P_blockq2(X1^2,Y1^2) 
+  block-cubic^2 d=12 e1=True cons=False rk=7754 1690.87s P_blockq2(X1^2,Y1^2) squared 
+  block-cubic d=6 e1=False cons=False rk=-1 28.67s P_blockq2(X0^2,Y0^2) 
+  block-cubic^2 d=12 e1=True cons=False rk=7788 1760.72s P_blockq2(X0^2,Y0^2) squared 
+[struct-sweep] done 6477s consistent=1
+[pencil] {"rank_aug_generic": 632, "rank_generic": 631, "cols": 738, "rows": 1689, "generic_consistent": false, "deg_g": 625, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 2, 46, 106, 147, 306], "n_factors": 10, "n_roots": 5, "roots_checked": 5, "consistent_roots": [], "t_inf_consistent": false, "seconds": 247.2, "result": "no F_p-rational consistent point in the pencil (g degree 625, 5 roots, irreducible factor degrees [1, 1, 1, 1, 1, 2, 46, 106, 147, 306])", "d": 6, "key": 96, "p": 2147483647, "dimJ": 0, "D1": "1929738304*X0**4*Y0**2 + 713454122*X0**2*X2**2*Y1**2 + 2001022050*X0**2*Y2**4 + 1035611821*X0*X1**2*X2*Y0*Y2 + 339827232*X0*X1*Y0**3*Y1 + 1502112902*X", "D2": "1893535385*X0**4*Y0**2 + 1809721434*X0**2*X2**2*Y1**2 + 168224177*X0**2*Y2**4 + 1399442821*X0*X1**2*X2*Y0*Y2 + 127085454*X0*X1*Y0**3*Y1 + 1325848566*X"}
+[pencil] {"rank_aug_generic": 609, "rank_generic": 608, "cols": 705, "rows": 1662, "generic_consistent": false, "deg_g": 604, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 3, 3, 5, 7, 22, 25, 30, 41, 70, 79, 136, 142], "n_factors": 17, "n_roots": 5, "roots_checked": 5, "consistent_roots": [], "t_inf_consistent": false, "seconds": 197.2, "result": "no F_p-rational consistent point in the pencil (g degree 604, 5 roots, irreducible factor degrees [1, 1, 1, 1, 1, 3, 3, 5, 7, 22, 25, 30])", "d": 6, "key": 486, "p": 2147483647, "dimJ": 1, "D1": "894784853*X0**3*X1*Y0*Y2 + 894784853*X1**3*X2*Y2**2 + Y1**5*Y2", "D2": "1246911365*X0**3*X1*Y0*Y2 + 242203790*X0**2*X1*X2**3 + 1171272812*X0*X2*Y0*Y1**3 + 1329220898*X1**3*X2*Y2**2 + 1085829075*X1**2*Y0**2*Y1*Y2 + X2**2*Y1"}
+[pencil] {"rank_aug_generic": 630, "rank_generic": 629, "cols": 736, "rows": 1669, "generic_consistent": false, "deg_g": 625, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 3, 23, 47, 50, 172, 312], "n_factors": 10, "n_roots": 4, "roots_checked": 4, "consistent_roots": [], "t_inf_consistent": false, "seconds": 243.4, "result": "no F_p-rational consistent point in the pencil (g degree 625, 4 roots, irreducible factor degrees [1, 1, 1, 1, 3, 23, 47, 50, 172, 312])", "d": 6, "key": 516, "p": 2147483647, "dimJ": 0, "D1": "156249587*X0**4*Y1**2 + 391497447*X0**2*X1**2*X2**2 + 1909305695*X0*X1*Y0*Y1**3 + 1243730608*X0*X2*Y0**3*Y2 + 912288485*X1**4*Y2**2 + 325158122*X1*X2*", "D2": "1408651674*X0**4*Y1**2 + 240964408*X0**2*X1**2*X2**2 + 515758642*X0*X1*Y0*Y1**3 + 1701145640*X0*X2*Y0**3*Y2 + 767750561*X1**4*Y2**2 + 847353741*X1*X2*"}
+[pencil] {"rank_aug_generic": 629, "rank_generic": 628, "cols": 735, "rows": 1659, "generic_consistent": false, "deg_g": 624, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 1, 1, 17, 28, 62, 246, 250], "n_factors": 12, "n_roots": 7, "roots_checked": 7, "consistent_roots": [], "t_inf_consistent": false, "seconds": 224.1, "result": "no F_p-rational consistent point in the pencil (g degree 624, 7 roots, irreducible factor degrees [1, 1, 1, 1, 1, 1, 1, 17, 28, 62, 246, 250])", "d": 6, "key": 576, "p": 2147483647, "dimJ": 0, "D1": "1739939452*X0**2*X1**4 + 1164715963*X0**2*X1*X2*Y1*Y2 + 1202002793*X0**2*Y0**2*Y1**2 + 1136855586*X0*X2*Y0*Y2**3 + 896416009*X1**2*X2**2*Y0**2 + 72803", "D2": "426532020*X0**2*X1**4 + 1227982271*X0**2*X1*X2*Y1*Y2 + 200252424*X0**2*Y0**2*Y1**2 + 1032958587*X0*X2*Y0*Y2**3 + 2078411884*X1**2*X2**2*Y0**2 + 156851"}
+[pencil] {"rank_aug_generic": 611, "rank_generic": 610, "cols": 708, "rows": 1689, "generic_consistent": false, "deg_g": 598, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 8, 30, 60, 457], "n_factors": 14, "n_roots": 8, "roots_checked": 8, "consistent_roots": [], "t_inf_consistent": false, "seconds": 196.7, "result": "no F_p-rational consistent point in the pencil (g degree 598, 8 roots, irreducible factor degrees [1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 8, 30])", "d": 6, "key": 747, "p": 2147483647, "dimJ": 0, "D1": "62340343*X0**2*X1*X2**2*Y0 + 361877741*X0*X1**4*Y1 + 1761916768*X0*X1*X2*Y1**2*Y2 + 546943766*X0*Y0**2*Y1**3 + X2*Y0*Y1*Y2**3", "D2": "305516874*X0**2*X1*X2**2*Y0 + 388594195*X0*X1**4*Y1 + 932823633*X0*X1*X2*Y1**2*Y2 + 66480849*X0*Y0**2*Y1**3 + X1**3*Y0*Y2**2"}
+[pencil] {"rank_aug_generic": 613, "rank_generic": 612, "cols": 712, "rows": 1678, "generic_consistent": false, "deg_g": 607, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 3, 8, 14, 126, 136, 279], "n_factors": 11, "n_roots": 5, "roots_checked": 5, "consistent_roots": [], "t_inf_consistent": false, "seconds": 170.6, "result": "no F_p-rational consistent point in the pencil (g degree 607, 5 roots, irreducible factor degrees [1, 1, 1, 1, 1, 3, 8, 14, 126, 136, 279])", "d": 6, "key": 822, "p": 2147483647, "dimJ": 1, "D1": "894784853*X0**3*X1*Y1*Y2 + 894784853*X0*X2**3*Y2**2 + Y0**5*Y2", "D2": "1361427487*X0**3*X1*Y1*Y2 + 2017723751*X0**2*Y0*Y2**3 + 683092220*X0*X1**2*X2*Y0**2 + 776561110*X0*X2**3*Y2**2 + 1711873241*X0*X2*Y1**4 + X1**2*Y0*Y1*"}
+[pencil] {"rank_aug_generic": 630, "rank_generic": 629, "cols": 736, "rows": 1660, "generic_consistent": false, "deg_g": 624, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 1, 1, 5, 5, 18, 79, 497], "n_factors": 12, "n_roots": 7, "roots_checked": 7, "consistent_roots": [], "t_inf_consistent": false, "seconds": 217.2, "result": "no F_p-rational consistent point in the pencil (g degree 624, 7 roots, irreducible factor degrees [1, 1, 1, 1, 1, 1, 1, 5, 5, 18, 79, 497])", "d": 6, "key": 876, "p": 2147483647, "dimJ": 0, "D1": "1308319241*X0**4*X2**2 + 1076379936*X0**2*X1**2*Y2**2 + 782750813*X0*X1*X2**2*Y0*Y1 + 61712080*X1**4*Y1**2 + 1180783166*X1**2*Y0**4 + 771500820*X1*X2*", "D2": "1369830183*X0**4*X2**2 + 558253017*X0**2*X1**2*Y2**2 + 591615053*X0*X1*X2**2*Y0*Y1 + 1492690107*X1**4*Y1**2 + 1812335731*X1**2*Y0**4 + 682359134*X1*X2"}
+[pencil] {"rank_aug_generic": 617, "rank_generic": 616, "cols": 718, "rows": 1678, "generic_consistent": false, "deg_g": 611, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 1, 6, 8, 64, 68, 142, 147, 157], "n_factors": 13, "n_roots": 6, "roots_checked": 6, "consistent_roots": [], "t_inf_consistent": false, "seconds": 217.3, "result": "no F_p-rational consistent point in the pencil (g degree 611, 6 roots, irreducible factor degrees [1, 1, 1, 1, 1, 1, 6, 8, 64, 68, 142, 147])", "d": 6, "key": 936, "p": 2147483647, "dimJ": 0, "D1": "2042540730*X0**4*X1**2 + 292098957*X0**2*X2**2*Y0**2 + 1909129478*X0*X1**3*Y0*Y1 + 383905969*X0*X2*Y0*Y1**2*Y2 + 1854030113*X1**2*Y0**2*Y2**2 + 678921", "D2": "1283524721*X0**4*X1**2 + 194778584*X0**2*X2**2*Y0**2 + 968993196*X0*X1**3*Y0*Y1 + 31947929*X0*X2*Y0*Y1**2*Y2 + 1150552461*X1**2*Y0**2*Y2**2 + 16030680"}
+[pencil] {"rank_aug_generic": 621, "rank_generic": 620, "cols": 721, "rows": 1674, "generic_consistent": false, "deg_g": 615, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 5, 25, 121, 419], "n_factors": 8, "n_roots": 4, "roots_checked": 4, "consistent_roots": [], "t_inf_consistent": false, "seconds": 216.3, "result": "no F_p-rational consistent point in the pencil (g degree 615, 4 roots, irreducible factor degrees [1, 1, 1, 1, 5, 25, 121, 419])", "d": 6, "key": 1062, "p": 2147483647, "dimJ": 1, "D1": "894784853*X0*X2**3*Y0*Y1 + 894784853*X1**3*X2*Y1**2 + Y1*Y2**5", "D2": "1927273803*X0**2*X1*X2*Y2**2 + 208286600*X0**2*Y0**2*Y1*Y2 + 77090652*X0*X2**3*Y0*Y1 + 2006500230*X1**3*X2*Y1**2 + 1350754099*X1*X2*Y0**4 + X2**2*Y1**"}
+[pencil] {"rank_aug_generic": 632, "rank_generic": 631, "cols": 738, "rows": 1689, "generic_consistent": false, "deg_g": 625, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 2, 11, 273, 322], "n_factors": 8, "n_roots": 4, "roots_checked": 4, "consistent_roots": [], "t_inf_consistent": false, "seconds": 206.7, "result": "no F_p-rational consistent point in the pencil (g degree 625, 4 roots, irreducible factor degrees [1, 1, 1, 1, 2, 11, 273, 322])", "d": 6, "key": 96, "p": 2147483629, "dimJ": 0, "D1": "1261748301*X0**4*Y0**2 + 559528630*X0**2*X2**2*Y1**2 + 1725226671*X0**2*Y2**4 + 1896323275*X0*X1**2*X2*Y0*Y2 + 642727054*X0*X1*Y0**3*Y1 + 1303978877*X", "D2": "1984218970*X0**4*Y0**2 + 1456010900*X0**2*X2**2*Y1**2 + 1229948049*X0**2*Y2**4 + 782153071*X0*X1**2*X2*Y0*Y2 + 498489664*X0*X1*Y0**3*Y1 + 940611120*X1"}
+[pencil] {"rank_aug_generic": 609, "rank_generic": 608, "cols": 705, "rows": 1662, "generic_consistent": false, "deg_g": 604, "interp_check_ok": true, "factor_degrees": [1, 1, 2, 3, 10, 70, 174, 307], "n_factors": 8, "n_roots": 2, "roots_checked": 2, "consistent_roots": [], "t_inf_consistent": false, "seconds": 210.6, "result": "no F_p-rational consistent point in the pencil (g degree 604, 2 roots, irreducible factor degrees [1, 1, 2, 3, 10, 70, 174, 307])", "d": 6, "key": 486, "p": 2147483629, "dimJ": 1, "D1": "1968526660*X0**3*X1*Y0*Y2 + 1968526660*X1**3*X2*Y2**2 + Y1**5*Y2", "D2": "943497726*X0**3*X1*Y0*Y2 + 1065835186*X0**2*X1*X2**3 + 336015804*X0*X2*Y0*Y1**3 + 253147643*X1**3*X2*Y2**2 + 390873883*X1**2*Y0**2*Y1*Y2 + X2**2*Y1*Y2"}
+[pencil] {"rank_aug_generic": 630, "rank_generic": 629, "cols": 736, "rows": 1669, "generic_consistent": false, "deg_g": 625, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 2, 3, 3, 5, 13, 14, 39, 191, 337], "n_factors": 13, "n_roots": 4, "roots_checked": 4, "consistent_roots": [], "t_inf_consistent": false, "seconds": 233.6, "result": "no F_p-rational consistent point in the pencil (g degree 625, 4 roots, irreducible factor degrees [1, 1, 1, 1, 2, 3, 3, 5, 13, 14, 39, 191])", "d": 6, "key": 516, "p": 2147483629, "dimJ": 0, "D1": "67181408*X0**4*Y1**2 + 912679340*X0**2*X1**2*X2**2 + 476779157*X0*X1*Y0*Y1**3 + 1319160470*X0*X2*Y0**3*Y2 + 702085200*X1**4*Y2**2 + 1593198514*X1*X2*Y", "D2": "2111731083*X0**4*Y1**2 + 268104794*X0**2*X1**2*X2**2 + 1996888378*X0*X1*Y0*Y1**3 + 1673883528*X0*X2*Y0**3*Y2 + 93987374*X1**4*Y2**2 + 1589886850*X1*X2"}
+[pencil] {"rank_aug_generic": 629, "rank_generic": 628, "cols": 735, "rows": 1659, "generic_consistent": false, "deg_g": 624, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 1, 3, 3, 26, 40, 230, 302], "n_factors": 12, "n_roots": 6, "roots_checked": 6, "consistent_roots": [], "t_inf_consistent": false, "seconds": 242.8, "result": "no F_p-rational consistent point in the pencil (g degree 624, 6 roots, irreducible factor degrees [1, 1, 1, 1, 1, 1, 3, 3, 26, 40, 230, 302])", "d": 6, "key": 576, "p": 2147483629, "dimJ": 0, "D1": "1631697001*X0**2*X1**4 + 1859886629*X0**2*X1*X2*Y1*Y2 + 744747817*X0**2*Y0**2*Y1**2 + 989247529*X0*X2*Y0*Y2**3 + 1466623019*X1**2*X2**2*Y0**2 + 100586", "D2": "939416696*X0**2*X1**4 + 1792889294*X0**2*X1*X2*Y1*Y2 + 1761912433*X0**2*Y0**2*Y1**2 + 463561047*X0*X2*Y0*Y2**3 + 1114681299*X1**2*X2**2*Y0**2 + 150035"}
+[pencil] {"rank_aug_generic": 611, "rank_generic": 610, "cols": 708, "rows": 1689, "generic_consistent": false, "deg_g": 598, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 12, 13, 16, 28, 32, 38, 129, 284], "n_factors": 20, "n_roots": 9, "roots_checked": 9, "consistent_roots": [], "t_inf_consistent": false, "seconds": 227.9, "result": "no F_p-rational consistent point in the pencil (g degree 598, 9 roots, irreducible factor degrees [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4])", "d": 6, "key": 747, "p": 2147483629, "dimJ": 0, "D1": "520429222*X0**2*X1*X2**2*Y0 + 1193807758*X0*X1**4*Y1 + 1470765063*X0*X1*X2*Y1**2*Y2 + 2085027283*X0*Y0**2*Y1**3 + X2*Y0*Y1*Y2**3", "D2": "2035027391*X0**2*X1*X2**2*Y0 + 1465848751*X0*X1**4*Y1 + 214003687*X0*X1*X2*Y1**2*Y2 + 829269015*X0*Y0**2*Y1**3 + X1**3*Y0*Y2**2"}
+[pencil] {"rank_aug_generic": 613, "rank_generic": 612, "cols": 712, "rows": 1678, "generic_consistent": false, "deg_g": 607, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 3, 5, 6, 8, 17, 17, 19, 491], "n_factors": 13, "n_roots": 5, "roots_checked": 5, "consistent_roots": [], "t_inf_consistent": false, "seconds": 241.6, "result": "no F_p-rational consistent point in the pencil (g degree 607, 5 roots, irreducible factor degrees [1, 1, 1, 1, 1, 3, 5, 6, 8, 17, 17, 19])", "d": 6, "key": 822, "p": 2147483629, "dimJ": 1, "D1": "1968526660*X0**3*X1*Y1*Y2 + 1968526660*X0*X2**3*Y2**2 + Y0**5*Y2", "D2": "1312552796*X0**3*X1*Y1*Y2 + 2078614776*X0**2*Y0*Y2**3 + 1107205120*X0*X1**2*X2*Y0**2 + 1737845111*X0*X2**3*Y2**2 + 30789563*X0*X2*Y1**4 + X1**2*Y0*Y1*"}
+[pencil] {"rank_aug_generic": 630, "rank_generic": 629, "cols": 736, "rows": 1660, "generic_consistent": false, "deg_g": 624, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 1, 1, 1, 126, 168, 309], "n_factors": 11, "n_roots": 8, "roots_checked": 8, "consistent_roots": [], "t_inf_consistent": false, "seconds": 258.5, "result": "no F_p-rational consistent point in the pencil (g degree 624, 8 roots, irreducible factor degrees [1, 1, 1, 1, 1, 1, 1, 1, 126, 168, 309])", "d": 6, "key": 876, "p": 2147483629, "dimJ": 0, "D1": "1841618030*X0**4*X2**2 + 1333337023*X0**2*X1**2*Y2**2 + 1163996796*X0*X1*X2**2*Y0*Y1 + 1641327422*X1**4*Y1**2 + 1745636376*X1**2*Y0**4 + 822050625*X1*", "D2": "395067587*X0**4*X2**2 + 188232258*X0**2*X1**2*Y2**2 + 486398411*X0*X1*X2**2*Y0*Y1 + 422051886*X1**4*Y1**2 + 114011452*X1**2*Y0**4 + 473886823*X1*X2*Y1"}
+[pencil] {"rank_aug_generic": 617, "rank_generic": 616, "cols": 718, "rows": 1678, "generic_consistent": false, "deg_g": 611, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 3, 3, 4, 4, 34, 46, 88, 88, 323], "n_factors": 14, "n_roots": 5, "roots_checked": 5, "consistent_roots": [], "t_inf_consistent": false, "seconds": 233.1, "result": "no F_p-rational consistent point in the pencil (g degree 611, 5 roots, irreducible factor degrees [1, 1, 1, 1, 1, 3, 3, 4, 4, 34, 46, 88])", "d": 6, "key": 936, "p": 2147483629, "dimJ": 0, "D1": "1575047472*X0**4*X1**2 + 45831504*X0**2*X2**2*Y0**2 + 761084713*X0*X1**3*Y0*Y1 + 738604298*X0*X2*Y0*Y1**2*Y2 + 95987219*X1**2*Y0**2*Y2**2 + 1995830435", "D2": "445190185*X0**4*X1**2 + 1161927030*X0**2*X2**2*Y0**2 + 1662139333*X0*X1**3*Y0*Y1 + 2104338321*X0*X2*Y0*Y1**2*Y2 + 353090687*X1**2*Y0**2*Y2**2 + 167017"}
+[pencil] {"rank_aug_generic": 621, "rank_generic": 620, "cols": 721, "rows": 1674, "generic_consistent": false, "deg_g": 615, "interp_check_ok": true, "factor_degrees": [1, 1, 1, 1, 1, 2, 5, 67, 94, 151, 250], "n_factors": 11, "n_roots": 5, "roots_checked": 5, "consistent_roots": [], "t_inf_consistent": false, "seconds": 244.1, "result": "no F_p-rational consistent point in the pencil (g degree 615, 5 roots, irreducible factor degrees [1, 1, 1, 1, 1, 2, 5, 67, 94, 151, 250])", "d": 6, "key": 1062, "p": 2147483629, "dimJ": 1, "D1": "1968526660*X0*X2**3*Y0*Y1 + 1968526660*X1**3*X2*Y1**2 + Y1*Y2**5", "D2": "1363057559*X0**2*X1*X2*Y2**2 + 997344177*X0**2*Y0**2*Y1*Y2 + 72256756*X0*X2**3*Y0*Y1 + 1562225781*X1**3*X2*Y1**2 + 1579095135*X1*X2*Y0**4 + X2**2*Y1**"}

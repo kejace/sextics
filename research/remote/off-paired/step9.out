@@ -1,0 +1,155 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+f6*Y2                                         d=7 char=(3, 5) E1=False rank 213/214 0.5s
+f6*Y1                                         d=7 char=(3, 0) E1=False rank 255/256 0.3s
+f6*Y0                                         d=7 char=(1, 0) E1=False rank 239/240 0.3s
+f6*X2                                         d=7 char=(0, 1) E1=False rank 213/214 0.2s
+f6*X1                                         d=7 char=(2, 0) E1=False rank 239/240 0.2s
+f6*X0                                         d=7 char=(0, 0) E1=False rank 255/256 0.3s
+f6*Y2**2                                      d=8 char=(0, 4) E1=False rank 267/268 0.4s
+f6*Y1*Y2                                      d=8 char=(0, 5) E1=False rank 306/307 0.8s
+f6*Y1**2                                      d=8 char=(0, 0) E1=False rank 356/357 1.1s
+f6*Y0*Y2                                      d=8 char=(4, 5) E1=False rank 286/287 0.9s
+f6*Y0*Y1                                      d=8 char=(4, 0) E1=False rank 335/336 1.2s
+f6*Y0**2                                      d=8 char=(2, 0) E1=False rank 335/336 0.9s
+f6*X2*Y2                                      d=8 char=(3, 0) E1=False rank 358/359 1.2s
+f6*X2*Y1                                      d=8 char=(3, 1) E1=False rank 306/307 1.0s
+f6*X2*Y0                                      d=8 char=(1, 1) E1=False rank 286/287 0.9s
+f6*X2**2                                      d=8 char=(0, 2) E1=False rank 267/268 0.7s
+f6*X1*Y2                                      d=8 char=(5, 5) E1=False rank 286/287 0.8s
+f6*X1*Y1                                      d=8 char=(5, 0) E1=False rank 339/340 1.0s
+f6*X1*Y0                                      d=8 char=(3, 0) E1=False rank 358/359 1.3s
+f6*X1*X2                                      d=8 char=(2, 1) E1=False rank 286/287 0.8s
+f6*X1**2                                      d=8 char=(4, 0) E1=False rank 335/336 1.1s
+f6*X0*Y2                                      d=8 char=(3, 5) E1=False rank 306/307 0.8s
+f6*X0*Y1                                      d=8 char=(3, 0) E1=False rank 358/359 1.3s
+f6*X0*Y0                                      d=8 char=(1, 0) E1=False rank 339/340 1.2s
+f6*X0*X2                                      d=8 char=(0, 1) E1=False rank 306/307 1.0s
+f6*X0*X1                                      d=8 char=(2, 0) E1=False rank 335/336 0.8s
+f6*X0**2                                      d=8 char=(0, 0) E1=False rank 356/357 1.5s
+g6*Y2                                         d=7 char=(3, 5) E1=False rank 213/214 0.3s
+g6*Y1                                         d=7 char=(3, 0) E1=False rank 255/256 0.4s
+g6*Y0                                         d=7 char=(1, 0) E1=False rank 239/240 0.3s
+g6*X2                                         d=7 char=(0, 1) E1=False rank 213/214 0.2s
+g6*X1                                         d=7 char=(2, 0) E1=False rank 239/240 0.3s
+g6*X0                                         d=7 char=(0, 0) E1=False rank 255/256 0.3s
+g6*Y2**2                                      d=8 char=(0, 4) E1=False rank 267/268 0.3s
+g6*Y1*Y2                                      d=8 char=(0, 5) E1=False rank 306/307 0.4s
+g6*Y1**2                                      d=8 char=(0, 0) E1=False rank 356/357 0.7s
+g6*Y0*Y2                                      d=8 char=(4, 5) E1=False rank 286/287 0.4s
+g6*Y0*Y1                                      d=8 char=(4, 0) E1=False rank 335/336 0.7s
+g6*Y0**2                                      d=8 char=(2, 0) E1=False rank 335/336 0.7s
+g6*X2*Y2                                      d=8 char=(3, 0) E1=False rank 358/359 0.8s
+g6*X2*Y1                                      d=8 char=(3, 1) E1=False rank 306/307 0.6s
+g6*X2*Y0                                      d=8 char=(1, 1) E1=False rank 286/287 0.4s
+g6*X2**2                                      d=8 char=(0, 2) E1=False rank 267/268 0.5s
+g6*X1*Y2                                      d=8 char=(5, 5) E1=False rank 286/287 0.5s
+g6*X1*Y1                                      d=8 char=(5, 0) E1=False rank 339/340 0.6s
+g6*X1*Y0                                      d=8 char=(3, 0) E1=False rank 358/359 0.5s
+g6*X1*X2                                      d=8 char=(2, 1) E1=False rank 286/287 0.4s
+g6*X1**2                                      d=8 char=(4, 0) E1=False rank 335/336 0.6s
+g6*X0*Y2                                      d=8 char=(3, 5) E1=False rank 306/307 0.5s
+g6*X0*Y1                                      d=8 char=(3, 0) E1=False rank 358/359 0.7s
+g6*X0*Y0                                      d=8 char=(1, 0) E1=False rank 339/340 1.3s
+g6*X0*X2                                      d=8 char=(0, 1) E1=False rank 306/307 1.4s
+g6*X0*X1                                      d=8 char=(2, 0) E1=False rank 335/336 1.4s
+g6*X0**2                                      d=8 char=(0, 0) E1=False rank 356/357 0.8s
+f6+g6*Y2                                      d=7 char=(3, 5) E1=False rank 213/214 0.3s
+f6+g6*Y1                                      d=7 char=(3, 0) E1=False rank 255/256 0.4s
+f6+g6*Y0                                      d=7 char=(1, 0) E1=False rank 239/240 0.3s
+f6+g6*X2                                      d=7 char=(0, 1) E1=False rank 213/214 0.3s
+f6+g6*X1                                      d=7 char=(2, 0) E1=False rank 239/240 0.4s
+f6+g6*X0                                      d=7 char=(0, 0) E1=False rank 255/256 0.4s
+f6+g6*Y2**2                                   d=8 char=(0, 4) E1=False rank 267/268 0.5s
+f6+g6*Y1*Y2                                   d=8 char=(0, 5) E1=False rank 306/307 0.6s
+f6+g6*Y1**2                                   d=8 char=(0, 0) E1=False rank 356/357 0.8s
+f6+g6*Y0*Y2                                   d=8 char=(4, 5) E1=False rank 286/287 0.5s
+f6+g6*Y0*Y1                                   d=8 char=(4, 0) E1=False rank 335/336 0.8s
+f6+g6*Y0**2                                   d=8 char=(2, 0) E1=False rank 335/336 0.7s
+f6+g6*X2*Y2                                   d=8 char=(3, 0) E1=False rank 358/359 0.8s
+f6+g6*X2*Y1                                   d=8 char=(3, 1) E1=False rank 306/307 0.6s
+f6+g6*X2*Y0                                   d=8 char=(1, 1) E1=False rank 286/287 0.5s
+f6+g6*X2**2                                   d=8 char=(0, 2) E1=False rank 267/268 0.5s
+f6+g6*X1*Y2                                   d=8 char=(5, 5) E1=False rank 286/287 0.5s
+f6+g6*X1*Y1                                   d=8 char=(5, 0) E1=False rank 339/340 0.7s
+f6+g6*X1*Y0                                   d=8 char=(3, 0) E1=False rank 358/359 0.8s
+f6+g6*X1*X2                                   d=8 char=(2, 1) E1=False rank 286/287 0.7s
+f6+g6*X1**2                                   d=8 char=(4, 0) E1=False rank 335/336 0.7s
+f6+g6*X0*Y2                                   d=8 char=(3, 5) E1=False rank 306/307 0.7s
+f6+g6*X0*Y1                                   d=8 char=(3, 0) E1=False rank 358/359 1.0s
+f6+g6*X0*Y0                                   d=8 char=(1, 0) E1=False rank 339/340 0.8s
+f6+g6*X0*X2                                   d=8 char=(0, 1) E1=False rank 306/307 0.6s
+f6+g6*X0*X1                                   d=8 char=(2, 0) E1=False rank 335/336 0.6s
+f6+g6*X0**2                                   d=8 char=(0, 0) E1=False rank 356/357 0.8s
+Qx*Y2                                         d=7 char=(3, 5) E1=False rank 213/214 0.2s
+Qx*Y1                                         d=7 char=(3, 0) E1=False rank 255/256 0.5s
+Qx*Y0                                         d=7 char=(1, 0) E1=False rank 239/240 0.3s
+Qx*X2                                         d=7 char=(0, 1) E1=False rank 213/214 0.2s
+Qx*X1                                         d=7 char=(2, 0) E1=False rank 239/240 0.3s
+Qx*X0                                         d=7 char=(0, 0) E1=False rank 255/256 0.4s
+Qx*Y2**2                                      d=8 char=(0, 4) E1=False rank 267/268 0.3s
+Qx*Y1*Y2                                      d=8 char=(0, 5) E1=False rank 306/307 0.6s
+Qx*Y1**2                                      d=8 char=(0, 0) E1=False rank 356/357 0.8s
+Qx*Y0*Y2                                      d=8 char=(4, 5) E1=False rank 286/287 0.4s
+Qx*Y0*Y1                                      d=8 char=(4, 0) E1=False rank 335/336 0.7s
+Qx*Y0**2                                      d=8 char=(2, 0) E1=False rank 335/336 0.5s
+Qx*X2*Y2                                      d=8 char=(3, 0) E1=False rank 358/359 0.7s
+Qx*X2*Y1                                      d=8 char=(3, 1) E1=False rank 306/307 0.5s
+Qx*X2*Y0                                      d=8 char=(1, 1) E1=False rank 286/287 0.5s
+Qx*X2**2                                      d=8 char=(0, 2) E1=False rank 267/268 0.4s
+Qx*X1*Y2                                      d=8 char=(5, 5) E1=False rank 286/287 0.4s
+Qx*X1*Y1                                      d=8 char=(5, 0) E1=False rank 339/340 0.6s
+Qx*X1*Y0                                      d=8 char=(3, 0) E1=False rank 358/359 0.7s
+Qx*X1*X2                                      d=8 char=(2, 1) E1=False rank 286/287 0.5s
+Qx*X1**2                                      d=8 char=(4, 0) E1=False rank 335/336 0.5s
+Qx*X0*Y2                                      d=8 char=(3, 5) E1=False rank 306/307 0.3s
+Qx*X0*Y1                                      d=8 char=(3, 0) E1=False rank 358/359 0.5s
+Qx*X0*Y0                                      d=8 char=(1, 0) E1=False rank 339/340 0.6s
+Qx*X0*X2                                      d=8 char=(0, 1) E1=False rank 306/307 0.4s
+Qx*X0*X1                                      d=8 char=(2, 0) E1=False rank 335/336 0.8s
+Qx*X0**2                                      d=8 char=(0, 0) E1=False rank 356/357 0.8s
+f6*g6                                         d=12 char=(0, 0) E1=False rank 1063/1064 11.2s
+f6*f6+g6                                      d=12 char=(0, 0) E1=False rank 1063/1064 15.8s
+f6*Qx                                         d=12 char=(0, 0) E1=False rank 1063/1064 20.7s
+f6*H                                          d=12 char=(0, 0) E1=False rank 1063/1064 11.1s
+f6*C                                          d=10 char=(3, 0) E1=False rank 646/647 3.3s
+[reduced] d=10 char=(0, 0) rows=5103 cols=1308 (N 904, Q 404) built 0.6s
+f6*D0                                         d=10 char=(0, 0) E1=True consistent=False rank=1126 nullity=182 24.8s
+g6*f6+g6                                      d=12 char=(0, 0) E1=False rank 1063/1064 12.5s
+g6*Qx                                         d=12 char=(0, 0) E1=False rank 1063/1064 8.8s
+g6*H                                          d=12 char=(0, 0) E1=False rank 1063/1064 8.0s
+g6*C                                          d=10 char=(3, 0) E1=False rank 646/647 4.0s
+[reduced] d=10 char=(0, 0) rows=5105 cols=1308 (N 904, Q 404) built 0.9s
+g6*D0                                         d=10 char=(0, 0) E1=True consistent=False rank=1126 nullity=182 26.3s
+f6+g6*Qx                                      d=12 char=(0, 0) E1=False rank 1063/1064 9.2s
+f6+g6*H                                       d=12 char=(0, 0) E1=False rank 1063/1064 12.1s
+f6+g6*C                                       d=10 char=(3, 0) E1=False rank 646/647 4.8s
+[reduced] d=10 char=(0, 0) rows=5106 cols=1308 (N 904, Q 404) built 0.7s
+f6+g6*D0                                      d=10 char=(0, 0) E1=True consistent=False rank=1123 nullity=185 20.9s
+Qx*H                                          d=12 char=(0, 0) E1=False rank 1063/1064 8.6s
+Qx*C                                          d=10 char=(3, 0) E1=False rank 646/647 3.3s
+[reduced] d=10 char=(0, 0) rows=5098 cols=1308 (N 904, Q 404) built 0.7s
+Qx*D0                                         d=10 char=(0, 0) E1=True consistent=False rank=1123 nullity=185 26.2s
+Delta_t factors: [(18, 1, 28)]
+[reduced] d=18 char=(0, 0) rows=44107 cols=17390 (N 7784, Q 9606) built 18.8s
+Traceback (most recent call last):
+  File "/tmp/hodge/results/off-paired/step9_fermat_disc.py", line 114, in <module>
+    test('Delta_t = 4Qx^3+27f6^2g6', 'cubic-cover-discriminant', Dt)
+  File "/tmp/hodge/results/off-paired/step9_fermat_disc.py", line 74, in test
+    r = compressed_light(S)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/off-paired/step9_fermat_disc.py", line 35, in compressed_light
+    Cm = fixed_d._compress(M, S.p, k, seed)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/devel/sextics-work/hodge/fixed_d.py", line 311, in _compress
+    lo = (MT @ R_lo.T) % p
+          ~~~^~~~~~~~
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/sparse/_base.py", line 1010, in __matmul__
+    return self._matmul_dispatch(other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/sparse/_base.py", line 902, in _matmul_dispatch
+    return self._matmul_multivector(other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kejace/.local/lib/python3.12/site-packages/scipy/sparse/_compressed.py", line 409, in _matmul_multivector
+    other.ravel(), result.ravel())
+    ^^^^^^^^^^^^^
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 5.73 GiB for an array with shape (768829117,) and data type int64

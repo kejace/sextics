@@ -1,0 +1,1 @@
+w2_chainB.sh: line 3: 1259484 Killed                  python3 w2_search.py --d $d --family multi --subfamilies cone4,mult4,cone3 --restarts 6 --maxiter 50 --nproc 32 --tag multi$d > search-cycle-q2-multi$d.out 2>&1

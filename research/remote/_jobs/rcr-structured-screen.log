@@ -1,0 +1,9 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+(5, (0, 0)) 4 pass 3 (13s)
+(5, (0, 1)) 4 pass 2 (4s)
+(5, (1, 0)) 2 pass 2 (2s)
+(6, (0, 0)) 347 pass 46 (120s)
+(6, (0, 1)) 9 pass 8 (134s)
+(6, (1, 0)) 5 pass 5 (122s)
+(6, (1, 1)) 6 pass 6 (7s)
+(7, (0, 0)) 36 pass 0 (343s)

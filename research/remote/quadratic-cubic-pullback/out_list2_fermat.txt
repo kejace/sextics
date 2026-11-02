@@ -1,0 +1,6 @@
+fermat binary             d=6 'X0**6 + Y0**6'                                              E1=True cons=False rank=2299 null=303 imgdim=42 60.1s
+fermat binary             d=4 'X0**4 + Y0**4'                                              E1=True cons=False rank=702 null=63 imgdim=18 3.7s
+fermat binary             d=4 'X0**4 + X0**2*Y0**2 + Y0**4'                                E1=True cons=False rank=702 null=63 imgdim=18 3.8s
+fermat binary             d=6 'X0**6 - Y0**6'                                              E1=True cons=False rank=2305 null=297 imgdim=18 69.3s
+fermat binary             d=4 'X0**4 - X0**2*Y0**2 + Y0**4'                                E1=True cons=False rank=702 null=63 imgdim=38 6.8s
+fermat blockcube          d=6 '8*X0**6/243 + 4*X0**4*Y0**2/9 + 2*X0**2*Y0**4 + 3*Y0**6 + Y E1=True cons=False rank=2351 null=251 imgdim=18 212.0s

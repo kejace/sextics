@@ -1,0 +1,1 @@
+{"event": "e1space", "d": 8, "sec": "10", "dimS": 258, "dimJ": 64, "dimR": 194, "kernel_dim": 64, "nonJ": 0, "target_rows": 2436, "target_cols": 2806, "float_gap": 32804780753393.902, "sval_min_nonzero": 0.02470095736154826, "basis_modp": [], "t_modp": 9.1, "t_total": 18.4, "p": 2147483647}

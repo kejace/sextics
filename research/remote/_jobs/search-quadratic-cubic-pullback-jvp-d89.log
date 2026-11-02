@@ -1,0 +1,1 @@
+bash: line 1: 1375546 Killed                  python3 w2_jvp.py --d 9 --parity 0 --stage 12 --restarts 240 --restarts2 160 --procs 8 --tag r1 --seed 9 --time-limit 5400 --thresh1 1e-6 --maxiter2 200 > w2_jvp_d9even_r1.out 2>&1

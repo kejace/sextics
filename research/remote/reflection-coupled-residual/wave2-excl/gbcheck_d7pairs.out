@@ -1,0 +1,2 @@
+RECEIPT {"exp": "gb-hilbert", "file": "hess_d7_W0110_p2147483587.ms", "d": 7, "prime": 2147483587, "chis": [[0, 1], [1, 0]], "dim_W": 60, "n_quadrics": 741, "rank_quadrics": 479, "result": "msolve TIMEOUT", "timeout_s": 1200, "ts": "2026-11-01T22:14:50", "job": "gbcheck"}
+RECEIPT {"exp": "gb-hilbert", "file": "hess_d7_W0011_p2147483587.ms", "d": 7, "prime": 2147483587, "chis": [[0, 0], [1, 1]], "dim_W": 60, "n_quadrics": 741, "rank_quadrics": 468, "result": "msolve TIMEOUT", "timeout_s": 1200, "ts": "2026-11-01T22:34:53", "job": "gbcheck"}

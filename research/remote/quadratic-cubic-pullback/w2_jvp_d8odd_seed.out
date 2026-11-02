@@ -1,0 +1,14 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+[complement] n=10152 m=13104 rdim=468 eig[rdim-1]=2.549e-13 eig[rdim]=0.31671633392642484 max|G^T Z|=2.57e-14 (1379.2s)
+[jvp d=8] K=168 (w 168) dimP=159 nout=10152 rJ=468 nc=936 nQ=1491 k=1136 built in 1449.9s
+[refine1 d=8] seed 0: rel 1.002e-06 -> 9.571e-07 nfev=149 status=3 (182s)
+[refine1 d=8] seed 1: rel 1.002e-06 -> 9.571e-07 nfev=152 status=3 (190s)
+[refine1 d=8] seed 2: rel 1.030e-06 -> 1.031e-06 nfev=345 status=3 (439s)
+[refine1 d=8] seed 3: rel 1.082e-06 -> 1.082e-06 nfev=113 status=3 (143s)
+[stage2 d=8] start 0: rel=3.195e-05 (stage1 5.00e-05) nit=165 (4682s)
+[stage2 d=8] start 1: rel=3.195e-05 (stage1 5.00e-05) nit=168 (9051s)
+[stage2 d=8] start 2: rel=2.692e-05 (stage1 7.71e-05) nit=165 (13093s)
+[stage2 d=8] start 3: rel=3.150e-05 (stage1 6.28e-05) nit=145 (16291s)
+[stage2 d=8] start 4: rel=4.289e-05 (stage1 1.72e-04) nit=212 (19757s)
+[stage2 d=8] start 5: rel=4.289e-05 (stage1 1.72e-04) nit=205 (23226s)
+[stage2 d=8] start 6: rel=3.958e-05 (stage1 1.29e-04) nit=266 (28903s)

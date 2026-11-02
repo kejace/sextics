@@ -1,0 +1,21 @@
+v=(t:1:0:0) on S_H, f(t,1)=0, parity 0: dim of E1-passing cones = 0
+v=(t:1:0:0) on S_H, f(t,1)=0, parity 1: dim of E1-passing cones = 0
+v=(t:1:0:0) on S_H, f(t,1)=0, parity None: dim of E1-passing cones = 0
+v=(0:0:s:1) on S_H, g(s,1)=0, parity 0: dim of E1-passing cones = 0
+v=(0:0:s:1) on S_H, g(s,1)=0, parity 1: dim of E1-passing cones = 0
+v=(0:0:s:1) on S_H, g(s,1)=0, parity None: dim of E1-passing cones = 0
+v=(1:0:0:0) off S_H, parity 0: dim of E1-passing cones = 0
+v=(1:0:0:0) off S_H, parity 1: dim of E1-passing cones = 0
+v=(1:0:0:0) off S_H, parity None: dim of E1-passing cones = 0
+v=(0:0:1:0) off S_H, parity 0: dim of E1-passing cones = 0
+v=(0:0:1:0) off S_H, parity 1: dim of E1-passing cones = 0
+v=(0:0:1:0) off S_H, parity None: dim of E1-passing cones = 0
+v=(1:1:1:1), parity 0: dim of E1-passing cones = 0
+v=(1:1:1:1), parity 1: dim of E1-passing cones = 0
+v=(1:1:1:1), parity None: dim of E1-passing cones = 0
+v = general F_p-point of S_H, parity 0: dim of E1-passing cones = 0
+v = general F_p-point of S_H, parity 1: dim of E1-passing cones = 0
+v = general F_p-point of S_H, parity None: dim of E1-passing cones = 0
+v = random point off S_H, parity 0: dim of E1-passing cones = 0
+v = random point off S_H, parity 1: dim of E1-passing cones = 0
+v = random point off S_H, parity None: dim of E1-passing cones = 0

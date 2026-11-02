@@ -1,0 +1,12 @@
+[mult_kernel] d=6 par=1 rows=3108 cols=2602 kernel=18 J_d=18 (R/J)_d=208 ker[A]=0 (82.63s)
+d=6 mode=o: 0 kernel reps, 18 field coordinates, 18 unknowns
+171 bilinear coefficient polynomials built (0s)
+parity 1: 866 coordinate equations (250s)
+601 equations, rank 57 (independent quadrics) (253s)
+Euler invariance: 0 directions, violations = 0
+{"exp": "quad-relaxation", "d": 6, "mode": "o", "p": 2147483629, "n_kernel_reps": 0, "n_field_coords": 18, "unknowns_full": 18, "euler_directions": 0, "euler_invariance_violations": 0, "unknowns_restricted": 18, "equations_raw": 601, "equations_independent": 57, "equations_restricted": 57, "J_checks": {"1": {"deg": 12, "dim S": 3080, "rank J (mod p)": 2214, "rank J (expected)": 2214}}, "build_seconds": 252.6}
+dim = 0
+vdim = 540
+time = 0
+hilb2 = 1,18,114,272,129,6,0
+

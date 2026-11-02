@@ -1,0 +1,1 @@
+{"module": "Cap.Contact", "label": "base-contact46006", "compile_rc": 0, "compile": {"wall": 104.37, "user": 166.57, "sys": 2.42, "maxrss_gb": 6.78}, "kernel_rc": 0, "kernel": {"wall": 21.96, "user": 19.36, "sys": 2.59, "maxrss_gb": 4.23}, "errors": [], "meta": {}, "host": "hodge-sextics.us-east1-b.c.gluck-proof.internal", "ts": "2026-11-02T00:13:23"}

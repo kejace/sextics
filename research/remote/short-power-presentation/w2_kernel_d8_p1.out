@@ -1,0 +1,11 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[kernel] resumed 5 primes from /tmp/hodge/results/short-power-presentation/kernel_d8_p1.json
+[JRef] e=14 par=0 p=2147483587: gens=6006 mons=5832 rank=5070 dimR=762 (build 11s, rref 21s)
+[JRef] e=8 par=1 p=2147483587: gens=168 mons=636 rank=168 dimR=468 (build 0s, rref 0s)
+[e1_kernel] d=8 par=1 p=2147483587: kernel incl J = 174, J_d = 168, mod J = 6 (37s)
+[kernel] reconstruction with 6 primes: ok {'modulus_bits': 180}
+[numerators] d=8 p=2147483647: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (41s)
+[numerators] d=8 p=2147483629: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (47s)
+[numerators] d=8 p=2147483587: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (42s)
+[numerators] d=8 p=2147483579: 6 systems, rows=5832 cols=6006 rank=5070, 6 consistent (40s)
+{"kind": "e1-kernel", "d": 8, "parity": 1, "kernel_mod_J": 6, "kernel_dim_incl_J": 174, "dim_J_d": 168, "dim_R_d": 468, "dim_R_d6": 762, "primes": [536870909, 536870879, 536870869, 2147483647, 2147483629, 2147483587], "rational": true, "reconstruction": {"modulus_bits": 180}, "seconds": 37.3, "tag": "kA", "numerators": false}

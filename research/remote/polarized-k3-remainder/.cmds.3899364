@@ -1,0 +1,25 @@
+timeout 3000 /usr/bin/python3 runD2.py partial dF/dX0 '6*X0**5 + 25*X0**4*X1/7 + 60*X0**3*Y0**2 + 100*X0**3*Y0*Y1/7 + 150*X0**2*X1*Y0**2/7 + 10*X0*X1**3*X2/7 + 30*X0*X1**2*Y1*Y2/7 + 30*X0*X1*X2*Y1**2/7 + 30*X0*Y0**4 + 100*X0*Y0**3*Y1/7 + 10*X0*Y1**3*Y2/7 + 10*X1**3*Y0*Y2/7 + 30*X1**2*X2*Y0*Y1/7 + 25*X1*Y0**4/7 + 30*X1*Y0*Y1**2*Y2/7 + 15*X2**5/7 + 150*X2**3*Y2**2/7 + 10*X2*Y0*Y1**3/7 + 75*X2*Y2**4/7' xy
+timeout 3000 /usr/bin/python3 runD2.py partial dF/dY0 '30*X0**4*Y0 + 25*X0**4*Y1/7 + 100*X0**3*X1*Y0/7 + 60*X0**2*Y0**3 + 150*X0**2*Y0**2*Y1/7 + 10*X0*X1**3*Y2/7 + 30*X0*X1**2*X2*Y1/7 + 100*X0*X1*Y0**3/7 + 30*X0*X1*Y1**2*Y2/7 + 10*X0*X2*Y1**3/7 + 10*X1**3*X2*Y0/7 + 30*X1**2*Y0*Y1*Y2/7 + 30*X1*X2*Y0*Y1**2/7 + 75*X2**4*Y2/7 + 150*X2**2*Y2**3/7 + 6*Y0**5 + 25*Y0**4*Y1/7 + 10*Y0*Y1**3*Y2/7 + 15*Y2**5/7' xy
+timeout 3000 /usr/bin/python3 runD2.py partial dF/dX2 '5*X0**2*X1**3/7 + 15*X0**2*X1*Y1**2/7 + 30*X0*X1**2*Y0*Y1/7 + 75*X0*X2**4/7 + 450*X0*X2**2*Y2**2/7 + 10*X0*Y0*Y1**3/7 + 75*X0*Y2**4/7 + 10*X1**5/7 + 5*X1**3*Y0**2/7 + 100*X1**3*Y1**2/7 + 15*X1*Y0**2*Y1**2/7 + 50*X1*Y1**4/7 + 6*X2**5 + 300*X2**3*Y0*Y2/7 + 60*X2**3*Y2**2 + 300*X2*Y0*Y2**3/7 + 30*X2*Y2**4' xy
+timeout 3000 /usr/bin/python3 runD2.py block-radial '(X0dX0+Y0dY0)F' '6*X0**6 + 25*X0**5*X1/7 + 90*X0**4*Y0**2 + 125*X0**4*Y0*Y1/7 + 250*X0**3*X1*Y0**2/7 + 10*X0**2*X1**3*X2/7 + 30*X0**2*X1**2*Y1*Y2/7 + 30*X0**2*X1*X2*Y1**2/7 + 90*X0**2*Y0**4 + 250*X0**2*Y0**3*Y1/7 + 10*X0**2*Y1**3*Y2/7 + 20*X0*X1**3*Y0*Y2/7 + 60*X0*X1**2*X2*Y0*Y1/7 + 125*X0*X1*Y0**4/7 + 60*X0*X1*Y0*Y1**2*Y2/7 + 15*X0*X2**5/7 + 150*X0*X2**3*Y2**2/7 + 20*X0*X2*Y0*Y1**3/7 + 75*X0*X2*Y2**4/7 + 10*X1**3*X2*Y0**2/7 + 30*X1**2*Y0**2*Y1*Y2/7 + 30*X1*X2*Y0**2*Y1**2/7 + 75*X2**4*Y0*Y2/7 + 150*X2**2*Y0*Y2**3/7 + 6*Y0**6 + 25*Y0**5*Y1/7 + 10*Y0**2*Y1**3*Y2/7 + 15*Y0*Y2**5/7' xy
+timeout 3000 /usr/bin/python3 runD2.py block-radial-uv 'U0f0(U)+V0f0(V)' '6*X0**6 + 25*X0**5*X1/7 + 10*X0**2*X1**3*X2/7 + 15*X0*X2**5/7 + 6*Y0**6 + 25*Y0**5*Y1/7 + 10*Y0**2*Y1**3*Y2/7 + 15*Y0*Y2**5/7' uv
+timeout 3000 /usr/bin/python3 runD2.py pure-power 'sum X^6 + sum Y^6' 'X0**6+X1**6+X2**6+Y0**6+Y1**6+Y2**6' xy
+timeout 3000 /usr/bin/python3 runD2.py partial-sum 'F(X,0)=f(X)' 'X0**6 + 5*X0**5*X1/7 + 5*X0**2*X1**3*X2/7 + 15*X0*X2**5/7 + X1**6 + 10*X1**5*X2/7 + X2**6' xy
+timeout 3000 /usr/bin/python3 runD2.py partial-sum 'F(0,Y)=f(Y)' 'Y0**6 + 5*Y0**5*Y1/7 + 5*Y0**2*Y1**3*Y2/7 + 15*Y0*Y2**5/7 + Y1**6 + 10*Y1**5*Y2/7 + Y2**6' xy
+timeout 3000 /usr/bin/python3 runD2.py partial-sum 'f(X)-f(Y)' 'X0**6 + 5*X0**5*X1/7 + 5*X0**2*X1**3*X2/7 + 15*X0*X2**5/7 + X1**6 + 10*X1**5*X2/7 + X2**6 - Y0**6 - 5*Y0**5*Y1/7 - 5*Y0**2*Y1**3*Y2/7 - 15*Y0*Y2**5/7 - Y1**6 - 10*Y1**5*Y2/7 - Y2**6' xy
+timeout 3000 /usr/bin/python3 runD2.py partial-sum 'F minus pure powers' '5*X0**5*X1/7 + 15*X0**4*Y0**2 + 25*X0**4*Y0*Y1/7 + 50*X0**3*X1*Y0**2/7 + 5*X0**2*X1**3*X2/7 + 15*X0**2*X1**2*Y1*Y2/7 + 15*X0**2*X1*X2*Y1**2/7 + 15*X0**2*Y0**4 + 50*X0**2*Y0**3*Y1/7 + 5*X0**2*Y1**3*Y2/7 + 10*X0*X1**3*Y0*Y2/7 + 30*X0*X1**2*X2*Y0*Y1/7 + 25*X0*X1*Y0**4/7 + 30*X0*X1*Y0*Y1**2*Y2/7 + 15*X0*X2**5/7 + 150*X0*X2**3*Y2**2/7 + 10*X0*X2*Y0*Y1**3/7 + 75*X0*X2*Y2**4/7 + 10*X1**5*X2/7 + 15*X1**4*Y1**2 + 50*X1**4*Y1*Y2/7 + 5*X1**3*X2*Y0**2/7 + 100*X1**3*X2*Y1**2/7 + 15*X1**2*Y0**2*Y1*Y2/7 + 15*X1**2*Y1**4 + 100*X1**2*Y1**3*Y2/7 + 15*X1*X2*Y0**2*Y1**2/7 + 50*X1*X2*Y1**4/7 + 75*X2**4*Y0*Y2/7 + 15*X2**4*Y2**2 + 150*X2**2*Y0*Y2**3/7 + 15*X2**2*Y2**4 + 5*Y0**5*Y1/7 + 5*Y0**2*Y1**3*Y2/7 + 15*Y0*Y2**5/7 + 10*Y1**5*Y2/7' xy
+timeout 3000 /usr/bin/python3 runD2.py cone-plane 'X0^3+X1^3+X2^3' 'X0**3+X1**3+X2**3' xy
+timeout 3000 /usr/bin/python3 runD2.py cone-plane 'Y0^3+Y1^3+Y2^3' 'Y0**3+Y1**3+Y2**3' xy
+timeout 3000 /usr/bin/python3 runD2.py cone-plane 'X0^4+X1^4+X2^4' 'X0**4+X1**4+X2**4' xy
+timeout 3000 /usr/bin/python3 runD2.py cone-plane 'Y0^4+Y1^4+Y2^4' 'Y0**4+Y1**4+Y2**4' xy
+timeout 3000 /usr/bin/python3 runD2.py cone-plane 'Y0^6+Y1^6+Y2^6' 'Y0**6+Y1**6+Y2**6' xy
+timeout 3000 /usr/bin/python3 runD2.py cone-plane-uv 'U0^3+U1^3+U2^3+V0^3+V1^3+V2^3' 'X0**3 + X1**3 + X2**3 + Y0**3 + Y1**3 + Y2**3' uv
+timeout 3000 /usr/bin/python3 runD2.py cone-plane-uv 'U0^3+U1^3+U2^3-(V0^3+V1^3+V2^3)' 'X0**3 + X1**3 + X2**3 - Y0**3 - Y1**3 - Y2**3' uv
+timeout 3000 /usr/bin/python3 runD2.py cone-plane-uv 'sumU^4+sumV^4' 'X0**4 + X1**4 + X2**4 + Y0**4 + Y1**4 + Y2**4' uv
+timeout 3000 /usr/bin/python3 runD2.py cone-plane-uv 'sumU^6-sumV^6' 'X0**6 + X1**6 + X2**6 - Y0**6 - Y1**6 - Y2**6' uv
+timeout 3000 /usr/bin/python3 runD2.py cone-line 'X0^4+X1^4+Y0^4+Y1^4' 'X0**4+X1**4+Y0**4+Y1**4' xy
+timeout 3000 /usr/bin/python3 runD2.py cone-line 'X0^4+X1^4+X2^4+Y0^4' 'X0**4+X1**4+X2**4+Y0**4' xy
+timeout 3000 /usr/bin/python3 runD2.py cone-line-uv 'U0^4+U1^4+V0^4+V1^4' 'X0**4 + X1**4 + Y0**4 + Y1**4' uv
+timeout 3000 /usr/bin/python3 runD2.py cone-line 'X0^6+X1^6+Y0^6+Y1^6' 'X0**6+X1**6+Y0**6+Y1**6' xy
+timeout 3000 /usr/bin/python3 runD2.py quadric 'U.V = X.X - Y.Y' 'X0**2+X1**2+X2**2-Y0**2-Y1**2-Y2**2' xy
+timeout 3000 /usr/bin/python3 runD2.py quadric X.X+Y.Y 'X0**2+X1**2+X2**2+Y0**2+Y1**2+Y2**2' xy

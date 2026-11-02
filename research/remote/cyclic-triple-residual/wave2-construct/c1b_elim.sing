@@ -1,0 +1,22 @@
+// directions v with D_v^2 F = (a.X)^4: eliminate a, decompose the v-variety
+LIB "primdec.lib"; LIB "elim.lib";
+ring R = 0, (a0,a1,a2,a3,a4,a5,v0,v1,v2,v3,v4,v5,X0,X1,X2,Y0,Y1,Y2), dp;
+number t = 5/7;
+poly F = X0^6 + X1^6 + X2^6 + Y0^6 + Y1^6 + Y2^6 + t*(X0^3*X1*Y0*Y1 + X0^3*X2^3 + X0^2*Y0*Y1*Y2^2 + X0*X1*Y1^3*Y2 + X0*X2^3*Y1*Y2 + X1*X2^3*Y0*Y1);
+poly DF = v0*diff(F,X0)+v1*diff(F,X1)+v2*diff(F,X2)+v3*diff(F,Y0)+v4*diff(F,Y1)+v5*diff(F,Y2);
+poly D2F = v0*diff(DF,X0)+v1*diff(DF,X1)+v2*diff(DF,X2)+v3*diff(DF,Y0)+v4*diff(DF,Y1)+v5*diff(DF,Y2);
+poly E = D2F - (a0*X0+a1*X1+a2*X2+a3*Y0+a4*Y1+a5*Y2)^4;
+// coefficients w.r.t. X-monomials
+ideal I;
+matrix M = coef(E, X0*X1*X2*Y0*Y1*Y2);
+int i;
+for (i = 1; i <= ncols(M); i++) { I = I + M[2,i]; }
+ideal J = eliminate(I, a0*a1*a2*a3*a4*a5);
+ring Rv = 0, (v0,v1,v2,v3,v4,v5), dp;
+ideal J = imap(R, J);
+J = std(J);
+print("dimension of the v-variety (affine):"); print(dim(J));
+list L = minAssGTZ(J);
+print("number of components:"); print(size(L));
+int k; for (k = 1; k <= size(L); k++) { print(L[k]); }
+quit;

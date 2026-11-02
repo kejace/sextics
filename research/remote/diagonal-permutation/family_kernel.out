@@ -1,0 +1,5 @@
+d=8 instance (5/7,5/11,5/13)                 dim K_d=169 dim J_d^+=168 primitive kernel=1  [326s]
+d=8 Fermat (0,0,0)                           dim K_d=370 dim J_d^+=168 primitive kernel=202  [848s]
+d=8 O1 only (5/7,0,0)                        dim K_d=170 dim J_d^+=168 primitive kernel=2  [764s]
+d=8 O2 only (0,5/11,0)                       dim K_d=170 dim J_d^+=168 primitive kernel=2  [475s]
+d=8 O3 only (0,0,5/13)                       dim K_d=170 dim J_d^+=168 primitive kernel=2  [439s]

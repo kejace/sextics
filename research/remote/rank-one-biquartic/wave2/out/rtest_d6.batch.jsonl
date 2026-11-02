@@ -1,0 +1,1 @@
+{"batch": "relaxsearch", "tag": "rtest_d6", "family": "all", "d": 6, "pD": 0, "K": 18, "n_spurious": 1, "ring_dim_2d": 866, "restarts": 30, "seed0": 0, "best_relax_rel": 0.02464602377284462, "median_relax_rel": 0.026665147659858373, "n_relax_lt_1e-6": 0, "n_refined": 0, "best_e2_rel_refined": null, "n_e2_lt_1e-6": 0, "time_s": 11.3, "ts": "2026-11-02T01:36:23"}

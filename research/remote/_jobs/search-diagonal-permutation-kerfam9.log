@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[d=9] E1 matrix 7752 x 10010 built in 0.7s
+[d=9] svd 585.6s rank=7731 nullity=2279 gap=(3.156e-03, 1.533e-14)
+[d=9] admissible dim = 399 (singular gap 9.635e-01 / 2.433e-12)
+[d=9] complement of J in admissible: dim 21 (J rank 378); gap 1.000e+00/1.506e-12
+[d=9] E1 residuals of first members: [np.float64(2.4957249808443827e-15), np.float64(3.2299737971058784e-15), np.float64(3.4689319559216836e-15)]
+{"exp": "kerfam-float", "d": 9, "pD": 0, "rows": 7752, "cols": 10010, "rank": 7731, "nullity": 2279, "gap": [0.00315645916531503, 1.533212664145473e-14], "admissible_dim": 399, "kernel_mod_J_dim": 21, "e1_res": [2.4957249808443827e-15, 3.2299737971058784e-15, 3.4689319559216836e-15], "seconds": 604.7}
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[d=9] E1 matrix 7752 x 10010 built in 0.7s
+[d=9] svd 627.7s rank=7731 nullity=2279 gap=(4.028e-03, 1.667e-14)
+[d=9] admissible dim = 399 (singular gap 9.634e-01 / 2.483e-12)
+[d=9] complement of J in admissible: dim 21 (J rank 378); gap 1.000e+00/1.367e-12
+[d=9] E1 residuals of first members: [np.float64(2.0076171627914086e-15), np.float64(4.986001845772026e-15), np.float64(1.4988010832439613e-15)]
+{"exp": "kerfam-float", "d": 9, "pD": 1, "rows": 7752, "cols": 10010, "rank": 7731, "nullity": 2279, "gap": [0.00402770685718375, 1.666892314818714e-14], "admissible_dim": 399, "kernel_mod_J_dim": 21, "e1_res": [2.0076171627914086e-15, 4.986001845772026e-15, 1.4988010832439613e-15], "seconds": 637.9}

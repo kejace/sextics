@@ -1,0 +1,2 @@
+235 candidates -> /tmp/hodge/results/short-power-presentation/wave2-excl/e1screen_deg6.sing
+{"exp": "e1screen", "set": "deg6", "p": 2147483629, "n_candidates": 235, "n_results": 235, "hilbert_ok": false, "hilb2": "1,6,21,56,126,246,426,666,951,1246,1506,1686,1751,1686,1506,1246,951,666,426,246,126,56,21,6,1,0", "E1_passing": [], "seconds": 754.8}

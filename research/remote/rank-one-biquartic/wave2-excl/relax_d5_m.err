@@ -1,0 +1,3 @@
+[e1_family d=5 pD=None] rows=4368 cols=3024 (D 252) nullity=96 dimK=6 (267.1s)
+[Reducer deg=10 par=None] mons=3003 gens=1512 rank=1497 ring_dim=1506 (366.8s)
+[relaxation d=5 pD=None] m=6 pairs=36 ring_dim=1506 nonzero quadrics=75 (4.9s)

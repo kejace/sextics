@@ -1,0 +1,9 @@
+D8 terms 25 max|c| 740880 characters {(0, 4)}
+D8 in J_8: (False, 39, 40); A*D8 in J_14: (True, 777, 777); sum P_i d_i(7F) == A*D8: True  (18.7s)
+own kernel: nullity 202, D-parts span rank 40 vs J_8 rank 39 => Ann_8 = 1; adding packet D8: rank 40 (2.6s)
+own fixed-D system for D8 (single identity, G-sector): N cols 939, Q cols 249, {'rows': 5506, 'cols': 1188, 'rank': 1041, 'rank_aug': 1042, 'consistent': False} (42.5s)
+farkas_D8: D terms 25 deg 8; y nonzeros 968; all 15015 columns orthogonal: bad=0; y.rhs=1; Farkas certificate valid: True (37.7s)
+farkas_E_X_F: D terms 9 deg 6; y nonzeros 189; all 5214 columns orthogonal: bad=0; y.rhs=1; Farkas certificate valid: True (5.4s)
+farkas_fqlx_cone1: D terms 4 deg 6; y nonzeros 170; all 5214 columns orthogonal: bad=0; y.rhs=1; Farkas certificate valid: True (2.0s)
+farkas_fqlx_cone2: D terms 4 deg 6; y nonzeros 215; all 5214 columns orthogonal: bad=0; y.rhs=1; Farkas certificate valid: True (1.5s)
+done

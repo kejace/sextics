@@ -1,0 +1,48 @@
+=== [chain3] E1 tables second prime d<=9 Sun Nov  1 08:59:23 PM EST 2026
+A {"d": 0, "parity": 0, "ring_dim": 1, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.0}
+A {"d": 1, "parity": 0, "ring_dim": 3, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.0}
+A {"d": 2, "parity": 0, "ring_dim": 12, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.8}
+A {"d": 3, "parity": 0, "ring_dim": 28, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 1.5}
+A {"d": 4, "parity": 0, "ring_dim": 66, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 6.8}
+A {"d": 5, "parity": 0, "ring_dim": 123, "jacobian_dim": 3, "kernel_in_ring": 0, "kernel_dim_total": 3, "seconds": 19.0}
+A {"d": 6, "parity": 0, "ring_dim": 218, "jacobian_dim": 18, "kernel_in_ring": 0, "kernel_dim_total": 18, "seconds": 82.5}
+A {"d": 7, "parity": 0, "ring_dim": 333, "jacobian_dim": 63, "kernel_in_ring": 0, "kernel_dim_total": 63, "seconds": 193.3}
+A {"d": 8, "parity": 0, "ring_dim": 483, "jacobian_dim": 168, "kernel_in_ring": 0, "kernel_dim_total": 168, "seconds": 547.9}
+A {"d": 9, "parity": 0, "ring_dim": 623, "jacobian_dim": 378, "kernel_in_ring": 0, "kernel_dim_total": 378, "seconds": 954.3}
+A {"d": 0, "parity": 1, "ring_dim": 0, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.0}
+A {"d": 1, "parity": 1, "ring_dim": 3, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.0}
+A {"d": 2, "parity": 1, "ring_dim": 9, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.1}
+A {"d": 3, "parity": 1, "ring_dim": 28, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.4}
+A {"d": 4, "parity": 1, "ring_dim": 60, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 1.6}
+A {"d": 5, "parity": 1, "ring_dim": 123, "jacobian_dim": 3, "kernel_in_ring": 0, "kernel_dim_total": 3, "seconds": 5.2}
+A {"d": 6, "parity": 1, "ring_dim": 208, "jacobian_dim": 18, "kernel_in_ring": 0, "kernel_dim_total": 18, "seconds": 24.8}
+A {"d": 7, "parity": 1, "ring_dim": 333, "jacobian_dim": 63, "kernel_in_ring": 0, "kernel_dim_total": 63, "seconds": 91.4}
+A {"d": 8, "parity": 1, "ring_dim": 468, "jacobian_dim": 168, "kernel_in_ring": 0, "kernel_dim_total": 168, "seconds": 262.5}
+A {"d": 9, "parity": 1, "ring_dim": 623, "jacobian_dim": 378, "kernel_in_ring": 0, "kernel_dim_total": 378, "seconds": 698.8}
+A_K3 {"d": 0, "parity": 0, "ring_dim": 1, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.0}
+A_K3 {"d": 1, "parity": 0, "ring_dim": 3, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.0}
+A_K3 {"d": 2, "parity": 0, "ring_dim": 12, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.1}
+A_K3 {"d": 3, "parity": 0, "ring_dim": 28, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.4}
+A_K3 {"d": 4, "parity": 0, "ring_dim": 66, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 1.6}
+A_K3 {"d": 5, "parity": 0, "ring_dim": 123, "jacobian_dim": 3, "kernel_in_ring": 0, "kernel_dim_total": 3, "seconds": 4.9}
+A_K3 {"d": 6, "parity": 0, "ring_dim": 218, "jacobian_dim": 18, "kernel_in_ring": 0, "kernel_dim_total": 18, "seconds": 22.3}
+A_K3 {"d": 7, "parity": 0, "ring_dim": 333, "jacobian_dim": 63, "kernel_in_ring": 0, "kernel_dim_total": 63, "seconds": 61.3}
+A_K3 {"d": 8, "parity": 0, "ring_dim": 483, "jacobian_dim": 168, "kernel_in_ring": 51, "kernel_dim_total": 219, "seconds": 408.3}
+A_K3 {"d": 9, "parity": 0, "ring_dim": 623, "jacobian_dim": 378, "kernel_in_ring": 153, "kernel_dim_total": 531, "seconds": 792.8}
+A_K3 {"d": 0, "parity": 1, "ring_dim": 0, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.0}
+A_K3 {"d": 1, "parity": 1, "ring_dim": 3, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.0}
+A_K3 {"d": 2, "parity": 1, "ring_dim": 9, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.1}
+A_K3 {"d": 3, "parity": 1, "ring_dim": 28, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 0.4}
+A_K3 {"d": 4, "parity": 1, "ring_dim": 60, "jacobian_dim": 0, "kernel_in_ring": 0, "kernel_dim_total": 0, "seconds": 1.6}
+A_K3 {"d": 5, "parity": 1, "ring_dim": 123, "jacobian_dim": 3, "kernel_in_ring": 0, "kernel_dim_total": 3, "seconds": 11.9}
+A_K3 {"d": 6, "parity": 1, "ring_dim": 208, "jacobian_dim": 18, "kernel_in_ring": 0, "kernel_dim_total": 18, "seconds": 19.3}
+A_K3 {"d": 7, "parity": 1, "ring_dim": 333, "jacobian_dim": 63, "kernel_in_ring": 0, "kernel_dim_total": 63, "seconds": 56.9}
+A_K3 {"d": 8, "parity": 1, "ring_dim": 468, "jacobian_dim": 168, "kernel_in_ring": 39, "kernel_dim_total": 207, "seconds": 153.3}
+A_K3 {"d": 9, "parity": 1, "ring_dim": 623, "jacobian_dim": 378, "kernel_in_ring": 153, "kernel_dim_total": 531, "seconds": 344.6}
+DONE
+=== [chain3] full-target d=7 replication p=65521 (modular; L-ranks over Q come from the K3 run, same L) Sun Nov  1 10:18:56 PM EST 2026
+[quad] d=7 params=120 pairs=7260 in 1.0s
+[block] {"r": 0, "rows": 1926, "L_cols": 3408, "L_rank_p": 1635, "quotient_dim_p": 291, "constraint_rank_p": 291, "seconds": 38.2}
+[block] {"r": 1, "rows": 1926, "L_cols": 3870, "L_rank_p": 1602, "quotient_dim_p": 324, "constraint_rank_p": 318, "seconds": 40.9}
+[block] {"r": 2, "rows": 1926, "L_cols": 3408, "L_rank_p": 1635, "quotient_dim_p": 291, "constraint_rank_p": 291, "seconds": 60.5}
+=== [chain3] K3-target d=8 relaxation p=65521 (modular) Sun Nov  1 10:21:46 PM EST 2026

@@ -1,0 +1,37 @@
+
+--------------- INPUT DATA ---------------
+#variables                      60
+#equations                     483
+#invalid equations               0
+field characteristic    1073741827
+homogeneous input?               1
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         8
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  2     482     482     483 x 1830       58.52%      482 new       0 zero         0.48 | 2.86         
+  3    9063    9063   28961 x 37801       2.77%     9063 new       0 zero      1105.16 | 2473.89      
+  4  410411  415993  862964 x 487579      1.02%exit 137

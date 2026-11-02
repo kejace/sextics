@@ -1,0 +1,27 @@
+{
+ "exp": "hessian_relaxation",
+ "d": 5,
+ "mode": "mixed",
+ "p": 1073741827,
+ "nvar": 6,
+ "gauge_dim": 0,
+ "kept": 6,
+ "target_deg": 4,
+ "R_target_dims": [
+  66,
+  60
+ ],
+ "J_rank_attained": true,
+ "n_equations": 120,
+ "generic_certificate_degree": 2,
+ "seconds_build": 0.0,
+ "msolve_file": "/tmp/hodge/results/quadratic-cubic-pullback/wave2-excl/hess_d5_mixed_p1073741827.ms",
+ "macaulay_delta": 2,
+ "macaulay_cols": 21,
+ "macaulay_rows": 120,
+ "macaulay_rank": 21,
+ "macaulay_full_column_rank": true,
+ "seconds_macaulay": 0.0,
+ "conclusion": "projective zero set of the Hessian relaxation is EMPTY (rigorous over Q): no degree-5 polar denominator in mode mixed passes E2",
+ "seconds": 0.0
+}

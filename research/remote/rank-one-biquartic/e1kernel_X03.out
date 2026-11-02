@@ -1,0 +1,20 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"d": 1, "parD": 0, "rows": 66, "cols": 3, "nJcols": 0, "nD": 3, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 1, "parD": 1, "rows": 60, "cols": 3, "nJcols": 0, "nD": 3, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 2, "parD": 0, "rows": 126, "cols": 15, "nJcols": 3, "nD": 12, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 2, "parD": 1, "rows": 126, "cols": 12, "nJcols": 3, "nD": 9, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 3, "parD": 0, "rows": 236, "cols": 46, "nJcols": 18, "nD": 28, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 3, "parD": 1, "rows": 226, "cols": 46, "nJcols": 18, "nD": 28, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 4, "parD": 0, "rows": 396, "cols": 129, "nJcols": 63, "nD": 66, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 4, "parD": 1, "rows": 396, "cols": 123, "nJcols": 63, "nD": 60, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 5, "parD": 0, "rows": 651, "cols": 294, "nJcols": 168, "nD": 126, "nullity": 3, "dim_E1_space": 3, "dim_J_d": 3, "kernel_mod_J": 0, "t_build": 0.9, "t_null": 0.1}
+{"d": 5, "parD": 1, "rows": 636, "cols": 294, "nJcols": 168, "nD": 126, "nullity": 3, "dim_E1_space": 3, "dim_J_d": 3, "kernel_mod_J": 0, "t_build": 0.3, "t_null": 0.0}
+{"d": 6, "parD": 0, "rows": 1001, "cols": 614, "nJcols": 378, "nD": 236, "nullity": 18, "dim_E1_space": 18, "dim_J_d": 18, "kernel_mod_J": 0, "t_build": 0.7, "t_null": 0.2}
+{"d": 6, "parD": 1, "rows": 1001, "cols": 604, "nJcols": 378, "nD": 226, "nullity": 18, "dim_E1_space": 18, "dim_J_d": 18, "kernel_mod_J": 0, "t_build": 4.3, "t_null": 3.1}
+{"d": 7, "parD": 0, "rows": 1512, "cols": 1152, "nJcols": 756, "nD": 396, "nullity": 72, "dim_E1_space": 66, "dim_J_d": 63, "kernel_mod_J": 3, "t_build": 6.3, "t_null": 3.0}
+  nonzero kernel at d=7 parity=0: 3 (E1 space 66, J_d 63)
+{"d": 7, "parD": 1, "rows": 1491, "cols": 1152, "nJcols": 756, "nD": 396, "nullity": 72, "dim_E1_space": 63, "dim_J_d": 63, "kernel_mod_J": 0, "t_build": 5.9, "t_null": 8.0}
+{"d": 8, "parD": 0, "rows": 2184, "cols": 2037, "nJcols": 1386, "nD": 651, "nullity": 222, "dim_E1_space": 177, "dim_J_d": 168, "kernel_mod_J": 9, "t_build": 22.5, "t_null": 25.6}
+  nonzero kernel at d=8 parity=0: 9 (E1 space 177, J_d 168)
+{"d": 8, "parD": 1, "rows": 2184, "cols": 2022, "nJcols": 1386, "nD": 636, "nullity": 222, "dim_E1_space": 177, "dim_J_d": 168, "kernel_mod_J": 9, "t_build": 12.1, "t_null": 24.5}
+  nonzero kernel at d=8 parity=1: 9 (E1 space 177, J_d 168)

@@ -1,0 +1,12 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+new built 13.2 s; K 13 dimP 12
+new search 8 restarts: 2.2 s; rels ['4.4e-15', '7.5e-06', '9.5e-04', '1.6e-03', '3.0e-03'] iters [195, 120, 77, 105, 30]
+polished 4.4110559384556165e-15
+  max_den=1 err=4.6e-01 nterms=6 -> inconsistent rank=49 nullity=7 note=None verified=None
+  max_den=2 err=2.5e-01 nterms=8 -> inconsistent rank=49 nullity=7 note=None verified=None
+  max_den=3 err=1.6e-01 nterms=11 -> inconsistent rank=49 nullity=7 note=None verified=None
+  max_den=4 err=8.4e-02 nterms=11 -> inconsistent rank=49 nullity=7 note=None verified=None
+  max_den=6 err=8.2e-02 nterms=11 -> inconsistent rank=49 nullity=7 note=None verified=None
+  max_den=7 err=5.9e-02 nterms=11 -> inconsistent rank=49 nullity=7 note=None verified=None
+old built 83.2 s; K 13 dimP 12
+old search 8 restarts: 2.6 s; rels ['4.4e-15', '7.5e-06', '9.5e-04', '1.6e-03', '3.0e-03'] iters [195, 120, 77, 105, 30]

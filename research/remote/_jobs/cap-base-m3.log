@@ -1,0 +1,1 @@
+{"module": "Cap.M3", "label": "base-m3-coupled", "compile_rc": 0, "compile": {"wall": 277.58, "user": 274.84, "sys": 2.75, "maxrss_gb": 5.48}, "kernel_rc": 0, "kernel": {"wall": 16.41, "user": 13.84, "sys": 2.55, "maxrss_gb": 3.75}, "errors": [], "meta": {}, "host": "hodge-sextics.us-east1-b.c.gluck-proof.internal", "ts": "2026-11-02T00:11:10"}

@@ -1,0 +1,96 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[2026-11-02T03:25:01] job d10h0-c10: d=10 c=(1, 0) kind=colon F=offpaired restarts=150 workers=8
+[build_family] exact basis failed (colon d=10 c=(1, 0): rational reconstruction failed with 6 primes); using float basis
+[float colon basis d=10 c=(1, 0)] dim 83 (modular 83)
+[sector varpro] d=10 c=(1, 0) K=83 rank=83 gauge=7 dimP=76 rows=5001 N=868 Q=377 nnz(TN)=803016 built in 1.8s
+[2026-11-02T03:25:09] family built: K=83 rank=83 gauge=7 dimP=76 rows=5001 N=868 Q=377 build 1.8s
+gradient check: analytic -1.647471e-01 fd -1.647471e-01
+{
+ "ts": "2026-11-02T03:56:12",
+ "job": "d10h0-c10",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 10,
+ "sector": [
+  1,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 83,
+ "rank": 83,
+ "gauge": 7,
+ "dimP": 76,
+ "rows": 5001,
+ "nN": 868,
+ "nQ": 377,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 23,
+ "best_relres": 0.0027592240273877377,
+ "median_relres": 0.0028173715092040573,
+ "hist": {
+  "lt1e-2": 16,
+  "ge1e-2": 7
+ },
+ "top_minima": [
+  [
+   "2.759e-03",
+   2
+  ],
+  [
+   "2.763e-03",
+   1
+  ],
+  [
+   "2.764e-03",
+   3
+  ],
+  [
+   "2.787e-03",
+   1
+  ],
+  [
+   "2.817e-03",
+   6
+  ],
+  [
+   "6.942e-03",
+   1
+  ],
+  [
+   "7.698e-03",
+   2
+  ],
+  [
+   "1.489e-02",
+   1
+  ],
+  [
+   "1.557e-02",
+   1
+  ],
+  [
+   "1.601e-02",
+   1
+  ],
+  [
+   "1.604e-02",
+   1
+  ],
+  [
+   "1.635e-02",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 620.6,
+ "statuses": {
+  "stalled": 5,
+  "flat": 2,
+  "maxiter": 16
+ },
+ "wall": 1871.3,
+ "witness": false
+}

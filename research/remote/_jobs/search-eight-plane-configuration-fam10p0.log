@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+10 0 G_k(Q) {"dim_fam": 21, "dim_ker": 1044, "dim_J": 750, "dim_ker_plus_J": 1044, "fam_cap_ker": 0, "fam_cap_J": 0, "fam_cap_ker_mod_J": 0}
+10 0 C[Q,K,H,diag] {"dim_fam": 144, "dim_ker": 1044, "dim_J": 750, "dim_ker_plus_J": 1044, "fam_cap_ker": 12, "fam_cap_J": 12, "fam_cap_ker_mod_J": 0}
+10 0 (Q)^4*S_2 {"dim_fam": 156, "dim_ker": 1044, "dim_J": 750, "dim_ker_plus_J": 1044, "fam_cap_ker": 0, "fam_cap_J": 0, "fam_cap_ker_mod_J": 0}
+10 0 (Q)^3*S_4 {"dim_fam": 486, "dim_ker": 1044, "dim_J": 750, "dim_ker_plus_J": 1044, "fam_cap_ker": 18, "fam_cap_J": 18, "fam_cap_ker_mod_J": 0}
+10 0 I_Pi^5 cap I_Pibar^5 {"dim_fam": 231, "dim_ker": 1044, "dim_J": 750, "dim_ker_plus_J": 1044, "fam_cap_ker": 0, "fam_cap_J": 0, "fam_cap_ker_mod_J": 0}

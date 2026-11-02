@@ -1,0 +1,2 @@
+{"D": "dF/dX0", "d": 5, "target_image_dim": 18, "seconds": 15.0, "host": "remote"}
+{"D": "(X0 dX0 + Y0 dY0)F", "d": 6, "target_image_dim": 18, "seconds": 52.0, "host": "remote"}

@@ -1,0 +1,1 @@
+chains/chain2.sh: line 8: 1328837 Killed                  $S --job cone-${tag}-d${d} --d $d --rho 0 --sigma 0 --family cone:$cone --restarts 120 --method lm --seed0 $((1000*d)) --time-limit 1500 >> chain2.out 2>> chain2.err

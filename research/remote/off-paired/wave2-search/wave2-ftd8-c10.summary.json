@@ -1,0 +1,90 @@
+{
+ "ts": "2026-11-02T10:30:15",
+ "job": "ftd8-c10",
+ "step": "varpro-free-target",
+ "F": "offpaired",
+ "d": 8,
+ "sector": [
+  1,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 24,
+ "rank": 24,
+ "gauge": 1,
+ "dimP": 23,
+ "rows": 2424,
+ "nN": 424,
+ "nQ": 108,
+ "dimT": 22,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 23,
+ "best_relres": 0.00591760300473158,
+ "median_relres": 0.015707723860779517,
+ "hist": {
+  "lt1e-2": 10,
+  "ge1e-2": 13
+ },
+ "top_minima": [
+  [
+   "5.918e-03",
+   3
+  ],
+  [
+   "7.532e-03",
+   3
+  ],
+  [
+   "8.218e-03",
+   1
+  ],
+  [
+   "8.220e-03",
+   1
+  ],
+  [
+   "9.528e-03",
+   2
+  ],
+  [
+   "1.115e-02",
+   1
+  ],
+  [
+   "1.571e-02",
+   3
+  ],
+  [
+   "1.790e-02",
+   2
+  ],
+  [
+   "2.456e-02",
+   1
+  ],
+  [
+   "2.550e-02",
+   1
+  ],
+  [
+   "5.122e-02",
+   1
+  ],
+  [
+   "6.228e-02",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 242.13,
+ "statuses": {
+  "stalled": 10,
+  "maxiter": 12,
+  "flat": 1
+ },
+ "wall": 771.0,
+ "confirm_attempts": [],
+ "witness": false
+}

@@ -1,0 +1,13 @@
+[wave3 B1] 2026-11-02T04:07:52Z start msolve -g 1 -t 16 timeout 7200 on /tmp/hodge/results/klein-coupled-character/wave2-excl/local_d7full/d7_even_all.ms
+[wave3 B1] done rc=137 wall=3504s maxrss_kb=40409880 {"n_vars": 60, "prime": "1000003", "n_polys": 447, "verdict": "msolve-failed-or-timeout"}
+[wave3 B1] 2026-11-02T05:06:16Z start msolve -g 1 -t 16 timeout 7200 on /tmp/hodge/results/klein-coupled-character/wave2-excl/local_d7full/d7_odd_all.ms
+[wave3 B1] done rc=124 wall=7210s maxrss_kb=45308084 {"n_vars": 60, "prime": "1000003", "n_polys": 420, "verdict": "msolve-failed-or-timeout"}
+[wave3 B1] 2026-11-02T07:06:26Z start msolve -g 1 -t 16 timeout 7200 on /tmp/hodge/results/cyclic-triple-residual/wave2-referee/hess_d7_p999999937_X0_s42.ms
+[wave3 B1] done rc=0 wall=1s maxrss_kb=5288 {"n_vars": 3, "prime": "999999937", "n_polys": 6, "output_kind": "leading-ideal", "n_lead": 6, "n_pure_powers": 3, "max_pure_power": 2, "n_missing_variables": 0, "missing_variables_head": [], "verdict": "ONLY-ORIGIN (m-primary leading ideal)"}
+[wave3 B1] 2026-11-02T07:06:27Z start msolve -g 1 -t 16 timeout 7200 on /tmp/hodge/results/cyclic-triple-residual/wave2-referee/hess_d7_p999999937_X0_s43.ms
+[wave3 B1] done rc=0 wall=2s maxrss_kb=5300 {"n_vars": 5, "prime": "999999937", "n_polys": 14, "output_kind": "leading-ideal", "n_lead": 14, "n_pure_powers": 5, "max_pure_power": 2, "n_missing_variables": 0, "missing_variables_head": [], "verdict": "ONLY-ORIGIN (m-primary leading ideal)"}
+[wave3 B1] 2026-11-02T07:06:29Z start msolve -g 1 -t 16 timeout 7200 on /tmp/hodge/results/cyclic-triple-residual/wave2-referee/hess_d7_p999999937_X0_s44.ms
+[wave3 B1] done rc=0 wall=0s maxrss_kb=5264 {"n_vars": 1, "prime": "999999937", "n_polys": 1, "output_kind": "leading-ideal", "n_lead": 1, "n_pure_powers": 1, "max_pure_power": 2, "n_missing_variables": 0, "missing_variables_head": [], "verdict": "ONLY-ORIGIN (m-primary leading ideal)"}
+[wave3 B1] 2026-11-02T07:06:29Z start msolve -g 1 -t 16 timeout 7200 on /tmp/hodge/results/cyclic-triple-residual/wave2-referee/hess_d7_p999999937_X0_s45.ms
+[wave3 B1] done rc=0 wall=1s maxrss_kb=5304 {"n_vars": 2, "prime": "999999937", "n_polys": 3, "output_kind": "leading-ideal", "n_lead": 3, "n_pure_powers": 2, "max_pure_power": 2, "n_missing_variables": 0, "missing_variables_head": [], "verdict": "ONLY-ORIGIN (m-primary leading ideal)"}
+[wave3 B1] ALL DONE

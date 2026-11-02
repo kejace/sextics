@@ -1,0 +1,13 @@
+[05:11:55] start d8hmix-c00 (eff None) elapsed 0s
+   -> best 1.857e-03 median 1.857e-03 restarts 15 dimP 77 t/restart 1086.36 witness False
+[05:50:23] start d8hmix-c30 (eff None) elapsed 2308s
+   -> best 6.175e-03 median 7.584e-03 restarts 14 dimP 73 t/restart 1226.59 witness False
+[06:31:59] start d8hmix-c01 (eff None) elapsed 4804s
+   -> best 9.397e-03 median 5.169e-02 restarts 20 dimP 45 t/restart 650.04 witness False
+[07:02:17] start d8hmix-c31 (eff None) elapsed 6622s
+   -> best 1.309e-02 median 3.258e-02 restarts 23 dimP 46 t/restart 582.68 witness False
+[07:33:08] start d8hmix-c05 (eff None) elapsed 8473s
+   -> best 1.309e-02 median 4.013e-02 restarts 24 dimP 46 t/restart 537.16 witness False
+[08:03:38] start d8hmix-c35 (eff None) elapsed 10302s
+   -> best 9.397e-03 median 5.237e-02 restarts 21 dimP 45 t/restart 642.44 witness False
+batch done

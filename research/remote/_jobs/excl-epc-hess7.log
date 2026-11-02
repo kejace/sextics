@@ -1,0 +1,2 @@
+wave2-excl/run_msolve.sh: line 7: 365256 Killed                  msolve -v 1 -g 1 -t $T -f $IN -o $OUT > ${IN%.ms}.msolve.log 2>&1
+done hess_d7_par0_p2147483587.ms rc=137 quotient_dim= n_lm=0 in 5864s

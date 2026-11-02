@@ -1,0 +1,7 @@
+std_time = 0
+dim = 0
+vdim = 28
+degree:
+// dimension (affine) = 0
+// degree (affine)  = 28
+hilb1 = 1,0,-8,0,42,-56,0,48,-35,8,0

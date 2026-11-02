@@ -1,0 +1,7 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+cone-ladder-linear: witness ok=True  d=1  system rows=166 cols=63 consistent=True rank=60 nullity=3  witness-satisfies-system=True  [0.1s]
+two-reflection-cubic-surface-d2: witness ok=True  d=2  system rows=864 cols=168 consistent=True rank=159 nullity=9  witness-satisfies-system=True  [0.9s]
+f3-block-x0-quartic-strict: witness ok=True  d=4  system rows=2422 cols=765 consistent=True rank=703 nullity=62  witness-satisfies-system=True  [4.4s]
+hesse-radial-hesse-cofactor-d4-rational: witness ok=True  d=4  system rows=4759 cols=765 consistent=True rank=703 nullity=62  witness-satisfies-system=True  [7.2s]
+column construction matches core.defect on our F (weight-restricted): False
+restricted system size d=6: 2050 372 unrestricted: 2602

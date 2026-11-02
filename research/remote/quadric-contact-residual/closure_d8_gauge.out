@@ -1,0 +1,11 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[Sector m=14 c=(0, 0, 0, 1)] n=594 Jrows=654 rank=524 dimR=70 (7.7s)
+[e1_kernel] {'d': 8, 'sector': '(0, 0, 0, 0)', 'sym': True, 'n_gauge': 3, 'dim_inv_Sd': 57, 'dim_kernel': 20, 'dim_J_inv': 19, 'n_extra': 1, 'sector_rows': 654, 'sector_cols': 594, 'dimR_d6': 70, 'seconds': 8.6}
+[Sector m=16 c=(0, 0, 0, 1)] n=1002 Jrows=1340 rank=950 dimR=52 (30.2s)
+  B matrices 1/20 (49s)
+  B matrices 6/20 (53s)
+  B matrices 11/20 (62s)
+  B matrices 16/20 (71s)
+  B matrices 20/20 (79s)
+[quadratic_closure] {'d': 8, 'sector': '(0, 0, 0, 0)', 'sym': True, 'n_params': 20, 'n_gauge': 3, 'n_jac': 19, 'n_extra': 1, 'dimR_2d_sector': 52, 'n_quadrics': 52, 'quadric_rank': 35, 'n_pair_monomials': 210, 'forced_zero_by_square_columns': [], 'seconds': 96.0, 'e1_sector': '(0, 0, 0, 0)', 'e1_sym': True, 'e1_n_gauge': 3, 'e1_dim_inv_Sd': 57, 'e1_dim_kernel': 20, 'e1_dim_J_inv': 19, 'e1_n_extra': 1, 'e1_sector_rows': 654, 'e1_sector_cols': 594, 'e1_dimR_d6': 70, 'e1_seconds': 8.6}
+{"d": 8, "sector": "(0, 0, 0, 0)", "sym": true, "n_params": 20, "n_gauge": 3, "n_jac": 19, "n_extra": 1, "dimR_2d_sector": 52, "n_quadrics": 52, "quadric_rank": 35, "n_pair_monomials": 210, "forced_zero_by_square_columns": [], "seconds": 96.0, "e1_sector": "(0, 0, 0, 0)", "e1_sym": true, "e1_n_gauge": 3, "e1_dim_inv_Sd": 57, "e1_dim_kernel": 20, "e1_dim_J_inv": 19, "e1_n_extra": 1, "e1_sector_rows": 654, "e1_sector_cols": 594, "e1_dimR_d6": 70, "e1_seconds": 8.6}

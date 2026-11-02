@@ -1,0 +1,137 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+(J:X0)_6 parity 0: dim colon 18, dim J_6 18  NZD [5.0s]
+(J:X0)_6 parity 1: dim colon 18, dim J_6 18  NZD [17.8s]
+(J:X1)_6 parity 0: dim colon 18, dim J_6 18  NZD [1.7s]
+(J:X1)_6 parity 1: dim colon 18, dim J_6 18  NZD [4.1s]
+(J:X2)_6 parity 0: dim colon 18, dim J_6 18  NZD [2.9s]
+(J:X2)_6 parity 1: dim colon 18, dim J_6 18  NZD [5.5s]
+(J:Y0)_6 parity 0: dim colon 18, dim J_6 18  NZD [3.4s]
+(J:Y0)_6 parity 1: dim colon 18, dim J_6 18  NZD [1.8s]
+(J:Y1)_6 parity 0: dim colon 18, dim J_6 18  NZD [1.8s]
+(J:Y1)_6 parity 1: dim colon 18, dim J_6 18  NZD [2.3s]
+(J:Y2)_6 parity 0: dim colon 18, dim J_6 18  NZD [2.5s]
+(J:Y2)_6 parity 1: dim colon 18, dim J_6 18  NZD [2.9s]
+(J:X0+X1)_6 parity 0: dim colon 18, dim J_6 18  NZD [2.8s]
+(J:X0+X1)_6 parity 1: dim colon 18, dim J_6 18  NZD [2.5s]
+(J:X0+2X1+3X2)_6 parity 0: dim colon 18, dim J_6 18  NZD [1.4s]
+(J:X0+2X1+3X2)_6 parity 1: dim colon 18, dim J_6 18  NZD [1.3s]
+(J:Y0+Y1)_6 parity 0: dim colon 18, dim J_6 18  NZD [1.6s]
+(J:Y0+Y1)_6 parity 1: dim colon 18, dim J_6 18  NZD [1.2s]
+(J:Y0^2)_6 parity 0: dim colon 18, dim J_6 18  NZD [1.4s]
+(J:Y0^2)_6 parity 1: dim colon 18, dim J_6 18  NZD [2.8s]
+(J:Y0*Y1)_6 parity 0: dim colon 18, dim J_6 18  NZD [1.4s]
+(J:Y0*Y1)_6 parity 1: dim colon 18, dim J_6 18  NZD [1.3s]
+(J:Y0^2+Y1^2+Y2^2)_6 parity 0: dim colon 18, dim J_6 18  NZD [1.4s]
+(J:Y0^2+Y1^2+Y2^2)_6 parity 1: dim colon 18, dim J_6 18  NZD [1.4s]
+(J:Y0*Y1+Y1*Y2+Y2*Y0)_6 parity 0: dim colon 18, dim J_6 18  NZD [1.7s]
+(J:Y0*Y1+Y1*Y2+Y2*Y0)_6 parity 1: dim colon 18, dim J_6 18  NZD [1.9s]
+d=7 even k=0: n=3 eqs=15 irrelevant=True | singular: n_gens 15 gb_size 6 dim 0 vdim 4
+n_components 1
+component 1 dim 0
+u2,
+u1,
+u0 [2.2s]
+d=7 odd k=0: n=24 eqs=59 irrelevant=False | singular: halt 1 [687.6s]
+d=7 even k=1: n=11 eqs=27 irrelevant=False | singular: n_gens 27 gb_size 94 dim 2 vdim -1
+n_components 1
+component 1 dim 2
+u4^8-159762*u4^7*u6-264767*u4^6*u6^2+121470*u4^5*u6^3-219861*u4^4*u6^4-110046*u4^3*u6^5-307321*u4^2*u6^6+291214*u4*u6^7+302933*u6^8+266237*u4^7*u8+143752*u4^6*u6*u8-218059*u4^5*u6^2*u8+182060*u4^4*u6^3*u8-75328*u4^3*u6^4*u8-494745*u4^2*u6^5*u8-10830*u4*u6^6*u8+314158*u6^7*u8+141030*u4^6*u8^2+260676*u4^5*u6*u8^2+16404*u4^4*u6^2*u8^2+99157*u4^3*u6^3*u8^2-15559*u4^2*u6^4*u8^2-84758*u4*u6^5*u8^2+54187*u6^6*u8^2+179713*u4^5*u8^3-217319*u4^4*u6*u8^3-267960*u4^3*u6^2*u8^3+37290*u4^2*u6^3*u8^3-390949*u4*u6^4*u8^3-13845*u6^5*u8^3+159806*u4^4*u8^4+315476*u4^3*u6*u8^4-380548*u4^2*u6^2*u8^4-237222*u4*u6^3*u8^4-140804*u6^4*u8^4-437288*u4^3*u8^5-314202*u4^2*u6*u8^5-190017*u4*u6^2*u8^5-72621*u6^3*u8^5-353571*u4^2*u8^6+88160*u4*u6*u8^6-498523*u6^2*u8^6+412184*u4*u8^7+472479*u6*u8^7-263399*u8^8,
+-379547*u4^7*u6^10+95018*u4^6*u6^11+107128*u4^5*u6^12-187161*u4^4*u6^13-430376*u4^3*u6^14-373299*u4^2*u6^15+u1*u6^16-276933*u4*u6^16+74234*u6^17-199037*u4^7*u6^9*u8-137177*u4^6*u6^10*u8+101880*u4^5*u6^11*u8-114559*u4^4*u6^12*u8-409310*u4^3*u6^13*u8+135019*u4^2*u6^14*u8+362047*u1*u6^15*u8-277503*u4*u6^15*u8-147667*u6^16*u8-194996*u4^7*u6^8*u [16.2s]
+d=7 odd k=1: n=6 eqs=28 irrelevant=True | singular: n_gens 28 gb_size 20 dim 0 vdim 8
+n_components 1
+component 1 dim 0
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [2.7s]
+d=7 even k=2: n=11 eqs=27 irrelevant=False | singular: n_gens 27 gb_size 94 dim 2 vdim -1
+n_components 1
+component 1 dim 2
+u4^8-159762*u4^7*u6-264767*u4^6*u6^2+121470*u4^5*u6^3-219861*u4^4*u6^4-110046*u4^3*u6^5-307321*u4^2*u6^6+291214*u4*u6^7+302933*u6^8+266237*u4^7*u8+143752*u4^6*u6*u8-218059*u4^5*u6^2*u8+182060*u4^4*u6^3*u8-75328*u4^3*u6^4*u8-494745*u4^2*u6^5*u8-10830*u4*u6^6*u8+314158*u6^7*u8+141030*u4^6*u8^2+260676*u4^5*u6*u8^2+16404*u4^4*u6^2*u8^2+99157*u4^3*u6^3*u8^2-15559*u4^2*u6^4*u8^2-84758*u4*u6^5*u8^2+54187*u6^6*u8^2+179713*u4^5*u8^3-217319*u4^4*u6*u8^3-267960*u4^3*u6^2*u8^3+37290*u4^2*u6^3*u8^3-390949*u4*u6^4*u8^3-13845*u6^5*u8^3+159806*u4^4*u8^4+315476*u4^3*u6*u8^4-380548*u4^2*u6^2*u8^4-237222*u4*u6^3*u8^4-140804*u6^4*u8^4-437288*u4^3*u8^5-314202*u4^2*u6*u8^5-190017*u4*u6^2*u8^5-72621*u6^3*u8^5-353571*u4^2*u8^6+88160*u4*u6*u8^6-498523*u6^2*u8^6+412184*u4*u8^7+472479*u6*u8^7-263399*u8^8,
+-379547*u4^7*u6^10+95018*u4^6*u6^11+107128*u4^5*u6^12-187161*u4^4*u6^13-430376*u4^3*u6^14-373299*u4^2*u6^15+u1*u6^16-276933*u4*u6^16+74234*u6^17-199037*u4^7*u6^9*u8-137177*u4^6*u6^10*u8+101880*u4^5*u6^11*u8-114559*u4^4*u6^12*u8-409310*u4^3*u6^13*u8+135019*u4^2*u6^14*u8+362047*u1*u6^15*u8-277503*u4*u6^15*u8-147667*u6^16*u8-194996*u4^7*u6^8*u [8.5s]
+d=7 odd k=2: n=6 eqs=31 irrelevant=True | singular: n_gens 31 gb_size 20 dim 0 vdim 8
+n_components 1
+component 1 dim 0
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [2.3s]
+d=7 even k=3: n=8 eqs=53 irrelevant=True | singular: n_gens 53 gb_size 30 dim 0 vdim 16
+n_components 1
+component 1 dim 0
+u7,
+u6,
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [4.1s]
+d=7 odd k=3: n=6 eqs=26 irrelevant=True | singular: n_gens 26 gb_size 20 dim 0 vdim 8
+n_components 1
+component 1 dim 0
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [4.7s]
+d=7 even k=4: n=11 eqs=39 irrelevant=False | singular: n_gens 39 gb_size 94 dim 2 vdim -1
+n_components 1
+component 1 dim 2
+u4^8-159762*u4^7*u6-264767*u4^6*u6^2+121470*u4^5*u6^3-219861*u4^4*u6^4-110046*u4^3*u6^5-307321*u4^2*u6^6+291214*u4*u6^7+302933*u6^8+266237*u4^7*u8+143752*u4^6*u6*u8-218059*u4^5*u6^2*u8+182060*u4^4*u6^3*u8-75328*u4^3*u6^4*u8-494745*u4^2*u6^5*u8-10830*u4*u6^6*u8+314158*u6^7*u8+141030*u4^6*u8^2+260676*u4^5*u6*u8^2+16404*u4^4*u6^2*u8^2+99157*u4^3*u6^3*u8^2-15559*u4^2*u6^4*u8^2-84758*u4*u6^5*u8^2+54187*u6^6*u8^2+179713*u4^5*u8^3-217319*u4^4*u6*u8^3-267960*u4^3*u6^2*u8^3+37290*u4^2*u6^3*u8^3-390949*u4*u6^4*u8^3-13845*u6^5*u8^3+159806*u4^4*u8^4+315476*u4^3*u6*u8^4-380548*u4^2*u6^2*u8^4-237222*u4*u6^3*u8^4-140804*u6^4*u8^4-437288*u4^3*u8^5-314202*u4^2*u6*u8^5-190017*u4*u6^2*u8^5-72621*u6^3*u8^5-353571*u4^2*u8^6+88160*u4*u6*u8^6-498523*u6^2*u8^6+412184*u4*u8^7+472479*u6*u8^7-263399*u8^8,
+-379547*u4^7*u6^10+95018*u4^6*u6^11+107128*u4^5*u6^12-187161*u4^4*u6^13-430376*u4^3*u6^14-373299*u4^2*u6^15+u1*u6^16-276933*u4*u6^16+74234*u6^17-199037*u4^7*u6^9*u8-137177*u4^6*u6^10*u8+101880*u4^5*u6^11*u8-114559*u4^4*u6^12*u8-409310*u4^3*u6^13*u8+135019*u4^2*u6^14*u8+362047*u1*u6^15*u8-277503*u4*u6^15*u8-147667*u6^16*u8-194996*u4^7*u6^8*u [10.9s]
+d=7 odd k=4: n=6 eqs=28 irrelevant=True | singular: n_gens 28 gb_size 20 dim 0 vdim 8
+n_components 1
+component 1 dim 0
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [5.4s]
+d=7 even k=5: n=8 eqs=51 irrelevant=True | singular: n_gens 51 gb_size 30 dim 0 vdim 16
+n_components 1
+component 1 dim 0
+u7,
+u6,
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [5.2s]
+d=7 odd k=5: n=6 eqs=24 irrelevant=True | singular: n_gens 24 gb_size 20 dim 0 vdim 8
+n_components 1
+component 1 dim 0
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [4.7s]
+d=7 even k=6: n=8 eqs=51 irrelevant=True | singular: n_gens 51 gb_size 30 dim 0 vdim 16
+n_components 1
+component 1 dim 0
+u7,
+u6,
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [3.4s]
+d=7 odd k=6: n=6 eqs=24 irrelevant=True | singular: n_gens 24 gb_size 20 dim 0 vdim 8
+n_components 1
+component 1 dim 0
+u5,
+u4,
+u3,
+u2,
+u1,
+u0 [2.3s]
+DONE

@@ -1,0 +1,21 @@
+
+ring r = 32003, (X0,X1,X2,Y0,Y1,Y2), dp;
+poly F = X0^6 + 15*X0^4*X1*X2/7 + 15*X0^4*Y0*Y1/7 + 888750*X0^3*X1^3/10793861 + 1687250*X0^3*X2^3/16194277 + 2599425*X0^2*X1^2*X2^2/1002001 + 75*X0^2*X1^2*Y0^2/289 + 375*X0^2*X1^2*Y0*Y2/2197 + 375*X0^2*X1^2*Y1*Y2/4913 + 150*X0^2*X1*X2*Y0*Y1/49 + 375*X0^2*X2^2*Y0*Y1/12167 + 375*X0^2*X2^2*Y1*Y2/1331 + 75*X0^2*X2^2*Y2^2/529 + 75*X0^2*Y0^2*Y1^2/49 + 15*X0*X1^4*X2/11 + 150*X0*X1^2*X2*Y1*Y2/121 + 15*X0*X1*X2^4/13 + 150*X0*X1*X2^2*Y0*Y2/169 + 15*X0*X1*Y0^4/17 + 150*X0*X1*Y0^2*Y1*Y2/289 + 375*X0*X1*Y0^2*Y2^2/2197 + 375*X0*X1*Y1^2*Y2^2/4913 + 375*X0*X2*Y0^2*Y1^2/12167 + 150*X0*X2*Y0*Y1*Y2^2/529 + 375*X0*X2*Y1^2*Y2^2/1331 + 15*X0*X2*Y2^4/23 + X1^6 + 15*X1^4*Y1*Y2/11 + 900250*X1^3*X2^3/2352637 + 375*X1^2*X2^2*Y0*Y1/343 + 375*X1^2*X2^2*Y0*Y2/6859 + 75*X1^2*X2^2*Y1^2/361 + 75*X1^2*Y1^2*Y2^2/121 + 375*X1*X2*Y0^2*Y1^2/343 + 375*X1*X2*Y0^2*Y2^2/6859 + 150*X1*X2*Y0*Y1^2*Y2/361 + 15*X1*X2*Y1^4/19 + X2^6 + 15*X2^4*Y0*Y2/13 + 75*X2^2*Y0^2*Y2^2/169 + Y0^6 + 15*Y0^4*Y1*Y2/17 + 1563750*Y0^3*Y1^3/4173281 + 1132000*Y0^3*Y2^3/15069223 + 33613425*Y0^2*Y1^2*Y2^2/55190041 + 15*Y0*Y1^4*Y2/19 + 15*Y0*Y1*Y2^4/23 + Y1^6 + 780500*Y1^3*Y2^3/6539203 + Y2^6;
+poly A = X0^3*Y0^3;
+option(redSB);
+int t0 = timer;
+ideal J = jacob(F);
+ideal Js = std(J);
+print("std(J) done, time " + string(timer - t0) + " s, size " + string(size(Js)));
+int k;
+for (k = 1; k <= 24; k++) { print("R_" + string(k) + " = " + string(size(kbase(Js, k)))); }
+t0 = timer;
+ideal C = quotient(Js, ideal(A));
+ideal Cs = std(C);
+print("quotient done, time " + string(timer - t0) + " s");
+for (k = 1; k <= 13; k++) {
+  int rJ = size(kbase(Js, k));
+  int rC = size(kbase(Cs, k));
+  print("d=" + string(k) + " dim(S/J)_d=" + string(rJ) + " dim(S/(J:A))_d=" + string(rC) + " dim (J:A)_d/J_d = " + string(rJ - rC));
+}
+quit;

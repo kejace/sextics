@@ -1,0 +1,739 @@
+{
+ "d": 8,
+ "par": 1,
+ "primes": [
+  536870909
+ ],
+ "families": {
+  "X0+Y0": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y1": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y2": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+M": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y1": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y2": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+M": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y1": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y2": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+M": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y0+L": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y1+L": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y2+L": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "L+M": {
+   "n": 4,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+Y0": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+Y1": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y0": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y1": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+Y1": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y1+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y1+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y1+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y2+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y2+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+L+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y0": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y1": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+Y1": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y1+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y1+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y1+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y2+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y2+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+L+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0+Y1": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y1+Y2": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y1+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y1+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y2+L": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y2+M": {
+   "n": 20,
+   "admissible_dim": 0,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+L+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y0+Y1+L": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y0+Y2+L": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y0+L+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y1+Y2+L": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y1+L+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y2+L+M": {
+   "n": 20,
+   "admissible_dim": 4,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y0": {
+   "n": 70,
+   "admissible_dim": 14,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y1": {
+   "n": 70,
+   "admissible_dim": 14,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y2": {
+   "n": 70,
+   "admissible_dim": 14,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+M": {
+   "n": 70,
+   "admissible_dim": 22,
+   "kernel_part_rank": 1,
+   "consistent_primes": true
+  },
+  "X0+X1+Y0+Y1": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+Y0+Y2": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+Y0+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+Y1+Y2": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+Y1+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+Y2+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y0+Y1": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y0+Y2": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y0+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y1+Y2": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y1+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y2+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+Y1+Y2": {
+   "n": 70,
+   "admissible_dim": 14,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+Y1+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+Y2+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y1+Y2+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y1+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y2+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y0+Y1": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y0+Y2": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y0+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y1+Y2": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y1+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+X2+Y2+M": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+Y1+Y2": {
+   "n": 70,
+   "admissible_dim": 14,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+Y1+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+Y2+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y1+Y2+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y1+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y2+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0+Y1+Y2": {
+   "n": 70,
+   "admissible_dim": 14,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0+Y1+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0+Y2+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y0+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y1+Y2+L": {
+   "n": 80,
+   "admissible_dim": 10,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y1+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X2+Y2+L+M": {
+   "n": 80,
+   "admissible_dim": 20,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "Y0+Y1+Y2+L": {
+   "n": 70,
+   "admissible_dim": 22,
+   "kernel_part_rank": 1,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y0+Y1": {
+   "n": 240,
+   "admissible_dim": 51,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y0+Y2": {
+   "n": 240,
+   "admissible_dim": 51,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y0+M": {
+   "n": 240,
+   "admissible_dim": 69,
+   "kernel_part_rank": 2,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y1+Y2": {
+   "n": 240,
+   "admissible_dim": 51,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y1+M": {
+   "n": 240,
+   "admissible_dim": 69,
+   "kernel_part_rank": 2,
+   "consistent_primes": true
+  },
+  "X0+X1+X2+Y2+M": {
+   "n": 240,
+   "admissible_dim": 69,
+   "kernel_part_rank": 2,
+   "consistent_primes": true
+  },
+  "X0+X1+Y0+Y1+Y2": {
+   "n": 240,
+   "admissible_dim": 51,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+X2+Y0+Y1+Y2": {
+   "n": 240,
+   "admissible_dim": 51,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X0+Y0+Y1+Y2+L": {
+   "n": 240,
+   "admissible_dim": 69,
+   "kernel_part_rank": 2,
+   "consistent_primes": true
+  },
+  "X1+X2+Y0+Y1+Y2": {
+   "n": 240,
+   "admissible_dim": 51,
+   "kernel_part_rank": 0,
+   "consistent_primes": true
+  },
+  "X1+Y0+Y1+Y2+L": {
+   "n": 240,
+   "admissible_dim": 69,
+   "kernel_part_rank": 2,
+   "consistent_primes": true
+  },
+  "X2+Y0+Y1+Y2+L": {
+   "n": 240,
+   "admissible_dim": 69,
+   "kernel_part_rank": 2,
+   "consistent_primes": true
+  }
+ },
+ "forms": {
+  "X0": "X0",
+  "X1": "X1",
+  "X2": "X2",
+  "Y0": "Y0",
+  "Y1": "Y1",
+  "Y2": "Y2",
+  "L": "X0 + 2*X1 + 3*X2",
+  "M": "Y0 + 3*Y1 + 5*Y2"
+ }
+}

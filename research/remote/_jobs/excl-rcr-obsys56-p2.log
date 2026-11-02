@@ -1,0 +1,11 @@
+[obsys_d5_p998244353] unknowns: 6 (J-part, complement of F-multiples) + 0 kernel classes = 6
+[Reducer] deg=10 par=0 mons=1512 Jrows=756 rank=750 ring=762 (73.4s)
+[Reducer] deg=10 par=1 mons=1491 Jrows=756 rank=747 ring=744 (62.2s)
+[obsys_d5_p998244353] building 21 pair polynomials of degree 10
+[obsys_d5_p998244353] pairs 21/21 done (17s), eqs so far 100
+[obsys_d5_p998244353] 100 nonzero quadrics in 6 unknowns; pairs with nonzero ob: 20
+{"exp": "obsys-build", "d": 5, "p": 998244353, "unknowns": 6, "nW": 6, "nK": 0, "equations": 100, "msolve_file": "/tmp/hodge/results/reflection-coupled-residual/wave2-excl/obsys_d5_p998244353.ms", "seconds": 153.2, "ts": "2026-11-02T00:53:39", "lens": "excl", "engine": 3}
+[msolve] msolve -t 1 -g 1 -f /tmp/hodge/results/reflection-coupled-residual/wave2-excl/obsys_d5_p998244353.ms -o /tmp/hodge/results/reflection-coupled-residual/wave2-excl/obsys_d5_p998244353.gb1
+ 
+{"exp": "obsys-msolve", "d": 5, "p": 998244353, "unknowns": 6, "equations": 100, "lead_monomials": 20, "m_primary_mod_p": true, "n_vars_without_pure_power": 0, "max_pure_power": 2, "msolve_seconds": 0.2, "msolve_rc": 0, "threads": 1, "conclusion": "RIGOROUS: no certificate with deg D = 5 (E1 family mod (F) has only the zero solution of E2 mod J over C)", "ts": "2026-11-02T00:53:39", "lens": "excl"
+[obsys_d6_p998244353] unknowns: 35 (J-part, complement of F-multiples) + 0 kernel classes = 35

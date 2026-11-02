@@ -1,0 +1,67 @@
+ring R = 0, (u0,u1,u2,u3,u4,u5,u6,u7,u8,u9,u10,u11,u12,u13,u14,u15,u16,u17,u18,u19,u20,u21,u22,u23), dp;
+ideal SI = 1;
+attrib(SI, "isSB", 1);
+"gb_size", size(SI), "dim", dim(SI);
+int k; int bad = 0;
+"group vanishing-coordinates: 9 generators";
+k = 1; while (k <= 8) { if (reduce((u6)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u6"; }
+k = 1; while (k <= 8) { if (reduce((u7)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u7"; }
+k = 1; while (k <= 8) { if (reduce((u8)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u8"; }
+k = 1; while (k <= 8) { if (reduce((u12)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u12"; }
+k = 1; while (k <= 8) { if (reduce((u15)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u15"; }
+k = 1; while (k <= 8) { if (reduce((u17)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u17"; }
+k = 1; while (k <= 8) { if (reduce((u20)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u20"; }
+k = 1; while (k <= 8) { if (reduce((u22)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u22"; }
+k = 1; while (k <= 8) { if (reduce((u23)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u23"; }
+"group rank-one-minors: 30 generators";
+k = 1; while (k <= 8) { if (reduce((u0*u4-u1*u3)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u0*u4-u1*u3"; }
+k = 1; while (k <= 8) { if (reduce((u0*u5-u2*u3)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u0*u5-u2*u3"; }
+k = 1; while (k <= 8) { if (reduce((u0*u10-u1*u9)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u0*u10-u1*u9"; }
+k = 1; while (k <= 8) { if (reduce((u0*u11-u2*u9)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u0*u11-u2*u9"; }
+k = 1; while (k <= 8) { if (reduce((u0*u14-u1*u13)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u0*u14-u1*u13"; }
+k = 1; while (k <= 8) { if (reduce((u0*u16-u2*u13)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u0*u16-u2*u13"; }
+k = 1; while (k <= 8) { if (reduce((u0*u19-u1*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u0*u19-u1*u18"; }
+k = 1; while (k <= 8) { if (reduce((u0*u21-u2*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u0*u21-u2*u18"; }
+k = 1; while (k <= 8) { if (reduce((u1*u5-u2*u4)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u1*u5-u2*u4"; }
+k = 1; while (k <= 8) { if (reduce((u1*u11-u2*u10)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u1*u11-u2*u10"; }
+k = 1; while (k <= 8) { if (reduce((u1*u16-u2*u14)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u1*u16-u2*u14"; }
+k = 1; while (k <= 8) { if (reduce((u1*u21-u2*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u1*u21-u2*u19"; }
+k = 1; while (k <= 8) { if (reduce((u3*u10-u4*u9)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u3*u10-u4*u9"; }
+k = 1; while (k <= 8) { if (reduce((u3*u11-u5*u9)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u3*u11-u5*u9"; }
+k = 1; while (k <= 8) { if (reduce((u3*u14-u4*u13)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u3*u14-u4*u13"; }
+k = 1; while (k <= 8) { if (reduce((u3*u16-u5*u13)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u3*u16-u5*u13"; }
+k = 1; while (k <= 8) { if (reduce((u3*u19-u4*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u3*u19-u4*u18"; }
+k = 1; while (k <= 8) { if (reduce((u3*u21-u5*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u3*u21-u5*u18"; }
+k = 1; while (k <= 8) { if (reduce((u4*u11-u5*u10)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u4*u11-u5*u10"; }
+k = 1; while (k <= 8) { if (reduce((u4*u16-u5*u14)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u4*u16-u5*u14"; }
+k = 1; while (k <= 8) { if (reduce((u4*u21-u5*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u4*u21-u5*u19"; }
+k = 1; while (k <= 8) { if (reduce((u9*u14-u10*u13)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u9*u14-u10*u13"; }
+k = 1; while (k <= 8) { if (reduce((u9*u16-u11*u13)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u9*u16-u11*u13"; }
+k = 1; while (k <= 8) { if (reduce((u9*u19-u10*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u9*u19-u10*u18"; }
+k = 1; while (k <= 8) { if (reduce((u9*u21-u11*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u9*u21-u11*u18"; }
+k = 1; while (k <= 8) { if (reduce((u10*u16-u11*u14)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u10*u16-u11*u14"; }
+k = 1; while (k <= 8) { if (reduce((u10*u21-u11*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u10*u21-u11*u19"; }
+k = 1; while (k <= 8) { if (reduce((u13*u19-u14*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u13*u19-u14*u18"; }
+k = 1; while (k <= 8) { if (reduce((u13*u21-u16*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u13*u21-u16*u18"; }
+k = 1; while (k <= 8) { if (reduce((u14*u21-u16*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "u14*u21-u16*u19"; }
+"group C-quadrics: 18 generators";
+k = 1; while (k <= 8) { if (reduce(((210)*u0*u0+(30)*u0*u13+(-30)*u0*u18+(-250)*u3*u3+(-90)*u3*u9+(152)*u3*u13+(62)*u3*u18+(50)*u9*u9+(10)*u9*u13+(-30)*u9*u18+(-405)*u13*u13+(152)*u13*u18+(-305)*u18*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u0*u0+(30)*u0*u13+(-30)*u0*u18+(-250)*u3*u3+(-90)*u3*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u0*u1+(30)*u0*u14+(-30)*u0*u19+(-250)*u3*u4+(-90)*u3*u10+(152)*u3*u14+(62)*u3*u19+(50)*u9*u10+(10)*u9*u14+(-30)*u9*u19+(-405)*u13*u14+(152)*u13*u19+(-305)*u18*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u0*u1+(30)*u0*u14+(-30)*u0*u19+(-250)*u3*u4+(-90)*u3*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u0*u2+(30)*u0*u16+(-30)*u0*u21+(-250)*u3*u5+(-90)*u3*u11+(152)*u3*u16+(62)*u3*u21+(50)*u9*u11+(10)*u9*u16+(-30)*u9*u21+(-405)*u13*u16+(152)*u13*u21+(-305)*u18*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u0*u2+(30)*u0*u16+(-30)*u0*u21+(-250)*u3*u5+(-90)*u3*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u1*u1+(30)*u1*u14+(-30)*u1*u19+(-250)*u4*u4+(-90)*u4*u10+(152)*u4*u14+(62)*u4*u19+(50)*u10*u10+(10)*u10*u14+(-30)*u10*u19+(-405)*u14*u14+(152)*u14*u19+(-305)*u19*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u1*u1+(30)*u1*u14+(-30)*u1*u19+(-250)*u4*u4+(-90)*u4*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u1*u2+(30)*u1*u16+(-30)*u1*u21+(-250)*u4*u5+(-90)*u4*u11+(152)*u4*u16+(62)*u4*u21+(50)*u10*u11+(10)*u10*u16+(-30)*u10*u21+(-405)*u14*u16+(152)*u14*u21+(-305)*u19*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u1*u2+(30)*u1*u16+(-30)*u1*u21+(-250)*u4*u5+(-90)*u4*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u2*u2+(30)*u2*u16+(-30)*u2*u21+(-250)*u5*u5+(-90)*u5*u11+(152)*u5*u16+(62)*u5*u21+(50)*u11*u11+(10)*u11*u16+(-30)*u11*u21+(-405)*u16*u16+(152)*u16*u21+(-305)*u21*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u2*u2+(30)*u2*u16+(-30)*u2*u21+(-250)*u5*u5+(-90)*u5*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u0*u3+(-60)*u0*u13+(60)*u0*u18+(-340)*u3*u3+(180)*u3*u9+(74)*u3*u13+(254)*u3*u18+(-100)*u9*u9+(-20)*u9*u13+(60)*u9*u18+(-135)*u13*u13+(74)*u13*u18+(-335)*u18*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u0*u3+(-60)*u0*u13+(60)*u0*u18+(-340)*u3*u3+(180)*u3*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u0*u4+(-60)*u0*u14+(60)*u0*u19+(-340)*u3*u4+(180)*u3*u10+(74)*u3*u14+(254)*u3*u19+(-100)*u9*u10+(-20)*u9*u14+(60)*u9*u19+(-135)*u13*u14+(74)*u13*u19+(-335)*u18*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u0*u4+(-60)*u0*u14+(60)*u0*u19+(-340)*u3*u4+(180)*u3*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u0*u5+(-60)*u0*u16+(60)*u0*u21+(-340)*u3*u5+(180)*u3*u11+(74)*u3*u16+(254)*u3*u21+(-100)*u9*u11+(-20)*u9*u16+(60)*u9*u21+(-135)*u13*u16+(74)*u13*u21+(-335)*u18*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u0*u5+(-60)*u0*u16+(60)*u0*u21+(-340)*u3*u5+(180)*u3*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u1*u4+(-60)*u1*u14+(60)*u1*u19+(-340)*u4*u4+(180)*u4*u10+(74)*u4*u14+(254)*u4*u19+(-100)*u10*u10+(-20)*u10*u14+(60)*u10*u19+(-135)*u14*u14+(74)*u14*u19+(-335)*u19*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u1*u4+(-60)*u1*u14+(60)*u1*u19+(-340)*u4*u4+(180)*u4*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u1*u5+(-60)*u1*u16+(60)*u1*u21+(-340)*u4*u5+(180)*u4*u11+(74)*u4*u16+(254)*u4*u21+(-100)*u10*u11+(-20)*u10*u16+(60)*u10*u21+(-135)*u14*u16+(74)*u14*u21+(-335)*u19*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u1*u5+(-60)*u1*u16+(60)*u1*u21+(-340)*u4*u5+(180)*u4*u"; }
+k = 1; while (k <= 8) { if (reduce(((210)*u2*u5+(-60)*u2*u16+(60)*u2*u21+(-340)*u5*u5+(180)*u5*u11+(74)*u5*u16+(254)*u5*u21+(-100)*u11*u11+(-20)*u11*u16+(60)*u11*u21+(-135)*u16*u16+(74)*u16*u21+(-335)*u21*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(210)*u2*u5+(-60)*u2*u16+(60)*u2*u21+(-340)*u5*u5+(180)*u5*u"; }
+k = 1; while (k <= 8) { if (reduce(((70)*u0*u9+(60)*u0*u13+(10)*u0*u18+(-150)*u3*u3+(30)*u3*u9+(66)*u3*u13+(96)*u3*u18+(-75)*u9*u9+(20)*u9*u13+(10)*u9*u18+(-215)*u13*u13+(66)*u13*u18+(-190)*u18*u18)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(70)*u0*u9+(60)*u0*u13+(10)*u0*u18+(-150)*u3*u3+(30)*u3*u9+("; }
+k = 1; while (k <= 8) { if (reduce(((70)*u0*u10+(60)*u0*u14+(10)*u0*u19+(-150)*u3*u4+(30)*u3*u10+(66)*u3*u14+(96)*u3*u19+(-75)*u9*u10+(20)*u9*u14+(10)*u9*u19+(-215)*u13*u14+(66)*u13*u19+(-190)*u18*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(70)*u0*u10+(60)*u0*u14+(10)*u0*u19+(-150)*u3*u4+(30)*u3*u10"; }
+k = 1; while (k <= 8) { if (reduce(((70)*u0*u11+(60)*u0*u16+(10)*u0*u21+(-150)*u3*u5+(30)*u3*u11+(66)*u3*u16+(96)*u3*u21+(-75)*u9*u11+(20)*u9*u16+(10)*u9*u21+(-215)*u13*u16+(66)*u13*u21+(-190)*u18*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(70)*u0*u11+(60)*u0*u16+(10)*u0*u21+(-150)*u3*u5+(30)*u3*u11"; }
+k = 1; while (k <= 8) { if (reduce(((70)*u1*u10+(60)*u1*u14+(10)*u1*u19+(-150)*u4*u4+(30)*u4*u10+(66)*u4*u14+(96)*u4*u19+(-75)*u10*u10+(20)*u10*u14+(10)*u10*u19+(-215)*u14*u14+(66)*u14*u19+(-190)*u19*u19)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(70)*u1*u10+(60)*u1*u14+(10)*u1*u19+(-150)*u4*u4+(30)*u4*u10"; }
+k = 1; while (k <= 8) { if (reduce(((70)*u1*u11+(60)*u1*u16+(10)*u1*u21+(-150)*u4*u5+(30)*u4*u11+(66)*u4*u16+(96)*u4*u21+(-75)*u10*u11+(20)*u10*u16+(10)*u10*u21+(-215)*u14*u16+(66)*u14*u21+(-190)*u19*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(70)*u1*u11+(60)*u1*u16+(10)*u1*u21+(-150)*u4*u5+(30)*u4*u11"; }
+k = 1; while (k <= 8) { if (reduce(((70)*u2*u11+(60)*u2*u16+(10)*u2*u21+(-150)*u5*u5+(30)*u5*u11+(66)*u5*u16+(96)*u5*u21+(-75)*u11*u11+(20)*u11*u16+(10)*u11*u21+(-215)*u16*u16+(66)*u16*u21+(-190)*u21*u21)^k, SI) == 0) { break; } k = k + 1; } if (k > 8) { bad = bad + 1; "FAIL", "(70)*u2*u11+(60)*u2*u16+(10)*u2*u21+(-150)*u5*u5+(30)*u5*u11"; }
+"total failures", bad;
+quit;

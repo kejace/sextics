@@ -1,0 +1,1 @@
+bash: line 1: 341437 Killed                  python3 job_d7_sub.py 7 odd,tor:0010,tor:0100,tor:1000,tor:1110,even,full 16 > job_d7_sub.out 2> job_d7_sub.err

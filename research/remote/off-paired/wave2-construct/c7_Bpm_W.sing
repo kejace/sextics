@@ -1,0 +1,11 @@
+// (1) quasi-smoothness of B_pm = {H + C m ± 2 m^3 = 0} in P(1,1,1,1,2) (mod 32003), K = O(6-6) = O(0): CY threefolds
+ring r = 32003,(X0,X1,Y0,Y1,m),dp;
+poly C = X1^3*Y1/2 + X0^2*X1*Y0/3;
+poly H = X0^6+X1^6+Y0^6+Y1^6 + X0^3*X1*Y0*Y1/2;
+int e;
+for (e=-1; e<=1; e=e+2) {
+  poly B = H + C*m + e*2*m^3;
+  ideal S = B; S = S + jacob(B); S = std(S);
+  "B_", e, ": dim of singular locus of the affine cone =", dim(S), " (0 = quasi-smooth)";
+}
+quit;

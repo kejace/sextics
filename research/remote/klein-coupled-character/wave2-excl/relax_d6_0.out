@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d=6 parmode=0: g-space dim n=18
+built 171 quadratic-form coefficient polys of degree 12 in 0.0s
+gauge vectors in V: 1
+dim(G o V) = 18 (expected 1*18 - 1 = 17)
+exact gauge identity checks: 4 checked, 0 failed
+  block par=1 ch=0: 15 classes, rank 11 in R (dim 128), dimJ=267  [6.6s]
+  block par=1 ch=1: 15 classes, rank 11 in R (dim 123), dimJ=336  [8.1s]
+  block par=1 ch=2: 15 classes, rank 11 in R (dim 123), dimJ=336  [12.2s]
+  block par=1 ch=3: 81 classes, rank 27 in R (dim 123), dimJ=313  [14.9s]
+  block par=1 ch=4: 15 classes, rank 11 in R (dim 123), dimJ=336  [28.7s]
+  block par=1 ch=5: 15 classes, rank 11 in R (dim 123), dimJ=313  [37.3s]
+  block par=1 ch=6: 15 classes, rank 11 in R (dim 123), dimJ=313  [43.3s]
+RESULT d=6 parmode=0: tensors 171 (zero polys 0), rank of classes 93, dim W = 78, dim(G o V) = 18 -> NOT decisive (W larger than gauge)

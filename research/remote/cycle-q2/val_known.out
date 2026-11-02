@@ -1,0 +1,12 @@
+[eq] d=6 q=2 |H|=46656 gens=6 rows=11 cols=6 (N 6, Q 0, T 0) nnz=69 build 3.4s
+fermat-q2 q 2 D 6*X1**6 + 6*X2**6 -> {'consistent': True, 'rank': 5, 'nullity': 1, 'rows': 11, 'cols': 6} 5.9s
+   control D + X0^d -> {'consistent': False, 'rank': 5, 'nullity': 1}
+   exact lift: solved {'primes': 1, 'rank': 5, 'nullity': 1}
+[eq] d=1 q=1 |H|=1296 gens=4 rows=12 cols=2 (N 2, Q 0, T 0) nnz=28 build 0.2s
+cone-ladder-linear q 1 D X1 - X2 -> {'consistent': True, 'rank': 2, 'nullity': 0, 'rows': 12, 'cols': 2} 0.2s
+   control D + X0^d -> {'consistent': False, 'rank': 13, 'nullity': 1}
+   exact lift: solved {'primes': 1, 'rank': 2, 'nullity': 0}
+[eq] d=2 q=1 |H|=12 gens=2 rows=1327 cols=168 (N 168, Q 0, T 0) nnz=23308 build 0.9s
+polarized-contact-coupled-d2 q 1 D X2**2 - Y2**2 -> {'consistent': True, 'rank': 159, 'nullity': 9, 'rows': 1327, 'cols': 168} 1.1s
+   control D + X0^d -> {'consistent': False, 'rank': 159, 'nullity': 9}
+   exact lift: solved {'primes': 1, 'rank': 159, 'nullity': 9}

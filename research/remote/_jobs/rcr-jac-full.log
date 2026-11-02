@@ -1,0 +1,23 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[search] d=5 chi=(0, 0) family=jac K=3 (nonjac 0, jac 3) mode=full
+[rf] E1 lstsq (1260, 808) rank 780: relres 3.96e-15 (1.1s)
+[rf] d=5 chi=(0, 0) K=3 rows=868 nK=28 nQ=38 excludedF=0 built in 1.4s
+[search] built in 1.4s; e1 relres 3.96e-15; dimP=3
+[search] gradcheck f=9.293e+02 analytic=-5.033868e+02 numeric=-5.033868e+02
+{"step": "varpro", "tag": "jac-d5-chi00-full", "d": 5, "chi": [0, 0], "family": "jac", "mode": "full", "K": 3, "dimP": 3, "rows": 868, "nK": 28, "nQ": 38, "ob_dim": null, "restarts": 300, "best_rel": 0.975796094701064, "median_rel": 0.9759147589290181, "hist_log10": {"1e-1": 300}, "spurious": 0, "rank_min": 64, "rank_max": 64, "iters_mean": 14.916666666666666, "e1_relres": 3.960333324421562e-15, "seconds": 711.0, "procs": 4, "seed": 11, "engine": 3}
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[search] d=5 chi=(1, 1) family=jac K=0 (nonjac 0, jac 0) mode=full
+Traceback (most recent call last):
+  File "/tmp/hodge/results/reflection-coupled-residual/w2_search.py", line 60, in <module>
+    fam = w2rcr.ReducedFamily(F, A, basis, mode=args.mode, verbose=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/reflection-coupled-residual/w2rcr.py", line 320, in __init__
+    d = core.degree(basis[0]); self.d = d
+                    ~~~~~^^^
+IndexError: list index out of range
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[search] d=5 chi=(0, 1) family=jac K=2 (nonjac 0, jac 2) mode=full
+[rf] E1 lstsq (1316, 838) rank 811: relres 3.38e-15 (1.4s)
+[rf] d=5 chi=(0, 1) K=2 rows=868 nK=27 nQ=38 excludedF=0 built in 8.1s
+[search] built in 8.1s; e1 relres 3.38e-15; dimP=2
+[search] gradcheck f=4.010e+02 analytic=-6.187653e+02 numeric=-6.187653e+02

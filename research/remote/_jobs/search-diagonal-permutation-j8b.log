@@ -1,0 +1,17 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[extra] D8 float E1 lift residual 6.34e-15
+[01:17:57] {"type": "setup", "wid": 1, "r": 662, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 11.7, "Fres": 6.69868497850393e-14, "label": "jac-d8+1extra", "nKsector": 954, "ref_B0norm2": 24585081776.522026}
+[extra] D8 float E1 lift residual 6.34e-15
+[extra] D8 float E1 lift residual 6.34e-15
+[01:20:18] {"type": "setup", "wid": 4, "r": 662, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 10.1, "Fres": 3.504244472837621e-14, "label": "jac-d8+1extra", "nKsector": 954, "ref_B0norm2": 35635152489.65402}
+[01:20:19] {"type": "setup", "wid": 6, "r": 662, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 10.2, "Fres": 4.79827037138811e-14, "label": "jac-d8+1extra", "nKsector": 954, "ref_B0norm2": 15776886853.375797}
+[extra] D8 float E1 lift residual 6.34e-15
+[01:21:29] {"type": "setup", "wid": 3, "r": 662, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 11.3, "Fres": 4.30156981855887e-14, "label": "jac-d8+1extra", "nKsector": 954, "ref_B0norm2": 37116372786.18828}
+[extra] D8 float E1 lift residual 6.34e-15
+[extra] D8 float E1 lift residual 6.34e-15
+[01:22:02] {"type": "setup", "wid": 5, "r": 662, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 12.0, "Fres": 3.6121725024193746e-14, "label": "jac-d8+1extra", "nKsector": 954, "ref_B0norm2": 20688239998.88756}
+[01:22:06] {"type": "setup", "wid": 7, "r": 662, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 11.6, "Fres": 4.7339914977441456e-14, "label": "jac-d8+1extra", "nKsector": 954, "ref_B0norm2": 59093005190.40537}
+[extra] D8 float E1 lift residual 6.34e-15
+[extra] D8 float E1 lift residual 6.34e-15
+[01:23:10] {"type": "setup", "wid": 0, "r": 662, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 12.4, "Fres": 5.878775064393307e-14, "label": "jac-d8+1extra", "nKsector": 954, "ref_B0norm2": 17998586974.349728}
+[01:23:11] {"type": "setup", "wid": 2, "r": 662, "K": 169, "nK": 954, "dimP": 157, "nspur": 12, "setup_s": 12.6, "Fres": 5.3808147500052616e-14, "label": "jac-d8+1extra", "nKsector": 954, "ref_B0norm2": 26110740303.75701}

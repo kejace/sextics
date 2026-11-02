@@ -1,0 +1,10 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"d": 1, "parD": 1, "dim S_d": 3, "dim J_d": 0, "dim R_d": 3, "rank J_{d+6}": 63, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 396, "cols": 66, "p": 2147483647, "engine": 2, "seconds": 0.1}
+{"d": 2, "parD": 1, "dim S_d": 9, "dim J_d": 0, "dim R_d": 9, "rank J_{d+6}": 168, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 651, "cols": 177, "p": 2147483647, "engine": 2, "seconds": 1.0}
+{"d": 3, "parD": 1, "dim S_d": 28, "dim J_d": 0, "dim R_d": 28, "rank J_{d+6}": 378, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 1001, "cols": 406, "p": 2147483647, "engine": 2, "seconds": 2.8}
+{"d": 4, "parD": 1, "dim S_d": 60, "dim J_d": 0, "dim R_d": 60, "rank J_{d+6}": 750, "kernel dim (incl J_d)": 0, "kernel mod J": 0, "rows": 1512, "cols": 816, "p": 2147483647, "engine": 2, "seconds": 17.4}
+{"d": 5, "parD": 1, "dim S_d": 126, "dim J_d": 3, "dim R_d": 123, "rank J_{d+6}": 1341, "kernel dim (incl J_d)": 3, "kernel mod J": 0, "rows": 2184, "cols": 1512, "p": 2147483647, "engine": 2, "seconds": 48.6}
+{"d": 6, "parD": 1, "dim S_d": 226, "dim J_d": 18, "dim R_d": 208, "rank J_{d+6}": 2223, "kernel dim (incl J_d)": 18, "kernel mod J": 0, "rows": 3108, "cols": 2602, "p": 2147483647, "engine": 2, "seconds": 135.7}
+{"d": 7, "parD": 0, "dim S_d": 396, "dim J_d": 63, "dim R_d": 333, "rank J_{d+6}": 3441, "kernel dim (incl J_d)": 64, "kernel mod J": 1, "rows": 4284, "cols": 4257, "p": 2147483647, "engine": 2, "seconds": 352.3}
+{"d": 7, "parD": 1, "dim S_d": 396, "dim J_d": 63, "dim R_d": 333, "rank J_{d+6}": 3441, "kernel dim (incl J_d)": 64, "kernel mod J": 1, "rows": 4284, "cols": 4257, "p": 2147483647, "engine": 2, "seconds": 348.5}
+{"d": 8, "parD": 0, "dim S_d": 651, "dim J_d": 168, "dim R_d": 483, "rank J_{d+6}": 5052, "kernel dim (incl J_d)": 174, "kernel mod J": 6, "rows": 5796, "cols": 6657, "p": 2147483647, "engine": 2, "seconds": 790.9}

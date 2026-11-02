@@ -1,0 +1,4 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[sector d=2 chi(D)=(0, 0, 0, 0)] rows=1404 cols=336 (N 336, Q 0) built 0.0s
+[sector solve p=2147483647] consistent=True rank=315 nullity=21 (0.9s)
+[sector d=6 chi(D)=(0, 0, 0, 0)] rows=23120 cols=5214 (N 4752, Q 462) built 0.5s

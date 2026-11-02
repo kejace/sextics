@@ -1,0 +1,38 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+A parity 1 char 3 F char 0
+d 5 par 0 k 0 dimS 9 dimJ 0 HF 9 colon 0 kernel 0 OK
+d 5 par 0 k 1 dimS 24 dimJ 0 HF 24 colon 0 kernel 0 OK
+d 5 par 0 k 2 dimS 24 dimJ 0 HF 24 colon 0 kernel 0 OK
+d 5 par 0 k 3 dimS 15 dimJ 1 HF 14 colon 1 kernel 0 OK
+d 5 par 0 k 4 dimS 24 dimJ 0 HF 24 colon 0 kernel 0 OK
+d 5 par 0 k 5 dimS 15 dimJ 1 HF 14 colon 1 kernel 0 OK
+d 5 par 0 k 6 dimS 15 dimJ 1 HF 14 colon 1 kernel 0 OK
+d 5 par 1 k 0 dimS 30 dimJ 3 HF 27 colon 3 kernel 0 OK
+d 5 par 1 k 1 dimS 16 dimJ 0 HF 16 colon 0 kernel 0 OK
+d 5 par 1 k 2 dimS 16 dimJ 0 HF 16 colon 0 kernel 0 OK
+d 5 par 1 k 3 dimS 16 dimJ 0 HF 16 colon 0 kernel 0 OK
+d 5 par 1 k 4 dimS 16 dimJ 0 HF 16 colon 0 kernel 0 OK
+d 5 par 1 k 5 dimS 16 dimJ 0 HF 16 colon 0 kernel 0 OK
+d 5 par 1 k 6 dimS 16 dimJ 0 HF 16 colon 0 kernel 0 OK
+d 6 par 0 k 0 dimS 50 dimJ 12 HF 38 colon 12 kernel 0 OK
+d 6 par 0 k 1 dimS 31 dimJ 1 HF 30 colon 1 kernel 0 OK
+d 6 par 0 k 2 dimS 31 dimJ 1 HF 30 colon 1 kernel 0 OK
+d 6 par 0 k 3 dimS 31 dimJ 1 HF 30 colon 1 kernel 0 OK
+d 6 par 0 k 4 dimS 31 dimJ 1 HF 30 colon 1 kernel 0 OK
+d 6 par 0 k 5 dimS 31 dimJ 1 HF 30 colon 1 kernel 0 OK
+d 6 par 0 k 6 dimS 31 dimJ 1 HF 30 colon 1 kernel 0 OK
+d 6 par 1 k 0 dimS 19 dimJ 0 HF 19 colon 0 kernel 0 OK
+d 6 par 1 k 1 dimS 40 dimJ 3 HF 37 colon 3 kernel 0 OK
+d 6 par 1 k 2 dimS 40 dimJ 3 HF 37 colon 3 kernel 0 OK
+d 6 par 1 k 3 dimS 29 dimJ 3 HF 26 colon 3 kernel 0 OK
+d 6 par 1 k 4 dimS 40 dimJ 3 HF 37 colon 3 kernel 0 OK
+d 6 par 1 k 5 dimS 29 dimJ 3 HF 26 colon 3 kernel 0 OK
+d 6 par 1 k 6 dimS 29 dimJ 3 HF 26 colon 3 kernel 0 OK
+HF checks d=5,6 done 1.9 s
+gauge check d=6 even: tested 1 gauge dirs, violations 0 [0.6s]
+d=5 pars=[0]: n=3 (before gauge 3, gauge 0) eqs=12 targets={'0,1': {'dimS': 8, 'dimJ': 0, 'dimColon': 0, 'kernel': 0, 'n_eq': 8}, '0,2': {'dimS': 8, 'dimJ': 0, 'dimColon': 0, 'kernel': 0, 'n_eq': 8}, '0,3': {'dimS': 8, 'dimJ': 0, 'dimColon': 0, 'kernel': 0, 'n_eq': 8}, '0,4': {'dimS': 8, 'dimJ': 0, 'dimColon': 0, 'kernel': 0, 'n_eq': 8}, '0,5': {'dimS': 8, 'dimJ': 0, 'dimColon': 0, 'kernel': 0, 'n_eq': 8}, '0,6': {'dimS': 8, 'dimJ': 0, 'dimColon': 0, 'kernel': 0, 'n_eq': 8}} macaulay={'deg': 2, 'rows': 12, 'cols': 6, 'rank': 6, 'full_column_rank': True} [0.1s]
+d=5 pars=[1]: n=3 (before gauge 3, gauge 0) eqs=6 targets={'0,0': {'dimS': 18, 'dimJ': 0, 'dimColon': 0, 'kernel': 0, 'n_eq': 18}} macaulay={'deg': 2, 'rows': 6, 'cols': 6, 'rank': 6, 'full_column_rank': True} [0.0s]
+d=6 pars=[0]: n=17 (before gauge 18, gauge 1) eqs=105 targets={'0,0': {'dimS': 50, 'dimJ': 12, 'dimColon': 12, 'kernel': 0, 'n_eq': 38}, '0,1': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,2': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,3': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,4': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,5': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,6': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}} macaulay={'deg': 3, 'rows': 1785, 'cols': 969, 'rank': 918, 'full_column_rank': False} [1.9s]
+d=6 pars=[1]: n=18 (before gauge 18, gauge 0) eqs=153 targets={'0,0': {'dimS': 50, 'dimJ': 12, 'dimColon': 12, 'kernel': 0, 'n_eq': 38}, '0,1': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,2': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,3': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,4': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,5': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,6': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}} macaulay={'deg': 3, 'rows': 2754, 'cols': 1140, 'rank': 1138, 'full_column_rank': False} [3.2s]
+d=6 pars=[0, 1]: n=35 (before gauge 36, gauge 1) eqs=313 targets={'0,0': {'dimS': 50, 'dimJ': 12, 'dimColon': 12, 'kernel': 0, 'n_eq': 38}, '0,1': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,2': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,3': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,4': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,5': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '0,6': {'dimS': 31, 'dimJ': 1, 'dimColon': 1, 'kernel': 0, 'n_eq': 30}, '1,0': {'dimS': 19, 'dimJ': 0, 'dimColon': 0, 'kernel': 0, 'n_eq': 19}, '1,1': {'dimS': 40, 'dimJ': 3, 'dimColon': 3, 'kernel': 0, 'n_eq': 37}, '1,2': {'dimS': 40, 'dimJ': 3, 'dimColon': 3, 'kernel': 0, 'n_eq': 37}, '1,3': {'dimS': 29, 'dimJ': 3, 'dimColon': 3, 'kernel': 0, 'n_eq': 26}, '1,4': {'dimS': 40, 'dimJ': 3, 'dimColon': 3, 'kernel': 0, 'n_eq': 37}, '1,5': {'dimS': 29, 'dimJ': 3, 'dimColon': 3, 'kernel': 0, 'n_eq': 26}, '1,6': {'dimS': 29, 'dimJ': 3, 'dimColon': 3, 'kernel': 0, 'n_eq': 26}} macaulay={'deg': 3, 'rows': 10955, 'cols': 7770, 'rank': 7195, 'full_column_rank': False} [180.3s]
+SMOKE_DONE

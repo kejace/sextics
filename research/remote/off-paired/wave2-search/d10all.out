@@ -1,0 +1,45 @@
+[09:03:24] start d10all-c00 (eff 85) elapsed 0s
+   -> best 1.677e-03 median 1.694e-03 restarts 8 dimP 85 t/restart 768.89 witness False
+[09:17:37] start d10all-c30 (eff 82) elapsed 853s
+   -> best 1.510e-03 median 1.510e-03 restarts 7 dimP 82 t/restart 878.66 witness False
+[09:34:01] start d10all-c20 (eff 77) elapsed 1837s
+   -> best 2.945e-03 median 1.208e-02 restarts 17 dimP 77 t/restart 239.42 witness False
+[09:44:33] start d10all-c10 (eff 76) elapsed 2469s
+   -> best 2.759e-03 median 2.817e-03 restarts 8 dimP 76 t/restart 654.02 witness False
+[09:56:24] start d10all-c40 (eff 76) elapsed 3180s
+   -> no summary: [Errno 2] No such file or directory: 'wave2-d10all-c40.summary.json'
+[09:56:33] start d10all-c50 (eff 75) elapsed 3188s
+   -> best 7.046e-03 median 1.185e-02 restarts 8 dimP 75 t/restart 598.08 witness False
+[10:07:33] start d10all-c01 (eff 66) elapsed 3849s
+   -> best 3.618e-03 median 3.618e-03 restarts 11 dimP 66 t/restart 362.79 witness False
+[10:17:37] start d10all-c35 (eff 66) elapsed 4453s
+   -> best 3.618e-03 median 3.618e-03 restarts 16 dimP 66 t/restart 251.45 witness False
+[10:27:07] start d10all-c05 (eff 65) elapsed 5022s
+   -> best 5.187e-03 median 2.773e-02 restarts 19 dimP 65 t/restart 216.74 witness False
+[10:36:52] start d10all-c31 (eff 65) elapsed 5608s
+   -> best 5.187e-03 median 2.713e-02 restarts 17 dimP 65 t/restart 212.32 witness False
+[10:46:03] start d10all-c25 (eff 60) elapsed 6159s
+   -> best 9.909e-03 median 2.852e-02 restarts 20 dimP 60 t/restart 190.46 witness False
+[10:55:16] start d10all-c51 (eff 60) elapsed 6712s
+   -> best 9.909e-03 median 2.484e-02 restarts 23 dimP 60 t/restart 200.31 witness False
+[11:05:37] start d10all-c11 (eff 59) elapsed 7333s
+   -> best 6.455e-03 median 2.678e-02 restarts 10 dimP 59 t/restart 381.14 witness False
+[11:16:14] start d10all-c15 (eff 59) elapsed 7970s
+   -> best 1.406e-02 median 1.833e-02 restarts 19 dimP 59 t/restart 195.01 witness False
+[11:24:45] start d10all-c41 (eff 59) elapsed 8481s
+   -> best 1.406e-02 median 1.425e-02 restarts 25 dimP 59 t/restart 172.96 witness False
+[11:34:37] start d10all-c45 (eff 59) elapsed 9073s
+   -> best 6.455e-03 median 6.861e-03 restarts 18 dimP 59 t/restart 202.83 witness False
+[11:43:56] start d10all-c21 (eff 58) elapsed 9632s
+   -> best 9.659e-03 median 2.839e-02 restarts 20 dimP 58 t/restart 196.08 witness False
+[11:53:55] start d10all-c55 (eff 58) elapsed 10231s
+   -> best 9.659e-03 median 2.756e-02 restarts 17 dimP 58 t/restart 212.6 witness False
+[12:02:54] start d10all-c02 (eff 53) elapsed 10770s
+   -> best 1.182e-02 median 4.915e-02 restarts 21 dimP 53 t/restart 192.94 witness False
+[12:12:27] start d10all-c04 (eff 53) elapsed 11343s
+   -> best 1.182e-02 median 5.642e-02 restarts 17 dimP 53 t/restart 202.09 witness False
+[12:20:32] start d10all-c32 (eff 51) elapsed 11828s
+   -> best 1.928e-02 median 1.937e-02 restarts 16 dimP 51 t/restart 229.7 witness False
+[12:28:59] start d10all-c34 (eff 51) elapsed 12335s
+   -> no summary: [Errno 2] No such file or directory: 'wave2-d10all-c34.summary.json'
+[12:29:37] start d10all-c42 (eff 48) elapsed 12373s

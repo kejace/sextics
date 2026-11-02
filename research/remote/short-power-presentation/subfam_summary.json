@@ -1,0 +1,47 @@
+{
+ "d7 even": {
+  "families": 91,
+  "no_solutions": 84,
+  "timeout": {
+   "X0+X1+X2+Y0+M": 34,
+   "X0+X1+X2+Y1+M": 34,
+   "X0+X1+X2+Y2+M": 34,
+   "X0+Y0+Y1+Y2+L": 27,
+   "X1+Y0+Y1+Y2+L": 27,
+   "X2+Y0+Y1+Y2+L": 27,
+   "XM+YL": 30
+  },
+  "max_vars_excluded": 24
+ },
+ "d7 odd": {
+  "families": 91,
+  "no_solutions": 87,
+  "timeout": {
+   "X0+Y0+Y1+Y2+L": 34,
+   "X1+Y0+Y1+Y2+L": 34,
+   "X2+Y0+Y1+Y2+L": 34,
+   "XM+YL": 30
+  },
+  "max_vars_excluded": 27
+ },
+ "d7 mixed": {
+  "families": 20,
+  "no_solutions": 20,
+  "timeout": {},
+  "max_vars_excluded": 32
+ },
+ "d8 even": {
+  "families": 5,
+  "no_solutions": 4,
+  "timeout": {
+   "fermat+kernel": 66
+  },
+  "max_vars_excluded": 6
+ },
+ "d8 odd": {
+  "families": 0,
+  "no_solutions": 0,
+  "timeout": {},
+  "max_vars_excluded": 0
+ }
+}

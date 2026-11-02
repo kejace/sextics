@@ -1,0 +1,1 @@
+chains/chain1b.sh: line 19: 1106537 Killed                  $S --job ker-d8-r1s0 --d 8 --rho 1 --sigma 0 --family kernel --restarts 400 --method lm --seed0 8200 --time-limit 5400 >> chain1.out 2>> chain1.err

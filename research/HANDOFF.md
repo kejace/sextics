@@ -59,3 +59,9 @@ Background workflows that were running are not carried over; resume them with `W
 - Safe on disk and synced: 16 gated exclusion comments (research/posts), engine v3, all wave-2/3 notes and receipts, Kronecker branch `maint/kronecker-checker` in ~/devel/sextics-kron (commit 575e666b, builds, unpushed; PR draft /tmp/hodge/lean/kron-pr/PR.md).
 - Remote VM jobs keep running without API credit; harvest with `python3 -m hodge.rjob pull --lane <lane>` and the closure coordinator's `wave3_harvest.py` (results/_closure). Guards and cron syncs on both machines keep running.
 - To resume after topping up: `claude --resume 2f213184-0ffd-40a3-8b2f-58f1332191ff` from ~/devel/sextics; then Workflow({scriptPath: <scripts>/hodge-wave4-routes-wf_11d84a5e-70d.js, resumeFromRunId: 'wf_11d84a5e-70d'}) after adding to COMMON: "if a relayed user message arrives mid-task, do not change your task"; and the same for hodge-wave3-construct-referee-wf_54e9086c-011.js.
+
+## 2026-11-02 ~06:20 UTC — SHUT DOWN on user request
+- All 16 refereed exclusion comments were posted by the user (post_all.sh, 2026-11-02; URLs in research/posts/<lane>/posted.json and research/posts/_log/posted.log).
+- All VM jobs (444 processes) and local jobs killed; guards stopped on both machines; remote results pulled into /tmp/hodge/results and synced. The gcloud VM hodge-sextics is still RUNNING (stop with: gcloud compute instances stop hodge-sextics --zone us-east1-b). Cron syncs on both machines still run every 10 min (crontab -e to remove).
+- Anthropic workspace API usage limit reached: 'You will regain access on 2026-12-01 at 00:00 UTC'. Wave 4, the construction referee pass, the trio relaunch and the Kronecker review never ran (resume recipe above).
+- Unpushed work: none after this sync; Kronecker branch maint/kronecker-checker pushed to fork (no PR opened).

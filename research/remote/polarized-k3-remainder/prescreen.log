@@ -1,0 +1,17 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+X0^3+X1^3+X2^3 E1-dead J-membership test: D NOT in J(F)_3 (rank 0); frame=xy; expr=X0**3+X1**3+X2**3; d
+Y0^3+Y1^3+Y2^3 E1-dead J-membership test: D NOT in J(F)_3 (rank 0); frame=xy; expr=Y0**3+Y1**3+Y2**3; d
+X0^4+X1^4+X2^4 E1-dead J-membership test: D NOT in J(F)_4 (rank 0); frame=xy; expr=X0**4+X1**4+X2**4; d
+Y0^4+Y1^4+Y2^4 E1-dead J-membership test: D NOT in J(F)_4 (rank 0); frame=xy; expr=Y0**4+Y1**4+Y2**4; d
+Y0^6+Y1^6+Y2^6 E1-dead J-membership test: D NOT in J(F)_6 (rank 18); frame=xy; expr=Y0**6+Y1**6+Y2**6
+U0^3+U1^3+U2^3+V0^3+V1^3+V2^3 E1-dead J-membership test: D NOT in J(F)_3 (rank 0); frame=uv; expr=X0**3 + X1**3 + X2**
+U0^3+U1^3+U2^3-(V0^3+V1^3+V2^3) E1-dead J-membership test: D NOT in J(F)_3 (rank 0); frame=uv; expr=X0**3 + X1**3 + X2**
+sumU^4+sumV^4 E1-dead J-membership test: D NOT in J(F)_4 (rank 0); frame=uv; expr=X0**4 + X1**4 + X2**
+sumU^6-sumV^6 E1-dead J-membership test: D NOT in J(F)_6 (rank 18); frame=uv; expr=X0**6 + X1**6 + X2*
+X0^4+X1^4+Y0^4+Y1^4 E1-dead J-membership test: D NOT in J(F)_4 (rank 0); frame=xy; expr=X0**4+X1**4+Y0**4+Y1
+X0^4+X1^4+X2^4+Y0^4 E1-dead J-membership test: D NOT in J(F)_4 (rank 0); frame=xy; expr=X0**4+X1**4+X2**4+Y0
+U0^4+U1^4+V0^4+V1^4 E1-dead J-membership test: D NOT in J(F)_4 (rank 0); frame=uv; expr=X0**4 + X1**4 + Y0**
+X0^6+X1^6+Y0^6+Y1^6 E1-dead J-membership test: D NOT in J(F)_6 (rank 18); frame=xy; expr=X0**6+X1**6+Y0**6+Y
+U.V = X.X - Y.Y E1-dead J-membership test: D NOT in J(F)_2 (rank 0); frame=xy; expr=X0**2+X1**2+X2**2-Y0
+X.X+Y.Y E1-dead J-membership test: D NOT in J(F)_2 (rank 0); frame=xy; expr=X0**2+X1**2+X2**2+Y0
+PRESCREEN-DONE

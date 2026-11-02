@@ -1,0 +1,9 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+Traceback (most recent call last):
+  File "/tmp/hodge/results/four-plus-two-residual/w2_dims.py", line 80, in <module>
+    r = core_kernel_dim(k, par, p)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/four-plus-two-residual/w2_dims.py", line 32, in core_kernel_dim
+    rJ = _nmod_from_polys(Jcols, p)[0].rank() if Jcols else 0
+         ^^^^^^^^^^^^^^^^
+NameError: name '_nmod_from_polys' is not defined

@@ -1,0 +1,22 @@
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[2],3)) | img
+join3 | core.add(core.add(core.power(Q[3],3),core.power(Q[4],3)),core.power(Q[5],3)) | img
+fermatX | 'X0**6 + X1**6 + X2**6' | img
+fermatY | 'Y0**6 + Y1**6 + Y2**6' | img
+Fpart | Fpart(6) | img
+Fpart | Fpart(0) | img
+Fpart | core.add(Fpart(6),Fpart(0)) | img
+Fpart | core.add(Fpart(4),Fpart(2)) | img
+EIblock | EI([0,1,2]) | img
+EIblock | EI([3,4,5]) | img
+EIpair | EI([0,3]) | img
+EIpair | EI([1,4]) | img
+EIpair | EI([0,1,2,3]) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[3],3)) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[4],3)) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[1],3)),core.power(Q[5],3)) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[2],3)),core.power(Q[3],3)) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[2],3)),core.power(Q[4],3)) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[2],3)),core.power(Q[5],3)) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[3],3)),core.power(Q[4],3)) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[3],3)),core.power(Q[5],3)) | img
+join3 | core.add(core.add(core.power(Q[0],3),core.power(Q[4],3)),core.power(Q[5],3)) | img

@@ -1,0 +1,1 @@
+bash: line 1: 725189 Killed                  W2X_LOG=/tmp/hodge/results/one-reflection-skew/wave2-excl/remote-extradirs.log.jsonl python3 job_extra_dirs.py 8 8 9 10 > job_extra_dirs.out 2> job_extra_dirs.err

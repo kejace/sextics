@@ -1,0 +1,1 @@
+{"galois_specialisation": {"a": [3, -5, 7], "b": [2, 11, -4], "eps": [1, 1, 1], "n_primes": 15, "cycle_types": {"(4,)": 4, "(3, 1)": 8, "(2, 1, 1)": 1, "(2, 2)": 2}}, "discriminant_on_line": {"p": 1000000009, "degree": 36, "gcd_with_derivative_degree": 0, "squarefree": true}, "I3_over_J2_three_points": [514346733, 974922432, 203101048], "twisted_diagonal_symmetric": true}

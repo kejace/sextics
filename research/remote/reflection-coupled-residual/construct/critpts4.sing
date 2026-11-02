@@ -1,0 +1,18 @@
+LIB "general.lib";
+ring r = 1000033, (X0,X1,X2,Y0,Y1,Y2), dp;
+poly F = 1*X0^6+714310*X0^3*X1*Y0*Y1+714310*X0*X1*Y0^3*Y1+714310*X0*X1*Y0^2*Y2^2+428587*X0*X1*Y1^2*Y2^2+142864*X0*X2^3*Y0*Y1+1*X1^6+428587*X1^3*X2*Y0*Y1+714310*X1*X2*Y0*Y1^3+1*X2^6+1*Y0^6+1*Y1^6+1*Y2^6;
+poly Fy = subst(F, Y1, 1);
+ring rl = 1000033, (X0,X1,X2,Y0,Y2), ds;
+poly Fl = imap(r, Fy);
+Fl = subst(Fl, Y0, Y0 + 385966);
+"Fl(0) (must be 0) and order:"; subst(Fl,X0,0,X1,0,X2,0,Y0,0,Y2,0); ord(Fl);
+ideal K0 = diff(Fl,X0), diff(Fl,X1), diff(Fl,X2), diff(Fl,Y2), Fl;
+"local_mult_m (P5 critical scheme at the Klein-fixed point, chart Y1=1)"; vdim(std(K0));
+ideal K2 = K0, Y2;
+"local_mult_mprime (Y2=0 system at the same point)"; vdim(std(K2));
+ideal Kmil = diff(Fl,X0), diff(Fl,X1), diff(Fl,X2), diff(Fl,Y0), diff(Fl,Y2);
+"milnor number of Fl at the origin (ambient 5 variables; the fibre singularity is Fl restricted to the hyperplane Y0=eta):"; vdim(std(Kmil));
+poly Ff = subst(Fl, Y0, 0);
+ideal Kf = diff(Ff,X0), diff(Ff,X1), diff(Ff,X2), diff(Ff,Y2);
+"milnor number of the degenerate fibre singularity (Fl at Y0 = 0, 4 variables):"; vdim(std(Kf));
+quit;

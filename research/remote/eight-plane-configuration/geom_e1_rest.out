@@ -1,0 +1,14 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+F = sum Q_i K_i verified exactly
+X0**4+X1**4+Y0**4+Y1**4      d=4 e1=False {'rank': 747, 'rank_aug': 748, 'rows': 1491, 'cols': 756} 29.2s
+Q0**2+Q1**2                  d=4 e1=False {'rank': 747, 'rank_aug': 748, 'rows': 1491, 'cols': 756} 15.88s
+X0**4+Y0**4+X1**2*Y1**2      d=4 e1=False {'rank': 747, 'rank_aug': 748, 'rows': 1491, 'cols': 756} 10.55s
+K0+K1+K2                     d=4 e1=False {'rank': 747, 'rank_aug': 748, 'rows': 1491, 'cols': 756} 13.95s
+H0+H1+H2                     d=4 e1=False {'rank': 747, 'rank_aug': 748, 'rows': 1491, 'cols': 756} 11.51s
+sum Q_i*diag_i               d=6 e1=False {'rank': 2214, 'rank_aug': 2215, 'rows': 3080, 'cols': 2376} 107.13s
+sum Q_i*H_i                  d=6 e1=False {'rank': 2214, 'rank_aug': 2215, 'rows': 3080, 'cols': 2376} 103.89s
+X0*Y0                        d=2 e1=False {'rank': 168, 'rank_aug': 169, 'rows': 651, 'cols': 168} 0.44s
+X0*Y0*Q0                     d=4 e1=False {'rank': 750, 'rank_aug': 751, 'rows': 1512, 'cols': 756} 3.59s
+X0**3*Y0**3                  d=6 e1=False {'rank': 2223, 'rank_aug': 2224, 'rows': 3108, 'cols': 2376} 125.31s
+X0*Y0*Q1*Q2                  d=6 e1=False {'rank': 2223, 'rank_aug': 2224, 'rows': 3108, 'cols': 2376} 100.17s
+X0*Y0*K0                     d=6 e1=False {'rank': 2223, 'rank_aug': 2224, 'rows': 3108, 'cols': 2376} 134.6s

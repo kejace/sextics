@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/hodge/lean/capacity/gen/kron_gen.py", line 169, in <module>
+    main()
+  File "/tmp/hodge/lean/capacity/gen/kron_gen.py", line 159, in main
+    src, meta = module(a.name, F, A, D, N, Q, a.q, a.d, parts, a.W, a.heartbeats, a.recdepth)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/lean/capacity/gen/kron_gen.py", line 61, in module
+    assert sF == 1 and sA == 1, 'this prototype expects integral F and A (scale first)'
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError: this prototype expects integral F and A (scale first)

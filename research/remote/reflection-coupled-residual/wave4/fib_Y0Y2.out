@@ -1,0 +1,3 @@
+[fib_Y0Y2] n=5 unknowns=4 equations=228 maxdeg=26 charts=3 k1only=False built in 85.2s
+[fib_Y0Y2] msolve rc=0 in 296.7s
+{"name": "fib_Y0Y2", "p": 2147483647, "seed": 7, "n": 5, "vars": ["X0", "X1", "X2", "Y1", "Y2"], "subst": [["Y0", "l*Y2", 695425566]], "n_eqs": 228, "maxdeg": 26, "charts": 3, "k1only": false, "msolve_rc": 0, "msolve_seconds": 296.7, "stderr_tail": "tional param:        230.29 (elapsed) sec / 538.21 sec (cpu)\n\n------------------------------------------------------------------------------------\nmsolve overall time         296.57 sec (elapsed) / 604.49 sec (cpu)\n------------------------------------------------------------------------------------\n", "seconds": 420.2}

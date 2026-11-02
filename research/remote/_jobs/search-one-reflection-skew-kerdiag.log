@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+(0,1): float kernel rows outside exact span (norms): [0.00199645 0.00194633 0.00260658 0.0048928  0.00026046 0.00549773
+ 0.00019214 0.00164199 0.00061016 0.00065799 0.0005896  0.00104721
+ 0.00023019 0.00064668 0.00036035 0.00072323 0.00022457 0.00011256
+ 0.00050402]

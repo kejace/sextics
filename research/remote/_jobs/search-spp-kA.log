@@ -1,0 +1,9 @@
+== kernel d=7 par=0 Mon Nov  2 01:53:59 UTC 2026
+{"kind": "e1-kernel", "d": 7, "parity": 0, "kernel_mod_J": 1, "kernel_dim_incl_J": 64, "dim_J_d": 63, "dim_R_d": 333, "dim_R_d6": 843, "primes": [536870909, 536870879, 536870869], "rational": true, "reconstruction": {"modulus_bits": 87}, "seconds": 20.2, "tag": "kA", "numerators": true}
+== kernel d=7 par=1 Mon Nov  2 01:55:49 UTC 2026
+{"kind": "e1-kernel", "d": 7, "parity": 1, "kernel_mod_J": 1, "kernel_dim_incl_J": 64, "dim_J_d": 63, "dim_R_d": 333, "dim_R_d6": 843, "primes": [2147483647, 2147483629, 2147483587, 536870909], "rational": true, "reconstruction": {"modulus_bits": 122}, "seconds": 17.3, "tag": "kA", "numerators": false}
+== kernel d=8 par=0 Mon Nov  2 01:57:06 UTC 2026
+{"kind": "e1-kernel", "d": 8, "parity": 0, "kernel_mod_J": 6, "kernel_dim_incl_J": 174, "dim_J_d": 168, "dim_R_d": 483, "dim_R_d6": 744, "primes": [536870909, 536870879, 536870869, 2147483647, 2147483629, 2147483587], "rational": false, "reconstruction": {"reason": "ratrecon failed at vector 0 monomial (0, 1, 3, 1, 1, 2)", "modulus_bits": 180}, "seconds": 48.3, "tag": "kA"}
+== kernel d=8 par=1 Mon Nov  2 01:57:56 UTC 2026
+{"kind": "e1-kernel", "d": 8, "parity": 1, "kernel_mod_J": 6, "kernel_dim_incl_J": 174, "dim_J_d": 168, "dim_R_d": 468, "dim_R_d6": 762, "primes": [536870909, 536870879, 536870869, 2147483647, 2147483629, 2147483587], "rational": true, "reconstruction": {"modulus_bits": 180}, "seconds": 37.3, "tag": "kA", "numerators": false}
+== done Mon Nov  2 02:01:25 UTC 2026

@@ -1,0 +1,31 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+{"batch": "dims", "family": "S3S3/triv", "d": 9, "pD": 0, "ker": 1, "dimJ": 33, "nD": 79, "K": 34, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 2, "rows_e1": 448, "nN_e1": 489, "seconds": 0.0}
+{"batch": "dims", "family": "S3S3/triv", "d": 9, "pD": 1, "ker": 1, "dimJ": 33, "nD": 79, "K": 34, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 2, "rows_e1": 448, "nN_e1": 489, "seconds": 0.0}
+[family] kernel ratrecon ok with 7 primes, verified mod 2147483497
+{"batch": "dims", "family": "S3S3/sgnX", "d": 9, "pD": 0, "ker": 7, "dimJ": 12, "nD": 30, "K": 19, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 7, "rows_e1": 184, "nN_e1": 489, "seconds": 7.0}
+{"batch": "dims", "family": "S3S3/sgnX", "d": 9, "pD": 1, "ker": 0, "dimJ": 8, "nD": 19, "K": 8, "ratrecon_ok": true, "kernel_verified_modp": null, "primes_used": 2, "rows_e1": 223, "nN_e1": 489, "seconds": 0.0}
+{"batch": "dims", "family": "S3S3/sgnY", "d": 9, "pD": 0, "ker": 0, "dimJ": 8, "nD": 19, "K": 8, "ratrecon_ok": true, "kernel_verified_modp": null, "primes_used": 2, "rows_e1": 223, "nN_e1": 489, "seconds": 0.0}
+[family] kernel ratrecon ok with 8 primes, verified mod 2147483489
+{"batch": "dims", "family": "S3S3/sgnY", "d": 9, "pD": 1, "ker": 7, "dimJ": 12, "nD": 30, "K": 19, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 8, "rows_e1": 184, "nN_e1": 489, "seconds": 4.2}
+{"batch": "dims", "family": "S3S3/sgnsgn", "d": 9, "pD": 0, "ker": 0, "dimJ": 1, "nD": 5, "K": 1, "ratrecon_ok": true, "kernel_verified_modp": null, "primes_used": 2, "rows_e1": 79, "nN_e1": 489, "seconds": 0.0}
+{"batch": "dims", "family": "S3S3/sgnsgn", "d": 9, "pD": 1, "ker": 0, "dimJ": 1, "nD": 5, "K": 1, "ratrecon_ok": true, "kernel_verified_modp": null, "primes_used": 2, "rows_e1": 79, "nN_e1": 489, "seconds": 0.0}
+[family] ratrecon failed; kernel left EMPTY (ratrecon_ok=False)
+{"batch": "dims", "family": "S3S3/triv", "d": 10, "pD": 0, "ker": 28, "dimJ": 64, "nD": 124, "K": 92, "ratrecon_ok": false, "kernel_verified_modp": false, "primes_used": 23, "rows_e1": 532, "nN_e1": 654, "seconds": 160.3}
+[family] ratrecon failed; kernel left EMPTY (ratrecon_ok=False)
+{"batch": "dims", "family": "S3S3/triv", "d": 10, "pD": 1, "ker": 4, "dimJ": 51, "nD": 97, "K": 55, "ratrecon_ok": false, "kernel_verified_modp": false, "primes_used": 23, "rows_e1": 604, "nN_e1": 708, "seconds": 72.7}
+[family] kernel ratrecon ok with 7 primes, verified mod 2147483497
+{"batch": "dims", "family": "S3S3/sgnX", "d": 10, "pD": 0, "ker": 4, "dimJ": 22, "nD": 37, "K": 26, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 7, "rows_e1": 268, "nN_e1": 654, "seconds": 48.5}
+[family] kernel ratrecon ok with 9 primes, verified mod 2147483477
+{"batch": "dims", "family": "S3S3/sgnX", "d": 10, "pD": 1, "ker": 10, "dimJ": 18, "nD": 37, "K": 28, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 9, "rows_e1": 268, "nN_e1": 708, "seconds": 21.1}
+[family] kernel ratrecon ok with 8 primes, verified mod 2147483489
+{"batch": "dims", "family": "S3S3/sgnY", "d": 10, "pD": 0, "ker": 4, "dimJ": 22, "nD": 37, "K": 26, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 8, "rows_e1": 268, "nN_e1": 654, "seconds": 13.4}
+[family] kernel ratrecon ok with 10 primes, verified mod 2147483423
+{"batch": "dims", "family": "S3S3/sgnY", "d": 10, "pD": 1, "ker": 10, "dimJ": 18, "nD": 37, "K": 28, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 10, "rows_e1": 268, "nN_e1": 708, "seconds": 101.5}
+{"batch": "dims", "family": "S3S3/sgnsgn", "d": 10, "pD": 0, "ker": 0, "dimJ": 2, "nD": 6, "K": 2, "ratrecon_ok": true, "kernel_verified_modp": null, "primes_used": 2, "rows_e1": 124, "nN_e1": 654, "seconds": 0.0}
+{"batch": "dims", "family": "S3S3/sgnsgn", "d": 10, "pD": 1, "ker": 7, "dimJ": 4, "nD": 12, "K": 11, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 4, "rows_e1": 97, "nN_e1": 708, "seconds": 0.0}
+[family] ratrecon failed; kernel left EMPTY (ratrecon_ok=False)
+{"batch": "dims", "family": "S3S3/triv", "d": 11, "pD": 0, "ker": 28, "dimJ": 94, "nD": 151, "K": 122, "ratrecon_ok": false, "kernel_verified_modp": false, "primes_used": 23, "rows_e1": 712, "nN_e1": 930, "seconds": 343.7}
+[family] ratrecon failed; kernel left EMPTY (ratrecon_ok=False)
+{"batch": "dims", "family": "S3S3/triv", "d": 11, "pD": 1, "ker": 28, "dimJ": 94, "nD": 151, "K": 122, "ratrecon_ok": false, "kernel_verified_modp": false, "primes_used": 23, "rows_e1": 712, "nN_e1": 930, "seconds": 1058.5}
+[family] kernel ratrecon ok with 13 primes, verified mod 2147483323
+{"batch": "dims", "family": "S3S3/sgnX", "d": 11, "pD": 0, "ker": 19, "dimJ": 40, "nD": 64, "K": 59, "ratrecon_ok": true, "kernel_verified_modp": true, "primes_used": 13, "rows_e1": 322, "nN_e1": 930, "seconds": 714.3}

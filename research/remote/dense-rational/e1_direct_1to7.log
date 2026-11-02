@@ -1,0 +1,8 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[direct d=1] rows=396 cols=66 rank=66 nullity=0 Kfull=0 dimJ_d^+=0 kernel_mod_J=0 (0.1s)
+[direct d=2] rows=636 cols=180 rank=180 nullity=0 Kfull=0 dimJ_d^+=0 kernel_mod_J=0 (0.1s)
+[direct d=3] rows=1001 cols=406 rank=406 nullity=0 Kfull=0 dimJ_d^+=0 kernel_mod_J=0 (2.1s)
+[direct d=4] rows=1491 cols=822 rank=813 nullity=9 Kfull=0 dimJ_d^+=0 kernel_mod_J=0 (5.3s)
+[direct d=5] rows=2184 cols=1512 rank=1464 nullity=48 Kfull=3 dimJ_d^+=3 kernel_mod_J=0 (10.5s)
+[direct d=6] rows=3080 cols=2612 rank=2432 nullity=180 Kfull=18 dimJ_d^+=18 kernel_mod_J=0 (32.1s)
+[direct d=7] rows=4284 cols=4257 rank=3774 nullity=483 Kfull=63 dimJ_d^+=63 kernel_mod_J=0 (89.3s)

@@ -1,0 +1,7 @@
+F monomials: ['Y2**6', 'Y1**6', 'Y0**6', 'X2**6', 'X1**3*X2*Y1*Y2', 'X1**6', 'X0*X2**3*Y0*Y2', 'X0**3*X1*Y0*Y1', 'X0**6']
+distinct supports from F-subsets: 255
+pure-power     X0**6 + X1**6 + X2**6 + Y0**6 + Y1**6 + Y2**6                          | d=6: e1=False cons=False rk=-1 nul=-1 | d=12: e1=True cons=False rk=2993 nul=1067 cols=4060 [141s]
+coupling-sum   X0**3*X1*Y0*Y1 + X0*X2**3*Y0*Y2 + X1**3*X2*Y1*Y2                       | d=6: e1=False cons=False rk=-1 nul=-1 | d=12: e1=True cons=False rk=2927 nul=1133 cols=4060 [298s]
+X-block        X0**6 + X1**6 + X2**6                                                  | d=6: e1=False cons=False rk=-1 nul=-1 | d=12: e1=True cons=False rk=2847 nul=1213 cols=4060 [451s]
+Y-block        Y0**6 + Y1**6 + Y2**6                                                  | d=6: e1=False cons=False rk=-1 nul=-1 | d=12: e1=True cons=False rk=2840 nul=1220 cols=4060 [661s]
+pair-fermat    X0**6 + Y0**6                                                          | d=6: e1=False cons=False rk=-1 nul=-1 | d=12: e1=True cons=False rk=2590 nul=1470 cols=4060 [1047s]

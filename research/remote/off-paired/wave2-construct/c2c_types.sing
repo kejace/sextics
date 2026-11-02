@@ -1,0 +1,31 @@
+proc chartpoly(int n, int ia, int ib, int ic)
+{
+  poly r0,r1,w0,w1,s0,s1;
+  if (ia==0) { r0=1; r1=var(1); } else { r0=var(1); r1=1; }
+  if (ib==0) { w0=1; w1=var(2); } else { w0=var(2); w1=1; }
+  if (ic==0) { s0=1; s1=var(3); } else { s0=var(3); s1=1; }
+  return((w0+w1)*w0^2*(s0^2-s1^2)*r0^n - 2*r1^n*w1^3*(s0^2+s1^2));
+}
+proc localtype(int n, int ia, int ib, int ic, number pa, number pb, number pc, string lab)
+{
+  poly G = chartpoly(n,ia,ib,ic);
+  G = subst(G, a, a+pa); G = subst(G, b, b+pb); G = subst(G, c, c+pc);
+  ideal T = std(ideal(G, diff(G,a), diff(G,b), diff(G,c)));
+  matrix Hs[3][3];
+  int p,qq; for (p=1;p<=3;p++){ for(qq=1;qq<=3;qq++){ Hs[p,qq]=diff(diff(G,var(p)),var(qq)); } }
+  matrix H0 = subst(subst(subst(Hs,a,0),b,0),c,0);
+  // cubic part for corank-2 cases: jet(G,3) - jet(G,2)
+  poly cub = jet(G,3) - jet(G,2);
+  "n=",n," ",lab,": mult=", mult(std(G)), " tjurina=", vdim(T), " hessrank=", rank(H0), " cubic=", cub, " quad=", jet(G,2);
+}
+ring S = (0,i),(a,b,c),ds; minpoly = i^2+1;
+int n;
+for (n=1; n<=6; n++) {
+  if (n==1 or n==2 or n==3 or n==6) {
+    localtype(n,0,1,0, 0,0,-i, "P1 (rho=0,w=inf,s=i)");
+    localtype(n,1,0,0, 0,0,1,  "P2 (rho=inf,w=0,s=1)");
+    localtype(n,0,0,0, 0,-1,1, "P3 (rho=0,w=-1,s=1)");
+    localtype(n,0,1,0, 0,0,1,  "P4 (rho=0,w=inf,s=1)");
+  }
+}
+quit;

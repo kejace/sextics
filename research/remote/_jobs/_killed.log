@@ -1,0 +1,13 @@
+killed agg-verify-2 (8 procs, 86425 MB)
+killed search-quadratic-cubic-pullback-d10 (110522 MB)
+killed 58583 1MB w2_sweep.py 8
+killed 58585 2MB w2_sweep.py 8
+killed 76404 82MB w2_sweep.py 8
+killed 76407 10031MB w2_sweep.py 8
+killed 76408 9039MB w2_sweep.py 8
+killed 76409 5805MB w2_sweep.py 8
+killed 76410 5739MB w2_sweep.py 8
+killed 76411 10039MB w2_sweep.py 8
+killed 76412 9775MB w2_sweep.py 8
+killed 76413 10531MB w2_sweep.py 8
+killed 76414 9920MB w2_sweep.py 8

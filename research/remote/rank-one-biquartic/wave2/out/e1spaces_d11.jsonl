@@ -1,0 +1,2 @@
+{"d": 11, "parity": 0, "rows": 13167, "cols": 20748, "nD": 2184, "nJgens": 18564, "nullity": 7581, "e1_dim": 1851, "J_dim": 1341, "kernel_mod_J": 510, "ring_dim": 843, "t_build": 143.3, "t_null": 2209.1, "t_lifts": 2754.1, "p": 2147483647, "batch": "e1spaces", "ts": "2026-11-02T08:40:23"}
+{"d": 11, "parity": 1, "rows": 13167, "cols": 20748, "nD": 2184, "nJgens": 18564, "nullity": 7584, "e1_dim": 1854, "J_dim": 1341, "kernel_mod_J": 513, "ring_dim": 843, "t_build": 130.4, "t_null": 2987.8, "t_lifts": 2294.9, "p": 2147483647, "batch": "e1spaces", "ts": "2026-11-02T10:12:12"}

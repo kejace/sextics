@@ -1,0 +1,11 @@
+d=9 par=0: core E1-kernel mod J(H) dim 38 (6.9s)
+{'D': 'random combo #0 of 38 core E1-kernel elements, d=9 par=0', 'consistent': False, 'rank': 1684, 'nullity': 380, 'rows': 4795, 'cols': 2064, 'seconds': 215.65}
+{'D': 'random combo #1 of 38 core E1-kernel elements, d=9 par=0', 'consistent': False, 'rank': 1684, 'nullity': 380, 'rows': 4795, 'cols': 2064, 'seconds': 178.61}
+{'D': 'random combo #2 of 38 core E1-kernel elements, d=9 par=0', 'consistent': False, 'rank': 1684, 'nullity': 380, 'rows': 4795, 'cols': 2064, 'seconds': 231.65}
+{'D': 'core E1-kernel rref basis #0, d=9 par=0, 3 terms', 'consistent': False, 'rank': 1664, 'nullity': 400, 'rows': 4795, 'cols': 2064, 'seconds': 135.12}
+{'D': 'core E1-kernel rref basis #1, d=9 par=0, 3 terms', 'consistent': False, 'rank': 1674, 'nullity': 390, 'rows': 4795, 'cols': 2064, 'seconds': 139.76}
+{'D': 'core E1-kernel rref basis #2, d=9 par=0, 3 terms', 'consistent': False, 'rank': 1674, 'nullity': 390, 'rows': 4795, 'cols': 2064, 'seconds': 129.9}
+{'D': 'core E1-kernel rref basis #3, d=9 par=0, 3 terms', 'consistent': False, 'rank': 1674, 'nullity': 390, 'rows': 4795, 'cols': 2064, 'seconds': 132.93}
+{'D': 'core E1-kernel rref basis #4, d=9 par=0, 3 terms', 'consistent': False, 'rank': 1674, 'nullity': 390, 'rows': 4795, 'cols': 2064, 'seconds': 69.55}
+{'D': 'core E1-kernel rref basis #5, d=9 par=0, 3 terms', 'consistent': False, 'rank': 1674, 'nullity': 390, 'rows': 4795, 'cols': 2064, 'seconds': 134.4}
+{'D': 'core E1-kernel rref basis #6, d=9 par=0, 3 terms', 'consistent': False, 'rank': 1674, 'nullity': 390, 'rows': 4795, 'cols': 2064, 'seconds': 106.75}

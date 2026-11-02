@@ -1,0 +1,1 @@
+w2c_j1j2.sh: line 3: 604599 Killed                  python3 w2c_reflection.py $c offX > reflection_offX_v$c.log 2>&1

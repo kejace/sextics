@@ -1,0 +1,13 @@
+[10:03:10] start ftd8-c00 (eff 28) elapsed 0s
+   -> best 3.885e-03 median 4.318e-03 restarts 23 dimP 28 t/restart 270.76 witness False
+[10:17:23] start ftd8-c10 (eff 23) elapsed 852s
+   -> best 5.918e-03 median 1.571e-02 restarts 23 dimP 23 t/restart 242.13 witness False
+[10:30:16] start ftd8-c20 (eff 25) elapsed 1625s
+   -> best 5.466e-03 median 1.329e-02 restarts 20 dimP 25 t/restart 276.79 witness False
+[10:43:00] start ftd8-c30 (eff 28) elapsed 2390s
+   -> best 5.994e-03 median 9.563e-03 restarts 16 dimP 28 t/restart 527.99 witness False
+[11:01:27] start ftd8-c40 (eff 24) elapsed 3497s
+   -> best 3.860e-03 median 2.075e-02 restarts 16 dimP 24 t/restart 388.12 witness False
+[11:15:44] start ftd8-c50 (eff 22) elapsed 4354s
+   -> best 3.743e-03 median 9.561e-03 restarts 18 dimP 22 t/restart 344.05 witness False
+batch done

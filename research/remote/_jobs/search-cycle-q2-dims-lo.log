@@ -1,0 +1,96 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+group order 6 elements 72 gens [(3, 3, 3, 0, 0, 0), (5, 2, 0, 1, 0, 0), (3, 2, 5, 0, 1, 0)] separate False
+213 tasks
+{"d": 4, "key": [0, 0, 0], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [297, 386], "seconds": 0.32, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 0, 2], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [285, 365], "seconds": 0.31, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 0, 3], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [273, 351], "seconds": 0.45, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 0, 5], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [276, 362], "seconds": 0.22, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 0, 4], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [285, 365], "seconds": 0.24, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 1, 1], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [276, 362], "seconds": 0.23, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 1, 2], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [279, 360], "seconds": 0.22, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 1, 3], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [276, 356], "seconds": 0.22, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 1, 4], "nmons": 1, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 1, "primes": [2147483647, 2147483629], "shape": [276, 361], "seconds": 0.22, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 1, 5], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 371], "seconds": 0.24, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 2, 0], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [297, 386], "seconds": 0.26, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 1, 0], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 371], "seconds": 0.94, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 2, 1], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 368], "seconds": 0.23, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 2, 2], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [294, 378], "seconds": 0.24, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 2, 5], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 371], "seconds": 0.24, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 2, 4], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [297, 385], "seconds": 0.4, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 3, 0], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 368], "seconds": 0.23, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 0, 1], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [276, 362], "seconds": 2.16, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 3, 2], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 368], "seconds": 0.31, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 2, 3], "nmons": 1, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 1, "primes": [2147483647, 2147483629], "shape": [282, 367], "seconds": 1.3, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 3, 1], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 368], "seconds": 1.42, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 3, 5], "nmons": 1, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 1, "primes": [2147483647, 2147483629], "shape": [276, 361], "seconds": 1.59, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 4, 1], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 368], "seconds": 1.68, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 4, 2], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [294, 377], "seconds": 3.14, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 4, 0], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [294, 378], "seconds": 12.33, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 4, 4], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [285, 364], "seconds": 12.3, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 5, 2], "nmons": 1, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 1, "primes": [2147483647, 2147483629], "shape": [276, 355], "seconds": 0.39, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 5, 3], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [273, 351], "seconds": 0.24, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 5, 0], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [282, 368], "seconds": 10.82, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 5, 4], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [273, 351], "seconds": 0.24, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 5, 1], "nmons": 1, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 1, "primes": [2147483647, 2147483629], "shape": [282, 367], "seconds": 3.54, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 0, 1], "nmons": 4, "kernel_dim": 1, "jac_dim": 1, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [360, 508], "seconds": 0.98, "wdim": 1, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 4, 5], "nmons": 1, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 1, "primes": [2147483647, 2147483629], "shape": [276, 355], "seconds": 15.22, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 0, 2], "nmons": 5, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 5, "primes": [2147483647, 2147483629], "shape": [366, 518], "seconds": 0.86, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 0, 4], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [372, 529], "seconds": 2.27, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 4, "key": [0, 5, 5], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [279, 360], "seconds": 6.74, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 0, 3], "nmons": 5, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 5, "primes": [2147483647, 2147483629], "shape": [372, 530], "seconds": 4.47, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 0, 0], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [360, 508], "seconds": 7.04, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 1, 0], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [348, 498], "seconds": 0.57, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 1, 3], "nmons": 4, "kernel_dim": 1, "jac_dim": 1, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [378, 541], "seconds": 0.61, "wdim": 1, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 1, 1], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [369, 519], "seconds": 1.28, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 1, 4], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [354, 513], "seconds": 0.47, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 2, 0], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [372, 523], "seconds": 0.52, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 2, 1], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [372, 528], "seconds": 0.65, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 1, 5], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [366, 517], "seconds": 4.35, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 2, 3], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [378, 541], "seconds": 0.48, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 2, 4], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [372, 529], "seconds": 0.45, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 2, 5], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [372, 523], "seconds": 0.45, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 3, 0], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [354, 509], "seconds": 0.43, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 3, 1], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [372, 528], "seconds": 0.49, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 3, 2], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [354, 512], "seconds": 0.44, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 3, 3], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [372, 529], "seconds": 0.52, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 3, 4], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [354, 510], "seconds": 1.12, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 3, 5], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [372, 523], "seconds": 0.61, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 2, 2], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [378, 540], "seconds": 10.07, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 4, 1], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [366, 516], "seconds": 1.49, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 4, 2], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [369, 518], "seconds": 0.6, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 1, 2], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [354, 513], "seconds": 15.13, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 4, 3], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [372, 523], "seconds": 0.54, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 4, 5], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [372, 522], "seconds": 0.51, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 5, 0], "nmons": 2, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 2, "primes": [2147483647, 2147483629], "shape": [348, 497], "seconds": 0.45, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 5, 1], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [360, 507], "seconds": 0.48, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 5, 2], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [348, 498], "seconds": 0.51, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 5, 3], "nmons": 5, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 5, "primes": [2147483647, 2147483629], "shape": [372, 524], "seconds": 0.6, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 5, 4], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [354, 510], "seconds": 0.88, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 5, 5], "nmons": 3, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 3, "primes": [2147483647, 2147483629], "shape": [372, 522], "seconds": 0.69, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 5, "key": [3, 0, 5], "nmons": 4, "kernel_dim": 0, "jac_dim": 0, "nonjac_dim": 0, "ring_dim": 4, "primes": [2147483647, 2147483629], "shape": [369, 519], "seconds": 21.42, "wdim": 0, "step": "dims", "job": "dims-lo"}
+{"d": 6, "key": [0, 0, 0], "nmons": 12, "kernel_dim": 6, "jac_dim": 6, "nonjac_dim": 0, "ring_dim": 6, "primes": [2147483647, 2147483629], "shape": [480, 741], "seconds": 1.18, "wdim": 6, "step": "dims", "job": "dims-lo"}
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cycle-q2/w2s_dims.py", line 18, in do
+    kd = L.load_kernel(I, d, key, parity=0, verbose=False)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cycle-q2/w2s_lib.py", line 284, in load_kernel
+    kd = sector_kernel(I, d, key, parity=parity, **kw)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/cycle-q2/w2s_lib.py", line 243, in sector_kernel
+    raise RuntimeError(f'rational reconstruction failed at d={d} key={key} with {np_} primes')
+RuntimeError: rational reconstruction failed at d=6 key=(0, 0, 2) with 4 primes
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/hodge/results/cycle-q2/w2s_dims.py", line 27, in <module>
+    for rec in pool.imap_unordered(do, tasks):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 873, in next
+    raise value
+RuntimeError: rational reconstruction failed at d=6 key=(0, 0, 2) with 4 primes

@@ -1,0 +1,38 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[mult_kernel] d=4 par=0 rows=1491 cols=822 kernel=0 J_d=0 (R/J)_d=66 ker[A]=0 (0.66s)
+{"experiment": "e1-kernel-table", "d": 4, "parity": 0, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 0, "J_d_dim": 0, "RJ_d_dim": 66, "R_d_dim": 66, "admissible_dim": 0, "rows": 1491, "cols": 822, "p": 2147483647, "seconds": 0.7}
+[mult_kernel] d=4 par=1 rows=1512 cols=816 kernel=0 J_d=0 (R/J)_d=60 ker[A]=0 (0.62s)
+{"experiment": "e1-kernel-table", "d": 4, "parity": 1, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 0, "J_d_dim": 0, "RJ_d_dim": 60, "R_d_dim": 60, "admissible_dim": 0, "rows": 1512, "cols": 816, "p": 2147483647, "seconds": 0.6}
+[mult_kernel] d=5 par=0 rows=2184 cols=1512 kernel=3 J_d=3 (R/J)_d=123 ker[A]=0 (2.15s)
+{"experiment": "e1-kernel-table", "d": 5, "parity": 0, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 3, "J_d_dim": 3, "RJ_d_dim": 123, "R_d_dim": 126, "admissible_dim": 3, "rows": 2184, "cols": 1512, "p": 2147483647, "seconds": 2.2}
+[mult_kernel] d=5 par=1 rows=2184 cols=1512 kernel=3 J_d=3 (R/J)_d=123 ker[A]=0 (2.18s)
+{"experiment": "e1-kernel-table", "d": 5, "parity": 1, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 3, "J_d_dim": 3, "RJ_d_dim": 123, "R_d_dim": 126, "admissible_dim": 3, "rows": 2184, "cols": 1512, "p": 2147483647, "seconds": 2.2}
+[mult_kernel] d=6 par=0 rows=3080 cols=2612 kernel=18 J_d=18 (R/J)_d=218 ker[A]=0 (7.18s)
+{"experiment": "e1-kernel-table", "d": 6, "parity": 0, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 18, "J_d_dim": 18, "RJ_d_dim": 218, "R_d_dim": 236, "admissible_dim": 18, "rows": 3080, "cols": 2612, "p": 2147483647, "seconds": 7.2}
+[mult_kernel] d=6 par=1 rows=3108 cols=2602 kernel=18 J_d=18 (R/J)_d=208 ker[A]=0 (7.17s)
+{"experiment": "e1-kernel-table", "d": 6, "parity": 1, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 18, "J_d_dim": 18, "RJ_d_dim": 208, "R_d_dim": 226, "admissible_dim": 18, "rows": 3108, "cols": 2602, "p": 2147483647, "seconds": 7.2}
+[mult_kernel] d=7 par=0 rows=4284 cols=4257 kernel=63 J_d=63 (R/J)_d=333 ker[A]=0 (21.85s)
+{"experiment": "e1-kernel-table", "d": 7, "parity": 0, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 63, "J_d_dim": 63, "RJ_d_dim": 333, "R_d_dim": 396, "admissible_dim": 63, "rows": 4284, "cols": 4257, "p": 2147483647, "seconds": 21.9}
+[mult_kernel] d=7 par=1 rows=4284 cols=4257 kernel=63 J_d=63 (R/J)_d=333 ker[A]=0 (22.06s)
+{"experiment": "e1-kernel-table", "d": 7, "parity": 1, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 63, "J_d_dim": 63, "RJ_d_dim": 333, "R_d_dim": 396, "admissible_dim": 63, "rows": 4284, "cols": 4257, "p": 2147483647, "seconds": 22.1}
+[mult_kernel] d=8 par=0 rows=5796 cols=6657 kernel=168 J_d=168 (R/J)_d=483 ker[A]=0 (94.32s)
+{"experiment": "e1-kernel-table", "d": 8, "parity": 0, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 168, "J_d_dim": 168, "RJ_d_dim": 483, "R_d_dim": 651, "admissible_dim": 168, "rows": 5796, "cols": 6657, "p": 2147483647, "seconds": 94.5}
+[mult_kernel] d=8 par=1 rows=5832 cols=6642 kernel=168 J_d=168 (R/J)_d=468 ker[A]=0 (107.17s)
+{"experiment": "e1-kernel-table", "d": 8, "parity": 1, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 168, "J_d_dim": 168, "RJ_d_dim": 468, "R_d_dim": 636, "admissible_dim": 168, "rows": 5832, "cols": 6642, "p": 2147483647, "seconds": 107.4}
+[mult_kernel] d=9 par=0 rows=7752 cols=10010 kernel=378 J_d=378 (R/J)_d=623 ker[A]=0 (247.79s)
+{"experiment": "e1-kernel-table", "d": 9, "parity": 0, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 378, "J_d_dim": 378, "RJ_d_dim": 623, "R_d_dim": 1001, "admissible_dim": 378, "rows": 7752, "cols": 10010, "p": 2147483647, "seconds": 248.2}
+[mult_kernel] d=9 par=1 rows=7752 cols=10010 kernel=378 J_d=378 (R/J)_d=623 ker[A]=0 (263.79s)
+{"experiment": "e1-kernel-table", "d": 9, "parity": 1, "kernel_dim_mod_J": 0, "kernel_dim_in_R": 378, "J_d_dim": 378, "RJ_d_dim": 623, "R_d_dim": 1001, "admissible_dim": 378, "rows": 7752, "cols": 10010, "p": 2147483647, "seconds": 264.2}
+[mult_kernel] d=10 par=0 rows=10152 cols=14616 kernel=1044 J_d=750 (R/J)_d=762 ker[A]=294 (703.22s)
+{"experiment": "e1-kernel-table", "d": 10, "parity": 0, "kernel_dim_mod_J": 294, "kernel_dim_in_R": 1044, "J_d_dim": 750, "RJ_d_dim": 762, "R_d_dim": 1512, "admissible_dim": 1044, "rows": 10152, "cols": 14616, "p": 2147483647, "seconds": 703.6}
+[mult_kernel] d=10 par=1 rows=10197 cols=14595 kernel=1008 J_d=747 (R/J)_d=744 ker[A]=261 (742.71s)
+{"experiment": "e1-kernel-table", "d": 10, "parity": 1, "kernel_dim_mod_J": 261, "kernel_dim_in_R": 1008, "J_d_dim": 747, "RJ_d_dim": 744, "R_d_dim": 1491, "admissible_dim": 1008, "rows": 10197, "cols": 14595, "p": 2147483647, "seconds": 743.2}
+[mult_kernel] d=11 par=0 rows=13167 cols=20748 kernel=1851 J_d=1341 (R/J)_d=843 ker[A]=510 (1725.24s)
+{"experiment": "e1-kernel-table", "d": 11, "parity": 0, "kernel_dim_mod_J": 510, "kernel_dim_in_R": 1851, "J_d_dim": 1341, "RJ_d_dim": 843, "R_d_dim": 2184, "admissible_dim": 1851, "rows": 13167, "cols": 20748, "p": 2147483647, "seconds": 1726.4}
+[mult_kernel] d=11 par=1 rows=13167 cols=20748 kernel=1851 J_d=1341 (R/J)_d=843 ker[A]=510 (2057.28s)
+{"experiment": "e1-kernel-table", "d": 11, "parity": 1, "kernel_dim_mod_J": 510, "kernel_dim_in_R": 1851, "J_d_dim": 1341, "RJ_d_dim": 843, "R_d_dim": 2184, "admissible_dim": 1851, "rows": 13167, "cols": 20748, "p": 2147483647, "seconds": 2058.4}
+[mult_kernel] d=12 par=0 rows=16797 cols=28812 kernel=2900 J_d=2223 (R/J)_d=885 ker[A]=677 (4899.56s)
+{"experiment": "e1-kernel-table", "d": 12, "parity": 0, "kernel_dim_mod_J": 677, "kernel_dim_in_R": 2900, "J_d_dim": 2223, "RJ_d_dim": 885, "R_d_dim": 3108, "admissible_dim": 2900, "rows": 16797, "cols": 28812, "p": 2147483647, "seconds": 4902.4}
+[mult_kernel] d=12 par=1 rows=16852 cols=28784 kernel=2862 J_d=2214 (R/J)_d=866 ker[A]=648 (5588.17s)
+{"experiment": "e1-kernel-table", "d": 12, "parity": 1, "kernel_dim_mod_J": 648, "kernel_dim_in_R": 2862, "J_d_dim": 2214, "RJ_d_dim": 866, "R_d_dim": 3080, "admissible_dim": 2862, "rows": 16852, "cols": 28784, "p": 2147483647, "seconds": 5591.4}
+done

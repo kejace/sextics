@@ -1,0 +1,2 @@
+w2_sibling.sh: line 7: 2359558 Killed                  python3 w2_search.py --d 9 --family kernel --target "$T" --q 1 --restarts 100 --batch 25 --maxiter 80 --nproc 16 --tag sibB9r > search-cycle-q2-sibB9r.out 2>&1
+w2_sibling.sh: line 9: 882724 Killed                  python3 w2_search.py --d 11 --family kernel --target "$T" --q 1 --restarts 40 --batch 20 --maxiter 80 --nproc 16 --tag sibB11r > search-cycle-q2-sibB11r.out 2>&1

@@ -1,0 +1,23 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+ours   sanity             d=2 'X0**2 + Y0**2'                                              E1=False cons=False rank=168 null=0 imgdim=18 1.2s
+ours   sanity             d=2 'X0**2 - Y0**2'                                              E1=False cons=False rank=168 null=0 imgdim=18 2.1s
+ours   cone3              d=3 'X0**3 + X1**3 + X0*Y0**2'                                   E1=False cons=False rank=378 null=0 imgdim=18 7.6s
+ours   cone3              d=3 'X0**3 + X1**3 + X2**3'                                      E1=False cons=False rank=378 null=0 imgdim=18 5.0s
+ours   cone3              d=3 'X0**3 + X0*Y0**2 + X2**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 5.5s
+ours   cone3              d=3 'X0*Y0**2 + X1**3 + X2**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 7.4s
+ours   cone3              d=3 'X0**3 + X1*Y0**2 + X1**3'                                   E1=False cons=False rank=378 null=0 imgdim=18 8.3s
+ours   cone3              d=3 'X0**3 + 2*X1**3 - X0*Y0**2 + 3*X1*Y0**2 + X0**2*X1'         E1=False cons=False rank=378 null=0 imgdim=18 4.0s
+ours   cone4              d=4 'X0**4 + X1**4 + Y0**4 + X2**4'                              E1=False cons=False rank=747 null=9 imgdim=18 19.7s
+ours   cone4              d=4 'X0**4 + X1**4 + Y0**4'                                      E1=False cons=False rank=747 null=9 imgdim=18 16.7s
+ours   delta              d=6 delta                                                        E1=False cons=False rank=2223 null=153 imgdim=18 327.1s
+ours   quadric            d=2 Q[0]                                                         E1=False cons=False rank=168 null=0 imgdim=18 3.3s
+ours   quadric            d=2 Q[3]                                                         E1=False cons=False rank=168 null=0 imgdim=18 1.6s
+ours   quadric            d=2 core.add(Q[0],Q[3])                                          E1=False cons=False rank=168 null=0 imgdim=18 2.6s
+ours   quadric            d=2 core.sub(Q[0],Q[3])                                          E1=False cons=False rank=168 null=0 imgdim=18 0.9s
+ours   quadric            d=2 core.add(Q[0],Q[1])                                          E1=False cons=False rank=168 null=0 imgdim=18 1.0s
+ours   quadric            d=2 core.add(Q[1],Q[2])                                          E1=False cons=False rank=168 null=0 imgdim=18 1.0s
+ours   quadric            d=2 core.add(core.add(Q[0],Q[3]),Q[1])                           E1=False cons=False rank=168 null=0 imgdim=18 1.1s
+ours   quadric            d=2 core.add(core.add(core.add(Q[0],Q[3]),Q[1]),Q[4])            E1=False cons=False rank=168 null=0 imgdim=18 1.2s
+ours   qprod              d=4 core.mul(Q[0],Q[3])                                          E1=False cons=False rank=747 null=9 imgdim=18 35.8s
+ours   qprod              d=4 core.mul(Q[0],Q[1])                                          E1=False cons=False rank=747 null=9 imgdim=18 27.0s
+ours   qprod              d=4 core.mul(Q[0],core.add(Q[0],Q[3]))                           E1=False cons=False rank=747 null=9 imgdim=18 68.7s

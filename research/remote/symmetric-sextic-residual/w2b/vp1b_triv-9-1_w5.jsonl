@@ -1,0 +1,7 @@
+{"seed": 1005, "rel": 1.6323674438930037e-05, "iters": 80, "nfev": 113, "spurious": false, "div_rel": 0.8136097591381671, "sparse_init": false}
+{"seed": 1013, "rel": 1.632367426234192e-05, "iters": 93, "nfev": 145, "spurious": false, "div_rel": 0.8136097641963538, "sparse_init": false}
+{"seed": 1021, "rel": 1.6323674272739442e-05, "iters": 74, "nfev": 78, "spurious": false, "div_rel": 0.8136097608203351, "sparse_init": false}
+{"seed": 1029, "rel": 1.6323674090639962e-05, "iters": 74, "nfev": 92, "spurious": false, "div_rel": 0.8136097644511285, "sparse_init": true}
+{"seed": 1037, "rel": 1.632367441462092e-05, "iters": 78, "nfev": 84, "spurious": false, "div_rel": 0.8136097615743317, "sparse_init": false}
+{"seed": 1045, "rel": 1.6323674576611594e-05, "iters": 92, "nfev": 135, "spurious": false, "div_rel": 0.8136097612932651, "sparse_init": false}
+{"seed": 1053, "rel": 1.6323674432805128e-05, "iters": 77, "nfev": 92, "spurious": false, "div_rel": 0.8136097616938622, "sparse_init": true}

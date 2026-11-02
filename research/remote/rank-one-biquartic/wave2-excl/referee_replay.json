@@ -1,0 +1,44 @@
+{
+ "d5": {
+  "result": "VERIFIED: a_k^2 in I for all k -> no degree-5 denominator (any parity)",
+  "certs": {
+   "a0": {
+    "verified": true,
+    "support": 51,
+    "height_digits": 11,
+    "n_bad_columns": 0
+   },
+   "a1": {
+    "verified": true,
+    "support": 51,
+    "height_digits": 11,
+    "n_bad_columns": 0
+   },
+   "a2": {
+    "verified": true,
+    "support": 51,
+    "height_digits": 10,
+    "n_bad_columns": 0
+   },
+   "a3": {
+    "verified": true,
+    "support": 248,
+    "height_digits": 197,
+    "n_bad_columns": 0
+   },
+   "a4": {
+    "verified": true,
+    "support": 248,
+    "height_digits": 197,
+    "n_bad_columns": 0
+   },
+   "a5": {
+    "verified": true,
+    "support": 248,
+    "height_digits": 197,
+    "n_bad_columns": 0
+   }
+  },
+  "seconds": 11.2
+ }
+}

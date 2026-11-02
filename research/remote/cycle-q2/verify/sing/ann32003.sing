@@ -1,0 +1,21 @@
+// Independent recomputation (Singular, p=32003) of smoothness and E1 annihilator dimensions
+ring r = 32003, (X0,X1,X2,Y0,Y1,Y2), dp;
+poly F2 = 2*X0^6 + X0^3*X1*Y0*Y1 + X0*X2^3*Y0*Y2 + 2*X1^6 + X1^3*X2*Y1*Y2 + 2*X2^6 + 2*Y0^6 + 2*Y1^6 + 2*Y2^6;
+ideal J = jacob(F2);
+J = std(J);
+"dim J:"; dim(J);
+"vdim J:"; vdim(J);
+poly A = X0^2*X1^2*X2^3*Y0^2*Y1^2*Y2;
+"A in J (reduce==0?):"; reduce(A, J) == 0;
+list tg = list(A, X0^3*Y0^3, X0*X1^2*Y0*Y1^2, X0*X1*X2*Y0*Y1*Y2, X0^2*X2^3*Y2);
+list nm = list("A(q2)", "X0^3Y0^3(cycle-three)", "B", "B_bal", "C1");
+int k; int d;
+for (k = 1; k <= 5; k++) {
+  ideal Qk = quotient(J, ideal(tg[k]));
+  Qk = std(Qk);
+  "target", nm[k], "in J?", reduce(tg[k], J) == 0;
+  for (d = 0; d <= 8; d++) {
+    "  d =", d, " Ann_d = dim(J:A)_d - dim J_d =", size(kbase(J, d)) - size(kbase(Qk, d));
+  }
+}
+quit;

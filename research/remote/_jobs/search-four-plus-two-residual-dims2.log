@@ -1,0 +1,55 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[core] {'k': 0, 'par': 0, 'nmons': 1, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 1, 'agree_two_primes': True}
+[core] {'k': 0, 'par': 1, 'nmons': 0, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 0, 'agree_two_primes': True}
+[core] {'k': 1, 'par': 0, 'nmons': 2, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 2, 'agree_two_primes': True}
+[core] {'k': 1, 'par': 1, 'nmons': 2, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 2, 'agree_two_primes': True}
+[core] {'k': 2, 'par': 0, 'nmons': 6, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 6, 'agree_two_primes': True}
+[core] {'k': 2, 'par': 1, 'nmons': 4, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 4, 'agree_two_primes': True}
+[core] {'k': 3, 'par': 0, 'nmons': 10, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 10, 'agree_two_primes': True}
+[core] {'k': 3, 'par': 1, 'nmons': 10, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 10, 'agree_two_primes': True}
+[core] {'k': 4, 'par': 0, 'nmons': 19, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 19, 'agree_two_primes': True}
+[core] {'k': 4, 'par': 1, 'nmons': 16, 'dimKer': 0, 'dimJk': 0, 'dimKer_modJ': 0, 'ring_dim': 16, 'agree_two_primes': True}
+[core] {'k': 5, 'par': 0, 'nmons': 28, 'dimKer': 2, 'dimJk': 2, 'dimKer_modJ': 0, 'ring_dim': 26, 'agree_two_primes': True}
+[core] {'k': 5, 'par': 1, 'nmons': 28, 'dimKer': 2, 'dimJk': 2, 'dimKer_modJ': 0, 'ring_dim': 26, 'agree_two_primes': True}
+[core] {'k': 6, 'par': 0, 'nmons': 44, 'dimKer': 28, 'dimJk': 8, 'dimKer_modJ': 20, 'ring_dim': 36, 'agree_two_primes': True}
+[core] {'k': 6, 'par': 1, 'nmons': 40, 'dimKer': 21, 'dimJk': 8, 'dimKer_modJ': 13, 'ring_dim': 32, 'agree_two_primes': True}
+[core] {'k': 7, 'par': 0, 'nmons': 60, 'dimKer': 50, 'dimJk': 20, 'dimKer_modJ': 30, 'ring_dim': 40, 'agree_two_primes': True}
+[core] {'k': 7, 'par': 1, 'nmons': 60, 'dimKer': 50, 'dimJk': 20, 'dimKer_modJ': 30, 'ring_dim': 40, 'agree_two_primes': True}
+[core] {'k': 8, 'par': 0, 'nmons': 85, 'dimKer': 81, 'dimJk': 40, 'dimKer_modJ': 41, 'ring_dim': 45, 'agree_two_primes': True}
+[core] {'k': 8, 'par': 1, 'nmons': 80, 'dimKer': 74, 'dimJk': 40, 'dimKer_modJ': 34, 'ring_dim': 40, 'agree_two_primes': True}
+[core] {'k': 9, 'par': 0, 'nmons': 110, 'dimKer': 108, 'dimJk': 70, 'dimKer_modJ': 38, 'ring_dim': 40, 'agree_two_primes': True}
+[core] {'k': 9, 'par': 1, 'nmons': 110, 'dimKer': 108, 'dimJk': 70, 'dimKer_modJ': 38, 'ring_dim': 40, 'agree_two_primes': True}
+[core] {'k': 10, 'par': 0, 'nmons': 146, 'dimKer': 146, 'dimJk': 110, 'dimKer_modJ': 36, 'ring_dim': 36, 'agree_two_primes': True}
+[core] {'k': 10, 'par': 1, 'nmons': 140, 'dimKer': 139, 'dimJk': 108, 'dimKer_modJ': 31, 'ring_dim': 32, 'agree_two_primes': True}
+[core] {'k': 11, 'par': 0, 'nmons': 182, 'dimKer': 182, 'dimJk': 156, 'dimKer_modJ': 26, 'ring_dim': 26, 'agree_two_primes': True}
+[core] {'k': 11, 'par': 1, 'nmons': 182, 'dimKer': 182, 'dimJk': 156, 'dimKer_modJ': 26, 'ring_dim': 26, 'agree_two_primes': True}
+[core] {'k': 12, 'par': 0, 'nmons': 231, 'dimKer': 231, 'dimJk': 212, 'dimKer_modJ': 19, 'ring_dim': 19, 'agree_two_primes': True}
+[core] {'k': 12, 'par': 1, 'nmons': 224, 'dimKer': 224, 'dimJk': 208, 'dimKer_modJ': 16, 'ring_dim': 16, 'agree_two_primes': True}
+[tensor] d=0 parY=0: predicted dim ker[A] mod J = 0
+[tensor] d=0 parY=1: predicted dim ker[A] mod J = 0
+[tensor] d=1 parY=0: predicted dim ker[A] mod J = 0
+[tensor] d=1 parY=1: predicted dim ker[A] mod J = 0
+[tensor] d=2 parY=0: predicted dim ker[A] mod J = 0
+[tensor] d=2 parY=1: predicted dim ker[A] mod J = 0
+[tensor] d=3 parY=0: predicted dim ker[A] mod J = 0
+[tensor] d=3 parY=1: predicted dim ker[A] mod J = 0
+[tensor] d=4 parY=0: predicted dim ker[A] mod J = 0
+[tensor] d=4 parY=1: predicted dim ker[A] mod J = 0
+[tensor] d=5 parY=0: predicted dim ker[A] mod J = 0
+[tensor] d=5 parY=1: predicted dim ker[A] mod J = 0
+[tensor] d=6 parY=0: predicted dim ker[A] mod J = 20
+[tensor] d=6 parY=1: predicted dim ker[A] mod J = 13
+[tensor] d=7 parY=0: predicted dim ker[A] mod J = 63
+[tensor] d=7 parY=1: predicted dim ker[A] mod J = 63
+[tensor] d=8 parY=0: predicted dim ker[A] mod J = 154
+[tensor] d=8 parY=1: predicted dim ker[A] mod J = 140
+[tensor] d=9 parY=0: predicted dim ker[A] mod J = 269
+[tensor] d=9 parY=1: predicted dim ker[A] mod J = 269
+[tensor] d=10 parY=0: predicted dim ker[A] mod J = 434
+[tensor] d=10 parY=1: predicted dim ker[A] mod J = 415
+[tensor] d=11 parY=0: predicted dim ker[A] mod J = 573
+[tensor] d=11 parY=1: predicted dim ker[A] mod J = 573
+[tensor] d=12 parY=0: predicted dim ker[A] mod J = 690
+[tensor] d=12 parY=1: predicted dim ker[A] mod J = 668
+[sector] {'d': 4, 'sector': [0, 3, 0], 'nmons': 2, 'dimFam_modp': [0, 0], 'dimJ': 0, 'dimFmult': 0, 'rank_gens': 16, 'rows': 56, 'dimFam_num': 0, 'sv_kept_max': nan, 'sv_dropped_min': 1.0, 'dimFam': 0, 'dimKernel_modJ': 0, 'parityY': 1, 'seconds': 0.0}
+[sector] {'d': 4, 'sector': [0, 0, 0], 'nmons': 3, 'dimFam_modp': [0, 0], 'dimJ': 0, 'dimFmult': 0, 'rank_gens': 24, 'rows': 84, 'dimFam_num': 0, 'sv_kept_max': nan, 'sv_dropped_min': 1.0, 'dimFam': 0, 'dimKernel_modJ': 0, 'parityY': 0, 'seconds': 0.0}

@@ -1,0 +1,4 @@
+system 22016 x 4256 (d=8, chi_D=(0, 0)) built in 10.1s
+a-priori vectors 482 (zG 378), all in kernel mod p: True, rank mod p = 476  => rank_Q(M) <= 3780
+row subset 5200/22016: rank_p(M_sub) = 3780, rank_p([M|b]_sub) = 3781  (108.1s)
+{"exp": "ref-fixedD", "tag": "K8", "d": 8, "chi_D": [0, 0], "p": 1000000021, "rows": 22016, "cols": 4256, "apriori_vectors": 482, "apriori_in_kernel": true, "apriori_rank_p": 476, "subset_rows": 5200, "rank_p_subset": 3780, "rank_p_aug_subset": 3781, "inconsistent_modp": true, "certified_inconsisten

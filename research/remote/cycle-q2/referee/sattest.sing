@@ -1,0 +1,8 @@
+LIB "elim.lib";
+ring r = 0, (x,y,z), dp;
+ideal I = x^2, x*y, y*z^3;
+"typeof sat(I,x):", typeof(sat(I, x));
+def S1 = sat(I, x); ideal A1; if (typeof(S1)=="list") { A1 = S1[1]; } else { A1 = S1; } "sat by x, dim:", dim(std(A1));
+def S2 = sat(I, ideal(x,y)); ideal A2; if (typeof(S2)=="list") { A2 = S2[1]; } else { A2 = S2; } "sat by (x,y), dim:", dim(std(A2)); A2;
+def S3 = sat(I, x*y); ideal A3; if (typeof(S3)=="list") { A3 = S3[1]; } else { A3 = S3; } "sat by x*y, dim:", dim(std(A3));
+quit;

@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"d": 9, "parD": 0, "rows": 3108, "cols": 3377, "nJcols": 2376, "nD": 1001, "nullity": 558, "dim_E1_space": 405, "dim_J_d": 378, "kernel_mod_J": 27, "t_build": 43.6, "t_null": 77.1}
+  nonzero kernel at d=9 parity=0: 27 (E1 space 405, J_d 378)
+{"d": 9, "parD": 1, "rows": 3080, "cols": 3377, "nJcols": 2376, "nD": 1001, "nullity": 567, "dim_E1_space": 405, "dim_J_d": 378, "kernel_mod_J": 27, "t_build": 47.5, "t_null": 101.1}
+  nonzero kernel at d=9 parity=1: 27 (E1 space 405, J_d 378)

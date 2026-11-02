@@ -1,0 +1,9 @@
+0 {'dim_Sd_even': 1, 'dim_Jd_even': 0, 'ker_A_in_Sd': 0, 'ker_A_mod_J': 0, 'rows': 79, 'cols': 19, 'seconds': 0.0}
+1 {'dim_Sd_even': 3, 'dim_Jd_even': 0, 'ker_A_in_Sd': 0, 'ker_A_mod_J': 0, 'rows': 206, 'cols': 66, 'seconds': 0.1}
+2 {'dim_Sd_even': 12, 'dim_Jd_even': 0, 'ker_A_in_Sd': 0, 'ker_A_mod_J': 0, 'rows': 461, 'cols': 180, 'seconds': 0.6}
+3 {'dim_Sd_even': 28, 'dim_Jd_even': 0, 'ker_A_in_Sd': 0, 'ker_A_mod_J': 0, 'rows': 834, 'cols': 406, 'seconds': 2.0}
+4 {'dim_Sd_even': 66, 'dim_Jd_even': 0, 'ker_A_in_Sd': 0, 'ker_A_mod_J': 0, 'rows': 1381, 'cols': 822, 'seconds': 2.2}
+5 {'dim_Sd_even': 126, 'dim_Jd_even': 3, 'ker_A_in_Sd': 3, 'ker_A_mod_J': 0, 'rows': 2103, 'cols': 1512, 'seconds': 12.9}
+6 {'dim_Sd_even': 236, 'dim_Jd_even': 18, 'ker_A_in_Sd': 18, 'ker_A_mod_J': 0, 'rows': 3045, 'cols': 2612, 'seconds': 42.0}
+7 {'dim_Sd_even': 396, 'dim_Jd_even': 63, 'ker_A_in_Sd': 63, 'ker_A_mod_J': 0, 'rows': 4268, 'cols': 4257, 'seconds': 110.5}
+8 {'dim_Sd_even': 651, 'dim_Jd_even': 168, 'ker_A_in_Sd': 169, 'ker_A_mod_J': 1, 'rows': 5791, 'cols': 6657, 'seconds': 556.0}

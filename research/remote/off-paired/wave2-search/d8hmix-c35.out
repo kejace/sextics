@@ -1,0 +1,95 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+[2026-11-02T08:03:39] job d8hmix-c35: d=8 c=(3, 5) kind=colon F=offpaired restarts=120 workers=8
+[exact basis colon d=8 c=(3, 5)] rank 47 with 1 primes (verified)
+[sector varpro] d=8 c=(3, 5) K=47 rank=47 gauge=2 dimP=45 rows=6482 N=1080 Q=215 nnz(TN)=1000314 built in 2.1s
+[2026-11-02T08:03:44] family built: K=47 rank=47 gauge=2 dimP=45 rows=6482 N=1080 Q=215 build 2.1s
+gradient check: analytic -1.668649e-01 fd -1.668649e-01
+{
+ "ts": "2026-11-02T08:34:52",
+ "job": "d8hmix-c35",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 8,
+ "sector": [
+  3,
+  5
+ ],
+ "family": "colon",
+ "group": "h",
+ "K": 47,
+ "rank": 47,
+ "gauge": 2,
+ "dimP": 45,
+ "rows": 6482,
+ "nN": 1080,
+ "nQ": 215,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 21,
+ "best_relres": 0.009397209461576175,
+ "median_relres": 0.052366781640520214,
+ "hist": {
+  "lt1e-2": 5,
+  "ge1e-2": 16
+ },
+ "top_minima": [
+  [
+   "9.397e-03",
+   5
+  ],
+  [
+   "2.564e-02",
+   1
+  ],
+  [
+   "2.649e-02",
+   3
+  ],
+  [
+   "4.689e-02",
+   1
+  ],
+  [
+   "5.237e-02",
+   2
+  ],
+  [
+   "5.257e-02",
+   1
+  ],
+  [
+   "5.269e-02",
+   1
+  ],
+  [
+   "5.393e-02",
+   2
+  ],
+  [
+   "5.998e-02",
+   1
+  ],
+  [
+   "6.448e-02",
+   1
+  ],
+  [
+   "6.460e-02",
+   2
+  ],
+  [
+   "8.219e-02",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 642.44,
+ "statuses": {
+  "stalled": 10,
+  "maxiter": 5,
+  "flat": 6
+ },
+ "wall": 1873.8,
+ "witness": false
+}

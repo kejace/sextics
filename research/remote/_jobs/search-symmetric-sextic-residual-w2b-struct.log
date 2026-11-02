@@ -1,0 +1,13 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"job": "struct", "family": "structured-family", "fam": "ternX", "chi": "triv", "d": 7, "pD": 0, "n_monomials": 36, "nD": 8, "dimK": 1, "dimF": 0, "dimP": 1, "rows": 1268, "nN": 233, "nQ": 46, "build_s": 0.8, "single_solves": [{"e1": true, "consistent": false, "rank": 234, "nullity": 45, "rows": 1268, "cols": 279, "seconds": 0.53}], "restarts": 40, "best_rel": 0.5469783428787693, "median_rel": 0.5469783428787693, "n_below_1e_6": 0, "n_below_1e_10": 0, "seconds": 5.4}
+Traceback (most recent call last):
+  File "/tmp/hodge/results/symmetric-sextic-residual/w2b/w2_struct.py", line 84, in <module>
+    r = solve_single(F, A, q, D, G, p)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/symmetric-sextic-residual/w2b/w2lib.py", line 628, in solve_single
+    S = CharSystem(F, A, q, D, G, p=p)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/symmetric-sextic-residual/w2b/charsolve.py", line 134, in __init__
+    assert G.is_semi_invariant(D), 'D must be chi-semi-invariant under H'
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: D must be chi-semi-invariant under H

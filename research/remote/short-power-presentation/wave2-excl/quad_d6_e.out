@@ -1,0 +1,12 @@
+kernel basis d=6 par=0 from /tmp/hodge/results/short-power-presentation/wave2-excl/e1kernel_d6_p0.json: 0 elements
+d=6 mode=e: 0 kernel reps, 18 field coordinates, 18 unknowns
+171 bilinear coefficient polynomials built (0s)
+parity 1: 866 coordinate equations (125s)
+599 equations, rank 39 (independent quadrics) (126s)
+Euler invariance: 1 directions, violations = 0
+{"exp": "quad-relaxation", "d": 6, "mode": "e", "p": 2147483629, "n_kernel_reps": 0, "n_field_coords": 18, "unknowns_full": 18, "euler_directions": 1, "euler_invariance_violations": 0, "unknowns_restricted": 17, "equations_raw": 599, "equations_independent": 39, "equations_restricted": 39, "J_checks": {"1": {"deg": 12, "dim S": 3080, "rank J (mod p)": 2214, "rank J (expected)": 2214}}, "build_seconds": 126.2}
+dim = 0
+vdim = 1216
+time = 2
+hilb2 = 1,17,114,358,501,225,0
+

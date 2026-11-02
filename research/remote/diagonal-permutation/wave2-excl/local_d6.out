@@ -1,0 +1,6 @@
+running msolve -f /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d6e.ms -o /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d6e.gb -t 2 -g 2 -v 1
+DONE V(I) = {0}: no E1-admissible D of this shape passes E2 mod J (rigorous over Q given good reduction)
+running msolve -f /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d6o.ms -o /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d6o.gb -t 2 -g 2 -v 1
+DONE V(I) = {0}: no E1-admissible D of this shape passes E2 mod J (rigorous over Q given good reduction)
+running msolve -f /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d6m.ms -o /tmp/hodge/results/diagonal-permutation/wave2-excl/relax_d6m.gb -t 2 -g 2 -v 1
+DONE V(I) = {0}: no E1-admissible D of this shape passes E2 mod J (rigorous over Q given good reduction)

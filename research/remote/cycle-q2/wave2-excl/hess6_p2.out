@@ -1,0 +1,11 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+E1 kernel K_6: dim 62 (in J: 36), sectors with kernel: 46  [27.9s]
+  row 0/62 done, 205 nonzero quadrics so far [39.4s]
+  row 10/62 done, 414 nonzero quadrics so far [47.1s]
+  row 20/62 done, 426 nonzero quadrics so far [49.6s]
+  row 30/62 done, 426 nonzero quadrics so far [50.3s]
+  row 40/62 done, 426 nonzero quadrics so far [50.8s]
+  row 50/62 done, 426 nonzero quadrics so far [51.0s]
+  row 60/62 done, 426 nonzero quadrics so far [51.1s]
+quadrics: 426 nonzero (of 426 standard monomials in touched sectors), pairs 1953 [51.1s]
+done 51.1

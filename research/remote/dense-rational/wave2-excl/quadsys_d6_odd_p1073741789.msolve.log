@@ -1,0 +1,48 @@
+
+--------------- INPUT DATA ---------------
+#variables                      18
+#equations                     218
+#invalid equations               0
+field characteristic    1073741789
+homogeneous input?               1
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         4
+info level                       1
+generate pbm files               0
+------------------------------------------
+Dimension of quotient: 39
+------------------------------------------------------------------------------------
+msolve overall time           0.05 sec (elapsed) /  0.15 sec (cpu)
+------------------------------------------------------------------------------------
+
+---------------- TIMINGS ---------------
+overall(elapsed)        0.03 sec
+overall(cpu)            0.13 sec
+select                  0.00 sec   7.0%
+symbolic prep.          0.00 sec   1.4%
+update                  0.03 sec  80.0%
+convert                 0.00 sec   1.0%
+linear algebra          0.00 sec   7.8%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                   153
+#terms in basis                 171
+#pairs reduced                 1833
+#GM criterion                 66432
+#redundant elements             217
+#rows reduced                  3819
+#zero reductions               1681
+max. matrix data               2741 x 1127 (0.110%)
+max. symbolic hash table size  2^11
+max. basis hash table size     2^16
+-----------------------------------------
+
+msolve exit 0 after 0 s

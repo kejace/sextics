@@ -1,0 +1,26 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[00:34:03] {"type": "setup", "wid": 0, "r": 543, "K": 63, "nK": 420, "dimP": 60, "nspur": 3, "setup_s": 0.3, "Fres": 3.423107642251853e-14, "label": "jac-d7", "nKsector": 420}
+[00:34:03] {"type": "setup", "wid": 1, "r": 543, "K": 63, "nK": 420, "dimP": 60, "nspur": 3, "setup_s": 0.3, "Fres": 6.459361138317402e-14, "label": "jac-d7", "nKsector": 420}
+[00:34:03] {"type": "setup", "wid": 2, "r": 543, "K": 63, "nK": 420, "dimP": 60, "nspur": 3, "setup_s": 0.2, "Fres": 3.9580190450620886e-14, "label": "jac-d7", "nKsector": 420}
+[00:34:03] {"type": "setup", "wid": 3, "r": 543, "K": 63, "nK": 420, "dimP": 60, "nspur": 3, "setup_s": 0.3, "Fres": 3.1802027990364287e-14, "label": "jac-d7", "nKsector": 420}
+[00:34:03] {"type": "setup", "wid": 4, "r": 543, "K": 63, "nK": 420, "dimP": 60, "nspur": 3, "setup_s": 0.2, "Fres": 4.39922984116541e-14, "label": "jac-d7", "nKsector": 420}
+[00:34:03] {"type": "setup", "wid": 5, "r": 543, "K": 63, "nK": 420, "dimP": 60, "nspur": 3, "setup_s": 0.4, "Fres": 3.2570999464286203e-14, "label": "jac-d7", "nKsector": 420}
+[00:34:03] {"type": "setup", "wid": 6, "r": 543, "K": 63, "nK": 420, "dimP": 60, "nspur": 3, "setup_s": 0.3, "Fres": 3.35669464159087e-14, "label": "jac-d7", "nKsector": 420}
+[00:34:04] {"type": "setup", "wid": 7, "r": 543, "K": 63, "nK": 420, "dimP": 60, "nspur": 3, "setup_s": 0.5, "Fres": 4.5830027972471506e-14, "label": "jac-d7", "nKsector": 420}
+[00:40:02] {"type": "progress", "wid": 7, "n": 25, "best": 0.14328192488559707, "median": 0.21771169140485078, "elapsed": 357.2}
+[00:40:10] {"type": "progress", "wid": 0, "n": 25, "best": 0.17350122145706506, "median": 0.20527189840637047, "elapsed": 366.1}
+[00:40:51] {"type": "progress", "wid": 2, "n": 25, "best": 0.1666638019909915, "median": 0.22223462899703236, "elapsed": 405.8}
+[00:41:08] {"type": "progress", "wid": 6, "n": 25, "best": 0.16832239444661687, "median": 0.22387407968770376, "elapsed": 424.4}
+[00:41:15] {"type": "progress", "wid": 5, "n": 25, "best": 0.16114377442768008, "median": 0.22381936255114812, "elapsed": 432.3}
+[00:41:22] {"type": "progress", "wid": 4, "n": 25, "best": 0.15007394918015393, "median": 0.2207425300434694, "elapsed": 436.2}
+[00:41:44] {"type": "progress", "wid": 1, "n": 25, "best": 0.11884500273526857, "median": 0.2143865493829111, "elapsed": 461.1}
+[00:42:29] {"type": "progress", "wid": 3, "n": 25, "best": 0.1394842143872308, "median": 0.23401546358597886, "elapsed": 505.5}
+[00:49:49] {"type": "progress", "wid": 0, "n": 50, "best": 0.12855682435915616, "median": 0.20427513466853203, "elapsed": 943.9}
+[00:51:44] {"type": "progress", "wid": 6, "n": 50, "best": 0.15610012329910838, "median": 0.22660625762996803, "elapsed": 1059.0}
+[00:52:31] {"type": "progress", "wid": 5, "n": 50, "best": 0.15334317529544006, "median": 0.2126559350343482, "elapsed": 1105.5}
+[00:52:42] {"type": "progress", "wid": 4, "n": 50, "best": 0.15007394918015393, "median": 0.22144875232382227, "elapsed": 1118.3}
+[00:52:55] {"type": "progress", "wid": 7, "n": 50, "best": 0.14328192488559707, "median": 0.21673787507166245, "elapsed": 1131.0}
+[00:53:28] {"type": "progress", "wid": 2, "n": 50, "best": 0.152117328389974, "median": 0.2225123152379343, "elapsed": 1163.1}
+[00:57:18] {"type": "progress", "wid": 3, "n": 50, "best": 0.1394842143872308, "median": 0.21692776410352216, "elapsed": 1394.1}
+[00:57:20] {"type": "progress", "wid": 1, "n": 50, "best": 0.09857032642640834, "median": 0.2079036167295274, "elapsed": 1396.9}
+[01:08:53] {"type": "progress", "wid": 0, "n": 75, "best": 0.12855682435915616, "median": 0.2008322916355037, "elapsed": 2089.9}

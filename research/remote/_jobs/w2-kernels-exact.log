@@ -1,0 +1,1 @@
+bash: line 1: 650203 Killed                  python3 w2_kernels_exact.py one-reflection-skew 7,8,9,10,11,12 > w2-kernels-exact.out 2> w2-kernels-exact.err

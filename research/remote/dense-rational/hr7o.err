@@ -1,0 +1,13 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[hessrelax d=7 sector=1] eq parity 0: dim K_full(8)=168 (num rank 168) n_eq=483
+[hessrelax hr7o] nw=63 dimP=60 neq=483 f(random) median 1.550e+02 build 1s
+[hessrelax hr7o] 100 restarts best f 8.496e-04 (seed 53) median 9.007e-04 (284s)
+[hessrelax hr7o] 200 restarts best f 8.441e-04 (seed 171) median 9.010e-04 (490s)
+[hessrelax hr7o] 300 restarts best f 8.441e-04 (seed 171) median 8.969e-04 (726s)
+[hessrelax hr7o] 400 restarts best f 8.424e-04 (seed 331) median 8.969e-04 (989s)
+[hessrelax hr7o] 500 restarts best f 8.424e-04 (seed 416) median 8.965e-04 (1242s)
+[hessrelax hr7o] 600 restarts best f 8.424e-04 (seed 416) median 8.972e-04 (1458s)
+[hessrelax hr7o] 700 restarts best f 8.424e-04 (seed 416) median 8.982e-04 (1678s)
+[hessrelax hr7o] 800 restarts best f 8.424e-04 (seed 416) median 8.983e-04 (1876s)
+[hessrelax hr7o] 900 restarts best f 8.424e-04 (seed 416) median 8.988e-04 (2078s)
+[hessrelax hr7o] 1000 restarts best f 8.424e-04 (seed 416) median 8.988e-04 (2305s)

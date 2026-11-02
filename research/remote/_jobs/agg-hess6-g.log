@@ -1,0 +1,10 @@
+start symmetric-sextic-residual Mon Nov 2 01:18:38 UTC 2026
+done symmetric-sextic-residual Mon Nov 2 01:18:41 UTC 2026 rc 0
+start quadric-contact-residual Mon Nov 2 01:18:41 UTC 2026
+done quadric-contact-residual Mon Nov 2 01:18:43 UTC 2026 rc 0
+start reflection-coupled-residual Mon Nov 2 01:18:43 UTC 2026
+done reflection-coupled-residual Mon Nov 2 01:18:44 UTC 2026 rc 0
+start polarized-k3-remainder Mon Nov 2 01:18:44 UTC 2026
+done polarized-k3-remainder Mon Nov 2 01:22:22 UTC 2026 rc 0
+start short-power-v2 Mon Nov 2 01:22:22 UTC 2026
+done short-power-v2 Mon Nov 2 01:27:12 UTC 2026 rc 0

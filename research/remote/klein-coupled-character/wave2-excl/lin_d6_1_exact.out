@@ -1,0 +1,12 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+d=6 parD=1 n=18: 171 T-columns built [0.0s]
+153 Koszul monomials, 2754 nonzero Y-columns [0.7s]
+gauge vectors 0, gauge tensors 0 [0.7s]
+  block par=1 ch=0: rows 358, T 24, Y 315, Q 19, rank 226, dim W_T 3, gauge 0, rank_YQ 205 (nullity_YQ 129)  [0.9s]
+  block par=1 ch=1: rows 433, T 24, Y 399, Q 40, rank 254, dim W_T 3, gauge 0, rank_YQ 233 (nullity_YQ 206)  [1.4s]
+  block par=1 ch=2: rows 433, T 24, Y 399, Q 40, rank 254, dim W_T 3, gauge 0, rank_YQ 233 (nullity_YQ 206)  [1.9s]
+  block par=1 ch=3: rows 374, T 27, Y 414, Q 29, rank 257, dim W_T 2, gauge 0, rank_YQ 232 (nullity_YQ 211)  [2.3s]
+  block par=1 ch=4: rows 435, T 24, Y 399, Q 40, rank 254, dim W_T 3, gauge 0, rank_YQ 233 (nullity_YQ 206)  [6.5s]
+  block par=1 ch=5: rows 378, T 24, Y 414, Q 29, rank 253, dim W_T 3, gauge 0, rank_YQ 232 (nullity_YQ 211)  [42.9s]
+  block par=1 ch=6: rows 377, T 24, Y 414, Q 29, rank 253, dim W_T 3, gauge 0, rank_YQ 232 (nullity_YQ 211)  [43.3s]
+RESULT lin d=6 parD=1 exact=True: dim W_T = 20, dim gauge = 0, zero T-columns 0 -> NOT decisive

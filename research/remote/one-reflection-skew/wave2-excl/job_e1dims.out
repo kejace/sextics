@@ -1,0 +1,10 @@
+{"d": 5, "dimK_total": 6, "dimJ_total": 6, "extra_total": 0, "dimK_gauged_total": 6, "dimS_d": 252, "seconds": 0.8, "exact": true}
+{"d": 6, "dimK_total": 36, "dimJ_total": 36, "extra_total": 0, "dimK_gauged_total": 35, "dimS_d": 462, "seconds": 2.0, "exact": true}
+{"d": 7, "dimK_total": 135, "dimJ_total": 126, "extra_total": 9, "dimK_gauged_total": 129, "dimS_d": 792, "seconds": 4.4, "exact": true}
+{"d": 8, "dimK_total": 480, "dimJ_total": 336, "extra_total": 144, "dimK_gauged_total": 459, "dimS_d": 1287, "seconds": 47.7, "exact": true}
+{"d": 9, "dimK_total": 1144, "dimJ_total": 756, "extra_total": 388, "dimK_gauged_total": 1088, "dimS_d": 2002, "seconds": 105.7, "exact": true}
+{"d": 10, "dimK_total": 2196, "dimJ_total": 1497, "extra_total": 699, "dimK_gauged_total": 2070, "dimS_d": 3003, "seconds": 104.9, "exact": true}
+{"d": 11, "dimK_total": 3711, "dimJ_total": 2682, "extra_total": 1029, "dimK_gauged_total": 3459, "dimS_d": 4368, "seconds": 139.3, "exact": true}
+{"d": 12, "dimK_total": 5762, "dimJ_total": 4437, "extra_total": 1325, "dimK_gauged_total": 5300, "dimS_d": 6188, "seconds": 203.0, "exact": true}
+{"d": 13, "dimK_total": 8322, "dimJ_total": 6882, "extra_total": 1440, "dimK_gauged_total": 7530, "dimS_d": 8568, "seconds": 317.9, "exact": true}
+{"d": 14, "dimK_total": 11502, "dimJ_total": 10122, "extra_total": 1380, "dimK_gauged_total": 10215, "dimS_d": 11628, "seconds": 482.2, "exact": true}

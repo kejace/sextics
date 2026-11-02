@@ -1,0 +1,1 @@
+wave2-excl/chain_next.sh: line 7: 2804903 Killed                  python3 wave2-excl/cones.py --deg $d --workers 8 --random 1 > wave2-excl/cones$d.out 2>&1

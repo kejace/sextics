@@ -1,0 +1,12 @@
+{"d": 1, "parD": 0, "rows": 396, "cols": 66, "nJcols": 63, "nD": 3, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 1, "parD": 1, "rows": 396, "cols": 66, "nJcols": 63, "nD": 3, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 2, "parD": 0, "rows": 636, "cols": 180, "nJcols": 168, "nD": 12, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 2, "parD": 1, "rows": 651, "cols": 177, "nJcols": 168, "nD": 9, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.0, "t_null": 0.0}
+{"d": 3, "parD": 0, "rows": 1001, "cols": 406, "nJcols": 378, "nD": 28, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.2, "t_null": 0.1}
+{"d": 3, "parD": 1, "rows": 1001, "cols": 406, "nJcols": 378, "nD": 28, "nullity": 0, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.2, "t_null": 0.1}
+{"d": 4, "parD": 0, "rows": 1491, "cols": 822, "nJcols": 756, "nD": 66, "nullity": 9, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.4, "t_null": 0.4}
+{"d": 4, "parD": 1, "rows": 1512, "cols": 816, "nJcols": 756, "nD": 60, "nullity": 6, "dim_E1_space": 0, "dim_J_d": 0, "kernel_mod_J": 0, "t_build": 0.4, "t_null": 0.4}
+{"d": 5, "parD": 0, "rows": 2184, "cols": 1512, "nJcols": 1386, "nD": 126, "nullity": 48, "dim_E1_space": 3, "dim_J_d": 3, "kernel_mod_J": 0, "t_build": 1.2, "t_null": 1.7}
+{"d": 5, "parD": 1, "rows": 2184, "cols": 1512, "nJcols": 1386, "nD": 126, "nullity": 48, "dim_E1_space": 3, "dim_J_d": 3, "kernel_mod_J": 0, "t_build": 1.1, "t_null": 1.6}
+{"d": 6, "parD": 0, "rows": 3080, "cols": 2612, "nJcols": 2376, "nD": 236, "nullity": 180, "dim_E1_space": 18, "dim_J_d": 18, "kernel_mod_J": 0, "t_build": 2.9, "t_null": 6.3}
+{"d": 6, "parD": 1, "rows": 3108, "cols": 2602, "nJcols": 2376, "nD": 226, "nullity": 171, "dim_E1_space": 18, "dim_J_d": 18, "kernel_mod_J": 0, "t_build": 2.9, "t_null": 6.2}

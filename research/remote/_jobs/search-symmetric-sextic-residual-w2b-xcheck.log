@@ -1,0 +1,4 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[charfamily xcheck triv/6/0] d=6 pD=0 K=4 rows=838 cols=161 (N 142, Q 19) nnz(M)=174208 built in 6.9s
+[varpro] d=6 q=1 K=4 rows=16797 cols=2602 (N 2376, Q 226) excluded F-multiples dim=0 built in 282.1s
+dims: mine 4 engine 4

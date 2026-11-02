@@ -1,0 +1,7 @@
+std_time = 0
+dim = 1
+vdim = -1
+degree:
+// dimension (proj.)  = 0
+// degree (proj.)   = 8
+hilb1 = 1,0,-32,132,-235,176,56,-232,203,-80,8,4,-1,0

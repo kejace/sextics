@@ -1,0 +1,1 @@
+[bilinear d=7 c=(0, 0) p=None] {'colon_dim': 15, 'gauge_dim': 1, 'syz_dim': 45, 'nD': 38, 'e1_rows': 299, 'e1_cols': 338, 'nt': 14, 'ns': 45, 'neq': 337, 'neq_raw': 346, 'build_s': 2.3, 'p': None}

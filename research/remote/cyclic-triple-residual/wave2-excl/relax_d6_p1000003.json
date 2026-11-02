@@ -1,0 +1,293 @@
+{
+ "d": 6,
+ "p": 1000003,
+ "n_theta": 36,
+ "n_quadrics": 675,
+ "gb_size": 1173,
+ "gb_linear": 0,
+ "n_forms": 35,
+ "n_empty": 35,
+ "forms": [
+  {
+   "k": 0,
+   "form": "1*t0",
+   "rc": 0,
+   "seconds": 0.4,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 1,
+   "form": "1*t1",
+   "rc": 0,
+   "seconds": 0.4,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 2,
+   "form": "1*t2",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 3,
+   "form": "1*t3",
+   "rc": 0,
+   "seconds": 0.4,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 4,
+   "form": "1*t4",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 5,
+   "form": "1*t6",
+   "rc": 0,
+   "seconds": 0.5,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 6,
+   "form": "1*t7",
+   "rc": 0,
+   "seconds": 0.5,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 7,
+   "form": "1*t8",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 8,
+   "form": "1*t9",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 9,
+   "form": "1*t11",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 10,
+   "form": "1*t12",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 11,
+   "form": "1*t13",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 12,
+   "form": "1*t14",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 13,
+   "form": "1*t16",
+   "rc": 0,
+   "seconds": 0.4,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 14,
+   "form": "1*t17",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 15,
+   "form": "1*t18",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 16,
+   "form": "1*t19",
+   "rc": 0,
+   "seconds": 0.2,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 17,
+   "form": "1*t21",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 18,
+   "form": "1*t22",
+   "rc": 0,
+   "seconds": 0.6,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 19,
+   "form": "1*t23",
+   "rc": 0,
+   "seconds": 0.5,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 20,
+   "form": "1*t24",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 21,
+   "form": "1*t26",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 22,
+   "form": "1*t27",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 23,
+   "form": "1*t28",
+   "rc": 0,
+   "seconds": 0.2,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 24,
+   "form": "1*t29",
+   "rc": 0,
+   "seconds": 3.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 25,
+   "form": "1*t31",
+   "rc": 0,
+   "seconds": 0.2,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 26,
+   "form": "1*t32",
+   "rc": 0,
+   "seconds": 0.5,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 27,
+   "form": "1*t33",
+   "rc": 0,
+   "seconds": 0.5,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 28,
+   "form": "1*t34",
+   "rc": 0,
+   "seconds": 0.2,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 29,
+   "form": "1*t35",
+   "rc": 0,
+   "seconds": 0.3,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 30,
+   "form": "1*t5-1*t10",
+   "rc": 0,
+   "seconds": 4.6,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 31,
+   "form": "1*t5-1*t15",
+   "rc": 0,
+   "seconds": 4.4,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 32,
+   "form": "1*t5-1*t20",
+   "rc": 0,
+   "seconds": 3.6,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 33,
+   "form": "1*t5-1*t25",
+   "rc": 0,
+   "seconds": 3.0,
+   "empty": true,
+   "out": "[-1]:"
+  },
+  {
+   "k": 34,
+   "form": "1*t5-1*t30",
+   "rc": 0,
+   "seconds": 3.3,
+   "empty": true,
+   "out": "[-1]:"
+  }
+ ],
+ "seconds_forms": 24.6
+}

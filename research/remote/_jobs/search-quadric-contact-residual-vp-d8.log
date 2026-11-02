@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+24 sector(s) to run
+[e1_family] {'d': 8, 'chi': '0000', 'parity': None, 'dimS': 87, 'rows': 592, 'cols': 741, 'nullity': 163, 'dim_kernel': 33, 'dimJ': 32, 'n_extra': 1, 'dim_gauge': 4, 'seconds': 0.9, 't_null': 0.6}
+[build_family] {'d': 8, 'chi': '0000', 'parity': None, 'dimS': 87, 'rows': 592, 'cols': 741, 'nullity': 163, 'dim_kernel': 33, 'dimJ': 32, 'n_extra': 1, 'dim_gauge': 4, 'seconds': 0.9, 't_null': 0.6, 'mode': 'gens', 'n_members': 33, 'n_lifted': 1, 'max_lift_res': 1.7635930089854235e-15, 't_family': 1.5}
+[koszul-varpro] d=8 chi=0000 K=33 rows=1002 cols=303 (K 130, Q 173) Mstack nnz=155331 Vstack nnz=43948 dimP=29 excluded=4 built 0.7s

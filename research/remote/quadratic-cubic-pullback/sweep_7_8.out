@@ -1,0 +1,2 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+{"d": 7, "which": "ours", "cols": 4284, "rowsJ": 3861, "rowsA": 396, "rankJ": 3441, "rank_stack": 3774, "dimK": 63, "dimJd_even": 63, "dimK_mod_J": 0, "dimR_odd": 843, "seconds": 399.3}

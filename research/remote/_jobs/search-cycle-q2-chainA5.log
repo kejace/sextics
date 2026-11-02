@@ -1,0 +1,1 @@
+w2_chainA.sh: line 5: 2247959 Killed                  python3 w2_search.py --d 9 --family kernel --restarts 3 --batch 3 --maxiter 60 --nproc 48 --tag k9 > search-cycle-q2-k9.out 2>&1

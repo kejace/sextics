@@ -1,0 +1,19 @@
+[gmrank_sep] degree 1: 3 even-even monomials, 0 Jacobian generators
+[gmrank_sep] degree 7: 120 even-even monomials, 30 Jacobian generators
+[gmrank_sep] degree 13: 756 even-even monomials, 765 Jacobian generators
+[gmrank_sep] degree 19: 2640 even-even monomials, 4392 Jacobian generators
+[gmrank_sep] degree 25: 6825 even-even monomials, 14718 Jacobian generators
+[gmrank_sep] degree 7: dim R_d^ee = 90, rank J = 30, inverse built (0s)
+[gmrank_sep] degree 13: dim R_d^ee = 90, rank J = 666, inverse built (3s)
+[gmrank_sep] degree 19: dim R_d^ee = 3, rank J = 2637, inverse built (113s)
+[gmrank_sep] degree 25: dim R_d^ee = 0, rank J = 6825, inverse built (1746s)
+[gmrank_sep] Hodge-type dimensions {1: 3, 7: 90, 13: 90, 19: 3, 25: 0}
+[gmrank_sep] basis size 186
+Traceback (most recent call last):
+  File "/tmp/hodge/results/reflection-coupled-residual/construct/gm_rank.py", line 186, in <module>
+    col = reduce_class(Pser, k + 1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/reflection-coupled-residual/construct/gm_rank.py", line 160, in reduce_class
+    out.setdefault(key, [0] * (K + 1))[n] = (out[key][n] + v) % p
+                                             ~~~^^^^^
+KeyError: 17

@@ -1,0 +1,25 @@
+// Normalisation model of the pencil member S_kappa: complete intersection {C = k s^2, H = k s^3} in P(1,1,1,1,2).
+// Quasi-smoothness: singular locus of the affine cone (mod 32003 for speed), for kappa = 1 and kappa = 5.
+ring r = 32003,(X0,X1,Y0,Y1,s),dp;
+poly C = X1^3*Y1/2 + X0^2*X1*Y0/3;
+poly H = X0^6+X1^6+Y0^6+Y1^6 + X0^3*X1*Y0*Y1/2;
+int k;
+for (k=1; k<=5; k=k+4) {
+  ideal I = C - k*s^2, H - k*s^3;
+  matrix Jm = jacob(I);
+  ideal Sing = I + minor(Jm,2);
+  ideal SS = std(Sing);
+  "kappa=",k,"  dim of singular locus of affine cone:", dim(SS), " (1 = only the vertex => quasi-smooth)";
+  if (dim(SS) > 1) { "   degree:", mult(SS); }
+}
+// p_g via adjunction if quasi-smooth: h^0(O(4)) on the c.i. = 46 - 1 = 45; q = 0 (weighted c.i. of dim 2).
+// Also: the base curve C = H = 0 (s = 0) components
+ideal B = C, H; ideal BB = std(B); "base curve C=H=0 in P^3: dim(cone)=", dim(BB), " degree=", mult(BB);
+LIB "primdec.lib";
+ring r2 = 0,(X0,X1,Y0,Y1),dp;
+poly C = X1^3*Y1/2 + X0^2*X1*Y0/3;
+poly H = X0^6+X1^6+Y0^6+Y1^6 + X0^3*X1*Y0*Y1/2;
+list L = minAssGTZ(ideal(C,H));
+"components of the base curve:", size(L);
+int j; for (j=1;j<=size(L);j++) { "  comp", j, ": degree", mult(std(L[j])), " gens:", size(L[j]); }
+quit;

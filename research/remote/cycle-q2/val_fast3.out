@@ -1,0 +1,1 @@
+p 8388593 {'consistent': False, 'rank': 2846, 'nullity': 1214, 'rows': 10500, 'cols': 4060, 'k': 4101, 't_compress': 178.34, 't_lu': 119.97} 298.3s

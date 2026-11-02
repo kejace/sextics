@@ -1,0 +1,73 @@
+{
+ "ts": "2026-11-02T11:53:36",
+ "job": "d8gmix-c30",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 8,
+ "sector": [
+  3,
+  0
+ ],
+ "family": "colon",
+ "group": "g",
+ "K": 89,
+ "rank": 89,
+ "gauge": 5,
+ "dimP": 84,
+ "rows": 13730,
+ "nN": 2098,
+ "nQ": 537,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 8,
+ "best_relres": 0.02056676163473699,
+ "median_relres": 0.08429572324783834,
+ "hist": {
+  "ge1e-2": 8
+ },
+ "top_minima": [
+  [
+   "2.057e-02",
+   1
+  ],
+  [
+   "3.276e-02",
+   1
+  ],
+  [
+   "7.102e-02",
+   1
+  ],
+  [
+   "8.333e-02",
+   1
+  ],
+  [
+   "8.430e-02",
+   1
+  ],
+  [
+   "9.424e-02",
+   1
+  ],
+  [
+   "9.690e-02",
+   1
+  ],
+  [
+   "1.016e-01",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 3513.88,
+ "statuses": {
+  "maxiter": 2,
+  "flat": 4,
+  "stalled": 2
+ },
+ "wall": 4661.8,
+ "confirm_attempts": [],
+ "witness": false
+}

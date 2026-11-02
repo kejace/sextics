@@ -1,0 +1,73 @@
+{
+ "d": 5,
+ "p": 1073741789,
+ "cD": "yeven",
+ "allowed_chars": [
+  [
+   0,
+   0
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   2,
+   0
+  ],
+  [
+   2,
+   2
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   4,
+   0
+  ],
+  [
+   4,
+   2
+  ],
+  [
+   4,
+   4
+  ]
+ ],
+ "n_kernel": 0,
+ "n_w": 3,
+ "n_gauge_removed": 0,
+ "n_vars": 3,
+ "n_quadrics": 19,
+ "rankJ_2d_mod_p": 1497,
+ "ci_dimJ_2d": 1497,
+ "sanity_direct": true,
+ "kernel_names": [],
+ "degree3_blocks": {
+  "(0, 0)": {
+   "cubics": 5,
+   "products": 28,
+   "rank": 5
+  },
+  "(0, 2)": {
+   "cubics": 3,
+   "products": 21,
+   "rank": 3
+  },
+  "(0, 4)": {
+   "cubics": 2,
+   "products": 8,
+   "rank": 2
+  }
+ },
+ "m3_in_I": true,
+ "t_deg3": 0.0,
+ "seconds_total": 0.6,
+ "excluded": true
+}

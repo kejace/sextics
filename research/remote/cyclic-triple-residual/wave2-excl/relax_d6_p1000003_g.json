@@ -1,0 +1,12 @@
+{
+ "d": 6,
+ "p": 1000003,
+ "n_theta": 36,
+ "n_quadrics": 675,
+ "gb_size": 1173,
+ "gb_linear": 0,
+ "n_forms": 0,
+ "n_empty": 0,
+ "forms": [],
+ "seconds_forms": 0.0
+}

@@ -1,0 +1,17 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[reducer] deg 7 par 0: dim S=396 rank J=63 dim R=333 (0s)
+saved /tmp/hodge/results/short-power-presentation/w2/reducer_deg7_par0_mod2147483647.npz 0s
+[reducer] deg 7 par 1: dim S=396 rank J=63 dim R=333 (0s)
+saved /tmp/hodge/results/short-power-presentation/w2/reducer_deg7_par1_mod2147483647.npz 0s
+[reducer] deg 8 par 0: dim S=651 rank J=168 dim R=483 (0s)
+saved /tmp/hodge/results/short-power-presentation/w2/reducer_deg8_par0_mod2147483647.npz 0s
+[reducer] deg 8 par 1: dim S=636 rank J=168 dim R=468 (0s)
+saved /tmp/hodge/results/short-power-presentation/w2/reducer_deg8_par1_mod2147483647.npz 0s
+[reducer] deg 9 par 0: dim S=1001 rank J=378 dim R=623 (3s)
+saved /tmp/hodge/results/short-power-presentation/w2/reducer_deg9_par0_mod2147483647.npz 3s
+[reducer] deg 9 par 1: dim S=1001 rank J=378 dim R=623 (1s)
+saved /tmp/hodge/results/short-power-presentation/w2/reducer_deg9_par1_mod2147483647.npz 5s
+[reducer] deg 10 par 0: dim S=1512 rank J=750 dim R=762 (53s)
+saved /tmp/hodge/results/short-power-presentation/w2/reducer_deg10_par0_mod2147483647.npz 55s
+[reducer] deg 10 par 1: dim S=1491 rank J=747 dim R=744 (198s)
+saved /tmp/hodge/results/short-power-presentation/w2/reducer_deg10_par1_mod2147483647.npz 273s

@@ -1,0 +1,9 @@
+ring rS = 0,(x,y,z,l),dp;
+poly FS = 7*(x^5*y+y^5*z+z^5*x) + l^2*(10*x*y^3+60*x^3*z+45*y*z^3) + 7*794*l^6;
+ideal JS = jacob(FS); JS = std(JS);
+"S_(1,2,3): dim of affine Jacobian scheme (0 = smooth projective):", dim(JS);
+ring rV = 0,(x,y,z,t,T),dp;
+poly FV = 7*(x^5*y+y^5*z+z^5*x) + 5*x*y^3*t*T + 20*x^3*z*T^2 + 30*y*z^3*t*T + 7*t^6 + 7*65*T^6;
+ideal JV = jacob(FV); JV = std(JV);
+"V_(1,2): dim of affine Jacobian scheme:", dim(JV);
+quit;

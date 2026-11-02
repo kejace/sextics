@@ -1,0 +1,26 @@
+[hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
+[2026-11-02T04:57:31] job d10h0-c40: d=10 c=(4, 0) kind=colon F=offpaired restarts=150 workers=8
+[build_family] exact basis failed (colon d=10 c=(4, 0): rational reconstruction failed with 6 primes); using float basis
+Traceback (most recent call last):
+  File "/tmp/hodge/results/off-paired/wave2-search/w2lib.py", line 843, in build_family
+    basis, _, _ = exact_colon_basis(F, A, q, d, c, verbose=verbose)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/off-paired/wave2-search/w2lib.py", line 190, in exact_colon_basis
+    rat, piv = exact_rowspace_basis(lambda p: colon_vecs_modp(F, A, q, d, c, Dbasis, p), nW, verbose=verbose,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/off-paired/wave2-search/w2lib.py", line 144, in exact_rowspace_basis
+    raise RuntimeError(f'{tag}: rational reconstruction failed with {len(primes)} primes')
+RuntimeError: colon d=10 c=(4, 0): rational reconstruction failed with 6 primes
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/hodge/results/off-paired/wave2-search/w2_varpro.py", line 53, in <module>
+    basis, gauge, info = w2lib.build_family(F, A, q, args.d, c, args.kind, verbose=True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/off-paired/wave2-search/w2lib.py", line 846, in build_family
+    basis, _ = float_colon_basis(F, A, q, d, c, verbose=verbose); info['exact'] = False
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/hodge/results/off-paired/wave2-search/w2lib.py", line 268, in float_colon_basis
+    raise RuntimeError(f'float colon basis d={d} c={c}: numeric rank {r} != modular rank {rk}')
+RuntimeError: float colon basis d=10 c=(4, 0): numeric rank 84 != modular rank 83

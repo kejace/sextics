@@ -1,0 +1,1 @@
+./w2_localchain5.sh: line 5: 545588 Killed                  nice -n 10 timeout 7200 python3 -u w2_timage.py 8 1 > timage8.out 2>&1

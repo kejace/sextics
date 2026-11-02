@@ -1,0 +1,5 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[system] d=5 q=1 rows=10152 cols=1672 (N 1386, Q 60) nnz=2810109 built in 2.5s
+{"D": "dF/dX0", "d": 5, "target_image_dim": 18, "seconds": 15.0}
+[system] d=6 q=1 rows=16797 cols=2828 (N 2376, Q 226) nnz=6590520 built in 5.7s
+{"D": "(X0 dX0 + Y0 dY0)F", "d": 6, "target_image_dim": 18, "seconds": 52.0}

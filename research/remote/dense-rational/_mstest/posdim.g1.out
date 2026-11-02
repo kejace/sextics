@@ -1,0 +1,9 @@
+#Leading ideal data
+#---
+#field characteristic: 1073741789
+#variable order:       x, y, z
+#monomial order:       graded reverse lexicographical
+#length of basis:      2 elements sorted by increasing leading monomials
+#---
+[z^2,
+x^2]:
