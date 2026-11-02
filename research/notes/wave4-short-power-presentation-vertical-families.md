@@ -1,4 +1,4 @@
-STATUS: RUNNING — 2026-11-01 23:40 UTC — setting up T-reduction E1 test for vertical families (d = 7..12+), two primes, Hilbert-rank transfer
+STATUS: RUNNING — 2026-11-02 04:55 UTC — E1 vertical d=7..13 = J-part only (exact); D_res fails E1 (exact); E2-mod-J relaxation + fixed-D solves of u*w running
 
 # wave 4 — short-power-presentation — route: vertical families (E1 on C[e(X), e(Y), L, M] and D_res)
 

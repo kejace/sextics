@@ -1,11 +1,16 @@
 # Wave 2 search report: `cycle-q2` (q = 2, A = X0^2 X1^2 X2^3 Y0^2 Y1^2 Y2)
 
-STATUS: no witness found so far. New exact result: deg D >= 6 for every certificate (any D). Search infrastructure built
-and validated; four remote job chains running since 19:43-19:50 local (box at load 500-750 from ~60 agent jobs, so
-everything runs slowly). This file is rewritten after every batch. A parallel EXCLUSION agent (notes
-`wave2-cycle-q2-excl.md`) and a second SEARCH agent running on the VM itself (`w2s_*.py`) work on the same lane; the
-degree-5 theorem below was obtained independently by both of us; the d = 6 Groebner computation of the relaxation ideal
-is theirs (job `excl-cycle-q2-hess6`); my `w2_relax6.py` reproduces its input (62-dim kernel, 426 quadrics, Psi(F) = 0).
+STATUS: NO WITNESS FOUND (2026-11-01, 19:00-24:00 local).  New exact result: every certificate has deg D >= 6 for
+arbitrary D.  Joint numerical search (sector-restricted, Koszul-reduced, complex variable projection with LM) over all 72
+character sectors: d = 6 exhaustive (1920 + 2700 restarts, best relative residual 7.5e-3, no candidate), d = 7 sampled
+(720 restarts, best 4.8e-4), 276 structured sub-families at d = 7, 8 (best 9.9e-4), 490 structured modular tests
+(all inconsistent except the trivial 36 F^2), exact pencil scans of the 2-dimensional d = 6 sectors (5 of 9 done: no
+F_p-rational consistent point), q = 1 sibling B = X0 X1^2 Y0 Y1^2 at d = 8, 9, 10 (only the trivial F-multiple solutions).
+Remote chains A5 (d = 8, 9), B5 (structured d = 8, kernel d = 10..12, prod6 d = 12), E3 (sibling d = 10..12), D3
+(remaining pencils) are still running and keep appending to the remote log (see "Caveats, files and next steps").
+A parallel EXCLUSION agent (notes `wave2-cycle-q2-excl.md`) and a second SEARCH agent on the VM (`w2s_*.py`) work on the
+same lane; the degree-5 theorem was obtained independently by both of us; the d = 6 Groebner computation of the
+relaxation ideal is theirs; my `w2_relax6.py` reproduces its input (62-dim kernel, 426 quadrics, Psi(F) = 0).
 
 Code (lane dir `/tmp/hodge/results/cycle-q2/`): `w2lib.py` (sector bookkeeping, E1-kernel per sector mod p and numeric,
 Koszul-reduced sector-restricted complex variable projection `KoszulVarPro` with L-BFGS and Levenberg-Marquardt drivers,
@@ -116,7 +121,7 @@ Final job set:
   discarding any legal denominator (projecting the family onto a complement of L would).  At q = 2 F-multiples are not
   automatically consistent (D = F G needs [A][G] = 0 in R, i.e. E1 for G), and no such attractor was observed.
 
-### Results of the joint search so far (22:00; updated as jobs finish)
+### Results of the joint search (final pull 23:58; remote chains continue)
 
 The only "consistent" line of the whole wave is the expected trivial one: the subset-Euler form for I = all six variables
 is 6F, so its square D = 36 F^2 is consistent (D = F G is automatically consistent at q = 2 whenever [A][G] = 0 in R;
@@ -137,11 +142,16 @@ the nine 2-dimensional d = 6 sectors run after the sweep.
 
 | 1 | B (sibling) | 8 | kernel, deflated (chain E3, finished) | 72 | 10800 | <= 297 x 79 | 4.5e-7 (best non-spurious) | 0.73 | 0 |
 | 1 | B (sibling) | 9 | kernel, deflated (chain E3; run cut short at 22:47 by a mistaken process kill, 16 of 72 sectors sampled) | 16 | 725 | <= 492 x 150 | 9.2e-7 (non-spurious) | 4.4e-6 | 0 |
-| 1 | B (sibling) | 10 | kernel, deflated (chain E3, running) | 16 of 72 | 320 | <= 766 x 279 | 1.9e-7 (non-spurious) | 1.2e-6 | 0 |
-| 2 | A | 7 | kernel (chains A4/A5; 10 restarts per sector) | 45 of 72 | 450 | <= 766 x 458 | 4.8e-4 | 0.038 | 0 |
-| 2 | A | 7 | mult4 sub-families (mult >= 4 at X ∩ coordinate line; chain B5) | 109 | 1149 | <= 766 x 458 | 9.9e-4 | 0.097 | 0 |
-| 2 | A | 7 | cone4 sub-families (line-vertex cones; chain B5) | 45 | 549 | <= 766 x 454 | 0.26 | 0.86 | 0 |
+| 1 | B (sibling) | 10 | kernel, deflated (chain E3, running) | 16 of 72 | 560 | <= 766 x 279 | 1.7e-7 (non-spurious) | 5.4e-7 | 0 |
+| 2 | A | 7 | kernel, all sectors, 10 LM restarts each (chains A4/A5) | 72 (K = 6..12) | 720 | <= 766 x 462 | 4.8e-4 (key 603, K = 12) | 0.037 (quartiles 5e-3 / 3.7e-2 / 7.5e-2; 23 sectors < 1e-2) | 0 |
+| 2 | A | 7 | mult4 sub-families (mult >= 4 at X ∩ coordinate line; chain B5) | 199 (K = 1..7) | 1359 | <= 766 x 458 | 9.9e-4 (line X0-Y0 in sector 477) | 0.095 | 0 |
+| 2 | A | 7 | cone4 / cone3 sub-families (line- and plane-vertex cones; chain B5) | 77 | 555 | <= 766 x 454 | 0.26 | 0.85 | 0 |
 | 2 | A | 8 | cone4 sub-families (chain B5, running) | 23 | 345 | <= 1152 x 690 | 0.17 | 0.51 | 0 |
+
+Exact pencil scans (chain D3, `w2_pencil.py`, p = 2^31-1): for each 2-dimensional d = 6 sector family D1 + t D2 the
+maximal-minor polynomial g(t) (degree 598-625, interpolation verified at a fresh point) has 4-8 roots in F_p, none of
+which gives a consistent full sector system, and t = infinity is inconsistent: sectors 96, 486, 516, 576, 747 have no
+F_p-rational consistent member (sectors 876, 936, 822, 1062 and the second prime were still running at 24:00).
 
 Sibling note: with the deflated residual r/dist(a,L)^2, 20-40 % of the restarts in sectors containing F-multiples still
 end within 5 % of L (flagged spurious; e.g. sector 609: 51 of 150 restarts below 1e-10 are all spurious), and the best

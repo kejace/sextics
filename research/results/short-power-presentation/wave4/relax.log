@@ -1,0 +1,1 @@
+{"d": 7, "parD": 0, "n_w": 3, "kernel_dim": [2, 2], "hilbert_ok": [true, true], "result": "A w^2 L^2M^2(L^2+M^2) in J_14 for 0 of 3 w (basis + 2 random) [membership = e_k in kernel]; kernel_dim [2, 2]; hilbert [True, True]", "seconds": 11.4}

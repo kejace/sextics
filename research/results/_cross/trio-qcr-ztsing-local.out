@@ -1,0 +1,29 @@
+   ? `poly` ^ `number` failed
+   ? expected `poly` ^ `int`
+   ? error occurred in or before trio_qcr_ztsing.sing line 3: `poly f1 = 5*w^2/3 + z1^2 + z2^2 + z3^2;`
+   ? expected poly-expression. type 'help poly;'
+   ? `poly` ^ `number` failed
+   ? expected `poly` ^ `int`
+   ? error occurred in or before trio_qcr_ztsing.sing line 4: `*X1*Y1*Y2^2/21 - 40*X2^2*Y2^2/3 - 5*w^4/3 + z1^2*z2^2 + z1^2*z3^2 + z2^2*z3^2;`
+   ? expected poly-expression. type 'help poly;'
+   ? `poly` ^ `number` failed
+   ? expected `poly` ^ `int`
+   ? error occurred in or before trio_qcr_ztsing.sing line 5: `16*X2^6/3 + 40*X2^2*Y2^2*w^2/3 + 16*Y1^6/3 + 16*Y2^6/3 + w^6 + z1^2*z2^2*z3^2;`
+   ? expected poly-expression. type 'help poly;'
+   ? can not convert $INVALID$(f1) -> matrix
+   ? error occurred in or before trio_qcr_ztsing.sing line 6: `ideal I = f1,f2,f3;`
+   ? expected ideal-expression. type 'help ideal;'
+   ? `I` is not defined
+   ? error occurred in or before trio_qcr_ztsing.sing line 7: `print(dim(std(I)));  // expect 5 (affine cone of a 4-fold)`
+   ? `I` is not defined
+   ? error occurred in or before trio_qcr_ztsing.sing line 8: `ideal J = I + minor(jacob(I), 3);`
+   ? expected ideal-expression. type 'help ideal;'
+   ? `J` is not defined
+   ? error occurred in or before trio_qcr_ztsing.sing line 9: `ideal sJ = std(J);`
+   ? expected ideal-expression. type 'help ideal;'
+dim singular locus cone:
+   ? `sJ` is not defined
+   ? error occurred in or before trio_qcr_ztsing.sing line 10: `print("dim singular locus cone:"); print(dim(sJ));`
+degree of singular locus:
+   ? `sJ` is not defined
+   ? error occurred in or before trio_qcr_ztsing.sing line 11: `print("degree of singular locus:"); print(mult(sJ));`

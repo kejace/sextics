@@ -4,3 +4,10 @@
 {"case": "diag", "j": 3, "class": "empty", "seconds": 0.0, "n_eqs": 142}
 {"case": "diag", "j": 4, "class": "empty", "seconds": 0.0, "n_eqs": 142}
 {"case": "diag", "j": 5, "class": "empty", "seconds": 0.1, "n_eqs": 142}
+{"case": "swap", "j": 0, "class": "empty", "seconds": 0.0, "n_eqs": 143}
+{"case": "swap", "j": 1, "class": "empty", "seconds": 0.0, "n_eqs": 144}
+{"case": "swap", "j": 2, "class": "empty", "seconds": 0.0, "n_eqs": 144}
+{"case": "swap", "j": 3, "class": "empty", "seconds": 0.0, "n_eqs": 144}
+{"case": "swap", "j": 4, "class": "empty", "seconds": 0.0, "n_eqs": 144}
+{"case": "swap", "j": 5, "class": "empty", "seconds": 0.0, "n_eqs": 144}
+TOTAL number of projective linear automorphisms of F_mu over F_p-bar (sum of ideal degrees): 0

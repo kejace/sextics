@@ -1,1 +1,5 @@
 fibre mu 3/7 p 1000000009 minors 55
+p {"plain": "empty", "seconds": 0.4, "u_tests": {"q": ["empty", 0.3], "a": ["empty", 0.2], "b": ["empty", 0.2], "t": ["empty", 0.3]}, "only_coordinate_point": true}
+q {"plain": "empty", "seconds": 0.3, "u_tests": {"p": ["empty", 0.3], "a": ["empty", 0.2], "b": ["empty", 0.7], "t": ["empty", 0.1]}, "only_coordinate_point": true}
+a {"plain": "finite", "seconds": 0.2, "plain_sols": {"deg_ideal": 1, "elim_degree": 1, "n_roots_Fp": 1, "vars": ["p", "q", "b", "t"], "lin": [0, 0, 0, 1], "sols": [{"p": 0, "q": 0, "b": 0, "t": 0}]}, "u_tests": {"p": ["empty", 0.4], "q": ["empty", 0.3], "b": ["empty", 0.3], "t": ["empty", 0.1]}, "only_coordinate_point": true}
+b {"plain": "finite", "seconds": 1.0, "plain_sols": {"deg_ideal": 3, "elim_degree": 1, "n_roots_Fp": 1, "vars": ["p", "q", "a", "t", "A"], "lin": [-24, 120, -37, -73, -18], "sols": [{"p": 0, "q": 0, "a": 0, "t": 0, "A": 0}]}, "u_tests": {"p": ["empty", 0.2], "q": ["empty", 0.4], "a": ["empty", 0.4], "t": ["empty", 0.1]}, "only_coordinate_point": true}

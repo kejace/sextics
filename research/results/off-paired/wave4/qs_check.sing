@@ -1,0 +1,23 @@
+// quasi-smoothness of Y_-, Y_+ (in P(1,1,1,1,2,3)) and W (in P(1,1,1,1,1,2)); char 0
+option(redSB);
+ring R = 0,(X0,X1,Y0,Y1,s,m,t),dp;
+poly H = X0^6 + X1^6 + Y0^6 + Y1^6 + X0^3*X1*Y0*Y1/2;
+poly C = X0^2*X1*Y0/3 + X1^3*Y1/2;
+poly Gm = t^2 - 2*m^3 + C*m + H;       // Y_-
+poly Gp = t^2 + 2*m^3 + C*m + H;       // Y_+
+poly GW = H + C*m + s^6 - 6*s^4*m + 9*s^2*m^2 - 2*m^3;  // W
+ideal Jm = Gm, jacob(Gm), s;   // s unused for Y: kill it
+ideal Jp = Gp, jacob(Gp), s;
+ideal JW = GW, jacob(GW), t;   // t unused for W
+ideal Sm = std(Jm); ideal Sp = std(Jp); ideal SW = std(JW);
+"dim affine singular locus Y_- :", dim(Sm);
+"dim affine singular locus Y_+ :", dim(Sp);
+"dim affine singular locus W   :", dim(SW);
+// irreducibility of H and of the Weierstrass cubic 2m^3 - C m - H over Q
+ring R2 = 0,(X0,X1,Y0,Y1,m),dp;
+poly H = X0^6 + X1^6 + Y0^6 + Y1^6 + X0^3*X1*Y0*Y1/2;
+poly C = X0^2*X1*Y0/3 + X1^3*Y1/2;
+"factors of H:"; factorize(H);
+"factors of 2m^3-Cm-H:"; factorize(2*m^3 - C*m - H);
+"factors of -2m^3-Cm-H:"; factorize(-2*m^3 - C*m - H);
+quit;

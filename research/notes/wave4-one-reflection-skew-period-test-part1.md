@@ -1,0 +1,69 @@
+# wave4 one-reflection-skew / period-test — part 1: what a period test can and cannot decide (theory)
+
+Notation as in fqlx's companion post: chart Y0=1, X=(x,rx,wx), Y1=t, Y2=z, U=x^2, base B=(r,w,t)-space,
+fibre curve C_b: z^6 = -P_b(U), P=aU^3+bU^2+cU+d, genus 4; theta = (5U^2/(72 z^11)) dU ^ nu is the residue
+4-form of A Omega/F^2 on the chart; theta = theta_0 + d(S nu), theta_0 = (H0 w0 + H1 w1)/(72 delta) ^ nu,
+w0=dU/z^5, w1=U dU/z^5 (holomorphic, zeta_6-eigen). L := zeta-eigenpart of R^1 pi_* C (rank 2, Hodge type (2,0)).
+
+## 1. Strict transcendental obstruction (independent of any Hodge-conjecture input) — PROVEN (standard MHS theory)
+
+(a) Certificate (D,N,Q) exists  <=>  the class of theta vanishes in H^4(X \ {D=0})  <=>  [Res(A Omega/F^2)] in N^1 H^4(X)
+    (coniveau-1 part; prescribed-support theorem of the repo / algebraic de Rham on the affine complement).
+(b) For any smooth variety U and divisor Z, ker(H^k(U) -> H^k(U\Z)) = image of H^k_Z(U) = H^BM_{2n-k}(Z)(-n),
+    whose Hodge types (p,q) satisfy p,q >= 1 (Deligne, Hodge III 8.2.4: H^j_c of a variety of dim m has p,q >= j-m
+    for j>m; dualise and twist).  Hence N^1 H^k(U) is a sub-MHS of F^1 ∩ \bar F^1: the ONLY strict obstructions to
+    "exact after removing SOME divisor" are the components of type (p,0) and (0,q) in Gr^W.
+(c) The class [theta] in H^4(X°) is the restriction of the compact class Res(A Omega/F^2) in F^3 H^4(X); so [theta]
+    lies in W_4 (no higher-weight components: all residues of theta along the removed divisors are cohomologically
+    trivial) and its only possible strict obstruction is its (4,0)-component.
+(d) The (4,0)-component vanishes by symmetry: the X-sign g: X_i -> -X_i fixes F, acts on H^{4,0} = C·Res(Omega/F)
+    by prod(lambda)/c = (-1)^3 = -1, and on Res(A Omega/F^2) by chi(A)·prod(lambda)/c^2 = (-1)(-1) = +1 (A = X0^3 Y0^3
+    is g-odd).  Different eigenvalues  =>  (4,0)-component = 0.  (Same as the dossier's sector table: h^{4,0}=0 in
+    the residue sector (+,-,zeta).)  This is exactly the symmetry that makes the U=x^2 quotient legitimate.
+(e) Transport to any cover: pullback along generically finite maps and the Leray/Kuenneth identifications on the
+    CM-trivialising cover B'' (H^4(X''°)_zeta ⊃ (H^3(B''°) ⊗ L_0)^G, L_0 of type (1,0)) are morphisms of MHS, so the
+    components c_i of [theta_0] in H^3(B''°) lie in W_3 with ZERO (3,0)-part, i.e. they are classes of type
+    (2,1)+(1,2) in Im(H^3(\bar B'')).  Likewise for each companion sheet: the base density C_beta nu (twist
+    trivialised) is a Q(zeta)-combination of the c_i on a common cover, so [C'_beta nu] in W_3 H^3(B''°) with no
+    (3,0)-part, and all its iterated residues (triple-point numbers, double residues on curves, (2,0)-parts of
+    single residues on surfaces) are cohomologically trivial.
+
+CONSEQUENCE (proven modulo (a)-(e)): no period computation — on X, on the quartic/CM cover, or in fqlx's compact
+presentation (W=0, base-only V_i) — can produce a "nonzero transcendental period" obstruction: every strictly
+transcendental invariant of the relevant classes is identically zero for symmetry reasons.  E5 as formulated in the
+dossier ("a single nonzero transcendental period proves that no rational primitive exists in the compact
+presentation") cannot fire.  What remains for the compact presentation is whether a (2,1)+(1,2) class on a
+threefold cover lies in N^1 — a generalized-Hodge-conjecture-type question (undecidable by periods; it is exactly
+the kind of statement the whole challenge is about).  E5 therefore neither closes nor revives the route.
+
+What periods CAN decide (bounded-pole statements only): whether [C'_beta nu] = 0 in H^3(B''°) for the specific
+open set B''° (poles confined to delta, a, k, 3ac-b^2, the ramification and infinity).  A nonzero period over a
+3-cycle of B''° would exclude primitives with those poles (explaining the failed R1/R2/R4/C8 ansaetze); all periods
+zero would be evidence for a primitive with those poles.  Cost: genuine 3-dimensional periods of an algebraic
+3-form on a 24-72-sheeted cover of (r,w,t)-space minus a degree-24 surface; not attempted here (see part 2 for the
+cheap consistency checks that were run).
+
+## 2. Local monodromy of L — corrected branch data (PROVEN by local exponents; numerically confirmed in part 2)
+
+The period of w0, w1 over the vanishing path between two roots e_i, e_j of P scales as (e_j - e_i)^{1-5/6-5/6}
+= (e_j-e_i)^{-2/3}; the non-vanishing periods are holomorphic there.  So the local monodromy of L around
+{delta=0} is a complex reflection with eigenvalues (1, zeta_3^{±1}) — ORDER 3, not 2.  Around {a=0} (a root to
+infinity) the vanishing period scales as a^{-1/3}·(unit) (both forms: the a^{-5/6} normalisation times e_3^{-3/2},
+resp. e_3^{-1/2}) — again order 3.  No other finite branch divisor: at t=0 or r=0 P = aU^3+d is still separable.
+Hence the MINIMAL trivialising cover of L is a G-cover with G ⊂ U(2) finite, generated by order-3 reflections,
+projective image the tetrahedral group (Schwarz list (2/3,1/3,1/3) ~ (2/3,2/3,2/3)): G = Shephard–Todd G4 (24)
+or G5 (72); it is branched along {delta=0} (degree 24, e=3) and {a=0} (degree 6, e=3) only (plus possibly the
+plane at infinity).  fqlx's quartic cover (e=2 along delta; disc_beta(R) = -6912 a^4 delta^2, re-derived) does NOT
+trivialise L by itself; his later "discriminant-root scalarisation" (adjoining theta^3 = Delta, flat pair
+h~ = (theta/q)(beta,1)^T) is precisely the missing cube root.  The elliptic maps phi_beta degenerate over delta=0:
+k = P'(-beta)/2 and N_{B/K}(k) = 48 a^2 (3ac-b^2) delta (new; sympy exact).
+
+Hurwitz/canonical class of the minimal cover: K_{B''} = pi^*(K_{P^3} + (2/3)[delta] + (2/3)[a]) + (infinity, >= 0)
+= pi^*O(-4+16+4) + ... = pi^*O(16) + effective.  Singularities over the cusp curve of the discriminant are
+D4 × line (canonical), over tangency points cA (canonical); so every smooth model is of general type (kappa = 3),
+h^{3,0} > 0 expected.  Same conclusion as the wave-3 addendum (which used e=2 on delta, e=2 on 3ac-b^2, e=3 on a:
+O(17)), with corrected branch data.  Status: proven for the normal cover's canonical class; "general type of the
+smooth model" relies on the singularities being canonical (checked only for the generic local types).
+Consequence for E4: Bloch–Srinivas on \bar B'' unavailable (as in the addendum); but by §1 the (3,0)-obstruction is
+absent anyway, so h^{3,0}(\bar B'') > 0 is NOT itself an obstruction — the class is a (2,1)+(1,2) class on a
+general-type threefold whose coniveau is a GHC question.
