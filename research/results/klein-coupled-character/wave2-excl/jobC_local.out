@@ -151,3 +151,4 @@
 02:20:41 done E1-kernel random combo d=10 par=1 k=3 trial 0 (p=1000003) inconsistent rank 2370 rows 12102 cols 2664 607.18 s
 02:25:16 done E1-kernel random combo d=10 par=1 k=3 trial 1 (p=1000003) inconsistent rank 2370 rows 12102 cols 2664 609.24 s
 02:27:25 done E1-kernel+J_d random d=10 par=1 k=3 trial 0 (p=1000003) inconsistent rank 2370 rows 12178 cols 2664 589.0 s
+02:28:43 done E1-kernel random combo d=10 par=1 k=4 trial 0 (p=1000003) inconsistent rank 2511 rows 12036 cols 2909 592.63 s
