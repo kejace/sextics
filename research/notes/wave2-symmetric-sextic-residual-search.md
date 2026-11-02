@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-02 04:36 EST from 829 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-02 04:56 EST from 829 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -175,19 +175,19 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=7 pD=0 | jac1 | 114 | 5.51e-01 | 7.5e-01 | 0 | 0 | 0.551: 9, 0.552: 14, 0.751: 2, 0.752: 73, 0.774: 16 |
+| jac d=7 pD=0 | jac1 | 121 | 5.51e-01 | 7.5e-01 | 0 | 0 | 0.551: 9, 0.552: 14, 0.751: 2, 0.752: 76, 0.774: 20 |
 | ternX-sgnX d=7 pD=0 | struct2 | 60 | 6.46e-01 | 6.5e-01 | 0 | 0 | 0.646: 42, 0.667: 18 |
 | ternX-sgnX d=8 pD=0 | struct2 | 60 | 4.36e-01 | 5.2e-01 | 0 | 0 | 0.436: 25, 0.525: 25, 0.626: 10 |
 | ternX-sgnX d=9 pD=0 | struct2 | 60 | 9.13e-02 | 3.3e-01 | 0 | 0 | 0.0913: 22, 0.178: 1, 0.24: 5, 0.332: 13, 0.406: 5 |
 | ternX-sgnX d=10 pD=0 | struct2 | 60 | 3.25e-02 | 1.5e-01 | 0 | 0 | 0.0325: 22, 0.152: 16, 0.177: 10, 0.225: 12 |
-| ternX-sgnX d=11 pD=0 | struct2 | 7 | 1.79e-02 | 1.8e-02 | 0 | 0 | 0.0179: 5, 0.0566: 1, 0.0681: 1 |
+| ternX-sgnX d=11 pD=0 | struct2 | 12 | 1.79e-02 | 5.7e-02 | 0 | 0 | 0.0179: 6, 0.0566: 4, 0.0681: 2 |
 | ternX-triv d=7 pD=0 | struct2 | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
 | ternX-triv d=7 pD=0 | struct | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
 | ternX-triv d=8 pD=0 | struct2 | 60 | 4.52e-01 | 4.5e-01 | 0 | 0 | 0.452: 34, 0.603: 26 |
 | ternX-triv d=9 pD=0 | struct2 | 60 | 1.28e-01 | 3.4e-01 | 0 | 0 | 0.128: 1, 0.228: 13, 0.342: 46 |
 | ternX-triv d=10 pD=0 | struct2 | 60 | 1.07e-01 | 2.3e-01 | 0 | 0 | 0.107: 5, 0.116: 2, 0.122: 8, 0.169: 1, 0.176: 4 |
 | ternX-triv d=11 pD=0 | struct2 | 60 | 2.34e-02 | 8.5e-02 | 0 | 0 | 0.0234: 9, 0.0313: 3, 0.0341: 3, 0.0846: 17, 0.0989: 3 |
-| triv d=10 pD=1 | vp2b | 45 | 2.26e-06 | 2.3e-06 | 0 | 0 | 2.26e-06: 25, 2.77e-06: 3, 3.55e-06: 1, 5.77e-06: 1, 8.14e-06: 4 |
+| triv d=10 pD=1 | vp2b | 49 | 2.26e-06 | 2.3e-06 | 0 | 0 | 2.26e-06: 27, 2.77e-06: 3, 3.55e-06: 2, 5.77e-06: 1, 8.14e-06: 4 |
 | triv d=12 pD=0 | vp3 | 7 | 8.13e-09 | 4.2e-08 | 7 | 0 | 8.13e-09: 1, 8.89e-09: 1, 1.63e-08: 1, 4.2e-08: 1, 4.4e-08: 1 |
 
 ## 7b. Gauss–Newton polish of the best points (is a small residual a zero?)
