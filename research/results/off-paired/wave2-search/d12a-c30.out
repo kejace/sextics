@@ -5,3 +5,49 @@
 [sector varpro] d=12 c=(3, 0) K=207 rank=207 gauge=24 dimP=183 rows=9606 N=1704 Q=1085 nnz(TN)=3334392 built in 6.8s
 [2026-11-02T07:16:29] family built: K=207 rank=207 gauge=24 dimP=183 rows=9606 N=1704 Q=1085 build 6.8s
 gradient check: analytic -1.506505e-02 fd -1.506505e-02
+{
+ "ts": "2026-11-02T09:02:53",
+ "job": "d12a-c30",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 12,
+ "sector": [
+  3,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 207,
+ "rank": 207,
+ "gauge": 24,
+ "dimP": 183,
+ "rows": 9606,
+ "nN": 1704,
+ "nQ": 1085,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 16,
+ "best_relres": 0.00020852010161643701,
+ "median_relres": 0.00020853091787808968,
+ "hist": {
+  "lt1e-2": 16
+ },
+ "top_minima": [
+  [
+   "2.085e-04",
+   15
+  ],
+  [
+   "2.091e-04",
+   1
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 80,
+ "mean_time_per_restart": 3068.28,
+ "statuses": {
+  "maxiter": 16
+ },
+ "wall": 6419.2,
+ "witness": false
+}
