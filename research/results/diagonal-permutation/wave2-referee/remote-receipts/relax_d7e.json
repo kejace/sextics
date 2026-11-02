@@ -1,0 +1,20 @@
+{
+ "d": 7,
+ "sector": "e",
+ "with_D8": false,
+ "prime": 1000000007,
+ "unknowns": 60,
+ "pair_monomials": 1830,
+ "raw_equations": 744,
+ "independent_equations": 480,
+ "good_reduction_2d": true,
+ "build_seconds": 268.8,
+ "names_head": [
+  "w0_000002_e0",
+  "w0_000011_e0",
+  "w0_000020_e0",
+  "w0_000101_e0",
+  "w0_000110_e0"
+ ],
+ "all_quadratic_monomials_in_I": false
+}

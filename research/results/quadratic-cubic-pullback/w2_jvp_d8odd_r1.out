@@ -3,3 +3,7 @@
 [jvp d=8] K=168 (w 168) dimP=159 nout=10152 rJ=468 nc=936 nQ=1491 k=1136 built in 645.6s
 [stage1 d=8] restart 0: rel=1.611e-06 |B|=3.228e+01 nfev=122 (656s)
 [stage1 d=8] restart 0: rel=1.994e-06 |B|=2.936e+01 nfev=128 (679s)
+[stage1 d=8] restart 0: rel=1.647e-06 |B|=3.258e+01 nfev=146 (818s)
+[stage1 d=8] restart 0: rel=1.647e-06 |B|=3.258e+01 nfev=168 (946s)
+[stage1 d=8] restart 0: rel=1.030e-06 |B|=2.639e+01 nfev=200 (1059s)
+[stage1 d=8] restart 0: rel=1.633e-06 |B|=3.225e+01 nfev=181 (1091s)

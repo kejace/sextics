@@ -1,0 +1,4 @@
+degree-12 parity 0: dim S = 3108, generators 2376, dim R_12 = 885 (Koszul 885) good_reduction=True
+degree-12 parity 1: dim S = 3080, generators 2376, dim R_12 = 866 (Koszul 866) good_reduction=True
+e {"unknowns": 17, "pair_monomials": 153, "independent_equations": 134, "gb_size": 139, "gb_max_lead_degree": 3, "pure_powers": 17, "zero_dimensional_V_is_origin": true, "colength_of_leading_ideal": 39, "msolve_seconds": 7.99, "msolve_status": 0, "dim_quotient_reported_by_msolve": "39"}
+o {"unknowns": 18, "pair_monomials": 171, "independent_equations": 153, "gb_size": 153, "gb_max_lead_degree": 2, "pure_powers": 18, "zero_dimensional_V_is_origin": true, "colength_of_leading_ideal": 39, "msolve_seconds": 14.97, "msolve_status": 0, "dim_quotient_reported_by_msolve": "39"}

@@ -1,0 +1,3 @@
+{"exp": "e1_kernel", "p": 999999937, "d": 9, "par": 0, "dim_S_d": 1001, "dim_J_d": 378, "ring_dim": 623, "koszul_d": 623, "rows_d6": 7752, "rank_J_d6": 7129, "ring_dim_d6": 623, "koszul_d6": 623, "good_reduction_d": true, "good_reduction_d6": true, "rank_aug": 7731, "kernel_dim": 21, "seconds": 405.9}
+{"exp": "e1_kernel", "p": 999999937, "d": 9, "par": 1, "dim_S_d": 1001, "dim_J_d": 378, "ring_dim": 623, "koszul_d": 623, "rows_d6": 7752, "rank_J_d6": 7129, "ring_dim_d6": 623, "koszul_d6": 623, "good_reduction_d": true, "good_reduction_d6": true, "rank_aug": 7731, "kernel_dim": 21, "seconds": 483.5}
+DONE

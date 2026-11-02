@@ -1,0 +1,1442 @@
+[
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   4
+  ],
+  "dimS": 11,
+  "dimK": 8,
+  "dimJ": 2,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 591.1,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   3
+  ],
+  "dimS": 11,
+  "dimK": 8,
+  "dimJ": 1,
+  "complement": 7,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 604.4,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   5
+  ],
+  "dimS": 12,
+  "dimK": 9,
+  "dimJ": 2,
+  "complement": 7,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 8,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 8 (not decided)",
+  "seconds": 616.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   1
+  ],
+  "dimS": 10,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 671.8,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   0
+  ],
+  "dimS": 15,
+  "dimK": 12,
+  "dimJ": 6,
+  "complement": 6,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 11,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 11 (not decided)",
+  "seconds": 820.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   0
+  ],
+  "dimS": 15,
+  "dimK": 11,
+  "dimJ": 6,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 9,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 9 (not decided)",
+  "seconds": 843.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   1
+  ],
+  "dimS": 15,
+  "dimK": 12,
+  "dimJ": 6,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 9,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 9 (not decided)",
+  "seconds": 947.9,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   0,
+   2
+  ],
+  "dimS": 12,
+  "dimK": 8,
+  "dimJ": 1,
+  "complement": 7,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 1140.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   3
+  ],
+  "dimS": 9,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 610.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   2
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 738.3,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   4
+  ],
+  "dimS": 11,
+  "dimK": 8,
+  "dimJ": 1,
+  "complement": 7,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 731.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   1,
+   5
+  ],
+  "dimS": 10,
+  "dimK": 8,
+  "dimJ": 2,
+  "complement": 6,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 683.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   1
+  ],
+  "dimS": 9,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 3,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 3 (not decided)",
+  "seconds": 425.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   0
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 453.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   1
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 1000.3,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   0
+  ],
+  "dimS": 12,
+  "dimK": 8,
+  "dimJ": 2,
+  "complement": 6,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 1146.1,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   2
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 1069.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   3
+  ],
+  "dimS": 11,
+  "dimK": 8,
+  "dimJ": 1,
+  "complement": 7,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 889.1,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   4
+  ],
+  "dimS": 11,
+  "dimK": 8,
+  "dimJ": 1,
+  "complement": 7,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1068.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   2
+  ],
+  "dimS": 11,
+  "dimK": 8,
+  "dimJ": 1,
+  "complement": 7,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 507.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   4
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 553.0,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   3
+  ],
+  "dimS": 9,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 669.1,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   3,
+   5
+  ],
+  "dimS": 9,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 563.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   1
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 515.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   2,
+   5
+  ],
+  "dimS": 12,
+  "dimK": 8,
+  "dimJ": 1,
+  "complement": 7,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1258.8,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   0
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 602.6,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   1
+  ],
+  "dimS": 10,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 640.8,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   5
+  ],
+  "dimS": 10,
+  "dimK": 6,
+  "dimJ": 2,
+  "complement": 4,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 831.6,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   0
+  ],
+  "dimS": 12,
+  "dimK": 9,
+  "dimJ": 1,
+  "complement": 8,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 779.4,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   3
+  ],
+  "dimS": 9,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 692.1,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   2
+  ],
+  "dimS": 11,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1065.3,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   3
+  ],
+  "dimS": 11,
+  "dimK": 6,
+  "dimJ": 2,
+  "complement": 4,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 1072.8,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   4,
+   4
+  ],
+  "dimS": 10,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1007.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   2
+  ],
+  "dimS": 12,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 903.6,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   5
+  ],
+  "dimS": 9,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 773.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   0,
+   5,
+   4
+  ],
+  "dimS": 10,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 908.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   2
+  ],
+  "dimS": 12,
+  "dimK": 10,
+  "dimJ": 2,
+  "complement": 8,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 9,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 9 (not decided)",
+  "seconds": 1048.8,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   1
+  ],
+  "dimS": 11,
+  "dimK": 9,
+  "dimJ": 1,
+  "complement": 8,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 1190.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   0
+  ],
+  "dimS": 11,
+  "dimK": 8,
+  "dimJ": 1,
+  "complement": 7,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 1261.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   5
+  ],
+  "dimS": 14,
+  "dimK": 10,
+  "dimJ": 6,
+  "complement": 4,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 9,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 9 (not decided)",
+  "seconds": 1403.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   3
+  ],
+  "dimS": 13,
+  "dimK": 9,
+  "dimJ": 2,
+  "complement": 7,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 8,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 8 (not decided)",
+  "seconds": 1751.6,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   0,
+   4
+  ],
+  "dimS": 13,
+  "dimK": 9,
+  "dimJ": 2,
+  "complement": 7,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 1718.0,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   0
+  ],
+  "dimS": 9,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1213.0,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   1
+  ],
+  "dimS": 11,
+  "dimK": 9,
+  "dimJ": 2,
+  "complement": 7,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 1389.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   2
+  ],
+  "dimS": 10,
+  "dimK": 8,
+  "dimJ": 2,
+  "complement": 6,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 1242.8,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   4
+  ],
+  "dimS": 10,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1380.1,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   5
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 1343.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   1,
+   3
+  ],
+  "dimS": 13,
+  "dimK": 9,
+  "dimJ": 2,
+  "complement": 7,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 1842.4,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   1
+  ],
+  "dimS": 11,
+  "dimK": 8,
+  "dimJ": 2,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1583.6,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   0
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 0,
+  "complement": 7,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1675.8,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   2
+  ],
+  "dimS": 14,
+  "dimK": 10,
+  "dimJ": 6,
+  "complement": 4,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 7,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 7 (not decided)",
+  "seconds": 1561.3,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   0
+  ],
+  "dimS": 9,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 669.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   4
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 1445.4,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   3
+  ],
+  "dimS": 12,
+  "dimK": 8,
+  "dimJ": 2,
+  "complement": 6,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 1662.0,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   1
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 845.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   2
+  ],
+  "dimS": 9,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 652.3,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   2,
+   5
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 0,
+  "complement": 7,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 1411.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   4
+  ],
+  "dimS": 9,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 3,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 3 (not decided)",
+  "seconds": 574.7,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   3
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 708.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   3,
+   5
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 0,
+  "complement": 7,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 608.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   1
+  ],
+  "dimS": 10,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 832.4,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   2
+  ],
+  "dimS": 10,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 845.4,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   5
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 1,
+  "relax_dim_affine": 6,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 6 (not decided)",
+  "seconds": 617.9,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   0
+  ],
+  "dimS": 9,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 578.4,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   0
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 1076.1,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   3
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 816.2,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   1
+  ],
+  "dimS": 10,
+  "dimK": 6,
+  "dimJ": 1,
+  "complement": 5,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 3,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 3 (not decided)",
+  "seconds": 665.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   4,
+   4
+  ],
+  "dimS": 11,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 821.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   3
+  ],
+  "dimS": 14,
+  "dimK": 11,
+  "dimJ": 6,
+  "complement": 5,
+  "relax_nquadrics": 2,
+  "relax_dim_affine": 9,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 9 (not decided)",
+  "seconds": 294.3,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   2
+  ],
+  "dimS": 9,
+  "dimK": 7,
+  "dimJ": 1,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 358.3,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   4
+  ],
+  "dimS": 10,
+  "dimK": 7,
+  "dimJ": 2,
+  "complement": 5,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 4,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 4 (not decided)",
+  "seconds": 322.5,
+  "job": "excl-cycle-q2-chain2"
+ },
+ {
+  "exp": "sector-d7",
+  "d": 7,
+  "prime": 1000000007,
+  "sector": [
+   3,
+   5,
+   5
+  ],
+  "dimS": 12,
+  "dimK": 8,
+  "dimJ": 2,
+  "complement": 6,
+  "relax_nquadrics": 3,
+  "relax_dim_affine": 5,
+  "relax_vdim": null,
+  "result": "relaxation variety of affine dim 5 (not decided)",
+  "seconds": 345.4,
+  "job": "excl-cycle-q2-chain2"
+ }
+]

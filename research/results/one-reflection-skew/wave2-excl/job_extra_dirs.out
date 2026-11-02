@@ -69,3 +69,11 @@ d=8: 5v family 310, extra 228, combos 12 872.7
 5v:d8:(0, 3, 5):8 EXCLUDED-exact 890 891 379.23
 5v:d8:(0, 3, 5):9 EXCLUDED-exact 890 891 367.47
 5v:d8:(0, 3, 5):10 EXCLUDED-exact 890 891 347.18
+5v:d8:(0, 3, 5):11 EXCLUDED-exact 890 891 372.68
+5v:d8:(0, 3, 5):17 EXCLUDED-exact 890 891 314.52
+5v:d8:(0, 3, 5):19 EXCLUDED-exact 890 891 294.16
+5v:d8:(0, 3, 5):15 EXCLUDED-exact 890 891 357.65
+5v:d8:(0, 3, 5):18 EXCLUDED-exact 890 891 434.73
+5v:d8:(0, 3, 5):14 EXCLUDED-exact 890 891 516.72
+5v:d8:(0, 3, 5):20 EXCLUDED-exact 890 891 328.06
+5v:d8:(0, 3, 5):21 EXCLUDED-exact 890 891 374.66

@@ -89,7 +89,9 @@ towards a genuine zero in some higher degree. The discriminating test is Gauss�
 inside the admissible subspace (`w2lib.polish`): a true zero drops to ~1e-28 in a few iterations (as it does on the
 Fermat control), a nonzero minimum stays put (as at d = 7: 1.544e-4 before and after). The polish is now part of
 every sector summary (`best_polished_rel`) and the queued `xcheck` job polishes the best d = 8, 9, 10 points
-reproduced from their seeds. Until those numbers are in, the d ≥ 9 residuals must be read as "small, unconfirmed".
+reproduced from their seeds. First result (job `polish`, §7b): the best d = 10 point (rel 2.1e-6, dimP = 80) is a genuine nonzero local minimum — unchanged by
+the polish, by 2000 further L-BFGS iterations and by a second polish — so the decreasing trend is the growing-freedom effect, not an
+approach to a solution. The remaining sectors are checked the same way as they finish.
 
 ## 6. Concurrent agent on this lane (cross-check, not our work)
 

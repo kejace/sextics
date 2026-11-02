@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/hodge/results/diagonal-permutation/w2c_hessrank.py", line 19, in <module>
+    k = RANK + 1
+        ^^^^
+NameError: name 'RANK' is not defined

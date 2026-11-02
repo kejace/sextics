@@ -1,0 +1,4 @@
+{"kind": "contact-presentations", "p": 1163, "n_f": 2, "n_g": 2, "f": [[847, 971, 1065, 341, 585, 820, 232], [847, 971, 1065, 822, 578, 343, 931]], "g": [[589, 261, 65, 324, 615, 1149, 152], [589, 261, 65, 839, 548, 14, 1011]], "ts": "2026-11-02T03:28:31"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 (f-sheet 0)", "family": "contact-single", "d": 6, "e1": false, "engine": 2, "seconds": 31.9, "ts": "2026-11-02T03:29:03"}
+{"kind": "contact-test", "p": 1163, "D": "r_f^2 + g (f-sheet 0)", "family": "contact-mixed", "d": 6, "e1": false, "engine": 2, "seconds": 29.5, "ts": "2026-11-02T03:29:32"}
+{"kind": "contact-test", "p": 1163, "D": "C_f^3 + g (f-sheet 0)", "family": "contact-mixed", "d": 6, "e1": false, "engine": 2, "seconds": 29.1, "ts": "2026-11-02T03:30:01"}
