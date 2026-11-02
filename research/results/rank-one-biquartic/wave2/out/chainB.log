@@ -1,2 +1,4 @@
 chainB start Mon Nov  2 00:47:54 UTC 2026
 d7e batch 0 done Mon Nov  2 08:00:43 UTC 2026
+wave2/chainB.sh: line 7: 2631878 Killed                  python3 wave2/e2search.py --d 7 --pD 0 --restarts 200 --seed $((b*200)) --workers 8 --tag d7e_b$b > $O/d7e_b$b.out 2> $O/d7e_b$b.err
+d7e batch 1 done Mon Nov  2 12:29:38 UTC 2026

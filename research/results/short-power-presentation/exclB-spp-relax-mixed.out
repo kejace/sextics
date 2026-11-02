@@ -29,3 +29,7 @@ kernel elements: even 0, odd 0 (exact: True)
 {"_invisible": {"x": [["w", 1, [0, 1, 0, 0, 0, 0]], ["w", 2, [0, 0, 1, 0, 0, 0]], ["w", 3, [0, 0, 0, 1, 0, 0]], ["w", 4, [0, 0, 0, 0, 1, 0]], ["w", 5, [0, 0, 0, 0, 0, 1]]], "y": []}, "x": {"dimLx": 39, "dimLy": 57, "nphi": 809, "quadrics": 18, "unknowns": 12, "msolve_hilbert": [1, 12, 60, 160, 240, 192], "singular_dim": "0", "singular_vdim": "729", "singular_hilbert": [1, 12, 60, 160, 240, 192, 64, 0, 0], "proj_empty": true, "rank_JY_modp": 2271, "seconds": 51.0}, "y": {"dimLx": 57, "dimLy": 39, "nphi": 827, "quadrics": 36, "unknowns": 18, "msolve_hilbert": [1, 18, 135, 540, 1215, 1458], "singular_dim": "0", "singular_vdim": "4096", "singular_hilbert": [1, 18, 135, 540, 1215, 1458, 729, 0, 0], "proj_empty": true, "rank_JY_modp": 2253, "seconds": 45.4}}
 done 97 s
 === mixed d=7 Mon Nov  2 01:54:57 UTC 2026
+kernel elements: even 1, odd 1 (exact: False)
+[x] visible unknowns 61 of 61; invisible: []
+[x] dim L_0 = 305, dim L_1 = 305, functionals 439, independent quadrics in x: 62 in 61 unknowns [455s]
+=== done Mon Nov  2 12:29:39 UTC 2026

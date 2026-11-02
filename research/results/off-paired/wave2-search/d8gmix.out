@@ -3,3 +3,5 @@
 [10:35:53] start d8gmix-c30 (eff None) elapsed 6966s
    -> best 2.057e-02 median 8.430e-02 restarts 8 dimP 84 t/restart 3513.88 witness False
 [11:53:37] start d8gmix-c20 (eff None) elapsed 11630s
+   -> no summary: [Errno 2] No such file or directory: 'wave2-d8gmix-c20.summary.json'
+[12:29:37] start d8gmix-c40 (eff None) elapsed 13790s

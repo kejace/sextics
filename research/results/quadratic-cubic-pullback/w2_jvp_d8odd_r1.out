@@ -32,3 +32,4 @@
 [stage2 d=8] start 0: rel=2.692e-05 (stage1 7.71e-05) nit=148 (27599s)
 [stage2 d=8] start 0: rel=1.922e-04 (stage1 7.22e-04) nit=300 (28125s)
 [stage2 d=8] start 0: rel=2.687e-05 (stage1 7.04e-05) nit=178 (28968s)
+[stage2 d=8] start 0: rel=1.400e-04 (stage1 5.37e-04) nit=237 (30950s)

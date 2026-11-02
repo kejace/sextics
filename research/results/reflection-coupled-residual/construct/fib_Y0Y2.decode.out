@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/hodge/results/reflection-coupled-residual/construct/decode.py", line 8, in <module>
+    S = json.load(open(f'{name}.json'))
+                  ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'fib_Y0Y2.json'

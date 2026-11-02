@@ -9,3 +9,8 @@ SyntaxError: invalid syntax
     
 SyntaxError: invalid syntax
 === fib_Y0Y2 Mon Nov  2 11:20:34 UTC 2026
+refl_all.sh: line 10: 728937 Killed                  python3 reflsearch.py "$name" $P 7 "$@" > "$name.out" 2>&1
+[fib_Y0Y2] n=5 unknowns=4 equations=112 charts=2 k1only=True elim=True maxdeg=26 built in 20.0s
+                  ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'fib_Y0Y2.json'
+=== fib_Y1Y2 Mon Nov  2 12:29:37 UTC 2026

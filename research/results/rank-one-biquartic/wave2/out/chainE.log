@@ -1,2 +1,4 @@
 chainE start Mon Nov  2 04:01:22 UTC 2026
 d9 mixed-kernel full-E2 (LM) done Mon Nov  2 07:43:59 UTC 2026
+wave2/chainE.sh: line 11: 2423901 Killed                  python3 wave2/relaxsearch.py --d 9 --pD 0 --family kernel-mixed --restarts 300 --seed 0 --workers 8 --refine-maxiter 200 --tag r9m_a > $O/r9m_a.out 2> $O/r9m_a.err
+d9 mixed-kernel relaxation-first done Mon Nov  2 12:29:38 UTC 2026
