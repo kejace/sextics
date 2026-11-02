@@ -1,0 +1,8 @@
+{"bench": "rref", "n": 2000, "threads": 1, "seconds": 1.73, "rank": 1842}
+{"bench": "nullspace", "n": 2000, "threads": 1, "seconds": 1.73}
+{"bench": "rref", "n": 2000, "threads": 8, "seconds": 0.45, "rank": 1828}
+{"bench": "nullspace", "n": 2000, "threads": 8, "seconds": 0.46}
+{"bench": "rref", "n": 4000, "threads": 1, "seconds": 12.15, "rank": 3656}
+{"bench": "nullspace", "n": 4000, "threads": 1, "seconds": 12.36}
+{"bench": "rref", "n": 4000, "threads": 8, "seconds": 2.99, "rank": 3662}
+{"bench": "nullspace", "n": 4000, "threads": 8, "seconds": 3.22}

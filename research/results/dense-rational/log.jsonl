@@ -20,3 +20,13 @@
 {"D": "F_{4,2}=b", "d": 6, "family": "deg6", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.07, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}
 {"D": "F_{2,4}=c", "d": 6, "family": "deg6", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.11, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}
 {"D": "a+d (F minus coupling)", "d": 6, "family": "deg6", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.07, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}
+{"D": "E_X(F)=6a+4b+2c", "d": 6, "family": "deg6b", "e1": true, "consistent": false, "rank": 2359, "nullity": 243, "seconds": 83.65, "note": "", "engine": 2}
+{"D": "E_Y(F)=2b+4c+6d", "d": 6, "family": "deg6b", "e1": true, "consistent": false, "rank": 2359, "nullity": 243, "seconds": 85.06, "note": "", "engine": 2}
+{"D": "a - d", "d": 6, "family": "deg6b", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.01, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}
+{"D": "X0^6+Y0^6 pair", "d": 6, "family": "deg6b", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.01, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}
+{"D": "(X0^2+X1^2+X2^2)^3", "d": 6, "family": "deg6b", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.01, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}
+{"D": "(X0^2+Y0^2)^3", "d": 6, "family": "deg6b", "e1": false, "consistent": false, "rank": null, "nullity": null, "seconds": 0.01, "note": "D not in J_d; E1 fails since ker([A] on R_d^+)=0 for d<=9 (E1-kernel sweep)", "engine": 2}
+{"D": "E_X(F) - E_Y(F)", "d": 6, "family": "deg6b", "e1": true, "consistent": false, "rank": 2359, "nullity": 243, "seconds": 72.09, "note": "", "engine": 2}
+{"D": "X0*F_X0 (block radial, 1 var)", "d": 6, "family": "deg6b", "e1": true, "consistent": false, "rank": 2359, "nullity": 243, "seconds": 116.14, "note": "", "engine": 2}
+{"D": "X0*F_X0 + Y0*F_Y0 (pair radial)", "d": 6, "family": "deg6b", "e1": true, "consistent": false, "rank": 2359, "nullity": 243, "seconds": 166.82, "note": "", "engine": 2}
+{"D": "X0^2*F_X0", "d": 7, "family": "deg7x", "e1": true, "consistent": false, "rank": 4042, "nullity": 455, "seconds": 289.03, "note": "", "engine": 2}

@@ -1,3 +1,23 @@
 ### 18:39:27 pfsolve fU
 EXIT=1
 ### 18:57:09 pfsolve fU-minus-fV
+[pf d=6] rows=29048 cols=5676 (targets 462) nullity=724 served_dim=135 build 63.9s null 292.3s
+fU-minus-fV {'d': 6, 'rows': 29048, 'cols': 5676, 'nullity': 724, 'served_dim': 135, 'seconds': 356.2} {'class_dim_mod_J': 100, 'class_dim_tau_invariant(anti-swap)': 45, 'class_dim_tau_anti(sym-swap)': 55, 'block_projection_dims': {'(6,0)': 0, '(5,1)': 0, '(4,2)': 0, '(3,3)': 100, '(2,4)': 0, '(1,5)': 0, '(0,6)': 0}, 'K3_projection_dim': 0, 'target_in_span_mod_J': False}
+EXIT=0
+### 19:03:08 pfsolve U0-minus-V0
+[pf d=1] rows=1038 cols=588 (targets 462) nullity=41 served_dim=35 build 0.2s null 0.1s
+U0-minus-V0 {'d': 1, 'rows': 1038, 'cols': 588, 'nullity': 41, 'served_dim': 35, 'seconds': 0.3} {'class_dim_mod_J': 0, 'class_dim_tau_invariant(anti-swap)': 0, 'class_dim_tau_anti(sym-swap)': 0, 'block_projection_dims': {'(6,0)': 0, '(5,1)': 0, '(4,2)': 0, '(3,3)': 0, '(2,4)': 0, '(1,5)': 0, '(0,6)': 0}, 'K3_projection_dim': 0, 'target_in_span_mod_J': False}
+EXIT=0
+### 19:03:09 pfsolve U0U1
+[pf d=2] rows=1502 cols=798 (targets 462) nullity=56 served_dim=35 build 0.4s null 0.4s
+U0U1 {'d': 2, 'rows': 1502, 'cols': 798, 'nullity': 56, 'served_dim': 35, 'seconds': 0.8} {'class_dim_mod_J': 0, 'class_dim_tau_invariant(anti-swap)': 0, 'class_dim_tau_anti(sym-swap)': 0, 'block_projection_dims': {'(6,0)': 0, '(5,1)': 0, '(4,2)': 0, '(3,3)': 0, '(2,4)': 0, '(1,5)': 0, '(0,6)': 0}, 'K3_projection_dim': 0, 'target_in_span_mod_J': False}
+EXIT=0
+### 19:03:10 pfsolve U0V0
+[pf d=2] rows=1530 cols=798 (targets 462) nullity=56 served_dim=35 build 0.4s null 0.4s
+U0V0 {'d': 2, 'rows': 1530, 'cols': 798, 'nullity': 56, 'served_dim': 35, 'seconds': 0.8} {'class_dim_mod_J': 0, 'class_dim_tau_invariant(anti-swap)': 0, 'class_dim_tau_anti(sym-swap)': 0, 'block_projection_dims': {'(6,0)': 0, '(5,1)': 0, '(4,2)': 0, '(3,3)': 0, '(2,4)': 0, '(1,5)': 0, '(0,6)': 0}, 'K3_projection_dim': 0, 'target_in_span_mod_J': False}
+EXIT=0
+### 19:03:11 pfsolve sumU3-sumV3
+[pf d=3] rows=6135 cols=1219 (targets 462) nullity=91 served_dim=35 build 2.5s null 3.7s
+sumU3-sumV3 {'d': 3, 'rows': 6135, 'cols': 1219, 'nullity': 91, 'served_dim': 35, 'seconds': 6.2} {'class_dim_mod_J': 0, 'class_dim_tau_invariant(anti-swap)': 0, 'class_dim_tau_anti(sym-swap)': 0, 'block_projection_dims': {'(6,0)': 0, '(5,1)': 0, '(4,2)': 0, '(3,3)': 0, '(2,4)': 0, '(1,5)': 0, '(0,6)': 0}, 'K3_projection_dim': 0, 'target_in_span_mod_J': False}
+EXIT=0
+PFBATCH2-DONE

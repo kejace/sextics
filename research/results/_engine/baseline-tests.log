@@ -1,0 +1,38 @@
+== test_jacobian
+  collision-h3: membership tests ok (0.0s)
+  fermat-pair-rational-d4-strict: membership tests ok (0.4s)
+  three-block-rational-d4-strict: membership tests ok (0.6s)
+  hesse-triangle: membership tests ok (8.5s)
+  collision-h3: d=2 ker[A] dim=1 (R/J)_d=12 contains witness (0.0s)
+  fermat-pair-rational-d4-strict: d=4 ker[A] dim=15 (R/J)_d=66 contains witness (0.3s)
+  three-block-rational-d4-strict: d=4 ker[A] dim=15 (R/J)_d=66 contains witness (0.3s)
+  normal form idempotent and P - nf(P) in J
+== test_jacobian done (10.4s)
+== test_symmetry
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+  fermat-pair: |G|=7776 order=6 residue-invariant subgroup 1296
+  collision-h3: |G|=864 order=6 hnf diag=[2, 2, 6, 6, 6]
+  hesse-triangle: |G|=2592 order=6 hnf diag=[6, 6, 6, 2, 6]
+  klein-hesse: |G|=882 order=126 hnf diag=[1, 1, 42, 1, 21]
+  contact46006: |G|=6 order=6 hnf diag=[1, 1, 2, 3, 1]
+  collision-h3: d=2 restricted cols 10/168 (stabilizer 864/864) solved+verified (0.0s)
+  fermat-pair-rational-d4-strict: d=4 restricted cols 8/765 (stabilizer 2592/7776) solved+verified (0.1s)
+  three-block-rational-d4-strict: d=4 restricted cols 12/765 (stabilizer 864/2592) solved+verified (0.0s)
+  hesse-triangle: d=6 restricted cols 10/2602 (stabilizer 2592/2592) solved+verified (0.1s)
+  xtype-sparse-rational-1m142: d=6 restricted cols 26/2602 (stabilizer 2592/2592) solved+verified (0.1s)
+  collision-h3: restricted rank 9 nullity 1 vs full rank 159 nullity 9
+== test_symmetry done (1.2s)
+== test_varpro
+  gradient check rel err 2.99e-10
+  rational reconstruction ok
+  collision-h3: K=12 best rel 6.1e-22 confirmed D = -X0**2/2 - X1**2/2 + Y0**2 (0.6s)
+  fermat-pair-rational-d4-strict: K=9 best rel 1.5e-23 confirmed D = -X0**4 + X0**2*X1**2 - X1**4 (8.8s)
+  three-block-rational-d4-strict: K=12 best rel 8.7e-19 confirmed D = X1**4/4 + X1**2*X2**2/4 - X1**2*Y1**2 + X2**4/4 - X2**2*Y1**2/2 + Y1** (93.6s)
+  spurious detection ok (excluded dim 1, div rel 0.0e+00 vs 1.0e+00)
+== test_varpro done (103.8s)
+== test_sweep
+  collision-h3: sweep found/verified witness, controls flagged, resume ok (0.1s)
+  fermat-pair-rational-d4-strict: sweep found/verified witness, controls flagged, resume ok (1.9s)
+  timeout kill + CLI (--symmetric) ok
+== test_sweep done (3.4s)
+ALL OK

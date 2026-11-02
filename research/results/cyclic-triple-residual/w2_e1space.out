@@ -1,0 +1,6 @@
+d=4 {'dim_S': 126, 'dim_J': 0, 'kerA_in_S': 0, 'ker_mod_J': 0, 'forced': 0, 'dim_R_d': 126, 'sporadic': 0} (0.3s) errors=0
+d=5 {'dim_S': 252, 'dim_J': 6, 'kerA_in_S': 6, 'ker_mod_J': 0, 'forced': 0, 'dim_R_d': 246, 'sporadic': 0} (0.4s) errors=0
+d=6 {'dim_S': 462, 'dim_J': 36, 'kerA_in_S': 36, 'ker_mod_J': 0, 'forced': 0, 'dim_R_d': 426, 'sporadic': 0} (0.6s) errors=0
+d=7 {'dim_S': 792, 'dim_J': 126, 'kerA_in_S': 126, 'ker_mod_J': 0, 'forced': 0, 'dim_R_d': 666, 'sporadic': 0} (1.2s) errors=0
+d=8 {'dim_S': 1287, 'dim_J': 336, 'kerA_in_S': 337, 'ker_mod_J': 1, 'forced': 0, 'dim_R_d': 951, 'sporadic': 1} (4.1s) errors=0
+   sector [0, 4] {'dim_S': 118, 'dim_J': 39, 'kerA_in_S': 40, 'ker_mod_J': 1, 'dim_R_d': 79, 'dim_R_t': 97, 'forced': 0, 'seconds': 4.0}

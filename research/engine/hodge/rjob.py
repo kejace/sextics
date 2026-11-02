@@ -7,7 +7,8 @@ repo at ~/devel/sextics (Lean built). Jobs run detached with nohup; outputs stay
 CLI (run from anywhere):
   python3 -m hodge.rjob up                       # push engine + all lane dirs to the remote (rsync, fast)
   python3 -m hodge.rjob up --lane <lane>          # push engine + one lane dir
-  python3 -m hodge.rjob submit --lane <lane> --name <job> [--cpus N] -- <command ...>
+  python3 -m hodge.rjob submit --lane <lane> --name <job> [--cpus N] [--wait SECS] [--force] -- <command ...>
+        # refuses (exit 3) when the remote is near capacity (load > 150 or < 60 GB free); --wait polls for capacity
         # runs `cd /tmp/hodge/results/<lane> && <command>` on the remote, log in /tmp/hodge/jobs/<job>.log
         # the command may use python3 with the engine on sys.path (/home/kejace/devel/sextics-work), msolve, Singular
   python3 -m hodge.rjob status [--name <job>]     # running jobs, load average, free memory
@@ -32,21 +33,14 @@ ENGINE = Path('/home/kejace/devel/sextics-work')
 RESULTS = Path('/tmp/hodge/results')
 MIRROR = Path('/tmp/hodge/remote')
 REGISTRY = Path('/tmp/hodge/jobs-registry.jsonl')
-import socket as _socket
-LOCAL_MODE = _socket.gethostname().startswith('hodge-sextics') or os.environ.get('HODGE_RJOB_LOCAL') == '1'
-# When this very machine is the compute box, every command runs locally (no ssh/rsync).
 
 
 def ssh(cmd: str, check=False, capture=True, timeout=None):
-    if LOCAL_MODE:
-        return subprocess.run(['bash', '-c', cmd], check=check, capture_output=capture, text=True, timeout=timeout)
     full = ['ssh', *SSH_OPTS, f'{USER}@{HOST}', cmd]
     return subprocess.run(full, check=check, capture_output=capture, text=True, timeout=timeout)
 
 
 def rsync(src, dst, extra=()):
-    if LOCAL_MODE:
-        return subprocess.CompletedProcess(args=[], returncode=0, stdout='', stderr='')
     cmd = ['rsync', '-az', '--exclude', '__pycache__', '--exclude', 'venv', '--exclude', '*.olean', '-e',
            'ssh ' + ' '.join(shlex.quote(o) for o in SSH_OPTS), *extra, src, dst]
     return subprocess.run(cmd, capture_output=True, text=True)
@@ -67,7 +61,30 @@ def up(lane=None):
     print('up: done', lanes if lane else f'{len(lanes)} lanes')
 
 
-def submit(lane, name, command, cpus=1):
+
+def remote_capacity():
+    """(load1, avail_gb, running_jobs) on the remote."""
+    r = ssh('cut -d" " -f1 /proc/loadavg; free -g | awk "/Mem/{print \\$7}"; n=0; for p in /tmp/hodge/jobs/*.pid; do kill -0 $(cat $p) 2>/dev/null && n=$((n+1)); done; echo $n')
+    try:
+        load, avail, n = r.stdout.split()[:3]
+        return float(load), float(avail), int(n)
+    except Exception:
+        return 0.0, 1e9, 0
+
+
+def submit(lane, name, command, cpus=1, force=False, max_load=150.0, min_avail_gb=60.0, wait_s=0):
+    """Submit, but refuse (exit code 3) when the remote is near capacity unless --force.
+    With wait_s > 0, poll every 60 s up to wait_s seconds for capacity instead of refusing."""
+    t0 = time.time()
+    while not force:
+        load, avail, n = remote_capacity()
+        if load <= max_load and avail >= min_avail_gb:
+            break
+        msg = f'REMOTE BUSY: load {load:.0f} (max {max_load:.0f}), available memory {avail:.0f} GB (min {min_avail_gb:.0f}), {n} jobs running'
+        if wait_s and time.time() - t0 < wait_s:
+            print(msg + '; waiting 60 s', file=sys.stderr); time.sleep(60); continue
+        print(msg + '; NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).', file=sys.stderr)
+        sys.exit(3)
     up(lane)
     remote_cmd = (f'mkdir -p /tmp/hodge/jobs {RESULTS}/{lane} && cd {RESULTS}/{lane} && '
                   f'export PYTHONPATH={ENGINE} OMP_NUM_THREADS={cpus} OPENBLAS_NUM_THREADS={cpus} FLINT_NUM_THREADS={cpus} && '
@@ -106,8 +123,6 @@ def wait(name, timeout=3600, poll=30):
 
 
 def pull(lane):
-    if LOCAL_MODE:
-        print(f'pull {lane}: local mode, results are already in {RESULTS/lane}'); return
     dst = MIRROR / lane
     dst.mkdir(parents=True, exist_ok=True)
     r = rsync(f'{USER}@{HOST}:{RESULTS}/{lane}/', str(dst) + '/', extra=('--exclude', '*.npz', '--max-size=50m'))
@@ -129,7 +144,7 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest='cmd', required=True)
     p = sub.add_parser('up'); p.add_argument('--lane')
-    p = sub.add_parser('submit'); p.add_argument('--lane', required=True); p.add_argument('--name', required=True); p.add_argument('--cpus', type=int, default=1); p.add_argument('command', nargs=argparse.REMAINDER)
+    p = sub.add_parser('submit'); p.add_argument('--lane', required=True); p.add_argument('--name', required=True); p.add_argument('--cpus', type=int, default=1); p.add_argument('--force', action='store_true'); p.add_argument('--wait', type=int, default=0, help='seconds to wait for remote capacity'); p.add_argument('command', nargs=argparse.REMAINDER)
     p = sub.add_parser('status'); p.add_argument('--name')
     p = sub.add_parser('log'); p.add_argument('--name', required=True); p.add_argument('--tail', type=int, default=50)
     p = sub.add_parser('wait'); p.add_argument('--name', required=True); p.add_argument('--timeout', type=int, default=3600)
@@ -139,7 +154,7 @@ def main():
     if a.cmd == 'up': up(a.lane)
     elif a.cmd == 'submit':
         cmd = a.command[1:] if a.command and a.command[0] == '--' else a.command
-        submit(a.lane, a.name, ' '.join(cmd), a.cpus)
+        submit(a.lane, a.name, ' '.join(cmd), a.cpus, force=a.force, wait_s=a.wait)
     elif a.cmd == 'status': status(a.name)
     elif a.cmd == 'log': log(a.name, a.tail)
     elif a.cmd == 'wait': wait(a.name, a.timeout)

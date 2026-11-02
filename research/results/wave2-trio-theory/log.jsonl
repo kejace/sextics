@@ -1,2 +1,3 @@
 {"ts":"2026-11-01T18:58:02-05:00","step":"start","note":"wave2 trio theory agent started; reading dossiers/attack1/instances"}
 {"ts":"2026-11-01T18:58:31-05:00","step":"read","note":"read the three dossiers (cyclic-triple-residual, reflection-coupled-residual, quadric-contact-residual) in full"}
+{"ts":"2026-11-01T19:13:22-05:00","step":"read","note":"read attack1 reports, why.md x3, companion solutions x3, book maps ch3/ch4 (ch3a map pending), rjob docstring; next: ch3a map + docs 02 §2.7/§2.8 + instance.rec, then theory"}

@@ -2,3 +2,23 @@
 [system] d=8 q=1 rows=40326 cols=7723 (N 6006, Q 1491) nnz=13321550 built in 216.6s
 EXIT=0
 ### 18:57:09 timeout 5400 /usr/bin/python3 leanimage.py 'U0^8+U1^8+V0^8+V1^8' 'X0**8 + X1**8 + Y0**8 + Y1**8' uv
+[system] d=8 q=1 rows=40326 cols=7723 (N 6006, Q 1491) nnz=2570814 built in 3.1s
+[image d=8] rows=40326 cols=7723 k=7763 nullity=832 served_dim=18 compress 92.3s null 140.0s
+{"label": "U0^8+U1^8+V0^8+V1^8", "served_dim_XY": 18, "class_dim_in_R6": 0, "block_projection_dims": {"(6,0)": 0, "(5,1)": 0, "(4,2)": 0, "(3,3)": 0, "(2,4)": 0, "(1,5)": 0, "(0,6)": 0}, "K3_projection_dim": 0, "target_in_span_mod_J": false, "info": {"rows": 40326, "cols": 7723, "k": 7763, "nullity": 832, "served_dim": 18, "seconds": 232.2}, "maxrss_MB": 4140}
+EXIT=0
+### 19:01:02 timeout 5400 /usr/bin/python3 leanimage.py 'X0^8+X1^8+X2^8' 'X0**8 + X1**8 + X2**8' xy
+[system] d=8 q=1 rows=40326 cols=7723 (N 6006, Q 1491) nnz=1615129 built in 1.7s
+[image d=8] rows=40326 cols=7723 k=7763 nullity=918 served_dim=18 compress 52.8s null 132.6s
+{"label": "X0^8+X1^8+X2^8", "served_dim_XY": 18, "class_dim_in_R6": 0, "block_projection_dims": {"(6,0)": 0, "(5,1)": 0, "(4,2)": 0, "(3,3)": 0, "(2,4)": 0, "(1,5)": 0, "(0,6)": 0}, "K3_projection_dim": 0, "target_in_span_mod_J": false, "info": {"rows": 40326, "cols": 7723, "k": 7763, "nullity": 918, "served_dim": 18, "seconds": 185.5}, "maxrss_MB": 4016}
+EXIT=0
+### 19:04:09 timeout 5400 /usr/bin/python3 leanimage.py 'M01(f)(Y)' '-625*Y0**8/49 + 900*Y0**6*Y1*Y2/7 + 1500*Y0**5*Y1**2*Y2/49 + 900*Y0**4*Y1**4 + 6000*Y0**4*Y
+[system] d=8 q=1 rows=40326 cols=7723 (N 6006, Q 1491) nnz=2739627 built in 3.4s
+[image d=8] rows=40326 cols=7723 k=7763 nullity=918 served_dim=18 compress 73.9s null 130.9s
+{"label": "M01(f)(Y)", "served_dim_XY": 18, "class_dim_in_R6": 0, "block_projection_dims": {"(6,0)": 0, "(5,1)": 0, "(4,2)": 0, "(3,3)": 0, "(2,4)": 0, "(1,5)": 0, "(0,6)": 0}, "K3_projection_dim": 0, "target_in_span_mod_J": false, "info": {"rows": 40326, "cols": 7723, "k": 7763, "nullity": 918, "served_dim": 18, "seconds": 204.8}, "maxrss_MB": 4205}
+EXIT=0
+### 19:07:36 timeout 5400 /usr/bin/python3 leanimage.py sumU8-sumV8 'X0**8 + X1**8 + X2**8 - Y0**8 - Y1**8 - Y2**8' uv
+[system] d=8 q=1 rows=40326 cols=7723 (N 6006, Q 1491) nnz=3017394 built in 4.0s
+[image d=8] rows=40326 cols=7723 k=7763 nullity=825 served_dim=18 compress 87.7s null 306.1s
+{"label": "sumU8-sumV8", "served_dim_XY": 18, "class_dim_in_R6": 0, "block_projection_dims": {"(6,0)": 0, "(5,1)": 0, "(4,2)": 0, "(3,3)": 0, "(2,4)": 0, "(1,5)": 0, "(0,6)": 0}, "K3_projection_dim": 0, "target_in_span_mod_J": false, "info": {"rows": 40326, "cols": 7723, "k": 7763, "nullity": 825, "served_dim": 18, "seconds": 393.8}, "maxrss_MB": 4236}
+EXIT=0
+### 19:14:11 timeout 5400 /usr/bin/python3 leanimage.py 'sum_i f_i(U)U_i^3 + swap' '6*X0**8 + 25*X0**7*X1/7 + 5*X0**5*X1**3/7 + 10*X0**4*X1**3*X2/7 + 15*X0**3*X
