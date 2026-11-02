@@ -11,3 +11,4 @@ randomJ_d7_par0_r0 {'d': 7, 'e1': True, 'consistent': False, 'rank': 4042, 'null
 randomJ_d7_par1_r0 {'d': 7, 'e1': True, 'consistent': False, 'rank': 4042, 'nullity': 455, 'rows': 26532, 'cols': 4497, 'seconds': 175.81}
 randomJ_d7_par0_r1 {'d': 7, 'e1': True, 'consistent': False, 'rank': 4042, 'nullity': 455, 'rows': 26532, 'cols': 4497, 'seconds': 175.77}
 randomJ_d7_par1_r1 {'d': 7, 'e1': True, 'consistent': False, 'rank': 4042, 'nullity': 455, 'rows': 26532, 'cols': 4497, 'seconds': 176.33}
+randomJ_d8_par0_r0 {'d': 8, 'e1': True, 'consistent': False, 'rank': 6703, 'nullity': 794, 'rows': 40326, 'cols': 7497, 'seconds': 582.96}
