@@ -14,3 +14,6 @@ up: done ['eight-plane-configuration']
 up: done ['eight-plane-configuration']
 submitted search-eight-plane-configuration-mixed78 (lane eight-plane-configuration) pid 1387101; log: /tmp/hodge/jobs/search-eight-plane-configuration-mixed78.log on remote
 [07:37:45] submitting search-eight-plane-configuration-k10Q2 (my running: 0)
+capacity check failed twice (ValueError('not enough values to unpack (expected 4, got 0)')); treating the remote as BUSY
+REMOTE BUSY: load 1000000000 (max 300), available memory 0 GB (min 110), 0 jobs running with 1000000 cpus allocated (max 200); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+[11:40:26] queue 2 done
