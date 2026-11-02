@@ -1,0 +1,5 @@
+survivors [5, 10, 15] n_rows 254 n_cols 630 630
+kept monomials [(5, 5), (5, 10), (5, 15), (10, 10), (10, 15), (15, 15)]
+exact residual rank 3
+rank of (residual rows + expected quadrics) = 3  (equals 3 iff the exact residual span is exactly the expected one)
+residual basis rows: [['1', '0', '-2', '0', '0', '1'], ['0', '1', '-1', '0', '-1', '1'], ['0', '0', '0', '1', '-2', '1']]

@@ -1,0 +1,4 @@
+ctr degree 6 by e2 mod 3 (residue char zeta^(e2+1)): {0: 220, 1: 136, 2: 70}
+ctr degree 12 by e2 mod 3 (residue char zeta^(e2+1)): {0: 685, 1: 685, 2: 381}
+rcr degree 6 by e5 mod 2 (residue char (-1)^(e5+1)): {0: 270, 1: 156}
+rcr degree 12 by e5 mod 2 (residue char (-1)^(e5+1)): {0: 1021, 1: 730}

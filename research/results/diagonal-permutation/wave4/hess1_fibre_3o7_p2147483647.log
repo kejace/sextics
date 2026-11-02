@@ -1,0 +1,2 @@
+fibre mu 3/7 p 2147483647 minors 55
+p {"plain": "empty", "seconds": 0.2, "u_tests": {"q": ["empty", 0.4], "a": ["empty", 0.3], "b": ["empty", 0.2], "t": ["empty", 0.2]}, "only_coordinate_point": true}

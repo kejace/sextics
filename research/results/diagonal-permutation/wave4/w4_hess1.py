@@ -45,6 +45,12 @@ for i in range(n):
     print(V[i], json.dumps(info, default=str)[:600], flush=True)
     L.log({'what':'rank-1 Hessian locus (2x2 minors), chart %s=1'%V[i], 'target':target, 'mu':mu, 'prime':p,
            'n_minors':len(minors), 'result': info, 'file': 'hess1_%s_*.ms/.out'%tag})
-allok = all(v['only_coordinate_point'] and v['plain']=='finite' for v in summary.values())
+def chart_ok(v):
+    if not v['only_coordinate_point']: return False
+    if v['plain'] == 'empty': return True
+    if v['plain'] == 'finite' and 'plain_sols' in v:
+        return all(all(val == 0 for val in s.values()) for s in v['plain_sols']['sols'] if s is not None)
+    return False
+allok = all(chart_ok(v) for v in summary.values())
 print('ALL CHARTS: rank-1 locus = coordinate points only:', allok, flush=True)
 L.log({'what':'rank-1 Hessian locus summary', 'target':target, 'mu':mu, 'prime':p, 'result':'coordinate points only' if allok else 'SEE CHARTS', 'summary':summary})
