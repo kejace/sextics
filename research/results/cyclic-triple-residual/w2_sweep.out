@@ -71,3 +71,7 @@ d= 9 e1=False cons=False rank=None/None 584.6s pieces-9               C^2*Z'
 d= 9 e1=False cons=False rank=None/None 582.0s pieces-9               C*Z'^2  
 d=10 e1=True cons=False rank=1738/1739 3468.4s polar-products         F_X2*F_X2  
 d=10 e1=True cons=False rank=2587/2588 4027.7s polar-products         F_X0*F_Y0  
+d=10 e1=True cons=False rank=2670/2671 5614.2s polar-products         F_Y0*F_Y0  
+d=10 e1=True cons=False rank=1681/1682 5639.6s polar-products         F_X2*F_Y2  
+d=10 e1=True cons=False rank=2553/2554 5824.8s polar-products         F_X0*F_X0  
+d=10 e1=True cons=False rank=1786/1787 5837.0s D8-products            X2^2*D8  

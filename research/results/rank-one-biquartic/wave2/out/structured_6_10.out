@@ -1,0 +1,366 @@
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1X2]", "dim_U": 28, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1Y0]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1Y1]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X2Y0]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X2Y1]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X2Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0Y0Y1]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0Y0Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0Y1Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1X2Y0]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1X2Y1]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1X2Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1Y0Y1]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1Y0Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1Y1Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X2Y0Y1]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X2Y0Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X2Y1Y2]", "dim_U": 16, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[Y0Y1Y2]", "dim_U": 28, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1X2Y0]", "dim_U": 50, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1X2Y1]", "dim_U": 50, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1X2Y2]", "dim_U": 50, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1Y0Y1]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1Y0Y2]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1Y1Y2]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X2Y0Y1]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X2Y0Y2]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X2Y1Y2]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0Y0Y1Y2]", "dim_U": 50, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1X2Y0Y1]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1X2Y0Y2]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1X2Y1Y2]", "dim_U": 44, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1Y0Y1Y2]", "dim_U": 50, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X2Y0Y1Y2]", "dim_U": 50, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1X2Y0Y1]", "dim_U": 110, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1X2Y0Y2]", "dim_U": 110, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1X2Y1Y2]", "dim_U": 110, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 110, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 110, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 110, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "bideg(0,6)", "dim_U": 28, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "bideg(2,4)", "dim_U": 90, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "bideg(4,2)", "dim_U": 90, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "bideg(6,0)", "dim_U": 28, "dim_W": 18, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "Ybase P(X)M^a g^b", "dim_U": 51, "dim_W": 18, "dim_U_cap_W": 10, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 10, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "Xbase Q(Y)L^a f^b", "dim_U": 51, "dim_W": 18, "dim_U_cap_W": 10, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 10, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 0, "family": "monomials(f,g,L,M)", "dim_U": 6, "dim_W": 18, "dim_U_cap_W": 2, "p": 2147483647, "time_s": 0.0, "dim_U_cap_J": 2, "dim_new": 0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1Y0]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1Y1]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X2Y0]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X2Y1]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X2Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0Y0Y1]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0Y0Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0Y1Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1X2Y0]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1X2Y1]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1X2Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1Y0Y1]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1Y0Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1Y1Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X2Y0Y1]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X2Y0Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X2Y1Y2]", "dim_U": 12, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1X2Y0]", "dim_U": 34, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1X2Y1]", "dim_U": 34, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1X2Y2]", "dim_U": 34, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1Y0Y1]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1Y0Y2]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1Y1Y2]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X2Y0Y1]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X2Y0Y2]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X2Y1Y2]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0Y0Y1Y2]", "dim_U": 34, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1X2Y0Y1]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1X2Y0Y2]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1X2Y1Y2]", "dim_U": 40, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1Y0Y1Y2]", "dim_U": 34, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X2Y0Y1Y2]", "dim_U": 34, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1X2Y0Y1]", "dim_U": 100, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1X2Y0Y2]", "dim_U": 100, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1X2Y1Y2]", "dim_U": 100, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 100, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 100, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 100, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "bideg(1,5)", "dim_U": 63, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "bideg(3,3)", "dim_U": 100, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 6, "parity": 1, "family": "bideg(5,1)", "dim_U": 63, "dim_W": 18, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1X2]", "dim_U": 36, "dim_W": 66, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1Y0]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1Y1]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1Y2]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X2Y0]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X2Y1]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X2Y2]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0Y0Y1]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0Y0Y2]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0Y1Y2]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1X2Y0]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1X2Y1]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1X2Y2]", "dim_U": 20, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1Y0Y1]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1Y0Y2]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1Y1Y2]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X2Y0Y1]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X2Y0Y2]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X2Y1Y2]", "dim_U": 16, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1X2Y0]", "dim_U": 70, "dim_W": 66, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1X2Y1]", "dim_U": 70, "dim_W": 66, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1X2Y2]", "dim_U": 70, "dim_W": 66, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1Y0Y1]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1Y0Y2]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1Y1Y2]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X2Y0Y1]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X2Y0Y2]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X2Y1Y2]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0Y0Y1Y2]", "dim_U": 50, "dim_W": 66, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1X2Y0Y1]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1X2Y0Y2]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1X2Y1Y2]", "dim_U": 60, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1Y0Y1Y2]", "dim_U": 50, "dim_W": 66, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X2Y0Y1Y2]", "dim_U": 50, "dim_W": 66, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1X2Y0Y1]", "dim_U": 170, "dim_W": 66, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1X2Y0Y2]", "dim_U": 170, "dim_W": 66, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1X2Y1Y2]", "dim_U": 170, "dim_W": 66, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 160, "dim_W": 66, "dim_U_cap_W": 6, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 6, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 160, "dim_W": 66, "dim_U_cap_W": 6, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 6, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 160, "dim_W": 66, "dim_U_cap_W": 6, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 6, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "bideg(1,6)", "dim_U": 84, "dim_W": 66, "dim_U_cap_W": 9, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 9, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "bideg(3,4)", "dim_U": 150, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "bideg(5,2)", "dim_U": 126, "dim_W": 66, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 0, "family": "bideg(7,0)", "dim_U": 36, "dim_W": 66, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 0, "family": "Ybase P(X)M^a g^b", "dim_U": 73, "dim_W": 66, "dim_U_cap_W": 27, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 24, "dim_new": 3}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1Y0]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1Y1]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1Y2]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X2Y0]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X2Y1]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X2Y2]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0Y0Y1]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0Y0Y2]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0Y1Y2]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1X2Y0]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1X2Y1]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1X2Y2]", "dim_U": 16, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1Y0Y1]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1Y0Y2]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1Y1Y2]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X2Y0Y1]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X2Y0Y2]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X2Y1Y2]", "dim_U": 20, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[Y0Y1Y2]", "dim_U": 36, "dim_W": 63, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1X2Y0]", "dim_U": 50, "dim_W": 63, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1X2Y1]", "dim_U": 50, "dim_W": 63, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1X2Y2]", "dim_U": 50, "dim_W": 63, "dim_U_cap_W": 3, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 3, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1Y0Y1]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1Y0Y2]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1Y1Y2]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X2Y0Y1]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X2Y0Y2]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X2Y1Y2]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0Y0Y1Y2]", "dim_U": 70, "dim_W": 63, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1X2Y0Y1]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1X2Y0Y2]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1X2Y1Y2]", "dim_U": 60, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1Y0Y1Y2]", "dim_U": 70, "dim_W": 63, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X2Y0Y1Y2]", "dim_U": 70, "dim_W": 63, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1X2Y0Y1]", "dim_U": 160, "dim_W": 63, "dim_U_cap_W": 6, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 6, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1X2Y0Y2]", "dim_U": 160, "dim_W": 63, "dim_U_cap_W": 6, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 6, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1X2Y1Y2]", "dim_U": 160, "dim_W": 63, "dim_U_cap_W": 6, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 6, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 170, "dim_W": 63, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 170, "dim_W": 63, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 170, "dim_W": 63, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.3, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "bideg(0,7)", "dim_U": 36, "dim_W": 63, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.1, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "bideg(2,5)", "dim_U": 126, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "bideg(4,3)", "dim_U": 150, "dim_W": 63, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 7, "parity": 1, "family": "bideg(6,1)", "dim_U": 84, "dim_W": 63, "dim_U_cap_W": 9, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 9, "dim_new": 0}
+{"batch": "structured", "d": 7, "parity": 1, "family": "Xbase Q(Y)L^a f^b", "dim_U": 73, "dim_W": 63, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.2, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1X2]", "dim_U": 45, "dim_W": 177, "dim_U_cap_W": 15, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 15, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1Y0]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1Y1]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X2Y0]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X2Y1]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X2Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0Y0Y1]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0Y0Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0Y1Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1X2Y0]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1X2Y1]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1X2Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1Y0Y1]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1Y0Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1Y1Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X2Y0Y1]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X2Y0Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X2Y1Y2]", "dim_U": 25, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[Y0Y1Y2]", "dim_U": 45, "dim_W": 177, "dim_U_cap_W": 15, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 15, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1X2Y0]", "dim_U": 95, "dim_W": 177, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1X2Y1]", "dim_U": 95, "dim_W": 177, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1X2Y2]", "dim_U": 95, "dim_W": 177, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1Y0Y1]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1Y0Y2]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1Y1Y2]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X2Y0Y1]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X2Y0Y2]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X2Y1Y2]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0Y0Y1Y2]", "dim_U": 95, "dim_W": 177, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1X2Y0Y1]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.3}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1X2Y0Y2]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1X2Y1Y2]", "dim_U": 85, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.3}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1Y0Y1Y2]", "dim_U": 95, "dim_W": 177, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X2Y0Y1Y2]", "dim_U": 95, "dim_W": 177, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1X2Y0Y1]", "dim_U": 255, "dim_W": 177, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.9, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1X2Y0Y2]", "dim_U": 255, "dim_W": 177, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.9, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1X2Y1Y2]", "dim_U": 255, "dim_W": 177, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.9, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 255, "dim_W": 177, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.9, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 255, "dim_W": 177, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.9, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 255, "dim_W": 177, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.9, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "bideg(0,8)", "dim_U": 45, "dim_W": 177, "dim_U_cap_W": 15, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 15, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "bideg(2,6)", "dim_U": 168, "dim_W": 177, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 0.7, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "bideg(4,4)", "dim_U": 225, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.4}
+{"batch": "structured", "d": 8, "parity": 0, "family": "bideg(6,2)", "dim_U": 168, "dim_W": 177, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 0.7, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "bideg(8,0)", "dim_U": 45, "dim_W": 177, "dim_U_cap_W": 15, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 15, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "Ybase P(X)M^a g^b", "dim_U": 102, "dim_W": 177, "dim_U_cap_W": 55, "p": 2147483647, "time_s": 0.6, "dim_U_cap_J": 46, "dim_new": 9}
+{"batch": "structured", "d": 8, "parity": 0, "family": "Xbase Q(Y)L^a f^b", "dim_U": 102, "dim_W": 177, "dim_U_cap_W": 46, "p": 2147483647, "time_s": 0.6, "dim_U_cap_J": 46, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "monomials(f,g,L,M)", "dim_U": 9, "dim_W": 177, "dim_U_cap_W": 4, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 4, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 0, "family": "Hessian 2x2 minors", "dim_U": 48, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.3}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1Y0]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1Y1]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X2Y0]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X2Y1]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X2Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0Y0Y1]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0Y0Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0Y1Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1X2Y0]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1X2Y1]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1X2Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1Y0Y1]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1Y0Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1Y1Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X2Y0Y1]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X2Y0Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.1}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X2Y1Y2]", "dim_U": 20, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1X2Y0]", "dim_U": 70, "dim_W": 177, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1X2Y1]", "dim_U": 70, "dim_W": 177, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1X2Y2]", "dim_U": 70, "dim_W": 177, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1Y0Y1]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1Y0Y2]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1Y1Y2]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X2Y0Y1]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X2Y0Y2]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X2Y1Y2]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0Y0Y1Y2]", "dim_U": 70, "dim_W": 177, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1X2Y0Y1]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1X2Y0Y2]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1X2Y1Y2]", "dim_U": 80, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.2}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1Y0Y1Y2]", "dim_U": 70, "dim_W": 177, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X2Y0Y1Y2]", "dim_U": 70, "dim_W": 177, "dim_U_cap_W": 8, "p": 2147483647, "time_s": 0.4, "dim_U_cap_J": 8, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1X2Y0Y1]", "dim_U": 240, "dim_W": 177, "dim_U_cap_W": 16, "p": 2147483647, "time_s": 0.7, "dim_U_cap_J": 16, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1X2Y0Y2]", "dim_U": 240, "dim_W": 177, "dim_U_cap_W": 16, "p": 2147483647, "time_s": 0.7, "dim_U_cap_J": 16, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1X2Y1Y2]", "dim_U": 240, "dim_W": 177, "dim_U_cap_W": 16, "p": 2147483647, "time_s": 0.7, "dim_U_cap_J": 16, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 240, "dim_W": 177, "dim_U_cap_W": 16, "p": 2147483647, "time_s": 0.7, "dim_U_cap_J": 16, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 240, "dim_W": 177, "dim_U_cap_W": 16, "p": 2147483647, "time_s": 0.7, "dim_U_cap_J": 16, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 240, "dim_W": 177, "dim_U_cap_W": 16, "p": 2147483647, "time_s": 0.7, "dim_U_cap_J": 16, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "bideg(1,7)", "dim_U": 108, "dim_W": 177, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "bideg(3,5)", "dim_U": 210, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.3}
+{"batch": "structured", "d": 8, "parity": 1, "family": "bideg(5,3)", "dim_U": 210, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.3}
+{"batch": "structured", "d": 8, "parity": 1, "family": "bideg(7,1)", "dim_U": 108, "dim_W": 177, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 0.5, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 8, "parity": 1, "family": "Hessian 2x2 minors", "dim_U": 48, "dim_W": 177, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.3}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1X2]", "dim_U": 55, "dim_W": 405, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 1.5, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1Y0]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1Y1]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X2Y0]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X2Y1]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X2Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0Y0Y1]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0Y0Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0Y1Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1X2Y0]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1X2Y1]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1X2Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1Y0Y1]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1Y0Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1Y1Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X2Y0Y1]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X2Y0Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X2Y1Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1X2Y0]", "dim_U": 125, "dim_W": 405, "dim_U_cap_W": 32, "p": 2147483647, "time_s": 1.6, "dim_U_cap_J": 32, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1X2Y1]", "dim_U": 125, "dim_W": 405, "dim_U_cap_W": 32, "p": 2147483647, "time_s": 1.7, "dim_U_cap_J": 32, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1X2Y2]", "dim_U": 125, "dim_W": 405, "dim_U_cap_W": 32, "p": 2147483647, "time_s": 1.7, "dim_U_cap_J": 32, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1Y0Y1]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1Y0Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1Y1Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X2Y0Y1]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X2Y0Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X2Y1Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0Y0Y1Y2]", "dim_U": 95, "dim_W": 405, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 1.6, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1X2Y0Y1]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1X2Y0Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1X2Y1Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1Y0Y1Y2]", "dim_U": 95, "dim_W": 405, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 1.6, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X2Y0Y1Y2]", "dim_U": 95, "dim_W": 405, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 1.6, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1X2Y0Y1]", "dim_U": 365, "dim_W": 405, "dim_U_cap_W": 48, "p": 2147483647, "time_s": 2.6, "dim_U_cap_J": 48, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1X2Y0Y2]", "dim_U": 365, "dim_W": 405, "dim_U_cap_W": 51, "p": 2147483647, "time_s": 2.6, "dim_U_cap_J": 51, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1X2Y1Y2]", "dim_U": 365, "dim_W": 405, "dim_U_cap_W": 48, "p": 2147483647, "time_s": 2.6, "dim_U_cap_J": 48, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 350, "dim_W": 405, "dim_U_cap_W": 42, "p": 2147483647, "time_s": 1.8, "dim_U_cap_J": 42, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 350, "dim_W": 405, "dim_U_cap_W": 42, "p": 2147483647, "time_s": 2.2, "dim_U_cap_J": 42, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 350, "dim_W": 405, "dim_U_cap_W": 42, "p": 2147483647, "time_s": 2.1, "dim_U_cap_J": 42, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "bideg(1,8)", "dim_U": 135, "dim_W": 405, "dim_U_cap_W": 45, "p": 2147483647, "time_s": 1.5, "dim_U_cap_J": 45, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "bideg(3,6)", "dim_U": 280, "dim_W": 405, "dim_U_cap_W": 30, "p": 2147483647, "time_s": 1.4, "dim_U_cap_J": 30, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "bideg(5,4)", "dim_U": 315, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 1.1}
+{"batch": "structured", "d": 9, "parity": 0, "family": "bideg(7,2)", "dim_U": 216, "dim_W": 405, "dim_U_cap_W": 48, "p": 2147483647, "time_s": 1.4, "dim_U_cap_J": 48, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "bideg(9,0)", "dim_U": 55, "dim_W": 405, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 1.3, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 0, "family": "Ybase P(X)M^a g^b", "dim_U": 138, "dim_W": 405, "dim_U_cap_W": 91, "p": 2147483647, "time_s": 1.5, "dim_U_cap_J": 79, "dim_new": 12}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1Y0]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1Y1]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X2Y0]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X2Y1]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X2Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0Y0Y1]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0Y0Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0Y1Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1X2Y0]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1X2Y1]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1X2Y2]", "dim_U": 25, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1Y0Y1]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1Y0Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1Y1Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X2Y0Y1]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X2Y0Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X2Y1Y2]", "dim_U": 30, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.5}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[Y0Y1Y2]", "dim_U": 55, "dim_W": 405, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 1.2, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1X2Y0]", "dim_U": 95, "dim_W": 405, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 1.4, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1X2Y1]", "dim_U": 95, "dim_W": 405, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 1.6, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1X2Y2]", "dim_U": 95, "dim_W": 405, "dim_U_cap_W": 18, "p": 2147483647, "time_s": 1.4, "dim_U_cap_J": 18, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1Y0Y1]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.7}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1Y0Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.6}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1Y1Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.7}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X2Y0Y1]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.7}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X2Y0Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.7}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X2Y1Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0Y0Y1Y2]", "dim_U": 125, "dim_W": 405, "dim_U_cap_W": 32, "p": 2147483647, "time_s": 1.6, "dim_U_cap_J": 32, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1X2Y0Y1]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1X2Y0Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.7}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1X2Y1Y2]", "dim_U": 110, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 0.8}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1Y0Y1Y2]", "dim_U": 125, "dim_W": 405, "dim_U_cap_W": 32, "p": 2147483647, "time_s": 1.6, "dim_U_cap_J": 32, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X2Y0Y1Y2]", "dim_U": 125, "dim_W": 405, "dim_U_cap_W": 32, "p": 2147483647, "time_s": 1.7, "dim_U_cap_J": 32, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1X2Y0Y1]", "dim_U": 350, "dim_W": 405, "dim_U_cap_W": 42, "p": 2147483647, "time_s": 2.6, "dim_U_cap_J": 42, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1X2Y0Y2]", "dim_U": 350, "dim_W": 405, "dim_U_cap_W": 42, "p": 2147483647, "time_s": 2.6, "dim_U_cap_J": 42, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1X2Y1Y2]", "dim_U": 350, "dim_W": 405, "dim_U_cap_W": 42, "p": 2147483647, "time_s": 2.6, "dim_U_cap_J": 42, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 365, "dim_W": 405, "dim_U_cap_W": 48, "p": 2147483647, "time_s": 2.7, "dim_U_cap_J": 48, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 365, "dim_W": 405, "dim_U_cap_W": 48, "p": 2147483647, "time_s": 2.7, "dim_U_cap_J": 48, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 365, "dim_W": 405, "dim_U_cap_W": 48, "p": 2147483647, "time_s": 2.7, "dim_U_cap_J": 48, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "bideg(0,9)", "dim_U": 55, "dim_W": 405, "dim_U_cap_W": 24, "p": 2147483647, "time_s": 1.5, "dim_U_cap_J": 24, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "bideg(2,7)", "dim_U": 216, "dim_W": 405, "dim_U_cap_W": 48, "p": 2147483647, "time_s": 1.8, "dim_U_cap_J": 48, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "bideg(4,5)", "dim_U": 315, "dim_W": 405, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 1.0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "bideg(6,3)", "dim_U": 280, "dim_W": 405, "dim_U_cap_W": 30, "p": 2147483647, "time_s": 2.1, "dim_U_cap_J": 30, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "bideg(8,1)", "dim_U": 135, "dim_W": 405, "dim_U_cap_W": 45, "p": 2147483647, "time_s": 1.6, "dim_U_cap_J": 45, "dim_new": 0}
+{"batch": "structured", "d": 9, "parity": 1, "family": "Xbase Q(Y)L^a f^b", "dim_U": 138, "dim_W": 405, "dim_U_cap_W": 79, "p": 2147483647, "time_s": 1.9, "dim_U_cap_J": 79, "dim_new": 0}

@@ -10,3 +10,7 @@ exact D7 parity 0 done 380 s
   parity 1: lift with 3 primes verified mod 2147483647: False
   parity 1: kernel basis mod 1073741723 done (814s)
   parity 1: lift with 4 primes verified mod 2147483647: True
+LOG {"exp": "kernel-exact-D7", "d": 7, "parD": 1, "prime": [1073741789, 1073741783, 1073741741, 1073741723], "result": "exact: A*D7 in J(F) over Q (certificate N7 verified with Fractions)", "rank": 3441, "seconds": 1150.3, "job": "exclB-spp-kernel2", "note": "dim_Q K_7/J = 1 exactly (modular bound 1 with 3 good primes + exact element); D7^- depends on X only through L=X0+2X1+3X2: False; D7 has 324 terms", "ts": "2026-11-02T02:13:04", "lens": "excl"}
+exact D7 parity 1 done 1150 s
+LOG {"exp": "kernel-generation", "d": 8, "parD": 0, "prime": 1073741789, "result": 6, "rank": 5052, "hilbert_ok": true, "rank_products": 4, "rank_products_plus_kernel": 6, "generated_by_K7": false, "seconds": 221.2, "job": "exclB-spp-kernel2", "note": "kernel mod J = result; rank of S_{d-7}*{D7+,D7-} mod J_d = rank_products; generated_by_K7 means K_d/J_d = S_{d-7} K_7", "ts": "2026-11-02T02:16:46", "lens": "excl"}
+d=8 par=0: kernel mod J 6, products rank 4, union rank 6, generated False [221s]

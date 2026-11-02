@@ -24,8 +24,9 @@
   "witness.json": 18863,
   "proof.json": 131,
   "solution.md": 64,
-  "Kron.lean": 30778,
-  "Witness.lean": 42542,
+  "meta.json": 393,
+  "Kron.lean": 34779,
+  "Witness.lean": 42567,
   "Solution.lean": 72629
  }
 }

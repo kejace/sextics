@@ -108,3 +108,16 @@ element 93 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[
 element 90 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 801.4s
 element 96 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 813.7s
 element 97 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 832.7s
+element 98 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 815.7s
+element 99 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 814.6s
+element 100 sector [0, 0]: inconsistent mod p, not sealed rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 818.8s
+element 103 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 821.9s
+element 102 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 827.7s
+element 83 sector [0, 0]: SEALED INCONSISTENT over Q rank=[1792, 1792] aug=[1793, 1793] null=[68, 68] sealed=0 1796.9s
+element 104 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 825.7s
+element 107 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 817.7s
+element 108 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 818.0s
+element 109 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 817.8s
+element 106 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 818.7s
+element 105 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 824.2s
+element 110 sector [0, 3]: inconsistent mod p, not sealed rank=[1796, 1796] aug=[1797, 1797] null=[69, 69] sealed=0 826.2s

@@ -1,0 +1,12 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[structured] WARNING no kernel file for d=6 par=0; assuming kernel 0 (true for d <= 6)
+[structured] d=6 par=0: W dim 18 (J_d + 0 kernel reps) in S_d dim 236 (0s)
+[structured] WARNING no kernel file for d=6 par=1; assuming kernel 0 (true for d <= 6)
+[structured] d=6 par=1: W dim 18 (J_d + 0 kernel reps) in S_d dim 226 (0s)
+[structured] d=7 par=0: W dim 66 (J_d + 3 kernel reps) in S_d dim 396 (0s)
+[structured] WARNING no kernel file for d=7 par=1; assuming kernel 0 (true for d <= 6)
+[structured] d=7 par=1: W dim 63 (J_d + 0 kernel reps) in S_d dim 396 (0s)
+[structured] d=8 par=0: W dim 177 (J_d + 9 kernel reps) in S_d dim 651 (0s)
+[structured] d=8 par=1: W dim 177 (J_d + 9 kernel reps) in S_d dim 636 (0s)
+[structured] d=9 par=0: W dim 405 (J_d + 27 kernel reps) in S_d dim 1001 (1s)
+[structured] d=9 par=1: W dim 405 (J_d + 27 kernel reps) in S_d dim 1001 (1s)
