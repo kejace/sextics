@@ -1,3 +1,2 @@
-struct-hess4|8|python3 wave2-search/w2_structured.py --set hess4 --workers 8 --job struct-hess4 > wave2-search/struct-hess4.out 2>&1
 d7tau|8|python3 wave2-search/w2_batch_sectors.py --d 7 --sectors "0,0;3,0" --group tau --kind colon --restarts 100 --workers 8 --seed0 0 --maxiter 60 --job d7tau --per-time 6000 > wave2-search/d7tau.out 2>&1
 d10h0more|8|python3 wave2-search/w2_batch_sectors.py --d 10 --sectors h0 --kind colon --restarts 400 --workers 8 --seed0 10000 --maxiter 100 --job d10h0b --per-time 2400 > wave2-search/d10h0b.out 2>&1

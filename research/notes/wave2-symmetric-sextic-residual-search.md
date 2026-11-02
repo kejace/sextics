@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-02 06:16 EST from 830 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-02 06:36 EST from 830 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -176,12 +176,12 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=7 pD=0 | jac1 | 155 | 5.51e-01 | 7.5e-01 | 0 | 0 | 0.551: 13, 0.552: 16, 0.751: 2, 0.752: 101, 0.774: 23 |
+| jac d=7 pD=0 | jac1 | 162 | 5.51e-01 | 7.5e-01 | 0 | 0 | 0.551: 13, 0.552: 16, 0.751: 2, 0.752: 106, 0.774: 25 |
 | ternX-sgnX d=7 pD=0 | struct2 | 60 | 6.46e-01 | 6.5e-01 | 0 | 0 | 0.646: 42, 0.667: 18 |
 | ternX-sgnX d=8 pD=0 | struct2 | 60 | 4.36e-01 | 5.2e-01 | 0 | 0 | 0.436: 25, 0.525: 25, 0.626: 10 |
 | ternX-sgnX d=9 pD=0 | struct2 | 60 | 9.13e-02 | 3.3e-01 | 0 | 0 | 0.0913: 22, 0.178: 1, 0.24: 5, 0.332: 13, 0.406: 5 |
 | ternX-sgnX d=10 pD=0 | struct2 | 60 | 3.25e-02 | 1.5e-01 | 0 | 0 | 0.0325: 22, 0.152: 16, 0.177: 10, 0.225: 12 |
-| ternX-sgnX d=11 pD=0 | struct2 | 35 | 1.79e-02 | 5.7e-02 | 0 | 0 | 0.0179: 16, 0.0566: 6, 0.0605: 3, 0.0681: 9, 0.16: 1 |
+| ternX-sgnX d=11 pD=0 | struct2 | 41 | 1.79e-02 | 5.7e-02 | 0 | 0 | 0.0179: 19, 0.0566: 8, 0.0605: 4, 0.0681: 9, 0.16: 1 |
 | ternX-triv d=7 pD=0 | struct2 | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
 | ternX-triv d=7 pD=0 | struct | 40 | 5.47e-01 | 5.5e-01 | 0 | 0 | 0.547: 40 |
 | ternX-triv d=8 pD=0 | struct2 | 60 | 4.52e-01 | 4.5e-01 | 0 | 0 | 0.452: 34, 0.603: 26 |
