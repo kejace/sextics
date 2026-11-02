@@ -80,15 +80,14 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
     ns = f'HodgeComputer.Cap.{name}'
     L = ['import Reflect.Kron\n',
          f'set_option maxHeartbeats {heartbeats}\nset_option maxRecDepth {recdepth}\n'
-         'set_option linter.unusedTactic false\nset_option linter.unusedSimpArgs false\n'
-         'set_option linter.unnecessarySeqFocus false\nset_option linter.unreachableTactic false\n',
+         'set_option linter.all false\n',
          f'namespace {ns}\n', 'open MvPolynomial HodgeTestbed HodgeComputer.Kron\n']
-    L.append(f'def tF : PT := {pt_lean(Fi, m, 6)}\n')
-    L.append(f'def tA : PT := {pt_lean(Ai, m, 6 * q)}\n')
-    L.append(f'def tD : PT := {pt_lean(Di, m, d)}\n')
-    L.append(f'def tQ : PT := {pt_lean(Qi, m, 2 * d - 6)}\n')
+    L.append(f'noncomputable def tF : PT := {pt_lean(Fi, m, 6)}\n')
+    L.append(f'noncomputable def tA : PT := {pt_lean(Ai, m, 6 * q)}\n')
+    L.append(f'noncomputable def tD : PT := {pt_lean(Di, m, d)}\n')
+    L.append(f'noncomputable def tQ : PT := {pt_lean(Qi, m, 2 * d - 6)}\n')
     for i in range(NV):
-        L.append(f'def tN{i} : PT := {pt_lean(Ni[i], m, degN)}\n')
+        L.append(f'noncomputable def tN{i} : PT := {pt_lean(Ni[i], m, degN)}\n')
     L.append('noncomputable section\n')
     L.append('def F : Poly := toC tF\ndef A : Poly := toC tA\ndef D : Poly := toC tD\ndef Q : Poly := toC tQ\n')
     for i in range(NV):
@@ -98,7 +97,7 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
     if 'e1' in parts:
         lhs = f'(.smulN {q} {nestE("add", [f"(.mul (.pd {i} tF) (.poly tN{i}))" for i in range(NV)])})'
         rhs = '(.mul (.poly tA) (.poly tD))'
-        L.append(f'def L1 : E := {lhs}\ndef R1 : E := {rhs}\n')
+        L.append(f'noncomputable def L1 : E := {lhs}\nnoncomputable def R1 : E := {rhs}\n')
         L.append(f'theorem e1_core : denC L1 = denC R1 := soundC (m := {m}) (W := {W}) L1 R1 {side}\n')
         e1_sum = nest([f'pderiv ({i} : Fin 6) F * N{i}' for i in range(NV)])
         L.append(f'theorem e1 : ({q} : Poly) * directional F N = A*D := by\n'
@@ -112,7 +111,7 @@ def module(name, F, A, D, N, Q, q, d, parts, W=None, heartbeats=2000000, recdept
         dir_r = nestE('add', [f'(.mul (.pd {i} tD) (.poly tN{i}))' for i in range(NV)])
         lhs = f'(.sub (.mul (.poly tD) {div_r}) {dir_r})'
         rhs = f'(.mul (.pow (.poly tF) {q}) (.poly tQ))'
-        L.append(f'def L2 : E := {lhs}\ndef R2 : E := {rhs}\n')
+        L.append(f'noncomputable def L2 : E := {lhs}\nnoncomputable def R2 : E := {rhs}\n')
         L.append(f'theorem e2_core : denC L2 = denC R2 := soundC (m := {m}) (W := {W}) L2 R2 {side}\n')
         div_sum = nest([f'pderiv ({i} : Fin 6) N{i}' for i in range(NV)])
         dir_sum = nest([f'pderiv ({i} : Fin 6) D * N{i}' for i in range(NV)])

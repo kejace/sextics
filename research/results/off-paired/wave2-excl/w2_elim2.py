@@ -15,7 +15,7 @@ sys.path.insert(0, '/tmp/hodge/results/off-paired/wave2-excl')
 import w2lib, w2_bilinear as WB, w2_cert as WC, w2_elim as WE
 from w2lib import char_of, cadd, monos_char
 from hodge import core
-from hodge.core import NV, shift, reduce_mod, add, scale
+from hodge.core import NV, shift, reduce_mod, add, scale, pderiv
 from fractions import Fraction
 from flint import fmpq_mat, fmpq, nmod_mat, fmpz_mat, fmpz
 
@@ -78,7 +78,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--d', type=int, required=True); ap.add_argument('--chars', required=True); ap.add_argument('--job', required=True)
     ap.add_argument('--timeout', type=int, default=1800); ap.add_argument('--prime', type=int, default=WB.PM); ap.add_argument('--tsub', default='all')
-    ap.add_argument('--direct', action='store_true')
+    ap.add_argument('--direct', action='store_true'); ap.add_argument('--skip-Q', action='store_true')
     a = ap.parse_args()
     F, A, q = w2lib.load(); cA = char_of(A); p = a.prime
     chars = [(x, y) for x in range(6) for y in range(6)] if a.chars == 'all' else [(int(s[0]), int(s[1])) for s in a.chars.split(',')]
@@ -97,7 +97,33 @@ def main():
         try:
             Dq, Nq, Sq = WC.rational_data(F, A, q, sysd['Ds'], sysd['Ns'], sysd['syz'], p)
         except ValueError as ex:
-            emit(dict(base, result=f'rational-data-failed: {ex}')); continue
+            # two-prime CRT retry: rebuild the bases at a second prime, align D's by leading monomial, CRT entrywise
+            try:
+                p2 = w2lib.P1 if p != w2lib.P1 else w2lib.P2
+                sysd2, info2 = WB.build_fast(F, A, q, a.d, c, p2, 'sector', a.tsub, addJ=False, verbose=False)
+                lead = lambda D: max(D)
+                byl2 = {lead(D): (D, N) for D, N in zip(sysd2['Ds'], sysd2['Ns'])}
+                Dq, Nq = [], []
+                for D, N in zip(sysd['Ds'], sysd['Ns']):
+                    D2, N2 = byl2[lead(D)]
+                    # normalize both to leading coefficient 1 (rref vectors already have unit pivots)
+                    d_ = WC.crt_poly(D, p, (p2, D2))
+                    if d_ is None: raise ValueError('CRT D reconstruction failed')
+                    n_ = [WC.crt_poly(N[i], p, (p2, N2[i])) for i in range(NV)]
+                    if any(x is None for x in n_):
+                        n_ = WC.exact_lift(F, A, q, d_)
+                        if n_ is None: raise ValueError('exact lift failed')
+                    Dq.append(d_); Nq.append(n_)
+                _, _, Sq = WC.rational_data(F, A, q, [], [], sysd['syz'], p)
+                # verify lifts exactly
+                Fi_ = [pderiv(F, i) for i in range(NV)]
+                for d_, n_ in zip(Dq, Nq):
+                    lhs = {}
+                    for i in range(NV): lhs = add(lhs, core.mul(n_[i], Fi_[i]))
+                    if lhs != core.mul(A, d_): raise ValueError('CRT lift verification failed')
+                base['rational_data'] = 'two-prime CRT'
+            except Exception as ex2:
+                emit(dict(base, result=f'rational-data-failed: {ex}; CRT retry: {ex2}')); continue
         nt, ns = len(Dq), len(Sq)
         EB = WC.ExactB(Dq, Nq, Sq)
         sector = cadd(cA, cadd(c, c)); mons2d = monos_char(2 * a.d, sector); mons_low = monos_char(2 * a.d - 6, sector)
@@ -226,9 +252,36 @@ if (dm > 0) {{
 quit;
 '''
         spath = f'{outdir}/d{a.d}_c{c[0]}{c[1]}_J2.sing'; open(spath, 'w').write(sing)
-        out, err = run_singular(spath, a.timeout)
+        out, err = (None, 'skipped') if a.skip_Q else run_singular(spath, a.timeout)
         if out is None:
-            emit(dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), result='singular-timeout(J2)')); continue
+            # fallback: certified linear span of V(J2) over Q + localized exact relaxation on it
+            import w2_span, w2_local
+            basis_L, sinfo = w2_span.certify_span(quads, nt, a.prime, outdir, timeout=min(a.timeout, 900))
+            if basis_L is None:
+                emit(dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), span_info=sinfo, result='singular-timeout(J2); span certification failed')); continue
+            w = len(basis_L)
+            restricted = w2_local.restrict(eqs, nt, ns, basis_L)
+            degs = (2, 3) if w > 8 else (2, 3, 4)
+            cons = w2_local.consequences(restricted, w, ns, degrees=degs)
+            allc = [g for k in cons for g in cons[k]['consequences']]
+            xs = [f'x{i}' for i in range(w)]
+            def mstr(m): return '*'.join(f'x{i}^{e}' if e > 1 else f'x{i}' for i, e in enumerate(m) if e) or '1'
+            cstr = ['+'.join(f'{frac_str(v)}*{mstr(m)}' for m, v in g.items()) for g in allc]
+            sing5 = f'''ring r = 0, ({",".join(xs)}), dp;
+ideal C = {",\n".join(cstr) if cstr else "0"};
+ideal G = std(C);
+print("DIMC " + string(dim(G)));
+quit;
+'''
+            spath5 = f'{outdir}/d{a.d}_c{c[0]}{c[1]}_span_local.sing'; open(spath5, 'w').write(sing5)
+            out5, err5 = run_singular(spath5, a.timeout)
+            m5 = re.search(r'DIMC (-?\d+)', out5) if out5 else None
+            dmc = int(m5.group(1)) if m5 else None
+            okc = (dmc is not None and dmc <= 0)
+            emit(dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), lambda_basis='lll-integer-kernel', span_info=sinfo,
+                      span_dim=w, local_relax={k: {kk: vv for kk, vv in cons[k].items() if kk != 'consequences'} | {'n': len(cons[k]['consequences'])} for k in cons},
+                      local_dim=dmc, result=('PROVEN-no-denominator-in-sector(exact: certified span of V(J2) + localized relaxation m-primary)' if okc else 'span certified but localized relaxation not m-primary')))
+            continue
         m = re.search(r'DIMJ2 (-?\d+)', out)
         if not m:
             emit(dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), result='singular-failed', stderr=out[-300:])); continue

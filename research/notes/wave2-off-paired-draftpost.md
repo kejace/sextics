@@ -12,7 +12,7 @@ whole modular kernel verified exactly. An E1 failure (A·D not in J(F)) is a the
 equals the exact Koszul dimension of J(F)_{d+6} in the sector. Bilinear sector sweeps (D free in a character sector, N free) decided
 by msolve on the complete chart cover t_b = 0 (b < a), t_a = 1 are modular screens unless an exact certificate is attached.
 
-**Results (to be filled from the receipts at posting time).**
+**Results (numbers as of the end of wave 2; refresh from the receipts before posting).**
 1. Degrees 4–6: re-derived (D0 = F_X0/(6X0): ranks 67/68 with nullity 8 = explicit kernel: theorem; degree-6 sectors chart-complete).
 2. Degree 7, all 36 diagonal characters: chart-complete `no-solution` mod 2147483647 (171 charts; 4 sectors have empty colon space) —
    independent re-derivation of deanodotdotdot's degree-7 theorem (different code, prime and chart method).

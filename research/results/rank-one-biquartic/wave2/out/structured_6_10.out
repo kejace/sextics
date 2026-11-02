@@ -447,3 +447,14 @@
 {"batch": "structured", "d": 10, "parity": 1, "family": "vars[X1X2Y1Y2]", "dim_U": 140, "dim_W": 1017, "dim_U_cap_W": 0, "p": 2147483647, "time_s": 3.2}
 {"batch": "structured", "d": 10, "parity": 1, "family": "vars[X1Y0Y1Y2]", "dim_U": 125, "dim_W": 1017, "dim_U_cap_W": 32, "p": 2147483647, "time_s": 7.2, "dim_U_cap_J": 32, "dim_new": 0}
 {"batch": "structured", "d": 10, "parity": 1, "family": "vars[X2Y0Y1Y2]", "dim_U": 125, "dim_W": 1017, "dim_U_cap_W": 32, "p": 2147483647, "time_s": 6.6, "dim_U_cap_J": 32, "dim_new": 0}
+{"batch": "structured", "d": 10, "parity": 1, "family": "vars[X0X1X2Y0Y1]", "dim_U": 490, "dim_W": 1017, "dim_U_cap_W": 80, "p": 2147483647, "time_s": 9.0, "dim_U_cap_J": 80, "dim_new": 0}
+{"batch": "structured", "d": 10, "parity": 1, "family": "vars[X0X1X2Y0Y2]", "dim_U": 490, "dim_W": 1017, "dim_U_cap_W": 86, "p": 2147483647, "time_s": 8.8, "dim_U_cap_J": 86, "dim_new": 0}
+{"batch": "structured", "d": 10, "parity": 1, "family": "vars[X0X1X2Y1Y2]", "dim_U": 490, "dim_W": 1017, "dim_U_cap_W": 80, "p": 2147483647, "time_s": 8.7, "dim_U_cap_J": 80, "dim_new": 0}
+{"batch": "structured", "d": 10, "parity": 1, "family": "vars[X0X1Y0Y1Y2]", "dim_U": 490, "dim_W": 1017, "dim_U_cap_W": 83, "p": 2147483647, "time_s": 8.8, "dim_U_cap_J": 80, "dim_new": 3}
+{"batch": "structured", "d": 10, "parity": 1, "family": "vars[X0X2Y0Y1Y2]", "dim_U": 490, "dim_W": 1017, "dim_U_cap_W": 83, "p": 2147483647, "time_s": 9.6, "dim_U_cap_J": 80, "dim_new": 3}
+{"batch": "structured", "d": 10, "parity": 1, "family": "vars[X1X2Y0Y1Y2]", "dim_U": 490, "dim_W": 1017, "dim_U_cap_W": 83, "p": 2147483647, "time_s": 9.0, "dim_U_cap_J": 80, "dim_new": 3}
+{"batch": "structured", "d": 10, "parity": 1, "family": "bideg(1,9)", "dim_U": 165, "dim_W": 1017, "dim_U_cap_W": 72, "p": 2147483647, "time_s": 7.5, "dim_U_cap_J": 72, "dim_new": 0}
+{"batch": "structured", "d": 10, "parity": 1, "family": "bideg(3,7)", "dim_U": 360, "dim_W": 1017, "dim_U_cap_W": 80, "p": 2147483647, "time_s": 8.8, "dim_U_cap_J": 80, "dim_new": 0}
+{"batch": "structured", "d": 10, "parity": 1, "family": "bideg(5,5)", "dim_U": 441, "dim_W": 1017, "dim_U_cap_W": 15, "p": 2147483647, "time_s": 9.5, "dim_U_cap_J": 0, "dim_new": 15}
+{"batch": "structured", "d": 10, "parity": 1, "family": "bideg(7,3)", "dim_U": 360, "dim_W": 1017, "dim_U_cap_W": 80, "p": 2147483647, "time_s": 8.6, "dim_U_cap_J": 80, "dim_new": 0}
+{"batch": "structured", "d": 10, "parity": 1, "family": "bideg(9,1)", "dim_U": 165, "dim_W": 1017, "dim_U_cap_W": 72, "p": 2147483647, "time_s": 6.6, "dim_U_cap_J": 72, "dim_new": 0}

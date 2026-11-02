@@ -11,7 +11,7 @@ if '--no-pull' not in sys.argv:
 # merge remote batch log
 have = set(l.strip() for l in open(LOCAL_LOG)) if os.path.exists(LOCAL_LOG) else set()
 added = 0
-rl = os.path.join(MIRROR, w2lib.REMOTE_LOG)
+rl = os.path.join(MIRROR, 'wave2-search.remote.log.jsonl')
 if os.path.exists(rl):
     with open(LOCAL_LOG, 'a') as f:
         for line in open(rl):

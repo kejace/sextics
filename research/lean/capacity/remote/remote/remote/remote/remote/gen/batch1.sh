@@ -8,7 +8,6 @@ while IFS='|' read -r label args; do
   cs="$CPU,$((CPU+1))"; CPU=$((CPU+2))
   ./rsubmit.sh "cap-$label" "cd /tmp/hodge/lean/capacity/gen && python3 gen_capacity.py $args --name $label && bash /tmp/hodge/lean/capacity/run_module.sh Cap.$label $label $cs"
 done <<'LIST'
-e2m3k10  | --F m3 --d 6 --kD 10 --kH 1 --parts e2
 e2m3k20  | --F m3 --d 6 --kD 20 --kH 1 --parts e2
 e2m3k40  | --F m3 --d 6 --kD 40 --kH 1 --parts e2
 e2m3k60  | --F m3 --d 8 --kD 60 --kH 1 --parts e2

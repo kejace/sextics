@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 21:28:55 from 717 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 21:32:07 from 729 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -103,9 +103,9 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 
 ## (4) Structured families (E1-admissible dimension per sector; varpro where nonzero)
 
-Cells with zero E1-admissible part (excluded as supports), by family: G-multiples:5, K+G-multiples:5, K-multiples:5, M-multiples:5, Xdeg_0:2, Xdeg_1:6, Xdeg_2:12, Xdeg_3:14, Xdeg_4:14, Xdeg_5:14, Xdeg_6:14, Xdeg_7:7, Xdeg_le3:28, Ydeg_le3:4, no_r:23, no_s:23, no_t:23, no_x:13, no_y:13, no_z:12, pureX:21, pureY:3, vars_trsx:24, vars_trsy:24, vars_trsz:24, vars_xyzr:27, vars_xyzs:27, vars_xyzt:27
+Cells with zero E1-admissible part (excluded as supports), by family: G-multiples:5, K+G-multiples:5, K-multiples:5, M-multiples:5, Xdeg_0:2, Xdeg_1:6, Xdeg_2:12, Xdeg_3:14, Xdeg_4:14, Xdeg_5:14, Xdeg_6:14, Xdeg_7:7, Xdeg_le3:28, Ydeg_le3:4, no_r:23, no_s:23, no_t:23, no_x:14, no_y:14, no_z:14, pureX:21, pureY:3, vars_trsx:24, vars_trsy:24, vars_trsz:24, vars_xyzr:27, vars_xyzs:27, vars_xyzt:27
 
-542 (family, d, parity, k) cells tested; 123 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
+554 (family, d, parity, k) cells tested; 131 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
 
 | family | d | parity | k | dim V | dim E1 | nontrivial mod J | dimP | restarts | best rel | exact tests |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -211,15 +211,23 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 | vars_xyzr | 8 | 0 | 3 | 13 | 1 | 0 | 1 | 6 | 5.61e-01 | inconsistent |
 | vars_xyzs | 8 | 0 | 3 | 13 | 1 | 0 | 1 | 6 | 4.83e-01 | inconsistent |
 | vars_xyzt | 8 | 0 | 3 | 13 | 1 | 0 | 1 | 6 | 3.46e+00 | inconsistent |
+| no_r | 8 | 0 | 4 | 36 | 4 | 0 | 4 | 6 | 3.78e-01 | inconsistent,inconsistent,inconsistent,inconsistent |
+| no_s | 8 | 0 | 4 | 36 | 3 | 0 | 3 | 6 | 8.09e-01 | inconsistent,inconsistent,inconsistent |
 | no_t | 8 | 0 | 4 | 36 | 4 | 0 | 4 | 6 | 8.82e-01 | inconsistent,inconsistent,inconsistent,inconsistent |
 | no_x | 8 | 0 | 4 | 36 | 2 | 0 | 2 | 6 | 7.76e-01 | inconsistent,inconsistent |
 | no_z | 8 | 0 | 4 | 50 | 2 | 0 | 2 | 6 | 8.18e-01 | inconsistent,inconsistent |
 | vars_xyzr | 8 | 0 | 4 | 14 | 1 | 0 | 1 | 6 | 9.33e-01 | inconsistent |
 | vars_xyzs | 8 | 0 | 4 | 14 | 1 | 0 | 1 | 6 | 9.90e-01 | inconsistent |
 | vars_xyzt | 8 | 0 | 4 | 14 | 1 | 0 | 1 | 6 | 5.69e+00 | inconsistent |
+| no_r | 8 | 0 | 5 | 35 | 3 | 0 | 3 | 6 | 4.69e-02 | inconsistent,inconsistent,inconsistent |
+| no_s | 8 | 0 | 5 | 35 | 3 | 0 | 3 | 6 | 2.86e-01 | inconsistent,inconsistent,inconsistent |
+| no_t | 8 | 0 | 5 | 35 | 3 | 0 | 3 | 6 | 7.18e-03 | inconsistent,inconsistent,inconsistent |
+| no_y | 8 | 0 | 5 | 35 | 2 | 0 | 2 | 6 | 2.06e-02 | inconsistent,inconsistent |
 | vars_xyzr | 8 | 0 | 5 | 13 | 1 | 0 | 1 | 6 | 9.53e-01 | inconsistent |
 | vars_xyzs | 8 | 0 | 5 | 13 | 1 | 0 | 1 | 6 | 5.55e-02 | inconsistent |
 | vars_xyzt | 8 | 0 | 5 | 13 | 1 | 0 | 1 | 6 | 6.71e+00 | inconsistent |
+| no_t | 8 | 0 | 6 | 35 | 3 | 0 | 3 | 6 | 9.95e-03 | inconsistent,inconsistent,inconsistent |
+| no_x | 8 | 0 | 6 | 35 | 2 | 0 | 2 | 6 | 2.52e-02 | inconsistent,inconsistent |
 | vars_xyzr | 8 | 0 | 6 | 13 | 1 | 0 | 1 | 6 | 9.52e-01 | inconsistent |
 | vars_xyzs | 8 | 0 | 6 | 13 | 1 | 0 | 1 | 6 | 5.61e-02 | inconsistent |
 | vars_xyzt | 8 | 0 | 6 | 13 | 1 | 0 | 1 | 6 | 5.84e+00 | inconsistent |
@@ -235,14 +243,14 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 
 ## Remote job queue (tail)
 ```
-21:17:08 gate closed for w2-control: 700), available memory 31 GB (min 90), 71 jobs running with 312 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-21:18:40 gate closed for w2-control: 700), available memory 10 GB (min 90), 76 jobs running with 317 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 21:20:13 gate closed for w2-control: 700), available memory 11 GB (min 90), 75 jobs running with 316 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 21:21:46 gate closed for w2-control:  700), available memory 8 GB (min 90), 74 jobs running with 315 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 21:23:19 gate closed for w2-control:  700), available memory 6 GB (min 90), 71 jobs running with 259 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 21:24:52 gate closed for w2-control: 700), available memory 29 GB (min 90), 70 jobs running with 266 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 21:26:25 gate closed for w2-control: 700), available memory 22 GB (min 90), 69 jobs running with 250 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 21:27:58 gate closed for w2-control: 700), available memory 13 GB (min 90), 69 jobs running with 265 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:29:31 gate closed for w2-control:  700), available memory 8 GB (min 90), 65 jobs running with 248 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:31:03 gate closed for w2-control:  700), available memory 8 GB (min 90), 64 jobs running with 247 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation

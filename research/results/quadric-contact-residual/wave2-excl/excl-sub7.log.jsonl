@@ -1,0 +1,1 @@
+{"exp": "sub-closure-msolve", "time": "2026-11-02T02:31:28", "seconds": 5406.2, "tag": "d7_y0", "pred": "y0", "n_unknowns": 60, "n_quadrics": 477, "source": "d7mixed.quads.local.json", "msolve": {"rc": 124, "seconds": 5406.2, "verdict": "msolve-failed-or-timeout"}, "result": "msolve-failed-or-timeout"}

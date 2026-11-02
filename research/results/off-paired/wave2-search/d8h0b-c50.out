@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+[2026-11-02T02:37:42] job d8h0b-c50: d=8 c=(5, 0) kind=colon F=offpaired restarts=300 workers=8
+[exact basis colon d=8 c=(5, 0)] rank 23 with 1 primes (verified)
+[sector varpro] d=8 c=(5, 0) K=23 rank=23 gauge=1 dimP=22 rows=2424 N=424 Q=108 nnz(TN)=176376 built in 0.6s
+[2026-11-02T02:37:43] family built: K=23 rank=23 gauge=1 dimP=22 rows=2424 N=424 Q=108 build 0.6s
+gradient check: analytic 9.043568e-02 fd 9.043568e-02

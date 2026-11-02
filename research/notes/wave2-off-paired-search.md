@@ -65,15 +65,16 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
 | hess-d8-c20 | hess | 8 | [2, 0] | G | ? | 18 | 400 | 2.135e-01 | 2.67e-01 | 0 | 24 | 0.4 | yes |
 | d8h0b-c30 | varpro | 8 | [3, 0] | G | colon | 28 | 300 | 2.053e-02 | 8.10e-02 | 0 | 70 | 19.3 | yes |
 | hess-d8-c30 | hess | 8 | [3, 0] | G | ? | 21 | 400 | 2.115e-01 | 3.33e-01 | 0 | 45 | 0.5 | yes |
-| d8h0b-c40 | varpro | 8 | [4, 0] | G | colon | ? | 45 | 2.447e-02 | 6.64e-02 | 0 | 21 | 49.3 | partial |
+| d8h0b-c40 | varpro | 8 | [4, 0] | G | colon | ? | 91 | 2.447e-02 | 6.64e-02 | 0 | 37 | 50.6 | partial |
 | hess-d8-c40 | hess | 8 | [4, 0] | G | ? | 18 | 400 | 1.778e-01 | 3.58e-01 | 0 | 49 | 0.7 | yes |
 | hess-d8-c50 | hess | 8 | [5, 0] | G | ? | 16 | 400 | 2.311e-01 | 8.50e-01 | 0 | 39 | 0.3 | yes |
-| d9h0-c00 | varpro | 9 | [0, 0] | G | colon | ? | 139 | 3.891e-03 | 3.93e-03 | 0 | 36 | 72.1 | partial |
+| d9h0-c00 | varpro | 9 | [0, 0] | G | colon | 50 | 165 | 3.891e-03 | 3.93e-03 | 0 | 42 | 74.9 | yes |
 | hess-d9-c00 | hess | 9 | [0, 0] | G | ? | 37 | 400 | 1.505e-01 | 2.44e-01 | 0 | 44 | 2.2 | yes |
-| hess-d9-c20 | varpro | 9 | [2, 0] | G | ? | ? | 364 | 1.933e-01 | 7.88e-01 | 0 | 54 | 2.0 | partial |
+| hess-d9-c20 | hess | 9 | [2, 0] | G | ? | 32 | 400 | 1.933e-01 | 7.88e-01 | 0 | 55 | 1.9 | yes |
 | hess-d9-c30 | hess | 9 | [3, 0] | G | ? | 37 | 400 | 1.792e-01 | 2.98e-01 | 0 | 77 | 2.2 | yes |
+| hess-d9-c40 | varpro | 9 | [4, 0] | G | ? | ? | 315 | 1.700e-01 | 3.41e-01 | 0 | 52 | 3.5 | partial |
 
-Total restarts 5049 over 22 jobs; numerical hits (relres < 1e-9): 0.
+Total restarts 5472 over 23 jobs; numerical hits (relres < 1e-9): 0.
 
 Reading the table: 'best relres' = min over restarts of ||residual||/||A D^2|| for the complete fixed-D system (six numerators of
 degree d+1 and Q of degree 2d-6, character-restricted) at the LM endpoint; a certificate gives ~1e-13 (Fermat controls: 3e-14).
@@ -118,6 +119,13 @@ no zero (job t01d8): no degree-8 denominator for small deformations of the Ferma
 Consequence: genuine structured solutions, if any, have
 small basins, and the search is a search for geometric mechanisms, not for accidental zeros (the fixed-D systems are overdetermined by
 a factor ~50: e.g. d = 8 (0,0): 2494 rows, generic rank 488 of 567 columns, 28 D-parameters).
+
+## 6b. Structured fixed candidates (w2_structured.py) and Hessian relaxation (w2_hess.py)
+
+All 194 distinct 3x3 minors of the Hessian of F (degree 12, all G-characters) fail E1 (A*minor not in J(F) mod p) -- none is even a
+candidate (wave 1 / excl lens: the 2x2 minors likewise). 4x4 minors (degree 16) and mixed cones x blocks are queued.
+Hessian relaxation (N_i = A w_i exactly, D = sum w_i F_i, Q free; a sufficient condition): d = 8 and 9 in all six h-invariant sectors,
+400 LM restarts each: best relres 0.15-0.23 everywhere -- the relaxation is far from feasible; d = 10-12 running.
 
 ## 7. Exact served-space scan (w2_served_scan.py)
 

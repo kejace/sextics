@@ -4,3 +4,4 @@
 [hessrelax hr7ec] 100 restarts best f 8.093e-04 (seed 50078) median 1.096e-03 (498s)
 [hessrelax hr7ec] 200 restarts best f 5.033e-04 (seed 50151) median 1.096e-03 (968s)
 [hessrelax hr7ec] 300 restarts best f 5.033e-04 (seed 50151) median 1.090e-03 (1317s)
+[hessrelax hr7ec] 400 restarts best f 4.098e-04 (seed 50385) median 1.091e-03 (1613s)

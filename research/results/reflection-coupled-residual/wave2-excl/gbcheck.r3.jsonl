@@ -1,0 +1,1 @@
+{"exp": "gb-hilbert", "file": "hess_d8_W11_p2147483587.ms", "d": 8, "prime": 2147483587, "chis": [[1, 1]], "dim_W": 54, "n_quadrics": 274, "rank_quadrics": 274, "result": "msolve TIMEOUT", "timeout_s": 5400, "ts": "2026-11-02T02:38:55", "job": "gbcheck"}

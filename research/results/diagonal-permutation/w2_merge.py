@@ -17,6 +17,8 @@ added = 0
 with open(LOCAL, 'a') as out:
     for fn in sorted(glob.glob(os.path.join(MIR, 'w2-*.jsonl'))):
         base = os.path.basename(fn)
+        if base.startswith('w2-near-'):
+            continue
         if base.startswith('w2-pt-d'):
             rels = []; its = []; secs = []; fams = set(); d = None; tag = None
             for l in open(fn):

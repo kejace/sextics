@@ -219,9 +219,15 @@ def l1PT : PT → ℕ
   | .leaf _ c => c.natAbs
   | .node l r => l1PT l + l1PT r
 
-def degPT : PT → ℕ
-  | .leaf mo _ => mo.deg
-  | .node l _ => degPT l
+/-- degree of the first leaf with nonzero coefficient (zero leaves, e.g. produced by slicing, are ignored) -/
+def firstDeg : PT → Option ℕ
+  | .leaf mo c => if c = 0 then none else some mo.deg
+  | .node l r =>
+    match firstDeg l with
+    | some n => some n
+    | none => firstDeg r
+
+def degPT (t : PT) : ℕ := (firstDeg t).getD 0
 
 def homB (n : ℕ) : PT → Bool
   | .leaf mo c => (c == 0) || (mo.deg == n)
@@ -322,23 +328,43 @@ def l1E : E → ℕ
   | .smulN c a => c * l1E a
   | .pow a n => l1E a ^ n
 
-def degE : E → ℕ
-  | .poly t => degPT t
-  | .pd _ t => degPT t - 1
-  | .mul a b => degE a + degE b
-  | .add a _ => degE a
-  | .sub a _ => degE a
+/-- degree of an expression: `none` means the expression denotes the zero polynomial (any degree). -/
+def degE : E → Option ℕ
+  | .poly t => firstDeg t
+  | .pd i t => firstDeg (pderivPT i t)
+  | .mul a b =>
+    match degE a, degE b with
+    | some x, some y => some (x + y)
+    | _, _ => none
+  | .add a b =>
+    match degE a, degE b with
+    | some x, _ => some x
+    | none, y => y
+  | .sub a b =>
+    match degE a, degE b with
+    | some x, _ => some x
+    | none, y => y
   | .smulN _ a => degE a
-  | .pow a n => degE a * n
+  | .pow a n =>
+    match degE a with
+    | some x => some (x * n)
+    | none => if n = 0 then some 0 else none
+
+def degCompat : Option ℕ → Option ℕ → Bool
+  | some x, some y => x == y
+  | _, _ => true
 
 def homE : E → Bool
   | .poly t => homB (degPT t) t
-  | .pd i t => homB (degPT t - 1) (pderivPT i t)
+  | .pd i t => homB (degPT (pderivPT i t)) (pderivPT i t)
   | .mul a b => homE a && homE b
-  | .add a b => homE a && homE b && (degE a == degE b)
-  | .sub a b => homE a && homE b && (degE a == degE b)
+  | .add a b => homE a && homE b && degCompat (degE a) (degE b)
+  | .sub a b => homE a && homE b && degCompat (degE a) (degE b)
   | .smulN _ a => homE a
   | .pow a _ => homE a
+
+/-- the degree used for the identity `L = R` -/
+def degLR (x y : Option ℕ) : ℕ := (x.getD (y.getD 0))
 
 theorem eval_kpt_denZ (m W : ℕ) (e : E) : eval (kpt m W) (denZ e) = psiE m W e := by
   induction e with
@@ -350,24 +376,115 @@ theorem eval_kpt_denZ (m W : ℕ) (e : E) : eval (kpt m W) (denZ e) = psiE m W e
   | smulN c a iha => simp [denZ, psiE, iha]
   | pow a n iha => simp [denZ, psiE, iha]
 
-theorem denZ_isHomogeneous (e : E) (h : homE e = true) : (denZ e).IsHomogeneous (degE e) := by
+theorem toZ_eq_zero_of_firstDeg (t : PT) (h : firstDeg t = none) : toZ t = 0 := by
+  induction t with
+  | leaf mo c =>
+    simp only [firstDeg] at h
+    split_ifs at h with hc
+    · subst hc; simp [toZ]
+  | node l r ihl ihr =>
+    simp only [firstDeg] at h
+    split at h
+    · exact absurd h (by simp)
+    · rename_i hl
+      simp [toZ, ihl hl, ihr h]
+
+theorem toZ_isHomogeneous_degPT (t : PT) (h : homB (degPT t) t = true) : (toZ t).IsHomogeneous (degPT t) :=
+  toZ_isHomogeneous _ t h
+
+theorem denZ_eq_zero_of_degE (e : E) (h : degE e = none) : denZ e = 0 := by
+  induction e with
+  | poly t => exact toZ_eq_zero_of_firstDeg t h
+  | pd i t => simp only [denZ]; rw [← toZ_pderivPT]; exact toZ_eq_zero_of_firstDeg _ h
+  | mul a b iha ihb =>
+    simp only [denZ]
+    rcases ha : degE a with _ | x
+    · rw [iha ha, zero_mul]
+    · rcases hb : degE b with _ | y
+      · rw [ihb hb, mul_zero]
+      · simp [degE, ha, hb] at h
+  | add a b iha ihb =>
+    simp only [denZ]
+    rcases ha : degE a with _ | x
+    · simp only [degE, ha] at h
+      rw [iha ha, ihb h, add_zero]
+    · simp [degE, ha] at h
+  | sub a b iha ihb =>
+    simp only [denZ]
+    rcases ha : degE a with _ | x
+    · simp only [degE, ha] at h
+      rw [iha ha, ihb h, sub_zero]
+    · simp [degE, ha] at h
+  | smulN c a iha => simp [denZ, iha h]
+  | pow a n iha =>
+    simp only [denZ]
+    rcases ha : degE a with _ | x
+    · simp only [degE, ha] at h
+      split_ifs at h with hn
+      rw [iha ha, zero_pow hn]
+    · simp [degE, ha] at h
+
+theorem denZ_isHomogeneous (e : E) (h : homE e = true) : (denZ e).IsHomogeneous ((degE e).getD 0) := by
   induction e with
   | poly t => exact toZ_isHomogeneous _ _ h
   | pd i t => simp only [denZ, degE]; rw [← toZ_pderivPT]; exact toZ_isHomogeneous _ _ h
   | mul a b iha ihb =>
     simp only [homE, Bool.and_eq_true] at h
-    exact (iha h.1).mul (ihb h.2)
+    simp only [denZ, degE]
+    rcases ha : degE a with _ | x
+    · rw [denZ_eq_zero_of_degE a ha, zero_mul]; exact isHomogeneous_zero _ _ _
+    · rcases hb : degE b with _ | y
+      · rw [denZ_eq_zero_of_degE b hb, mul_zero]; exact isHomogeneous_zero _ _ _
+      · have h1 := iha h.1; have h2 := ihb h.2
+        rw [ha] at h1; rw [hb] at h2
+        simpa using h1.mul h2
   | add a b iha ihb =>
-    simp only [homE, Bool.and_eq_true, beq_iff_eq] at h
-    exact (iha h.1.1).add (h.2 ▸ ihb h.1.2)
+    simp only [homE, Bool.and_eq_true] at h
+    simp only [denZ, degE]
+    have h1 := iha h.1.1; have h2 := ihb h.1.2
+    rcases ha : degE a with _ | x
+    · rw [denZ_eq_zero_of_degE a ha, zero_add]; exact h2
+    · rcases hb : degE b with _ | y
+      · rw [denZ_eq_zero_of_degE b hb, add_zero]; rw [ha] at h1; exact h1
+      · have hc := h.2; rw [ha, hb] at hc; simp only [degCompat, beq_iff_eq] at hc
+        rw [ha] at h1; rw [hb] at h2; subst hc
+        exact h1.add h2
   | sub a b iha ihb =>
-    simp only [homE, Bool.and_eq_true, beq_iff_eq] at h
-    exact (iha h.1.1).sub (h.2 ▸ ihb h.1.2)
+    simp only [homE, Bool.and_eq_true] at h
+    simp only [denZ, degE]
+    have h1 := iha h.1.1; have h2 := ihb h.1.2
+    rcases ha : degE a with _ | x
+    · rw [denZ_eq_zero_of_degE a ha, zero_sub]; exact h2.neg
+    · rcases hb : degE b with _ | y
+      · rw [denZ_eq_zero_of_degE b hb, sub_zero]; rw [ha] at h1; exact h1
+      · have hc := h.2; rw [ha, hb] at hc; simp only [degCompat, beq_iff_eq] at hc
+        rw [ha] at h1; rw [hb] at h2; subst hc
+        exact h1.sub h2
   | smulN c a iha =>
     simp only [denZ, degE]
     rw [← C_eq_coe_nat]
     simpa using (isHomogeneous_C _ (c : ℤ)).mul (iha h)
-  | pow a n iha => exact (iha h).pow n
+  | pow a n iha =>
+    simp only [denZ, degE]
+    rcases ha : degE a with _ | x
+    · rw [denZ_eq_zero_of_degE a ha]
+      split_ifs with hn
+      · subst hn; simpa using isHomogeneous_one (Fin 6) ℤ
+      · simp only [Option.getD_none]; rw [zero_pow hn]; exact isHomogeneous_zero _ _ _
+    · have h1 := iha h; rw [ha] at h1
+      simpa using h1.pow n
+
+theorem sub_isHomogeneous (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hc : degCompat (degE L) (degE R) = true) :
+    (denZ L - denZ R).IsHomogeneous (degLR (degE L) (degE R)) := by
+  have h1 := denZ_isHomogeneous L hL; have h2 := denZ_isHomogeneous R hR
+  rcases ha : degE L with _ | x
+  · rw [denZ_eq_zero_of_degE L ha, zero_sub]; simp only [degLR, Option.getD_none]; exact h2.neg
+  · rcases hb : degE R with _ | y
+    · rw [denZ_eq_zero_of_degE R hb, sub_zero]; rw [ha] at h1; simpa [degLR] using h1
+    · rw [ha, hb] at hc; simp only [degCompat, beq_iff_eq] at hc; subst hc
+      rw [ha] at h1; rw [hb] at h2
+      simpa [degLR] using h1.sub h2
 
 theorem coeff_absE_nonneg (e : E) (d : Fin 6 →₀ ℕ) : 0 ≤ coeff d (absE e) := by
   classical
@@ -524,11 +641,11 @@ theorem eq_zero_of_eval_kpt {m W n : ℕ} {P : ZP} (hP : P.IsHomogeneous n) (hn 
 
 /-! ## Soundness -/
 
-theorem sound {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true) (hdeg : degE L = degE R)
-    (hm : degE L < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiE m W L = psiE m W R) :
+theorem sound {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hdeg : degCompat (degE L) (degE R) = true)
+    (hm : degLR (degE L) (degE R) < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiE m W L = psiE m W R) :
     denZ L = denZ R := by
-  have hhom : (denZ L - denZ R).IsHomogeneous (degE L) :=
-    (denZ_isHomogeneous L hL).sub (hdeg ▸ denZ_isHomogeneous R hR)
+  have hhom := sub_isHomogeneous L R hL hR hdeg
   have hc : ∀ d, |coeff d (denZ L - denZ R)| < 2 ^ W := by
     intro d
     rw [coeff_sub]
@@ -553,8 +670,9 @@ noncomputable def denC (e : E) : Poly := MvPolynomial.map (Int.castRingHom ℂ) 
   simp [denC, denZ]
 @[simp] theorem denC_pow (a : E) (n : ℕ) : denC (.pow a n) = denC a ^ n := by simp [denC, denZ]
 
-theorem soundC {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true) (hdeg : degE L = degE R)
-    (hm : degE L < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiE m W L = psiE m W R) :
+theorem soundC {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hdeg : degCompat (degE L) (degE R) = true)
+    (hm : degLR (degE L) (degE R) < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiE m W L = psiE m W R) :
     denC L = denC R := by
   rw [denC, denC, sound L R hL hR hdeg hm hb hpsi]
 
@@ -790,10 +908,350 @@ theorem psiE_eq_of_psiEq {m W : ℕ} {L R : E} (h : psiEq m W L R = true) : psiE
   simp only [nnVal]
   omega
 
-theorem soundN {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true) (hdeg : degE L = degE R)
-    (hm : degE L < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiEq m W L R = true) :
+theorem soundN {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hdeg : degCompat (degE L) (degE R) = true)
+    (hm : degLR (degE L) (degE R) < m) (hb : l1E L + l1E R < 2 ^ W) (hpsi : psiEq m W L R = true) :
     denC L = denC R :=
   soundC L R hL hR hdeg hm hb (psiE_eq_of_psiEq hpsi)
+
+
+/-! ## Slicing by the fourth variable
+
+To keep Kronecker numbers small for high-degree identities, an identity `L = R` is split by the degree in `X 4`:
+`toC t = Σ_k X 4 ^ k * toC (sliceK k t)` and each slice identity (an identity between `X 4`-free polynomials)
+is checked with a Kronecker point on the remaining four free variables (`m⁴` positions instead of `m⁵`). -/
+
+/-- the `X 4 ^ k`-part of a tree, with `X 4` removed; other leaves are kept with coefficient 0 so that the tree
+shape (and the position order) is preserved -/
+def sliceK (k : ℕ) : PT → PT
+  | .leaf mo c => if mo.e4 = k then .leaf { mo with e4 := 0 } c else .leaf { mo with e4 := 0 } 0
+  | .node l r => .node (sliceK k l) (sliceK k r)
+
+/-- maximal `X 4`-exponent occurring in a tree -/
+def maxE4 : PT → ℕ
+  | .leaf mo _ => mo.e4
+  | .node l r => max (maxE4 l) (maxE4 r)
+
+def x4free : PT → Bool
+  | .leaf mo c => (mo.e4 == 0) || (c == 0)
+  | .node l r => x4free l && x4free r
+
+theorem x4free_sliceK (k : ℕ) (t : PT) : x4free (sliceK k t) = true := by
+  induction t with
+  | leaf mo c => simp only [sliceK]; split_ifs <;> simp [x4free]
+  | node l r ihl ihr => simp [sliceK, x4free, ihl, ihr]
+
+theorem toZ_leaf_e4 (mo : Mono) (c : ℤ) :
+    toZ (.leaf mo c) = X 4 ^ mo.e4 * toZ (.leaf { mo with e4 := 0 } c) := by
+  simp only [toZ, monoZ]; ring
+
+theorem toZ_eq_sum_sliceK (t : PT) (K : ℕ) (hK : maxE4 t ≤ K) :
+    toZ t = ∑ k ∈ Finset.range (K + 1), X 4 ^ k * toZ (sliceK k t) := by
+  induction t with
+  | leaf mo c =>
+    have hmo : mo.e4 ∈ Finset.range (K + 1) := by
+      simp only [maxE4] at hK; exact Finset.mem_range.mpr (Nat.lt_succ_of_le hK)
+    rw [toZ_leaf_e4]
+    rw [Finset.sum_eq_single mo.e4]
+    · simp [sliceK]
+    · intro k _ hk
+      simp only [sliceK]
+      rw [if_neg (Ne.symm hk)]
+      simp [toZ]
+    · intro h; exact absurd hmo h
+  | node l r ihl ihr =>
+    simp only [maxE4, max_le_iff] at hK
+    simp only [toZ, sliceK, ihl hK.1, ihr hK.2, ← Finset.sum_add_distrib, mul_add]
+
+theorem toC_eq_sum_sliceK (t : PT) (K : ℕ) (hK : maxE4 t ≤ K) :
+    toC t = ∑ k ∈ Finset.range (K + 1), X 4 ^ k * toC (sliceK k t) := by
+  rw [toC_eq_map, toZ_eq_sum_sliceK t K hK, map_sum]
+  simp [toC_eq_map, MvPolynomial.map_X]
+
+
+/-- `pderiv 4` of an `X 4`-free tree vanishes -/
+theorem pderiv_four_toZ (t : PT) (h : x4free t = true) : pderiv (4 : Fin 6) (toZ t) = 0 := by
+  rw [← toZ_pderivPT]
+  induction t with
+  | leaf mo c =>
+    simp only [x4free, Bool.or_eq_true, beq_iff_eq] at h
+    simp only [pderivPT, pdLeaf, show ((4 : Fin 6).val = 4) from rfl, toZ]
+    rcases h with h | h <;> simp [h]
+  | node l r ihl ihr =>
+    simp only [x4free, Bool.and_eq_true] at h
+    simp [pderivPT, toZ, ihl h.1, ihr h.2]
+
+theorem pderiv_four_toC (t : PT) (h : x4free t = true) : pderiv (4 : Fin 6) (toC t) = 0 := by
+  rw [toC_eq_map, pderiv_map, pderiv_four_toZ t h, map_zero]
+
+/-! ### Kronecker point on four variables -/
+
+def Mono.pos4 (m : ℕ) (mo : Mono) : ℕ := mo.e0 + m * (mo.e1 + m * (mo.e2 + m * mo.e3))
+
+noncomputable def kpt4 (m W : ℕ) : Fin 6 → ℤ := ![2 ^ W, 2 ^ (W * m), 2 ^ (W * m ^ 2), 2 ^ (W * m ^ 3), 1, 1]
+
+theorem kpt4_zero (m W : ℕ) : kpt4 m W 0 = 2 ^ W := rfl
+theorem kpt4_one (m W : ℕ) : kpt4 m W 1 = 2 ^ (W * m) := rfl
+theorem kpt4_two (m W : ℕ) : kpt4 m W 2 = 2 ^ (W * m ^ 2) := rfl
+theorem kpt4_three (m W : ℕ) : kpt4 m W 3 = 2 ^ (W * m ^ 3) := rfl
+theorem kpt4_four (m W : ℕ) : kpt4 m W 4 = 1 := rfl
+theorem kpt4_five (m W : ℕ) : kpt4 m W 5 = 1 := rfl
+
+theorem eval_monoZ4 (m W : ℕ) (mo : Mono) : eval (kpt4 m W) (monoZ mo) = 2 ^ (W * mo.pos4 m) := by
+  simp only [monoZ, map_mul, map_pow, eval_X, kpt4_zero, kpt4_one, kpt4_two, kpt4_three, kpt4_four, kpt4_five,
+    Mono.pos4, one_pow, mul_one, ← pow_mul, ← pow_add]
+  congr 1
+  ring
+
+def psiRel4 (m W : ℕ) : PT → NN × ℕ
+  | .leaf mo c => (nnOfInt c, mo.pos4 m)
+  | .node l r =>
+    let a := psiRel4 m W l
+    let b := psiRel4 m W r
+    let p := min a.2 b.2
+    (nnAdd (nnShl a.1 (W * (a.2 - p))) (nnShl b.1 (W * (b.2 - p))), p)
+
+def psi4 (m W : ℕ) (t : PT) : NN := nnShl (psiRel4 m W t).1 (W * (psiRel4 m W t).2)
+
+theorem psiRel4_spec (m W : ℕ) (t : PT) :
+    nnVal (psiRel4 m W t).1 * 2 ^ (W * (psiRel4 m W t).2) = eval (kpt4 m W) (toZ t) := by
+  induction t with
+  | leaf mo c => simp [psiRel4, toZ, eval_monoZ4, eval_C, nnVal_ofInt]
+  | node l r ihl ihr =>
+    simp only [psiRel4, toZ, map_add]
+    rw [← ihl, ← ihr]
+    simp only [nnVal_add, nnVal_shl, add_mul, mul_assoc, ← pow_add]
+    have h1 : W * ((psiRel4 m W l).2 - min (psiRel4 m W l).2 (psiRel4 m W r).2) +
+        W * min (psiRel4 m W l).2 (psiRel4 m W r).2 = W * (psiRel4 m W l).2 := by
+      rw [← Nat.mul_add, Nat.sub_add_cancel (Nat.min_le_left _ _)]
+    have h2 : W * ((psiRel4 m W r).2 - min (psiRel4 m W l).2 (psiRel4 m W r).2) +
+        W * min (psiRel4 m W l).2 (psiRel4 m W r).2 = W * (psiRel4 m W r).2 := by
+      rw [← Nat.mul_add, Nat.sub_add_cancel (Nat.min_le_right _ _)]
+    rw [h1, h2]
+
+theorem nnVal_psi4 (m W : ℕ) (t : PT) : nnVal (psi4 m W t) = eval (kpt4 m W) (toZ t) := by
+  rw [psi4, nnVal_shl, psiRel4_spec]
+
+def psiE4 (m W : ℕ) : E → NN
+  | .poly t => psi4 m W t
+  | .pd i t => psi4 m W (pderivPT i t)
+  | .mul a b => nnMul (psiE4 m W a) (psiE4 m W b)
+  | .add a b => nnAdd (psiE4 m W a) (psiE4 m W b)
+  | .sub a b => nnSub (psiE4 m W a) (psiE4 m W b)
+  | .smulN c a => nnSmul c (psiE4 m W a)
+  | .pow a n => nnPow (psiE4 m W a) n
+
+theorem nnVal_psiE4 (m W : ℕ) (e : E) : nnVal (psiE4 m W e) = eval (kpt4 m W) (denZ e) := by
+  induction e with
+  | poly t => simp [psiE4, denZ, nnVal_psi4]
+  | pd i t => simp [psiE4, denZ, nnVal_psi4, ← toZ_pderivPT]
+  | mul a b iha ihb => simp [psiE4, denZ, nnVal_mul, iha, ihb]
+  | add a b iha ihb => simp [psiE4, denZ, nnVal_add, iha, ihb]
+  | sub a b iha ihb => simp [psiE4, denZ, nnVal_sub, iha, ihb]
+  | smulN c a iha => simp [psiE4, denZ, nnVal_smul, iha]
+  | pow a n iha => simp [psiE4, denZ, nnVal_pow, iha]
+
+def psiEq4 (m W : ℕ) (L R : E) : Bool :=
+  let a := psiE4 m W L
+  let b := psiE4 m W R
+  (a.1 + b.2) == (a.2 + b.1)
+
+theorem eval_kpt4_eq_of_psiEq4 {m W : ℕ} {L R : E} (h : psiEq4 m W L R = true) :
+    eval (kpt4 m W) (denZ L) = eval (kpt4 m W) (denZ R) := by
+  simp only [psiEq4, beq_iff_eq] at h
+  rw [← nnVal_psiE4, ← nnVal_psiE4]
+  simp only [nnVal]
+  omega
+
+/-- `X 4`-freeness of an expression (checked structurally) -/
+def x4freeE : E → Bool
+  | .poly t => x4free t
+  | .pd i t => x4free (pderivPT i t)
+  | .mul a b => x4freeE a && x4freeE b
+  | .add a b => x4freeE a && x4freeE b
+  | .sub a b => x4freeE a && x4freeE b
+  | .smulN _ a => x4freeE a
+  | .pow a _ => x4freeE a
+
+theorem vec_apply_four (mo : Mono) : mo.vec 4 = mo.e4 := by
+  simp [Mono.vec, Finsupp.single_apply]
+
+theorem coeff_toZ_x4free (t : PT) (h : x4free t = true) (d : Fin 6 →₀ ℕ) (hd : coeff d (toZ t) ≠ 0) : d 4 = 0 := by
+  classical
+  induction t with
+  | leaf mo c =>
+    simp only [x4free, Bool.or_eq_true, beq_iff_eq] at h
+    simp only [toZ, coeff_C_mul, monoZ_eq_monomial, coeff_monomial] at hd
+    split_ifs at hd with hv
+    · subst hv
+      rw [vec_apply_four]
+      rcases h with h | h
+      · exact h
+      · exact absurd (by simp [h]) hd
+    · exact absurd (by simp) hd
+  | node l r ihl ihr =>
+    simp only [x4free, Bool.and_eq_true] at h
+    simp only [toZ, coeff_add] at hd
+    by_cases hl : coeff d (toZ l) = 0
+    · exact ihr h.2 (by rw [hl, zero_add] at hd; exact hd)
+    · exact ihl h.1 hl
+
+theorem coeff_denZ_x4free (e : E) (h : x4freeE e = true) (d : Fin 6 →₀ ℕ) (hd : coeff d (denZ e) ≠ 0) : d 4 = 0 := by
+  classical
+  induction e generalizing d with
+  | poly t => exact coeff_toZ_x4free t h d hd
+  | pd i t =>
+    simp only [denZ] at hd; rw [← toZ_pderivPT] at hd
+    exact coeff_toZ_x4free _ h d hd
+  | mul a b iha ihb =>
+    simp only [x4freeE, Bool.and_eq_true] at h
+    simp only [denZ, coeff_mul] at hd
+    obtain ⟨x, hx, hne⟩ := Finset.exists_ne_zero_of_sum_ne_zero hd
+    have h1 := iha h.1 x.1 (left_ne_zero_of_mul hne)
+    have h2 := ihb h.2 x.2 (right_ne_zero_of_mul hne)
+    have hx' := Finset.mem_antidiagonal.mp hx
+    have := congrArg (fun f => f 4) hx'
+    simp only [Finsupp.coe_add, Pi.add_apply] at this
+    omega
+  | add a b iha ihb =>
+    simp only [x4freeE, Bool.and_eq_true] at h
+    simp only [denZ, coeff_add] at hd
+    by_cases ha : coeff d (denZ a) = 0
+    · exact ihb h.2 d (by rw [ha, zero_add] at hd; exact hd)
+    · exact iha h.1 d ha
+  | sub a b iha ihb =>
+    simp only [x4freeE, Bool.and_eq_true] at h
+    simp only [denZ, coeff_sub] at hd
+    by_cases ha : coeff d (denZ a) = 0
+    · exact ihb h.2 d (by rw [ha, zero_sub, neg_ne_zero] at hd; exact hd)
+    · exact iha h.1 d ha
+  | smulN c a iha =>
+    simp only [denZ] at hd
+    rw [← C_eq_coe_nat, coeff_C_mul] at hd
+    exact iha h d (right_ne_zero_of_mul hd)
+  | pow a n iha =>
+    simp only [x4freeE] at h
+    induction n generalizing d with
+    | zero =>
+      simp only [denZ, pow_zero] at hd
+      rw [← C_1, coeff_C] at hd
+      split_ifs at hd with h0
+      · subst h0; rfl
+      · exact absurd rfl hd
+    | succ k ih =>
+      simp only [denZ, pow_succ, coeff_mul] at hd ih
+      obtain ⟨x, hx, hne⟩ := Finset.exists_ne_zero_of_sum_ne_zero hd
+      have h1 := ih x.1 (left_ne_zero_of_mul hne)
+      have h2 := iha h x.2 (right_ne_zero_of_mul hne)
+      have hx' := Finset.mem_antidiagonal.mp hx
+      have := congrArg (fun f => f 4) hx'
+      simp only [Finsupp.coe_add, Pi.add_apply] at this
+      omega
+
+def pos4F (m : ℕ) (d : Fin 6 →₀ ℕ) : ℕ := d 0 + m * (d 1 + m * (d 2 + m * d 3))
+
+theorem prod_kpt4_pow (m W : ℕ) (d : Fin 6 →₀ ℕ) : ∏ i, kpt4 m W i ^ d i = 2 ^ (W * pos4F m d) := by
+  rw [Fin.prod_univ_six]
+  simp only [kpt4_zero, kpt4_one, kpt4_two, kpt4_three, kpt4_four, kpt4_five, pos4F, one_pow, mul_one,
+    ← pow_mul, ← pow_add]
+  congr 1
+  ring
+
+theorem pos4F_injective {m n : ℕ} (hn : n < m) {d d' : Fin 6 →₀ ℕ}
+    (hd : d 0 + d 1 + d 2 + d 3 + d 4 + d 5 = n) (hd' : d' 0 + d' 1 + d' 2 + d' 3 + d' 4 + d' 5 = n)
+    (h4 : d 4 = 0) (h4' : d' 4 = 0) (h : pos4F m d = pos4F m d') : d = d' := by
+  simp only [pos4F] at h
+  obtain ⟨h0, h⟩ := mr_head (by omega) (by omega) h
+  obtain ⟨h1, h⟩ := mr_head (by omega) (by omega) h
+  obtain ⟨h2, h3⟩ := mr_head (by omega) (by omega) h
+  have h5 : d 5 = d' 5 := by omega
+  ext i
+  fin_cases i
+  · exact h0
+  · exact h1
+  · exact h2
+  · exact h3
+  · exact h4.trans h4'.symm
+  · exact h5
+
+theorem eq_zero_of_eval_kpt4 {m W n : ℕ} {P : ZP} (hP : P.IsHomogeneous n) (hn : n < m)
+    (hx : ∀ d, coeff d P ≠ 0 → d 4 = 0)
+    (hc : ∀ d, |coeff d P| < 2 ^ W) (h : eval (kpt4 m W) P = 0) : P = 0 := by
+  classical
+  by_contra hne
+  have hsupp : P.support.Nonempty := by
+    rw [Finset.nonempty_iff_ne_empty, Ne, support_eq_empty]; exact hne
+  obtain ⟨d0, hd0, hmin⟩ := Finset.exists_min_image P.support (pos4F m) hsupp
+  rw [eval_eq'] at h
+  simp only [prod_kpt4_pow] at h
+  rw [← Finset.add_sum_erase _ _ hd0] at h
+  have hdvd : (2 : ℤ) ^ (W * (pos4F m d0 + 1)) ∣ ∑ x ∈ P.support.erase d0, coeff x P * 2 ^ (W * pos4F m x) := by
+    refine Finset.dvd_sum fun x hx' => ?_
+    have hx'' := Finset.mem_of_mem_erase hx'
+    have hne' : x ≠ d0 := Finset.ne_of_mem_erase hx'
+    have hle := hmin x hx''
+    have hposne : pos4F m x ≠ pos4F m d0 := by
+      intro heq
+      exact hne' (pos4F_injective hn (sum_six_of_isHomogeneous hP (mem_support_iff.mp hx''))
+        (sum_six_of_isHomogeneous hP (mem_support_iff.mp hd0)) (hx x (mem_support_iff.mp hx''))
+        (hx d0 (mem_support_iff.mp hd0)) heq)
+    have hlt : pos4F m d0 + 1 ≤ pos4F m x := by omega
+    exact Dvd.dvd.mul_left (pow_dvd_pow 2 (Nat.mul_le_mul_left W hlt)) _
+  have hmain : (2 : ℤ) ^ (W * (pos4F m d0 + 1)) ∣ coeff d0 P * 2 ^ (W * pos4F m d0) := by
+    have : coeff d0 P * 2 ^ (W * pos4F m d0) = -∑ x ∈ P.support.erase d0, coeff x P * 2 ^ (W * pos4F m x) := by
+      linarith
+    rw [this]
+    exact (dvd_neg).mpr hdvd
+  have h2 : (2 : ℤ) ^ (W * (pos4F m d0 + 1)) = 2 ^ (W * pos4F m d0) * 2 ^ W := by
+    rw [← pow_add, Nat.mul_succ]
+  rw [h2, mul_comm (coeff d0 P)] at hmain
+  have hdiv : (2 : ℤ) ^ W ∣ coeff d0 P :=
+    (mul_dvd_mul_iff_left (pow_ne_zero _ (by norm_num))).mp hmain
+  have hz : coeff d0 P = 0 := Int.eq_zero_of_abs_lt_dvd hdiv (hc d0)
+  exact (mem_support_iff.mp hd0) hz
+
+theorem sound4 {m W : ℕ} (L R : E) (hL : homE L = true) (hR : homE R = true)
+    (hdeg : degCompat (degE L) (degE R) = true)
+    (hm : degLR (degE L) (degE R) < m) (hb : l1E L + l1E R < 2 ^ W) (hxL : x4freeE L = true) (hxR : x4freeE R = true)
+    (hpsi : psiEq4 m W L R = true) : denC L = denC R := by
+  have hhom := sub_isHomogeneous L R hL hR hdeg
+  have hc : ∀ d, |coeff d (denZ L - denZ R)| < 2 ^ W := by
+    intro d
+    rw [coeff_sub]
+    calc |coeff d (denZ L) - coeff d (denZ R)| ≤ |coeff d (denZ L)| + |coeff d (denZ R)| := abs_sub _ _
+      _ ≤ (l1E L : ℤ) + (l1E R : ℤ) := add_le_add (abs_coeff_denZ_le_l1 L d) (abs_coeff_denZ_le_l1 R d)
+      _ < 2 ^ W := by exact_mod_cast hb
+  have hx : ∀ d, coeff d (denZ L - denZ R) ≠ 0 → d 4 = 0 := by
+    intro d hd
+    rw [coeff_sub] at hd
+    by_cases ha : coeff d (denZ L) = 0
+    · exact coeff_denZ_x4free R hxR d (by rw [ha, zero_sub, neg_ne_zero] at hd; exact hd)
+    · exact coeff_denZ_x4free L hxL d ha
+  have hev : eval (kpt4 m W) (denZ L - denZ R) = 0 := by
+    rw [map_sub, eval_kpt4_eq_of_psiEq4 hpsi, sub_self]
+  have := eq_zero_of_eval_kpt4 hhom hm hx hc hev
+  rw [denC, denC, sub_eq_zero.mp this]
+
+
+/-! ### Simp lemmas for the slice assembly over ℂ -/
+
+theorem pderiv_four_toC_sliceK (k : ℕ) (t : PT) : pderiv (4 : Fin 6) (toC (sliceK k t)) = 0 :=
+  pderiv_four_toC _ (x4free_sliceK k t)
+
+theorem pderiv_X_pow_self_C (i : Fin 6) (n : ℕ) :
+    pderiv i ((X i : Poly) ^ n) = (n : Poly) * X i ^ (n - 1) := by
+  rw [pderiv_pow, pderiv_X_self, mul_one]
+
+theorem pderiv_X_pow_ne_C {i j : Fin 6} (h : j ≠ i) (n : ℕ) : pderiv i ((X j : Poly) ^ n) = 0 := by
+  rw [pderiv_pow, pderiv_X_of_ne h, mul_zero]
+
+theorem pderiv_X4_pow_zero (n : ℕ) : pderiv (0 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_one (n : ℕ) : pderiv (1 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_two (n : ℕ) : pderiv (2 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_three (n : ℕ) : pderiv (3 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_five (n : ℕ) : pderiv (5 : Fin 6) ((X 4 : Poly) ^ n) = 0 := pderiv_X_pow_ne_C (by decide) n
+theorem pderiv_X4_pow_four (n : ℕ) : pderiv (4 : Fin 6) ((X 4 : Poly) ^ n) = (n : Poly) * X 4 ^ (n - 1) :=
+  pderiv_X_pow_self_C 4 n
 
 
 end HodgeComputer.Kron
