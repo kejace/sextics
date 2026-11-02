@@ -19,3 +19,5 @@ LOG {"exp": "block-elimination-exact-certificate", "d": 7, "pars": "e", "scheme"
 [pass 0 block w2] quadrics 32 in 9 visible, m-primary False, others span 253
 [pass 0 block w3] quadrics 18 in 6 visible, m-primary True, others span 267
 [exact_dependencies] lift failed with 2 primes; continuing
+[exact_dependencies] lift failed with 3 primes; continuing
+[exact_dependencies] lift failed with 4 primes; continuing

@@ -77,3 +77,31 @@ submit search-off-paired-s2-d11c00c30: launch ssh timed out after 120 s (job may
 22:38:08 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
 22:40:43 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
 22:43:17 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:45:52 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:48:26 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:51:01 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:53:35 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:56:11 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+22:58:45 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:01:20 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:03:54 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:06:29 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:09:03 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:11:37 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:14:12 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:16:47 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:19:22 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:21:57 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:24:32 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:27:07 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:29:41 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:32:16 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:34:51 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:37:25 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:40:00 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+23:42:36 submitting homotopy2 (cpus 2); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0']
+up: done ['off-paired']
+submit search-off-paired-s2-homotopy2: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-homotopy2)
+23:45:01 homotopy2 confirmed submitted
+23:45:36 4 running: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-homotopy2']; waiting
+23:48:12 submitting ft-d9h0 (cpus 8); running now: ['search-off-paired-s2-d10h0', 'search-off-paired-s2-d11c00c30', 'search-off-paired-s2-homotopy2']

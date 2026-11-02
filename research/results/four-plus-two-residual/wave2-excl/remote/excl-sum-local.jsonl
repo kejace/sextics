@@ -133,3 +133,9 @@
 {"exp": "served-sector", "D": "ker8 rep #9 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 17.4, "job": "excl-sum-local", "ts": "2026-11-01T22:44:22"}
 {"exp": "served-sector", "D": "ker8 rep #10 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 15.8, "job": "excl-sum-local", "ts": "2026-11-01T22:44:38"}
 {"exp": "served-sector", "D": "ker8 rep #11 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 17.9, "job": "excl-sum-local", "ts": "2026-11-01T22:44:56"}
+{"exp": "served-sector", "D": "ker8 rep #12 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 18.5, "job": "excl-sum-local", "ts": "2026-11-01T22:45:15"}
+{"exp": "served-sector", "D": "ker8 rep #13 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 22.3, "job": "excl-sum-local", "ts": "2026-11-01T22:45:37"}
+{"exp": "served-sector", "D": "ker8 rep #14 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 21.2, "job": "excl-sum-local", "ts": "2026-11-01T22:45:58"}
+{"exp": "served-sector", "D": "ker8 rep #15 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 11.8, "job": "excl-sum-local", "ts": "2026-11-01T22:46:10"}
+{"exp": "served-sector", "D": "ker8 rep #16 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 15.8, "job": "excl-sum-local", "ts": "2026-11-01T22:46:26"}
+{"exp": "served-sector", "D": "ker8 rep #17 par0", "d": 8, "prime": 1000000289, "dim_served_sector": 8, "cols": 1036, "nT": 40, "seconds": 17.5, "job": "excl-sum-local", "ts": "2026-11-01T22:46:44"}

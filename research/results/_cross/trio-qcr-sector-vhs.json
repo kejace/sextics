@@ -14,13 +14,14 @@
    "R12_diag_sector": 76,
    "R18_diag_sector": 30
   },
-  "dim_eps_S6": 0,
-  "dim_eps_R6": 0,
+  "dim_eps_S6": 25,
+  "dim_eps_R6": 22,
   "dim_Def_xi_in_R12": 22,
   "dim_Def2_xi_in_R18": 22,
-  "dim_ker_in_eps_S6": 0,
+  "dim_ker_in_eps_S6": 3,
   "dim_K_annihilated_by_Def_in_R6eps": 0,
-  "seconds": 8.7
+  "dim_Def_R6eps_in_R12": 51,
+  "seconds": 11.2
  },
  "998244353": {
   "p": 998244353,
@@ -29,12 +30,13 @@
    "R12_diag_sector": 76,
    "R18_diag_sector": 30
   },
-  "dim_eps_S6": 0,
-  "dim_eps_R6": 0,
+  "dim_eps_S6": 25,
+  "dim_eps_R6": 22,
   "dim_Def_xi_in_R12": 22,
   "dim_Def2_xi_in_R18": 22,
-  "dim_ker_in_eps_S6": 0,
+  "dim_ker_in_eps_S6": 3,
   "dim_K_annihilated_by_Def_in_R6eps": 0,
-  "seconds": 7.7
+  "dim_Def_R6eps_in_R12": 51,
+  "seconds": 10.9
  }
 }

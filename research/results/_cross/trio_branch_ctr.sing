@@ -1,0 +1,5 @@
+ring R = 32003, (X0,X1,Y0,Y1,Y2), dp;
+poly f = 7*X0^6 + 5*X0^3*X1*Y0*Y1 + 5*X0^2*Y0*Y1*Y2^2 + 5*X0*X1*Y1^3*Y2 + 7*X1^6 + 7*Y0^6 + 7*Y1^6 + 7*Y2^6;
+ideal J = jacob(f);
+print("ctr dim(std(jacob)) = " + string(dim(std(J))));
+quit;

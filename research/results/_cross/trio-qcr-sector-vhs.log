@@ -1,8 +1,8 @@
 quadric-contact-residual invariant sextics (orbit sums): 26 exchange group order 4
-{'p': 1000003, 'dims': {'R6_diag_sector': 30, 'R12_diag_sector': 76}, 'dim_Def_xi_in_R12': 22, 't': 0.2}
-{'p': 1000003, 'dim_Def2_xi_in_R18': 22, 't': 8.6}
-{'p': 1000003, 'dims': {'R6_diag_sector': 30, 'R12_diag_sector': 76, 'R18_diag_sector': 30}, 'dim_eps_S6': 0, 'dim_eps_R6': 0, 'dim_Def_xi_in_R12': 22, 'dim_Def2_xi_in_R18': 22, 'dim_ker_in_eps_S6': 0, 'dim_K_annihilated_by_Def_in_R6eps': 0, 'seconds': 8.7}
-{'p': 998244353, 'dims': {'R6_diag_sector': 30, 'R12_diag_sector': 76}, 'dim_Def_xi_in_R12': 22, 't': 0.1}
-{'p': 998244353, 'dim_Def2_xi_in_R18': 22, 't': 7.5}
-{'p': 998244353, 'dims': {'R6_diag_sector': 30, 'R12_diag_sector': 76, 'R18_diag_sector': 30}, 'dim_eps_S6': 0, 'dim_eps_R6': 0, 'dim_Def_xi_in_R12': 22, 'dim_Def2_xi_in_R18': 22, 'dim_ker_in_eps_S6': 0, 'dim_K_annihilated_by_Def_in_R6eps': 0, 'seconds': 7.7}
+{'p': 1000003, 'dims': {'R6_diag_sector': 30, 'R12_diag_sector': 76}, 'dim_Def_xi_in_R12': 22, 't': 0.3}
+{'p': 1000003, 'dim_Def2_xi_in_R18': 22, 't': 10.6}
+{'p': 1000003, 'dims': {'R6_diag_sector': 30, 'R12_diag_sector': 76, 'R18_diag_sector': 30}, 'dim_eps_S6': 25, 'dim_eps_R6': 22, 'dim_Def_xi_in_R12': 22, 'dim_Def2_xi_in_R18': 22, 'dim_ker_in_eps_S6': 3, 'dim_K_annihilated_by_Def_in_R6eps': 0, 'dim_Def_R6eps_in_R12': 51, 'seconds': 11.2}
+{'p': 998244353, 'dims': {'R6_diag_sector': 30, 'R12_diag_sector': 76}, 'dim_Def_xi_in_R12': 22, 't': 0.3}
+{'p': 998244353, 'dim_Def2_xi_in_R18': 22, 't': 10.5}
+{'p': 998244353, 'dims': {'R6_diag_sector': 30, 'R12_diag_sector': 76, 'R18_diag_sector': 30}, 'dim_eps_S6': 25, 'dim_eps_R6': 22, 'dim_Def_xi_in_R12': 22, 'dim_Def2_xi_in_R18': 22, 'dim_ker_in_eps_S6': 3, 'dim_K_annihilated_by_Def_in_R6eps': 0, 'dim_Def_R6eps_in_R12': 51, 'seconds': 10.9}
 done

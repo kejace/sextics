@@ -9,3 +9,5 @@
 [03:52:28] start d9h0-c40 (eff 44) elapsed 6517s
    -> best 1.671e-02 median 3.505e-02 restarts 61 dimP 44 t/restart 204.89 witness False
 [04:19:17] start d9h0-c50 (eff 44) elapsed 8126s
+   -> best 1.124e-02 median 3.427e-02 restarts 53 dimP 44 t/restart 242.92 witness False
+batch done

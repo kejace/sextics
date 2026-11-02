@@ -4,3 +4,91 @@
 [sector varpro] d=9 c=(5, 0) K=48 rank=48 gauge=4 dimP=44 rows=3526 N=609 Q=209 nnz(TN)=392436 built in 1.1s
 [2026-11-02T04:19:20] family built: K=48 rank=48 gauge=4 dimP=44 rows=3526 N=609 Q=209 build 1.1s
 gradient check: analytic 8.603101e-02 fd 8.603101e-02
+{
+ "ts": "2026-11-02T04:46:58",
+ "job": "d9h0-c50",
+ "step": "varpro",
+ "F": "offpaired",
+ "d": 9,
+ "sector": [
+  5,
+  0
+ ],
+ "family": "colon",
+ "group": "G",
+ "K": 48,
+ "rank": 48,
+ "gauge": 4,
+ "dimP": 44,
+ "rows": 3526,
+ "nN": 609,
+ "nQ": 209,
+ "dimT": 0,
+ "n_numerical_hits_1e-9": 0,
+ "restarts": 53,
+ "best_relres": 0.01124433362525161,
+ "median_relres": 0.0342679188085835,
+ "hist": {
+  "ge1e-2": 53
+ },
+ "top_minima": [
+  [
+   "1.124e-02",
+   7
+  ],
+  [
+   "1.168e-02",
+   12
+  ],
+  [
+   "1.535e-02",
+   1
+  ],
+  [
+   "1.592e-02",
+   3
+  ],
+  [
+   "3.409e-02",
+   3
+  ],
+  [
+   "3.427e-02",
+   2
+  ],
+  [
+   "3.499e-02",
+   1
+  ],
+  [
+   "3.655e-02",
+   2
+  ],
+  [
+   "3.838e-02",
+   1
+  ],
+  [
+   "3.839e-02",
+   1
+  ],
+  [
+   "3.854e-02",
+   3
+  ],
+  [
+   "3.870e-02",
+   2
+  ]
+ ],
+ "opt": "lm",
+ "maxiter": 100,
+ "mean_time_per_restart": 242.92,
+ "statuses": {
+  "stalled": 26,
+  "maxiter": 24,
+  "flat": 3
+ },
+ "wall": 1659.2,
+ "witness": false
+}
