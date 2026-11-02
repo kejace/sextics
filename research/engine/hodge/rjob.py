@@ -32,14 +32,21 @@ ENGINE = Path('/home/kejace/devel/sextics-work')
 RESULTS = Path('/tmp/hodge/results')
 MIRROR = Path('/tmp/hodge/remote')
 REGISTRY = Path('/tmp/hodge/jobs-registry.jsonl')
+import socket as _socket
+LOCAL_MODE = _socket.gethostname().startswith('hodge-sextics') or os.environ.get('HODGE_RJOB_LOCAL') == '1'
+# When this very machine is the compute box, every command runs locally (no ssh/rsync).
 
 
 def ssh(cmd: str, check=False, capture=True, timeout=None):
+    if LOCAL_MODE:
+        return subprocess.run(['bash', '-c', cmd], check=check, capture_output=capture, text=True, timeout=timeout)
     full = ['ssh', *SSH_OPTS, f'{USER}@{HOST}', cmd]
     return subprocess.run(full, check=check, capture_output=capture, text=True, timeout=timeout)
 
 
 def rsync(src, dst, extra=()):
+    if LOCAL_MODE:
+        return subprocess.CompletedProcess(args=[], returncode=0, stdout='', stderr='')
     cmd = ['rsync', '-az', '--exclude', '__pycache__', '--exclude', 'venv', '--exclude', '*.olean', '-e',
            'ssh ' + ' '.join(shlex.quote(o) for o in SSH_OPTS), *extra, src, dst]
     return subprocess.run(cmd, capture_output=True, text=True)
@@ -99,6 +106,8 @@ def wait(name, timeout=3600, poll=30):
 
 
 def pull(lane):
+    if LOCAL_MODE:
+        print(f'pull {lane}: local mode, results are already in {RESULTS/lane}'); return
     dst = MIRROR / lane
     dst.mkdir(parents=True, exist_ok=True)
     r = rsync(f'{USER}@{HOST}:{RESULTS}/{lane}/', str(dst) + '/', extra=('--exclude', '*.npz', '--max-size=50m'))
