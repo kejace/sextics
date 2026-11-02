@@ -1,6 +1,6 @@
 # Wave 2 search report: `rank-one-biquartic` (q = 1, A = X0^3 Y0^3)
 **STATUS: NO WITNESS FOUND** (extensive wave-2 search; details below; search log `wave2-search.log.jsonl`).
-Last rebuilt 2026-11-02 02:42:42.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
+Last rebuilt 2026-11-02 03:12:45.  Work dir `/tmp/hodge/results/rank-one-biquartic/wave2/` (scripts; `out/` job outputs on the remote, mirrored to `/tmp/hodge/remote/rank-one-biquartic/wave2/out/`).
 ## 0. Setup and method (new in wave 2)
 
 * Instance: `F = f(X) + g(Y) + (5/7) L(X)^2 M(Y)`, `A = X0^3 Y0^3`, q = 1.  Diagonal symmetry group `{1, tau}` only,
@@ -105,19 +105,21 @@ Necessary condition B_D(N0) in J(F)_{2d} on the full E1-admissible family (J-typ
 ## 3. Full-E2 variable-projection multistart searches (normalized system, float, L-BFGS)
 | tag | d | parity | family dim K | n_c | rows_red | restarts | best rel | median rel | #rel<1e-3 | #rel<1e-6 | #rel<1e-8 | generic rank/nullity of T_D | time s |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| d7e_b0 | 7 | even | 66 | 420 | 5160 | 200 | 6.270e-03 | 3.842e-02 | 0 | 0 | 0 | 360/60 | 25883 |
 | d7k_a | 7 | even | 3 | 420 | 5160 | 40 | 2.268e-02 | 7.835e-02 | 0 | 0 | 0 | 360/60 | 361 |
 | d7o_a | 7 | odd | 63 | 420 | 5160 | 16 | 1.440e-02 | 4.123e-02 | 0 | 0 | 0 | 360/60 | 2082 |
 | d8k_a | 8 | even | 9 | 954 | 8661 | 40 | 2.502e-03 | 6.222e-03 | 0 | 0 | 0 | 795/159 | 9395 |
+| d9m_a | 9 | even | 30 | 1890 | 13717 | 8 | 1.344e-03 | 2.496e-03 | 0 | 0 | 0 | 1530/360 | 12302 |
 
-Totals per family: d=7 even (K=3): 40 restarts, best rel 2.268e-02; d=7 odd (K=63): 16 restarts, best rel 1.440e-02; d=8 even (K=9): 40 restarts, best rel 2.502e-03
+Totals per family: d=7 even (K=66): 240 restarts, best rel 6.270e-03; d=7 odd (K=63): 16 restarts, best rel 1.440e-02; d=8 even (K=9): 40 restarts, best rel 2.502e-03; d=9 even (K=30): 8 restarts, best rel 1.344e-03
 
 ### Residual landscape (per-restart files)
-* `d7e_b0`: n=188, min 6.270e-03, 10% 1.639e-02, median 3.845e-02, 90% 6.069e-02, max 2.901e-01
+* `d7e_b0`: n=200, min 6.270e-03, 10% 1.645e-02, median 3.842e-02, 90% 7.439e-02, max 2.901e-01
 * `d7k_a`: n=40, min 2.268e-02, 10% 2.268e-02, median 7.835e-02, 90% 7.835e-02, max 7.835e-02
 * `d7o_a`: n=16, min 1.440e-02, 10% 1.822e-02, median 4.123e-02, 90% 7.103e-02, max 8.815e-02
 * `d8e_b0`: n=24, min 1.819e-03, 10% 2.158e-03, median 5.785e-03, 90% 8.561e-03, max 1.866e-02
 * `d8k_a`: n=40, min 2.502e-03, 10% 6.222e-03, median 6.222e-03, 90% 6.222e-03, max 6.222e-03
-* `d9m_a`: n=7, min 1.344e-03, 10% 1.344e-03, median 2.366e-03, 90% 2.767e-03, max 2.767e-03
+* `d9m_a`: n=8, min 1.344e-03, 10% 1.344e-03, median 2.496e-03, 90% 1.070e-02, max 1.070e-02
 
 ## 4. Structured families vs the E1-admissible space (exact mod p)
 dim(U cap W_d) with W_d = {D : A D in J} = J_d + kernel; "new" = part not already in J_d.
@@ -620,11 +622,11 @@ None so far: no restart reached rel < 1e-8 on this instance (see landscape above
 
 ## 7. Jobs
 * `chainA.log`: chainA start Mon Nov  2 00:47:55 UTC 2026 / relax 5,6 done Mon Nov  2 00:48:43 UTC 2026 / e1spaces 4-10 done Mon Nov  2 01:58:14 UTC 2026 / relax 5-7 done Mon Nov  2 02:02:24 UTC 2026 / d5,d6 searches done Mon Nov  2 02:02:27 UTC 2026 / structured 6-10 done Mon Nov  2 02:32:57 UTC 2026 / msolve d6 exit 0 / msolve d7 exit 124 / msolve done Mon Nov  2 07:13:51 UTC 2026
-* `chainB.log`: chainB start Mon Nov  2 00:47:54 UTC 2026
+* `chainB.log`: chainB start Mon Nov  2 00:47:54 UTC 2026 / d7e batch 0 done Mon Nov  2 08:00:43 UTC 2026
 * `chainC.log`: chainC start Mon Nov  2 00:47:55 UTC 2026
 * `chainD.log`: chainD start Mon Nov  2 00:47:58 UTC 2026
 * `chainD2.log`:  UTC 2026 / d7 kernel probe done Mon Nov  2 01:19:50 UTC 2026 / d8 kernel probe done Mon Nov  2 04:00:05 UTC 2026 / d9 kernel probe done Mon Nov  2 04:00:07 UTC 2026 / d9e batch c0 done Mon Nov  2 04:00:09 UTC 2026 / d9e batch c1 done Mon Nov  2 04:00:11 UTC 2026 / d9e batch c2 done Mon Nov  2 04:00:12 UTC 2026 / d9e batch c3 done Mon Nov  2 04:00:14 UTC 2026 / d9e batch c4 done Mon Nov  2 04:00:16 UTC 2026 / d9e batch c5 done Mon Nov  2 04:00:17 UTC 2026 / d9e batch c6 done Mon Nov  2 04:00:19 UTC 2026 / d9e batch c7 done Mon Nov  2 04:00:21 UTC 2026 / chainD2 end Mon Nov  2 04:00:22 UTC 2026
-* `chainE.log`: chainE start Mon Nov  2 04:01:22 UTC 2026
+* `chainE.log`: chainE start Mon Nov  2 04:01:22 UTC 2026 / d9 mixed-kernel full-E2 (LM) done Mon Nov  2 07:43:59 UTC 2026
 
 ## 8. Interpretation and what remains
 
