@@ -9,3 +9,4 @@
 {"seed": 3068, "rel": 0.7519144988733983, "iters": 73, "nfev": 79, "spurious": false, "div_rel": 0.990129257862725, "sparse_init": false}
 {"seed": 3076, "rel": 0.7735145910317978, "iters": 90, "nfev": 124, "spurious": false, "div_rel": 0.9870879339673404, "sparse_init": false}
 {"seed": 3084, "rel": 0.7519145011704786, "iters": 79, "nfev": 88, "spurious": false, "div_rel": 0.9901292541157486, "sparse_init": true}
+{"seed": 3092, "rel": 0.7519145027948754, "iters": 89, "nfev": 148, "spurious": false, "div_rel": 0.9901292542767487, "sparse_init": false}
