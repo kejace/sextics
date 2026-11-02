@@ -42,3 +42,14 @@
 21:26:51 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-struct-hess3']; waiting
 21:29:24 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-struct-hess3']; waiting
 21:31:57 submitting homotopy (cpus 4); running now: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']
+21:34:27 submit call timed out (ssh hang); verifying via pid file
+21:34:49 homotopy confirmed submitted
+21:35:22 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:37:56 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:40:30 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:43:05 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:45:39 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:48:14 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:50:49 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:53:24 4 running: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']; waiting
+21:56:00 submitting d10h0 (cpus 8); running now: ['search-off-paired-s2-d9h0', 'search-off-paired-s2-hess', 'search-off-paired-s2-homotopy']

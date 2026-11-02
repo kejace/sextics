@@ -12,6 +12,11 @@ total Y-degree; A is Y-odd, F is Y-even.
 * `wave2_excl_relax.py` — exact (integer) relaxation of the polar family D = w.grad F at degree d (see statement S2).
 * `wave2_excl_polar.py` — certified served-space tests of structured Jacobian-type denominators (degrees 6-10).
 * `wave2_excl_k10.py` — degree-10 kernel: intersections with structured subspaces, candidate extraction, tests.
+* `wave2_excl_hess.py` — Hilbert-certified Hessian relaxation A (w^T Hess F w) in J_{2d} of the polar family (per sector / all).
+* `wave2_excl_hess_exact.py` — exact lift of the mod-p kernel basis (exact membership in J by an exact solve) + Singular over Q.
+* `wave2_excl_hesstest.py` — the same necessary condition applied to individual structured polar candidates (rigorous failures).
+* `wave2_excl_hess_modp_sing.py`, `wave2_excl_hess_modp_msolve.py` — characteristic-p screening of the candidate cone.
+* `wave2_excl_relax6.py` — staged modular/CRT exploration of the full relaxation at d = 6 (superseded by the Hessian route).
 * `receipts/` — JSON lines copied from `../wave2-excl.log.jsonl` (every experiment: prime, ranks, Hilbert values,
   structural nullities, timings) and the kernel basis files.
 
@@ -35,8 +40,13 @@ S2 (rigorous, exact). No certificate has deg D = 5: for D = w.grad F, w in C^6 (
 S3 (rigorous, exact). No Y-pure denominator of degree 6: Hessian relaxation A (w^T Hess F w) in J_12, kernel dims 18 (odd)
     / 36 (even) as Hilbert-certified upper bounds, bases lifted and verified exactly, Singular over Q: the locus
     {w : w w^T in K_H} is {0} (odd) and exactly the Euler line w = lambda z, D = 6 lambda F (even), which is not coprime.
-S3' (in progress). Mixed-parity degree 6: joint 36-coordinate relaxation (666 W-unknowns), then exact lift + Singular.
-S4 (screened). Degree-7 Y-even polars: dim K_H = 1533 of 2016 (certified upper bound); candidate locus mod p pending.
+S3' (rigorous, exact). Mixed-parity degree 6: joint 36-coordinate relaxation, dim K_H = 261 (certified), exact lifts verified,
+    405 exact quadrics; Singular over Q: cone of dimension 1, chart radical = the single Euler point, I + (L1) zero-dimensional.
+    => the cone is the Euler line; no degree-6 denominator of any parity is coprime to F.  HENCE deg D >= 7 for every certificate.
+S4 (partial). Degree-7 Y-even polars: dim K_H = 1533 of 2016 (certified upper bound); the cone is cut by 483 quadrics in 63
+    variables (not decided locally).  Degree-8 structured polars: Degree 8 (Hessian test, J_16 block at Hilbert rank): 10 structured candidates excluded rigorously (gradQ0Q1, gradQ0Q3, gradQ3Q4, gradQ0Q5, gradSumQsq, gradX0sqY0sq, gradX0quart, wQEuler, wQEulerX, wQcyc); survivors: none; modular-only: none.
+    Individual structured degree-7 polars: see wave2-excl.hesstest.jsonl (rigorous
+    exclusions when A d_w(D) is not in J_14 with the Jacobian block at Hilbert rank).
 S5 (queued remotely). Structured polars of degree 6..10 (74 candidates, certified served-space tests), K_10 bases and
     their intersections with the structured subspaces (quintics in Q, delta x quartics, K3-curve and K3-surface windows,
     plane windows), d = 11, 12 kernels.

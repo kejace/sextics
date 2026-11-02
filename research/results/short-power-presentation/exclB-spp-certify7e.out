@@ -1,0 +1,6 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+loaded: 61 unknowns, 1891 pairs, exact pairs 1891 [9s]
+[pass 0 block w0] quadrics 29 in 9 visible, m-primary False, others span 276
+[pass 0 block w1] quadrics 29 in 9 visible, m-primary False, others span 276
+[pass 0 block w2] quadrics 29 in 9 visible, m-primary False, others span 276
+[pass 0 block w3] quadrics 18 in 6 visible, m-primary True, others span 287

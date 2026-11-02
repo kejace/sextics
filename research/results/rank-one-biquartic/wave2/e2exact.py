@@ -31,6 +31,7 @@ ap.add_argument('--random-member', action='store_true', help='D = random mod-p c
 ap.add_argument('--seed', type=int, default=0)
 ap.add_argument('--mixed-member', action='store_true', help='degree-9 member sum_{i,H} r_iH K_i(X,M) H(Y) (K_i = degree-7 kernel reps, H in S_2(Y) mod M) [+ random J part with --with-J]')
 ap.add_argument('--with-J', action='store_true')
+ap.add_argument('--max-members', type=int, default=5)
 args = ap.parse_args()
 
 F, A, q = load()
@@ -177,7 +178,7 @@ if __name__ == '__main__':
         for line in open(args.members_from):
             o = json.loads(line)
             if o.get('family') == args.family and o.get('d') == args.d and o.get('parity') == args.parity:
-                for k, m in enumerate(o.get('members_modp', [])):
+                for k, m in enumerate(o.get('members_modp', [])[:args.max_members]):
                     Ds.append((f'{args.family} d={args.d} par={args.parity} #{k}', core.parse(m, p)))
     if args.random_member:
         import random

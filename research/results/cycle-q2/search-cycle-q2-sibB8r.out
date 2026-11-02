@@ -19,3 +19,23 @@
   key 138: K=8 best_rel=6.319333882948272e-07 restarts=150 285x67 386.2s  
   key 363: K=4 best_rel=0.8797123012472207 restarts=150 297x75 212.9s  
   key 498: K=4 best_rel=0.7052743860810091 restarts=150 297x70 139.2s  
+  key 432: K=7 best_rel=9.608607318402774e-07 restarts=150 297x77 179.6s  
+  key 483: K=8 best_rel=1.102167815596751e-06 restarts=150 297x75 185.0s  
+  key 453: K=3 best_rel=0.7401851775194718 restarts=150 297x69 192.3s  
+  key 333: K=4 best_rel=0.80985479092902 restarts=150 285x63 289.2s  
+  key 318: K=3 best_rel=0.840900667930819 restarts=150 285x71 354.6s  
+  key 639: K=8 best_rel=3.3246567036025833e-06 restarts=150 294x73 81.4s  
+  key 558: K=4 best_rel=0.7409957443485328 restarts=150 297x66 152.0s  
+  key 378: K=3 best_rel=0.7986563523707358 restarts=150 297x73 309.9s  
+  key 513: K=2 best_rel=0.9461953240147423 restarts=150 294x72 248.5s  
+  key 408: K=4 best_rel=0.24500432005788655 restarts=150 285x67 318.3s  
+  key 429: K=2 best_rel=0.7683145044573069 restarts=150 285x65 352.5s  
+  key 618: K=3 best_rel=0.7771413867499032 restarts=150 294x75 225.3s  
+  key 609: K=7 best_rel=5.332543244696831e-07 restarts=150 297x73 387.9s  
+  key 678: K=3 best_rel=0.8259431510641002 restarts=150 285x64 343.7s  
+  key 543: K=4 best_rel=0.8121601910343741 restarts=150 297x75 440.5s  
+  key 819: K=7 best_rel=1.229502129655196e-06 restarts=150 294x71 308.3s  
+  key 708: K=3 best_rel=0.818854502343808 restarts=150 294x68 475.7s  
+  key 663: K=3 best_rel=0.7244128723409142 restarts=150 285x73 547.7s  
+  key 588: K=8 best_rel=9.84563017199215e-07 restarts=150 297x73 610.2s  
+  key 528: K=8 best_rel=5.871233081910164e-07 restarts=150 294x75 689.2s  

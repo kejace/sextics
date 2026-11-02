@@ -1,9 +1,9 @@
-search-symmetric-sextic-residual-w2b-jac1|8|python3 w2b/w2_varpro.py --job jac1 --sectors jac:6:0,jac:6:1,jac:7:0,jac:7:1 --restarts 800 --per-dim 40 --workers 8 --maxiter 400 --seed 3000
-search-symmetric-sextic-residual-w2b-jac2|8|python3 w2b/w2_varpro.py --job jac2 --sectors jac:8:0,jac:8:1 --restarts 160 --workers 8 --maxiter 400 --seed 4000
-search-symmetric-sextic-residual-w2b-singlesub|8|python3 w2b/w2_single_sub.py --job singlesub --workers 8 --dmin 8 --dmax 9
-search-symmetric-sextic-residual-w2b-vp3|8|python3 w2b/w2_varpro.py --job vp3 --sectors triv:12:0,triv:12:1,sgnX:8:1,sgnY:8:1,sgnX:9:0,sgnY:9:1,sgnsgn:10:1,sgnX:10:0,sgnX:10:1 --restarts 150 --workers 8 --maxiter 400 --seed 5000
+search-symmetric-sextic-residual-w2b-xcheck|2|python3 w2b/w2_xcheck.py
 search-symmetric-sextic-residual-w2b-struct|8|python3 w2b/w2_struct.py --job struct --families ternX,ternY,uuv,evv,line_tt,line_sX,line_sY --chis triv,sgnX,sgnY,sgnsgn --dmin 7 --dmax 12 --restarts 150 --workers 8
-search-symmetric-sextic-residual-w2b-vp4|8|python3 w2b/w2_varpro.py --job vp4 --sectors S22_++:6:0,S22_++:6:1,S22_-+:6:0,S22_-+:6:1,S22_+-:6:0,S22_+-:6:1,S22_--:6:0,S22_--:6:1,S22_++:7:0,S22_++:7:1,S22_-+:7:0,S22_-+:7:1,S22_+-:7:0,S22_+-:7:1,S22_--:7:0,S22_--:7:1,S22_++:8:0,S22_++:8:1,S22_-+:8:0,S22_-+:8:1,S22_+-:8:0,S22_+-:8:1,S22_--:8:0,S22_--:8:1 --restarts 60 --workers 8 --maxiter 400 --seed 6000
-search-symmetric-sextic-residual-w2b-vp5|8|python3 w2b/w2_varpro.py --job vp5 --sectors triv:13:0,triv:13:1,triv:14:0,triv:14:1 --restarts 80 --workers 8 --maxiter 400 --seed 6500
-search-symmetric-sextic-residual-w2b-vp6|8|python3 w2b/w2_varpro.py --job vp6 --sectors triv:8:0,triv:8:1,triv:9:0,triv:9:1,triv:10:0,triv:10:1,triv:11:0,triv:11:1 --restarts 600 --workers 8 --maxiter 600 --seed 7000 --sparse-frac 0.5
+search-symmetric-sextic-residual-w2b-vp3|8|python3 w2b/w2_varpro.py --job vp3 --sectors triv:12:0,triv:12:1,sgnX:8:1,sgnY:8:1,sgnX:9:0,sgnY:9:1,sgnsgn:10:1,sgnX:10:0,sgnX:10:1 --restarts 150 --workers 8 --maxiter 400 --seed 5000 --dump-rel 1e-4
+search-symmetric-sextic-residual-w2b-singlesub|8|python3 w2b/w2_single_sub.py --job singlesub --workers 8 --dmin 8 --dmax 9
+search-symmetric-sextic-residual-w2b-jac2|8|python3 w2b/w2_varpro.py --job jac2 --sectors jac:8:0,jac:8:1 --restarts 160 --workers 8 --maxiter 400 --seed 4000 --dump-rel 1e-4
+search-symmetric-sextic-residual-w2b-vp4|8|python3 w2b/w2_varpro.py --job vp4 --sectors S22_++:6:0,S22_++:6:1,S22_-+:6:0,S22_-+:6:1,S22_+-:6:0,S22_+-:6:1,S22_--:6:0,S22_--:6:1,S22_++:7:0,S22_++:7:1,S22_-+:7:0,S22_-+:7:1,S22_+-:7:0,S22_+-:7:1,S22_--:7:0,S22_--:7:1,S22_++:8:0,S22_++:8:1,S22_-+:8:0,S22_-+:8:1,S22_+-:8:0,S22_+-:8:1,S22_--:8:0,S22_--:8:1 --restarts 60 --workers 8 --maxiter 400 --seed 6000 --dump-rel 1e-4
+search-symmetric-sextic-residual-w2b-vp6|8|python3 w2b/w2_varpro.py --job vp6 --sectors triv:8:0,triv:8:1,triv:9:0,triv:9:1,triv:10:0,triv:10:1,triv:11:0,triv:11:1 --restarts 600 --workers 8 --maxiter 600 --seed 7000 --sparse-frac 0.5 --dump-rel 1e-4
+search-symmetric-sextic-residual-w2b-vp5|8|python3 w2b/w2_varpro.py --job vp5 --sectors triv:13:0,triv:13:1,triv:14:0,triv:14:1 --restarts 80 --workers 8 --maxiter 400 --seed 6500 --dump-rel 1e-4
 search-symmetric-sextic-residual-w2b-kernfull|2|python3 w2b/w2_kernels.py --job kernfull --part full

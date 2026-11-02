@@ -46,8 +46,10 @@ For the S3 action on three variables every sign-semi-invariant polynomial is `Δ
 counts confirm it: the sgnsgn family at (d,pD) = (10,1) has `nD = 12` = number of invariant Y-even quartic
 orbits). With the sum principle `served(D₁D₂) = served(D₁) + served(D₂)` (coprime factors) and the fact that
 the reflection `s = (X0 X1)` fixes the section `X ∩ {X0 = X1}` pointwise — so every class supported on it is
-`s`-invariant, i.e. `served(X_i − X_j) ⊂ U = Σ_s H⁴(X)^s`, and `U` meets the (sgn,sgn) isotypic component
-trivially — one gets, for the target sector,
+`s`-invariant (geometric action), i.e. `served(X_i − X_j) ⊂ U = Σ_s H⁴(X)^s`; the residue class of an *invariant*
+Y-odd sextic `A'` transforms geometrically by `det(s) = −1` (the residue map twists the polynomial action by det), so
+`U` meets the sector of `[A]` — residues of the 17-dimensional space of invariant Y-odd sextics mod J, Hodge
+numbers (17,52,17); the dossier's label "(sgn,sgn,+) = (1,10,1)" mixed up the two actions — trivially. One gets, for the target sector,
 
 > `[A] ∈ served(Δ_X^a Δ_Y^b S)  ⇔  [A] ∈ served(S)`.
 
@@ -75,6 +77,19 @@ The sign sectors are still run at low cost as consistency checks of the principl
   invariant denominators of degrees far beyond direct reach.
 * The sum principle also shows that products of tested denominators need no separate test: if no single admissible
   D of the listed types serves [A], no product of them does either (served(D₁D₂) = served(D₁) + served(D₂)).
+
+## 3b. The invariant-sector residual trend and how it is being tested
+
+The best relative residual of the invariant (`triv`) families decreases with the degree: 8.3e-3 (d = 6, dimP 3),
+1.5e-4 / 4.3e-4 (d = 7, dimP 7), 1.0e-4 / 6.4e-4 (d = 8, dimP 13 / 18), 3.8e-5 (d = 9, pD = 0, dimP ≈ 30, same
+minimum in most restarts), ≈ 2e-6 (d = 10, pD = 0, dimP = 80, first restarts). Two readings are possible: a
+non-solvable system whose least-squares distance shrinks as the parameter count grows (expected: the relative
+residual of a random rectangular system scales roughly like (rows − cols)/rows under added freedom), or an approach
+towards a genuine zero in some higher degree. The discriminating test is Gauss–Newton polishing of the best point
+inside the admissible subspace (`w2lib.polish`): a true zero drops to ~1e-28 in a few iterations (as it does on the
+Fermat control), a nonzero minimum stays put (as at d = 7: 1.544e-4 before and after). The polish is now part of
+every sector summary (`best_polished_rel`) and the queued `xcheck` job polishes the best d = 8, 9, 10 points
+reproduced from their seeds. Until those numbers are in, the d ≥ 9 residuals must be read as "small, unconfirmed".
 
 ## 6. Concurrent agent on this lane (cross-check, not our work)
 

@@ -121,6 +121,8 @@ def main():
             return 'u' + ','.join(str(e) for e in u[2]) + f'_{j}'
         if scheme == 'xtype':   # component block split by the X-degree of the monomial
             return f'w{j}x{sum(u[2][:3])}'
+        if scheme == 'mtype':   # X/Y component group x monomial type (X-degree of m)
+            return ('X' if j < 3 else 'Y') + f'x{sum(u[2][:3])}'
         raise ValueError(scheme)
 
     blocks = {}

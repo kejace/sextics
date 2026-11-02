@@ -9,7 +9,7 @@ CLI (run from anywhere):
   python3 -m hodge.rjob up --lane <lane>          # push engine + one lane dir (never overwrites newer remote files)
   python3 -m hodge.rjob notes                     # mirror /tmp/hodge/notes both ways (--update)
   python3 -m hodge.rjob submit --lane <lane> --name <job> [--cpus N] [--wait SECS] [--force] -- <command ...>
-        # refuses (exit 3) when the remote is near capacity (allocated cores > 220, < 90 GB free, or load > 700; jobs are core-pinned so load overstates contention); --wait polls for capacity
+        # refuses (exit 3) when the remote is near capacity (allocated cores > 200, < 110 GB free, or load > 700; jobs are core-pinned so load overstates contention); --wait polls for capacity
         # runs `cd /tmp/hodge/results/<lane> && <command>` on the remote, log in /tmp/hodge/jobs/<job>.log
         # the command may use python3 with the engine on sys.path (/home/kejace/devel/sextics-work), msolve, Singular
   python3 -m hodge.rjob status [--name <job>]     # running jobs, load average, free memory
@@ -82,7 +82,7 @@ def remote_capacity():
         return 0.0, 1e9, 0, 0
 
 
-def submit(lane, name, command, cpus=1, force=False, max_load=700.0, min_avail_gb=90.0, wait_s=0, max_alloc_cpus=220):
+def submit(lane, name, command, cpus=1, force=False, max_load=700.0, min_avail_gb=110.0, wait_s=0, max_alloc_cpus=200):
     """Submit, but refuse (exit code 3) when the remote is near capacity unless --force.
     With wait_s > 0, poll every 60 s up to wait_s seconds for capacity instead of refusing."""
     t0 = time.time()
@@ -99,7 +99,8 @@ def submit(lane, name, command, cpus=1, force=False, max_load=700.0, min_avail_g
     # Hard caps enforced on the remote: CPU affinity to `cpus` cores (children inherit), address-space limit
     # 64 GB (or 8 GB per requested cpu if larger), so a runaway multiprocessing job cannot take the whole box.
     import random as _rnd
-    start = _rnd.randint(0, max(0, 128 - cpus))
+    # cores 124-127 are left free for the system and ssh
+    start = _rnd.randint(0, max(0, 124 - cpus))
     cpuset = f'{start}-{start + cpus - 1}' if cpus > 1 else f'{start}'
     mem_kb = int(os.environ.get('HODGE_JOB_MEM_GB', max(32, 6 * cpus))) * 1024 * 1024  # address-space cap; override with HODGE_JOB_MEM_GB
     remote_cmd = (f'mkdir -p /tmp/hodge/jobs {RESULTS}/{lane} && cd {RESULTS}/{lane} && '

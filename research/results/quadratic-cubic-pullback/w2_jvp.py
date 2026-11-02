@@ -440,6 +440,25 @@ class JVP:
         g += 4.0 * nrm * u
         return f, self.P.T @ g
 
+    # ---- linear restriction of the family: D(u) in W, W = invariants of index permutations of the exponent tuple ----
+    def restrict_to_invariants(self, perms, tol=1e-9):
+        """Restrict the parameter space to u with D(u) invariant under the given exponent-index permutations."""
+        rows = []
+        for j, m in enumerate(self.BD.mons):
+            for pm in perms:
+                y = tuple(m[pm[i]] for i in range(6))
+                k = self.BD.index[y]
+                if k != j:
+                    r = np.zeros(self.BD.n); r[j] = 1.0; r[k] = -1.0; rows.append(r)
+        if not rows:
+            return self.dimP
+        C = np.array(rows)
+        M = C @ (self.U_D @ self.P)
+        N = sla.null_space(M, rcond=tol)
+        self.P = self.P @ N
+        self.dimP = self.P.shape[1]
+        return self.dimP
+
     # ---- exact reconstruction ----
     def D_exact_from_u(self, u, max_den=1000):
         """rational D from a parameter vector u via per-coordinate continued fractions (normalized max |u| = 1)."""
@@ -482,7 +501,7 @@ def run_stage1(jvp, n_restarts, seed, out_path, tag, maxiter=200, method='lm', v
                 continue
             v = v / np.linalg.norm(v)
             rel, bnorm = jvp.stage1_rel(v)
-            rec = {'stage': 1, 'd': jvp.d, 'parity': jvp.parD, 'tag': tag, 'seed': seed, 'restart': it, 'rel': rel, 'bnorm': bnorm,
+            rec = {'stage': 1, 'd': jvp.d, 'parity': jvp.parD, 'tag': tag, 'dimP': jvp.dimP, 'seed': seed, 'restart': it, 'rel': rel, 'bnorm': bnorm,
                    'nfev': int(res.nfev), 'seconds': round(time.time() - t1, 2), 'v': v.tolist()}
             results.append(rec)
             f.write(json.dumps(rec) + '\n'); f.flush()
@@ -513,7 +532,7 @@ def run_stage2(jvp, starts, seed, out_path, tag, maxiter=300, verbose=False, exa
             v = res.x / np.linalg.norm(res.x)
             f2, b2, c, r = jvp.r2_value(v)
             rel = f2 / max(b2, 1e-300)
-            rec = {'stage': 2, 'd': jvp.d, 'parity': jvp.parD, 'tag': tag, 'seed': seed, 'restart': it, 'rel_compressed': rel,
+            rec = {'stage': 2, 'd': jvp.d, 'parity': jvp.parD, 'tag': tag, 'dimP': jvp.dimP, 'seed': seed, 'restart': it, 'rel_compressed': rel,
                    'f2': f2, 'bnorm2': b2, 'nit': int(res.nit), 'nfev': int(res.nfev),
                    'seconds': round(time.time() - t1, 2), 'v': v.tolist()}
             if jvp.Z is not None:
@@ -563,11 +582,14 @@ def main():
     ap.add_argument('--max-seeds', type=int, default=1000)
     ap.add_argument('--worker-threads', type=int, default=1)
     ap.add_argument('--parity', type=int, default=0, help='Y-parity of D (0 even, 1 odd)')
+    ap.add_argument('--restrict', default=None, help='comma list of symmetry generators (rho, sigma, taux) forcing D invariant')
     a = ap.parse_args()
     F, A, q, _ = core.load_instance(a.instance)
     if a.fermat:
         F = {tuple(6 if j == i else 0 for j in range(6)): Fraction(1) for i in range(6)}
     out = a.out or f'w2_jvp_d{a.d}_{"odd" if a.parity else "even"}_{a.tag}.jsonl'
+    if a.restrict:
+        out = out.replace('.jsonl', f'_{a.restrict.replace(",", "")}.jsonl')
     extra = None
     if a.extra:
         z = np.load(a.extra)
@@ -575,6 +597,17 @@ def main():
     verbose = not a.quiet
     jvp = JVP(F, A, a.d, extra=extra, stage2=('2' in a.stage), stage1=('1' in a.stage), verbose=verbose, parD=a.parity)
     _attach_funs(jvp)
+    if a.restrict:
+        gens = {'rho': (1, 2, 0, 4, 5, 3), 'sigma': (3, 4, 5, 0, 1, 2), 'taux': (1, 0, 2, 4, 3, 5)}
+        perms = [gens[s.strip()] for s in a.restrict.split(',') if s.strip()]
+        dp = jvp.restrict_to_invariants(perms)
+        chk = float('nan')
+        if dp > 0:
+            rng0 = np.random.default_rng(0); u0 = jvp.P @ rng0.standard_normal(dp); D0 = jvp.U_D @ u0; Dp0 = jvp.BD.poly(D0)
+            chk = max(abs(Dp0.get(tuple(m[pm[i]] for i in range(6)), 0.0) - c) for m, c in Dp0.items() for pm in perms) / max(np.linalg.norm(D0), 1e-300)
+        print(f'[jvp] restricted to {a.restrict}-invariant denominators: parameter dim {dp}; invariance check {chk:.2e}', file=sys.stderr)
+        if dp == 0:
+            print('[jvp] empty restricted family; nothing to search', file=sys.stderr); return
     _SHARED['jvp'] = jvp
     if a.procs > 1:
         import multiprocessing as mp

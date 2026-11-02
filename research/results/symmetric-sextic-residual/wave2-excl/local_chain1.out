@@ -44,3 +44,15 @@ quadrics: 0 in 0 unknowns (0.3s)
 products done 0.0s
 quadrics: 0 in 0 unknowns (0.3s)
 {"verdict": "empty family"}
+[E1Family] d=7 pD=0 p=2147483647 rows=4284 nA=396 nJ=3861 nullity=484 dimK=64 dimJd=63 ker_R=1 (CI dimJd 63) 41.8s
+[{"pD": 0, "rows": 4284, "nA": 396, "nJ": 3861, "dimK": 64, "dimJd": 63, "ci_dimJd": 63, "ker_R": 1, "rankJtop_modp": 3441, "rankJtop_CI": 3441, "radial": 3, "complement": 61}]
+products done 2.3s
+[Reducer] deg=14 par=1 p=2147483647 mons=5796 gens=6006 rank=5052 (CI 5052) ring=744 121.1s
+quadrics: 741 in 61 unknowns (269.6s)
+{"msolve_rc": 124, "msolve_seconds": 3601.3, "verdict": "msolve failed/timeout"}
+[E1Family] d=7 pD=1 p=2147483647 rows=4284 nA=396 nJ=3861 nullity=484 dimK=64 dimJd=63 ker_R=1 (CI dimJd 63) 108.3s
+[{"pD": 1, "rows": 4284, "nA": 396, "nJ": 3861, "dimK": 64, "dimJd": 63, "ci_dimJd": 63, "ker_R": 1, "rankJtop_modp": 3441, "rankJtop_CI": 3441, "radial": 3, "complement": 61}]
+products done 5.2s
+[Reducer] deg=14 par=1 p=2147483647 mons=5796 gens=6006 rank=5052 (CI 5052) ring=744 309.5s
+quadrics: 741 in 61 unknowns (651.9s)
+{"msolve_rc": -9, "msolve_seconds": 3347.6, "verdict": "msolve failed/timeout"}

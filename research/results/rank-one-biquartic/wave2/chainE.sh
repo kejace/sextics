@@ -23,6 +23,15 @@ for i in 6 7 8; do python3 wave2/e2exact.py --kernel-json $O/e1kernel_d8_p1.json
 for s in 0 1 2; do python3 wave2/e2exact.py --mixed-member --d 9 --parity 0 --seed $s --tag e2exact >> $O/e2exact_mixed.out 2>> $O/e2exact_mixed.err; done
 for s in 3 4; do python3 wave2/e2exact.py --mixed-member --with-J --d 9 --parity 0 --seed $s --tag e2exact >> $O/e2exact_mixed.out 2>> $O/e2exact_mixed.err; done
 echo "exact mixed-member tests done $(date)"
+# exact E2 of structured members outside J found by structured.py (degree 10): bidegree (5,5) Y-odd (15-dim, all new),
+# 5-variable cones (3 new each), Y-base-type (15 new)
+python3 wave2/e2exact.py --members-from $O/structured.jsonl --family "bideg(5,5)" --d 10 --parity 1 --max-members 2 --tag e2exact >> $O/e2exact_struct10.out 2>> $O/e2exact_struct10.err
+for v in "vars[X0X1Y0Y1Y2]" "vars[X0X2Y0Y1Y2]" "vars[X1X2Y0Y1Y2]"; do
+  python3 wave2/e2exact.py --members-from $O/structured.jsonl --family "$v" --d 10 --parity 0 --max-members 1 --tag e2exact >> $O/e2exact_struct10.out 2>> $O/e2exact_struct10.err
+  python3 wave2/e2exact.py --members-from $O/structured.jsonl --family "$v" --d 10 --parity 1 --max-members 1 --tag e2exact >> $O/e2exact_struct10.out 2>> $O/e2exact_struct10.err
+done
+python3 wave2/e2exact.py --members-from $O/structured.jsonl --family "Ybase P(X)M^a g^b" --d 10 --parity 0 --max-members 1 --tag e2exact >> $O/e2exact_struct10.out 2>> $O/e2exact_struct10.err
+echo "exact structured-member tests done $(date)"
 if [ -s $O/relax_d7_p0_q_slice.ms ] && [ ! -s $O/relax_d7_p0_q_slice.msout ] && [ ! -s $O/relax_d7_p0_q.msout ]; then
   timeout 14400 msolve -t 8 -v 2 -g 2 -f $O/relax_d7_p0_q_slice.ms -o $O/relax_d7_p0_q_slice.msout > $O/msolve_d7_slice_E.out 2>&1
   echo "msolve d7 slice (chain E) exit $? $(date)"

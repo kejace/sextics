@@ -1,0 +1,47 @@
+[hodge engine v2] NOTE: a sign bug in the F*N(D) term of FixedDSystem/exact solve was fixed on 2026-11-01 ~17:25 local time. Any consistent/inconsistent/rank result computed with the engine BEFORE that time is unreliable and must be recomputed. Record "engine": 2 in your logs from now on.
+skipping 0 sectors already logged
+d=12: 72 sectors, dimS_d=6188
+[0, 0, 3] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 28.5
+[0, 0, 5] dimS 87 K 87 J 63 | dim K = 1: single element tested above (complement 24) | [] 41.3
+[0, 0, 4] dimS 93 K 93 J 66 | dim K = 1: single element tested above (complement 27) | [] 42.7
+[0, 0, 2] dimS 93 K 93 J 66 | dim K = 1: single element tested above (complement 27) | [] 44.1
+[0, 1, 0] dimS 87 K 87 J 63 | dim K = 1: single element tested above (complement 24) | [] 22.6
+[0, 0, 1] dimS 87 K 87 J 64 | dim K = 1: single element tested above (complement 23) | [] 52.1
+[0, 0, 0] dimS 102 K 102 J 72 | dim K = 1: single element tested above (complement 30) | [] 59.0
+[0, 1, 1] dimS 84 K 84 J 62 | dim K = 1: single element tested above (complement 22) | [] 38.1
+[0, 1, 3] dimS 84 K 84 J 61 | dim K = 1: single element tested above (complement 23) | [] 44.7
+[0, 1, 4] dimS 84 K 84 J 62 | dim K = 1: single element tested above (complement 22) | [] 38.9
+[0, 1, 2] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 56.9
+[0, 1, 5] dimS 87 K 87 J 64 | dim K = 1: single element tested above (complement 23) | [] 63.2
+[0, 2, 0] dimS 93 K 93 J 66 | dim K = 1: single element tested above (complement 27) | [] 64.5
+[0, 2, 3] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 37.5
+[0, 2, 1] dimS 84 K 84 J 61 | dim K = 1: single element tested above (complement 23) | [] 55.9
+[0, 2, 4] dimS 93 K 93 J 66 | dim K = 1: single element tested above (complement 27) | [] 44.3
+[0, 2, 2] dimS 93 K 93 J 63 | dim K = 1: single element tested above (complement 30) | [] 55.6
+[0, 3, 0] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 55.2
+[0, 3, 1] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 54.7
+[0, 2, 5] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 66.8
+[0, 3, 3] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 38.3
+[0, 3, 2] dimS 84 K 84 J 61 | dim K = 1: single element tested above (complement 23) | [] 53.6
+[0, 3, 4] dimS 81 K 81 J 57 | dim K = 1: single element tested above (complement 24) | [] 55.6
+[0, 4, 1] dimS 84 K 84 J 62 | dim K = 1: single element tested above (complement 22) | [] 44.4
+[0, 3, 5] dimS 81 K 81 J 57 | dim K = 1: single element tested above (complement 24) | [] 50.0
+[0, 4, 2] dimS 93 K 93 J 66 | dim K = 1: single element tested above (complement 27) | [] 50.4
+[0, 4, 0] dimS 93 K 93 J 66 | dim K = 1: single element tested above (complement 27) | [] 58.4
+[0, 4, 4] dimS 87 K 87 J 60 | dim K = 1: single element tested above (complement 27) | [] 42.0
+[0, 4, 3] dimS 81 K 81 J 57 | dim K = 1: single element tested above (complement 24) | [] 62.5
+[0, 5, 1] dimS 87 K 87 J 63 | dim K = 1: single element tested above (complement 24) | [] 40.6
+[0, 4, 5] dimS 81 K 81 J 57 | dim K = 1: single element tested above (complement 24) | [] 54.8
+[0, 5, 0] dimS 87 K 87 J 64 | dim K = 1: single element tested above (complement 23) | [] 54.2
+[0, 5, 2] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 50.6
+[3, 0, 1] dimS 90 K 90 J 64 | dim K = 1: single element tested above (complement 26) | [] 20.7
+[0, 5, 3] dimS 81 K 81 J 57 | dim K = 1: single element tested above (complement 24) | [] 63.3
+[0, 5, 4] dimS 81 K 81 J 57 | dim K = 1: single element tested above (complement 24) | [] 61.9
+[0, 5, 5] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 40.4
+[3, 0, 0] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 54.0
+[3, 0, 2] dimS 87 K 87 J 64 | dim K = 1: single element tested above (complement 23) | [] 52.2
+[3, 0, 3] dimS 96 K 96 J 72 | dim K = 1: single element tested above (complement 24) | [] 45.3
+[3, 0, 5] dimS 90 K 90 J 64 | dim K = 1: single element tested above (complement 26) | [] 39.9
+[3, 0, 4] dimS 87 K 87 J 63 | dim K = 1: single element tested above (complement 24) | [] 54.0
+[3, 1, 0] dimS 84 K 84 J 60 | dim K = 1: single element tested above (complement 24) | [] 49.4
+[3, 1, 2] dimS 87 K 87 J 63 | dim K = 1: single element tested above (complement 24) | [] 33.2

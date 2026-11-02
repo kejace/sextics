@@ -122,6 +122,17 @@ for sec in args.sectors.split(','):
     for p in procs: p.join()
     summ, cands = summarize(files)
     rec = dict(base, restarts=n, seeds=[seeds[0], seeds[-1]], seconds=round(time.time() - t0, 1), **summ)
+    # Gauss-Newton polish of the best saved point (distinguishes a shrinking nonzero minimum from a true zero)
+    try:
+        saved = [r for fn in files if os.path.exists(fn) for r in map(json.loads, open(fn)) if 'a' in r and not r.get('spurious')]
+        if saved:
+            b = min(saved, key=lambda r: r['rel'])
+            pa, px, prel, phist = polish(fam, np.array(b['a']), iters=10)
+            rec['best_polished_rel'] = prel; rec['polish_hist'] = [f'{h:.2e}' for h in phist]
+            if prel < 1e-10 and not any(c['rel'] < 1e-10 for c in cands):
+                cands.append({'a': [float(v) for v in pa], 'rel': prel})
+    except Exception as ex:
+        rec['polish_error'] = repr(ex)[:200]
     # confirmation of candidates
     conf = []
     for c in cands[:20]:

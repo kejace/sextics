@@ -66,3 +66,11 @@ X2*c1*f 10 EXCLUDED-exact 1886.99
 X2*cq*f 10 EXCLUDED-exact 1949.46
 m*m*f 10 EXCLUDED-exact 1951.93
 X2*q2*f 10 EXCLUDED-exact 2028.3
+m*t*f 10 EXCLUDED-exact 2638.07
+m*u*f 10 EXCLUDED-exact 2487.64
+m*v*f 10 EXCLUDED-exact 2424.07
+t*u*f 10 EXCLUDED-exact 2165.1
+t*t*f 10 EXCLUDED-exact 2339.93
+u*u*f 10 EXCLUDED-exact 1978.92
+u*v*f 10 EXCLUDED-exact 2021.13
+t*v*f 10 EXCLUDED-exact 2152.11

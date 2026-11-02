@@ -61,3 +61,13 @@ Statement proved for a sector (d, c) when the receipt says `PROVEN-no-denominato
 4. Empty colon sectors (`PROVEN-empty-sector`) are excluded because the modular colon dimension (0) bounds the rational one.
 No modular computation enters the conclusion; modular arithmetic is only used to FIND the rational bases and the candidate structure.
 Receipts: `receipts_excl-off-paired-elim2Q-d7.jsonl`, `receipts_excl-off-paired-chain-rigor-d{7,8}.jsonl`; Singular scripts in `elim2_*/`.
+
+## Fallbacks and caveats
+* `w2_span.py`: when the exact decomposition over Q is too slow, the linear span L of V(J2) is found mod p (Singular minAssGTZ mod p), its
+  defining linear forms are reconstructed and each is certified nilpotent modulo the exact J2 (rational cofactor solve, fmpq_mat), which
+  proves V(J2^Q) ⊆ L over Q; the localized exact relaxation on L finishes the proof.  (Both decompositions can be slow; receipts record
+  `singular-timeout` when neither finished within the cap — such sectors are modular screens only.)
+* Two-prime CRT retry for the rational bases (`rational_data` in `w2_elim2.py`); sector (8,(4,2)) still fails reconstruction (heights
+  beyond 2^31) and stays at the modular/deanodotdotdot level.
+* The modular chart sweeps (`receipts_excl-off-paired-bilin-d{7,8}-local.jsonl`) are complete covers of {D != 0} but are screens.
+* Per-job logs on the remote are `wave2-excl.<job>.log.jsonl`; `w2_sync.py` merges them into the local `wave2-excl.log.jsonl`.

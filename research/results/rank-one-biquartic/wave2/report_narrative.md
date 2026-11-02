@@ -22,7 +22,14 @@
   full normalized-E2 search applies there; under the current machine load (load average ~1000 on 128 cores) the
   throughput is ~10x below nominal, so the restart counts in section 3 are what could be done, not what was planned.
 * **Structured families** (block subrings, 3/4/5-variable cones, bidegree pieces, base-type P(X)M^a g^b and
-  Q(Y)L^a f^b, (f,g,L,M)-monomials, Hessian minors): see section 4 for the exact intersections with the admissible
-  space; anything that intersects outside J is tested exactly (section 4, e2exact rows).
+  Q(Y)L^a f^b, (f,g,L,M)-monomials, Hessian minors; section 4).  Through degree 9 every structured family meets the
+  admissible space only inside J_d, except the Y-base-type class P(X)M^a g^b (the packet's compact-Y class), which
+  contains the whole degree-7 kernel (3), the whole degree-8 kernel (9) and 12 of the 27 degree-9 kernel dimensions.
+  Hence the first E1-admissible denominators outside the packet's obstruction class are the 15 remaining degree-9
+  kernel directions, spanned by K_7 . (S_2(Y) mod M) = {P_7(X) + L M beta_3(X)} x {Y-quadrics not proportional to M}
+  modulo J + base type.  These are the target of the focused `kernel-mixed` searches (chain E).  At degree 10 new
+  structured admissible directions appear: a 15-dimensional space of Y-odd bihomogeneous (5,5) denominators entirely
+  outside J (pulled back from P^2 x P^2, i.e. still base type in the packet's sense), 3 new directions in each
+  5-variable cone ring C[X_a X_b Y0 Y1 Y2], and 15 Y-base-type directions; members are tested exactly (e2exact).
 * **No candidate** with residual below 1e-8 appeared on this instance; the only sub-1e-10 residuals of the whole
   run were the planted-witness validation on a solved instance.
