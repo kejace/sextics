@@ -245,3 +245,10 @@ submit search-off-paired-s2-d10rest: launch ssh timed out after 120 s (job may s
 04:52:40 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
 04:55:15 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
 04:57:50 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+05:00:24 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+05:03:05 submitting ft-d8h0 (cpus 8); running now: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-struct-cones']
+up: done ['off-paired']
+submit search-off-paired-s2-ft-d8h0: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-ft-d8h0)
+05:05:30 ft-d8h0 confirmed submitted
+05:06:05 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
+05:08:40 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-ft-d8h0', 'search-off-paired-s2-struct-cones']; waiting
