@@ -134,3 +134,41 @@
   subset-euler^2 d=12 e1=True cons=False rk=3012 228.21s E_{X0,X2,Y0}(F) squared 
   subset-euler d=6 e1=True cons=False rk=628 4.35s E_{X0,X2,Y1}(F) 
   subset-euler^2 d=12 e1=True cons=False rk=3007 238.52s E_{X0,X2,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.16s E_{X0,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3024 223.57s E_{X0,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.66s E_{X0,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3020 206.26s E_{X0,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 1.16s E_{X0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3019 184.87s E_{X0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 8.14s E_{X1,X2,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3008 235.07s E_{X1,X2,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 1.11s E_{X1,X2,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3014 200.11s E_{X1,X2,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 5.16s E_{X1,X2,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3009 244.49s E_{X1,X2,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 1.65s E_{X1,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3022 236.35s E_{X1,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 5.66s E_{X1,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3019 228.02s E_{X1,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 5.99s E_{X2,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3024 200.96s E_{X2,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 7.82s E_{X1,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3025 246.66s E_{X1,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 5.45s E_{X2,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3018 235.7s E_{X2,Y0,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 7.15s E_{X2,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3019 213.46s E_{X2,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.28s E_{Y0,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3018 211.81s E_{Y0,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 1.2s E_{X0,X1,X2,Y0}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3015 237.45s E_{X0,X1,X2,Y0}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 7.17s E_{X0,X1,X2,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3018 208.97s E_{X0,X1,X2,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 4.69s E_{X0,X1,X2,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3016 237.66s E_{X0,X1,X2,Y1}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=629 2.88s E_{X0,X1,Y1,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3024 212.38s E_{X0,X1,Y1,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=628 5.59s E_{X0,X1,Y0,Y2}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=3018 232.08s E_{X0,X1,Y0,Y2}(F) squared 
+  subset-euler d=6 e1=True cons=False rk=622 5.59s E_{X0,X1,Y0,Y1}(F) 
+  subset-euler^2 d=12 e1=True cons=False rk=2981 251.84s E_{X0,X1,Y0,Y1}(F) squared 

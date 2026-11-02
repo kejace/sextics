@@ -64,3 +64,17 @@
 {"seed": 3511, "rel": 0.31943212572865126, "iters": 36, "nfev": 55, "spurious": false, "div_rel": 1.0, "sparse_init": false}
 {"seed": 3519, "rel": 0.3640135476513366, "iters": 58, "nfev": 77, "spurious": false, "div_rel": 1.0, "sparse_init": false}
 {"seed": 3527, "rel": 0.33995626166696025, "iters": 43, "nfev": 49, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3535, "rel": 0.34652469902714794, "iters": 41, "nfev": 72, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3543, "rel": 0.3465246978080205, "iters": 35, "nfev": 49, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3551, "rel": 0.31943212594945225, "iters": 34, "nfev": 35, "spurious": false, "div_rel": 1.0, "sparse_init": true}
+{"seed": 3559, "rel": 0.36401354732898333, "iters": 39, "nfev": 53, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3567, "rel": 0.34652469852472456, "iters": 42, "nfev": 114, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3575, "rel": 0.3640135469725805, "iters": 30, "nfev": 76, "spurious": false, "div_rel": 1.0, "sparse_init": true}
+{"seed": 3583, "rel": 0.34652469927227597, "iters": 30, "nfev": 39, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3591, "rel": 0.3640135476862566, "iters": 40, "nfev": 52, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3599, "rel": 0.3640135471896777, "iters": 51, "nfev": 69, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3607, "rel": 0.3465246990202351, "iters": 41, "nfev": 61, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3615, "rel": 0.36401354730318797, "iters": 46, "nfev": 64, "spurious": false, "div_rel": 1.0, "sparse_init": true}
+{"seed": 3623, "rel": 0.38363817319097937, "iters": 42, "nfev": 72, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3631, "rel": 0.3399562609775678, "iters": 51, "nfev": 71, "spurious": false, "div_rel": 1.0, "sparse_init": false}
+{"seed": 3639, "rel": 0.34432384310173003, "iters": 26, "nfev": 35, "spurious": false, "div_rel": 1.0, "sparse_init": true}

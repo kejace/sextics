@@ -109,3 +109,10 @@ cone4-X1X2Y1Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigo
 edge-20^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2923 (M) / 2924 (aug) of 4060 cols certified 2089.4
 F_Y0*F_Y1 10 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 1975 (M) / 1976 (aug) of 2343 cols certified 575.5
 cone4-X0X1Y0Y1^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2973 (M) / 2974 (aug) of 4060 cols certified 2302.3
+cone4-X0X1X2Y0^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2980 (M) / 2981 (aug) of 4060 cols certified 2318.8
+edge-12^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2926 (M) / 2927 (aug) of 4060 cols certified 2330.3
+cone4-X0X2Y1Y2^2 12 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2975 (M) / 2976 (aug) of 4060 cols certified 2345.3
+F_Y0*F_Y2 10 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 1997 (M) / 1998 (aug) of 2370 cols certified 527.5
+F_Y1*F_Y2 10 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 1983 (M) / 1984 (aug) of 2349 cols certified 520.4
+cone3-X0X1X2^2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2094 (M) / 2095 (aug) of 2881 cols certified 720.0
+cone3-Y0Y1Y2^2 6 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2094 (M) / 2095 (aug) of 2881 cols certified 726.3

@@ -22,3 +22,15 @@
 {"seed": 70021, "mode": "complex", "f": 0.0013502165639261861, "iters": 214, "seconds": 421.45, "name": "hr7mc", "d": 7, "sector": "mixed"}
 {"seed": 70022, "mode": "complex", "f": 0.0012609914806416933, "iters": 125, "seconds": 248.88, "name": "hr7mc", "d": 7, "sector": "mixed"}
 {"seed": 70023, "mode": "complex", "f": 0.0013616904984046262, "iters": 126, "seconds": 247.1, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70012, "mode": "complex", "f": 0.0012944915446019168, "iters": 115, "seconds": 232.54, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70013, "mode": "complex", "f": 0.001175513602011073, "iters": 253, "seconds": 485.77, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70014, "mode": "complex", "f": 0.001258931656831266, "iters": 113, "seconds": 234.17, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70015, "mode": "complex", "f": 0.0011849920205917262, "iters": 284, "seconds": 633.93, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70000, "mode": "complex", "f": 0.0013537546531855863, "iters": 134, "seconds": 304.95, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70001, "mode": "complex", "f": 0.0012701585412789984, "iters": 109, "seconds": 191.57, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70002, "mode": "complex", "f": 0.001067889339272385, "iters": 133, "seconds": 233.84, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70003, "mode": "complex", "f": 0.0008707393181920201, "iters": 500, "seconds": 1057.28, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70044, "mode": "complex", "f": 0.001432561476167453, "iters": 94, "seconds": 159.35, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70045, "mode": "complex", "f": 0.0011938053541896865, "iters": 130, "seconds": 295.41, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70046, "mode": "complex", "f": 0.0012905310880004313, "iters": 136, "seconds": 252.98, "name": "hr7mc", "d": 7, "sector": "mixed"}
+{"seed": 70047, "mode": "complex", "f": 0.00122895476561805, "iters": 147, "seconds": 308.13, "name": "hr7mc", "d": 7, "sector": "mixed"}
