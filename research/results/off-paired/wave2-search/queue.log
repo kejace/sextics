@@ -225,3 +225,4 @@ up: done ['off-paired']
 submit search-off-paired-s2-d10rest: launch ssh timed out after 120 s (job may still have started; check status --name search-off-paired-s2-d10rest)
 04:05:44 d10rest confirmed submitted
 04:06:18 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
+04:08:53 4 running: ['search-off-paired-s2-d10rest', 'search-off-paired-s2-d8gmix', 'search-off-paired-s2-d9h0more', 'search-off-paired-s2-struct-cones']; waiting
