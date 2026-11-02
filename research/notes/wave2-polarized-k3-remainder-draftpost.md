@@ -1,4 +1,4 @@
-# Draft discussion comment for #115 — polarized-k3-remainder (wave-2 exclusion lens; NOT POSTED)
+# Draft discussion comment for #115 — polarized-k3-remainder (wave-2 exclusion lens; NOT POSTED; ready for review)
 
 Status: no certificate; no claim of nonexistence. Independent re-verification of the degree bound, plus a new exact
 exclusion for the K3-sector class that repairs a gap in the "reducible denominators" reasoning. Everything below was
@@ -16,7 +16,8 @@ rationals where stated. Reproduction: `/tmp/hodge/results/polarized-k3-remainder
   combined rank 1779 on 7260 quadratic monomials — all identical to the thread's values at p = 101; projective emptiness replay at p = 65521: all nine charts are the unit ideal and the square reduction
   reproduces the thread's sequence step by step, ending with the same 42 variables and DIM=0, SIZE=1194, VDIM=309. So the bound
   deg D >= 8 now rests on two independent implementations and two primes (101 and 65521).
-* Degree 8, D = f(U)U0^2: exact rank gap 756/757 in the residue-0 block reproduced; the other two blocks are also
+* Degree 8: the 315-parameter relaxation regenerated at p = 65521 (quotient dimension 1050, rank 1050, no squares, same as
+  DEGREE_EIGHT.md); D = f(U)U0^2: exact rank gap 756/757 in the residue-0 block reproduced, and the other two blocks are also
   inconsistent (828/829, 516/517).
 
 **2. New: the K3-sector class alone has no denominator of degree <= 6 (exact).**

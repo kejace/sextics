@@ -4,3 +4,4 @@
 === target=full char=2 Sun Nov  1 10:33:38 PM EST 2026
 [result] {"d": 8, "p": 65521, "target": "full", "gauge": true, "char": 2, "params": 78, "pairs": 3081, "L_generators": 55473, "blocks": [{"r": 0, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "quotient_dim_p": 129, "constraint_rank_p": 117, "seconds": 216.4}, {"r": 1, "rows": 3438, "L_cols": 9711, "L_rank_p": 3258, "quotient_dim_p": 180, "constraint_rank_p": 0, "seconds": 295.7}, {"r": 2, "rows": 3465, "L_cols": 10188, "L_rank_p": 3240, "quotient_dim_p": 225, "constraint_rank_p": 225, "seconds
 [squares-summary] {"killed_mod_p": 36, "params": 78, "killed_Q": null}
+=== target=full char=3 Sun Nov  1 11:18:24 PM EST 2026

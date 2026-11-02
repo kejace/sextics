@@ -1,0 +1,4 @@
+6var d=8 (exact): dim E1-kernel = 480, dim J_d = 336, extra = 144  (25.1s)
+6var d=9 (mod 1000000007): dim E1-kernel = 1144, dim J_d = 756, extra = 388  (54.0s)
+5var d=8 (mod 1000000007): dim (J_f:A)_d = 310, dim (J_f)_d = 175, extra = 135  (57.5s)
+5var d=9 (mod 1000000007): dim (J_f:A)_d = 594, dim (J_f)_d = 350, extra = 244  (65.2s)

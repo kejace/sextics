@@ -1,0 +1,33 @@
+✔ [3025/3026] Built HodgeComputer.Reflection.Kronecker (21s)
+ℹ [3026/3026] Built HodgeComputer.Reflection.KroneckerTest (93s)
+info: HodgeComputer/Reflection/KroneckerTest.lean:442:0: 'HodgeComputer.Kronecker.soundN' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:443:0: 'HodgeComputer.Kronecker.sound4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:444:0: 'HodgeComputer.Kronecker.matchW_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:445:0: 'HodgeComputer.KroneckerTest.small' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:446:0: 'HodgeComputer.KroneckerTest.e1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: HodgeComputer/Reflection/KroneckerTest.lean:447:0: 'HodgeComputer.KroneckerTest.e2' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3026 jobs).
+	Command being timed: "taskset -c 0-3 lake build --wfail HodgeComputer.Reflection.Kronecker HodgeComputer.Reflection.KroneckerTest"
+	User time (seconds): 130.62
+	System time (seconds): 13.24
+	Percent of CPU this job got: 119%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:00.25
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 10918180
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 2777733
+	Voluntary context switches: 44796
+	Involuntary context switches: 23730
+	Swaps: 0
+	File system inputs: 120
+	File system outputs: 19136
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

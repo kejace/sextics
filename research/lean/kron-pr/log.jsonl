@@ -3,3 +3,4 @@
 {"ts":"2026-11-01T23:13:32-05:00","step":"module","msg":"wrote formal/lean/HodgeComputer/Reflection/Kronecker.lean (namespace HodgeComputer.Kronecker, no linter override)"}
 {"ts":"2026-11-01T23:15:16-05:00","step":"build-1","msg":"lake build -j 4 HodgeComputer.Reflection.Kronecker (first attempt)"}
 {"ts":"2026-11-01T23:15:53-05:00","step":"build-2","msg":"taskset -c 0-3 lake build --wfail HodgeComputer.Reflection.Kronecker"}
+{"ts":"2026-11-01T23:17:34-05:00","step":"build-3","msg":"lint fixes applied; taskset -c 0-3 lake build --wfail Kronecker + KroneckerTest"}

@@ -56,3 +56,13 @@ DONE
 [squares] {"remaining": 315, "rank": 956, "forced": []}
 [squares-summary] {"killed_mod_p": 0, "params": 315, "killed_Q": null}
 === [chain3] full-target d=8 relaxation regeneration p=65521 (modular) Sun Nov  1 10:52:02 PM EST 2026
+[quad] d=8 params=315 pairs=49770 in 10.2s
+[block] {"r": 0, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "quotient_dim_p": 129, "constraint_rank_p": 129, "seconds": 194.3}
+[block] {"r": 1, "rows": 3438, "L_cols": 9711, "L_rank_p": 3258, "quotient_dim_p": 180, "constraint_rank_p": 180, "seconds": 239.8}
+[block] {"r": 2, "rows": 3465, "L_cols": 10188, "L_rank_p": 3240, "quotient_dim_p": 225, "constraint_rank_p": 225, "seconds": 252.9}
+[block] {"r": 3, "rows": 3438, "L_cols": 9711, "L_rank_p": 3258, "quotient_dim_p": 180, "constraint_rank_p": 180, "seconds": 160.5}
+[block] {"r": 4, "rows": 3366, "L_cols": 8787, "L_rank_p": 3237, "quotient_dim_p": 129, "constraint_rank_p": 129, "seconds": 137.4}
+[block] {"r": 5, "rows": 3276, "L_cols": 8289, "L_rank_p": 3069, "quotient_dim_p": 207, "constraint_rank_p": 207, "seconds": 137.2}
+[squares] {"remaining": 315, "rank": 1050, "forced": []}
+[squares-summary] {"killed_mod_p": 0, "params": 315, "killed_Q": null}
+=== [chain3] fU*h family exact tests d=8 Sun Nov  1 11:17:26 PM EST 2026

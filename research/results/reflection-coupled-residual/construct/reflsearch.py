@@ -76,7 +76,9 @@ for i in range(n):
     e = dPhi[i].compose(*(v + [gA[k] for k in range(n, len(ALL))]))
     eqs.append(lam[i] - e)
 zero = ctxA.from_dict({})
-for j in range(3):
+NCHARTS = int(os.environ.get('REFL_CHARTS', '3'))
+K1_ONLY = os.environ.get('REFL_K1_ONLY', '0') == '1'
+for j in range(NCHARTS):
     img = []
     for i in range(n):
         if i == j:
@@ -84,7 +86,7 @@ for j in range(3):
         else:
             img.append(lam[j] * z[i])
     img += [gA[k] for k in range(n, len(ALL))]
-    for q in (q1, q3):
+    for q in ((q1,) if K1_ONLY else (q1, q3)):
         qs = q.compose(*img)
         # collect coefficients of z-monomials
         coeffs = {}
@@ -95,7 +97,7 @@ for j in range(3):
             eqs.append(ctxA.from_dict({(0,) * n + r: cf for r, cf in d.items()}))
 # drop zero eqs, dedupe
 eqs = [e for e in eqs if e != zero]
-print(f'[{name}] n={n} unknowns={len(UN)} equations={len(eqs)} built in {time.time()-t0:.1f}s', flush=True)
+print(f'[{name}] n={n} unknowns={len(UN)} equations={len(eqs)} charts={NCHARTS} k1only={K1_ONLY} built in {time.time()-t0:.1f}s', flush=True)
 # write msolve input (only unknown variables)
 def ms_str(e):
     s = []

@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` — lens EXCLUSION / RIGOR
 
-STATUS: in progress — no witness (exclusion lens). Running summary (03:00 EST):
+STATUS: COMPLETE for this session — no witness (exclusion lens); detached jobs (sector chain chars 3/5 + K3 sectors, degree-9 screen) keep appending receipts. Running summary (03:00 EST):
 * Best rigorous bound for A (full target): deg D >= 8 (thread); degrees <= 6 independently REPLICATED exactly (p = 65521 and Q);
   E1 injectivity of [A] through d = 9 RE-VERIFIED at a second prime (2^31-19), both parities; degree-7 exclusion fully replicated at p = 65521 (ranks, 1779, 9 empty charts, 42 variables, DIM 0 / 1194 / 309);
   degree-8 point f(U)U0^2 exact in all 3 blocks; 6 random structured degree-7 members of J exact-inconsistent (both targets).
@@ -212,8 +212,9 @@ degree-7 exclusion is fully REPLICATED at an independent prime with independent 
    grows to 153+153 at degree 9.
 7. Exact structured screens: 6 random homogeneous members of J_7, 5 of J_8 (all characters), members of J_9 (char 0 both targets, char 1 K3) fail
    with rank gap exactly 1 (22 + 3 runs; degree-9 screen continuing detached). Character-1 degree-8 sector: relaxation
-   essentially empty (rank 180/4950) — no universal statement there. [chars 2,3,5 and K3 sectors pending; K3 d=8 relaxation:
-   rank 956/1050, kills nothing; full d=8 regeneration pending.]
+   essentially empty (rank 180/4950) — no universal statement there. Character 2 collapses to Σ U_i f_i(U) q_i(V) + g(V) (42 survivors, 51 residual quadrics); chars 3,5
+   and the K3 sectors run detached. K3 d=8 relaxation: rank 956/1050, kills nothing. Full d=8 relaxation regenerated at p = 65521:
+   quotient 1050, rank 1050, no squares — the thread's DEGREE_EIGHT.md assembly replicated.
 8. Rigor corrections made during the run: a zero MODULAR served-space projection is only evidence (rank mod p is a lower bound);
    all vanishing statements used downstream were recomputed exactly over Q; the "sum principle ⟹ irreducible only" step was
    restated with its exact hypotheses.

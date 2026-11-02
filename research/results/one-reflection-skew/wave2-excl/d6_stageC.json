@@ -1,0 +1,1 @@
+{"alive": [0, 1, 2, 3, 5], "hist": [{"alive": 5, "rank": 9, "npairs": 15, "nquads": 21, "squares_modp": 0, "squares_certified": 0, "monos": 0}], "monos": [], "rank_final": 9, "alive_names": ["d6:(0, 0, 0):0", "d6:(0, 0, 0):1", "d6:(0, 0, 0):2", "d6:(0, 0, 0):3", "d6:(0, 0, 0):5"], "alive_kinds": ["J", "J", "J", "J", "J"], "alive_sectors": ["(0, 0, 0)"]}

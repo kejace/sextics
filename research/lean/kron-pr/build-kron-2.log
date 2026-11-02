@@ -1,0 +1,64 @@
+⚠ [3025/3025] Building HodgeComputer.Reflection.Kronecker (28s)
+trace: .> LEAN_PATH=/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/kejace/devel/sextics-kron/formal/lean/.lake/build/lib/lean /home/kejace/.elan/toolchains/leanprover--lean4---v4.33.0/bin/lean /home/kejace/devel/sextics-kron/formal/lean/HodgeComputer/Reflection/Kronecker.lean -o /home/kejace/devel/sextics-kron/formal/lean/.lake/build/lib/lean/HodgeComputer/Reflection/Kronecker.olean -i /home/kejace/devel/sextics-kron/formal/lean/.lake/build/lib/lean/HodgeComputer/Reflection/Kronecker.ilean -c /home/kejace/devel/sextics-kron/formal/lean/.lake/build/ir/HodgeComputer/Reflection/Kronecker.c --setup /home/kejace/devel/sextics-kron/formal/lean/.lake/build/ir/HodgeComputer/Reflection/Kronecker.setup.json --json
+warning: HodgeComputer/Reflection/Kronecker.lean:89:40: This simp argument is unused:
+  MvPolynomial.map_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [toC, toZ, monoZ, MvPolynomial.map_X]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Reflection/Kronecker.lean:134:48: This simp argument is unused:
+  eval_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [psiRel, toZ, eval_monoZ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Reflection/Kronecker.lean:520:71: Variable name `hQ'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hQ'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: HodgeComputer/Reflection/Kronecker.lean:1028:50: This simp argument is unused:
+  eval_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [psiRel4, toZ, eval_monoZ4, nnVal_ofInt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HodgeComputer/Reflection/Kronecker.lean:1086:18: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Mono.vec]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Some required targets logged failures:
+- HodgeComputer.Reflection.Kronecker
+error: build failed
+Command exited with non-zero status 1
+	Command being timed: "taskset -c 0-3 lake build --wfail HodgeComputer.Reflection.Kronecker"
+	User time (seconds): 49.89
+	System time (seconds): 8.09
+	Percent of CPU this job got: 146%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:39.55
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3652852
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 29944
+	Minor (reclaiming a frame) page faults: 315640
+	Voluntary context switches: 111877
+	Involuntary context switches: 24568
+	Swaps: 0
+	File system inputs: 4391000
+	File system outputs: 16184
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+exit=1

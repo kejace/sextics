@@ -1,0 +1,6 @@
+A done 35 {'J': 35, 'extra': 0} 42.1
+B done 5 [{'alive': 35, 'rank': 236, 'npairs': 420, 'nquads': 494, 'squares_modp': 28, 'squares_certified': 28, 'monos': 70}, {'alive': 7, 'rank': 15, 'npairs': 21, 'nquads': 189, 'squares_modp': 2, 'squares_certified': 2, 'monos': 9}, {'alive': 5, 'rank': 4, 'npairs': 10, 'nquads': 49, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}] 43.5
+C done 5 [{'alive': 5, 'rank': 9, 'npairs': 15, 'nquads': 21, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}] 45.4
+D Macaulay deg3 rank 35/35 (rows 105) EXCLUDED
+D wrote leaf inputs 21 quadrics 5 vars
+ALL DONE 45.4

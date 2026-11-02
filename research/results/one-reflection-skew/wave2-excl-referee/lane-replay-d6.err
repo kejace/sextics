@@ -1,0 +1,53 @@
+sector (0, 0, 0) dimK 7 extra 0
+sector (0, 0, 1) dimK 1 extra 0
+sector (0, 0, 2) dimK 0 extra 0
+sector (0, 0, 3) dimK 0 extra 0
+sector (0, 0, 4) dimK 0 extra 0
+sector (0, 0, 5) dimK 1 extra 0
+sector (0, 3, 0) dimK 0 extra 0
+sector (0, 3, 1) dimK 0 extra 0
+sector (0, 3, 2) dimK 1 extra 0
+sector (0, 3, 3) dimK 6 extra 0
+sector (0, 3, 4) dimK 1 extra 0
+sector (0, 3, 5) dimK 0 extra 0
+sector (3, 0, 0) dimK 0 extra 0
+sector (3, 0, 1) dimK 0 extra 0
+sector (3, 0, 2) dimK 2 extra 0
+sector (3, 0, 3) dimK 6 extra 0
+sector (3, 0, 4) dimK 2 extra 0
+sector (3, 0, 5) dimK 0 extra 0
+sector (3, 3, 0) dimK 6 extra 0
+sector (3, 3, 1) dimK 1 extra 0
+sector (3, 3, 2) dimK 0 extra 0
+sector (3, 3, 3) dimK 0 extra 0
+sector (3, 3, 4) dimK 0 extra 0
+sector (3, 3, 5) dimK 1 extra 0
+{'alive': 35, 'rank': 236, 'npairs': 420, 'nquads': 494, 'squares_modp': 28, 'squares_certified': 28, 'monos': 70}
+{'alive': 7, 'rank': 15, 'npairs': 21, 'nquads': 189, 'squares_modp': 2, 'squares_certified': 2, 'monos': 9}
+{'alive': 5, 'rank': 4, 'npairs': 10, 'nquads': 49, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
+relaxed sector (0, 0, 0) rows 537 cols 61 duals 476
+relaxed sector (0, 0, 1) rows 81 cols 1 duals 80
+relaxed sector (0, 0, 2) rows 141 cols 6 duals 135
+relaxed sector (0, 0, 3) rows 183 cols 8 duals 175
+relaxed sector (0, 0, 4) rows 288 cols 22 duals 266
+relaxed sector (0, 0, 5) rows 366 cols 30 duals 336
+relaxed sector (0, 3, 0) rows 183 cols 8 duals 175
+relaxed sector (0, 3, 1) rows 261 cols 16 duals 245
+relaxed sector (0, 3, 2) rows 366 cols 30 duals 336
+relaxed sector (0, 3, 3) rows 498 cols 50 duals 448
+relaxed sector (0, 3, 4) rows 81 cols 1 duals 80
+relaxed sector (0, 3, 5) rows 123 cols 3 duals 120
+relaxed sector (3, 0, 0) rows 201 cols 11 duals 190
+relaxed sector (3, 0, 1) rows 261 cols 16 duals 245
+relaxed sector (3, 0, 2) rows 393 cols 36 duals 357
+relaxed sector (3, 0, 3) rows 498 cols 50 duals 448
+relaxed sector (3, 0, 4) rows 92 cols 2 duals 90
+relaxed sector (3, 0, 5) rows 123 cols 3 duals 120
+relaxed sector (3, 3, 0) rows 498 cols 260 duals 295
+relaxed sector (3, 3, 1) rows 81 cols 1 duals 80
+relaxed sector (3, 3, 2) rows 123 cols 3 duals 120
+relaxed sector (3, 3, 3) rows 183 cols 8 duals 175
+relaxed sector (3, 3, 4) rows 261 cols 16 duals 245
+relaxed sector (3, 3, 5) rows 366 cols 30 duals 336
+relaxed: correction columns 210
+{'alive': 5, 'rank': 9, 'npairs': 15, 'nquads': 21, 'squares_modp': 0, 'squares_certified': 0, 'monos': 0}
