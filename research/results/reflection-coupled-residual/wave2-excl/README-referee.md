@@ -57,8 +57,9 @@ Singular -q ref_smooth.sing                                         # smoothness
 * A*K8 = sum N_i F_i holds exactly over Q (37-term K8, N_i with 28/65/42/56/23/0 terms); K8 not in J_8 (mod p, good reduction).
 * Degree 5: 20 nonzero Hessian pairs, rank 20 mod J_10.  Degree 6: W = 35, 345 independent quadrics, GB 709, quotient 1060,
   HF 1,35,285,477,225,36,1,0.  Degree 7: (1,1) 18/117 -> quotient 85, HF 1,18,54,12,0; (1,0) 22/132 -> 239, HF 1,22,121,83,12,0;
-  (0,1) 38/281 -> 1109, HF 1,38,460,556,54,0; (0,0) 42/274 and the pair (1,0)+(1,1) 40/300: see `ref_gb.jsonl` for the referee runs
-  (the lane's own runs: (0,0) quotient 3028, HF 1,42,629,1986,359,11,0 in 4224 s; pair quotient 4399).
+  (0,1) 38/281 -> 1109, HF 1,38,460,556,54,0; pair (1,0)+(1,1) 40/300 -> quotient 4399, HF 1,40,520,1543,1695,567,33,0 (64 s);
+  (0,0) 42/274: the lane's run gives quotient 3028, HF 1,42,629,1986,359,11,0 (4224 s at 2147483587); the referee run at 10^9+21 is
+  recorded in `ref_gb.jsonl` when finished (it was still running when the post was written).
 * K8 fixed-D: restricted system 22016 x 4256, 482 a-priori kernel vectors of rank 476, rank_p(M_sub) = 3780 = 4256 - 476,
   rank_p([M|b]_sub) = 3781: inconsistent over Q and C.
 * Smoothness (Singular, p = 1000003): X: dim 0, vdim 15625 = 5^6; all six sections: dim 0, vdim 3125 = 5^5.

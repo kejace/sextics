@@ -1,1 +1,1 @@
-[ctrl_fermat5] n=5 unknowns=9 equations=233 built in 0.5s
+[ctrl_fermat5] n=5 unknowns=9 equations=117 charts=2 k1only=True built in 0.1s

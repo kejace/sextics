@@ -22,3 +22,6 @@
 [stage1 d=8] restart 2: rel=1.761e-06 |B|=3.111e+01 nfev=200 (3348s)
 [stage1 d=8] restart 2: rel=1.082e-06 |B|=2.632e+01 nfev=188 (3423s)
 [stage1 d=8] restart 2: rel=2.218e-06 |B|=2.155e+01 nfev=189 (3480s)
+[stage1 d=8] restart 2: rel=1.975e-06 |B|=2.234e+01 nfev=200 (3533s)
+[stage1 d=8] restart 2: rel=1.030e-06 |B|=2.700e+01 nfev=198 (3770s)
+[stage1 d=8] restart 3: rel=3.130e-06 |B|=3.211e+01 nfev=200 (3940s)

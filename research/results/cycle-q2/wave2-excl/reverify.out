@@ -124,3 +124,5 @@ cone3q-X0X2Y0 4 inconsistent mod p1; exact Farkas certificate verified (rigorous
 cone3q-X0X1X2 4 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2738 (M) / 2739 (aug) of 3363 cols certified 1098.2
 cone3q-X1Y0Y1 4 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 906 (M) / 907 (aug) of 1113 cols certified 55.0
 cone3q-X0X2Y1 4 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2738 (M) / 2739 (aug) of 3363 cols certified 960.7
+cone3q-X0X2Y2 4 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2719 (M) / 2720 (aug) of 3363 cols certified 1044.5
+cone3q-X0Y0Y1 4 inconsistent mod p1; exact Farkas certificate verified (rigorous over C) 2719 (M) / 2720 (aug) of 3363 cols certified 1057.6

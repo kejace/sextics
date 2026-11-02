@@ -1,2 +1,7 @@
 [hodge engine v3] NOTE: engine v2 (2026-11-01 17:25) fixed a sign bug in the F*N(D) term; results from before that time must be recomputed.  Engine v3 (2026-11-02 00:55 UTC) reports rank/nullity of the COEFFICIENT matrix for inconsistent systems (v2 reported the augmented rank, i.e. rank+1 / nullity-1; consistency verdicts and all consistent-case numbers were already correct).  Record "engine": 3 in your logs from now on.
 [E2Float d=9 pD=0] rows=16797 n_c=1890 n_C=3080 nN=9009 n_red=13717 col_nnz=19083600 built 12.6s
+[E1Family d=9 pD=0] Jm (7752, 9009) rank=7129 ring_dim=623 gap=(0.13958011339358556, 2.377657299141924e-13) K=406 C_gap=(0.3367117555245884, 0.33414583672024645) e1_rel=1.69e-11 (1015.0s)
+[family] kernel-mixed: {'K': 30, 'K_full': 406, 'dim_J_d': 378, 'dim_ybase_span': 138, 'sv_gap': [2.33725049879316e-07, 3.714817655810421e-08]}
+[family] F-multiples not inside family (fit 1.00e+00) -> no spurious directions removed
+[search] d=9 pD=0 K=30 spurious=0 n_u=30 n_c=1890 rows_red=13717 rows=16797 build 1015.5s
+[search] generic reduced Koszul rank {'Mred_shape': [13717, 1890], 'rank': 1530, 'nullity': 360, 'sv_min_kept': 14.578559903741676, 'sv_next': 2.439060713232608e-10, 'sv_max': 2104585.9711744706}

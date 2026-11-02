@@ -1,14 +1,31 @@
 #!/usr/bin/env python3
-"""Verdict for an `msolve -g 1` leading-ideal output of a HOMOGENEOUS ideal I over F_p.
+"""Verdict for an msolve Groebner output (`-g 1` leading ideal, or `-g 2` reduced basis) of a HOMOGENEOUS ideal I over F_p.
 
 V(I) = {0} over the algebraic closure of F_p  <=>  the leading (initial) ideal of I contains a pure power of every
 variable (a monomial ideal is m-primary iff it contains a pure power of each variable, and in(I) and I share the
-Hilbert function).  Usage: wave3_verdict.py <input.ms> <output.lead> <msolve-rc>   -> prints one JSON object.
-Adapted from /tmp/hodge/results/quadric-contact-residual/wave2-excl/msverdict.py (wave 2)."""
+Hilbert function).  Usage: wave3_verdict.py <input.ms> <output.lead|.gb> <msolve-rc>   -> prints one JSON object.
+For `-g 2` files each basis element is printed with its grevlex leading term first ("1*w21^2+..."), so the leading
+monomial is the first term with its coefficient stripped.  Adapted from
+/tmp/hodge/results/quadric-contact-residual/wave2-excl/msverdict.py (wave 2)."""
 import sys, re, os, json
 
 
-def verdict(ms_file, lead_file, rc):
+def leading_monomials(txt):
+    m = re.search(r'\[(.*)\]', txt, re.S)
+    if not m:
+        return None
+    body = m.group(1).replace('\n', '')
+    elems = [s.strip() for s in body.split(',') if s.strip()]
+    leads = []
+    for e in elems:
+        first = e.split('+')[0].strip()           # leading term (coefficients mod p are printed positive)
+        first = re.sub(r'^\d+\*', '', first)      # strip coefficient
+        first = re.sub(r'^-', '', first)
+        leads.append(first)
+    return leads
+
+
+def verdict(ms_file, out_file, rc):
     res = {}
     try:
         vars_ = open(ms_file).readline().strip().split(',')
@@ -17,13 +34,13 @@ def verdict(ms_file, lead_file, rc):
             f.readline(); res['prime'] = f.readline().strip(); res['n_polys'] = sum(1 for _ in f)
     except Exception as e:
         return {'verdict': 'input-unreadable', 'error': str(e)}
-    if rc != 0 or not os.path.exists(lead_file) or os.path.getsize(lead_file) == 0:
+    if rc != 0 or not os.path.exists(out_file) or os.path.getsize(out_file) == 0:
         res['verdict'] = 'msolve-failed-or-timeout'; return res
-    txt = open(lead_file).read()
-    m = re.search(r'\[(.*)\]', txt, re.S)
-    if not m:
+    txt = open(out_file).read()
+    res['output_kind'] = 'leading-ideal' if 'Leading ideal' in txt[:200] else ('reduced-GB' if 'Groebner basis' in txt[:200] else 'unknown')
+    lead = leading_monomials(txt)
+    if lead is None:
         res['verdict'] = 'unparsed'; return res
-    lead = [s.strip() for s in m.group(1).replace('\n', '').split(',') if s.strip()]
     res['n_lead'] = len(lead)
     if lead == ['1']:
         res['verdict'] = 'UNIT-IDEAL (impossible for a homogeneous ideal; check input)'; return res

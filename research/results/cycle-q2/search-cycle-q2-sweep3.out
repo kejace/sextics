@@ -212,3 +212,25 @@
   block-cubic^2 d=12 e1=True cons=False rk=2587 162.37s X2^6 - Y2^6 squared 
   F_i*F_j d=10 e1=True cons=False rk=1714 46.25s F_X0*F_X0 
   F_i*F_j d=10 e1=True cons=False rk=1957 55.31s F_X0*F_X1 
+  F_i*F_j d=10 e1=True cons=False rk=1965 70.15s F_X0*F_X2 
+  pair-fermat-product d=12 e1=True cons=False rk=2998 190.6s (X0^6+Y0^6)(X2^6+Y2^6) 
+  F_i*F_j d=10 e1=True cons=False rk=1959 47.77s F_X0*F_Y0 
+  F_i*F_j d=10 e1=True cons=False rk=1986 61.31s F_X0*F_Y2 
+  pair-fermat-product d=12 e1=True cons=False rk=2995 234.7s (X0^6+Y0^6)(X1^6+Y1^6) 
+  F_i*F_j d=10 e1=True cons=False rk=1694 61.56s F_X1*F_X1 
+  F_i*F_j d=10 e1=True cons=False rk=1973 78.05s F_X0*F_Y1 
+  pair-fermat-product d=12 e1=True cons=False rk=2995 204.42s (X1^6+Y1^6)(X2^6+Y2^6) 
+  F_i*F_j d=10 e1=True cons=False rk=1957 19.81s F_X1*F_Y1 
+  F_i*F_j d=10 e1=True cons=False rk=1950 42.48s F_X1*F_X2 
+  F_i*F_j d=10 e1=True cons=False rk=1974 81.86s F_X1*F_Y0 
+  F_i*F_j d=10 e1=True cons=False rk=1956 48.48s F_X2*F_Y0 
+  F_i*F_j d=10 e1=True cons=False rk=1980 74.01s F_X1*F_Y2 
+  F_i*F_j d=10 e1=True cons=False rk=1690 85.22s F_X2*F_X2 
+  F_i*F_j d=10 e1=True cons=False rk=1959 70.18s F_X2*F_Y1 
+  F_i*F_j d=10 e1=True cons=False rk=1724 51.48s F_Y0*F_Y0 
+  F_i*F_j d=10 e1=True cons=False rk=1701 32.44s F_Y1*F_Y1 
+  F_i*F_j d=10 e1=True cons=False rk=1945 63.11s F_X2*F_Y2 
+  F_i*F_j d=10 e1=True cons=False rk=1997 52.71s F_Y0*F_Y2 
+  F_i*F_j d=10 e1=True cons=False rk=1975 72.58s F_Y0*F_Y1 
+  F_i*F_j d=10 e1=True cons=False rk=1983 36.19s F_Y1*F_Y2 
+  F_i*F_j d=10 e1=True cons=False rk=1718 41.85s F_Y2*F_Y2 

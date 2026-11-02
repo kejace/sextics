@@ -10,3 +10,8 @@
 [stage1 d=8] restart 0: rel=1.867e-06 |B|=3.346e+01 nfev=200 (1314s)
 [stage1 d=8] restart 0: rel=2.283e-06 |B|=2.909e+01 nfev=200 (1345s)
 [stage1 d=8] restart 1: rel=1.501e-06 |B|=3.595e+01 nfev=144 (1771s)
+[stage1 d=8] restart 1: rel=1.179e-06 |B|=3.757e+01 nfev=105 (1936s)
+[stage1 d=8] restart 1: rel=1.503e-06 |B|=3.445e+01 nfev=200 (2049s)
+[stage1 d=8] restart 1: rel=1.250e-06 |B|=3.808e+01 nfev=200 (2118s)
+[stage1 d=8] restart 1: rel=2.381e-06 |B|=2.908e+01 nfev=200 (2283s)
+[stage1 d=8] restart 1: rel=1.732e-06 |B|=3.946e+01 nfev=200 (2374s)

@@ -3,3 +3,5 @@
 [jvp d=8] K=168 (w 168) dimP=159 nout=10152 rJ=468 nc=936 nQ=1491 k=1136 built in 1449.9s
 [refine1 d=8] seed 0: rel 1.002e-06 -> 9.571e-07 nfev=149 status=3 (182s)
 [refine1 d=8] seed 1: rel 1.002e-06 -> 9.571e-07 nfev=152 status=3 (190s)
+[refine1 d=8] seed 2: rel 1.030e-06 -> 1.031e-06 nfev=345 status=3 (439s)
+[refine1 d=8] seed 3: rel 1.082e-06 -> 1.082e-06 nfev=113 status=3 (143s)
