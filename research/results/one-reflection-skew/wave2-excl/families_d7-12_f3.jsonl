@@ -1389,3 +1389,4 @@
 {"name": "c1*cq*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5455, "rank_aug": 5456, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 6639.08}
 {"name": "c1*q2*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5581, "rank_aug": 5582, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 6273.27}
 {"name": "cq*q2*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5581, "rank_aug": 5582, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 3391.78}
+{"name": "q2*q2*f", "d": 12, "chi": [0, 0, 0], "e1": true, "status": "EXCLUDED-exact", "rank": 5331, "rank_aug": 5332, "nN": 3882, "nQ": 2313, "rows": 9722, "seconds": 3870.79}

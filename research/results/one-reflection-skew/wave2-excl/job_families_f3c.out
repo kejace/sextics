@@ -123,3 +123,5 @@ cq*cq*f 12 EXCLUDED-exact 3088.85
 c1*cq*f 12 EXCLUDED-exact 6639.08
 c1*q2*f 12 EXCLUDED-exact 6273.27
 cq*q2*f 12 EXCLUDED-exact 3391.78
+q2*q2*f 12 EXCLUDED-exact 3870.79
+DONE 30205.8
