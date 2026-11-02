@@ -1,6 +1,6 @@
 # Wave 2 — quadric-contact-residual — SEARCH lens (joint (D,N,Q) search)
 
-STATUS: NO WITNESS. Updated 2026-11-02 00:58 local. Batches logged: 577 (359 varpro sector batches, 3 Hessian-relaxation batches, 6 E1 profiles, 203 structured candidates); random restarts so far: 13876; best full-E2 relative residual: 6.34e-07.
+STATUS: NO WITNESS. Updated 2026-11-02 01:17 local. Batches logged: 577 (359 varpro sector batches, 3 Hessian-relaxation batches, 6 E1 profiles, 203 structured candidates); random restarts so far: 13876; best full-E2 relative residual: 6.34e-07.
 
 Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residue character trivial on G_aff (order 48), odd under s0 (X0<->Y0) and r1 (X1<->Y1). Prior rigorous exclusions (fqlx #125, replicated in wave 1): deg D <= 6; deg 7 in every pure parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.
 
