@@ -119,16 +119,22 @@ vdim 7 in both parities): no denominator in the kernel span itself works. K_9^+/
   τ-quotient discriminant curve, a non-domination lemma for X/τ.
 * sibling excl instance: excl-spp-quad6/7/8 (Gröbner on the unsliced relaxations; no output yet after >1 h).
 
-## 3. Open / queued
-* exclB-spp-relax-mixed (queued): exact D7^± + exact dependency certificates for mixed d=6; second prime; mixed d=7 by (R4).
-* exclB-spp-kernel (queued): exact D7^±, K_8/K_9 generation by K_7, λ-only sub-families at d=8,9.
-* exclB-spp-relax-d7 (queued): d=7 even/odd pure relaxation (61 unknowns + λ) with p = 1073741789, msolve + Singular.
-* The remote is saturated (load ≈ 800 on 128 cores, ≈ 90 jobs); submissions wait for admission.
+## 3. Still running on the remote when this report was closed (results land in the remote lane dir
+`/tmp/hodge/results/short-power-presentation/` and in its `wave2-excl.log.jsonl`; merge with `rjob sh -- cat ...`)
+* `excl_residual_d7e_p0.msolve.log` / `.lead`: msolve (16 threads) on the 42-unknown d = 7 Y-even residual; F4 degrees 3, 4
+  done (897 s), degree 5 linear algebra done (959426 × 685669, 6607 new elements); if it terminates with every variable
+  having a pure power in the leading ideal, the d = 7 Y-even case is closed mod p. Singular backup: `excl_residual_d7e_p0.sing.out`.
+* `exclB-spp-certify7e.out`: exact rational dependency certificates for the λ, w3, w4, w5 elimination steps (λ first;
+  lifts need > 5 primes; up to 12 provided). Result lines: `exp` = block-elimination-exact-certificate / -certified.
+* `exclB-spp-blocks2.out`: d = 7 odd residual Gröbner, then d = 7 mixed and d = 8 even/odd block eliminations.
+* `exclB-spp-relax-mixed.out`: d = 7 mixed by (R4) (x/y-side functional systems; running since 01:54 UTC).
+* `exclB-spp-kernel2.out`: K_9^-/J, λ-only sub-families at d = 9.
+Local attempts of the residual Gröbner were OOM-killed (brunos had no free memory).
 * d=8 pure: ~162 unknowns / 468 quadrics — semi-regular estimate puts the Gröbner regularity near 10 (infeasible);
   will be attempted only if the d=7 systems turn out much easier than generic.
 
 
-## 4. Summary for the orchestrator (updated as results arrive)
+## 4. Summary for the orchestrator (state at 2026-11-01 23:05 local)
 1. Best rigorous bound: **deg D ≥ 7 for every certificate denominator, any Y-parity** (E1 kernels zero through d = 6
    with four primes + Hilbert check; E2 relaxations m-primary for d ≤ 6 Y-pure; mixed d = 6 by exact-certified
    annihilator functionals).

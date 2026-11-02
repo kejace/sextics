@@ -1,6 +1,6 @@
 # Wave 2 — quadric-contact-residual — SEARCH lens (joint (D,N,Q) search)
 
-STATUS: NO WITNESS. Updated 2026-11-01 22:39 local. Batches logged: 213 (38 varpro sector batches, 2 Hessian-relaxation batches, 6 E1 profiles, 161 structured candidates); random restarts so far: 6145; best full-E2 relative residual: 6.34e-07.
+STATUS: NO WITNESS. Updated 2026-11-01 22:58 local. Batches logged: 216 (39 varpro sector batches, 2 Hessian-relaxation batches, 6 E1 profiles, 163 structured candidates); random restarts so far: 6243; best full-E2 relative residual: 6.34e-07.
 
 Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residue character trivial on G_aff (order 48), odd under s0 (X0<->Y0) and r1 (X1<->Y1). Prior rigorous exclusions (fqlx #125, replicated in wave 1): deg D <= 6; deg 7 in every pure parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.
 
@@ -22,7 +22,7 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
 * `excl-lattice7` (submitted 2026-11-01T21:26:18): `cd wave2-excl && bash lattice7.sh`
   - search-quadric-contact-residual-e1prof.log: last line: `{"task": "e1-profile", "d": 11, "n_sectors": 24, "tot_dimS": 4368, "tot_dimJ": 2682, "tot_kernel": 3702, "tot_extra": 1020, "tot_gauge": 252, "per_sector_extra"`
   - search-quadric-contact-residual-pipeA.log: last line: `[koszul-varpro] d=9 chi=0011 K=41 rows=1356 cols=427 (K 187, Q 240) Mstack nnz=275283 Vstack nnz=12423 dimP=38 excluded=3 built 1.2s`
-  - search-quadric-contact-residual-pipeA2.log: last line: `{"task": "varpro", "`
+  - search-quadric-contact-residual-pipeA2.log: last line: `{"task": "varpro", "d": 9, "chi": "1000", "mode": "gens", "tag": "w2a", "vars": null, "dimS": 117, "dim_kernel": 58, "dimJ": 58, "n_extra": 0, "dim_gauge": 6, "`
   - search-quadric-contact-residual-pipeB.log: last line: `=== 2026-11-02 00:47:52 w2_hess.py --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e`
   - search-quadric-contact-residual-pipeB2.log: last line: `=== 2026-11-02 03:00:57 w2_hess.py --d 7 --parity 1 --restarts 1500 --procs 8 --seed 12 --tag hd7o`
   - search-quadric-contact-residual-pipeC.log: last line: `=== 2026-11-02 03:19:45 w2_struct.py 10`
@@ -97,6 +97,7 @@ Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian 
 | w2a | 9 | 0121 | - | 20 | 19 | 1356 | 118+240 | 0.0346 | 114 | 0 | 0.03835 | 0.03835 | 0 | 0 | 45.7 | 124.1 |
 | w2a | 9 | 0140 | - | 20 | 19 | 1356 | 118+240 | 0.0256 | 114 | 0 | 0.0387 | 0.0387 | 0 | 0 | 43.71 | 121.7 |
 | w2a | 9 | 0141 | - | 20 | 19 | 1356 | 118+240 | 0.0266 | 114 | 0 | 0.03835 | 0.03835 | 0 | 0 | 45.04 | 114.8 |
+| w2a | 9 | 1000 | - | 58 | 52 | 1611 | 234+332 | 0.0808 | 98 | 0 | 8.44e-04 | 0.006893 | 0 | 0 | 296.5 | 1501.1 |
 
 Reconstruction attempts (rel < 1e-10): 0
 
@@ -272,11 +273,13 @@ Reconstruction attempts (rel < 1e-10): 0
 | 8 | pol_r1+*pol_r1- | None | False | None | 5052 | 954 | NonexNone | 177.1 |
 | 8 | pol_s0+*pol_s0- | 0000 | True | False | 718 | 109 | 3720x827 | 5.3 |
 | 10 | D8* * S0 | 0000 | True | False | 1666 | 268 | 7639x1934 | 34.1 |
+| 10 | D8r * S0 | None | False | None | 9684 | 3420 | NonexNone | 1240.6 |
+| 10 | D8* * X0^2 | 0000 | True | False | 1666 | 268 | 7639x1934 | 33.9 |
 
 ## Best residual landscape (full-E2 rel, log10 histogram of local minima over all restarts)
 
 * d=8: 1e-3: 452, 1e-2: 1854, 1e-1: 863
-* d=9: 1e-7: 120, 1e-4: 316, 1e-3: 284, 1e-2: 751, 1e-1: 1
+* d=9: 1e-7: 120, 1e-4: 317, 1e-3: 381, 1e-2: 751, 1e-1: 1
 
 Reading: a genuine witness in a family shows up as rel ~ 1e-14..1e-12 (float64 floor); the smallest values seen so far are listed above; all minima are separated from the floor by many orders of magnitude unless stated otherwise.
 

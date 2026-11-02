@@ -36,3 +36,12 @@ Engine: `~/devel/sextics-work/hodge` (core.load_instance, python-flint nmod_mat)
 Every log line (`/tmp/hodge/results/short-power-presentation/wave2-excl.log.jsonl`) records exp, d, parity, prime,
 ranks/Hilbert data, seconds, job name.  The derivation of the relaxation and the rigor framework are in
 `/tmp/hodge/notes/wave2-short-power-presentation-excl.md` §0.
+
+## Pending (remote) outputs at closing time
+`excl_residual_d7e_p0.{ms,lead,msolve.log,sing.out}` (d = 7 Y-even residual Gröbner), `exclB-spp-certify7e.out`
+(exact certificates, `excl_certify.py 7 e`), `exclB-spp-blocks2.out` (d = 7 odd/mixed, d = 8 block eliminations),
+`exclB-spp-relax-mixed.out` (d = 7 mixed by R4), `exclB-spp-kernel2.out` (K_9, λ-only d = 9) — all in the remote
+lane directory; their log lines are appended to the remote `wave2-excl.log.jsonl`.
+Caveat on verdict strings: a `block-elimination` record with `result = residual-not-empty` and an EMPTY msolve output
+(`msolve_hilbert` = [1, n, ...] with no leading monomials) means the residual Gröbner step died (memory), not that
+solutions exist.

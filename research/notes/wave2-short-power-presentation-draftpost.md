@@ -32,9 +32,13 @@ then `w^+ = 0` by the Y-even case. **Hence every certificate denominator has deg
 **3. Degree 7, Y-even (partly proven).** Here `D = λ·D7^+ + w(F)`. Block elimination by the same functional trick
 (the Hessian of a sum of eight sixth powers has rank ≤ 8, so the six component blocks of `w` are coupled only through
 two small cross spans) shows mod 1073741789 that `λ = 0` — no degree-7 Y-even denominator involves the kernel class —
-and that the 18 coefficients `w_{k, X_i Y_j}` (`j ≠ k`) of the Y-components vanish; a residual quadratic system in the
-remaining 42 coefficients (231 independent quadrics; all random slices of codimension ≤ 11 empty) is under Gröbner
-computation. [TODO: final verdict, exact certificates, odd and mixed d = 7.]
+and that the 18 coefficients `w_{k, X_i Y_j}` (`j ≠ k`) of the Y-components vanish; for Y-odd `D = λ·D7^- + w(F)`
+the mirror statement holds (`λ = 0`, the X-component blocks vanish). What remains at degree 7 is a residual quadratic
+system in 42 coefficients (231 independent quadrics; every random slice of codimension ≤ 11 is empty; msolve's F4 passes
+degree 5 with a 959426 × 685669 matrix) — its Gröbner basis and the exact rational certificates for the eliminating
+steps are still running when this is written. The kernel classes themselves are excluded at degree 8 too: the relaxed
+defect ideal of `D ∈ span(K_8^±/J)` is m-primary (vdim 7, both parities), and `K_8^- = S_1·K_7`, `K_8^+ ⊋ S_1·K_7`
+(two new even classes), `K_9^+/J` has dimension 18 with `S_2·K_7` spanning 15.
 
 **4. What is screened only.** The full fixed-`D` system for `D7^+` is inconsistent mod p (search lens), but its
 homogeneous solution space is 6 larger than the explicitly known one, so this single test is modular evidence; the

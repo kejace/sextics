@@ -71,4 +71,28 @@ if 'V3' in which:
         T = 27*G2*Gijk - 18*G*(Gi[i]*H[j][k] + Gi[j]*H[i][k] + Gi[k]*H[i][j]) + 30*Gi[i]*Gi[j]*Gi[k]
         polys.append(T)
     write('V3_reflection', polys, 'cubic Taylor term at e vanishes on the polar hyperplane: necessary for G even in a linear form (linear reflection)')
+
+if 'Vr3' in which or 'Vr4' in which:
+    import flint as _fl
+    def minor(rows_, cols_):
+        M = _fl.fmpz_mpoly_vec([H[x][y] for x in rows_ for y in cols_], ctx)
+        n = len(rows_)
+        # Laplace expansion along first row (n <= 5)
+        def det(mat):
+            m_ = len(mat)
+            if m_ == 1: return mat[0][0]
+            tot = ctx.from_dict({})
+            for j in range(m_):
+                sub = [row[:j] + row[j+1:] for row in mat[1:]]
+                term = mat[0][j] * det(sub)
+                tot = tot + term if j % 2 == 0 else tot - term
+            return tot
+        return det([[H[x][y] for y in cols_] for x in rows_])
+    if 'Vr3' in which:
+        polys = [minor(r, c) for r in itertools.combinations(range(6), 4) for c in itertools.combinations(range(6), 4) if r <= c]
+        write('Vr3_hessrank3', polys, '4x4 minors of Hess G (r<=c): rank<=3 locus (age<1 elements with fixed codim 3)')
+    if 'Vr4' in which:
+        polys = [minor(r, c) for r in itertools.combinations(range(6), 5) for c in itertools.combinations(range(6), 5) if r <= c]
+        write('Vr4_hessrank4', polys, '5x5 minors of Hess G (r<=c): rank<=4 locus; need dim <= 2 (age<1 elements with fixed codim 2)')
+
 print('done', round(time.time()-t0,1), 's')

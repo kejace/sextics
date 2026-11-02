@@ -130,6 +130,32 @@
   ]
  },
  {
+  "file": "w2-pt-d9-j9ops.jsonl",
+  "d": 9,
+  "tag": "j9ops",
+  "family": "jac-d9-odd+21extra|pD1|sector+1",
+  "restarts": 1,
+  "best_rel": 0.00902002479513374,
+  "median_rel": 0.00902002479513374,
+  "best_rel_abs": 9.228817389726105e-05,
+  "iters_median": 307,
+  "iters_max": 307,
+  "sec_per_restart": 3962.0,
+  "hist_log10": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0
+  ]
+ },
+ {
   "file": "w2-pt-d9-j9x3.jsonl",
   "d": 9,
   "tag": "j9x3",

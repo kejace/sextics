@@ -1,1 +1,3 @@
 {"ts":"2026-11-02T03:56:49Z","step":"start","task":"wave3 construction synthesis","out":"/tmp/hodge/notes/wave3-construction-ranking.md"}
+{"ts":"2026-11-02T03:58:17Z","step":"read","done":["theory-*","trio","small-construct-stubs","cycle-q2 parts1-5","dense-rational parts1-4","construct jsonl tails"],"next":"persisted chunks: cyclic-triple, diag+eight-plane, off-paired, polarized/reflection/short-power, probes"}
+{"ts":"2026-11-02T03:58:53Z","step":"read","done":["cyclic-triple parts1-6","diag-perm","eight-plane parts1-3","off-paired parts1-4","polarized-k3","reflection-coupled","short-power","probes","formal README"],"next":"status aggregator per-lane construct sections, book maps, accepted catalogue structure, referee reports, attack1 stubs"}

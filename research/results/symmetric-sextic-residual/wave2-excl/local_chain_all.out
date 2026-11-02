@@ -1,0 +1,12 @@
+[E1Family] d=8 pD=0 p=2147483647 rows=5796 nA=651 nJ=6006 nullity=1128 dimK=174 dimJd=168 ker_R=6 (CI dimJd 168) 204.2s
+[Reducer] deg=8 par=0 p=2147483647 mons=651 gens=168 rank=168 (CI 168) ring=483 0.3s
+{"exp": "kernel-structure", "d": 8, "pD": 0, "prime": 2147483647, "ker_R": 6, "rank_kernel_in_R": 6, "rank_D7multiples_in_R": 4, "rank_union": 6, "kernel_generated_by_D7_D7Y": false, "new_directions": 2, "seconds": 206.0, "job": "kernel-structure"}
+[E1Family] d=8 pD=1 p=2147483647 rows=5832 nA=636 nJ=6006 nullity=1110 dimK=174 dimJd=168 ker_R=6 (CI dimJd 168) 294.7s
+[Reducer] deg=8 par=1 p=2147483647 mons=636 gens=168 rank=168 (CI 168) ring=468 1.0s
+{"exp": "kernel-structure", "d": 8, "pD": 1, "prime": 2147483647, "ker_R": 6, "rank_kernel_in_R": 6, "rank_D7multiples_in_R": 6, "rank_union": 6, "kernel_generated_by_D7_D7Y": true, "new_directions": 0, "seconds": 302.2, "job": "kernel-structure"}
+[E1Family] d=9 pD=0 p=2147483647 rows=7752 nA=1001 nJ=9009 nullity=2302 dimK=422 dimJd=378 ker_R=44 (CI dimJd 378) 649.4s
+[Reducer] deg=9 par=0 p=2147483647 mons=1001 gens=378 rank=378 (CI 378) ring=623 0.9s
+{"exp": "kernel-structure", "d": 9, "pD": 0, "prime": 2147483647, "ker_R": 44, "rank_kernel_in_R": 44, "rank_D7multiples_in_R": 15, "rank_union": 44, "kernel_generated_by_D7_D7Y": false, "new_directions": 29, "seconds": 657.1, "job": "kernel-structure"}
+[E1Family] d=9 pD=1 p=2147483647 rows=7752 nA=1001 nJ=9009 nullity=2302 dimK=422 dimJd=378 ker_R=44 (CI dimJd 378) 762.0s
+[Reducer] deg=9 par=1 p=2147483647 mons=1001 gens=378 rank=378 (CI 378) ring=623 2.3s
+{"exp": "kernel-structure", "d": 9, "pD": 1, "prime": 2147483647, "ker_R": 44, "rank_kernel_in_R": 44, "rank_D7multiples_in_R": 15, "rank_union": 44, "kernel_generated_by_D7_D7Y": false, "new_directions": 29, "seconds": 769.4, "job": "kernel-structure"}

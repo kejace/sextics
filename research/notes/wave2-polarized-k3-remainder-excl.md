@@ -223,3 +223,8 @@ degree-7 exclusion is fully REPLICATED at an independent prime with independent 
 10. Packet: /tmp/hodge/results/polarized-k3-remainder/wave2-excl/ (README with replay recipe + glossary, 17 scripts, ~40 JSON/JSONL
     receipts); log wave2-excl.log.jsonl (~75 entries); report /tmp/hodge/notes/wave2-polarized-k3-remainder-excl.md; draft post
     /tmp/hodge/notes/wave2-polarized-k3-remainder-draftpost.md. No witness; no claim of nonexistence.
+Character 2 (full target, 78 gauged parameters): constraint rank 291; square elimination kills 36 in four rounds; the 42 survivors
+are a_i = U_i·q_i(V) (q_i quadrics, i < 3) and pure-V cubics for i ≥ 3 (10, 10, 4 after the gauge), i.e.
+D = Σ_{i<3} U_i f_i(U) q_i(V) + g(V) with g ∈ J(f)_8 — the swap-mirror of the character-0 cone family plus a mixed
+"U-Euler ⊗ V-quadric" piece; 51 residual quadrics (Singular dim/degree running).  The pure-V cone part is excluded by the
+product-divisor argument (R9); the mixed part needs the residual analysis.

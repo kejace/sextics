@@ -1,0 +1,1 @@
+{"exp": "ref-hess-export", "d": 7, "p": 1000000021, "chis": [[1, 0], [1, 1]], "dims": {"(1, 0)": [23, 1, 22], "(1, 1)": [18, 0, 18]}, "dim_W": 40, "n_quadrics": 879, "rank_quadrics": 300, "good_reduction": true, "file": "/tmp/hodge/results/reflection-coupled-residual/wave2-excl/referee/ref_hess_d7_W1011_p1000000021.ms", "seconds": 104.4}

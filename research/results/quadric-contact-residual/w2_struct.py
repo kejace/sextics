@@ -123,6 +123,11 @@ for name, D in cands.items():
         dd = core.degree(D)
         if dd > 12:
             print('skip (tau-doubled degree too big)', name, file=sys.stderr); continue
+    if chi_of(D) is None and dd >= 10:
+        # character-mixed candidate: the generic (parity-only) system at d >= 10 costs 20+ min per E1 test; skipped
+        print('skip (character-mixed at d>=10)', name, file=sys.stderr)
+        W.log_line({'task': 'struct', 'd': dd, 'name': name, 'chi': None, 'e1': None, 'consistent': None, 'note': 'skipped: character-mixed, d>=10'})
+        continue
     t0 = time.time()
     r = test_D(D, f'w2struct-d{dd}', note=name, verbose=True)
     done += 1
