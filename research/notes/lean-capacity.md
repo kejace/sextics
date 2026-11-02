@@ -1,4 +1,4 @@
-STATUS: in progress — template ceiling located (random-support e2: 28k raw products OK at 306 s/9.2 GB; 185k raw products times out at 2M heartbeats after 605 s/12.5 GB); Kronecker checker verifies 435k-product e2 in 58 s/5.5 GB (remote) and binds verifier-shaped witness terms by rfl+kernel (3000 terms: 125 s); more Kronecker scaling jobs running on the (overloaded) remote; degree-slicing generator in progress.
+STATUS: in progress — Kronecker route validated end-to-end (complete m3-coupled proposal passes the local verifier replica in 251 s total); template ceiling located (~30k raw products for random-support identities, 185k fails); Kronecker memory model understood (∝ number size × tree depth; d=10 with 18k-term witnesses needed 22 GB with the Int version, Nat-pair version cuts ~2×, tests running); sliced template works but has ~3-5 s fixed cost per slice.
 
 # Lean capacity study (accepted template vs alternatives)
 
@@ -48,6 +48,13 @@ Idea: each explicit polynomial is a balanced tree `PT` of integer monomials; the
 | K_m3k100 (local) | e1+e2+homog+ne_zero | 11095 / 102276 | 963 | 35.7 | 35.0 | 4.8 GB |
 | K_m3_d6_k40 (remote; same data as e2m3k40: template 205 s) | e1+e2+homog+ne_zero | 5831 / 18602 | 565 | 16.8 | 14.8 | 4.0 GB (replay 11 s user) |
 | K_m3_d8_k150 (remote) | e1+e2+homog+ne_zero | 25804 / **434802** | 2367 | 60.8 | 57.9 | 5.5 GB (replay 43 s user) |
+| K3_dn_d4_k10 (remote, dense F scaled by 9973) | e1+e2+homog | 16662 / 993 | 787 | 24.6 | 19.7 | 3.6 GB |
+| K3_dn_d6_k40 (remote, dense F) | e1+e2+homog | 81730 / 25166 | 1212 | 59 | 34.9 | 4.2 GB (replay 23 s) |
+| K3_dn_d8_k100 (remote, dense F) | e1+e2+homog | **215170 / 159699** | 2138 | 62 | 55.1 | 6.2 GB (replay 46 s) |
+| K2_m3_q2_d8_k100 (remote, q = 2, m = 23) | e1+e2+homog | 28883 / 333679 | 2428 | 882 (loaded box) | 155.7 | 9.6 GB (replay 129 s) |
+| K2_m3_d10_k300 (remote, Int version, m = 21, W = 42) | e1 | 84674 / – | 18499 | – | 282 → **FAIL** | **22 GB** `(kernel) excessive memory consumption` |
+| K2_m3_d10_k1000 (remote, Int version) | e1 | 163569 / – | 25058 | – | 851 → FAIL | 21.8 GB |
+Template comparison points: e1m3k150 (e1 only, 25.8k raw products, 6636 distinct monomials) took **914 s user / 10.6 GB** with the template; the Kronecker module K_m3_d8_k150 containing the same e1 plus a 435k-product e2 took 58 s.
 Profile of K_m3k100's e2 side goals (local, user s): ψ equality 11.5, homE 2.6, l1E 2.3, degE 1.4. The template needs >1000 s and >14 GB at this size (extrapolated from the table above).
 
 ## Kernel-evaluation microbenchmarks (local, lean 4.33, `decide +kernel`)
@@ -74,3 +81,18 @@ The kernel works over ℤ.  The witness (D, N, Q) is scaled to integers (D, N by
 
 ### Complete proposal prototype (`gen/kron_submit.py`)
 Generates the five proposal files for an instance from a witness dict (Kron.lean as flat helper, Witness.lean with the Kronecker identities + template legality machinery on the unfolded trees, Solution.lean binding `HodgeWitness.*` by `rfl` + `matchW_sound`, balanced witness strings).  Run on the accepted m3-coupled witness (scaled by 6): module sizes Kron 31 KB, Witness 43 KB, Solution 73 KB; local verifier replica (`hodge.leancheck`) result: see below.
+
+### Kernel memory model of the Kronecker evaluation (measured)
+The kernel caches every intermediate whnf result for the duration of one declaration, so the peak memory of a `decide +kernel` is the sum of all intermediate big numbers.  With leaves sorted by position and a balanced tree, each level of the tree holds numbers whose sizes add up to the final size, so memory ≈ (3 for the Int version, ≈1.5 for the Nat-pair version) × depth × final size, where final size = (number of positions m⁵, m = identity degree + 1) × W bits.  Measured on a sorted 10k-leaf degree-14 tree (m = 21, W = 42, final ≈ 14 MB): Int version `psi` 33 s user / +1.5 GB; Nat-pair `psiN` **9.7 s user / +0.85 GB**.  Unsorted leaves are catastrophic (every node spans the whole range: 275 s / 32 GB for the same tree).  Consequences: d ≤ 8 (m ≤ 17, ≤ 1.4M positions) is comfortable for any number of terms; d = 10 (m = 21, 4.1M positions, 20 MB numbers) needs the Nat-pair version and possibly slicing by one variable (positions ÷ 21) to stay below 14 GiB with ~20k-term witnesses.
+
+### Degree-sliced template (`gen/slice_gen.py`)
+Works (e1/e2 assembled by `linear_combination Σ X0^m * slice_m` over opaque slice atoms), but every slice lemma pays ≈3–5 s of `norm_num`/`simp` fixed cost: the k10 case took 428 s (template: 30 s e2 + 43 s e1).  It can only pay off where the plain template fails (≥100k raw products); one such run (SL_e2m3k150) is queued for the record.  Verdict: not recommended; the Kronecker route dominates it at every size.
+
+### End-to-end validation on an accepted instance
+`gen/kron_submit.py --instance m3-coupled` (witness scaled by 6 to integers, W = 61, m = 21) → five proposal files; `python3 -m hodge.leancheck` (exact verifier compile sequence, local): HodgeTarget 5.9 s, HodgeWitness 13.7 s, Kron 21.0 s, Witness 182.4 s, Solution 22.0 s (rfl + `matchW` binding of 7 polynomials), HodgeChecked 5.9 s — **total 251 s**, no new axioms (`Kron.lean` only uses Mathlib; passes the banned-token scan of `check.py`).  The accepted template Witness.lean for the same instance takes 275 s on the remote box (CI job 13.5 min including setup).
+
+## Recommended pipeline (draft; numbers refined below as jobs finish)
+1. **Witness preparation (Python).** Scale the witness to integers (D, Nᵢ by s, Q by s²), write `witness.json` with balanced parenthesized sums whose term order is the Kronecker position order (`gen/bind_test.py:witness_string`); keep coefficient 0/1 conventions (`X0**6`, `-X0**6`, `5*X0**6`) so the verifier's translation is syntactically `denW` of the `W`-AST.  Choose m = (identity degree) + 1 and W = bits(ℓ¹ bound) + 2.
+2. **Files.** `Kron.lean` (library, verbatim), `Witness.lean` (trees `tF, tA, tD, tNᵢ, tQ` as `noncomputable def`s; e1/e2 via `soundN` with six `decide +kernel` side goals; homogeneity via `toC_isHomogeneous`; `D ≠ 0` via `toC_ne_zero_of_evalPT`; legality via the accepted template's univariate specialization on the unfolded trees with `push_cast`), `Solution.lean` (F, A by `funext; norm_num; ring`; D, Nᵢ, Q by `rfl` + `matchW_sound`).  All generated by `gen/kron_submit.py`.
+3. **Budget estimate per 1000 terms of witness data**: HodgeWitness.lean elaboration ≈ 12 s, binding ≈ 17 s (+ the same again in `leanchecker` replay for the kernel parts), Kronecker checks ≈ 10 s per pass over the data (e1 + e2 + homogeneity ≈ 4 passes, replayed once more by leanchecker).  Memory: ≈ 1.5 × depth × m⁵ × W bits per declaration (fine for d ≤ 8; d = 10 needs ≤ ~20k terms or a variable slice).
+4. **Keep the identity small where possible**: the kernel cost is linear in the number of terms of D, Nᵢ, Q (not in raw products); the raw-product count (which kills `ring`) is irrelevant for this route.

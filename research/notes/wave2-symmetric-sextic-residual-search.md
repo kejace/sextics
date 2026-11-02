@@ -1,6 +1,6 @@
 # Wave 2 search report: `symmetric-sextic-residual`
 
-STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 21:06 EST from 506 log records).
+STATUS: NO WITNESS FOUND (wave 2 started 2026-11-01 ~19:10 EST; report regenerated 2026-11-01 21:28 EST from 537 log records).
 
 Log: `/tmp/hodge/results/symmetric-sextic-residual/wave2-search.log.jsonl` (one JSON line per batch; engine tag `w2lib-v1`). Scripts: `/tmp/hodge/results/symmetric-sextic-residual/w2b/` (`w2lib.py`, `w2_varpro.py`, `w2_kernels.py`, `w2_single*.py`, `w2_struct.py`, `scheduler.py`, `report.py`).
 
@@ -84,6 +84,19 @@ The sign sectors are still run at low cost as consistency checks of the principl
 * The sum principle also shows that products of tested denominators need no separate test: if no single admissible
   D of the listed types serves [A], no product of them does either (served(D₁D₂) = served(D₁) + served(D₂)).
 
+## 3b. The invariant-sector residual trend and how it is being tested
+
+The best relative residual of the invariant (`triv`) families decreases with the degree: 8.3e-3 (d = 6, dimP 3),
+1.5e-4 / 4.3e-4 (d = 7, dimP 7), 1.0e-4 / 6.4e-4 (d = 8, dimP 13 / 18), 3.8e-5 (d = 9, pD = 0, dimP ≈ 30, same
+minimum in most restarts), ≈ 2e-6 (d = 10, pD = 0, dimP = 80, first restarts). Two readings are possible: a
+non-solvable system whose least-squares distance shrinks as the parameter count grows (expected: the relative
+residual of a random rectangular system scales roughly like (rows − cols)/rows under added freedom), or an approach
+towards a genuine zero in some higher degree. The discriminating test is Gauss–Newton polishing of the best point
+inside the admissible subspace (`w2lib.polish`): a true zero drops to ~1e-28 in a few iterations (as it does on the
+Fermat control), a nonzero minimum stays put (as at d = 7: 1.544e-4 before and after). The polish is now part of
+every sector summary (`best_polished_rel`) and the queued `xcheck` job polishes the best d = 8, 9, 10 points
+reproduced from their seeds. Until those numbers are in, the d ≥ 9 residuals must be read as "small, unconfirmed".
+
 ## 6. Concurrent agent on this lane (cross-check, not our work)
 
 Another process submits jobs named `search-symmetric-sextic-residual-{dims,dims2,struct,vp-d8triv0,vp-d8sgnX1}` and
@@ -140,22 +153,22 @@ Candidates with rel < 1e-10 submitted to exact confirmation: 0; verified witness
 
 | sector | job | restarts so far | best rel | median | <1e-6 | <1e-10 | minima (value: count) |
 |---|---|---:|---:|---:|---:|---:|---|
-| jac d=6 pD=0 | jac1 | 329 | 1.80e-01 | 2.1e-01 | 0 | 0 | 0.18: 19, 0.187: 7, 0.191: 7, 0.192: 28, 0.2: 2 |
-| triv d=9 pD=0 | vp1b | 17 | 3.84e-05 | 3.8e-05 | 0 | 0 | 3.84e-05: 13, 5.76e-05: 3, 0.00017: 1 |
-| triv d=10 pD=0 | vp2b | 2 | 2.07e-06 | 1.2e-05 | 0 | 0 | 2.07e-06: 1, 1.17e-05: 1 |
+| jac d=6 pD=0 | jac1 | 363 | 1.80e-01 | 2.1e-01 | 0 | 0 | 0.18: 21, 0.187: 7, 0.191: 7, 0.192: 29, 0.2: 2 |
+| triv d=9 pD=0 | vp1b | 22 | 3.84e-05 | 3.8e-05 | 0 | 0 | 3.84e-05: 18, 5.76e-05: 3, 0.00017: 1 |
+| triv d=10 pD=0 | vp2b | 7 | 2.07e-06 | 9.6e-06 | 0 | 0 | 2.07e-06: 3, 9.6e-06: 1, 1.17e-05: 2, 4.43e-05: 1 |
 
 ## 8. Single-denominator exact solves (character-reduced systems mod p, CRT lift on consistency)
 
 | family | E1 pass & consistent | E1 pass & inconsistent | E1 fails | errors |
 |---|---:|---:|---:|---:|
-| kernel-class | 0 | 166 | 0 | 0 |
-| kernel-random-combo | 0 | 24 | 0 | 0 |
+| kernel-class | 0 | 194 | 0 | 0 |
+| kernel-random-combo | 0 | 27 | 0 | 0 |
 | structured-single | 0 | 8 | 5 | 0 |
 
 Structured candidates: `DX^2*DY^2` d=12 triv: E1 fails; `EXF*EYF` d=12 triv: inconsistent (rank 1729, null 315, 6713×2044); `HXX` d=12 triv: E1 fails; `HXX+HYY` d=12 triv: E1 fails; `HXX-HYY` d=12 triv: E1 fails; `HYY` d=12 triv: E1 fails; `EXF*D7Y` d=13 sgnY: inconsistent (rank 2010, null 899, 8834×2909); `EYF*D7` d=13 sgnX: inconsistent (rank 2010, null 899, 8834×2909); `D7*D7Y` d=14 sgnsgn: inconsistent (rank 2415, null 1627, 11459×4042); `D7*T8` d=15 triv: inconsistent (rank 4434, null 944, 14672×5378); `D7*T8Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*D7Y` d=15 sgnsgn: inconsistent (rank 3407, null 1971, 14672×5378); `T8*T8Y` d=16 sgnsgn: inconsistent (rank 4691, null 2376, 18564×7067)
 
-Kernel classes / combos per sector (tested, consistent, errors): sgnX d=12 pD=0: 16/0/0; sgnX d=12 pD=1: 21/0/0; sgnY d=12 pD=0: 16/0/0; sgnY d=12 pD=1: 21/0/0; sgnsgn d=12 pD=0: 8/0/0; sgnsgn d=12 pD=1: 13/0/0; triv d=11 pD=0: 13/0/0; triv d=12 pD=0: 53/0/0; triv d=12 pD=1: 29/0/0
+Kernel classes / combos per sector (tested, consistent, errors): sgnX d=12 pD=0: 16/0/0; sgnX d=12 pD=1: 21/0/0; sgnY d=12 pD=0: 16/0/0; sgnY d=12 pD=1: 21/0/0; sgnsgn d=12 pD=0: 8/0/0; sgnsgn d=12 pD=1: 13/0/0; triv d=11 pD=0: 31/0/0; triv d=11 pD=1: 13/0/0; triv d=12 pD=0: 53/0/0; triv d=12 pD=1: 29/0/0
 
 ## 10. Batches logged per job
 
-`kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `single`: 203 records, 8.3 h, `vp1b`: 2 records, 0.3 h
+`kernels`: 292 records, 0.1 h, `local-test`: 2 records, 0.0 h, `local1`: 4 records, 0.0 h, `local2`: 2 records, 0.0 h, `local3`: 1 records, 0.0 h, `single`: 234 records, 9.6 h, `vp1b`: 2 records, 0.3 h

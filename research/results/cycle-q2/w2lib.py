@@ -17,8 +17,8 @@ characters); keys = base-6 digit vectors of weights on a greedy generating set; 
 """
 from __future__ import annotations
 import sys, os, time, json, math, itertools
-for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
-    os.environ.setdefault(_v, "1")
+for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "FLINT_NUM_THREADS"):
+    os.environ[_v] = "1"
 sys.path.insert(0, '/home/kejace/devel/sextics-work')
 sys.path.insert(0, '/tmp/hodge/results/cycle-q2')
 import numpy as np

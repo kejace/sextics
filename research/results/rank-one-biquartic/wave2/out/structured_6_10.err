@@ -10,3 +10,5 @@
 [structured] d=8 par=1: W dim 177 (J_d + 9 kernel reps) in S_d dim 636 (0s)
 [structured] d=9 par=0: W dim 405 (J_d + 27 kernel reps) in S_d dim 1001 (1s)
 [structured] d=9 par=1: W dim 405 (J_d + 27 kernel reps) in S_d dim 1001 (1s)
+[structured] d=10 par=0: W dim 1053 (J_d + 303 kernel reps) in S_d dim 1512 (23s)
+[structured] d=10 par=1: W dim 1017 (J_d + 270 kernel reps) in S_d dim 1491 (25s)

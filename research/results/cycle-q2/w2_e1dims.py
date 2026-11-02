@@ -2,6 +2,9 @@
 K_kappa = {D in (S_d)_kappa : A D in J(F)}, with dim (J_d)_kappa and dim (S_d)_kappa.
 Usage: python3 w2_e1dims.py DMIN DMAX [NPROC] [PRIME]
 Output: w2_e1dims_d{d}.json per degree (dims + mod-p kernel bases), log lines in wave2-search.log.jsonl."""
+import os as _os
+for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "FLINT_NUM_THREADS"):
+    _os.environ[_v] = "1"
 import sys, time, json, os
 sys.path.insert(0, '/tmp/hodge/results/cycle-q2')
 import multiprocessing as mp

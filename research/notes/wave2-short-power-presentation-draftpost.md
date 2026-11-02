@@ -8,9 +8,9 @@ rank argument (rank_p ≤ rank_Q, plus the Hilbert-series check that the prime i
 "screened" means modular evidence only.
 
 **1. E1 kernel (proven).** Writing `K_d^± = {D ∈ S_d^± : A·D ∈ J(F)}`, the quotient `K_d^±/J(F)_d^±` is zero for
-`d ≤ 6` in both parities and is one-dimensional for `d = 7` in both parities (primes 2^31−1, 2147483629 and
-1073741789 agree; the degree-7 classes have exact rational representatives, checked by exact numerator
-certificates). The even class `D7^+` is a polynomial in `X0, X1, X2, M` only (M-degrees 0, 2, 4), i.e. a cone with
+`d ≤ 6` in both parities and is one-dimensional for `d = 7` in both parities (primes 2^31−1, 2147483629, 1000000007 and
+1073741789 agree, each with the Hilbert-series check that the prime is good in the degrees used; the degree-7 classes
+have exact rational representatives `D7^±` with exact numerator certificates `N(F) = A·D7` verified over Q). The even class `D7^+` is a polynomial in `X0, X1, X2, M` only (M-degrees 0, 2, 4), i.e. a cone with
 vertex the line `{X = 0, M = 0}`; the odd class `D7^-` is the mirror polynomial in `Y0, Y1, Y2, L`. Geometrically
 `V(D7^+) ∩ X` is the pullback of a degree-7 surface from the base `P^3_{(X0:X1:X2:M)}` of the projection of `X`
 from that line, whose fibres are the plane sextics `D_s` of benediamond's model. [TODO: K_8, K_9 generation by K_7.]

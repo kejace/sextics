@@ -180,6 +180,32 @@ quit;
             rec = dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), elim_dim_t=(dme - ns) if dme is not None else None)
             rec['result'] = 'PROVEN-no-denominator-in-sector(exact elimination over Q of I+J2: E m-primary)' if (dme is not None and dme - ns <= 0) else f'elimination ideal positive-dimensional ({None if dme is None else dme - ns})'
             emit(rec); continue
+        # FAST exact test by transfer: the quadrics are exact rational elements of E = I ∩ Q[t]; the ideal they generate is homogeneous,
+        # so if its reduction mod p is m-primary (pure power of each variable among the GB leading monomials, msolve) then it is
+        # m-primary over Q (Hilbert function over Q <= Hilbert function mod p).
+        import w2_relax as WR, subprocess as _sp
+        mp = a.prime
+        def red_q(v): return (v.numerator * pow(v.denominator, -1, mp)) % mp
+        polys_p = []
+        for Qd in quads:
+            terms = [f'{red_q(v)}*t{i}*t{j}' if i != j else f'{red_q(v)}*t{i}^2' for (i, j), v in Qd.items() if red_q(v)]
+            if terms: polys_p.append('+'.join(terms))
+        mpath = f'{outdir}/d{a.d}_c{c[0]}{c[1]}_J2modp.ms'
+        open(mpath, 'w').write(','.join(f't{i}' for i in range(nt)) + '\n' + str(mp) + '\n' + ',\n'.join(polys_p) + '\n')
+        mout = mpath.replace('.ms', '.gb'); mprim = None
+        try:
+            _sp.run(['msolve', '-g', '2', '-f', mpath, '-o', mout, '-t', '1', '-v', '0'], capture_output=True, text=True, timeout=min(a.timeout, 600))
+            gpolys, lead = WR.parse_gb(mout, nt)
+            pure = {}
+            for l in lead:
+                nz = [i for i in range(nt) if l[i]]
+                if len(nz) == 1: pure[nz[0]] = min(pure.get(nz[0], 10**9), l[nz[0]])
+            mprim = all(i in pure for i in range(nt))
+        except Exception as ex:
+            mprim = None
+        if mprim:
+            emit(dict(base, neq=neq, relax_dim=len(lams), n_quadrics=len(quads), lambda_basis='lll-integer-kernel', mprimary_modp=True,
+                      result='PROVEN-no-denominator-in-sector(exact quadrics; m-primary mod p => m-primary over Q by transfer)')); continue
         names = [f't{i}' for i in range(nt)]
         qstr = ['+'.join(f'{frac_str(v)}*t{i}*t{j}' for (i, j), v in Qd.items()) for Qd in quads]
         sing = f'''LIB "primdec.lib";

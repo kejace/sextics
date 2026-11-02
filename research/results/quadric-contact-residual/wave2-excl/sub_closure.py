@@ -14,14 +14,16 @@ def log(exp, **kw):
     rec = {'exp': exp, 'time': time.strftime('%Y-%m-%dT%H:%M:%S')}; rec.update(kw)
     open(LOG, 'a').write(json.dumps(rec) + '\n'); print('[LOG]', json.dumps(rec)[:500], file=sys.stderr, flush=True)
 J = json.load(open(fn)); p = J['p']; chi = [tuple(c) for c in J['chi']]
-def ok(c):
-    for t in pred.split('&'):
+def ok1(c, conj):
+    for t in conj.split('&'):
         if t == 'y0' and c[3] != 0: return False
         if t == 'y1' and c[3] != 1: return False
         if t.startswith('b0=') and c[0] != int(t[3:]): return False
         if t.startswith('b2=') and c[1] != int(t[3:]): return False
         if t.startswith('h=') and c[2] != int(t[2:]): return False
     return True
+def ok(c):
+    return any(ok1(c, conj) for conj in pred.split('|'))
 keep = [a for a in range(len(chi)) if ok(chi[a])]
 quads = [{(a, b): v for a, b, v in cf} for cf in J['quads']]
 ks = set(keep)

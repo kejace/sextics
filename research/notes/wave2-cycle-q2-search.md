@@ -84,7 +84,11 @@ Mid-course corrections (20:00-20:40): the box reached load 1000-1300 (70 agent s
 invocations per degree) made almost no progress in an hour and were killed and resubmitted twice with 32 worker processes,
 at most 60 LM evaluations per restart (LM converges in 20-35 at true zeros, see the Fermat calibration), fewer restarts,
 and a `multi` mode that builds each sector system once and searches all structured sub-families on it through linear
-sub-family views (`KoszulVarPro.subfamily`).  Final job set:
+sub-family views (`KoszulVarPro.subfamily`).  Second, decisive correction (21:30): the workers were running 32 BLAS threads each (the runner exports
+`OPENBLAS_NUM_THREADS=<cpus>` and `w2_search.py` imported numpy before the thread cap), i.e. ~1000 runnable threads for my
+four chains alone (load 1800, 11 % CPU per worker, no finished batch in an hour).  All scripts now force single-threaded
+BLAS before importing numpy (see `/tmp/hodge/notes/engine-bugs.md`), and the chains were resubmitted as A4/B4/D3/E3.
+Final job set:
 
 * chain A3 `search-cycle-q2-chainA3`: kernel d = 6 (40 LM restarts per sector, 72 sectors) -> trivial sector d = 6 (the
   6-dim family D = sum a_i Z_i F_i whose Jacobian relaxation is the degree-8 surface V0 of the excl notes, 400 extra

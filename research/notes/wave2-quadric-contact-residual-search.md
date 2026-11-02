@@ -1,6 +1,6 @@
 # Wave 2 — quadric-contact-residual — SEARCH lens (joint (D,N,Q) search)
 
-STATUS: NO WITNESS. Updated 2026-11-01 20:47 local. Batches logged: 115 (19 varpro sector batches, 1 Hessian-relaxation batches, 6 E1 profiles, 84 structured candidates); random restarts so far: 2363; best full-E2 relative residual: 3.20e-04.
+STATUS: NO WITNESS. Updated 2026-11-01 21:13 local. Batches logged: 158 (28 varpro sector batches, 1 Hessian-relaxation batches, 6 E1 profiles, 117 structured candidates); random restarts so far: 3533; best full-E2 relative residual: 3.20e-04.
 
 Target: q = 1, A = X0^3 Y0^3 on the quadric-contact sextic F_b. Residue character trivial on G_aff (order 48), odd under s0 (X0<->Y0) and r1 (X1<->Y1). Prior rigorous exclusions (fqlx #125, replicated in wave 1): deg D <= 6; deg 7 in every pure parity/character sector; D8* alone at degree 8; any certificate keeping (Y1/X1, Y2/X2) passive.
 
@@ -18,12 +18,12 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
 * `excl-reverify` (submitted 2026-11-01T19:28:24): `cd wave2-excl && HODGE_W2LOG=/tmp/hodge/results/quadric-contact-residual/wave2-excl/excl-reverify.log.jsonl python3 reverify.py 1 2 3 4 5`
 * `search-quadric-contact-residual-pipeB` (submitted 2026-11-01T19:50:19): `bash w2_pipeline_B.sh`
 * `search-quadric-contact-residual-pipeA2` (submitted 2026-11-01T20:29:50): `bash w2_pipeline_A.sh`
-  - search-quadric-contact-residual-e1prof.log: last line: `{"task": "e1-profile", "d": 10, "n_sectors": 24, "tot_dimS": 3003, "tot_dimJ": 1497, "tot_kernel": 2053, "tot_extra": 556, "tot_gauge": 126, "per_sector_extra":`
+  - search-quadric-contact-residual-e1prof.log: last line: `d=11 chi=1020 dimS=162 J=89 ker=138 extra=49 gauge=7 (69.8s)`
   - search-quadric-contact-residual-pipeA.log: last line: `[koszul-varpro] d=9 chi=0011 K=41 rows=1356 cols=427 (K 187, Q 240) Mstack nnz=275283 Vstack nnz=12423 dimP=38 excluded=3 built 1.2s`
-  - search-quadric-contact-residual-pipeA2.log: last line: `[build_family] {'d': 8, 'chi': '1050', 'parity': None, 'dimS': 57, 'rows': 498, 'cols': 597, 'nullity': 118, 'dim_kernel': 18, 'dimJ': 18, 'n_extra': 0, 'dim_ga`
+  - search-quadric-contact-residual-pipeA2.log: last line: `=== 2026-11-02 01:58:59 w2_varpro.py --d 9 --chi all --restarts 120 --per-dim 6 --min-restarts 16 --procs 8 --seed 2000 --tag w2a --time-limit 1500`
   - search-quadric-contact-residual-pipeB.log: last line: `=== 2026-11-02 00:47:52 w2_hess.py --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e`
   - search-quadric-contact-residual-pipeB2.log: last line: `=== 2026-11-02 01:29:56 w2_hess.py --d 7 --parity 0 --restarts 1500 --procs 8 --seed 11 --tag hd7e`
-  - search-quadric-contact-residual-pipeC.log: last line: `E1 FAIL d=8 chi=(0, 0, 0, 0) X0*X2**5*Y0*Y2 + X0*X2*Y0*Y2**5 {'rank': `
+  - search-quadric-contact-residual-pipeC.log: last line: `skip (tau-doub`
   - search-quadric-contact-residual-vp-d8.log: last line: `[koszul-varpro] d=8 chi=0000 K=33 rows=1002 cols=303 (K 130, Q 173) Mstack nnz=155331 Vstack nnz=43948 dimP=29 excluded=4 built 0.7s`
 
 ## (1) E1-admissible denominator spaces per degree and character sector (exact over Q)
@@ -37,18 +37,21 @@ Logs: /tmp/hodge/results/quadric-contact-residual/wave2-search.log.jsonl (one JS
 | 8 | 24 | 1287 | 336 | 337 | 1 | 21 | 0000:1 |
 | 9 | 24 | 2002 | 756 | 760 | 4 | 56 | 0010:1, 0051:1, 0100:1, 0101:1 |
 | 10 | 24 | 3003 | 1497 | 2053 | 556 | 126 | 0000:20, 0001:16, 0020:35, 0021:21, 0040:35, 0041:21, 0110:19, 0111:19, 0130:30, 0131:30, 0150:19, 0151:19, 1010:19, 1011:19, 1030:30, 1031:30, 1050:19, 1051:19, 1100:16, 1101:16, 1120:26, 1121:26, 1140:26, 1141:26 |
+| 11 | 15 | 2874 | 1791 | 2424 | 633 | 183 | 0010:36, 0011:38, 0030:56, 0031:56, 0050:38, 0051:36, 0100:32, 0101:32, 0120:49, 0121:49, 0140:49, 0141:49, 1000:32, 1001:32, 1020:49 |
 
 Cross-checks: d <= 9 totals agree with fqlx (#125) and wave 1 (dim (J:A)_d = 0,0,0,0,0,6,36,126,337,760,2053,...); the per-sector split is new.
 Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian directions:
 * d=8: 0000: 87/32/33/1
 * d=9: 0010: 95/41/42/1; 0051: 95/41/42/1; 0100: 117/58/59/1; 0101: 117/58/59/1
 * d=10: 0000: 180/108/128/20; 0001: 173/103/119/16; 0020: 120/48/83/35; 0021: 113/49/70/21; 0040: 120/48/83/35; 0041: 113/49/70/21; 0110: 131/73/92/19; 0111: 131/73/92/19; 0130: 102/36/66/30; 0131: 102/36/66/30; 0150: 131/73/92/19; 0151: 131/73/92/19; 1010: 131/73/92/19; 1011: 131/73/92/19; 1030: 102/36/66/30; 1031: 102/36/66/30; 1050: 131/73/92/19; 1051: 131/73/92/19; 1100: 160/98/114/16; 1101: 160/98/114/16; 1120: 102/42/68/26; 1121: 102/42/68/26; 1140: 102/42/68/26; 1141: 102/42/68/26
+* d=11: 0010: 200/132/168/36; 0011: 198/130/168/38; 0030: 162/81/137/56; 0031: 162/81/137/56; 0050: 198/130/168/38; 0051: 200/132/168/36; 0100: 236/165/197/32; 0101: 236/165/197/32; 0120: 162/89/138/49; 0121: 162/89/138/49; 0140: 162/89/138/49; 0141: 162/89/138/49; 1000: 236/165/197/32; 1001: 236/165/197/32; 1020: 162/89/138/49
 
 ### Cone / coordinate-subspace families (D supported on a coordinate variable subset, per sector)
 
 * d=6: 0 (subset, sector) pairs with an E1-kernel beyond the gauge
 * d=7: 0 (subset, sector) pairs with an E1-kernel beyond the gauge
 * d=8: 4 (subset, sector) pairs with an E1-kernel beyond the gauge: X0X1X2Y0Y1:0000 ker=4 J=4 extra=0 gauge=3, X0X1X2Y0Y2:0000 ker=5 J=5 extra=0 gauge=4, X0X1Y0Y1Y2:0000 ker=4 J=4 extra=0 gauge=3, X0X2Y0Y1Y2:0000 ker=5 J=5 extra=0 gauge=4
+* d=10: 81 (subset, sector) pairs with an E1-kernel beyond the gauge: X0X2Y0Y2:0000 ker=24 J=12 extra=12 gauge=11, X0X2Y0Y2:0001 ker=16 J=10 extra=6 gauge=8, X0X2Y0Y2:1100 ker=24 J=10 extra=14 gauge=8, X0X2Y0Y2:1101 ker=24 J=10 extra=14 gauge=8, X1X2Y1Y2:0001 ker=5 J=5 extra=0 gauge=4, X0X1X2Y0Y1:0000 ker=14 J=12 extra=2 gauge=8, X0X1X2Y0Y1:0001 ker=10 J=10 extra=0 gauge=6, X0X1X2Y0Y1:0020 ker=12 J=5 extra=7 gauge=4, X0X1X2Y0Y1:0021 ker=3 J=2 extra=1 gauge=2, X0X1X2Y0Y1:0040 ker=12 J=5 extra=7 gauge=4, X0X1X2Y0Y1:0041 ker=3 J=2 extra=1 gauge=2, X0X1X2Y0Y1:0110 ker=4 J=4 extra=0 gauge=3, X0X1X2Y0Y1:0151 ker=4 J=4 extra=0 gauge=3, X0X1X2Y0Y1:1010 ker=10 J=6 extra=4 gauge=4, X0X1X2Y0Y1:1011 ker=10 J=6 extra=4 gauge=4, X0X1X2Y0Y1:1030 ker=6 J=2 extra=4 gauge=2, X0X1X2Y0Y1:1031 ker=6 J=2 extra=4 gauge=2, X0X1X2Y0Y1:1050 ker=10 J=6 extra=4 gauge=4, X0X1X2Y0Y1:1051 ker=10 J=6 extra=4 gauge=4, X0X1X2Y0Y1:1100 ker=6 J=6 extra=0 gauge=4, X0X1X2Y0Y1:1101 ker=6 J=6 extra=0 gauge=4, X0X1X2Y0Y2:0000 ker=35 J=23 extra=12 gauge=11, X0X1X2Y0Y2:0001 ker=24 J=18 extra=6 gauge=8, X0X1X2Y0Y2:0020 ker=12 J=5 extra=7 gauge=4, X0X1X2Y0Y2:0021 ker=3 J=2 extra=1 gauge=2, X0X1X2Y0Y2:0110 ker=21 J=8 extra=13 gauge=5, X0X1X2Y0Y2:0111 ker=21 J=8 extra=13 gauge=5, X0X1X2Y0Y2:1010 ker=21 J=7 extra=14 gauge=5, X0X1X2Y0Y2:1011 ker=21 J=7 extra=14 gauge=5, X0X1X2Y0Y2:1100 ker=32 J=18 extra=14 gauge=8, X0X1X2Y0Y2:1101 ker=32 J=18 extra=14 gauge=8, X0X1X2Y0Y2:1120 ker=8 J=2 extra=6 gauge=2, X0X1X2Y0Y2:1121 ker=8 J=2 extra=6 gauge=2, X0X1X2Y1Y2:0000 ker=11 J=8 extra=3 gauge=8, X0X1X2Y1Y2:0001 ker=7 J=7 extra=0 gauge=6, X0X1X2Y1Y2:0020 ker=12 J=4 extra=8 gauge=4, X0X1X2Y1Y2:0040 ker=12 J=4 extra=8 gauge=4, X0X1X2Y1Y2:0110 ker=10 J=4 extra=6 gauge=4, X0X1X2Y1Y2:0111 ker=10 J=4 extra=6 gauge=4, X0X1X2Y1Y2:0130 ker=6 J=2 extra=4 gauge=2
 
 ## (2)-(3) Full-E2 variable-projection searches (Koszul form), per degree and sector
 
@@ -72,7 +75,16 @@ Per-sector detail (d: chi -> dimS/J/kernel/extra) for degrees with non-Jacobian 
 | w2b | 8 | 1030 | - | 4 | 4 | 1002 | 38+173 | 0.0049 | 40 | 0 | 0.168 | 0.168 | 0 | 0 | 20.93 | 5.1 |
 | w2b | 8 | 1031 | - | 4 | 4 | 1002 | 38+173 | 0.0046 | 40 | 0 | 0.168 | 0.168 | 0 | 0 | 21.77 | 4.7 |
 | w2b | 8 | 1050 | - | 18 | 17 | 812 | 100+113 | 0.011 | 170 | 0 | 0.01338 | 0.06012 | 0 | 0 | 58.69 | 73.1 |
+| w2b | 8 | 1051 | - | 18 | 17 | 812 | 100+113 | 0.0096 | 170 | 0 | 0.01338 | 0.06012 | 0 | 0 | 59.85 | 85.4 |
+| w2b | 8 | 1100 | - | 28 | 26 | 1000 | 130+173 | 0.0157 | 260 | 0 | 0.01311 | 0.05618 | 0 | 0 | 90.05 | 287.7 |
+| w2b | 8 | 1101 | - | 28 | 26 | 1000 | 130+173 | 0.015 | 260 | 0 | 0.01311 | 0.05765 | 0 | 0 | 89.12 | 311.2 |
+| w2b | 8 | 1120 | - | 6 | 6 | 813 | 54+113 | 0.0055 | 60 | 0 | 0.2902 | 0.3161 | 0 | 0 | 18.68 | 6.2 |
+| w2b | 8 | 1121 | - | 6 | 6 | 813 | 54+113 | 0.0067 | 60 | 0 | 0.2902 | 0.3161 | 0 | 0 | 17.62 | 4.5 |
+| w2b | 8 | 1140 | - | 6 | 6 | 813 | 54+113 | 0.0054 | 60 | 0 | 0.2902 | 0.3161 | 0 | 0 | 18.27 | 5.4 |
+| w2b | 8 | 1141 | - | 6 | 6 | 813 | 54+113 | 0.0055 | 60 | 0 | 0.2902 | 0.2905 | 0 | 0 | 17.93 | 4.5 |
 | w2a | 9 | 0010 | - | 42 | 38 | 1356 | 190+240 | 0.0374 | 120 | 0 | 3.20e-04 | 4.00e-04 | 0 | 0 | 155.2 | 1135.3 |
+| w2a | 9 | 0010 | - | 42 | 38 | 1356 | 190+240 | 0.0452 | 120 | 0 | 3.20e-04 | 4.00e-04 | 0 | 0 | 155.2 | 455.0 |
+| w2a | 9 | 0011 | - | 41 | 38 | 1356 | 187+240 | 0.0471 | 120 | 0 | 0.001484 | 0.001487 | 0 | 0 | 97.88 | 392.4 |
 
 Reconstruction attempts (rel < 1e-10): 0
 
@@ -170,11 +182,44 @@ Reconstruction attempts (rel < 1e-10): 0
 | 8 | P0^2*P2^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.6 |
 | 8 | P0^2*Q1 | 0000 | False | None | 524 | 130 | NonexNone | 0.6 |
 | 8 | P0^2*Q2 | 0001 | False | None | 534 | 124 | NonexNone | 0.7 |
+| 8 | P0^2*S0S1 | None | False | None | 5052 | 954 | NonexNone | 145.8 |
+| 8 | P0^2*S0S2 | 0000 | False | None | 524 | 130 | NonexNone | 0.6 |
+| 8 | P0^2*S0^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.6 |
+| 8 | P0^2*S1S2 | None | False | None | 5052 | 954 | NonexNone | 144.7 |
+| 8 | P0^2*X0^4+Y0^4 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P0^2*X1^4+Y1^4 | None | False | None | 5052 | 954 | NonexNone | 148.4 |
+| 8 | P0^2*X2^4+Y2^4 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P0^2*delta^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P1^2*P2^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P1^2*Q1 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P1^2*Q2 | 0001 | False | None | 534 | 124 | NonexNone | 0.7 |
+| 8 | P1^2*S0S1 | None | False | None | 5052 | 954 | NonexNone | 151.1 |
+| 8 | P1^2*S0S2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P1^2*S0^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P1^2*S1S2 | None | False | None | 5052 | 954 | NonexNone | 156.5 |
+| 8 | P1^2*X0^4+Y0^4 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P1^2*X1^4+Y1^4 | None | False | None | 5052 | 954 | NonexNone | 156.0 |
+| 8 | P1^2*X2^4+Y2^4 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P1^2*delta^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P2^2*Q1 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P2^2*Q2 | 0001 | False | None | 534 | 124 | NonexNone | 0.7 |
+| 8 | P2^2*S0S1 | None | False | None | 5052 | 954 | NonexNone | 156.7 |
+| 8 | P2^2*S0S2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P2^2*S0^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P2^2*S1S2 | None | False | None | 5052 | 954 | NonexNone | 152.8 |
+| 8 | P2^2*X0^4+Y0^4 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P2^2*X1^4+Y1^4 | None | False | None | 5052 | 954 | NonexNone | 151.3 |
+| 8 | P2^2*X2^4+Y2^4 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | P2^2*delta^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | Q1*Q2 | 0001 | False | None | 534 | 124 | NonexNone | 0.7 |
+| 8 | Q1*S0S1 | None | False | None | 5052 | 954 | NonexNone | 149.8 |
+| 8 | Q1*S0S2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
+| 8 | Q1*S0^2 | 0000 | False | None | 524 | 130 | NonexNone | 0.7 |
 
 ## Best residual landscape (full-E2 rel, log10 histogram of local minima over all restarts)
 
-* d=8: 1e-3: 452, 1e-2: 1164, 1e-1: 623
-* d=9: 1e-4: 90, 1e-2: 30
+* d=8: 1e-3: 452, 1e-2: 1854, 1e-1: 863
+* d=9: 1e-4: 180, 1e-3: 120, 1e-2: 60
 
 Reading: a genuine witness in a family shows up as rel ~ 1e-14..1e-12 (float64 floor); the smallest values seen so far are listed above; all minima are separated from the floor by many orders of magnitude unless stated otherwise.
 

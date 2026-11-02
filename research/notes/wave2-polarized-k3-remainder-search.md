@@ -1,6 +1,6 @@
 # Wave 2 — `polarized-k3-remainder` joint search (remote 128-core box, 2026-11-01)
 
-**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 21:09 from 249 log records; search jobs listed at the end.)
+**STATUS: NO WITNESS FOUND.** (Report regenerated 2026-11-01 21:28 from 251 log records; search jobs listed at the end.)
 
 
 Lane: q = 1, A = X0X1X2Y0Y1Y2, F = ½(f(U)+f(V)), U = X+Y, V = X−Y. Diagonal symmetry group = {1, τ} only, so the
@@ -86,6 +86,7 @@ Cofactor cubics c_i(U,V) (K = 168 at d = 8) modulo the 21 Euler directions c_i �
 | 8 | pure parity (147 params) | False | 10 | 9 | 7 | 2 | 7.2e-29 / 8.5e-29 / 9.9e-29 / 4.8e-15 / 4.8e-14 |
 | 8 | mixed parity (294 params) | False | 2 | 1 | 0 | 1 | 3.5e-27 / 4.4e-18 / 2.2e-17 / 4.0e-17 / 4.4e-17 |
 | 8 | mixed parity (294 params) | True | 1 | 0 | 0 | 0 | 1.3e-03 / 1.3e-03 / 1.3e-03 / 1.3e-03 / 1.3e-03 |
+| 8 | mixed parity (294 params) | False | 1 | 1 | 0 | 1 | 1.8e-24 / 1.8e-24 / 1.8e-24 / 1.8e-24 / 1.8e-24 |
 
 Zero-residual points classified off P8 by the 1e−6 distance threshold (all of them have cofactor energy ≥ 1 − 1e−7 in the V-degree-0 piece, non-vanishing gradients and f decreasing along the iterations: they are LM runs still converging into P_8 along the flat (4th-order) V-degree-1 directions, not separate components):
 - seed 1 restart 2: f=1.1e-19, grad 4.0e-11, dist to P8 3.2e-04, profile {'0': 1.0, '1': 1.02e-07, '2': 9.18e-14, '3': 6.31e-19}, tangent nullity 16
@@ -98,6 +99,7 @@ Zero-residual points classified off P8 by the 1e−6 distance threshold (all of 
 - seed 8 restart 3: f=2.7e-24, grad 9.0e-12, dist to P8 2.7e-05, profile {'0': 1.0, '1': 7.35e-10, '2': 3.91e-17, '3': 4.5e-25}, tangent nullity 21
 - seed 8 restart 5: f=7.0e-25, grad 4.3e-13, dist to P8 4.3e-06, profile {'0': 1.0, '1': 1.88e-11, '2': 7.26e-22, '3': 1.83e-31}, tangent nullity 28
 - seed 11 restart 0: f=3.5e-27, grad 2.1e-16, dist to P8 1.2e-06, profile {'0': 1.0, '1': 1.47e-12, '2': 1.28e-17, '3': 4.19e-20}, tangent nullity 55
+- seed 13 restart 0: f=1.8e-24, grad 6.6e-12, dist to P8 1.2e-05, profile {'0': 1.0, '1': 1.54e-10, '2': 2.54e-14, '3': 1.33e-17}, tangent nullity 51
 
 ### 2c. Exact relaxation variety (tensor frame, Singular mod p)
 
@@ -133,13 +135,6 @@ Tangent analysis at converged P_8 relaxation solutions (d = 8): Jacobian nullity
 
 - generated d=6 pD=0 p=32003: 17 variables (F-multiples removed), 866 quadrics, spurious component dim 0 cut by 17 linear forms; spurious points satisfy all quadrics: max residue []
 - generated d=6 pD=0 p=32003: 17 variables (F-multiples removed), 866 quadrics, spurious component dim 0 cut by 17 linear forms; spurious points satisfy all quadrics: max residue []
-
-## 4. Full reduced-E2 variable-projection search (Jacobian-type degrees), LM on the sphere
-
-- setup d=8 pD=0 seed 7: K=30 (dimP=30 after F-multiples), rows 10152 → 8661 after X0-remainder, c-unknowns 954 (eff 954), Q 1491 eliminated; build 1.5 s, one evaluation 13.04 s; probe rel 5.865e-03
-
-| d | pD | restarts | best rel | rel quantiles (10/50/90%) | median iters | median s/restart | dist-to-spurious at best | #rel<1e-6 | #rel<1e-10 |
-|---|---|---|---|---|---|---|---|---|---|
 
 ## 7. Structured linear families vs E1 (exact mod p: dim W ∩ J(F)_d; for d ≤ 9 E1-admissible ⟺ in J(F)_d)
 
@@ -327,10 +322,11 @@ Every non-Jacobian-type guess (Hessian cofactors/pairings, third polars, Fermat,
 
 ## Remote capacity note
 
+Local compute is restricted to light scripting (< 1 CPU-minute, one process) on a 40-core box shared by ~50 agents; the full reduced-E2 evaluations (≈ 4–13 s each locally even for the 30-parameter P_8 piece) could therefore not be run locally, only the exact linear-algebra decisions and the tensor-frame relaxation batches (≈ 1 minute each) were.
 The remote box has been saturated by other agents since ~19:30 (load 300–1150 on 128 cores, 45–90 jobs); the runner refuses new submissions above load 150, so the heavy jobs below were queued with `--wait` and started only when capacity allowed. Latest runner messages:
-- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 1803 (max 150), available memory 55 GB (min 60), 71 jobs running; waiting 60 s
-- `submit-hess-d8.out`: REMOTE BUSY: load 1803 (max 150), available memory 55 GB (min 60), 71 jobs running; waiting 60 s
-- `submit-sweep-a.out`: REMOTE BUSY: load 1803 (max 150), available memory 55 GB (min 60), 71 jobs running; waiting 60 s
+- `submit-full-d8p0-s1.out`: REMOTE BUSY: load 576 (max 150), available memory 4 GB (min 60), 67 jobs running; waiting 60 s
+- `submit-hess-d8.out`: REMOTE BUSY: load 574 (max 150), available memory 4 GB (min 60), 67 jobs running; waiting 60 s
+- `submit-sweep-a.out`: REMOTE BUSY: load 574 (max 150), available memory 4 GB (min 60), 67 jobs running; waiting 60 s
 
 ## Jobs / reproduction
 

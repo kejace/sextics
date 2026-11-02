@@ -20,3 +20,4 @@
 {"seed": 256, "f": 0.01064421850592337, "bnorm2": 2.060884398647518, "relres": 0.07186709245295261, "iters": 75, "njac": 77, "nres": 115, "status": "flat", "time": 29.2, "init": "gauss"}
 {"seed": 264, "f": 0.010620003400307467, "bnorm2": 2.031373252836056, "relres": 0.07230485558058235, "iters": 100, "njac": 101, "nres": 105, "status": "maxiter", "time": 41.75, "init": "gauss"}
 {"seed": 272, "f": 0.010644218505923526, "bnorm2": 2.0608843710297298, "relres": 0.07186709293449643, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 66.12, "init": "gauss"}
+{"seed": 280, "f": 0.010409856629444785, "bnorm2": 1.8170586597031553, "relres": 0.07568989455520862, "iters": 100, "njac": 101, "nres": 100, "status": "maxiter", "time": 76.72, "init": "gauss"}

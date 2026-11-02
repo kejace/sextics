@@ -18,7 +18,12 @@ by msolve on the complete chart cover t_b = 0 (b < a), t_a = 1 are modular scree
    independent re-derivation of deanodotdotdot's degree-7 theorem (different code, prime and chart method).
 3. Degree 8, all 36 characters, **including the six h-invariant sectors (a,0) left open in the thread**: chart-complete `no-solution`
    mod 2147483647 (436 charts), with the Jacobian-relaxation quadrics (B_D(N_D) == 0 mod J(F)) added as consequence equations.
-   Status: modular screen; exact elimination over Q (Singular) is being run to turn the open sectors into a theorem.
+   **Exact (theorem-level) version**: for a sector, the rational basis D_a of the colon sector modulo the Euler gauge and the rational
+   Koszul kernel are verified exactly; the degree-2 relaxation (all constant-coefficient combinations of the bilinear equations whose
+   s-terms cancel) is a homogeneous ideal J2 in Q[t]; `dim(std(J2)) = 0` over Q (Singular) excludes the sector; otherwise the components
+   (minAssGTZ over Q) are excluded on their linear spans by exact degree-3/4 relaxations.  Degree 7: proved for 34 of 36 sectors so far
+   ((1,0) and (3,0) pending a longer Singular run); degree 8: proved for the small/medium sectors so far (list in the receipts); the six
+   (a,0) sectors are queued on the remote with long Singular caps.
 4. Structured fixed denominators (dossier block products of degrees 7–14, wave-1 families, Hessian minors): two new primes, with the
    explicit-kernel rank sandwich: counts of PROVEN exclusions to be filled.
 5. Colon / non-Jacobian kernel dimensions per sector for d <= 12 (table in the packet).

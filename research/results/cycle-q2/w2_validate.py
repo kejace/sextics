@@ -1,4 +1,7 @@
 """Validation of w2lib.KoszulVarPro on accepted q=2 witnesses (block-q2, fermat-q2) and on cycle-q2 d=6 kernels."""
+import os as _os
+for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "FLINT_NUM_THREADS"):
+    _os.environ[_v] = "1"
 import sys, time, json
 sys.path.insert(0, '/tmp/hodge/results/cycle-q2')
 import numpy as np

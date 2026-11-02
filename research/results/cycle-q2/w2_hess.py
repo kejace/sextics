@@ -11,6 +11,9 @@ Classes of different G-character are automatically independent, so the test is d
 d=6 (J-part): D = sum_i l_i F_i with l_i linear forms (36 parameters, mixed sectors).  Relaxation: sum_{i,j} [A F_ij l_i l_j] = 0
 in R_18.  We compute the rank of the linear map (S_2)^{21} -> R_18, c_{ij,m} -> [A F_ij m], the dimension of its kernel,
 and run a cheap numerical search for w with Phi(w) = 0 on the sphere (pure polynomial objective, no inner solve)."""
+import os as _os
+for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "FLINT_NUM_THREADS"):
+    _os.environ[_v] = "1"
 import sys, time, json
 sys.path.insert(0, '/tmp/hodge/results/cycle-q2')
 import w2lib as W

@@ -74,7 +74,9 @@ independent — also confirmed computationally.)
 * X-component blocks w0, w1, w2: 29 quadrics in 9 visible unknowns each, NOT m-primary in pass 1.
 * Residual: 42 unknowns, 231 independent quadrics. A second pass and the single-unknown scheme ('fine') eliminate exactly
   the same set: the 18 Y-coefficients w_{k, X_i Y_j} (j ≠ k) and λ; the 9 "diagonal-type" Y-coefficients w_{k, X_i Y_k}
-  and all 33 X-coefficients resist (their pair polynomials modulo J lie in the span of the other pairs). Random linear
+  and all 33 X-coefficients resist (their pair polynomials modulo J lie in the span of the other pairs). The residual family is
+  w = (arbitrary quadratic X-components, 33 coefficients) + Σ_k a_k(X)·Y_k∂_{Y_k} (a_k linear in X, 9 coefficients):
+  fields that are "diagonal in Y with X-linear coefficients". Random linear
   slices of the residual up to codimension 11 (P^30 ⊂ P^41) are all empty (exploratory, not a proof); msolve's F4 on the
   full residual reaches degree 4 with 7581 new basis elements (139915 × 116404 matrix) and needs degree ≥ 5 — running
   locally in the background (3 threads); the remote job exclB-spp-blocks repeats everything with exact certificates once
@@ -119,7 +121,10 @@ independent — also confirmed computationally.)
    annihilator functionals).
 2. Degree 7, Y-even: λ = 0 (no D7^+ component) and 18 Y-coefficients vanish (mod 1073741789); residual 42 unknowns /
    231 quadrics under Gröbner (local msolve; remote exclB-spp-blocks with exact certificates).
-3. E1 kernel: dim K_7^±/J = 1 exactly (exact rational D7^± with exact numerator certificates — even done, odd running);
+3. E1 kernel: dim K_7^±/J = 1 exactly (exact rational D7^± with exact numerator certificates N7^± over Q, both parities,
+   remote job exclB-spp-kernel2; the odd rref representative has 324 terms and is not itself a cone, the class has a cone
+   representative in Q[Y,L] per the search lens); K_8^+/J = 6 of which S_1·K_7 spans 4 (this session, p = 1073741789,
+   agreeing with the search lens);
    D7^+ ∈ Q[X0,X1,X2,M] (cone over the line {X = M = 0} = pullback from the base of the plane-sextic fibration),
    D7^- ∈ Q[Y0,Y1,Y2,L]; K_8^- = S_1·K_7, K_8^+ = 6 with L·D7^+ ∈ J_8, M·D7^- ∈ J_8 (search lens).
 4. Methods: (R1) Hilbert-series prime check, (R2) modular rank inequality, (R3) E2 relaxation with the Euler slice,

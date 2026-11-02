@@ -30,3 +30,9 @@
 21:06:37 d9h0 confirmed submitted
 21:07:09 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-smallt']; waiting
 21:09:43 submitting hess (cpus 4); running now: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0']
+21:12:13 submit call timed out (ssh hang); verifying via pid file
+21:12:34 hess confirmed submitted
+21:13:10 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:15:43 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:18:16 4 running: ['search-off-paired-s2-d8c00b', 'search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']; waiting
+21:20:53 submitting struct-hess3 (cpus 8); running now: ['search-off-paired-s2-d8h0b', 'search-off-paired-s2-d9h0', 'search-off-paired-s2-hess']

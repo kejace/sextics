@@ -1,17 +1,74 @@
 [w2_search] kernel d=6: 72 sectors, 40 restarts each, 32 procs
-  key 546: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 177: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 81: K=0 best_rel=None restarts=None NonexNone Nones  
   key 306: K=0 best_rel=None restarts=None NonexNone Nones  
   key 417: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 441: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 456: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 276: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 81: K=0 best_rel=None restarts=None NonexNone Nones  
   key 291: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 177: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 627: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 456: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 546: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 276: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 441: K=0 best_rel=None restarts=None NonexNone Nones  
   key 642: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 651: K=0 best_rel=None restarts=None NonexNone Nones  
   key 666: K=0 best_rel=None restarts=None NonexNone Nones  
   key 696: K=0 best_rel=None restarts=None NonexNone Nones  
-  key 756: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 366: K=1 best_rel=0.9247851562542158 restarts=40 480x270 9.6s  
   key 807: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 756: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 627: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 156: K=1 best_rel=0.31416152356752247 restarts=40 480x283 13.0s  
+  key 471: K=1 best_rel=0.9702986627701528 restarts=40 471x266 12.6s  
+  key 651: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 357: K=1 best_rel=0.6289216958844859 restarts=40 480x272 24.8s  
+  key 927: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 186: K=1 best_rel=0.7843820600916408 restarts=40 492x269 26.9s  
+  key 906: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 957: K=1 best_rel=0.7391492199644661 restarts=40 480x275 3.7s  
+  key 336: K=1 best_rel=0.721384747302423 restarts=40 480x267 31.2s  
+  key 897: K=1 best_rel=0.8873344251200894 restarts=40 480x286 19.2s  
+  key 1032: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 126: K=1 best_rel=0.6726396676499455 restarts=40 480x270 34.3s  
+  key 261: K=1 best_rel=0.8194140345696546 restarts=40 480x276 33.9s  
+  key 837: K=1 best_rel=0.7629356752492304 restarts=40 492x288 26.5s  
+  key 231: K=1 best_rel=0.7844199239505135 restarts=40 480x273 39.5s  
+  key 387: K=1 best_rel=0.7720335805960761 restarts=40 480x288 40.5s  
+  key 1002: K=1 best_rel=0.8496599472508402 restarts=40 480x288 12.4s  
+  key 1047: K=1 best_rel=0.7999352558005047 restarts=40 480x265 10.3s  
+  key 1182: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 1197: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 1137: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 567: K=1 best_rel=0.7847883253739978 restarts=40 480x262 47.4s  
+  key 1242: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 1227: K=0 best_rel=None restarts=None NonexNone Nones  
+  key 66: K=1 best_rel=0.795855743767638 restarts=40 480x270 56.3s  
+  key 207: K=1 best_rel=0.7141680310371595 restarts=40 492x269 58.1s  
+  key 537: K=1 best_rel=0.9608396980446304 restarts=40 480x288 58.7s  
+  key 1212: K=1 best_rel=0.7435867649716157 restarts=40 480x280 13.2s  
+  key 111: K=1 best_rel=0.9155460350854828 restarts=40 480x267 59.8s  
+  key 396: K=1 best_rel=0.7599576006437442 restarts=40 480x283 59.7s  
+  key 246: K=1 best_rel=0.8095671823011449 restarts=40 480x270 63.5s  
+  key 1017: K=1 best_rel=0.7744706276697166 restarts=40 480x267 32.8s  
+  key 1293: K=1 best_rel=0.7166101128948255 restarts=40 480x267 16.2s  
+  key 1167: K=1 best_rel=0.719661605563989 restarts=40 480x276 25.1s  
+  key 987: K=1 best_rel=0.7371235386688233 restarts=40 480x267 42.5s  
+  key 1116: K=1 best_rel=0.7650167708844993 restarts=40 471x287 34.2s  
+  key 51: K=1 best_rel=0.7721920820265161 restarts=40 480x304 74.9s  
+  key 717: K=1 best_rel=0.9674521726609335 restarts=40 480x270 68.3s  
+  key 726: K=1 best_rel=0.9708475559149425 restarts=40 492x290 69.7s  
+  key 1086: K=1 best_rel=0.7657583694985942 restarts=40 480x280 46.4s  
+  key 1107: K=1 best_rel=0.7149516837952914 restarts=40 480x276 45.8s  
+  key 1272: K=1 best_rel=0.926446534349689 restarts=40 480x270 42.4s  
+  key 852: K=1 best_rel=0.8977565286191102 restarts=40 492x272 78.8s  
+  key 777: K=1 best_rel=0.007519233584392996 restarts=40 480x288 88.1s  
+  key 21: K=1 best_rel=0.8562185446712646 restarts=40 480x276 102.1s  
+  key 486: K=2 best_rel=0.17579084246242238 restarts=40 471x269 158.6s  
+  key 576: K=2 best_rel=0.2990556850083352 restarts=40 471x277 162.2s  
+  key 876: K=2 best_rel=0.1946276625293902 restarts=40 480x278 176.5s  
+  key 597: K=3 best_rel=0.5433169425632582 restarts=40 471x271 232.9s  
+  key 1062: K=2 best_rel=0.2548465359110357 restarts=40 480x283 217.5s  
+  key 0: K=6 best_rel=0.28365268991121595 restarts=40 480x278 292.1s  
+  key 822: K=2 best_rel=0.511391803037052 restarts=40 480x270 299.6s  
+  key 747: K=2 best_rel=0.91803062030226 restarts=40 492x274 304.0s  
+  key 96: K=2 best_rel=0.28747230940802276 restarts=40 492x280 317.4s  
+  key 936: K=2 best_rel=0.3431672604700997 restarts=40 480x268 312.0s  
+  key 516: K=2 best_rel=0.35299151930764694 restarts=40 480x278 363.5s  
+[w2_search] done in 366s; best rel 0.007519233584392996

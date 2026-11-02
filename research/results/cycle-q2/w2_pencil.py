@@ -7,6 +7,9 @@ the augmented matrix at a random t0; g(t) = det(S [M(t)|b(t)]_{:,C}) is a polyno
 consistent t.  Interpolate g from r+3 evaluations, factor over F_p, test every F_p-root with the full solve, and record the
 degrees of the irreducible factors (a point defined over an extension of degree k shows up as a degree-k factor).
 Usage: python3 w2_pencil.py d [p]"""
+import os as _os
+for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "FLINT_NUM_THREADS"):
+    _os.environ[_v] = "1"
 import sys, time, json
 sys.path.insert(0, '/tmp/hodge/results/cycle-q2')
 import numpy as np

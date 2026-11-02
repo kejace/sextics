@@ -100,6 +100,7 @@ at high degree (at d = 12 only 3 conditions remain in the main sector).
 | 9 | (1,1) | A | 146 | 79 | 1130 | 99.9 |
 | 10 | (0,0) | A | 250 | 122 | 1526 | 412.5 |
 | 10 | (0,0) | Aplus | 237 | 79 | 1110 | 2274.3 |
+| 10 | (0,1) | A | 229 | 122 | 1523 | 806.7 |
 <!-- /AUTO-KERNELS -->
 
 Symmetry breaking measured on the E1 kernel (sector (0,0), 5 variables, mod p): the undeformed
@@ -184,11 +185,12 @@ away from a zero; ~40 % of the restarts hit the 150-evaluation cap (≈ 2 min pe
 | cone-X0X1Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X0,X1,Y0,Y1 | A | 6 | ?×? | lm | 120 | 1.04e-01 | 1.49e-01 | 0 / 0 / 0 | 667.6 s |
 | cone-X1X2Y0Y1-d7 | one-reflection-skew | 7 | (0,0) | cone:X1,X2,Y0,Y1 | A | 4 | 2640×615 | lm | 120 | 4.45e-01 | 4.45e-01 | 0 / 0 / 0 | 1400.9 s |
 | cone-X0X1X2-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2 | A | 1 | 3718×890 | lm | 120 | 6.14e-01 | 6.14e-01 | 0 / 0 / 0 | 154.5 s |
-| cone-X0X1X2Y0-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2,Y0 | A | 11 | 3718×890 | lm | 16 (running) | 2.47e-01 | 2.53e-01 | 0 / 0 / 0 | 605.9 s |
+| cone-X0X1X2Y0-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2,Y0 | A | 11 | 3718×890 | lm | 34 | 2.47e-01 | 2.53e-01 | 0 / 0 / 0 | 1500.9 s |
+| cone-X0X1X2Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,X1,X2,Y1 | A | 11 | 3718×890 | lm | 16 (running) | 3.13e-01 | 3.60e-01 | 0 / 0 / 0 | 750.0 s |
 | cone-X0Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X0,Y0,Y1 | A | 1 | 3718×890 | lm | 120 | 5.96e-01 | 5.96e-01 | 0 / 0 / 0 | 169.9 s |
-| ker-d9-r0s0 | one-reflection-skew | 9 | (0,0) | kernel | A | 161 | 5096×1246 | lm | 32 (running) | 1.86e-03 | 2.44e-03 | 0 / 0 / 0 | 663.6 s |
+| ker-d9-r0s0 | one-reflection-skew | 9 | (0,0) | kernel | A | 161 | 5096×1246 | lm | 96 (running) | 1.86e-03 | 3.52e-03 | 0 / 0 / 0 | 2044.9 s |
 | calib-hesse-d6 | family-hesse-web | 6 | (0,0) | kernel | A | 32 | ?×? | both | 400 | 2.51e-14 | 2.25e-02 | 12 / 33 / 3 | 3454.7 s |
-| calib-xtype-d6 | xtype-strict-rational-113 | 6 | (0,1) | kernel | A | 28 | 1815×410 | lm | 32 (running) | 4.30e-03 | 6.63e-03 | 0 / 0 / 0 | 202.9 s |
+| calib-xtype-d6 | xtype-strict-rational-113 | 6 | (0,1) | kernel | A | 28 | 1815×410 | lm | 200 | 4.30e-03 | 7.29e-03 | 0 / 0 / 0 | 1358.4 s |
 | cone-X0X1X2-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y0-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y0 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X0X1X2Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X0,X1,X2,Y1 | A | 0 | | | 0 | — | — | | empty family |
@@ -207,7 +209,7 @@ away from a zero; ~40 % of the restarts hit the 150-evaluation cap (≈ 2 min pe
 | cone-X2Y0Y1-d6 | one-reflection-skew | 6 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 | cone-X2Y0Y1-d8 | one-reflection-skew | 8 | (0,0) | cone:X2,Y0,Y1 | A | 0 | | | 0 | — | — | | empty family |
 
-Total restarts on the skew lane so far: 2048.
+Total restarts on the skew lane so far: 2146.
 <!-- /AUTO-SEARCH -->
 
 Kernel families (task 3) at d = 7 … 12 and the half-target/cone/structured runs: queued in the chains; the

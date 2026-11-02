@@ -2,7 +2,7 @@
 
 STATUS: NO WITNESS FOUND (search in progress)
 
-Updated 2026-11-01 21:09:31 from 562 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
+Updated 2026-11-01 21:28:55 from 717 log lines in `/tmp/hodge/results/klein-coupled-character/wave2-search.log.jsonl`.
 
 
 Code (lane dir `/tmp/hodge/results/klein-coupled-character/`): `w2lib.py` (sector-restricted Koszul variable projection,
@@ -103,9 +103,9 @@ Empty sectors (no E1-admissible eigen denominator): (6,odd,0)
 
 ## (4) Structured families (E1-admissible dimension per sector; varpro where nonzero)
 
-Cells with zero E1-admissible part (excluded as supports), by family: G-multiples:1, K+G-multiples:1, K-multiples:1, M-multiples:1, Xdeg_0:2, Xdeg_1:6, Xdeg_2:12, Xdeg_3:14, Xdeg_4:14, Xdeg_5:14, Xdeg_6:14, Xdeg_7:7, Xdeg_le3:14, Ydeg_le3:4, no_r:23, no_s:23, no_t:23, no_x:11, no_y:11, no_z:11, pureX:14, pureY:2, vars_trsx:15, vars_trsy:15, vars_trsz:15, vars_xyzr:23, vars_xyzs:23, vars_xyzt:23
+Cells with zero E1-admissible part (excluded as supports), by family: G-multiples:5, K+G-multiples:5, K-multiples:5, M-multiples:5, Xdeg_0:2, Xdeg_1:6, Xdeg_2:12, Xdeg_3:14, Xdeg_4:14, Xdeg_5:14, Xdeg_6:14, Xdeg_7:7, Xdeg_le3:28, Ydeg_le3:4, no_r:23, no_s:23, no_t:23, no_x:13, no_y:13, no_z:12, pureX:21, pureY:3, vars_trsx:24, vars_trsy:24, vars_trsz:24, vars_xyzr:27, vars_xyzs:27, vars_xyzt:27
 
-389 (family, d, parity, k) cells tested; 52 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
+542 (family, d, parity, k) cells tested; 123 with a nonzero E1-admissible part (listed), the rest are excluded as supports (mod-p kernel zero).
 
 | family | d | parity | k | dim V | dim E1 | nontrivial mod J | dimP | restarts | best rel | exact tests |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -128,6 +128,10 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 | Ydeg_le3 | 6 | 1 | 3 | 29 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
 | Ydeg_le3 | 6 | 1 | 5 | 29 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
 | Ydeg_le3 | 6 | 1 | 6 | 29 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 7 | 0 | 0 | 24 | 3 | 0 | 3 | 6 | 7.61e-01 | inconsistent,inconsistent,inconsistent |
+| EX-multiples | 7 | 0 | 1 | 1 | 1 | 0 | 1 | 6 | 6.82e-01 | inconsistent |
+| EY-multiples | 7 | 0 | 1 | 1 | 1 | 0 | 1 | 6 | 8.48e-01 | inconsistent |
+| Ydeg_le3 | 7 | 0 | 1 | 23 | 3 | 0 | 3 | 6 | 1.47e-01 | inconsistent,inconsistent,inconsistent |
 | no_r | 7 | 0 | 1 | 26 | 3 | 0 | 3 | 6 | 3.71e-01 | inconsistent,inconsistent,inconsistent |
 | no_s | 7 | 0 | 1 | 26 | 3 | 0 | 3 | 6 | 2.86e-01 | inconsistent,inconsistent,inconsistent |
 | no_t | 7 | 0 | 1 | 26 | 3 | 0 | 3 | 6 | 4.22e-01 | inconsistent,inconsistent,inconsistent |
@@ -136,6 +140,9 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 | vars_xyzr | 7 | 0 | 1 | 10 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
 | vars_xyzs | 7 | 0 | 1 | 10 | 1 | 0 | 1 | 6 | 9.85e-01 | inconsistent |
 | vars_xyzt | 7 | 0 | 1 | 10 | 1 | 0 | 1 | 6 | 6.71e+00 | inconsistent |
+| EX-multiples | 7 | 0 | 2 | 1 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| EY-multiples | 7 | 0 | 2 | 1 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| Ydeg_le3 | 7 | 0 | 2 | 23 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
 | no_r | 7 | 0 | 2 | 26 | 3 | 0 | 3 | 6 | 3.87e-01 | inconsistent,inconsistent,inconsistent |
 | no_s | 7 | 0 | 2 | 26 | 3 | 0 | 3 | 6 | 8.21e-01 | inconsistent,inconsistent,inconsistent |
 | no_t | 7 | 0 | 2 | 26 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
@@ -144,6 +151,10 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 | vars_xyzr | 7 | 0 | 2 | 10 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
 | vars_xyzs | 7 | 0 | 2 | 10 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
 | vars_xyzt | 7 | 0 | 2 | 10 | 1 | 0 | 1 | 6 | 5.85e+00 | inconsistent |
+| Ydeg_le3 | 7 | 0 | 3 | 23 | 2 | 0 | 2 | 6 | 9.98e-01 | inconsistent,inconsistent |
+| EX-multiples | 7 | 0 | 4 | 1 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| EY-multiples | 7 | 0 | 4 | 1 | 1 | 0 | 1 | 6 | 1.50e-01 | inconsistent |
+| Ydeg_le3 | 7 | 0 | 4 | 23 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
 | no_r | 7 | 0 | 4 | 26 | 3 | 0 | 3 | 6 | 5.20e-02 | inconsistent,inconsistent,inconsistent |
 | no_s | 7 | 0 | 4 | 26 | 3 | 0 | 3 | 6 | 8.15e-01 | inconsistent,inconsistent,inconsistent |
 | no_t | 7 | 0 | 4 | 26 | 3 | 0 | 3 | 6 | 1.01e-02 | inconsistent,inconsistent,inconsistent |
@@ -152,6 +163,11 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 | vars_xyzr | 7 | 0 | 4 | 10 | 1 | 0 | 1 | 6 | 9.52e-01 | inconsistent |
 | vars_xyzs | 7 | 0 | 4 | 10 | 1 | 0 | 1 | 6 | 5.61e-02 | inconsistent |
 | vars_xyzt | 7 | 0 | 4 | 10 | 1 | 0 | 1 | 6 | 5.85e+00 | inconsistent |
+| Ydeg_le3 | 7 | 0 | 5 | 23 | 2 | 0 | 2 | 6 | 8.92e-01 | inconsistent,inconsistent |
+| Ydeg_le3 | 7 | 0 | 6 | 23 | 2 | 0 | 2 | 6 | 5.34e-01 | inconsistent,inconsistent |
+| EX-multiples | 7 | 1 | 0 | 3 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
+| EY-multiples | 7 | 1 | 0 | 3 | 3 | 0 | 3 | 6 | 1.55e-02 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 7 | 1 | 0 | 42 | 9 | 0 | 9 | 6 | 9.76e-01 | - |
 | no_r | 7 | 1 | 0 | 28 | 6 | 0 | 6 | 6 | 3.83e-01 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
 | no_s | 7 | 1 | 0 | 28 | 6 | 0 | 6 | 6 | 7.96e-01 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
 | no_t | 7 | 1 | 0 | 28 | 6 | 0 | 6 | 6 | 7.04e-03 | inconsistent,inconsistent,inconsistent,inconsistent,inconsistent,inconsistent |
@@ -161,17 +177,72 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
 | vars_xyzr | 7 | 1 | 0 | 8 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
 | vars_xyzs | 7 | 1 | 0 | 8 | 1 | 0 | 1 | 6 | 9.99e-01 | inconsistent |
 | vars_xyzt | 7 | 1 | 0 | 8 | 1 | 0 | 1 | 6 | 3.16e+01 | inconsistent |
+| Ydeg_le3 | 7 | 1 | 1 | 32 | 3 | 0 | 3 | 6 | 9.97e-01 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 7 | 1 | 2 | 32 | 3 | 0 | 3 | 6 | 9.39e-01 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 7 | 1 | 3 | 32 | 3 | 0 | 3 | 6 | 9.94e-01 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 7 | 1 | 4 | 32 | 3 | 0 | 3 | 6 | 1.00e+00 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 7 | 1 | 5 | 32 | 3 | 0 | 3 | 6 | 6.61e-01 | inconsistent,inconsistent,inconsistent |
+| Ydeg_le3 | 7 | 1 | 6 | 32 | 3 | 0 | 3 | 6 | 9.84e-01 | inconsistent,inconsistent,inconsistent |
+| no_x | 8 | 0 | 0 | 67 | 12 | 0 | 12 | 6 | 4.03e-02 | - |
+| no_y | 8 | 0 | 0 | 67 | 12 | 0 | 12 | 6 | 1.21e-02 | - |
+| vars_xyzr | 8 | 0 | 0 | 14 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzs | 8 | 0 | 0 | 14 | 1 | 0 | 1 | 6 | 9.99e-01 | inconsistent |
+| vars_xyzt | 8 | 0 | 0 | 14 | 1 | 0 | 1 | 6 | 3.33e+01 | inconsistent |
+| no_r | 8 | 0 | 1 | 36 | 3 | 0 | 3 | 6 | 5.20e-02 | inconsistent,inconsistent,inconsistent |
+| no_s | 8 | 0 | 1 | 36 | 4 | 0 | 4 | 6 | 8.15e-01 | inconsistent,inconsistent,inconsistent,inconsistent |
+| no_t | 8 | 0 | 1 | 36 | 4 | 0 | 4 | 6 | 1.01e-02 | inconsistent,inconsistent,inconsistent,inconsistent |
+| no_x | 8 | 0 | 1 | 50 | 2 | 0 | 2 | 6 | 2.51e-02 | inconsistent,inconsistent |
+| no_y | 8 | 0 | 1 | 36 | 2 | 0 | 2 | 6 | 2.06e-02 | inconsistent,inconsistent |
+| vars_xyzr | 8 | 0 | 1 | 14 | 1 | 0 | 1 | 6 | 9.52e-01 | inconsistent |
+| vars_xyzs | 8 | 0 | 1 | 14 | 1 | 0 | 1 | 6 | 5.61e-02 | inconsistent |
+| vars_xyzt | 8 | 0 | 1 | 14 | 1 | 0 | 1 | 6 | 5.85e+00 | inconsistent |
+| no_r | 8 | 0 | 2 | 36 | 4 | 0 | 4 | 6 | 1.25e-02 | inconsistent,inconsistent,inconsistent,inconsistent |
+| no_s | 8 | 0 | 2 | 36 | 4 | 0 | 4 | 6 | 6.83e-03 | inconsistent,inconsistent,inconsistent,inconsistent |
+| no_t | 8 | 0 | 2 | 36 | 3 | 0 | 3 | 6 | 2.75e-03 | inconsistent,inconsistent,inconsistent |
+| no_y | 8 | 0 | 2 | 50 | 2 | 0 | 2 | 6 | 2.15e-02 | inconsistent,inconsistent |
+| no_z | 8 | 0 | 2 | 36 | 2 | 0 | 2 | 6 | 2.25e-02 | inconsistent,inconsistent |
+| vars_xyzr | 8 | 0 | 2 | 14 | 1 | 0 | 1 | 6 | 3.69e-02 | inconsistent |
+| vars_xyzs | 8 | 0 | 2 | 14 | 1 | 0 | 1 | 6 | 3.55e-02 | inconsistent |
+| vars_xyzt | 8 | 0 | 2 | 14 | 1 | 0 | 1 | 6 | 8.79e-02 | inconsistent |
+| no_r | 8 | 0 | 3 | 35 | 3 | 0 | 3 | 6 | 7.27e-02 | inconsistent,inconsistent,inconsistent |
+| no_s | 8 | 0 | 3 | 35 | 3 | 0 | 3 | 6 | 2.34e-01 | inconsistent,inconsistent,inconsistent |
+| no_t | 8 | 0 | 3 | 35 | 3 | 0 | 3 | 6 | 1.86e-01 | inconsistent,inconsistent,inconsistent |
+| no_z | 8 | 0 | 3 | 35 | 2 | 0 | 2 | 6 | 4.87e-01 | inconsistent,inconsistent |
+| vars_xyzr | 8 | 0 | 3 | 13 | 1 | 0 | 1 | 6 | 5.61e-01 | inconsistent |
+| vars_xyzs | 8 | 0 | 3 | 13 | 1 | 0 | 1 | 6 | 4.83e-01 | inconsistent |
+| vars_xyzt | 8 | 0 | 3 | 13 | 1 | 0 | 1 | 6 | 3.46e+00 | inconsistent |
+| no_t | 8 | 0 | 4 | 36 | 4 | 0 | 4 | 6 | 8.82e-01 | inconsistent,inconsistent,inconsistent,inconsistent |
+| no_x | 8 | 0 | 4 | 36 | 2 | 0 | 2 | 6 | 7.76e-01 | inconsistent,inconsistent |
+| no_z | 8 | 0 | 4 | 50 | 2 | 0 | 2 | 6 | 8.18e-01 | inconsistent,inconsistent |
+| vars_xyzr | 8 | 0 | 4 | 14 | 1 | 0 | 1 | 6 | 9.33e-01 | inconsistent |
+| vars_xyzs | 8 | 0 | 4 | 14 | 1 | 0 | 1 | 6 | 9.90e-01 | inconsistent |
+| vars_xyzt | 8 | 0 | 4 | 14 | 1 | 0 | 1 | 6 | 5.69e+00 | inconsistent |
+| vars_xyzr | 8 | 0 | 5 | 13 | 1 | 0 | 1 | 6 | 9.53e-01 | inconsistent |
+| vars_xyzs | 8 | 0 | 5 | 13 | 1 | 0 | 1 | 6 | 5.55e-02 | inconsistent |
+| vars_xyzt | 8 | 0 | 5 | 13 | 1 | 0 | 1 | 6 | 6.71e+00 | inconsistent |
+| vars_xyzr | 8 | 0 | 6 | 13 | 1 | 0 | 1 | 6 | 9.52e-01 | inconsistent |
+| vars_xyzs | 8 | 0 | 6 | 13 | 1 | 0 | 1 | 6 | 5.61e-02 | inconsistent |
+| vars_xyzt | 8 | 0 | 6 | 13 | 1 | 0 | 1 | 6 | 5.84e+00 | inconsistent |
+| vars_xyzr | 8 | 1 | 1 | 10 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzs | 8 | 1 | 1 | 10 | 1 | 0 | 1 | 6 | 9.84e-01 | inconsistent |
+| vars_xyzt | 8 | 1 | 1 | 10 | 1 | 0 | 1 | 6 | 1.88e+01 | inconsistent |
+| vars_xyzr | 8 | 1 | 2 | 10 | 1 | 0 | 1 | 6 | 1.00e+00 | inconsistent |
+| vars_xyzs | 8 | 1 | 2 | 10 | 1 | 0 | 1 | 6 | 9.99e-01 | inconsistent |
+| vars_xyzt | 8 | 1 | 2 | 10 | 1 | 0 | 1 | 6 | 3.16e+01 | inconsistent |
+| vars_xyzr | 8 | 1 | 4 | 10 | 1 | 0 | 1 | 6 | 9.52e-01 | inconsistent |
+| vars_xyzs | 8 | 1 | 4 | 10 | 1 | 0 | 1 | 6 | 3.00e-03 | inconsistent |
+| vars_xyzt | 8 | 1 | 4 | 10 | 1 | 0 | 1 | 6 | 2.00e+01 | inconsistent |
 
 ## Remote job queue (tail)
 ```
-20:58:33 gate closed for w2-control: 700), available memory 90 GB (min 90), 76 jobs running with 305 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-21:00:06 gate closed for w2-control: 700), available memory 87 GB (min 90), 75 jobs running with 304 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-21:01:39 gate closed for w2-control: 700), available memory 86 GB (min 90), 73 jobs running with 302 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-21:03:12 gate closed for w2-control: 700), available memory 84 GB (min 90), 73 jobs running with 295 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-21:04:45 gate closed for w2-control: 700), available memory 71 GB (min 90), 73 jobs running with 299 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-21:06:18 gate closed for w2-control: 700), available memory 60 GB (min 90), 73 jobs running with 299 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-21:07:51 gate closed for w2-control: 700), available memory 64 GB (min 90), 71 jobs running with 294 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
-21:09:23 gate closed for w2-control: 700), available memory 53 GB (min 90), 71 jobs running with 294 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:17:08 gate closed for w2-control: 700), available memory 31 GB (min 90), 71 jobs running with 312 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:18:40 gate closed for w2-control: 700), available memory 10 GB (min 90), 76 jobs running with 317 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:20:13 gate closed for w2-control: 700), available memory 11 GB (min 90), 75 jobs running with 316 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:21:46 gate closed for w2-control:  700), available memory 8 GB (min 90), 74 jobs running with 315 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:23:19 gate closed for w2-control:  700), available memory 6 GB (min 90), 71 jobs running with 259 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:24:52 gate closed for w2-control: 700), available memory 29 GB (min 90), 70 jobs running with 266 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:26:25 gate closed for w2-control: 700), available memory 22 GB (min 90), 69 jobs running with 250 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
+21:27:58 gate closed for w2-control: 700), available memory 13 GB (min 90), 69 jobs running with 265 cpus allocated (max 220); NOT submitted. Retry later (or pass --wait 1800 to wait for capacity).
 ```
 
 ## Notes and interpretation
@@ -224,4 +295,14 @@ Cells with zero E1-admissible part (excluded as supports), by family: G-multiple
   astronomically small.  The searches at d >= 9 are therefore landscape surveys plus exhaustive searches of the
   low-dimensional kernel-only and structured subfamilies; the decisive statements are the relaxation/exact-E2 exclusions
   at d <= 8 and the E1-kernel dimension table.
+* Cross-reference: the parallel exclusion packet in this lane (`wave2-excl/relaxation-verdicts.md`, prime 1000003 and
+  exact GB) reaches the same sector verdicts for d <= 7 by a different route: (6,even) = weighted-Euler curve C, all points
+  excluded by exact constant-dual quadrics; (7,even,1/2/4) = X_i.C lifted components (excluded via the NZD lemma and the
+  sum principle); (7,odd,0) lifted span(Y).C (pending); all other d <= 7 sectors EMPTY.  My relaxation/exact-E2 results
+  (mod 32003 and 1000003) are consistent with every entry of that table.
+* Structured families, local coverage: degrees 6 and 7 complete for all families (cones with plane/line/point vertex,
+  fixed X-degree pieces, X-degree <= 3 / Y-degree <= 3 pieces, multiples of K, G, M, K+G and of the block Euler derivatives
+  E_X F, E_Y F) in all 14 sectors; degree 8 complete for plane/line-vertex cones, partial for point-vertex cones.  Every
+  nonzero E1-admissible part found so far lies inside J(F)_d (nontrivial mod J = 0) and has no E2 zero (best rel >= 3e-3,
+  all exactly tested representatives inconsistent).  The remote job `w2-struct` extends this to degrees 8-12.
 

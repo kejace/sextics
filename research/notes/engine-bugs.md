@@ -79,3 +79,14 @@ independently; verify with `rjob status`.
 * Singular primdec.lib minAssGTZ: "overflow at t^21" (hilb) on a 36-variable ideal of 405 quadrics; dim(std(I)) is
   fine; identify components by affine charts + radical/finduni instead.
 * python-flint 0.9: fmpz_mat.solve(B) returns an fmpq_mat (not (X, den)); fmpz_mat.nullspace() is exact.
+
+## 2026-11-01 ~21:30 (cycle-q2 search agent): BLAS thread oversubscription through `hodge.rjob submit`
+`rjob submit --cpus N` exports `OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=FLINT_NUM_THREADS=N` for the job.  `hodge/__init__.py` only
+`setdefault`s these to 1, so every worker process of a multiprocessing job (N workers) runs N BLAS threads each: N^2 threads
+per job.  With `--cpus 32` and 32 workers my chains put ~1000 runnable threads on the box (load 1800+, each worker at 11 % CPU,
+zero progress for an hour).  Also any script that imports numpy *before* `hodge` or its own thread cap gets the default
+(all cores) thread count.  Workaround used: force `os.environ[...] = "1"` at the very top of every job script (before
+numpy).  Suggested engine fix: have `rjob.submit` export `OPENBLAS_NUM_THREADS=1` (the workers parallelize by process) or
+make `hodge/__init__.py` override rather than setdefault when running under rjob.
+
+**Aggregator confirmation (02:29 UTC) of the BLAS oversubscription entry above:** `hodge/rjob.py` line 96 exports `OMP_NUM_THREADS=OPENBLAS_NUM_THREADS=FLINT_NUM_THREADS=<cpus>` for the job shell, and `hodge/__init__.py` lines 5–6 only `os.environ.setdefault(..., '1')`, so inside an rjob job every worker process inherits `<cpus>` BLAS threads: N workers × N threads. Jobs that fork N workers under `--cpus N` should set the three variables to 1 at the top of the script (before numpy/flint are imported); the aggregator's `verify.py` workers were submitted with 3 workers at `--cpus 6`, i.e. ≤ 18 threads, and are unaffected in practice. Suggested fix stands: have `rjob.submit` export 1 for the BLAS variables and pass the CPU budget separately (`HODGE_JOB_CPUS` already exists).

@@ -105,7 +105,11 @@ No degree-8 sector shows any descent below rel 0.1 (earlier dense-metric and LM 
 |---|---|---|---|---|---|---|---|---|---|---|
 | 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | 0.0180 | 0.0180 | L-BFGS 300 it., ~8 min per restart locally |
 | 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | 0.0208 | 0.0208 | L-BFGS 300 it., seed 42 |
-(LM seed and sector 10 running)
+| 00 | ker(21) ⊕ J_9(242) | 263 | 241 | 9306 | 1050 | 1764 | 1 | 0.7676 | 0.7676 | joint LM (≤60 evaluations), seed 43: poor local minimum |
+| 10 | ker(21) ⊕ J_9(150) | 171 | 161 | 9306 | 850 | 1764 | 1 | 0.0214 | 0.0214 | L-BFGS 300 it., seed 44 |
+| 10 | ker(21) ⊕ J_9(150) | 171 | 161 | 9306 | 850 | 1764 | 1 | 0.0256 | 0.0256 | L-BFGS 300 it., seed 45 |
+Floors ≈ 0.02 in both kernel-bearing sectors after 300 iterations (vs 0.1–0.2 at degree 8); a 900-iteration run from the best
+sector-00 seed is in progress to see whether the landscape keeps descending.
 
 ### R3. K8 (unique non-Jacobian degree-8 Y-even E1 class, Klein-invariant): full fixed-D test — remote job `search-rcr-k8full`
 E1 confirmed (rank 5052 = rank_aug). Sector-restricted compressed system 22016 × 4256 (of 7497 unrestricted): **inconsistent** (rank 3781, nullity 475, 36 s).

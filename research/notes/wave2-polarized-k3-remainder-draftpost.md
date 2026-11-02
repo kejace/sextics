@@ -27,7 +27,13 @@ even when no factor does; to use "deg >= 8" for products one needs that no low-d
   served target space of f(U) (exact rational nullspace, 4923 x 832) has zero projection onto the K3 block modulo J,
   and so do the hyperplanes U0, V0. So X ∩ V(f(U)) (the join of the two copies of C) carries no K3-sector class at all,
   as Chapter 3A predicts (it supports the joining sector).
-* Degree 7 (exact, specific): f(U)·U0 and f(U)·V0 are inconsistent for the K3 target (377/378); [universal relaxation pending].
+* Degree 7: the single-target relaxation is far too weak for A_K3 (rank 935 on 7260 quadratic monomials, zero set of
+  tangent dimension 84 along the reducible family f(U)·ℓ, no squares). Under the dichotomy with ρ = 1 a denominator
+  serving A_K3 serves every K3-block class, so all 19 classes can be imposed with the same Koszul vector; this 19-target
+  relaxation (zero-class check passed) does not help either: every K3-block class imposes the same constraints (stacked rank 1092 of 7260, nothing forced), so degree 7 for the K3 class is open by relaxation methods; the reducible family f(U)·ℓ is nevertheless excluded by the sum principle (π_{Λ²T} of each factor vanishes).
+  Exact fixed-D: f(U)·U0 and f(U)·V0 fail for A_K3 (377/378).
+* Degree 8: the reducible family f(U)·h (h = U0², U0V0, V0²) lies in the K3 relaxation too (mod 65521), so the
+  relaxation method cannot decide degree 8 for the K3 class either; f(U)·U0² fails exactly for both targets.
 * Degree 7: [pending].
 Consequence, conditional on ρ(S_2) = 1 (via the dichotomy: End_Hdg(T) = Q makes Λ²T irreducible, so a support either
 carries no K3 (3,1)-class or all of them): no denominator whose divisor X ∩ V(D) has only components of degree <= 6·[7]
@@ -36,8 +42,7 @@ can serve A; at degree 8 only irreducible supports remain. [adjust once degree 7
 **3. Screens (mod p only, no exclusion claimed).** For the K3-sector target the E1 kernel is NOT Jacobian from degree 8 on:
 [A_K3] has a 51 (Y-even) + 39 (Y-odd) dimensional kernel modulo J at degree 8 (η = [z0²z1²z2²] kills a 9-dimensional
 subspace K4 of R_{f,4}, so K4⊗K4 ⊂ R_4⊗R_4 is E1-admissible). The structured element Σ_k g_k(U)g_k(V) (exact K4 basis,
-character 4) fails the full E2 system for A_K3 (μ6-restricted system 13572×2430, rank 2206, mod 2^31−1). [more elements /
-structured octic sweep for A pending compute].
+character 4) and five further elements of K4⊗K4 all fail the full E2 system for A_K3 (μ6-restricted systems 13572×2430, rank 2206, mod 2^31−1). [random elements of the other character components / structured octic sweep for A pending compute].
 
 Credits: the degree bound, normalization and packet are `1337isnot1337`'s; the sector decomposition is the book's
 (Ch. 3A); the sum principle is the prescribed-support theorem (Ch. 1) plus additivity of Gysin images over components.

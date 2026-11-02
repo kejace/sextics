@@ -19,6 +19,17 @@ Variables X0, X1, X2, Y0, Y1, Y2; G_aff character of a monomial chi(e) = (e0+e3 
   the space of Y-odd degree-6 targets served by D equals J_6^odd (dim 18): no nontrivial class is supported on any of these
   divisors, and by the sum principle no product of them serves A.  [served_local.py; log exp=served, served-span]
 
+* R7 (replays of the geometric inputs): fqlx's K3 socle test replayed over Q (Singular, /tmp/mstest/k3.sing copied here as k3.sing);
+  the dossier's epsilon-sector dimensions (25/3/22, 191/140/51) replayed; the dossier's "(J:A)_d = S_d for d >= 13" corrected
+  (dim R_19 = 246; dim (J:A)_13 = 8322 by duality).
+* Second prime: d7mixed.quads.p1000000007.json and the tags d7p3_* / the local_d8 runs with "prime": 1000000007 in the log
+  reproduce R3, R4, R5 at p = 1000000007.
+
+* R8 (new, degree 7 cube lattice): all 28 pairs of (Z/2)^3 parity classes excluded (12 edges = item R3, 12 face diagonals,
+  4 space diagonals; tags d7_fd_*, d7_sd_*, two primes).  Difference-multiplicity lemma (report item 18) + bilinear zero-pair
+  tests (bilinear_pairs2.py, bidegree (2,2) Macaulay rank per h1-block; log exp=bilinear-pair) reduce the possible supports
+  of a degree-7 solution to the 14 affine planes and the 6-, 7-, 8-sets.
+
 ## How to replay
 ```
 cd /tmp/hodge/results/quadric-contact-residual/wave2-excl
@@ -29,6 +40,8 @@ python3 inv_closure.py 8 2 600            # Gamma-invariant degree-8 family
 python3 d8sectors_local.py 0020,0021 60   # pure sectors at d=8
 python3 served_local.py 5                 # served-target spaces and the span test
 python3 macaulay.py <quads.json> 4 8      # block Macaulay closure (I_4 = S_4 test) for a quads JSON
+python3 sub_closure.py d7mixed.quads.local.json d7_sd_000_111 'b0=0&b2=0&y0|b0=1&b2=1&y1' 2   # a space diagonal (| = union of classes)
+python3 bilinear_pairs2.py d7mixed.quads.local.json 2 2 all   # bilinear zero-pair tests for all 28 class pairs
 ```
 Verdict rule for msolve: `-g 1` prints the grevlex leading ideal; the homogeneous quadric ideal has V(I) = {0} iff every
 variable has a pure power among the leading monomials (msverdict.py).  NOTE: msolve misparses `c*c`; squares are written `c^2`.

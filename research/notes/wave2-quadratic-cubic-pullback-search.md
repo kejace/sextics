@@ -1,6 +1,6 @@
 # Wave 2 search report: quadratic-cubic-pullback
 
-STATUS: NO WITNESS FOUND.  (Report regenerated 2026-11-01 21:08 EST by w2_report.py from wave2-search.log.jsonl; 817 records.)
+STATUS: NO WITNESS FOUND.  (Report regenerated 2026-11-01 21:28 EST by w2_report.py from wave2-search.log.jsonl; 1041 records.)
 
 Lane: F = sum_{i=0}^5 Q_i^3 (six Y-even quadrics), q = 1, A = X0^3 Y0^3.  Diagonal symmetry group of F: only Z/2 = {1, tau}
 (Y-parity), so the only character sectors are the two Y-parities of D (a mixed-parity D can be replaced by D*tau(D)).
@@ -155,7 +155,7 @@ d = 10 real kernel (job d10): dim K = 1044, dim J = 750, non-J part 294; singula
 | d | parity | objective | relative residual statistics | distinct minima | cost/restart |
 |---|---|---|---|---|---|
 | 6 | even | stage 1 (Hessian relaxation, LM) | n=361 min=1.890e-02 q10=2.303e-02 median=3.463e-02 max=4.660e-02 | 23 | 27 s |
-| 7 | even | stage 1 (Hessian relaxation, LM) | n=60 min=1.318e-04 q10=1.318e-04 median=1.318e-04 max=1.843e-04 | 2 | 316 s |
+| 7 | even | stage 1 (Hessian relaxation, LM) | n=80 min=1.318e-04 q10=1.318e-04 median=1.318e-04 max=1.843e-04 | 2 | 316 s |
 | 6 | even | stage 2 (full E2 varpro, L-BFGS; compressed rows) | n=34 min=1.635e-02 q10=1.972e-02 median=2.418e-02 max=3.052e-02 | 27 | 303 s |
 
 ## What remains open after wave 2

@@ -52,16 +52,28 @@ A second agent (lens excl) works in /tmp/hodge/results/off-paired/wave2-excl/ (t
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | fe6 | varpro | 6 | [0, 0] | G | colon | 6 | 60 | 6.229e-02 | 1.77e-01 | 0 | 8 | 4.6 | yes |
 | fe7 | varpro | 7 | [0, 0] | G | colon | 14 | 60 | 5.137e-02 | 1.04e-01 | 0 | 15 | 30.5 | yes |
-| t01d8 | varpro | 8 | None | G | ? | ? | 73 | 3.022e-03 | 1.37e-02 | 0 | 25 | 20.1 | partial |
+| t01d7 | varpro | 7 | [0, 0] | G | colon | 14 | 60 | 1.457e-02 | 9.83e-02 | 0 | 19 | 7.0 | yes |
 | d8c00 | varpro | 8 | [0, 0] | G | colon | 28 | 86 | 1.317e-02 | 5.83e-02 | 0 | 31 | 291.6 | yes |
-| d8c00b | varpro | 8 | [0, 0] | G | colon | ? | 191 | 1.317e-02 | 5.83e-02 | 0 | 50 | 110.4 | partial |
+| d8c00b | varpro | 8 | [0, 0] | G | colon | 28 | 265 | 1.317e-02 | 5.83e-02 | 0 | 61 | 110.0 | yes |
+| hess-d8-c00 | hess | 8 | [0, 0] | G | ? | 18 | 400 | 1.937e-01 | 2.71e-01 | 0 | 27 | 0.4 | yes |
+| t01d8 | varpro | 8 | [0, 0] | G | colon | 28 | 80 | 3.022e-03 | 1.67e-02 | 0 | 25 | 20.3 | yes |
 | d8h0-c10 | varpro | 8 | [1, 0] | G | colon | 23 | 25 | 7.325e-02 | 8.23e-02 | 0 | 19 | 290.9 | yes |
 | d8h0b-c10 | varpro | 8 | [1, 0] | G | colon | 23 | 199 | 7.325e-02 | 8.27e-02 | 0 | 72 | 38.1 | yes |
+| hess-d8-c10 | hess | 8 | [1, 0] | G | ? | 16 | 400 | 2.209e-01 | 3.39e-01 | 0 | 68 | 0.2 | yes |
 | d8h0-c20 | varpro | 8 | [2, 0] | G | colon | ? | 9 | 6.951e-02 | 8.16e-02 | 0 | 8 | 208.7 | partial |
-| d8h0b-c20 | varpro | 8 | [2, 0] | G | colon | ? | 7 | 7.187e-02 | 7.87e-02 | 0 | 7 | 30.1 | partial |
+| d8h0b-c20 | varpro | 8 | [2, 0] | G | colon | 25 | 157 | 6.675e-02 | 7.56e-02 | 0 | 50 | 52.0 | yes |
+| hess-d8-c20 | hess | 8 | [2, 0] | G | ? | 18 | 400 | 2.135e-01 | 2.67e-01 | 0 | 24 | 0.4 | yes |
 | d8h0b-c30 | varpro | 8 | [3, 0] | G | colon | 28 | 300 | 2.053e-02 | 8.10e-02 | 0 | 70 | 19.3 | yes |
+| hess-d8-c30 | hess | 8 | [3, 0] | G | ? | 21 | 400 | 2.115e-01 | 3.33e-01 | 0 | 45 | 0.5 | yes |
+| d8h0b-c40 | varpro | 8 | [4, 0] | G | colon | ? | 45 | 2.447e-02 | 6.64e-02 | 0 | 21 | 49.3 | partial |
+| hess-d8-c40 | hess | 8 | [4, 0] | G | ? | 18 | 400 | 1.778e-01 | 3.58e-01 | 0 | 49 | 0.7 | yes |
+| hess-d8-c50 | hess | 8 | [5, 0] | G | ? | 16 | 400 | 2.311e-01 | 8.50e-01 | 0 | 39 | 0.3 | yes |
+| d9h0-c00 | varpro | 9 | [0, 0] | G | colon | ? | 139 | 3.891e-03 | 3.93e-03 | 0 | 36 | 72.1 | partial |
+| hess-d9-c00 | hess | 9 | [0, 0] | G | ? | 37 | 400 | 1.505e-01 | 2.44e-01 | 0 | 44 | 2.2 | yes |
+| hess-d9-c20 | varpro | 9 | [2, 0] | G | ? | ? | 364 | 1.933e-01 | 7.88e-01 | 0 | 54 | 2.0 | partial |
+| hess-d9-c30 | hess | 9 | [3, 0] | G | ? | 37 | 400 | 1.792e-01 | 2.98e-01 | 0 | 77 | 2.2 | yes |
 
-Total restarts 1010 over 10 jobs; numerical hits (relres < 1e-9): 0.
+Total restarts 5049 over 22 jobs; numerical hits (relres < 1e-9): 0.
 
 Reading the table: 'best relres' = min over restarts of ||residual||/||A D^2|| for the complete fixed-D system (six numerators of
 degree d+1 and Q of degree 2d-6, character-restricted) at the LM endpoint; a certificate gives ~1e-13 (Fermat controls: 3e-14).
@@ -97,7 +109,13 @@ d = 8, (0,0) (K = 30, gauge 2, dimP = 28): best relres 1.3173e-2 (reproduced by 
 (-0.654 X0^4Y1^4 + 0.489 X0^2Y1^6 + 0.381 X0^6Y1^2 - 0.259 Y1^8 - 0.169 X0^8 + small corrections; sigma2-even, 74 % in J_8): a union of
 eight hyperplanes through the P^3 {X0 = Y1 = 0} -- a known non-solution type (hyperplane unions through a P^3 carry no (3,1)-class).
 d = 8, (3,0) (K = 31, gauge 3, dimP = 28): best 2.053e-2 (hit repeatedly), again a binary form in (X0, Y1) (0.64 X0^5Y1^3 - 0.58 X0^3Y1^5
-+ 0.35 X0Y1^7 - 0.27 X0^7Y1, 99.8 % in J_8). d = 8, (1,0): best 7.3e-2. Consequence: genuine structured solutions, if any, have
++ 0.35 X0Y1^7 - 0.27 X0^7Y1, 99.8 % in J_8). d = 8, (1,0): best 7.3e-2. d = 9, (0,0) (K = 55, gauge 5, dimP = 50; job d9h0, interim 74 restarts): best 3.8915e-3, hit by 31 restarts -- the same attractor
+type: -0.587 X0^5Y1^4 + 0.464 X0^3Y1^6 + 0.304 X0^7Y1^2 - 0.293 X0Y1^8 plus chain-type corrections (-0.313 X0^2X1Y0Y1^5,
++0.260 X0^4X1Y0Y1^3), sigma2-even, 98 % in J_9; a second family of minima (2.6e-2 - 3.1e-2) consists of forms in X0, X1, Y0
+(cones over plane curves in P^2_{X0X1Y0}, 89 % in J). The best attainable residual decreases with degree (1.3e-2 -> 3.9e-3) as the
+family grows, without approaching zero. At t = 1/10 (F = Fermat + Qx/10) the d = 8 (0,0) search gives best 3.0e-3 (80 restarts), also
+no zero (job t01d8): no degree-8 denominator for small deformations of the Fermat either.
+Consequence: genuine structured solutions, if any, have
 small basins, and the search is a search for geometric mechanisms, not for accidental zeros (the fixed-D systems are overdetermined by
 a factor ~50: e.g. d = 8 (0,0): 2494 rows, generic rank 488 of 567 columns, 28 D-parameters).
 

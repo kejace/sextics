@@ -140,3 +140,26 @@ D = f(U)h are all reducible, so they are excluded by this argument without any f
 9. Compute: remote saturated all night (load 700–1750 / 128 cores); all results above local; 4 remote jobs queued.
 10. Packet: /tmp/hodge/results/polarized-k3-remainder/wave2-excl/ (README, 9 scripts, JSON receipts); draft post:
     /tmp/hodge/notes/wave2-polarized-k3-remainder-draftpost.md.
+Update (02:30): five elements of the character-4 block K4⊗K4 of the non-Jacobian K3 kernel (symmetric and alternating
+pairings over the exact K4 basis, a symmetrized rank-2 tensor, the rank-1 control g0(U)g0(V), a random symmetric tensor)
+are all INCONSISTENT for A_K3 (μ6-restricted systems 13572 × 2430, rank 2206, nullity 224 each; mod 2^31−1).
+Also: the single-target K3 relaxation at degree 7 is too weak (rank 935, zero set of tangent dimension 84 along the
+family f(U)·ℓ, no squares); the 19-target K3-block relaxation (valid under the dichotomy with ρ = 1; zero-class check
+passed) is running at degree 7; at degree 6 it still leaves exactly the f(U) line (stacked rank 326).
+
+### Fallback statement if degree 7 stays open for the K3 class (02:45)
+The 19-target K3 relaxation at degree 7 shows strongly overlapping constraints across targets (after 6 of 19 targets the
+stacked rank is 1092 of 7260 and grows slowly), so it may also fail to force squares.  In that case the rigorous
+structural statement at degree 8 reads: a legal octic D has X ∩ V(D) either irreducible and reduced, or of the form
+Y_7 ∪ Y_1 with Y_7 = X ∩ V(D_7) an irreducible degree-7 support carrying the K3 class (ω∧η_T ∈ π_{Λ²T} N_{Y_7}) and
+Y_1 a hyperplane section (serving the mixed sector); all other decompositions (6+2, 6+1+1, 5+3, 4+4, ...) only involve
+factors of degree ≤ 6 and are excluded by R2 + the dichotomy (under η ∉ NS_prim⊗C).  In particular every point of the
+thread's degree-8 relaxation family f(U)·h (= Y_6 ∪ Y_2 or Y_6 ∪ Y_1 ∪ Y_1) is excluded.
+
+### R8. Degree 7 for the K3 class: relaxation methods exhausted (02:55)
+Single-target L-relaxation: rank 935/7260, no squares, zero set with 84-dimensional tangent spaces along f(U)·ℓ.
+19-target relaxation: the cumulative rank freezes at 1092 after 6 targets (identical after 15) — every K3-block class
+imposes the same constraints (B_D(T_B a) = T_B·B_D(a) + D·a(T_B), and L ⊂ J makes all these linear relaxations weaker
+than L).  So "no degree-7 D serves A_K3" is OPEN by these methods; what IS proven for degree 7: the whole reducible
+family f(U)·ℓ is excluded (sum principle: π_{Λ²T}(served f(U)) = 0 exactly, π_{Λ²T}(served ℓ) = 0 by E1 at d = 1 +
+dichotomy), and f(U)·U0, f(U)·V0 fail exactly.  The fallback degree-8 statement above therefore applies.

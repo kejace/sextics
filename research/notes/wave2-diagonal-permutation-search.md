@@ -2,16 +2,17 @@
 
 STATUS: NO WITNESS FOUND (search in progress; this file is rewritten after every batch).
 
-Summary so far (2026-11-02 02:55 UTC): D8 (the only non-Jacobian degree-8 denominator) is excluded by the full fixed-D system at two
+Summary so far (2026-11-02 02:35 UTC): D8 (the only non-Jacobian degree-8 denominator) is excluded by the full fixed-D system at two
 primes and serves only the zero class; the first non-Jacobian E1-admissible denominators appear at **degree 9** (21 Y-even + 21 Y-odd
 classes modulo J(F)), exactly the kernel forced by the transposition symmetry ((01)-equivariant Hilbert function 322 → 301), all
 (01)-invariant, 11 of them with elliptic-cone singularities along the Fermat curve `X ∩ {X=0}` and 4 with genus-3-cone singularities
 along `X ∩ {Y=0}`.  A new pointwise variable-projection method (reduced E2 evaluated at random points of V(F), (01)-sector
 reduction) was run on the degree-7 Jacobian family (558 restarts, floor 0.1–0.26: nothing), the degree-8 family (no completed
-restart under remote load > 1000), and the full degree-9 admissible families (Y-even, Y-odd, (X)^3 sub-family; 27 restarts): all
-degree-9 restarts stop at relative residual 2e-3 … 4e-2 at the 300-iteration cap, with no sign of superlinear convergence to a zero;
-calibration runs (longer refinement, 3× more points, random control target) are in progress to establish that this is the generic
-floor of a nearly square infeasible system.
+restart under remote load > 1000), and the full degree-9 admissible families (Y-even, Y-odd, (X)^3 sub-family; 33 restarts at a
+small equation surplus): the degree-9 residuals 2e-3 … 4e-2 were shown by three calibrations (3× more points → converged nonzero
+minimum; random control target → same distribution; long refinement → slow valley) to be the generic floor of a nearly square
+compressed system, not near-solutions.  The degree-9 searches are being re-run with a doubled equation surplus (jobs j9eps, j9ops,
+j9x3s).  No candidate with residual below 1e-3 (relative) or 1e-5 (absolute-scaled) has appeared for the real target.
 
 Lane dir: `/tmp/hodge/results/diagonal-permutation/`; log: `wave2-search.log.jsonl` (one line per experiment/batch);
 remote outputs mirrored to `/tmp/hodge/remote/diagonal-permutation/` (`w2-*.jsonl`, `w2-*.json`).
@@ -49,7 +50,9 @@ relaxation `A·wᵀHess(F)w ∈ J(F)` (necessary; 208 quadrics in 63 unknowns at
 | j7a | Jacobian `w(F)`, w quadratic (63 params, 3 gauge removed; 420 Koszul unknowns; r = 543 points) | 7 | all | 498 / 3200 | 9.9e-2 | 0.21 | running |
 | j8a | Jacobian `w(F)` (w cubic, 168) ⊕ D8 (169 params, 12 gauge; 954 Koszul; r = 1183) | 8 | all | 0 (killed: too slow under remote load ~900; no restart finished in 25 min) | – | – | replaced by j8b |
 | j8b | same family, r = 662 points (2r > dim a + dim c), maxiter 300 | 8 | all | started 01:10 UTC | – | – | running |
-| j9ep2 | **full admissible family at d=9, Y-even**: J_9^+ (w quartic, 378) ⊕ 21 kernel members (float E1 lifts) = 399 params, restricted to (01)-invariant D (201 params after gauge) with (01)-anti-equivariant Koszul corrections (950 of 1890); r = 684 points | 9 | (01)-inv | 2 (of 8×150) | 3.7e-3 (rel_abs 2.6e-5; 300-iteration cap) | 1.2e-2 | running (~24 min/restart under load ~1600) |
+| j9ep2 | **full admissible family at d=9, Y-even**: J_9^+ (w quartic, 378) ⊕ 21 kernel members (float E1 lifts) = 399 params, restricted to (01)-invariant D (201 params after gauge) with (01)-anti-equivariant Koszul corrections (950 of 1890); r = 684 points | 9 | (01)-inv | 8 (stopped) | 3.7e-3 (rel_abs 2.6e-5; 300-iteration cap) | ~1e-2 | stopped (floor-dominated, see calibration); replaced by j9eps |
+| calA | **control**: random σ-anti-invariant target A′, same family type/settings as j9op2 | 9 | (01)-inv | 4+ | 3.3e-3 (rel_abs 1.2e-5) | ~9e-3 | running (same floor as the real target) |
+| j9eps / j9ops / j9x3s | the three degree-9 (01)-sector families with doubled equation surplus (r = 1251, 2r ≈ 2(dim a + dim c)), 400 iterations | 9 | (01)-inv | started 02:30 UTC | – | – | running |
 | j9op2 | same for **Y-odd D** (J_9^- ⊕ 21 odd kernel members), (01)-invariant sector | 9 | (01)-inv | 15 (stopped) | **1.9e-3** (rel_abs 1.4e-5; all restarts hit the 300-iteration cap while still decreasing; 10 of 15 in [1e-3, 1e-2], 5 in [1e-2, 1e-1]) | 3.4e-3 | stopped to free a slot; refinement job `ref9op` running (1500 + 4000 + 300 iterations, independent-point check, rational reconstruction) |
 | j9x3 | admissible ∩ `(X0,X1,X2)^3` (141 params in the (01)-invariant sector), same Koszul sector | 9 | (01)-inv, vanish X3 | 10 (stopped) | 3.9e-3 (rel_abs 2.3e-5) | 7.3e-3 | stopped to free a slot for the calibration runs (~9 min/restart) |
 
@@ -58,7 +61,22 @@ two orders of magnitude below the degree-7 local minima (0.1–0.26), and almost
 decreasing slowly (the refinement trajectory of j9op/w4/r0: f = 1.8e5 → 153 → 92 → 77 after 26/51/76 further iterations).  The
 uniformity across restarts and families suggests a *floor* of an infeasible but nearly square system (2r = 1368 real equations
 for 201 + 950 unknowns, only 217 more equations than unknowns) rather than basins of true zeros; a true zero would show
-superlinear convergence to ~1e-15.  Two decisive checks are running/queued: (i) the long refinement `ref9op` (does f → 0?),
+superlinear convergence to ~1e-15.  **Calibration results so far.**  (i) Long refinement of the best j9op start (r = 684): f = 1.8e5 → 153 → 64 → 47 → 27.6 → 17.4 after
+26 / 101 / 151 / 251 / 401 iterations — a slow algebraic decrease along a shallow valley (gradient norm still ~20), not the
+superlinear convergence of a true zero.  (ii) The same start with 3× the equation surplus (`--margin 400`, r = 984) **converges** to a
+genuine local minimum f = 156.1 (gradient norm 0.2 after ~180 iterations), i.e. the per-point residual rises from ≈0.025 (and
+falling) to 0.16 when 300 more points are added — exactly the behaviour of a nearly square infeasible system, and incompatible with
+an exact solution (which would give f → 0 for both point sets).  Hence the degree-9 values ~1e-3 are the floor of the compressed
+system, not near-solutions; searches should use a larger surplus (2r ≈ 2·(dim a + dim c)) to make the landscape informative.
+(iii) **Control target**: the identical search (Y-odd, (01)-sector, margin 100, 300 iterations) for the random σ-anti-invariant sextic
+A′ (whose forced degree-9 kernel is also 21-dimensional; float basis gap 6.5e-2 / 1.6e-14) gives relative residuals 3.3e-3, 5.9e-3,
+1.2e-2, 1.2e-2 (absolute-scaled 1.2e-5 … 3.3e-5) — the same distribution as for the real target.  **Conclusion: the degree-9 residual
+values obtained with the small equation surplus carry no information about A; they are the generic floor of the compressed system.**
+Consequence for the method: with 2r only ~20 % above dim a + dim c, true zeros would sit at the bottom of a nearly flat valley and
+L-BFGS would not single them out; the degree-9 searches were therefore restarted with 2r ≈ 2·(dim a + dim c) (`--margin 676`,
+r = 1251 points; jobs `j9eps`, `j9ops`, `j9x3s`, 400 iterations), where the floor is O(0.1) as at degree 7 and a true zero is an
+isolated deep basin.  Earlier checks (stopped once the conclusion was clear): (i) the long refinement `ref9op` (f = 12.5 at 500
+iterations, gradient norm 3.7, still creeping down the valley),
 (ii) the same start with 3× more points (`--margin 400`, job `cal9`): a true solution is unaffected, a near-square floor rises;
 (iii) the **same search with a random σ-anti-invariant Y-odd sextic target A′** (58 terms, A′ ∉ J; its degree-9 kernel is also
 forced to be 21-dimensional by the σ-count), identical settings (`calA`): if A′ gives the same floor ~1e-3, the degree-9 values for A

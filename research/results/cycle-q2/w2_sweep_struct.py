@@ -4,6 +4,9 @@ E_I(F) = sum_{i in I} Z_i F_i (degree 6) and their squares (degree 12), block bi
 block-q2 coefficients, products of partials F_i F_j not yet tested.
 Usage: python3 w2_sweep_struct.py [nproc] [which: minors2,minors3,euler,blocks,all]
 Skips candidates already present (normalized) in log.jsonl / wave2-search.log.jsonl."""
+import os as _os
+for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "FLINT_NUM_THREADS"):
+    _os.environ[_v] = "1"
 import sys, time, json, itertools, os
 sys.path.insert(0, '/tmp/hodge/results/cycle-q2')
 import multiprocessing as mp

@@ -16,6 +16,9 @@ Options: --mode complex|real, --key-budget SECONDS, --min-K, --max-K, --rel-thr 
 Every batch of restarts appends one line to wave2-search.log.jsonl; candidates with rel < rel-thr are reconstructed
 and re-solved exactly at once; witnesses go to witness-candidate.json.
 """
+import os as _os
+for _v in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "FLINT_NUM_THREADS"):
+    _os.environ[_v] = "1"
 import sys, os, time, json, argparse, traceback
 sys.path.insert(0, '/tmp/hodge/results/cycle-q2')
 import numpy as np

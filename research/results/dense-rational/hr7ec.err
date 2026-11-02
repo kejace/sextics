@@ -2,3 +2,5 @@
 [hessrelax d=7 sector=0] eq parity 0: dim K_full(8)=168 (num rank 168) n_eq=483
 [hessrelax hr7ec] nw=63 dimP=60 neq=483 f(random) median 1.806e+02 build 1s
 [hessrelax hr7ec] 100 restarts best f 8.093e-04 (seed 50078) median 1.096e-03 (498s)
+[hessrelax hr7ec] 200 restarts best f 5.033e-04 (seed 50151) median 1.096e-03 (968s)
+[hessrelax hr7ec] 300 restarts best f 5.033e-04 (seed 50151) median 1.090e-03 (1317s)

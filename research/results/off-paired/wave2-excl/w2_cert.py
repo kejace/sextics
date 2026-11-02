@@ -19,6 +19,18 @@ from hodge.core import NV, VARS, monomials, mul, add, sub, pderiv, shift, reduce
 from fractions import Fraction
 from flint import nmod_mat, fmpq_mpoly_ctx, fmpq, Ordering
 
+def crt_poly(P, p, extra):
+    """Two-prime reconstruction: extra = (p2, dict of the same vector mod p2 keyed identically)."""
+    p2, P2 = extra
+    out = {}
+    for e, v in P.items():
+        v2 = P2.get(e, 0)
+        acc, m = core.crt_pair(v, p, v2, p2)[0], p * p2
+        r = core.ratrecon(acc, m)
+        if r is None: return None
+        if r: out[e] = r
+    return out
+
 def rat_poly(P, p):
     out = {}
     for e, v in P.items():
@@ -27,13 +39,16 @@ def rat_poly(P, p):
         if r: out[e] = r
     return out
 
-def rational_data(F, A, q, Ds, Ns, syz, p):
+def rational_data(F, A, q, Ds, Ns, syz, p, extra=None):
     """Reconstruct D_a, N_a, S_k over Q and verify N_a(F) = A D_a, S_k(F) = 0 exactly.  Returns (Dq, Nq, Sq) or raises."""
     Fi = [pderiv(F, i) for i in range(NV)]
     Dq = []; Nq = []; Sq = []
     for D, N in zip(Ds, Ns):
         d_ = rat_poly(D, p); n_ = [rat_poly(N[i], p) for i in range(NV)]
-        if d_ is None: raise ValueError('D reconstruction failed')
+        if d_ is None:
+            d_ = crt_poly(D, p, extra) if extra else None
+            if d_ is None: raise ValueError('D reconstruction failed')
+            n_ = [None] * NV
         if any(x is None for x in n_):
             n_ = exact_lift(F, A, q, d_)          # solve N(F) = A D over Q directly
             if n_ is None: raise ValueError('exact lift failed')

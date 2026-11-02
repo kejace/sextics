@@ -1,0 +1,1 @@
+{"seed": 7002, "init": "gauss", "method": "lm", "phi": 0.007080978219747081, "rel": 0.061182464658964125, "iters": 51, "nfev": 51, "secs": 55.64, "msg": "`ftol` termination condition is satisfied.", "n_defl": 0, "job": "ker-d7-r0s0", "d": 7, "rho": 0, "sigma": 0, "family": "kernel", "target": "A"}
