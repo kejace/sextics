@@ -38,3 +38,15 @@
 {"seed": 50045, "mode": "complex", "f": 3.059043899931126e-05, "iters": 92, "seconds": 89.04, "name": "hr8oc", "d": 8, "sector": "1"}
 {"seed": 50046, "mode": "complex", "f": 3.0887020576203766e-06, "iters": 162, "seconds": 187.98, "name": "hr8oc", "d": 8, "sector": "1"}
 {"seed": 50047, "mode": "complex", "f": 6.524713988715154e-05, "iters": 186, "seconds": 281.46, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50036, "mode": "complex", "f": 2.6600016991824935e-05, "iters": 234, "seconds": 295.47, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50037, "mode": "complex", "f": 1.6300161984336663e-05, "iters": 164, "seconds": 202.25, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50038, "mode": "complex", "f": 2.7680602246163576e-05, "iters": 278, "seconds": 350.83, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50039, "mode": "complex", "f": 2.3329217053839298e-05, "iters": 298, "seconds": 416.98, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50032, "mode": "complex", "f": 3.187677036014946e-05, "iters": 255, "seconds": 331.51, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50033, "mode": "complex", "f": 4.7821251558526934e-05, "iters": 211, "seconds": 220.6, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50034, "mode": "complex", "f": 1.8643801639980658e-05, "iters": 162, "seconds": 234.59, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50035, "mode": "complex", "f": 3.483936214406444e-07, "iters": 361, "seconds": 567.83, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50052, "mode": "complex", "f": 1.3195444699126701e-05, "iters": 235, "seconds": 171.02, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50053, "mode": "complex", "f": 3.548989284840939e-05, "iters": 225, "seconds": 278.4, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50054, "mode": "complex", "f": 5.194280778340815e-05, "iters": 287, "seconds": 318.96, "name": "hr8oc", "d": 8, "sector": "1"}
+{"seed": 50055, "mode": "complex", "f": 6.557904278178977e-05, "iters": 359, "seconds": 507.8, "name": "hr8oc", "d": 8, "sector": "1"}

@@ -11,3 +11,4 @@ stage-1 colon family of F0: K=74 dimP=69
   t=0 solution 7 at seed 76
 t=0: found 7 solutions in 96 restarts
 t=0.02: relres after LM over 7 tracked solutions: min 6.133e-04 median 7.991e-04
+path from solution 5: 0.02:6.1e-04 0.07:2.1e-03 0.12:3.6e-03 0.17:5.1e-03 0.22:6.5e-03 0.27:8.0e-03 0.31:9.2e-03 0.36:1.1e-02 0.41:1.2e-02 0.46:1.3e-02 0.51:1.4e-02 0.56:1.5e-02 0.61:1.7e-02 0.66:1.8e-02 0.71:1.9e-02 0.76:2.0e-02 0.80:2.1e-02 0.85:2.2e-02 0.90:2.2e-02 0.95:2.3e-02 1.00:2.4e-02
