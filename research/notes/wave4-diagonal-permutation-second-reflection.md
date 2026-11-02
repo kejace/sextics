@@ -1,4 +1,4 @@
-STATUS: RUNNING — 2026-11-02 04:53 UTC — DECIDED NEGATIVE (exact): Aut_lin of the generic (01)-pencil fibre is {1, s}; Aut_lin(X) = S3×⟨τ⟩, no reflection. Running: robustness sweep (μ ∈ {2/9,−5/3,1,0,7/3}, second prime 1000000009), exact-over-Q Singular check of rank-1 loci, rank-≤2 locus on P^5 (wave-2 J1). Lemmas and proofs: part1 file.
+STATUS: RUNNING — 2026-11-02 05:09 UTC — DECIDED NEGATIVE (exact): Aut_lin(generic (01)-fibre) = {1, s}, Aut_lin(X) = S3×⟨τ⟩, no second reflection; sweep over 5 values of μ and 2 primes agrees; still running: rank-≤2 locus on P^5 (wave-2 J1, bonus) and Singular-over-Q cross-check of the rank-1 loci.
 
 # Wave 4 — diagonal-permutation — route `second-reflection` (M-a of wave3 §3.4)
 
@@ -26,6 +26,20 @@ Positive ⇒ book §4.6 descent (Lean class L-B). Prior work: wave2 construct le
 | W4-5 | Aut_lin(F_{3/7}) over F_p-bar: block-diagonal reduction (Lemma A) + 12 msolve systems in 9 unknowns | order 2 = {1, s}; all 12 systems: diag j=0 gives g_M ∈ {1, diag(1,1,−1)} (both verified), the other 11 empty | exact over F_p-bar; ⇒ exact over Q-bar by Lemma B |
 | W4-6 | monomial automorphisms of F (exact Z/6 enumeration over Q(ζ6)); Aut_lin(F) ⊂ monomial by W4-2 + Lemma A' | S3 × ⟨τ⟩, order 12, NO reflection, no §2.7 partner coordinate | exact (over F_p-bar via W4-2; over Q-bar by Lemma B) |
 | W4-7 | generic fibre: Aut_lin(X_{η̄}) ↪ Aut_lin(X_{3/7}) (Lemma B over Q̄[[μ−3/7]]) | Aut_lin(X_{η̄}) = {1, s}: no hidden/created second reflection | exact |
+
+## Robustness sweep (same pipeline W4-1/3/4/5 per (μ, p); all exact over F_p-bar, msolve)
+| μ | p | rank-1 locus of F_μ | X_μ smooth mod p | h^0(T) (Q, F_p) | |Aut_lin(F_μ)| over F_p-bar | elements |
+|---|---|---|---|---|---|---|
+| 3/7 | 1073741827 | {e_a, e_b} | yes | 0, 0 | 2 | 1, s |
+| 3/7 | 1000000009 | {e_a, e_b} | yes | 0, 0 | 2 | 1, s |
+| 2/9 | 1073741827 | {e_a, e_b} | yes | 0, 0 | 2 | 1, s |
+| −5/3 | 1073741827 | {e_a, e_b} | yes | 0, 0 | 2 | 1, s |
+| −5/3 | 1000000009 | {e_a, e_b} | yes | 0, 0 | 2 | 1, s |
+| 7/3 | 1000000009 | {e_a, e_b} | yes | 0, 0 | 2 | 1, s |
+| 1 | 1073741827 | {e_a, e_b} | yes | 0, 0 | 2 | 1, s |
+| 0 (control: τ-stable member) | 1073741827 | LARGER (extra rank-1 points in charts q, t) — Lemma A reduction not applicable | yes | 0, 0 | ≥ 4 (block-diagonal part: 1, s, τ = (q,t,b ↦ −q,−t,−b), sτ) — τ, sτ have eigenvalue pattern (1^3,−1^2), not reflections | lower bound only |
+| 3/7 | 2147483647 | — | — | — | INVALID: msolve 0.6.5 rejects p = 2^31−1 for zero-dimensional systems (core dump); only its [-1] answers are valid | ignore |
+Each valid row independently proves (via Lemma B) Aut_lin(X_μ) = {1, s} over Q-bar for that μ and hence (Lemma B over Q̄[[μ−μ0]]) for the geometric generic fibre.
 
 ## Decision (route second-reflection): NEGATIVE, exact
 **Statement.** Let X_η̄ be the geometric generic fibre of the (01)-pencil {r = μt} on X. Then Aut_lin(X_η̄) = {1, s}

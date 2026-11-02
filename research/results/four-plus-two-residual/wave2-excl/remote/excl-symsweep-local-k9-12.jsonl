@@ -1,1 +1,4 @@
 {"exp": "sym-exact-reps", "d": 9, "parity": 0, "n_reps": 38, "dim_modJ": 38, "dim_J": 70, "verified_exact": true, "max_abs_coeff": 981695, "seconds": 613.5, "job": "excl-symsweep-local-k9-12", "ts": "2026-11-01T23:57:01"}
+{"exp": "sym-exact-reps", "d": 9, "parity": 1, "n_reps": 38, "dim_modJ": 38, "dim_J": 70, "verified_exact": true, "max_abs_coeff": 790116, "seconds": 1231.3, "job": "excl-symsweep-local-k9-12", "ts": "2026-11-02T00:07:19"}
+{"exp": "sym-exact-reps", "d": 10, "parity": 0, "n_reps": 36, "dim_modJ": 36, "dim_J": 110, "verified_exact": true, "max_abs_coeff": 1, "seconds": 1236.4, "job": "excl-symsweep-local-k9-12", "ts": "2026-11-02T00:07:24"}
+{"exp": "sym-exact-reps", "d": 10, "parity": 1, "n_reps": 31, "dim_modJ": 31, "dim_J": 108, "verified_exact": true, "max_abs_coeff": 312842, "seconds": 1388.5, "job": "excl-symsweep-local-k9-12", "ts": "2026-11-02T00:09:56"}

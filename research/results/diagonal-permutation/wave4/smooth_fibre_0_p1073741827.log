@@ -1,0 +1,6 @@
+chart p ('empty', 0.0)
+chart q ('empty', 0.1)
+chart a ('empty', 0.1)
+chart b ('empty', 0.1)
+chart t ('empty', 0.1)
+{"n": 5, "rows": 26, "cols": 147, "rank_Q": 25, "rank_Fp": 25, "kernel_dim_Q": 1, "kernel_dim_Fp": 1, "h0_T_Q": 0, "h0_T_Fp": 0}

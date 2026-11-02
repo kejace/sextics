@@ -1,1 +1,3 @@
 [ctrlF5] n=5 unknowns=4 equations=228 maxdeg=26 charts=3 k1only=False built in 165.8s
+[ctrlF5] msolve rc=-11 in 475.7s
+{"name": "ctrlF5", "p": 2147483647, "seed": 7, "n": 5, "vars": ["X0", "X1", "X2", "Y0", "Y1"], "subst": [], "n_eqs": 228, "maxdeg": 26, "charts": 3, "k1only": false, "msolve_rc": -11, "msolve_seconds": 475.7, "stderr_tail": "ALL\nreduce gb                        1\n#threads                         3\ninfo level                       1\ngenerate pbm files               0\n------------------------------------------\nDimension of quotient: 125\nPrime 2147483647 is too large.\nOne needs to use updated linear algebra fglm functions\n", "seconds": 714.4}
